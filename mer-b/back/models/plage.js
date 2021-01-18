@@ -1,40 +1,36 @@
 'user strict';
 
-/*
-/ Plage
-/
-/ latitude : float
-/ longitude : float
-/ name : sting
-/ type : string
-/ naturisme : bool
-/ 
-/ streetmap output :
-/ type : surface : ["sand", "sable", "gravel", "ground", "asphalt", "grass",
-          "pebblestone",  "shingle", "shingles", "fine_gravel",
-          "sable_et_gallet", "stone"] -> ?
-/ naturisme : nudism : yes/permissive/-/customary/obligatory/designated
-              or naturism : yes/-
-/ - : wheelchair : limited, yes, -, no
-/ - : possible information via : website/wikipedia/Wikidata
-*/
+/**
+ * streetmap output :
+ * - type : surface : ["sand", "sable", "gravel", "ground", "asphalt", "grass",
+ *                     "pebblestone",  "shingle", "shingles", "fine_gravel",
+ *                     "sable_et_gallet", "stone"]
+ * - naturisme : - nudism : yes/permissive/-/customary/obligatory/designated
+ *               - naturism : yes/-
+ * - planning : - harbour : yes
+ *              - man_made : lighthouse
+ *              - amenity : parking
+ * ? wheelchair : limited, yes, -, no
+ * ? possible information via : website/wikipedia/Wikidata
+ */
 
 exports.getbyfilter = function(req) {
 
-    let filtres = {
-        latitude: null,
-        longitude: null,
-        type: null
-    };
+    let filtres = {};
 
     const liste_filtres = req.split('&');
     for (const e of liste_filtres) {
         const [filtre, arg] = e.split('=');
 
         switch (filtre) {
-            case "lat":  filtres.latitude = arg;
-            case "lon":  filtres.longitude = arg;
+            case "latitude":  filtres.latitude = parseFloat(arg);
+            case "longitude":  filtres.longitude = parseFloat(arg);
             case "type": filtres.type = arg;
+            case "time": filtres.time = arg;
+            case "weather": filtres.weather = arg;
+            case "tide": filtres.tide = arg;
+            case "sea": filtres.sea = arg;
+            case "planning": filtres.planning = arg.split(',');
         }
     }
 
@@ -44,9 +40,8 @@ exports.getbyfilter = function(req) {
         longitude: -3.1848329,
         name: null,
         type: "sand",
-        naturisme: false,
-        info: `${Object.keys(filtres).length}`
+        naturisme: false
     } 
 
-    return plage
+    return filtres
 };
