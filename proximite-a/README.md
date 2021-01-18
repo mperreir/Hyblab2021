@@ -1,8 +1,8 @@
 ####How to run:
-- Get your working directory on proximite-a
+- Go on the working directory ``proximite-a``
 - Install all dependencies with command ```npm install```  (once)
-- Start the server with ```npm start``` or ```node server.js```
-- Then, you can access the index file on your browser at the adress ```localhost:3003```
+- Start the server with  ```node server.js```
+- Then, you can access the index file on your browser at the adress ```localhost:3000```
 
 
 
