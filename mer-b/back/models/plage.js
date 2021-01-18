@@ -19,7 +19,24 @@
 / - : possible information via : website/wikipedia/Wikidata
 */
 
-exports.getbyfilter = function(filter) {
+exports.getbyfilter = function(req) {
+
+    let filtres = {
+        latitude: null,
+        longitude: null,
+        type: null
+    };
+
+    const liste_filtres = req.split('&');
+    for (const e of liste_filtres) {
+        const [filtre, arg] = e.split('=');
+
+        switch (filtre) {
+            case "lat":  filtres.latitude = arg;
+            case "lon":  filtres.longitude = arg;
+            case "type": filtres.type = arg;
+        }
+    }
 
     // will be replaced by am API call
     plage = {
@@ -28,7 +45,7 @@ exports.getbyfilter = function(filter) {
         name: null,
         type: "sand",
         naturisme: false,
-        info: `${filter}`
+        info: `${Object.keys(filtres).length}`
     } 
 
     return plage
