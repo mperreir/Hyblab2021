@@ -6,6 +6,7 @@ let initSlide3 = function(){
       mySlidr.slide('page-1');
       initSlide1();
       affichageReset();
+      sketchCiel.reset();
     });
   
     d3.select('#goback').on('mouseover', function(){

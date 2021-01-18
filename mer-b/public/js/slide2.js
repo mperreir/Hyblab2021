@@ -63,7 +63,7 @@ let initSlide2 = function(){
           reponses : [
               {
                   "texte" : "Levée de soleil",
-                  "json": "levelSoleil"
+                  "json": "leverSoleil"
               },
               {
                   "texte" : "Couché du soleil",
@@ -185,6 +185,7 @@ let initSlide2 = function(){
       newReponse.addEventListener("click", function(){
         let affichage = getAffichage();
         affichage[question.element] = reponse.json;
+        updateElement(question.element, reponse.json);
         if(reponse.citation){
           console.log(reponse.citation);
         }
