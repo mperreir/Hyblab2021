@@ -23,8 +23,8 @@ module.exports = function (app) {
      *                          harbor, lighthouse, car_park
      * 
      * examples :
-     * lat=47.6175568&lon=-3.1848329&type=sand&planning=lighthouse,car_park
-     * lat=47.6175568&lon=-3.1848329&time=full_moon&weather=clear&sea=calm
+     * - latitude=47.6175568&longitude=-3.1848329&planning=lighthouse,car_park
+     * - latitude=47.6175568&longitude=-3.1848329&time=full_moon&weather=clear
      */
 
     app.get('/api/plage/:filtres', function(req, res) {
