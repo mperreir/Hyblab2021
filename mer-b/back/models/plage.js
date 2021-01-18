@@ -35,13 +35,23 @@ exports.getbyfilter = function(req) {
     }
 
     // will be replaced by am API call
-    plage = {
-        latitude: 47.6175568,
-        longitude: -3.1848329,
-        name: null,
-        type: "sand",
-        naturisme: false
-    } 
+    plages = [
+    {
+        latitude: 47.7163386,
+        longitude: -3.95997,
+        name: "Pointe de Pen Maryse"
+    },
+    {
+        latitude: 47.890907,
+        longitude: -4.366774,
+        name: "Plage Treguennec"
+    },
+    {
+        latitude: 47.9703943,
+        longitude: -4.4354322,
+        name: null
+    }
+    ];
 
-    return filtres
+    return plages
 };
