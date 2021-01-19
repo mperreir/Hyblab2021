@@ -1,15 +1,30 @@
 # Descriptif du projet
 
-Porteur de projet :
+**Porteur de projet** : Ouest Médialab
 
-Sujet :
+**Sujet** : Proposer, dans un récit interactif, une liste de parcs pour enfants qui conviennent aux exigences de parents nantais.
 
-Nom d'équipe :
+**Nom d'équipe** : **OYA**
 
-Participants : 
+**Participants** :
 
-- Sciencescom
+- Sciencescom :
+    - Laurine Le Guern
+    - Marine Prime
+
 
 - AGR :
-- Polytech :  
+    - Abigaëlle Rontard
+    - Luca Maillet
+    - Maël Sortant
+
+
+- Polytech :
+    - Camille Barthez
+    - Soline Ponsard
+    - Loïc Boursin
+    - Nathan Genaudeau
+    - Guillaume Moles
+    - Thibaut Perrouin
+    - Colin Renaud
 
