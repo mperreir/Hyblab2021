@@ -115,19 +115,4 @@ let sketchCiel = function(p) {
     }    
     
   };
-  new p5(sketchCiel, 'displayCanvas');
-
-  function updateElement(element, valeur){
-    if(element == "moment" && valeur == "journee"){
-      sketchCiel.startSoleilJournee();
-    }
-    else if (element == "moment" && valeur == "leverSoleil"){
-      sketchCiel.startSoleilLever();
-    }
-    else if (element == "moment" && valeur == "coucherSoleil"){
-      sketchCiel.startSoleilCoucher();
-    }
-    console.log(element);
-
-    console.log(valeur);
-  }
+  new p5(sketchCiel, 'displayCanvasCiel');

@@ -14,16 +14,26 @@
   <script src="js/slide2.js" defer></script>
   <script src="js/slide3.js" defer></script>
   <script src="js/index.js" defer></script>
-  <script src="js/affichageJson.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ctrlAffichage.js"></script>
 
   <!-- Script pour p5.js -->
   <script src="js/p5.js"></script>
   <script src="js/sketch.js"></script>
 
+    <!-- Ajout des font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Affichage de notre canvas en arrière plan -->
-    <div id="displayCanvas"></div>
+    <!-- Affichage de l'arrière plan (la plage) -->
+    <div id="containerBackground">
+        <!-- Affichage de notre canvas de ciel en arrière plan -->
+        <div id="displayCanvasCiel"></div>
+        <div id="mer"></div>
+        <div id="plage"></div>
+        <div id="amenagement"></div>
+    </div>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
@@ -31,15 +41,16 @@
             <section data-slidr="page-1" id="page-1">
                 <div class="containerAcceuil">
                     <div class="presentation">
-                        Page acceuil, présentation de l'application
+                        Bienvenue, créons ensemble votre plage idéale.
                     </div>
                     <div id="boutonBegin" class="bouton">Commencer</div>
+                    <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                    <footer></footer>
                 </div>
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
             </section>
 
             <section data-slidr="page-2" id="page-2">
+                <div id="citation"></div>
                 <div id="containerQuestion">
                     <div id="questionText">
                         Le texte d'une question

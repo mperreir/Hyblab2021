@@ -6,10 +6,10 @@
 *{
     padding:0;
     margin:0;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 body{
-    background-color: black;
     color: white;
     overflow: hidden;   /* pour slidr dans certains navigateurs */
 }
@@ -31,19 +31,6 @@ body{
     left: 30%;
     top: 10%;
     position: absolute;
-    font-size: 30%;
-}
-
-#logo-hyblab{
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left:-25%;
-    margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
-    position: absolute;
-    font-size: 50%;
-    cursor: pointer;
 }
 
 #background-video{
@@ -64,9 +51,6 @@ body{
 /* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
 section[data-slidr="page-1"] footer{
     width: 100%;
-    bottom: 5%;
-    position: absolute;
-    font-size: 20%;
     text-align: center;
 }
 
@@ -90,7 +74,6 @@ section[data-slidr="page-2"]{
     position: absolute;
     bottom: 0;
     background-color: white;
-    font-size: 20%;
     z-index: -1;
   }
 
@@ -146,7 +129,6 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
     body{
-        font-size: 9vw;
     }
 }
 
@@ -162,7 +144,6 @@ dessus de l'apect ratio 16/9 */
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
     body{
-        font-size: 16vh;
     }
 }
 
@@ -176,14 +157,16 @@ div#displayCanvas {
 /***général***/
 .bouton {
     display: inline-block;
-    background-color: white;
-    padding: 8px;
-    color: blue;
+    padding: 5px;
+    color: white;
     font-family: arial;
-    font-variant: all-small-caps;
-    font-size: 3vh;
-    border-radius: 10px;
-    border: 1px solid blue;
+    border-radius: 20px;
+    border: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .bouton:hover {
@@ -192,30 +175,31 @@ div#displayCanvas {
 
 /***Acceuil***/
 .containerAcceuil {
-    width: 80%;
-    height: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-size: 2vh;
-    margin-top: 5%;
-    background-color: #2196F3;
-    border: 2px solid white;
-    border-radius: 10px;
+    position: absolute;
+    background-color: rgb(0 0 0 / 0.3);
+    bottom: 20px;
 }
 
+#containerBackground {
+    position:absolute;
+}
 /***slide questions***/
 #containerQuestion {
-    border: 2px white solid;
-    border-radius: 10px;
-    background-color: #2196F3;
-    font-size: 2vh;
+    background-color: rgb(0 0 0 / 0.3);
     padding: 20px;
     position: absolute;
     bottom: 20px;
     width: 100%;
 }
 
+div#citation {
+    text-align: center;
+    margin-top: 20px;
+}
 
 /***slide fin***/
 .containerFin {
@@ -224,9 +208,6 @@ div#displayCanvas {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    font-size: 2vh;
     margin-top: 5%;
-    background-color: #2196F3;
-    border: 2px solid white;
-    border-radius: 10px;
+    background-color: rgb(0 0 0 / 0.3);
 }

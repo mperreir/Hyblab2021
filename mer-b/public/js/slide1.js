@@ -1,4 +1,5 @@
 let initSlide1 = function(){
+  console.log("initi");
 
   d3.select('#boutonBegin').on('click', function(){
     mySlidr.slide('page-2');
