@@ -103,9 +103,26 @@ exports.getbyfilter = function(req) {
         let data = await response.json()
         return data;
     }
+
     getbeaches().then(data => {
-        
-        console.log(data)
+
+        let beaches = [];
+        let harbors = [];
+        let lighthouses = [];
+        let car_parks = [];
+
+        for (const node of data.elements) {
+
+            if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
+                beaches.push(node)
+            } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
+                harbors.push(node)
+            } else if (node.tags.hasOwnProperty("amenity") && node.tags.amenity == "parking") {
+                car_parks.push(node)
+            } else if (node.tags.hasOwnProperty("man_made") && (node.tags.man_made == "lighthouse" || node.tags.man_made == "beacon")) {
+                lighthouses.push(node)
+            }
+        }
 
     })
 
