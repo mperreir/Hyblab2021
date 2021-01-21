@@ -15,16 +15,22 @@ let sketchCiel = function(p) {
     let imgSolSableNuit;
     let imgSolSableSoleil;
 
-    var fade;
-    var fadeAmount = 1
-    
     /**affichee**/
     let imgdisplayCiel;
     let imgdisplayMer;
     let imgdisplaySol;
 
+    /*pluie*/
     var rain = [];
     var rainingNow = false;
+
+    /**orage**/
+    var xCoord1 = 0;
+    var yCoord1 = 0;
+    var xCoord2 = 0;
+    var yCoord2 = 0;
+    var step = 0;
+    var orage = false;
 
     p.setup = function(){
       fade = 0
@@ -57,6 +63,9 @@ let sketchCiel = function(p) {
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
       }
+
+      xCoord2 = 0;
+      yCoord2 = p.windowHeight;
     }
 
     p.draw = function() {
@@ -79,7 +88,31 @@ let sketchCiel = function(p) {
     }
 
     animationCiel = function(){
+      step += 1;
+      
       p.image(imgdisplayCiel, 0, 0, p.windowWidth, p.windowHeight);
+      if(orage){
+        for (var i = 0; i < 20; i++) {
+          xCoord1 = xCoord2;
+          yCoord1 = yCoord2;
+          xCoord2 = xCoord1 + p.int(p.random(-20, 20));
+          yCoord2 = yCoord1 + p.int(p.random(0, 20));
+          p.strokeWeight(p.random(1, 6));
+          p.strokeJoin(p.MITER);
+          p.line(xCoord1, yCoord1, xCoord2, yCoord2);
+  
+          if (((xCoord2 > p.width) | (xCoord2 < 0) | (yCoord2 > p.height) | (yCoord2 < 0)) && step > 30){
+            step = 0;
+            //p.clear();
+            //animationCiel();
+            xCoord2 = p.int(p.random(p.width/2 + 200, p.width));
+            yCoord2 = 0;
+            p.stroke(255, 255, p.random(0, 255));
+          }
+        }
+      }
+      
+
       p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
       p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
     }
@@ -88,12 +121,19 @@ let sketchCiel = function(p) {
       if(affichage.ciel == 'pluie'){
         rainingNow = true;
       }
+      else if(affichage.ciel == 'orageux'){
+        rainingNow = true;
+        orage = true;
+      }
       else {
         for (i = 0; i < 100; i++) {
           rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
         }
         rainingNow = false;
+        orage = false;
       }
+
+
       if(affichage.moment == "journee"){
         imgdisplayCiel = imgCielJour;
         if(affichage.mer == "calme"){
