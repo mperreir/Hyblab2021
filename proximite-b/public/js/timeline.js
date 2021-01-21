@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 var nonDatedata = [
     {
         "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
@@ -102,6 +109,19 @@ var nonDatedata2 = [
         ]
     }
 ];
-TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: "teal", width: 1500, showLabels: true, labelFormat: "%Y" });
-TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: 1500, showLabels: true, labelFormat: "%Y" });
 
+
+
+function drawTimeLine(){
+    console.log("fds")
+    var widthCard = ($("#timelineholder").width());
+    console.log(widthCard);
+    TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: "teal", width: widthCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: widthCard, showLabels: true, labelFormat: "%Y" });
+
+};
+
+window.addEventListener("resize", drawTimeLine);
+
+
+drawTimeLine();

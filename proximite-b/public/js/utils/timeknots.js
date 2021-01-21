@@ -26,6 +26,11 @@ var TimeKnots = {
         if (cfg.addNow != false) {
             events.push({ date: new Date(), name: cfg.addNowLabel || "Today" });
         }
+
+
+        d3.select(id).selectAll("svg").remove();
+
+
         var tip = d3.select(id)
             .append('div')
             .style("opacity", 0)
@@ -37,6 +42,9 @@ var TimeKnots = {
             .style("padding", "5px 10px 5px 10px")
             .style("-moz-border-radius", "8px 8px")
             .style("border-radius", "8px 8px");
+
+
+
         var svg = d3.select(id).append('svg').attr("width", cfg.width).attr("height", cfg.height);
 
 
