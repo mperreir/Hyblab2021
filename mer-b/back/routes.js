@@ -17,7 +17,6 @@ module.exports = function (app) {
      *                          "night", "full_moon", "new_moon", "crescent"]
      *  - weather (optionnal) : string included in ["clear", "cloudy", "bad",
      *                          "stormy"]
-     *  - tide (optionnal)    : string included in ["hight", "low"]
      *  - sea (optionnal)     : string included in ["hectic", "calm"]
      *  - planning (optionnal): string of successive string who can be : 
      *                          harbor, lighthouse, car_park
