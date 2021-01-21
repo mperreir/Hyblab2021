@@ -40,6 +40,22 @@ exports.getbyfilter = function(req) {
         }
     }
 
+    /**
+     * longueur arc de cercle = (Pi * Rayon * Angle) / 180 car 2 * Pi * Rayon correspond à 360° (proportionnalité)
+     * Angle = latitude1 - latitude2 ou longitude 1 - longitude 2
+     * Nos données : - longueur arc de cercle = 50 km
+     *               - rayon de la Terre = 6371 km
+     *               - latitude et longitude de l'utilisateur
+     */
+
+    let arc = 9000/(6371*Math.PI);
+
+    let latTop = arc + filtres.latitude;
+    let latBot = arc - filtres.latitude;
+    let longLeft = arc + filtres.longitude;
+    let longRight = arc - filtres.longitude;
+    console.log(latTop);
+
     // will be replaced by am API call
     plages = [
     {
@@ -61,3 +77,4 @@ exports.getbyfilter = function(req) {
 
     return plages
 };
+
