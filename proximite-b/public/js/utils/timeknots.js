@@ -216,7 +216,7 @@ var TimeKnots = {
                             return Math.floor(cfg.width / 2)
                         });
 
-                   
+
                     // tip.html("");
                     // // if (d.img != undefined) {
                     // //     tip.append("img").style("float", "left").style("margin-right", "4px").attr("src", d.img).attr("width", "64px");
@@ -263,7 +263,8 @@ var TimeKnots = {
 
             .transition()
             .delay(function (_, i) {
-                return i * 1000;
+                if (i <= 1) return 0;
+                else return (i-1) * 1000;
             })
             .style("opacity", 1)
             ;
@@ -320,7 +321,8 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .delay(function (_, i) {
-                return i * 1000;
+                if (i <= 1) return 0;
+                else return (i-1) * 1000;
             })
             .style("opacity", 1);
 
@@ -355,7 +357,8 @@ var TimeKnots = {
 
             .transition()
             .delay(function (_, i) {
-                return i * 1000;
+                if (i <= 1) return 0;
+                else return (i-1) * 1000;
             })
             .style("opacity", 1);
 
