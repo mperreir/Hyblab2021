@@ -29,5 +29,7 @@ module.exports = function (app) {
     app.get('/api/plage/:filtres', function(req, res) {
         res.send(Plage.getbyfilter(req.params.filtres))
     });
+
+    
     
 };
