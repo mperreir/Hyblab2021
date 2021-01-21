@@ -15,13 +15,20 @@ let sketchCiel = function(p) {
     let imgSolSableNuit;
     let imgSolSableSoleil;
 
-
+    var fade;
+    var fadeAmount = 1
+    
     /**affichee**/
     let imgdisplayCiel;
     let imgdisplayMer;
     let imgdisplaySol;
 
+    var rain = [];
+    var rainingNow = false;
+
     p.setup = function(){
+      fade = 0
+
       p.createCanvas(p.windowWidth, p.windowHeight);
       p.background(250);
       img = p.loadImage('img/plage.jpg');
@@ -46,6 +53,10 @@ let sketchCiel = function(p) {
       imgdisplayCiel = imgCielJour;
       imgdisplayMer = imgMerCalmeJour;
       imgdisplaySol = imgSolSableJour;
+
+      for (i = 0; i < 100; i++) {
+        rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
+      }
     }
 
     p.draw = function() {
@@ -53,7 +64,14 @@ let sketchCiel = function(p) {
       //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
       p.background("#87CEEB");
       animationCiel();
-        // Displays the image at point (0, 0) at canvas size
+
+      if (rainingNow == true) {
+        //background(100);
+        for (i = 0; i < rain.length; i++) {
+          rain[i].dropRain();
+          rain[i].splash();
+        }
+      }
     }
       
     p.windowResized = function () {
@@ -61,22 +79,21 @@ let sketchCiel = function(p) {
     }
 
     animationCiel = function(){
-
-      p.text('activite : ' + affichage.activite, 80, 80);
-      p.text('type : ' + affichage.type, 80, 100);
-      p.text('moment : ' + affichage.moment, 80, 120);
-      p.text('ciel : ' + affichage.ciel, 80, 140);
-      p.text('maree : ' + affichage.maree, 80, 160);
-      p.text('mer : ' + affichage.mer, 80, 180);
-      p.text('amenagement : ' + affichage.amenagement, 80, 200);
-
       p.image(imgdisplayCiel, 0, 0, p.windowWidth, p.windowHeight);
       p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
       p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
-
     }
 
     sketchCiel.updateSketchCiel = function(){
+      if(affichage.ciel == 'pluie'){
+        rainingNow = true;
+      }
+      else {
+        for (i = 0; i < 100; i++) {
+          rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
+        }
+        rainingNow = false;
+      }
       if(affichage.moment == "journee"){
         imgdisplayCiel = imgCielJour;
         if(affichage.mer == "calme"){
@@ -127,6 +144,51 @@ let sketchCiel = function(p) {
       }
     }
 
+    function Rain(x, y) {
+      this.x = x;
+      this.y = y;
+      //this.gravity = 9.8;
+      this.length = 15;
+      this.r = 0;
+      this.opacity = 200;
+    
+    
+      this.dropRain = function() {
+        p.noStroke();
+        p.fill(255);
+        //rect(this.x, this.y,3,15);
+        p.ellipse(this.x, this.y, 3, this.length);
+        this.y = this.y + 6 //+ frameCount/60;
+        if (this.y > 540) {
+          this.length = this.length - 5;
+          //this.y= random(0,-100);
+        }
+        if (this.length < 0) {
+          this.length = 0;
+        }
+      }
+    
+      this.splash = function() {
+        p.strokeWeight(2);
+        //stroke(245, 200/frameCount);
+        p.stroke(245, this.opacity);
+        p.noFill();
+        if (this.y > 500) {
+          p.ellipse(this.x, 550, this.r * 2, this.r / 2);
+          this.r++;
+          this.opacity = this.opacity - 10;
+    
+          //keep the rain dropping
+          if (this.opacity < 0) {
+            this.y = p.random(0, -100);
+            this.length = 15;
+            this.r = 0;
+            this.opacity = 200;
+          }
+        }
+      }
+    }
+    
     
   };
   new p5(sketchCiel, 'displayCanvas');

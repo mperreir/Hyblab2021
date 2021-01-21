@@ -4,7 +4,6 @@ function updateElement(element, reponse){
     affichage[element] = valeur;
 
     sketchCiel.updateSketchCiel(element, reponse);
-   
 
     if(reponse.citations){
       updateCitations(reponse.citations[getRandomInt(reponse.citations.length)]);

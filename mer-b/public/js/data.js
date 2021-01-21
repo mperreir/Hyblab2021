@@ -20,7 +20,7 @@ function affichageReset(){
         "mer": "calme",
         "amenagement" :""
     }
-    
+
     sketchCiel.updateSketchCiel();
 }
 
@@ -167,6 +167,14 @@ function affichageReset(){
                 {
                     "texte" : "Nuageux",
                     "json" : "nuageux",
+                    "citations": [
+                        '"Les souvenirs sont du vent, ils inventent les nuages" - Jules Supervielle',
+                        '“Exprimer ses émotions, c\'est comme d\'enlever les nuages noirs devant le soleil pour laisser pousser les fleurs.” - Tanya Sénécal'
+                    ]
+                },
+                {
+                    "texte" : "Pluie",
+                    "json" : "pluie",
                     "citations": [
                         '"Les souvenirs sont du vent, ils inventent les nuages" - Jules Supervielle',
                         '“Exprimer ses émotions, c\'est comme d\'enlever les nuages noirs devant le soleil pour laisser pousser les fleurs.” - Tanya Sénécal'
