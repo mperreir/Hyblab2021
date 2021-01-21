@@ -14,4 +14,4 @@ let mySlidr = slidr.create('slidr',{
   }).start();
 
 // on s'occupe de la 1ère slide
-initSlide1();
+initHome();
