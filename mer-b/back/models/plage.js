@@ -124,6 +124,18 @@ exports.getbyfilter = function(req) {
             }
         }
 
+        // Filter the beaches with the type of the surface of it
+        if (filtres.hasOwnProperty("type")) {
+            beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
+            if (filtres.type = "sand") {
+                beaches = beaches.filter(node => !["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+            } else if (filtres.type = "pebble") {
+                beaches = beaches.filter(node => !["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+            } else if (filtres.type = "rocks") {
+                beaches = beaches.filter(node => !["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
+            }
+        }
+
     })
 
     // will be replaced by am API call
