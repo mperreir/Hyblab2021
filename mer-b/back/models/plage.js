@@ -33,8 +33,6 @@ exports.getbyfilter = function(req) {
             break;
             case "weather": filtres.weather = arg;
             break;
-            case "tide": filtres.tide = arg;
-            break;
             case "sea": filtres.sea = arg;
             break;
             case "planning": filtres.planning = arg.split(',');
