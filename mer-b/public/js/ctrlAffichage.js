@@ -3,15 +3,8 @@ function updateElement(element, reponse){
     let affichage = getAffichage();
     affichage[element] = valeur;
 
-    if(element == "moment" && valeur == "journee"){
-      sketchCiel.startSoleilJournee();
-    }
-    else if (element == "moment" && valeur == "leverSoleil"){
-      sketchCiel.startSoleilLever();
-    }
-    else if (element == "moment" && valeur == "coucherSoleil"){
-      sketchCiel.startSoleilCoucher();
-    }
+    sketchCiel.updateSketchCiel(element, reponse);
+   
 
     if(reponse.citations){
       updateCitations(reponse.citations[getRandomInt(reponse.citations.length)]);

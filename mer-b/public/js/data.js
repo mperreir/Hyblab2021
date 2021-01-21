@@ -1,10 +1,9 @@
 let affichage = {
     "activite" : "",
-    "type" : "",
-    "moment" : "",
+    "type" : "sable",
+    "moment" : "journee",
     "ciel": "",
-    "maree": "",
-    "mer": "",
+    "mer": "calme",
     "amenagement" :""
 }
 
@@ -15,13 +14,14 @@ function getAffichage(){
 function affichageReset(){
     affichage = {
         "activite" : "",
-        "type" : "",
-        "moment" : "",
+        "type" : "sable",
+        "moment" : "journee",
         "ciel": "",
-        "maree": "",
-        "mer": "",
+        "mer": "calme",
         "amenagement" :""
     }
+    
+    sketchCiel.updateSketchCiel();
 }
 
   function getQuestions(){
@@ -64,13 +64,58 @@ function affichageReset(){
                       "citations" : [
                           '"La peinture, c\'est la face visible de l\'iceberg de ma pensée" - Salvador Dali',
                           '"La peinture vient de l\'endroit où les mots ne peuvent plus s\'exprimer" - Gao Xingjian',
-                          '"l\'art de peindre n\'est que l\'art d\'exprimer l\'invisible par le visible" - Eugène Fromentin'
+                          '"L\'art de peindre n\'est que l\'art d\'exprimer l\'invisible par le visible" - Eugène Fromentin'
                       ]
                     },
                     {
                       "texte" : "Autres",
                       "json" : "autres"
                     }
+                ]
+            },
+            
+            {
+                question : "A quel moment de la journée êtes-vous le plus inspiré ?",
+                element: "moment",
+                reponses : [
+                    {
+                        "texte" : "Aube",
+                        "json": "aube",
+                        "citations": [
+                            '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
+                            '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
+                            '"A l\'aube d\'un nouvel amour, que l\'amour d\'hier semble un mauvais rêve" - Paul-Jean Toulet'
+                        ]
+                    },
+                    {
+                        "texte" : "Journée",
+                        "json" : "journee",
+                        "citations": [
+                            '"Attachons-nous à reconnaître le caractère précieux de chaque journée" - Dalai Lama',
+                            '"Ce qu\'on pense être difficile prend une journée, ce qu\'on pense être impossible prend une semaine" - Jay-Z'
+                        ]
+                    },
+                    {
+                        "texte" : "Crépuscule",
+                        "json" : "crepuscule",
+                        "citations": [
+                            '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
+                            '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
+                        ]
+                    },
+                    {
+                      "texte" : "Nuit",
+                      "json" : "nuit",
+                      "citations": [
+                          '“La nuit la plus sombre a toujours une fin lumineuse.”',
+                          '"Il faut toujours viser la lune, car même en cas d\'échec, on atterrit dans les étoiles" - Oscar Wilde',
+                          '"La nuit, on pense mieux, la tête est moins pleine de bruits" - Victor Hugo'
+                      ]
+                    },
+                    {
+                      "texte" : "Indifférent",
+                      "json" : "indifferent",
+                    },
                 ]
             },
             {
@@ -107,50 +152,6 @@ function affichageReset(){
                   },
                 ]
             },
-            {
-              question : "A quel moment de la journée êtes-vous le plus inspiré ?",
-              element: "moment",
-              reponses : [
-                  {
-                      "texte" : "Aube",
-                      "json": "aube",
-                      "citations": [
-                          '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
-                          '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
-                          '"A l\'aube d\'un nouvel amour, que l\'amour d\'hier semble un mauvais rêve" - Paul-Jean Toulet'
-                      ]
-                  },
-                  {
-                      "texte" : "Journée",
-                      "json" : "journee",
-                      "citations": [
-                          '"Attachons-nous à reconnaître le caractère précieux de chaque journée" - Dalai Lama',
-                          '"Ce qu\'on pense être difficile prend une journée, ce qu\'on pense être impossible prend une semaine" - Jay-Z'
-                      ]
-                  },
-                  {
-                      "texte" : "Crépuscule",
-                      "json" : "crepuscule",
-                      "citations": [
-                          '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
-                          '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
-                      ]
-                  },
-                  {
-                    "texte" : "Nuit",
-                    "json" : "nuit",
-                    "citations": [
-                        '“La nuit la plus sombre a toujours une fin lumineuse.”',
-                        '"Il faut toujours viser la lune, car même en cas d\'échec, on atterrit dans les étoiles" - Oscar Wilde',
-                        '"La nuit, on pense mieux, la tête est moins pleine de bruits" - Victor Hugo'
-                    ]
-                  },
-                  {
-                    "texte" : "Indifférent",
-                    "json" : "indifferent",
-                  },
-              ]
-          },
           {
             question : "Quelle météo serait la plus favorable pour la création ?",
             element: "ciel",
@@ -186,30 +187,12 @@ function affichageReset(){
             ]
           },
           {
-            question : "Quelle type de marée voulez-vous avoir ?",
-            element: "maree",
-            reponses : [
-                {
-                    "texte" : "Marée Haute",
-                    "json": "haute"
-                },
-                {
-                    "texte" : "Marée basse",
-                    "json" : "basse",
-                },
-                {
-                  "texte" : "Indifférent",
-                  "json" : "indifferent",
-                }
-            ]
-          },
-          {
             question : "Quelle type de mer voulez-vous avoir ?",
             element: "mer",
             reponses : [
                 {
-                    "texte" : "Vagues",
-                    "json": "vagues"
+                    "texte" : "Agitee",
+                    "json": "agitee"
                 },
                 {
                     "texte" : "Calme",
@@ -238,7 +221,47 @@ function affichageReset(){
                   "json" : "indifferent",
                 }
             ]
+          },
+          {
+            question : "Etes vous prêt à trouver la plage de vos rêves ?",
+            element: "fin",
+            reponses : [
+                {
+                    "texte" : "Oui",
+                    "json": "phare"
+                }
+            ]
           }
         ]
       };
+  }
+
+  function getPlages(){
+      let urlGet = 'http://localhost:8080/mer-b/api/plage/';
+      if(affichage.type != 'indifferent'){
+          urlGet += 'type=' + affichage.type + "&"; 
+      }
+      if(affichage.moment != 'indifferent'){
+          urlGet += 'time=' + affichage.moment + '&';
+      }
+      if(affichage.maree != 'indifferent'){
+          urlGet += 'tide=' + affichage.maree + '&';
+      }
+      if(affichage.ciel != 'indifferent'){
+          urlGet += 'weather=' + affichage.ciel + '&';
+      }
+      if(affichage.mer != 'indifferent'){
+          urlGet += 'sea=' + affichage.mer + '&';
+      }
+      if(affichage.amenagement != 'indifferent'){
+          urlGet += 'planning=' + affichage.amenagement;
+      }
+      console.log(urlGet);
+
+      fetch(urlGet).then(function(response) {
+        response.json().then(function(object) {
+          console.log(object);
+        });
+      });
+      
   }
