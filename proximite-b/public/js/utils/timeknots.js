@@ -1,6 +1,7 @@
 var TimeKnots = {
     draw: function (id, events, options) {
         var cfg = {
+            maxmax: 15,
             width: 600,
             height: 200,
             radius: 25,
@@ -147,20 +148,20 @@ var TimeKnots = {
             ;
 
 
-            
+
         node.append("image")
             .style("opacity", 0)
-            .attr("xlink:href", function (d){return d.img})
+            .attr("xlink:href", function (d) { return d.img })
             .attr("y", function (d) {
 
 
-                 //    TODO gerer colisions
+                //    TODO gerer colisions
 
 
                 // console.log(d);
                 // console.log(events);
                 if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) - 75  
+                    return Math.floor(cfg.height / 2) - 75
                 }
                 var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                 return Math.floor(step * (datum - minValue) + margin)
@@ -169,7 +170,7 @@ var TimeKnots = {
                 if (cfg.horizontalLayout) {
                     var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                     var x = Math.floor(step * (datum - minValue) + margin);
-                    return x -25  ;
+                    return x - 25;
                 }
                 return Math.floor(cfg.width / 2)
             })
@@ -178,28 +179,65 @@ var TimeKnots = {
             .attr("height", 50)
 
             .on("mouseover", function (d) {
-                if (cfg.dateDimension) {
-                    var format = d3.time.format(cfg.dateFormat);
-                    var datetime = format(new Date(d.date));
-                    var dateValue = (datetime != "") ? (d.categorie + " <small>(" + datetime + ")</small>") : d.categorie;
-                } else {
-                    var format = function (d) { return d }; // TODO
-                    var datetime = d.data[0].temps;
-                    var dateValue = JSON.stringify(d);
+                console.log(d);
+                if (d.categorie != null) {
+                    if (cfg.dateDimension) {
+                        var format = d3.time.format(cfg.dateFormat);
+                        var datetime = format(new Date(d.date));
+                        var dateValue = (datetime != "") ? (d.categorie + " <small>(" + datetime + ")</small>") : d.categorie;
+                    } else {
+                        var format = function (d) { return d }; // TODO
+                        var datetime = d.data[0].temps;
+                        var dateValue = JSON.stringify(d);
+                    }
+                    svg.selectAll("image")
+                        .transition()
+                        .style("opacity", .2)
+                        ;
+                    d3.select(this)
+                        .style("opacity", 1)
+                        .style("fill", function (d) { if (d.color != undefined) { return d.color } return cfg.color }).transition()
+                        .duration(100)
+                        .attr("width", 60)
+                        .attr("height", 60)
+                        .attr("y", function (d) {
+                            if (cfg.horizontalLayout) {
+                                return Math.floor(cfg.height / 2) - 80
+                            }
+                            var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                            return Math.floor(step * (datum - minValue) + margin)
+                        })
+                        .attr("x", function (d) {
+                            if (cfg.horizontalLayout) {
+                                var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                                var x = Math.floor(step * (datum - minValue) + margin);
+                                return x - 30;
+                            }
+                            return Math.floor(cfg.width / 2)
+                        });
+                    tip.html("");
+                    // if (d.img != undefined) {
+                    //     tip.append("img").style("float", "left").style("margin-right", "4px").attr("src", d.img).attr("width", "64px");
+                    // }
+                    tip.append("div")
+                        .style("width", 500)
+                        .style("float", "left").html(dateValue);
+                    tip.transition()
+                        .duration(100)
+                        .style("opacity", .9);
                 }
+
+
+            })
+            .on("mouseout", function () {
                 svg.selectAll("image")
-                .transition()
-                .style("opacity", .2)               
-                ;
-                d3.select(this)
+                    .transition()
                     .style("opacity", 1)
-                    .style("fill", function (d) { if (d.color != undefined) { return d.color } return cfg.color }).transition()
-                    .duration(100)
-                    .attr("width", 60)
-                    .attr("height", 60)
+                    .attr("width", 50)
+                    .attr("height", 50)
                     .attr("y", function (d) {
                         if (cfg.horizontalLayout) {
-                            return Math.floor(cfg.height / 2) - 80 
+                            return Math.floor(cfg.height / 2) - 75
                         }
                         var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                         return Math.floor(step * (datum - minValue) + margin)
@@ -208,46 +246,13 @@ var TimeKnots = {
                         if (cfg.horizontalLayout) {
                             var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                             var x = Math.floor(step * (datum - minValue) + margin);
-                            return x -30  ;
+                            return x - 25;
                         }
                         return Math.floor(cfg.width / 2)
-                    });
-                tip.html("");
-                // if (d.img != undefined) {
-                //     tip.append("img").style("float", "left").style("margin-right", "4px").attr("src", d.img).attr("width", "64px");
-                // }
-                tip.append("div")
-                .style("width",500)
-                .style("float", "left").html(dateValue);
-                tip.transition()
-                    .duration(100)
-                    .style("opacity", .9);
+                    })
+                    ;
 
-            })
-            .on("mouseout", function () {
-                svg.selectAll("image")
-                .transition()
-                .style("opacity", 1)   
-                .attr("width", 50)
-                .attr("height", 50)   
-                .attr("y", function (d) {
-                    if (cfg.horizontalLayout) {
-                        return Math.floor(cfg.height / 2) - 75  
-                    }
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    return Math.floor(step * (datum - minValue) + margin)
-                })
-                .attr("x", function (d) {
-                    if (cfg.horizontalLayout) {
-                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                        var x = Math.floor(step * (datum - minValue) + margin);
-                        return x -25  ;
-                    }
-                    return Math.floor(cfg.width / 2)
-                })         
-                ;
 
-            
                 tip.transition()
                     .duration(100)
                     .style("opacity", 0)

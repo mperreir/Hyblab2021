@@ -50,9 +50,9 @@ var nonDatedata = [
 
     {
         "img": "./img/timeline/parc.jpg",
-        "name": "Parc",
+        "categorie": "Parc",
         "data": [
-            { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 9, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     }
 ];
@@ -88,8 +88,8 @@ var nonDatedata2 = [
         "img": "./img/timeline/supermarche.jpg",
         "categorie": "Supermache",
         "data": [
-            { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 15, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+            { temps: 12, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 12, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
     },
     {
@@ -103,21 +103,54 @@ var nonDatedata2 = [
 
     {
         "img": "./img/timeline/parc.jpg",
-        "name": "Parc",
+        "categorie": "Parc",
         "data": [
             { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     }
-];
+]; 
 
 
+var tab1 = []
+var tab2 = []
+for (const [key, value] of Object.entries(nonDatedata)) {
+    tab1.push((value.data)[value.data.length - 1].temps)
+}
+for (const [key, value] of Object.entries(nonDatedata2)) {
+    tab2.push((value.data)[value.data.length - 1].temps)
+}
+max1 = Math.max(...tab1)
+max2 = Math.max(...tab2)
 
-function drawTimeLine(){
-    console.log("fds")
+if (max1>max2){
+    console.log(nonDatedata2[0])
+    onDatedata2.push( {
+        "categorie": null,
+        "data": [
+            { temps: max1 },
+        ]
+    })
+}
+else if (max1<=max2){
+    console.log(nonDatedata)
+    nonDatedata.push( {
+        "categorie  ": null,
+        "data": [
+            { temps: max2 },
+        ]
+    })
+}
+
+function drawTimeLine() {
+
+
+   
+
+
     var widthCard = ($("#timelineholder").width());
-    console.log(widthCard);
-    TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: "teal", width: widthCard, showLabels: true, labelFormat: "%Y" });
-    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: widthCard, showLabels: true, labelFormat: "%Y" });
+    var heightCard = 300;
+    TimeKnots.draw("#timelineNonDate", nonDatedata, {  dateDimension: false, color: "teal", width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
 
 };
 
