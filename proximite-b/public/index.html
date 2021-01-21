@@ -4,35 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://d3js.org/d3.v3.min.js"></script>
 
-    <script src="./js/timeknots.js" type="application/javascript"></script>
+    <script src="./js/utils/timeknots.js" type="application/javascript"></script>
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <style>
-        body {
-            font: 18px "Helvetica Neue";
-            font-weight: 300;
-            text-rendering: optimizeLegibility;
-            margin-left: 20px;
-        }
-
-
-        .svg-container {
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%;
-            /* aspect ratio */
-            vertical-align: top;
-            overflow: hidden;
-        }
-
-        .svg-content-responsive {
-            display: inline-block;
-            position: absolute;
-            top: 10px;
-            left: 0;
-        }
-    </style>
+  
 </head>
 
 <body>
@@ -52,12 +27,14 @@
             <div id="timelineNonDate2" style="width:200px;"></div>
         </div>
 
+
+        
     </div>
     <script type="text/javascript">
 
         var nonDatedata = [
             {
-                "img": "./img/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+                "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
                 "categorie": "Boulangerie",
                 "data": [
                     { temps: 0, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -66,7 +43,7 @@
                 ]
             },
             {
-                "img": "./img/pharma.png",
+                "img": "./img/timeline/pharma.png",
                 "categorie": "Pharmacie",
                 "data": [
                     { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
@@ -74,7 +51,7 @@
                 ]
             },
             {
-                "img": "./img/ecole.png",
+                "img": "./img/timeline/ecole.png",
                 "categorie": "Ecole",
                 "data": [
                     { temps: 4, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -82,7 +59,7 @@
                 ]
             },
             {
-                "img": "./img/supermarche.jpg",
+                "img": "./img/timeline/supermarche.jpg",
                 "categorie": "Supermache",
                 "data": [
                     { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -90,7 +67,7 @@
                 ]
             },
             {
-                "img": "./img/eglise.png",
+                "img": "./img/timeline/eglise.png",
                 "categorie": "Eglise",
                 "data": [
                     { temps: 8, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -99,7 +76,7 @@
             },
 
             {
-                "img": "./img/parc.jpg",
+                "img": "./img/timeline/parc.jpg",
                 "name": "Parc",
                 "data": [
                     { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -110,7 +87,7 @@
 
         var nonDatedata2 = [
             {
-                "img": "./img/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+                "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
                 "categorie": "Boulangerie",
                 "data": [
                     { temps: 0, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -119,7 +96,7 @@
                 ]
             },
             {
-                "img": "./img/pharma.png",
+                "img": "./img/timeline/pharma.png",
                 "categorie": "Pharmacie",
                 "data": [
                     { temps: 1, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
@@ -127,7 +104,7 @@
                 ]
             },
             {
-                "img": "./img/ecole.png",
+                "img": "./img/timeline/ecole.png",
                 "categorie": "Ecole",
                 "data": [
                     { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -135,7 +112,7 @@
                 ]
             },
             {
-                "img": "./img/supermarche.jpg",
+                "img": "./img/timeline/supermarche.jpg",
                 "categorie": "Supermache",
                 "data": [
                     { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -143,7 +120,7 @@
                 ]
             },
             {
-                "img": "./img/eglise.png",
+                "img": "./img/timeline/eglise.png",
                 "categorie": "Eglise",
                 "data": [
                     { temps: 2, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -152,7 +129,7 @@
             },
 
             {
-                "img": "./img/parc.jpg",
+                "img": "./img/timeline/parc.jpg",
                 "name": "Parc",
                 "data": [
                     { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
