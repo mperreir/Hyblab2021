@@ -1,13 +1,15 @@
-<!doctype html>
+<html>
 
-<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <meta charset="utf-8">
+    <title>Hyblab 2020</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <script src="./js/utils/timeknots.js" type="application/javascript"></script>
 
 </head>
+
 <body>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -17,7 +19,142 @@
         <li><a href="criteres.html">critere</a></li>
         <li><a href="conclu.html">conclu</a></li>
     </ul>
-   time line
+    time line
+
+
+
+    
+    <div class="fluid-row">
+        <div class="well span11 pagination-centered">
+            <h1>Demos using timeknots</h1>
+            <h5><a href='https://github.com/alangrafu/timeknots'>https://github.com/alangrafu/timeknots</a></h5>
+        </div>
+    </div>
+    <div class="fluid-row">
+        <div class="span3">
+            <h2>Adresse1</h2>
+            <div id="timelineNonDate" style="width:200px;"></div>
+        </div>
+        <div class="span3">
+            <h2>Adresse2</h2>
+            <div id="timelineNonDate2" style="width:200px;"></div>
+        </div>
+
+
+
+    </div>
+    <script type="text/javascript">
+
+        var nonDatedata = [
+            {
+                "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+                "categorie": "Boulangerie",
+                "data": [
+                    { temps: 0, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                    { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/pharma.png",
+                "categorie": "Pharmacie",
+                "data": [
+                    { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                    { temps: 6, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/ecole.png",
+                "categorie": "Ecole",
+                "data": [
+                    { temps: 4, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/supermarche.jpg",
+                "categorie": "Supermache",
+                "data": [
+                    { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/eglise.png",
+                "categorie": "Eglise",
+                "data": [
+                    { temps: 8, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 9, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                ]
+            },
+
+            {
+                "img": "./img/timeline/parc.jpg",
+                "name": "Parc",
+                "data": [
+                    { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                ]
+            }
+        ];
+
+
+        var nonDatedata2 = [
+            {
+                "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+                "categorie": "Boulangerie",
+                "data": [
+                    { temps: 0, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                    { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/pharma.png",
+                "categorie": "Pharmacie",
+                "data": [
+                    { temps: 1, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                    { temps: 6, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/ecole.png",
+                "categorie": "Ecole",
+                "data": [
+                    { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 8, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/supermarche.jpg",
+                "categorie": "Supermache",
+                "data": [
+                    { temps: 15, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 15, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+                ]
+            },
+            {
+                "img": "./img/timeline/eglise.png",
+                "categorie": "Eglise",
+                "data": [
+                    { temps: 2, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                    { temps: 9, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+                ]
+            },
+
+            {
+                "img": "./img/timeline/parc.jpg",
+                "name": "Parc",
+                "data": [
+                    { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+                ]
+            }
+        ];
+        TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: "teal", width: 1500, showLabels: true, labelFormat: "%Y" });
+        TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: 1500, showLabels: true, labelFormat: "%Y" });
+
+
+    </script>
 
 </body>
+
 </html>
