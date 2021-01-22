@@ -19,7 +19,7 @@ exports.getbyfilter = async function(req) {
             case "latitude":
             case "longitude":
                 if (/^(-?\d+(\.\d+)?).\s*(-?\d+(\.\d+)?)$/.test(arg)) {
-                    filtres.filtre = parseFloat(arg);
+                    filtres[filtre] = parseFloat(arg);
                     break;
                 } else {
                     return `An error has occured with the input ${filtre} concerning ${arg}`
@@ -103,11 +103,11 @@ exports.getbyfilter = async function(req) {
     if (filtres.hasOwnProperty("type")) {
         beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
         if (filtres.type = "sand") {
-            beaches = beaches.filter(node => !["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
         } else if (filtres.type = "pebble") {
-            beaches = beaches.filter(node => !["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
         } else if (filtres.type = "rocks") {
-            beaches = beaches.filter(node => !["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
         }
     }
 
@@ -116,58 +116,7 @@ exports.getbyfilter = async function(req) {
         return [];
     }
 
-    var plages = [];
-    for (const node of beaches) {
-        plages.push({
-            latitude: node.lat,
-            longitude: node.lon,
-            nom: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
-            type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
-        });
-    }
-
-    function nearest(plage, object) {
-        let nearest = object[0];
-        for (const node in object) {
-            if ((plage.latitude - node.latitude)**2 + (plage.longitude - node.longitude)**2 > nearest) {
-                nearest = node;
-            }
-        }
-        return nearest;
-    }
-
-    if (harbors.length !== 0) {
-        for (const node of plages) {
-            const harbor = nearest(node, harbors);
-            node.port = {
-                latitude: harbor.lat,
-                longitude: harbor.lon,
-                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
-            }
-        }
-    }
-
-    if (lighthouses.length !== 0) {
-        for (const node of plages) {
-            const lighthouse = nearest(node, lighthouses);
-            node.phare = {
-                latitude: lighthouse.lat,
-                longitude: lighthouse.lon,
-                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
-            }
-        }
-    }
-
-    if (car_parks.length !== 0) {
-        for (const node of plages) {
-            const car_park = nearest(node, car_parks);
-            node.parking = {
-                latitude: car_park.lat,
-                longitude: car_park.lon,
-                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
-            }
-        }
-    }
+    let plages = osm.format(beaches, harbors, lighthouses, car_parks);
 
     // Take the 3 nodes nearest of the initial location
     if (plages.length > 3 ) {
@@ -176,8 +125,8 @@ exports.getbyfilter = async function(req) {
         let min3 = Infinity;
 
         plages_clone = Array.from(plages)
-        plages_clone.forEach(function (elem, index) {
-            let dist = (elem.latitude - filtres.latitude)**2 + (elem.longitude - filtres.longitude)**2;
+        plages_clone.forEach(function (plage, index) {
+            let dist = (plage.latitude - filtres.latitude)**2 + (plage.longitude - filtres.longitude)**2;
             if (dist < min1) {
                 min3 = min2;
                 min2 = min1;
@@ -194,6 +143,5 @@ exports.getbyfilter = async function(req) {
     }
 
     return plages
-
 };
 
