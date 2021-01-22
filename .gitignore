@@ -104,3 +104,4 @@ dist
 .tern-port
 .DS_Store
 proximite-b/public/.vs
+.vs
