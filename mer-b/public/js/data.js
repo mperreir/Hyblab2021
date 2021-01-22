@@ -1,9 +1,9 @@
 let affichage = {
     "activite" : "",
-    "type" : "sable",
-    "moment" : "journee",
+    "type" : "",
+    "moment" : "",
     "ciel": "",
-    "mer": "calme",
+    "mer": "",
     "amenagement" :""
 }
 
@@ -14,10 +14,10 @@ function getAffichage(){
 function affichageReset(){
     affichage = {
         "activite" : "",
-        "type" : "sable",
-        "moment" : "journee",
+        "type" : "",
+        "moment" : "",
         "ciel": "",
-        "mer": "calme",
+        "mer": "",
         "amenagement" :""
     }
 

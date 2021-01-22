@@ -13,6 +13,9 @@
   <script src="js/slide1.js" defer></script>
   <script src="js/slide2.js" defer></script>
   <script src="js/slide3.js" defer></script>
+  <script src="js/slideFin.js" defer></script>
+  <script src="js/slideQuestion.js" defer></script>
+
   <script src="js/index.js" defer></script>
   <script src="js/data.js"></script>
   <script src="js/ctrlAffichage.js"></script>
@@ -23,8 +26,8 @@
 
     <!-- Ajout des font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet"></head>
 <body>
     <!-- Affichage de l'arrière plan (la plage) -->
     <div id="containerBackground">
@@ -36,29 +39,100 @@
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id = "slidr">
             <section data-slidr="page-1" id="page-1">
-                <div class="containerAcceuil">
-                    <div class="presentation">
-                        Bienvenue, créons ensemble votre plage idéale.
+                <div class="align-center-vertical">
+                    <div class="containerAcceuil">
+                        <h1>Bienvenue</h1>
+                        <div class="presentation">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel quam vitae nunc tincidunt placerat volutpat at metus. Nulla et nibh sed ante pellentesque rutrum. Nullam eget tempus felis, id tincidunt mi. Suspendisse molestie velit a nunc semper, venenatis fermentum velit dapibus. Proin vulputate sapien magna, nec placerat magna accumsan eget.
+                        </div>
+                        <div id="boutonGoSlide2" class="bouton">Commencer l'aventure</div>
                     </div>
-                    <div id="boutonBegin" class="bouton">Commencer</div>
-                    <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                    <footer></footer>
                 </div>
             </section>
 
             <section data-slidr="page-2" id="page-2">
-                <div id="citation"></div>
-                <div id="containerQuestion">
-                    <div id="questionText">
-                        Le texte d'une question
+                <div class="align-center-vertical">
+                    <div class="containerAcceuil">
+                        <h1>Slide pour la localisation</h1>
+                        
+                        <div id="boutonBegin" class="bouton">Commencer l'aventure</div>
                     </div>
-                    <div id="containerReponse"></div>
                 </div>
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
             </section>
 
             <section data-slidr="page-3" id="page-3">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 1
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-4" id="page-4">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 2
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-5" id="page-5">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 3
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-6" id="page-6">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 4
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-7" id="page-7">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 5
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-8" id="page-8">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 6
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-fin" id="page-fin">
                 <div class="containerFin">
                     <div class="cartePostale un">
                         <div class="imgCarte">
@@ -87,8 +161,6 @@
 
                     <div id="goback" class="bouton">Retour début</div>
                 </div>
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
             </section>
         </main>
     </div>

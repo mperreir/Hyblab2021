@@ -1,7 +1,7 @@
 let initSlide1 = function(){
   console.log("initi");
 
-  d3.select('#boutonBegin').on('click', function(){
+  d3.select('#boutonGoSlide2').on('click', function(){
     mySlidr.slide('page-2');
     initSlide2();
   });
@@ -13,6 +13,7 @@ let initSlide1 = function(){
   d3.select('#boutonBegin').on('mouseout', function(){
     
   });
+
 
   d3.json('data/dummy.json')
     .then(function(data) {

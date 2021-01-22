@@ -1,4 +1,4 @@
-let initSlide3 = function(){
+let initSlideFin = function(){
     let plages = getPlages();
     console.log(getAffichage());
 
@@ -6,6 +6,7 @@ let initSlide3 = function(){
       mySlidr.slide('page-1');
       initSlide1();
       affichageReset();
+      sketchCiel.resetSketchCiel();
     });
   
     d3.select('#goback').on('mouseover', function(){

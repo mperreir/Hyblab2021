@@ -56,9 +56,9 @@ let sketchCiel = function(p) {
       imgSolSableNuit = p.loadImage('img/Sol/Sable/sablenuit.png');
       imgSolSableSoleil = p.loadImage('img/Sol/Sable/sablesoleil.png');
 
-      imgdisplayCiel = imgCielJour;
-      imgdisplayMer = imgMerCalmeJour;
-      imgdisplaySol = imgSolSableJour;
+      //imgdisplayCiel = imgCielJour;
+      //imgdisplayMer = imgMerCalmeJour;
+      //imgdisplaySol = imgSolSableJour;
 
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
@@ -71,7 +71,7 @@ let sketchCiel = function(p) {
     p.draw = function() {
       affichage = getAffichage();
       //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
-      p.background("#87CEEB");
+      p.background("#62F2FF");
       animationCiel();
 
       if (rainingNow == true) {
@@ -90,7 +90,9 @@ let sketchCiel = function(p) {
     animationCiel = function(){
       step += 1;
       
-      p.image(imgdisplayCiel, 0, 0, p.windowWidth, p.windowHeight);
+      if(imgdisplayCiel){
+        p.image(imgdisplayCiel, 0, 0, p.windowWidth, p.windowHeight);
+      }
       if(orage){
         for (var i = 0; i < 20; i++) {
           xCoord1 = xCoord2;
@@ -112,9 +114,18 @@ let sketchCiel = function(p) {
         }
       }
       
+      if(imgdisplayMer){
+        p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
+      }
+      if(imgdisplaySol){
+        p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
+      }
+    }
 
-      p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
-      p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
+    sketchCiel.resetSketchCiel = function(){
+      imgdisplayCiel = undefined;
+      imgdisplayMer = undefined;
+      imgdisplaySol = undefined;
     }
 
     sketchCiel.updateSketchCiel = function(){
@@ -166,7 +177,7 @@ let sketchCiel = function(p) {
           imgdisplaySol = imgSolSableNuit;
         }
       }
-      else{
+      else if(affichage.moment){
         imgdisplayCiel = imgCielSoleil;
         if(affichage.mer == "calme"){
           imgdisplayMer = imgMerCalmeSoleil;
