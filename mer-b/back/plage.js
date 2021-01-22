@@ -116,34 +116,6 @@ exports.getbyfilter = async function(req) {
         return [];
     }
 
-    function dist(lat1, lon1, lat2, lon2) {
-        return (lat1-lat2)**2 + (lon1-lon2)**2
-    }
-
-    // Take the 3 nodes nearest of the initial location
-    if (beaches.length > 3 ) {
-        let min1 = Infinity;
-        let min2 = Infinity;
-        let min3 = Infinity;
-
-        beaches_clone = Array.from(beaches)
-        beaches_clone.forEach(function (node, index) {
-            let dist = dist(node.lat, node.lon, filtres.latitude, filtres.longitude);
-            if (dist < min1) {
-                min3 = min2;
-                min2 = min1;
-                min1 = dist;
-            } else if (dist < min2) {
-                min3 = min2;
-                min2 = dist;
-            } else if (dist < min3) {
-                min3 = dist;
-            } else {
-                beaches.splice(index - (beaches_clone.length - beaches.length), 1);
-            }
-        })
-    }
-
     var plages = [];
     for (const node of beaches) {
         plages.push({
@@ -157,7 +129,7 @@ exports.getbyfilter = async function(req) {
     function nearest(plage, object) {
         let nearest = object[0];
         for (const node in object) {
-            if (dist(plage.latitude, plage.longitude, node.latitude, node.longitude) > nearest) {
+            if ((plage.latitude - node.latitude)**2 + (plage.longitude - node.longitude)**2 > nearest) {
                 nearest = node;
             }
         }
@@ -195,6 +167,30 @@ exports.getbyfilter = async function(req) {
                 name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
             }
         }
+    }
+
+    // Take the 3 nodes nearest of the initial location
+    if (plages.length > 3 ) {
+        let min1 = Infinity;
+        let min2 = Infinity;
+        let min3 = Infinity;
+
+        plages_clone = Array.from(plages)
+        plages_clone.forEach(function (elem, index) {
+            let dist = (elem.latitude - filtres.latitude)**2 + (elem.longitude - filtres.longitude)**2;
+            if (dist < min1) {
+                min3 = min2;
+                min2 = min1;
+                min1 = dist;
+            } else if (dist < min2) {
+                min3 = min2;
+                min2 = dist;
+            } else if (dist < min3) {
+                min3 = dist;
+            } else {
+                plages.splice(index - (plages_clone.length - plages.length), 1);
+            }
+        })
     }
 
     return plages
