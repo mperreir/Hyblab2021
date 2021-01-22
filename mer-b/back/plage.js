@@ -3,6 +3,12 @@ const fetch = require('node-fetch');
 
 exports.getbyfilter = async function(req) {
 
+    const type = ["sand", "pebble", "rocks"];
+    const time = ["dawn", "day", "dusk", "night"];
+    const weather = ["clear", "cloudy", "bad", "stormy"];
+    const sea = ["hectic", "calm"];
+    const planning = ["harbor", "lighthouse", "car_park"];
+
     let filtres = {};
     let dist_lighthouse = ``;
     let dist_harbor= ``;
@@ -14,66 +20,34 @@ exports.getbyfilter = async function(req) {
 
         switch (filtre) {
             case "latitude":
-                if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(arg)) {
-                    filtres.latitude = parseFloat(arg);
-                    break;
-                } else {
-                    return `An error has occured with the input latitude: ${arg},
-                    the argument need to be a float.`
-                }
             case "longitude":
-                if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(arg)) {
-                    filtres.longitude = parseFloat(arg);
+                if (/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/.test(arg)) {
+                    filtres.filtre = parseFloat(arg);
                     break;
                 } else {
-                    return `An error has occured with the input longitude: ${arg},
-                    the argument need to be a float.`
+                    return `An error has occured with the input ${filtre}: ${arg}`
                 }
             case "type":
-                if (["sand", "pebble", "rocks"].includes(arg)) {
-                    filtres.type = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input type: ${arg},
-                    the argument  need to be sand, pebble or rocks.`
-                }
             case "time":
-                if (["sunrise", "sunset", "day", "night", "full_moon", "new_moon", "crescent"].includes(arg)) {
-                    filtres.time = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input time: ${arg},
-                    the argument need to be sunrise, sunset, day, night, full_moon, new_moon or crescent.`
-                }
             case "weather":
-                if (["clear", "cloudy", "bad", "stormy"].includes(arg)) {
-                    filtres.weather = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input weather: ${arg},
-                    the argument need to be clear, cloudy, bad or stormy.`
-                }
             case "sea":
-                if (["hectic", "calm"].includes(arg)) {
-                    filtres.sea = arg;
+                if ([filtre].includes(arg)) {
+                    filtres[filtre] = arg;
                     break;
                 } else {
-                    return `An error has occured with the input sea: ${arg},
-                    the argument need to be hectic or calm.`
+                    return `An error has occured with the input ${filtre}: ${arg}`
                 }
             case "planning":
-                const plannings = arg.split(',')
-                for (const elem of plannings) {
+                for (const elem of arg.split(',')) {
                     
                     const choice = elem.split('(')
                     const value = choice[0];
                     const dist = choice[1].slice(0, -1);
 
-                    if (!["harbor", "lighthouse", "car_park"].includes(value)) {
-                        return `An error has occured with the input planning: ${arg} concerning the ${value},
-                        the argument need to be harbor, lighthouse or car_park.`
+                    if (!planning.includes(value)) {
+                        return `An error has occured with the input planning concerning ${value}`
                     } else if (!/^\d+$/.test(dist)) {
-                        return `An error has occured with the input planning: ${arg} concerning the distance of ${value} it need to be an int.`
+                        return `An error has occured with the input planning concerning the distance of ${value}`
                     } else {
                         filtres.planning = value;
                         if (value == "harbor") dist_harbor = dist;

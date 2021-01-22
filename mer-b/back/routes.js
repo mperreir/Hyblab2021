@@ -13,10 +13,8 @@ module.exports = function (app) {
      *  - latitude            : float cast as a string
      *  - longitude           : float cast as a string
      *  - type (optionnal)    : string included in ["sand", "pebble", "rocks"]
-     *  - time (optionnal)    : string included in ["sunrise", "sunset", "day",
-     *                          "night", "full_moon", "new_moon", "crescent"]
-     *  - weather (optionnal) : string included in ["clear", "cloudy", "bad",
-     *                          "stormy"]
+     *  - time (optionnal)    : string included in ["dawn", "day", "dusk", "night"]
+     *  - weather (optionnal) : string included in ["clear", "cloudy", "bad", "stormy"]
      *  - sea (optionnal)     : string included in ["hectic", "calm"]
      *  - planning (optionnal): string of successive string who can be : 
      *                          harbor, lighthouse, car_park
@@ -24,7 +22,7 @@ module.exports = function (app) {
      * 
      * examples :
      * - latitude=47.6175568&longitude=-3.1848329&planning=lighthouse(1000),car_park(500)
-     * - latitude=47.6175568&longitude=-3.1848329&time=full_moon&weather=clear
+     * - latitude=47.6175568&longitude=-3.1848329&time=dawn&weather=clear
      */
 
     app.get('/api/plage/:filtres', async function(req, res) {
