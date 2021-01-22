@@ -87,15 +87,9 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    /**
-     * longueur arc de cercle = (Pi * Rayon * Angle) / 180 car 2 * Pi * Rayon correspond à 360° (proportionnalité)
-     * Angle = latitude1 - latitude2 ou longitude 1 - longitude 2
-     * Nos données : - longueur arc de cercle = 50 km
-     *               - rayon de la Terre = 6371 km
-     *               - latitude et longitude de l'utilisateur
-     */
-
-    const arc = 9000/(6371*Math.PI);
+    // angle representing 50 km on the earth's surface
+    // d = 2 * pi * r * a / 360, so a is equal to :
+    const arc = 360 * 50/(2 * 6371 * Math.PI);
 
     const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
     const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];
@@ -121,7 +115,7 @@ exports.getbyfilter = async function(req) {
 
     const sufix = `%0Aout%3B&target=compact`; // out;
 
-    const cst = require("../constants/openstreetmap");
+    const cst = require("./constants/openstreetmap");
 
     if (!filtres.hasOwnProperty("planning")) {
         var url = prefix + bbox + france + pre_ask + with_nothing + ask + prefix_output + sufix_output + sufix;
