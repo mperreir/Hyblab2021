@@ -2,12 +2,14 @@ let sketchCiel = function(p) {
     let imgCielJour;
     let imgCielNuit;
     let imgCielSoleil;
+
     let imgMerAgiteeJour;
     let imgMerAgiteeNuit;
     let imgMerAgiteeSoleil;
     let imgMerCalmeJour;
     let imgMerCalmeNuit;
     let imgMerCalmeSoleil;
+
     let imgSolGaletJour;
     let imgSolGaletNuit;
     let imgSolGaletSoleil;
@@ -15,10 +17,15 @@ let sketchCiel = function(p) {
     let imgSolSableNuit;
     let imgSolSableSoleil;
 
+    let imgPhareJour;
+    let imgPhareNuit;
+    let imgPhareSoleil;
+
     /**affichee**/
     let imgdisplayCiel;
     let imgdisplayMer;
     let imgdisplaySol;
+    let imgdisplayPhare;
 
     /*pluie*/
     var rain = [];
@@ -31,6 +38,12 @@ let sketchCiel = function(p) {
     var yCoord2 = 0;
     var step = 0;
     var orage = false;
+
+    var backgroundColorNuit = "#031D27";
+    var backgroundColorJour = "#00C0D2";
+    var backgroundColorSoleil = "#71265F";
+
+    var backgroundColor = backgroundColorJour;
 
     p.setup = function(){
       fade = 0
@@ -56,9 +69,9 @@ let sketchCiel = function(p) {
       imgSolSableNuit = p.loadImage('img/Sol/Sable/sablenuit.png');
       imgSolSableSoleil = p.loadImage('img/Sol/Sable/sablesoleil.png');
 
-      //imgdisplayCiel = imgCielJour;
-      //imgdisplayMer = imgMerCalmeJour;
-      //imgdisplaySol = imgSolSableJour;
+      imgPhareJour = p.loadImage('img/Phare/pharejour.png');
+      imgPhareNuit = p.loadImage('img/Phare/pharenuit.png');
+      imgPhareSoleil = p.loadImage('img/Phare/pharesoleil.png');
 
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
@@ -71,7 +84,7 @@ let sketchCiel = function(p) {
     p.draw = function() {
       affichage = getAffichage();
       //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
-      p.background("#62F2FF");
+      p.background(backgroundColor);
       animationCiel();
 
       if (rainingNow == true) {
@@ -114,6 +127,10 @@ let sketchCiel = function(p) {
         }
       }
       
+      if(imgdisplayPhare){
+        p.image(imgdisplayPhare, 0, 0, p.windowWidth, p.windowHeight);
+      }
+
       if(imgdisplayMer){
         p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
       }
@@ -126,6 +143,8 @@ let sketchCiel = function(p) {
       imgdisplayCiel = undefined;
       imgdisplayMer = undefined;
       imgdisplaySol = undefined;
+      imgdisplayPhare = undefined;
+      backgroundColor = backgroundColorJour;
     }
 
     sketchCiel.updateSketchCiel = function(){
@@ -146,7 +165,10 @@ let sketchCiel = function(p) {
 
 
       if(affichage.moment == "journee"){
-        imgdisplayCiel = imgCielJour;
+        backgroundColor = backgroundColorJour;
+        if(affichage.ciel) {
+          imgdisplayCiel = imgCielJour;
+        }
         if(affichage.mer == "calme"){
           imgdisplayMer = imgMerCalmeJour;
         }
@@ -160,9 +182,16 @@ let sketchCiel = function(p) {
         else if(affichage.type == "sable"){
           imgdisplaySol = imgSolSableJour;
         }
+
+        if(affichage.amenagement == "phare"){
+          imgdisplayPhare = imgPhareJour;
+        }
       }
       else if(affichage.moment == "nuit"){
-        imgdisplayCiel = imgCielNuit;
+        backgroundColor = backgroundColorNuit;
+        if(affichage.ciel){
+          imgdisplayCiel = imgCielNuit;
+        }
         if(affichage.mer == "calme"){
           imgdisplayMer = imgMerCalmeNuit;
         }
@@ -176,9 +205,16 @@ let sketchCiel = function(p) {
         else if(affichage.type == "sable"){
           imgdisplaySol = imgSolSableNuit;
         }
+
+        if(affichage.amenagement == "phare"){
+          imgdisplayPhare = imgPhareNuit;
+        }
       }
       else if(affichage.moment){
-        imgdisplayCiel = imgCielSoleil;
+        backgroundColor = backgroundColorSoleil;
+        if(affichage.ciel){
+          imgdisplayCiel = imgCielSoleil;
+        }
         if(affichage.mer == "calme"){
           imgdisplayMer = imgMerCalmeSoleil;
         }
@@ -191,6 +227,10 @@ let sketchCiel = function(p) {
         }
         else if(affichage.type == "sable"){
           imgdisplaySol = imgSolSableSoleil;
+        }
+
+        if(affichage.amenagement == "phare"){
+          imgdisplayPhare = imgPhareSoleil;
         }
       }
     }

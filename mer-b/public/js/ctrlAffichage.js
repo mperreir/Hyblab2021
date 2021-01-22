@@ -5,6 +5,10 @@ function updateElement(element, reponse){
 
     sketchCiel.updateSketchCiel(element, reponse);
     console.log(getAffichage());
+    if(element == "moment" && reponse.json == "nuit"){
+      let root = document.documentElement;
+      root.style.setProperty('--citation-color', "white");
+    }
   }
 
   function getRandomInt(max) {

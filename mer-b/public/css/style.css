@@ -154,11 +154,28 @@ div#displayCanvas {
 }
 
 /***général***/
+:root { 
+    --primary-color: #203443; 
+    --secondary-color: white;
+    --citation-color: #203443;
+}
+
 * {
     font-size: 15px;
     line-height: 20px;
     text-align: justify;
-    color: #203443;
+    color: var(--primary-color, #203443);
+}
+
+.logo {
+    background: none;
+    width: 200px;
+    position: absolute;
+    padding: 10px;
+}
+
+.logo img {
+    width: 200px;
 }
 
 h1 {
@@ -168,7 +185,7 @@ h1 {
     font-size: 45px;
     line-height: 61px;
     /* identical to box height */
-    color: #FFFFFF;
+    color:var(--secondary-color, white);
     margin-bottom: 50px;
     max-width: 740px;
 }
@@ -176,7 +193,7 @@ h1 {
 .bouton {
     display: inline-block;
     padding: 10px;
-    background: #FFFFFF;
+    background: var(--secondary-color, white);
     border-radius: 30px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -188,14 +205,14 @@ h1 {
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
-    color: #203443;
+    color: var(--primary-color, #203443);
     transition: all 0.5s ease;
 }
 
 .bouton:hover {
     cursor: pointer;
-    background-color: #203443;
-    color: white;
+    background-color: var(--primary-color, #203443);
+    color: var(--secondary-color, white);
 }
 
 .align-center-vertical {
@@ -214,6 +231,7 @@ h1 {
 
 .containerAcceuil h1 {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 #containerBackground {
@@ -227,16 +245,16 @@ div#boutonGoSlide2 {
 #containerQuestion {
     padding: 20px;
     text-align: left;
-    margin-left: 150px;
+    margin-left: 50px;
 }
 
 #containerQuestion h1 {
     text-align: left;
 }
 
+
 .citation {
     /* citation */
-    width: 300px;
     font-family: Abril Fatface;
     font-style: normal;
     font-weight: normal;
@@ -244,12 +262,13 @@ div#boutonGoSlide2 {
     line-height: 20px;
     text-align: center;
     opacity: 0;
-    color: #203443;
+    color:  var(--citation-color, #203443);
     transition: all 0.5s ease;
+
 }
 
 div#containerReponses {
-    max-width: 740px;
+    max-width: 750px;
 }
 
 .containerReponse .bouton:hover + .citation {
@@ -260,6 +279,8 @@ div#containerReponses {
     display: inline-block;
     text-align: center;
     vertical-align: top;
+    padding-bottom: 10px;
+    width: 250px;
 }
 
 /***slide fin***/
@@ -275,7 +296,7 @@ div#containerReponses {
 
 .cartePostale {
     color: black;
-    background-color: white;
+    background-color: rgb(124, 118, 118);
     width: 36em;
     height: 18em;
     position: absolute;

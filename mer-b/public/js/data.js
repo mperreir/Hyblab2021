@@ -152,6 +152,24 @@ function affichageReset(){
                   },
                 ]
             },
+            {
+                question : "Quelle type de mer voulez-vous avoir ?",
+                element: "mer",
+                reponses : [
+                    {
+                        "texte" : "Agitee",
+                        "json": "agitee"
+                    },
+                    {
+                        "texte" : "Calme",
+                        "json" : "calme",
+                    },
+                    {
+                      "texte" : "Indifférent",
+                      "json" : "indifferent",
+                    }
+                ]
+              },
           {
             question : "Quelle météo serait la plus favorable pour la création ?",
             element: "ciel",
@@ -173,6 +191,10 @@ function affichageReset(){
                     ]
                 },
                 {
+                  "texte" : "Indifférent",
+                  "json" : "indifferent",
+                },
+                {
                     "texte" : "Pluie",
                     "json" : "pluie",
                     "citations": [
@@ -187,28 +209,6 @@ function affichageReset(){
                       '"La vie, ce n\'est pas d\'attendre que les nuages passent, c\'est d\'apprendre à danser sous la pluie" - Sénèque',
                       '"Le repos est un rêve; la vie est un orage" - George Sand'
                   ]
-                },
-                {
-                  "texte" : "Indifférent",
-                  "json" : "indifferent",
-                }
-            ]
-          },
-          {
-            question : "Quelle type de mer voulez-vous avoir ?",
-            element: "mer",
-            reponses : [
-                {
-                    "texte" : "Agitee",
-                    "json": "agitee"
-                },
-                {
-                    "texte" : "Calme",
-                    "json" : "calme",
-                },
-                {
-                  "texte" : "Indifférent",
-                  "json" : "indifferent",
                 }
             ]
           },
