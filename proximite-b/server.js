@@ -11,6 +11,14 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
+app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x - client - key, x - client - token, x - client - secret, Authorization");
+    next();
+});
+
 // You can then add whatever routing code you need
 
 // This module is exported and served by the main server.js located
