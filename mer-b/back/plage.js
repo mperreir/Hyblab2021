@@ -223,40 +223,37 @@ exports.getbyfilter = async function(req) {
         return nearest;
     }
 
-
     if (harbors.length !== 0) {
-        for (const node in plages) {
+        for (const node of plages) {
             let port = nearest(node, harbors);
-            plages.push({
-                latitude: port.lat,
-                longitude: port.lon,
-                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
-            })
+            node.port = {};
+            node.port.latitude = port.lat;
+            node.port.longitude = port.lon;
+            node.port.name = (port.tags.hasOwnProperty("name") ? port.tags.name : null);
         }
     }
 
     if (lighthouses.length !== 0) {
-        for (const node in plages) {
+        for (const node of plages) {
             let lighthouse = nearest(node, lighthouses);
-            plages.push({
-                latitude: lighthouse.lat,
-                longitude: lighthouse.lon,
-                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
-            })
+            node.lighthouse = {};
+            node.lighthouse.latitude = lighthouse.lat;
+            node.lighthouse.longitude = lighthouse.lon;
+            node.lighthouse.name = (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null);
         }
     }
 
     if (car_parks.length !== 0) {
-        for (const node in plages) {
+        for (const node of plages) {
             let car_park = nearest(node, car_parks);
-            plages.push({
-                latitude: car_park.lat,
-                longitude: car_park.lon,
-                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
-            })
+            node.car_park = {};
+            node.car_park.latitude = car_park.lat;
+            node.car_park.longitude = car_park.lon;
+            node.car_park.name = (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null);
         }
     }
-
+    console.log(plages);
     return plages
+
 };
 
