@@ -1,0 +1,54 @@
+/* ------------------------- Page Home ---------------------------- */
+
+.shooting-stars{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 10%;
+    z-index: 2;
+}
+
+.leaves-home{
+    position: absolute;
+    top: 60%;
+    left: 75%;
+    height: auto;
+    text-align: center;
+    width: 10%;
+    z-index: 2;
+}
+
+.oya-hello{
+    position: absolute;
+    top: 15%;
+    left: 39%;
+    width: 20%;
+    z-index: 2;
+}
+
+.button-begin{
+    padding: 0.5em;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 15%;
+    z-index: 2;
+}
+
+.button-begin:hover{
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5),0 12px 30px 0 rgba(0,0,0,0.3);
+}
+
+.catch-phrase{
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    width: 30%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
