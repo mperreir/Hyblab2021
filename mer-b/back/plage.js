@@ -38,7 +38,7 @@ exports.getbyfilter = async function(req) {
                     the argument  need to be sand, pebble or rocks.`
                 }
             case "time":
-                if (["sunrise", "sunset", "day", "night", "full_moon", "new_moon", "crescent"].includes(arg)) {
+                if (["dawn", "day", "dusk", "night"].includes(arg)) {
                     filtres.time = arg;
                     break;
                 } else {
@@ -162,11 +162,11 @@ exports.getbyfilter = async function(req) {
     if (filtres.hasOwnProperty("type")) {
         beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
         if (filtres.type = "sand") {
-            beaches = beaches.filter(node => !["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
         } else if (filtres.type = "pebble") {
-            beaches = beaches.filter(node => !["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
         } else if (filtres.type = "rocks") {
-            beaches = beaches.filter(node => !["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
+            beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
         }
     }
 
@@ -256,7 +256,112 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    return plages
+    /**"clear", "cloudy", "bad","stormy"]
+     *
+     * cloudy : Clouds
+     * clear : Clear
+     * stormy :
+     * bad : Rain
+     *
+ */
+    if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
+
+        const weather = require("./constants/openweathermap");
+
+
+
+        for (const node of plages) {
+            let lat = `lat=${node.latitude}&`
+            let lon = `lon=${node.longitude}&`
+            let key = `appid=${weather.key}`
+
+            let response_weather = await fetch(weather.api_url + lat + lon + key);
+            if (!response_weather.ok) {
+                return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
+            }
+
+            let data_weather = await response_weather.json();
+
+            const unix_sunrise = data_weather.sys.sunrise;
+            const unix_sunset = data_weather.sys.sunset;
+            const unix_actualTime = data_weather.dt;
+
+            function time(unix) {
+                let time = new Date(unix * 1000);
+                let hours = time.getHours();
+                let minutes = "0" + time.getMinutes();
+                let seconds = "0" + time.getSeconds();
+                return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+            }
+
+
+            node.weather = {};
+            node.weather.sky = data_weather.weather[0].main;
+            node.weather.temp = data_weather.main.temp -273.15;
+            node.weather.wind =  data_weather.wind.speed;
+
+            node.time = {};
+            node.time.actualTime = time(unix_actualTime);
+            node.time.aube = time(unix_sunrise - 3600); // 1 hour before sunrise is "aube"
+            node.time.creneauAube = [time(unix_sunrise - 5400), time(unix_sunrise + 5400)];
+            node.time.crepuscule = time(unix_sunset + 3600); // 1 hour after sunset is "crepuscule"
+            node.time.creneauCrepuscule = [time(unix_sunset - 5400), time(unix_sunset + 5400)];
+
+
+        }
+    }
+
+    if (filtres.hasOwnProperty("weather")) {
+
+        if (filtres.weather === "stormy") {
+            plages = plages.filter(node => ["Thunderstorm", "Ash", "Squall", "Tornado", "Sand"].includes(node.weather.sky))
+        }
+
+        if (filtres.weather === "clear") {
+            plages = plages.filter(node => ["Clear"].includes(node.weather.sky))
+        }
+
+        if (filtres.weather === "bad") {
+            plages = plages.filter(node => ["Rain", "Drizzle", "Fog",  "Smoke", "Snow", "Dust"].includes(node.weather.sky))
+        }
+
+        if (filtres.weather === "cloudy") {
+            plages = plages.filter(node => ["Haze", "Mist", "Clouds"].includes(node.weather.sky))
+        }
+    }
+
+    /**aube, journée , crépuscule, nuit
+     * ["dawn", "day", "dusk", "night"]
+     */
+
+    if (filtres.hasOwnProperty("time")) {
+        console.log(plages);
+        console.log(plages[0].time.actualTime > plages[0].time.creneauAube[0]);
+        if (filtres.time === "dawn") {
+            plages = plages.filter(node => (node.time.actualTime > node.time.creneauAube[0] && node.time.actualTime < node.time.creneauAube[1]));
+        }
+        if (filtres.time === "day") {
+            plages = plages.filter(node => (node.time.actualTime > node.time.creneauAube[1] && node.time.actualTime < node.time.creneauCrepuscule[0]));
+
+        }
+
+        if (filtres.time === "dusk") {
+            plages = plages.filter(node => (node.time.actualTime > node.time.creneauCrepuscule[0] && node.time.actualTime < node.time.creneauCrepuscule[1]));
+        }
+
+        if (filtres.time === "night") {
+            plages = plages.filter(node => (node.time.actualTime < node.time.creneauAube[0] && node.time.actualTime > node.time.creneauCrepuscule[1]));
+        }
+
+
+    }
+
+
+
+
+
+
+    return plages;
 
 };
 
