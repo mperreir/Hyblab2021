@@ -6,7 +6,7 @@ var TimeKnots = {
             height: 200,
             radius: 25,
             lineWidth: 4,
-            color: ["#999","#999"],
+            color: ["#999", "#999"],
             background: "#FFF",
             dateFormat: "%Y/%m/%d %H:%M:%S",
             horizontalLayout: true,
@@ -160,19 +160,20 @@ var TimeKnots = {
             //resize img
             .attr("width", 50)
             .attr("height", 50)
-            .on('click', function(d){
+            .attr("pointer-events", "none")
+            .on('click', function (d) {
                 var firstAdress = d.data[0]
                 var otherAdress = d.data.slice(1);
-                $("#firstItemSingleModal").html('<img src='+d.img+' height="87px"width="100px">'+'<h1>'+d.categorie+' - '+ firstAdress.nom +'</h1><h3>'+firstAdress.adresse+'</h3>'+'<p>'+ firstAdress.temps+' minutes à pieds</p>');
+                $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
                 $("#otherItemsSingleModal").html("");
-                if (otherAdress.length >= 1 ){
+                if (otherAdress.length >= 1) {
                     otherAdress.forEach(element => {
-                        $("#otherItemsSingleModal").append('<p><b>'+element.nom+'</b></p>'+'<p style="font-size:10px">'+element.temps+' min - '+element.adresse+'</p>');
+                        $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
                     });
-                    
+
                 }
-                else{
-                    $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre "+ d.categorie.toLowerCase() +" à proximité.")
+                else {
+                    $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
                 }
                 $("#singleModal").modal('show');
                 console.log("click")
@@ -194,7 +195,7 @@ var TimeKnots = {
                         ;
                     d3.select(this)
                         .style("opacity", 1)
-                        .style("fill", function (d) { return cfg.color[0]})
+                        .style("fill", function (d) { return cfg.color[0] })
                         .transition()
                         .duration(100)
                         .attr("width", 60)
@@ -257,7 +258,7 @@ var TimeKnots = {
                 //     .duration(100)
                 //     .style("opacity", 0)
             })
-           
+
             .transition()
             .attr("x", function (d) {
                 if (cfg.horizontalLayout) {
@@ -271,27 +272,31 @@ var TimeKnots = {
                 if (i <= 1) return 0;
                 else return (i - 1) * 1000;
             })
+
             .style("opacity", 1)
+            .transition()
+            .delay((events.length-1)*1000)
+            .attr("pointer-events", "all")
             ;
 
-            
-            const circlenode = svg.selectAll(null)
+
+        const circlenode = svg.selectAll(null)
             .data(events)
             .enter()
             .append("circle")
-            .attr("r", 2*cfg.lineWidth)
+            .attr("r", 2 * cfg.lineWidth)
             .style("opacity", 0)
 
 
             .attr("cx", 0)
             .attr("cy", function (d) {
                 if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) 
+                    return Math.floor(cfg.height / 2)
                 }
                 var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                 return Math.floor(step * (datum - minValue) + margin)
             })
-            
+
 
             .style("fill", function (d) {
                 return cfg.color[1]
@@ -306,11 +311,12 @@ var TimeKnots = {
                 }
                 return Math.floor(cfg.width / 2)
             })
-            
+
             .delay(function (_, i) {
                 if (i <= 1) return 0;
                 else return (i - 1) * 1000;
             })
+
             .style("opacity", 1);
 
 
