@@ -93,18 +93,18 @@ exports.getbyfilter = async function(req) {
 
     const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
     const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];
-    const france = `%0A%0D%0Aarea%5Bname%3D%22France%22%5D%3B%0D`; // area["name"="France"];
+    const france = `%0A%0D%0Aarea%5Bname%3D"France"%5D%3B%0D`; // area["name"="France"];
     
-    const ask_lighthouse = `%0A%0D%0A%28node%5B%22man_made%22%3D%22lighthouse%22%5D%28area%29%3Bnode%5B%22man_made%22%3D%22beacon%22%5D%28area%29%3B%29-%3E.lighthouse%3B%0D`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
-    const ask_harbor = `%0A%0D%0Anode%28area%29%5B%22harbor%22%3D%22yes%22%5D%5B%22seamark%3Atype%22%3D%22harbour%22%5D-%3E.harbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
-    const ask_car = `%0A%0D%0Anode%28area%29%5B%22amenity%22%3D%22parking%22%5D-%3E.parking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
+    const ask_lighthouse = `%0A%28node%5B"man_made"%3D"lighthouse"%5D%28area%29%3Bnode%5B"man_made"%3D"beacon"%5D%28area%29%3B%29-%3E.lighthouse%3B%0D`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
+    const ask_harbor = `%0Anode%28area%29%5B"harbour"%3D"yes"%5D%5B"seamark%3Atype"%3D"harbour"%5D-%3E.harbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
+    const ask_car = `%0Anode%28area%29%5B"amenity"%3D"parking"%5D-%3E.parking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
     
     const pre_ask = `%0A%0D%0Anode`; // node
     const with_nothing = `%28area%29`; // (area)
     const with_lighthouse = `%28around.lighthouse%3A${dist_lighthouse}%29`; // (around.lighthouse:10000)
     const with_harbor = `%28around.harbor%3A${dist_harbor}%29`; // (around.harbor:10000)
     const with_car = `%28around.carpark%3A${dist_car}%29`; // (around.car:10000)
-    const ask = `%5B%22natural%22%3D%22beach%22%5D-%3E.beaches%3B%0D`; // ["natural"="beach"]->.beaches;
+    const ask = `%5B"natural"%3D"beach"%5D-%3E.beaches%3B%0D`; // ["natural"="beach"]->.beaches;
 
     const prefix_output = `%0A++%0D%0A%28.beaches`; // (.beaches
     const separator_output = `%3B+`; // ;
