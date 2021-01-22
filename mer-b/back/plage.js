@@ -208,7 +208,7 @@ exports.getbyfilter = async function(req) {
         plages.push({
             latitude: node.lat,
             longitude: node.lon,
-            name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            nom: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
             type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
         });
     }
@@ -225,34 +225,37 @@ exports.getbyfilter = async function(req) {
 
     if (harbors.length !== 0) {
         for (const node of plages) {
-            let port = nearest(node, harbors);
-            node.port = {};
-            node.port.latitude = port.lat;
-            node.port.longitude = port.lon;
-            node.port.name = (port.tags.hasOwnProperty("name") ? port.tags.name : null);
+            const harbor = nearest(node, harbors);
+            node.port = {
+                latitude: harbor.lat,
+                longitude: harbor.lon,
+                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
+            }
         }
     }
 
     if (lighthouses.length !== 0) {
         for (const node of plages) {
-            let lighthouse = nearest(node, lighthouses);
-            node.lighthouse = {};
-            node.lighthouse.latitude = lighthouse.lat;
-            node.lighthouse.longitude = lighthouse.lon;
-            node.lighthouse.name = (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null);
+            const lighthouse = nearest(node, lighthouses);
+            node.phare = {
+                latitude: lighthouse.lat,
+                longitude: lighthouse.lon,
+                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
+            }
         }
     }
 
     if (car_parks.length !== 0) {
         for (const node of plages) {
-            let car_park = nearest(node, car_parks);
-            node.car_park = {};
-            node.car_park.latitude = car_park.lat;
-            node.car_park.longitude = car_park.lon;
-            node.car_park.name = (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null);
+            const car_park = nearest(node, car_parks);
+            node.parking = {
+                latitude: car_park.lat,
+                longitude: car_park.lon,
+                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
+            }
         }
     }
-    console.log(plages);
+
     return plages
 
 };
