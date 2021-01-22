@@ -28,9 +28,9 @@ exports.api_url = function(filtres) {
         const ask_harbor = `%0Anode%28area%29%5B"harbour"%3D"yes"%5D%5B"seamark%3Atype"%3D"harbour"%5D-%3E.harbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
         const ask_car = `%0Anode%28area%29%5B"amenity"%3D"parking"%5D-%3E.parking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
         
-        const with_lighthouse = `%28around.lighthouse%3A${dist_lighthouse}%29`; // (around.lighthouse:10000)
-        const with_harbor = `%28around.harbor%3A${dist_harbor}%29`; // (around.harbor:10000)
-        const with_car = `%28around.carpark%3A${dist_car}%29`; // (around.car:10000)
+        const with_lighthouse = `%28around.lighthouse%3A${(lighthouse?filtres.dist_lighthouse:"0")}%29`; // (around.lighthouse:10000)
+        const with_harbor = `%28around.harbor%3A${(harbor?filtres.dist_harbor:"0")}%29`; // (around.harbor:10000)
+        const with_car = `%28around.carpark%3A${(car?filtres.dist_car:"0")}%29`; // (around.car:10000)
 
         const separator_output = `%3B+`; // ;
 

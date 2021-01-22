@@ -18,11 +18,11 @@ exports.getbyfilter = async function(req) {
         switch (filtre) {
             case "latitude":
             case "longitude":
-                if (/^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/.test(arg)) {
+                if (/^(-?\d+(\.\d+)?).\s*(-?\d+(\.\d+)?)$/.test(arg)) {
                     filtres.filtre = parseFloat(arg);
                     break;
                 } else {
-                    return `An error has occured with the input ${filtre}: ${arg}`
+                    return `An error has occured with the input ${filtre} concerning ${arg}`
                 }
             case "type":
             case "time":
@@ -32,7 +32,7 @@ exports.getbyfilter = async function(req) {
                     filtres[filtre] = arg;
                     break;
                 } else {
-                    return `An error has occured with the input ${filtre}: ${arg}`
+                    return `An error has occured with the input ${filtre} concerning ${arg}`
                 }
             case "planning":
                 filtres.planning = [];
@@ -57,10 +57,10 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    const cst = await require("./constants.json")
-    const api_url = require("./openstreetmap")
+    const cst = require("./constants.json");
+    const osm = require("./openstreetmap");
 
-    const url = api_url(filtres)
+    const url = osm.api_url(filtres);
 
     let i = 1;
     let response = await fetch(cst.openstreetmap.api_url1 + url);
@@ -73,7 +73,8 @@ exports.getbyfilter = async function(req) {
     if (!response.ok) {
         return `An error has occured (${response.status}) when fetching on the openstreetmap api.`;
     }
-    let data = await response.json()
+
+    const data = await response.json();
 
     let beaches = [];
     let harbors = [];
