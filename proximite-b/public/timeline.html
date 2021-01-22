@@ -1,53 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <title>Hyblab 2020</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="js/utils/timeknots.js" type="application/javascript"></script>
 </head>
 
 <body>
-    <ul>
-        <li><a href="index.html">Home</a></li>
 
-        <li><a href="personas.html">Personas</a></li>
-        <li><a href="adresses.html">Adresses</a></li>
-        <li><a href="criteres.html">critere</a></li>
-        <li><a href="conclu.html">conclu</a></li>
-    </ul>
-    <br><br><br>
+    <div class="container"> 
+        <h2>Timeline Comparaison</h2>
 
-    <!-- <div class="fluid-row">
-        <div class="well span11 pagination-centered">
-            <h1>Demos using timeknots</h1>
-            <h5><a href='https://github.com/alangrafu/timeknots'>https://github.com/alangrafu/timeknots</a></h5>
+
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="personas.html">Personas</a></li>
+            <li><a href="adresses.html">Adresses</a></li>
+            <li><a href="criteres.html">critere</a></li>
+            <li><a href="conclu.html">conclu</a></li>
+        </ul>
+        <!-- Trigger the modal with a button -->
+        <!-- <button type="button" class="btn " data-toggle="modal" data-target="#singleModal">Open Modal</button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="singleModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div id="firstItemSingleModal" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <!-- <h4 class="modal-title">Modal Header</h4> -->
+                    </div>
+                    <div id="otherItemsSingleModal" class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div> -->
-    <!-- <div class="fluid-row">
-        <div class="span3">
-            <h2>Adresse1</h2>
-
-        </div>
-        <div class="span3">
-            <h2>Adresse2</h2>
-
-        </div>
-    </div> -->
-
-
-    <div class="card">
-        <div class="container" id="timelineholder">
-            <div id="timelineNonDate" ></div>
+        <div class="card" id="timelineholder">
+            <div id="timelineNonDate"></div>
             <div id="timelineNonDate2"></div>
-            
+
         </div>
     </div>
 
+
     <div><br><br><br><br><br><br></div>
+
+
     <script src="js/timeline.js" type="application/javascript"></script>
 </body>
 
