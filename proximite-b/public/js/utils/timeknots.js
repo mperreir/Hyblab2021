@@ -166,14 +166,7 @@ var TimeKnots = {
                 var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                 return Math.floor(step * (datum - minValue) + margin)
             })
-            .attr("x", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x - 25;
-                }
-                return Math.floor(cfg.width / 2)
-            })
+            .attr("x", 0)
             //resize img
             .attr("width", 50)
             .attr("height", 50)
@@ -262,9 +255,17 @@ var TimeKnots = {
             })
 
             .transition()
+            .attr("x", function (d) {
+                if (cfg.horizontalLayout) {
+                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                    var x = Math.floor(step * (datum - minValue) + margin);
+                    return x - 25;
+                }
+                return Math.floor(cfg.width / 2)
+            })
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i-1) * 1000;
+                else return (i - 1) * 1000;
             })
             .style("opacity", 1)
             ;
@@ -276,22 +277,8 @@ var TimeKnots = {
             .enter()
             .append("line")
             .style("opacity", 0)
-            .attr("x1", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x;
-                }
-                return Math.floor(cfg.width / 2)
-            })
-            .attr("x2", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x;
-                }
-                return Math.floor(cfg.width / 2)
-            })
+            .attr("x1", 0)
+            .attr("x2", 0)
             .attr("y1", function (d) {
                 if (cfg.horizontalLayout) {
                     return Math.floor(cfg.height / 2) + 10
@@ -320,9 +307,25 @@ var TimeKnots = {
             })
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
+            .attr("x1", function (d) {
+                if (cfg.horizontalLayout) {
+                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                    var x = Math.floor(step * (datum - minValue) + margin);
+                    return x;
+                }
+                return Math.floor(cfg.width / 2)
+            })
+            .attr("x2", function (d) {
+                if (cfg.horizontalLayout) {
+                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                    var x = Math.floor(step * (datum - minValue) + margin);
+                    return x;
+                }
+                return Math.floor(cfg.width / 2)
+            })
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i-1) * 1000;
+                else return (i - 1) * 1000;
             })
             .style("opacity", 1);
 
@@ -358,7 +361,7 @@ var TimeKnots = {
             .transition()
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i-1) * 1000;
+                else return (i - 1) * 1000;
             })
             .style("opacity", 1);
 
