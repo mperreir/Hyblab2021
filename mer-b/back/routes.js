@@ -20,9 +20,10 @@ module.exports = function (app) {
      *  - sea (optionnal)     : string included in ["hectic", "calm"]
      *  - planning (optionnal): string of successive string who can be : 
      *                          harbor, lighthouse, car_park
+     *                          associate with a distance in cracket in meter
      * 
      * examples :
-     * - latitude=47.6175568&longitude=-3.1848329&planning=lighthouse,car_park
+     * - latitude=47.6175568&longitude=-3.1848329&planning=lighthouse(1000),car_park(500)
      * - latitude=47.6175568&longitude=-3.1848329&time=full_moon&weather=clear
      */
 
