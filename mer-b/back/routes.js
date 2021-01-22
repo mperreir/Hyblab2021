@@ -3,7 +3,7 @@
 
 module.exports = function (app) {
     
-    const Plage = require("./models/plage")
+    const plage = require("./models/plage")
 
     /**
      * filtres should be write as : c1=p1&c2=p2&c3=pa3...
@@ -26,8 +26,9 @@ module.exports = function (app) {
      * - latitude=47.6175568&longitude=-3.1848329&time=full_moon&weather=clear
      */
 
-    app.get('/api/plage/:filtres', function(req, res) {
-        res.send(Plage.getbyfilter(req.params.filtres))
+    app.get('/api/plage/:filtres', async function(req, res) {
+        const plages = await plage.getbyfilter(req.params.filtres);
+        res.send(plages)
     });
 
     

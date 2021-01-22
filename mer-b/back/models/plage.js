@@ -1,21 +1,7 @@
 'user strict';
 const fetch = require('node-fetch');
 
-/**
- * streetmap output :
- * - type : surface : ["sand", "sable", "gravel", "ground", "asphalt", "grass",
- *                     "pebblestone",  "shingle", "shingles", "fine_gravel",
- *                     "sable_et_gallet", "stone", "s", "dirt/sand"]
- * - naturisme : - nudism : yes/permissive/-/customary/obligatory/designated
- *               - naturism : yes/-
- * - planning : - harbour : yes
- *              - man_made : lighthouse
- *              - amenity : parking
- * ? wheelchair : limited, yes, -, no
- * ? possible information via : website/wikipedia/Wikidata
- */
-
-exports.getbyfilter = function(req) {
+exports.getbyfilter = async function(req) {
 
     let filtres = {};
 
@@ -90,73 +76,82 @@ exports.getbyfilter = function(req) {
         var url = cst.api_url1 + prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + out_harbor : ``) + (lighthouse ? separator_output + out_lighthouse : ``) + (car ? separator_output + out_car : ``) + sufix_output + sufix;
     }
 
+    let response = await fetch(url);
 
-
-    async function getbeaches() {
-        let response = await fetch(url);
-
-        if (!response.ok) {
-            const message = `An error has occured: ${response.status}`;
-            throw new Error(message);
-        }
-
-        let data = await response.json()
-        return data;
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
     }
 
-    getbeaches().then(data => {
+    let data = await response.json()
 
-        let beaches = [];
-        let harbors = [];
-        let lighthouses = [];
-        let car_parks = [];
+    let beaches = [];
+    let harbors = [];
+    let lighthouses = [];
+    let car_parks = [];
 
-        for (const node of data.elements) {
-
-            if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
-                beaches.push(node)
-            } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
-                harbors.push(node)
-            } else if (node.tags.hasOwnProperty("amenity") && node.tags.amenity == "parking") {
-                car_parks.push(node)
-            } else if (node.tags.hasOwnProperty("man_made") && (node.tags.man_made == "lighthouse" || node.tags.man_made == "beacon")) {
-                lighthouses.push(node)
-            }
+    // Sort the node
+    for (const node of data.elements) {
+        if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
+            beaches.push(node)
+        } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
+            harbors.push(node)
+        } else if (node.tags.hasOwnProperty("amenity") && node.tags.amenity == "parking") {
+            car_parks.push(node)
+        } else if (node.tags.hasOwnProperty("man_made") && (node.tags.man_made == "lighthouse" || node.tags.man_made == "beacon")) {
+            lighthouses.push(node)
         }
-
-        // Filter the beaches with the type of the surface of it
-        if (filtres.hasOwnProperty("type")) {
-            beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
-            if (filtres.type = "sand") {
-                beaches = beaches.filter(node => !["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
-            } else if (filtres.type = "pebble") {
-                beaches = beaches.filter(node => !["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
-            } else if (filtres.type = "rocks") {
-                beaches = beaches.filter(node => !["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
-            }
-        }
-
-    })
-
-    // will be replaced by am API call
-    plages = [
-    {
-        latitude: 47.7163386,
-        longitude: -3.95997,
-        name: "Pointe de Pen Maryse"
-    },
-    {
-        latitude: 47.890907,
-        longitude: -4.366774,
-        name: "Plage Treguennec"
-    },
-    {
-        latitude: 47.9703943,
-        longitude: -4.4354322,
-        name: null
     }
-    ];
+
+    // Filter the beaches with the type of the surface of it
+    if (filtres.hasOwnProperty("type")) {
+        beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
+        if (filtres.type = "sand") {
+            beaches = beaches.filter(node => !["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+        } else if (filtres.type = "pebble") {
+            beaches = beaches.filter(node => !["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+        } else if (filtres.type = "rocks") {
+            beaches = beaches.filter(node => !["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
+        }
+    }
+
+    // Take the 3 nodes nearest of the initial location
+    if (beaches.length > 3 ) {
+        let min1 = Infinity;
+        let min2 = Infinity;
+        let min3 = Infinity;
+
+        beaches_clone = Array.from(beaches)
+        beaches_clone.forEach(function (node, index) {
+            let dist = dist(node.lat, node.lon, filtres.latitude, filtres.longitude);
+            if (dist < min1) {
+                min3 = min2;
+                min2 = min1;
+                min1 = dist;
+            } else if (dist < min2) {
+                min3 = min2;
+                min2 = dist;
+            } else if (dist < min3) {
+                min3 = dist;
+            } else {
+                beaches.splice(index - (beaches_clone.length - beaches.length), 1);
+            }
+        })
+    }
+
+    var plages = [];
+    for (const node of beaches) {
+        plages.push({
+            latitude: node.lat,
+            longitude: node.lon,
+            name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
+        });
+    }
 
     return plages
 };
 
+function dist(lat1, lon1, lat2, lon2) {
+    return (lat1-lat2)**2 + (lon1-lon2)**2
+}
