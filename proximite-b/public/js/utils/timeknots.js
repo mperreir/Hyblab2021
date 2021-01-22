@@ -334,10 +334,10 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { return d.data[0].temps })
+            .text(function (d) { return d.data[0].temps + " min" })
             .attr("y", function (d) {
                 if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) + 50
+                    return Math.floor(cfg.height / 2) + 30
                 }
                 var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                 return Math.floor(step * (datum - minValue) + margin)
@@ -347,7 +347,7 @@ var TimeKnots = {
                 if (cfg.horizontalLayout) {
                     var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                     var x = Math.floor(step * (datum - minValue) + margin);
-                    return x - 5;
+                    return x - 20;
                 }
                 return Math.floor(cfg.width / 2) - 5
             })
