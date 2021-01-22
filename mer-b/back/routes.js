@@ -3,7 +3,7 @@
 
 module.exports = function (app) {
     
-    const plage = require("./models/plage")
+    const plage = require("./plage.js")
 
     /**
      * filtres should be write as : c1=p1&c2=p2&c3=pa3...
