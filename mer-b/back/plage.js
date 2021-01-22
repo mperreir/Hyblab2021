@@ -103,7 +103,7 @@ exports.getbyfilter = async function(req) {
     const with_nothing = `%28area%29`; // (area)
     const with_lighthouse = `%28around.lighthouse%3A${dist_lighthouse}%29`; // (around.lighthouse:10000)
     const with_harbor = `%28around.harbor%3A${dist_harbor}%29`; // (around.harbor:10000)
-    const with_car = `%28around.carpark%3A${dist_car}%29`; // (around.harbor:10000)
+    const with_car = `%28around.carpark%3A${dist_car}%29`; // (around.car:10000)
     const ask = `%5B%22natural%22%3D%22beach%22%5D-%3E.beaches%3B%0D`; // ["natural"="beach"]->.beaches;
 
     const prefix_output = `%0A++%0D%0A%28.beaches`; // (.beaches
@@ -155,6 +155,7 @@ exports.getbyfilter = async function(req) {
 
     if (beaches.length == 0) {
         console.log(`There is no beaches respecting the planning around and the location.`);
+        return [];
     }
 
     // Filter the beaches with the type of the surface of it
@@ -171,6 +172,7 @@ exports.getbyfilter = async function(req) {
 
     if (beaches.length == 0) {
         console.log(`There is no beaches respecting the planning around, the location and the type.`);
+        return [];
     }
 
     function dist(lat1, lon1, lat2, lon2) {
