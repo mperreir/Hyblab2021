@@ -7,7 +7,7 @@
 
 var nonDatedata = [
     {
-        "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+        "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
         "data": [
             { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -16,7 +16,7 @@ var nonDatedata = [
         ]
     },
     {
-        "img": "./img/timeline/pharma.png",
+        "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
         "data": [
             { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
@@ -24,7 +24,7 @@ var nonDatedata = [
         ]
     },
     {
-        "img": "./img/timeline/ecole.png",
+        "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
         "data": [
             { temps: 4, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -32,24 +32,29 @@ var nonDatedata = [
         ]
     },
     {
-        "img": "./img/timeline/supermarche.jpg",
+        "img": "./img/timeline/market.svg",
         "categorie": "Supermache",
         "data": [
-            { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
             { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/eglise.png",
-        "categorie": "Eglise",
+        "img": "./img/timeline/doctor.svg",
+        "categorie": "Parc",
         "data": [
-            { temps: 8, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 9, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
+            { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
-
     {
-        "img": "./img/timeline/parc.jpg",
+        "img": "./img/timeline/bus.svg",
+        "categorie": "Parc",
+        "data": [
+            { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+        ]
+    },
+    {
+        "img": "./img/timeline/park.svg",
         "categorie": "Parc",
         "data": [
             { temps: 9, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -60,52 +65,56 @@ var nonDatedata = [
 
 var nonDatedata2 = [
     {
-        "img": "./img/timeline/kisspng-bakery-brunch-bread-icon-bread-5a98b1a9839131.1352693715199563935389.png",
+        "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
         "data": [
-            { temps: 0, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 2, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
             { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
             { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/pharma.png",
+        "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
         "data": [
-            { temps: 1, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
-            { temps: 6, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+            { temps: 8, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
         ]
     },
     {
-        "img": "./img/timeline/ecole.png",
+        "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
         "data": [
-            { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 8, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+            { temps: 3, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/supermarche.jpg",
+        "img": "./img/timeline/market.svg",
         "categorie": "Supermache",
         "data": [
-            { temps: 12, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 12, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+            { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/eglise.png",
-        "categorie": "Eglise",
-        "data": [
-            { temps: 2, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 9, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
-        ]
-    },
-
-    {
-        "img": "./img/timeline/parc.jpg",
+        "img": "./img/timeline/doctor.svg",
         "categorie": "Parc",
         "data": [
-            { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 14, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+        ]
+    },
+    {
+        "img": "./img/timeline/bus.svg",
+        "categorie": "Parc",
+        "data": [
+            { temps: 11, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+        ]
+    },
+    {
+        "img": "./img/timeline/park.svg",
+        "categorie": "Parc",
+        "data": [
+            { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     }
 ];
@@ -149,8 +158,8 @@ nonDatedata2 = [{
 function drawTimeLine() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
-    TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: "teal", width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
-    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: "teal", width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: ["#2a315b","#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: ["#2a315b","#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
 };
 
 window.addEventListener("resize", drawTimeLine);

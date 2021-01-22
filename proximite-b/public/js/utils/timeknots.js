@@ -6,7 +6,7 @@ var TimeKnots = {
             height: 200,
             radius: 25,
             lineWidth: 4,
-            color: "#999",
+            color: ["#999","#999"],
             background: "#FFF",
             dateFormat: "%Y/%m/%d %H:%M:%S",
             horizontalLayout: true,
@@ -124,23 +124,13 @@ var TimeKnots = {
                 return Math.floor(step * (datum - minValue))
             })
             .style("stroke", function (d) {
-                if (d.color != undefined) {
-                    return d.color
-                }
-                if (d.series != undefined) {
-                    if (series.indexOf(d.series) < 0) {
-                        series.push(d.series);
-                    }
-                    return cfg.seriesColor(series.indexOf(d.series));
-                }
-                return cfg.color
+                return cfg.color[0]
             })
             .style("stroke-width", cfg.lineWidth);
 
 
 
         //draw circles
-
         var node = svg.selectAll(".node")
             .data(events)
             .enter().append("g")
@@ -188,7 +178,7 @@ var TimeKnots = {
                         ;
                     d3.select(this)
                         .style("opacity", 1)
-                        .style("fill", function (d) { if (d.color != undefined) { return d.color } return cfg.color })
+                        .style("fill", function (d) { return cfg.color[0]})
                         .transition()
                         .duration(100)
                         .attr("width", 60)
@@ -270,44 +260,31 @@ var TimeKnots = {
             .style("opacity", 1)
             ;
 
-
-
-        const segments = svg.selectAll(null)
+            
+            const circlenode = svg.selectAll(null)
             .data(events)
             .enter()
-            .append("line")
+            .append("circle")
+            .attr("r", 2*cfg.lineWidth)
             .style("opacity", 0)
-            .attr("x1", 0)
-            .attr("x2", 0)
-            .attr("y1", function (d) {
+
+
+            .attr("cx", 0)
+            .attr("cy", function (d) {
                 if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) + 10
+                    return Math.floor(cfg.height / 2) 
                 }
                 var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                 return Math.floor(step * (datum - minValue) + margin)
             })
-            .attr("y2", function (d) {
-                if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) - 10
-                }
-                var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                return Math.floor(step * (datum - minValue) + margin)
-            })
-            .style("stroke", function (d) {
-                if (d.color != undefined) {
-                    return d.color
-                }
-                if (d.series != undefined) {
-                    if (series.indexOf(d.series) < 0) {
-                        series.push(d.series);
-                    }
-                    return cfg.seriesColor(series.indexOf(d.series));
-                }
-                return cfg.color
+            
+
+            .style("fill", function (d) {
+                return cfg.color[1]
             })
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
-            .attr("x1", function (d) {
+            .attr("cx", function (d) {
                 if (cfg.horizontalLayout) {
                     var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                     var x = Math.floor(step * (datum - minValue) + margin);
@@ -315,19 +292,17 @@ var TimeKnots = {
                 }
                 return Math.floor(cfg.width / 2)
             })
-            .attr("x2", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x;
-                }
-                return Math.floor(cfg.width / 2)
-            })
+            
             .delay(function (_, i) {
                 if (i <= 1) return 0;
                 else return (i - 1) * 1000;
             })
             .style("opacity", 1);
+
+
+
+
+
 
 
 
