@@ -21,11 +21,16 @@ let sketchCiel = function(p) {
     let imgPhareNuit;
     let imgPhareSoleil;
 
+    let imgFondJour;
+    let imgFondNuit;
+    let imgFondSoleil;
+
     /**affichee**/
     let imgdisplayCiel;
     let imgdisplayMer;
     let imgdisplaySol;
     let imgdisplayPhare;
+    let imgdisplayFond;
 
     /*pluie*/
     var rain = [];
@@ -40,10 +45,10 @@ let sketchCiel = function(p) {
     var orage = false;
 
     var backgroundColorNuit = "#031D27";
-    var backgroundColorJour = "#00C0D2";
+    var backgroundColorJour = "#4fbece";
     var backgroundColorSoleil = "#71265F";
 
-    var backgroundColor = backgroundColorJour;
+    var backgroundColor = "#B6F6FC";
 
     p.setup = function(){
       fade = 0
@@ -73,6 +78,11 @@ let sketchCiel = function(p) {
       imgPhareNuit = p.loadImage('img/Phare/pharenuit.png');
       imgPhareSoleil = p.loadImage('img/Phare/pharesoleil.png');
 
+      imgFondJour = p.loadImage('img/Fonds/fondjour.png');
+      imgFondNuit = p.loadImage('img/Fonds/fondnuit.png');
+      imgFondSoleil = p.loadImage('img/Fonds/fondsoleil.png');
+
+
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
       }
@@ -93,6 +103,10 @@ let sketchCiel = function(p) {
           rain[i].dropRain();
           rain[i].splash();
         }
+      }
+
+      if(imgdisplayFond){
+        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
       }
     }
       
@@ -137,6 +151,10 @@ let sketchCiel = function(p) {
       if(imgdisplaySol){
         p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
       }
+
+      if(imgdisplayFond){
+        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
+      }
     }
 
     sketchCiel.resetSketchCiel = function(){
@@ -144,7 +162,8 @@ let sketchCiel = function(p) {
       imgdisplayMer = undefined;
       imgdisplaySol = undefined;
       imgdisplayPhare = undefined;
-      backgroundColor = backgroundColorJour;
+      backgroundColor = "#B6F6FC";
+      imgdisplayFond = undefined;
     }
 
     sketchCiel.updateSketchCiel = function(){
@@ -166,6 +185,7 @@ let sketchCiel = function(p) {
 
       if(affichage.moment == "journee"){
         backgroundColor = backgroundColorJour;
+        imgdisplayFond = imgFondJour;
         if(affichage.ciel) {
           imgdisplayCiel = imgCielJour;
         }
@@ -189,6 +209,8 @@ let sketchCiel = function(p) {
       }
       else if(affichage.moment == "nuit"){
         backgroundColor = backgroundColorNuit;
+        imgdisplayFond = imgFondNuit;
+
         if(affichage.ciel){
           imgdisplayCiel = imgCielNuit;
         }
@@ -212,6 +234,8 @@ let sketchCiel = function(p) {
       }
       else if(affichage.moment){
         backgroundColor = backgroundColorSoleil;
+        imgdisplayFond = imgFondSoleil;
+
         if(affichage.ciel){
           imgdisplayCiel = imgCielSoleil;
         }
