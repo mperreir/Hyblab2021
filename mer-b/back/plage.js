@@ -154,7 +154,7 @@ exports.getbyfilter = async function(req) {
     }
 
     if (beaches.length == 0) {
-        throw new Error( `There is no beaches respecting the planning around and the location`);
+        console.log(`There is no beaches respecting the planning around and the location.`);
     }
 
     // Filter the beaches with the type of the surface of it
@@ -170,7 +170,7 @@ exports.getbyfilter = async function(req) {
     }
 
     if (beaches.length == 0) {
-        throw new Error( `There is no beaches respecting the planning around, the location and the type`);
+        console.log(`There is no beaches respecting the planning around, the location and the type.`);
     }
 
     function dist(lat1, lon1, lat2, lon2) {
