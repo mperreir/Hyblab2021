@@ -231,7 +231,6 @@ h1 {
 
 .containerAcceuil h1 {
     text-align: center;
-    margin-bottom: 30px;
 }
 
 #containerBackground {
@@ -250,6 +249,7 @@ div#boutonGoSlide2 {
 
 #containerQuestion h1 {
     text-align: left;
+    margin-bottom: 30px;
 }
 
 

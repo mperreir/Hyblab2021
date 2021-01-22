@@ -5,11 +5,4 @@ let initSlide2 = function(){
     initSlide3();
   });
 
-  d3.select('#boutonBegin').on('mouseover', function(){
-    
-  });
-
-  d3.select('#boutonBegin').on('mouseout', function(){
-    
-  });
 };
