@@ -57,24 +57,16 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    const cst = require("./constants.json");
     const osm = require("./openstreetmap");
 
     const url = osm.api_url(filtres);
-
-    let i = 1;
-    let response = await fetch(cst.openstreetmap.api_url1 + url);
-
-    while (!response.ok && i < 4) {
-        i++;
-        response = await fetch(cst.openstreetmap[`api_url${i}`] + url);
-    }
+    const res = osm.api_fetch(url)
     
-    if (!response.ok) {
-        return `An error has occured (${response.status}) when fetching on the openstreetmap api.`;
+    if (!res.ok) {
+        return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
     }
 
-    const data = await response.json();
+    const data = await res.json();
 
     let beaches = [];
     let harbors = [];
