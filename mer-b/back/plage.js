@@ -10,9 +10,6 @@ exports.getbyfilter = async function(req) {
     const planning = ["harbor", "lighthouse", "car_park"];
 
     let filtres = {};
-    let dist_lighthouse = ``;
-    let dist_harbor= ``;
-    let dist_car = ``;
 
     const liste_filtres = req.split('&');
     for (const e of liste_filtres) {
@@ -38,6 +35,7 @@ exports.getbyfilter = async function(req) {
                     return `An error has occured with the input ${filtre}: ${arg}`
                 }
             case "planning":
+                filtres.planning = [];
                 for (const elem of arg.split(',')) {
                     
                     const choice = elem.split('(')
@@ -49,10 +47,8 @@ exports.getbyfilter = async function(req) {
                     } else if (!/^\d+$/.test(dist)) {
                         return `An error has occured with the input planning concerning the distance of ${value}`
                     } else {
-                        filtres.planning = value;
-                        if (value == "harbor") dist_harbor = dist;
-                        else if(value == "lighthouse") dist_lighthouse = dist;
-                        else dist_car = dist;
+                        filtres.planning.push(value);
+                        filtres[`dist_${value}`] = dist;
                     }
                 }
                 break;
