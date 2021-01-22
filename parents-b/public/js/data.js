@@ -1,208 +1,417 @@
-let json = require('../data/jardins');
-console.log(json);
-
-/*
-json.forEach(x => x.nbElemCorrect = 0);
-
-let nbCritereTraite = 0;
-
-json.forEach(x => {
-    if (x["Chiens autorisés"]) x.nbElemCorrect++;
-});
-
-nbCritereTraite++;
-
-json.sort((a, b) => { return b.nbElemCorrect - a.nbElemCorrect });
-
-console.log(json);
-json.filter(x => x["Nom"]);
-json.filter(x => x["Type"]);
-json.filter(x => x["Adresses"]);
-
-json.filter(x => x["Géolocalisation"]);
-json.filter(x => x["Code postal"]);
-json.filter(x => x["Web"]);
-
-// Information complémentaire
-
-json.filter(x => x["Informations complémentaires"]);
-
-json.forEach(x => {
-	if (x["Informations complémentaires"]) x.nbElemCorrect++;
-});
-
-// Gardien
-
-json.filter(x => x["Gardien"]);
-
-json.forEach(x => {
-	if (x["Gardien"]) x.nbElemCorrect++;
-});
-
-// Jeux pour enfants
-
-json.filter(x => x["Jeux pour enfants"]);
-
-json.forEach(x => {
-	if (x["Jeux pour enfants"]) x.nbElemCorrect++;
-});
-
-// Pataugeoire
-
-json.filter(x => x["Pataugeoire"]);
-
-json.forEach(x => {
-	if (x["Pataugeoire"]) x.nbElemCorrect++;
-});
-
-// Sanitaires
-
-json.filter(x => x["Sanitaires"]);
-
-json.forEach(x => {
-	if (x["Sanitaires"]) x.nbElemCorrect++;
-});
-
-// Sanitaires pour handicapés
-
-json.filter(x => x["Sanitaires pour handicapés"]);
-
-json.forEach(x => {
-	if (x["Sanitaires pour handicapés"]) x.nbElemCorrect++;
-});
-
-// Jardin clos
-
-json.filter(x => x["Jardin clos"]);
-
-json.forEach(x => {
-	if (x["Jardin clos"]) x.nbElemCorrect++;
-});
-
-// Abris
-
-json.filter(x => x["Abris"]);
-
-json.forEach(x => {
-	if (x["Abris"]) x.nbElemCorrect++;
-});
-
-// Point d'eau
-
-json.filter(x => x["Point d'eau"]);
-
-json.forEach(x => {
-	if (x["Point d'eau"]) x.nbElemCorrect++;
-});
-
-// Table de pique-nique
-
-json.filter(x => x["Table pique-nique"]);
-
-json.forEach(x => {
-	if (x["Table pique-nique"]) x.nbElemCorrect++;
-});
-
-// Accès transports en commun
-
-json.filter(x => x["Accès transports en commun"]);
-
-json.forEach(x => {
-	if (x["Accès transports en commun"]) x.nbElemCorrect++;
-});
-
-// Bancs
-
-json.filter(x => x["Bancs"]);
-
-json.forEach(x => {
-	if (x["Bancs"]) x.nbElemCorrect++;
-});
-
-// Accès Parking
-
-json.filter(x => x["Accès Parking"]);
-
-json.forEach(x => {
-	if (x["Accès Parking"]) x.nbElemCorrect++;
-});
-
-// Restauration
-
-json.filter(x => x["Restauration"]);
-
-json.forEach(x => {
-	if (x["Restauration"]) x.nbElemCorrect++;
-});
-
-// Présence d'animaux
-
-json.filter(x => x["Présence d'animaux"]);
-
-json.forEach(x => {
-	if (x["Présence d'animaux"]) x.nbElemCorrect++;
-});
-
-// Herbe/sable
-
-json.filter(x => x["Herbe (un minimum) / Sable"]);
-
-json.forEach(x => {
-	if (x["Herbe (un minimum) / Sable"]) x.nbElemCorrect++;
-});
-
-// Verdure / Espace vert
-
-json.filter(x => x["Verdure / Plante Espace Vert"]);
-
-json.forEach(x => {
-	if (x["Verdure / Plante Espace Vert"]) x.nbElemCorrect++;
-});
-
-// CRAPA
-
-json.filter(x => x["CRAPA"]);
-
-json.forEach(x => {
-	if (x["CRAPA"]) x.nbElemCorrect++;
-});
-
-// Terrains de sport
-
-json.filter(x => x["Terrains de sport"]);
-
-json.forEach(x => {
-	if (x["Terrains de sport"]) x.nbElemCorrect++;
-});
-
-// Activités organisées
-
-json.filter(x => x["Activités organisées"]);
-
-json.forEach(x => {
-	if (x["Activités organisées"]) x.nbElemCorrect++;
-});
-
-// Element de culture
-
-json.filter(x => x["Élément de culture"]);
-
-json.forEach(x => {
-	if (x["Élément de culture"]) x.nbElemCorrect++;
-});
-
-// Horaires d'ouverture
-
-// TODO Définir la détection des horraires
-json.filter(x => x["Horaires d'ouverture"]);
-
-// Age
-
-// TODO Avoir une gestion de l'âge par rapport à l'écart à la tranche d'âge
-json.filter(x => x["Âge"]);
-
-// Taille
-
-// TODO Définir Qu'est ce qu'un grand/moyen/petit parc
-json.filter(x => x["Taille (m^2)"]);
-*/
+const form = document.getElementById('postCriteria');
+const nbCriteria = document.getElementById('nbCriteria');
+
+function stringToBool(string) {
+    return string === 'true';
+}
+
+function gardAttribute() {
+    const gard = document.getElementById('gard');
+    if (gard) {
+        gard.value = !stringToBool(gard.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'gard';
+        hidden.name = 'gard';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function childGameAttribute() {
+    const childGame = document.getElementById('childGame');
+    if (childGame) {
+        childGame.value = !stringToBool(childGame.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'childGame';
+        hidden.name = 'childGame';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function paddlingPoolAttribute() {
+    const paddlingPool = document.getElementById('paddlingPool');
+    if (paddlingPool) {
+        paddlingPool.value = !stringToBool(paddlingPool.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'paddlingPool';
+        hidden.name = 'paddlingPool';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function toiletAttribute() {
+    const toilet = document.getElementById('toilet');
+    if (toilet) {
+        toilet.value = !stringToBool(toilet.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'toilet';
+        hidden.name = 'toilet';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function handicapToiletAttribute() {
+    const handicapToilet = document.getElementById('handicapToilet');
+    if (handicapToilet) {
+        handicapToilet.value = !stringToBool(handicapToilet.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'handicapToilet';
+        hidden.name = 'handicapToilet';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function dogAttribute() {
+    const dog = document.getElementById('dog');
+    if (dog) {
+        dog.value = !stringToBool(dog.value);
+    } else {
+        console.log("OUI");
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'dog';
+        hidden.name = 'dog';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function closedAttribute() {
+    const closed = document.getElementById('closed');
+    if (closed) {
+        closed.value = !stringToBool(closed.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'closed';
+        hidden.name = 'closed';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function shelterAttribute() {
+    const shelter = document.getElementById('shelter');
+    if (shelter) {
+        shelter.value = !stringToBool(shelter.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'shelter';
+        hidden.name = 'shelter';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function waterAttribute() {
+    const water = document.getElementById('water');
+    if (water) {
+        water.value = !stringToBool(water.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'water';
+        hidden.name = 'water';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function tableAttribute() {
+    const table = document.getElementById('table');
+    if (table) {
+        table.value = !stringToBool(table.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'table';
+        hidden.name = 'table';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function handicapAccesAttribute() {
+    const handicapAcces = document.getElementById('handicapAcces');
+    if (handicapAcces) {
+        handicapAcces.value = !stringToBool(handicapAcces.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'handicapAcces';
+        hidden.name = 'handicapAcces';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function benchesAttribute() {
+    const benches = document.getElementById('benches');
+    if (benches) {
+        benches.value = !stringToBool(benches.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'benches';
+        hidden.name = 'benches';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function parkingAttribute() {
+    const parking = document.getElementById('parking');
+    if (parking) {
+        parking.value = !stringToBool(parking.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'parking';
+        hidden.name = 'parking';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function restaurantAttribute() {
+    const restaurant = document.getElementById('restaurant');
+    if (restaurant) {
+        restaurant.value = !stringToBool(restaurant.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'restaurant';
+        hidden.name = 'restaurant';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function animalsAttribute() {
+    const animals = document.getElementById('animals');
+    if (animals) {
+        animals.value = !stringToBool(animals.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'animals';
+        hidden.name = 'animals';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function grassAttribute() {
+    const grass = document.getElementById('grass');
+    if (grass) {
+        grass.value = !stringToBool(grass.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'grass';
+        hidden.name = 'grass';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+
+function greeneryAttribute() {
+    const greenery = document.getElementById('greenery');
+    if (greenery) {
+        greenery.value = !stringToBool(greenery.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'greenery';
+        hidden.name = 'greenery';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+
+function crapaAttribute() {
+    const crapa = document.getElementById('crapa');
+    if (crapa) {
+        crapa.value = !stringToBool(crapa.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'crapa';
+        hidden.name = 'crapa';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+
+function sportAttribute() {
+    const sport = document.getElementById('sport');
+    if (sport) {
+        sport.value = !stringToBool(sport.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'sport';
+        hidden.name = 'sport';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+
+function activityAttribute() {
+    const activity = document.getElementById('activity');
+    if (activity) {
+        activity.value = !stringToBool(activity.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'activity';
+        hidden.name = 'activity';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+
+function cultureAttribute() {
+    const culture = document.getElementById('culture');
+    if (culture) {
+        culture.value = !stringToBool(culture.value);
+    } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.id = 'culture';
+        hidden.name = 'culture';
+        hidden.value = 'true';
+        form.appendChild(hidden);
+        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+    }
+}
+
+function main() {
+    /*
+    // TODO 'garde' sera à remplacer par l'id de l'élément à tester
+    const garde = document.getElementById('garde');
+    garde.addEventListener('click', gardAttribute);
+
+    // TODO 'jeuxEnfant' sera à remplacer par l'id de l'élément à tester
+    const jeuxEnfant = document.getElementById('jeuxEnfant');
+    jeuxEnfant.addEventListener('click', childGameAttribute);
+
+    // TODO 'pataugeoire' sera à remplacer par l'id de l'élément à tester
+    const pataugeoire = document.getElementById('pataugeoire');
+    pataugeoire.addEventListener('click', paddlingPoolAttribute);
+
+    // TODO 'toilette' sera à remplacer par l'id de l'élément à tester
+    const toilette = document.getElementById('toilette');
+    toilette.addEventListener('click', toiletAttribute);
+
+    // TODO 'toiletteHandicape' sera à remplacer par l'id de l'élément à tester
+    const toiletteHandicape = document.getElementById('toiletteHandicape');
+    toiletteHandicape.addEventListener('click', handicapToiletAttribute);
+
+    // TODO 'chien' sera à remplacer par l'id de l'élément à tester
+    const chien = document.getElementById('chien');
+    chien.addEventListener('click', dogAttribute);
+
+    // TODO 'clos' sera à remplacer par l'id de l'élément à tester
+    const clos = document.getElementById('clos');
+    clos.addEventListener('click', closedAttribute);
+
+    // TODO 'abris' sera à remplacer par l'id de l'élément à tester
+    const abris = document.getElementById('abris');
+    abris.addEventListener('click', shelterAttribute);
+
+    // TODO 'pointDeau' sera à remplacer par l'id de l'élément à tester
+    const pointDeau = document.getElementById('pointDeau');
+    pointDeau.addEventListener('click', waterAttribute);
+
+    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
+    const piqueNique = document.getElementById('piqueNique');
+    piqueNique.addEventListener('click', tableAttribute);
+
+    // TODO 'accesHandicape' sera à remplacer par l'id de l'élément à tester
+    const accesHandicape = document.getElementById('accesHandicape');
+    accesHandicape.addEventListener('click', handicapAccesAttribute);
+
+    // TODO 'banc' sera à remplacer par l'id de l'élément à tester
+    const banc = document.getElementById('banc');
+    banc.addEventListener('click', benchesAttribute);
+
+    // TODO 'accesParking' sera à remplacer par l'id de l'élément à tester
+    const accesParking = document.getElementById('accesParking');
+    accesParking.addEventListener('click', parkingAttribute);
+
+    // TODO 'restauration' sera à remplacer par l'id de l'élément à tester
+    const restauration = document.getElementById('restauration');
+    restauration.addEventListener('click', restaurantAttribute);
+
+    // TODO 'animal' sera à remplacer par l'id de l'élément à tester
+    const animal = document.getElementById('animal');
+    animal.addEventListener('click', animalsAttribute);
+
+    // TODO 'herbe' sera à remplacer par l'id de l'élément à tester
+    const herbe = document.getElementById('herbe');
+    herbe.addEventListener('click', grassAttribute);
+
+    // TODO 'verdure' sera à remplacer par l'id de l'élément à tester
+    const verdure = document.getElementById('verdure');
+    verdure.addEventListener('click', greeneryAttribute);
+
+    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
+    const crapa = document.getElementById('crapa');
+    crapa.addEventListener('click', crapaAttribute);
+
+    // TODO 'terrainSport' sera à remplacer par l'id de l'élément à tester
+    const terrainSport = document.getElementById('terrainSport');
+    terrainSport.addEventListener('click', sportAttribute);
+
+    // TODO 'activite' sera à remplacer par l'id de l'élément à tester
+    const activite = document.getElementById('activite');
+    activite.addEventListener('click', activityAttribute);
+
+    // TODO 'elementCulture' sera à remplacer par l'id de l'élément à tester
+    const elementCulture = document.getElementById('elementCulture');
+    elementCulture.addEventListener('click', cultureAttribute);
+    */
+}
+
+main();
