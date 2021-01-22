@@ -213,6 +213,50 @@ exports.getbyfilter = async function(req) {
         });
     }
 
+    function nearest(plage, object) {
+        let nearest = object[0];
+        for (const node in object) {
+            if (dist(plage.latitude, plage.longitude, node.latitude, node.longitude) > nearest) {
+                nearest = node;
+            }
+        }
+        return nearest;
+    }
+
+
+    if (harbors.length !== 0) {
+        for (const node in plages) {
+            let port = nearest(node, harbors);
+            plages.push({
+                latitude: port.lat,
+                longitude: port.lon,
+                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            })
+        }
+    }
+
+    if (lighthouses.length !== 0) {
+        for (const node in plages) {
+            let lighthouse = nearest(node, lighthouses);
+            plages.push({
+                latitude: lighthouse.lat,
+                longitude: lighthouse.lon,
+                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            })
+        }
+    }
+
+    if (car_parks.length !== 0) {
+        for (const node in plages) {
+            let car_park = nearest(node, car_parks);
+            plages.push({
+                latitude: car_park.lat,
+                longitude: car_park.lon,
+                name: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            })
+        }
+    }
+
     return plages
 };
 
