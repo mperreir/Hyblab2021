@@ -116,7 +116,60 @@ exports.getbyfilter = async function(req) {
         return [];
     }
 
-    let plages = osm.format(beaches, harbors, lighthouses, car_parks);
+    // format the beaches information into plages
+    let plages = [];
+    for (const node of beaches) {
+        plages.push({
+            latitude: node.lat,
+            longitude: node.lon,
+            nom: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
+        });
+    }
+    
+    // add more information about plannings if needed
+    function nearest(plage, object) {
+        let nearest = object[0];
+        for (const node in object) {
+            if ((plage.latitude - node.latitude)**2 + (plage.longitude - node.longitude)**2 > nearest) {
+                nearest = node;
+            }
+        }
+        return nearest;
+    }
+
+    if (harbors.length !== 0) {
+        for (const node of plages) {
+            const harbor = nearest(node, harbors);
+            node.port = {
+                latitude: harbor.lat,
+                longitude: harbor.lon,
+                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
+            }
+        }
+    }
+
+    if (lighthouses.length !== 0) {
+        for (const node of plages) {
+            const lighthouse = nearest(node, lighthouses);
+            node.phare = {
+                latitude: lighthouse.lat,
+                longitude: lighthouse.lon,
+                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
+            }
+        }
+    }
+
+    if (car_parks.length !== 0) {
+        for (const node of plages) {
+            const car_park = nearest(node, car_parks);
+            node.parking = {
+                latitude: car_park.lat,
+                longitude: car_park.lon,
+                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
+            }
+        }
+    }
 
     // Take the 3 nodes nearest of the initial location
     if (plages.length > 3 ) {
