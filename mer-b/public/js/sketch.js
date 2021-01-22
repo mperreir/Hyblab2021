@@ -25,12 +25,21 @@ let sketchCiel = function(p) {
     let imgFondNuit;
     let imgFondSoleil;
 
+    let imgPlanteJour;
+    let imgPlanteNuit;
+    let imgPlanteSoleil;
+
     /**affichee**/
     let imgdisplayCiel;
+    let cielY = -1;
     let imgdisplayMer;
+    let merY = -1;
     let imgdisplaySol;
+    let solY = -1;
     let imgdisplayPhare;
+    let phareY = -1;
     let imgdisplayFond;
+    let imgdisplayPlante;
 
     /*pluie*/
     var rain = [];
@@ -46,7 +55,7 @@ let sketchCiel = function(p) {
 
     var backgroundColorNuit = "#031D27";
     var backgroundColorJour = "#4fbece";
-    var backgroundColorSoleil = "#71265F";
+    var backgroundColorSoleil = "#69315e";
 
     var backgroundColor = "#B6F6FC";
 
@@ -82,6 +91,10 @@ let sketchCiel = function(p) {
       imgFondNuit = p.loadImage('img/Fonds/fondnuit.png');
       imgFondSoleil = p.loadImage('img/Fonds/fondsoleil.png');
 
+      imgPlanteJour = p.loadImage('img/Plante/plantesjour.png');
+      imgPlanteNuit = p.loadImage('img/Plante/plantesnuit.png');
+      imgPlanteSoleil = p.loadImage('img/Plante/plantessoleil.png');
+
 
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
@@ -97,7 +110,7 @@ let sketchCiel = function(p) {
       p.background(backgroundColor);
       animationCiel();
 
-      if (rainingNow == true) {
+      if (rainingNow == true && cielY == 0) {
         //background(100);
         for (i = 0; i < rain.length; i++) {
           rain[i].dropRain();
@@ -107,6 +120,10 @@ let sketchCiel = function(p) {
 
       if(imgdisplayFond){
         p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
+      }
+
+      if(imgdisplayPlante){
+        p.image(imgdisplayPlante, 0, 0, p.windowWidth, p.windowHeight);
       }
     }
       
@@ -118,9 +135,12 @@ let sketchCiel = function(p) {
       step += 1;
       
       if(imgdisplayCiel){
-        p.image(imgdisplayCiel, 0, 0, p.windowWidth, p.windowHeight);
+        if(cielY > 0){
+          cielY -= 2;
+        }
+        p.image(imgdisplayCiel, 0, cielY, p.windowWidth, p.windowHeight);
       }
-      if(orage){
+      if(orage && cielY == 0){
         for (var i = 0; i < 20; i++) {
           xCoord1 = xCoord2;
           yCoord1 = yCoord2;
@@ -142,19 +162,31 @@ let sketchCiel = function(p) {
       }
       
       if(imgdisplayPhare){
-        p.image(imgdisplayPhare, 0, 0, p.windowWidth, p.windowHeight);
+        if(phareY > 0){
+          phareY -= 2;
+        }
+        p.image(imgdisplayPhare, 0, phareY, p.windowWidth, p.windowHeight);
+      }
+
+      if(imgdisplaySol){
+        console.log(solY);
+        if(solY > 0){
+          solY -= 2;
+        }
+        p.image(imgdisplaySol, 0, solY, p.windowWidth, p.windowHeight);
       }
 
       if(imgdisplayMer){
-        p.image(imgdisplayMer, 0, 0, p.windowWidth, p.windowHeight);
-      }
-      if(imgdisplaySol){
-        p.image(imgdisplaySol, 0, 0, p.windowWidth, p.windowHeight);
+        if(merY > 0){
+          merY -= 4;
+        }
+        p.image(imgdisplayMer, 0, merY, p.windowWidth, p.windowHeight);
       }
 
       if(imgdisplayFond){
         p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
       }
+
     }
 
     sketchCiel.resetSketchCiel = function(){
@@ -164,6 +196,12 @@ let sketchCiel = function(p) {
       imgdisplayPhare = undefined;
       backgroundColor = "#B6F6FC";
       imgdisplayFond = undefined;
+      imgdisplayPlante = undefined;
+
+      cielY = -1;
+      merY = -1;
+      solY = -1;
+      phareY = -1;
     }
 
     sketchCiel.updateSketchCiel = function(){
@@ -186,75 +224,140 @@ let sketchCiel = function(p) {
       if(affichage.moment == "journee"){
         backgroundColor = backgroundColorJour;
         imgdisplayFond = imgFondJour;
+        imgdisplayPlante = imgPlanteJour;
+
         if(affichage.ciel) {
+          if(cielY == -1){
+            cielY = 200;
+          } 
+
           imgdisplayCiel = imgCielJour;
         }
-        if(affichage.mer == "calme"){
-          imgdisplayMer = imgMerCalmeJour;
-        }
-        else if(affichage.mer == "agitee"){
-          imgdisplayMer = imgMerAgiteeJour;
+
+        if(affichage.mer){
+          if(affichage.mer == "calme"){
+            imgdisplayMer = imgMerCalmeJour;
+          }
+          else if(affichage.mer == "agitee"){
+            imgdisplayMer = imgMerAgiteeJour;
+          }
+
+          if(merY == -1){
+            merY = 200;
+          }
         }
 
-        if(affichage.type == "galets"){
-          imgdisplaySol = imgSolGaletJour;
-        }
-        else if(affichage.type == "sable"){
-          imgdisplaySol = imgSolSableJour;
-        }
+        if(affichage.type){
+          if(affichage.type == "galets"){
+            imgdisplaySol = imgSolGaletJour;
+          }
+          else if(affichage.type == "sable"){
+            imgdisplaySol = imgSolSableJour;
+          }
 
+          if(solY == -1){
+            solY = 100;
+          }
+        }
+        
         if(affichage.amenagement == "phare"){
           imgdisplayPhare = imgPhareJour;
+          if(phareY == -1){
+            phareY = 100;
+          }
         }
+
       }
       else if(affichage.moment == "nuit"){
         backgroundColor = backgroundColorNuit;
         imgdisplayFond = imgFondNuit;
+        imgdisplayPlante = imgPlanteNuit;
 
         if(affichage.ciel){
+          if(cielY == -1){
+            cielY = 200;
+          } 
           imgdisplayCiel = imgCielNuit;
         }
-        if(affichage.mer == "calme"){
-          imgdisplayMer = imgMerCalmeNuit;
-        }
-        else if(affichage.mer == "agitee"){
-          imgdisplayMer = imgMerAgiteeNuit;
+
+        if(affichage.mer){
+          if(affichage.mer == "calme"){
+            imgdisplayMer = imgMerCalmeNuit;
+          }
+          else if(affichage.mer == "agitee"){
+            imgdisplayMer = imgMerAgiteeNuit;
+          }
+
+          if(merY == -1){
+            merY = 200;
+          }
         }
 
-        if(affichage.type == "galets"){
-          imgdisplaySol = imgSolGaletNuit;
-        }
-        else if(affichage.type == "sable"){
-          imgdisplaySol = imgSolSableNuit;
+        if(affichage.type){
+          if(affichage.type == "galets"){
+            imgdisplaySol = imgSolGaletNuit;
+          }
+          else if(affichage.type == "sable"){
+            imgdisplaySol = imgSolSableNuit;
+          }
+
+          if(solY == -1){
+            solY = 100;
+          }
         }
 
         if(affichage.amenagement == "phare"){
           imgdisplayPhare = imgPhareNuit;
+
+          if(phareY == -1){
+            phareY = 100;
+          }
         }
       }
       else if(affichage.moment){
         backgroundColor = backgroundColorSoleil;
         imgdisplayFond = imgFondSoleil;
+        imgdisplayPlante = imgPlanteSoleil;
 
         if(affichage.ciel){
+          if(cielY == -1){
+            cielY = 200;
+          } 
           imgdisplayCiel = imgCielSoleil;
         }
-        if(affichage.mer == "calme"){
-          imgdisplayMer = imgMerCalmeSoleil;
-        }
-        else if(affichage.mer == "agitee"){
-          imgdisplayMer = imgMerAgiteeSoleil;
+        
+        if(affichage.mer){
+          if(affichage.mer == "calme"){
+            imgdisplayMer = imgMerCalmeSoleil;
+          }
+          else if(affichage.mer == "agitee"){
+            imgdisplayMer = imgMerAgiteeSoleil;
+          }
+
+          if(merY == -1){
+            merY = 200;
+          }
         }
 
-        if(affichage.type == "galets"){
-          imgdisplaySol = imgSolGaletSoleil;
-        }
-        else if(affichage.type == "sable"){
-          imgdisplaySol = imgSolSableSoleil;
+        if(affichage.type){
+          if(affichage.type == "galets"){
+            imgdisplaySol = imgSolGaletSoleil;
+          }
+          else if(affichage.type == "sable"){
+            imgdisplaySol = imgSolSableSoleil;
+          }
+
+          if(solY == -1){
+            solY = 100;
+          }
         }
 
         if(affichage.amenagement == "phare"){
           imgdisplayPhare = imgPhareSoleil;
+
+          if(phareY == -1){
+            phareY = 100;
+          }
         }
       }
     }
