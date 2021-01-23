@@ -1,0 +1,132 @@
+/* ---------------------------- Activities ------------------------ */
+.leaves-activities{
+    position: absolute;
+    top: 67%;
+    left: 73%;
+    width: 10%;
+    height: auto;
+    text-align: center;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 2;
+}
+
+.oya-activities{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 20%;
+    z-index: 2;
+}
+
+.talking-bubble-activities{
+    position: absolute;
+    top: 17%;
+    left: 25%;
+    width: 5%;
+    z-index: 2;
+}
+
+.oya-activities-dialog{
+    position: absolute;
+    top: 12%;
+    left: 32%;
+    width: 40%;
+    z-index: 2;
+}
+
+.picto-activities{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 2.2em;
+    height: 0.7em;
+}
+
+.crapa-picto{
+    top: 25%;
+}
+
+.games-picto{
+    top: 37%;
+}
+
+.sport-field-picto{
+    top: 49%;
+}
+
+.activities-picto{
+    top: 61%;
+}
+
+.statue-picto{
+    top: 73%;
+}
+/* Switch buttons */
+.switch {
+    position: absolute;
+    display: inline-block;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #685A82;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: .05em solid #ffe9de;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: .6em;
+    width: .6em;
+    background-size: 100%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.crapa-picto span.slider:before{
+    background-image: url("../img/common/pictograms/crapa_picto.svg");
+}
+
+.games-picto span.slider:before{
+    background-image: url("../img/common/pictograms/games_picto.svg");
+}
+
+.sport-field-picto span.slider:before{
+    background-image: url("../img/common/pictograms/sport_field_picto.svg");
+}
+
+.activities-picto span.slider:before{
+    background-image: url("../img/common/pictograms/activities_picto.svg");
+}
+
+.statue-picto span.slider:before{
+    background-image: url("../img/common/pictograms/statue_picto.svg");
+}
+
+input:checked + .slider {
+    background-color: #ffcdb6;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(250%);
+    -ms-transform: translateX(250%);
+    transform: translateX(250%);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 50px;
+}
