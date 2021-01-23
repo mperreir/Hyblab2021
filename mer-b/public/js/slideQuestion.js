@@ -84,7 +84,6 @@ function setTexte(id){
   function next(id){
     if(id + 1 < contenu.questions.length){
       mySlidr.slide('page-' + (id + 3));
-      setTexte(id);
     }
     else {
       mySlidr.slide('page-fin');
@@ -94,5 +93,7 @@ function setTexte(id){
 
   
 let initSlide3 = function(){
-    setTexte(0);
+    for(let i = 0; i + 1 < contenu.questions.length; i++){
+      setTexte(i);
+    }
 };

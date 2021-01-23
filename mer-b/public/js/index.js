@@ -16,5 +16,7 @@ let mySlidr = slidr.create('slidr',{
 mySlidr.add('h', ['page-3', 'page-4', 'page-5', 'page-6', 'page-7', 'page-8'], "fade");
 
 
-// on s'occupe de la 1ère slide
+// on init les slides
 initSlide1();
+initSlide2();
+initSlide3();
