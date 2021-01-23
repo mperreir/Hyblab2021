@@ -28,6 +28,43 @@ var TimeKnots = {
             events.push({ date: new Date(), name: cfg.addNowLabel || "Today" });
         }
 
+        function createSingleModal(d){
+            var firstAdress = d.data[0]
+            var otherAdress = d.data.slice(1);
+            $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
+            $("#otherItemsSingleModal").html("");
+            if (otherAdress.length >= 1) {
+                otherAdress.forEach(element => {
+                    $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+                });
+
+            }
+            else {
+                $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+            }
+        }
+
+        // function theFunction(){
+        //     console.log("thefunc")
+        // }
+        function createMultipleModal(d){
+            console.log('jnfsdjnkfdnjkfdsnjkdsfjnfdjn')
+            $("#headerMultipleModal").html(
+                JSON.stringify(d))
+
+
+            //TODO link to other modal
+            // d.forEach(element => {
+            //     console.log(element)
+            //     $("#headerMultipleModal").append(
+            //         '<a  onclick="theFunction();"><img src='+element.img+'></a>'
+
+            //     )
+            // })
+        }
+
+        
+
 
         d3.select(id).selectAll("svg").remove();
 
@@ -130,18 +167,50 @@ var TimeKnots = {
 
 
 
+        var cpt = {
+
+        };
+
         //draw circles
         var node = svg.selectAll(".node")
             .data(events)
-            .enter().append("g")
+            .enter()
+
+            .append("g")
+
             .attr("class", "node")
             ;
 
 
 
         node.append("image")
+            .each(function (d) {
+
+                if ((d.categorie != null)) {
+                    if (cpt["min" + d.data[0].temps]) {
+                        cpt["min" + d.data[0].temps].push(d);
+
+                    }
+                    else {
+                        cpt["min" + d.data[0].temps] = [d];
+                    }
+
+                }
+                else {
+                    cpt["min" + d.data[0].temps] = []
+                }
+                // console.log("each: " + JSON.stringify(d)); // d is datum
+            })
             .style("opacity", 0)
-            .attr("xlink:href", function (d) { return d.img })
+
+            .attr("xlink:href", function (d) {
+
+
+                console.log("----")
+                console.log(d.categorie + d.data[0].temps)
+                console.log(cpt["min" + d.data[0].temps]);
+                return d.img
+            })
             .attr("y", function (d) {
 
 
@@ -150,11 +219,9 @@ var TimeKnots = {
 
                 // console.log(d);
                 // console.log(events);
-                if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2) - 75
-                }
-                var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                return Math.floor(step * (datum - minValue) + margin)
+
+                return Math.floor(cfg.height / 2) - 75
+
             })
             .attr("x", 0)
             //resize img
@@ -162,24 +229,26 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                var firstAdress = d.data[0]
-                var otherAdress = d.data.slice(1);
-                $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
-                $("#otherItemsSingleModal").html("");
-                if (otherAdress.length >= 1) {
-                    otherAdress.forEach(element => {
-                        $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
-                    });
+                if (cpt["min" + d.data[0].temps].length > 1) {
+                    console.log('plusplusplus')
+
+                    createMultipleModal(cpt["min" + d.data[0].temps]);
+                  
+                    $("#multipleModal").modal('show');
+                    
 
                 }
                 else {
-                    $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+                    createSingleModal(d);
+                  
+                    $("#singleModal").modal('show');
+                    console.log("click")
                 }
-                $("#singleModal").modal('show');
-                console.log("click")
+
             })
             .on("mouseover", function (d) {
                 if (d.categorie != null) {
+                    d3.select(this).style("cursor", "pointer");
                     if (cfg.dateDimension) {
                         var format = d3.time.format(cfg.dateFormat);
                         var datetime = format(new Date(d.date));
@@ -215,18 +284,6 @@ var TimeKnots = {
                             }
                             return Math.floor(cfg.width / 2)
                         });
-
-
-                    // tip.html("");
-                    // // if (d.img != undefined) {
-                    // //     tip.append("img").style("float", "left").style("margin-right", "4px").attr("src", d.img).attr("width", "64px");
-                    // // }
-                    // tip.append("div")
-                    //     .style("width", 500)
-                    //     .style("float", "left").html(dateValue);
-                    // tip.transition()
-                    //     .duration(100)
-                    //     .style("opacity", .9);
                 }
             })
             .on("mouseout", function () {
@@ -251,15 +308,17 @@ var TimeKnots = {
                         return Math.floor(cfg.width / 2)
                     })
                     ;
-
-
-                // tip.transition()
-
-                //     .duration(100)
-                //     .style("opacity", 0)
             })
 
             .transition()
+            .delay(function (_, i) {
+                if (i <= 1) return 0;
+                else return (i - 1) * 1000;
+            })
+            .attr("xlink:href", function (d) {
+                return d.img
+            })
+
             .attr("x", function (d) {
                 if (cfg.horizontalLayout) {
                     var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
@@ -268,17 +327,57 @@ var TimeKnots = {
                 }
                 return Math.floor(cfg.width / 2)
             })
-            .delay(function (_, i) {
-                if (i <= 1) return 0;
-                else return (i - 1) * 1000;
-            })
 
+            .attr("y", function (d) {
+
+
+                if (cpt["min" + d.data[0].temps].length > 1) {
+                    return Math.floor(cfg.height / 2) - 150
+                }
+                else { return Math.floor(cfg.height / 2) - 75 }
+
+
+                // console.log(d);
+                // console.log(events);
+
+
+            })
             .style("opacity", 1)
+
+
+
+
+
             .transition()
-            .delay((events.length-1)*1000)
+
+            .attr("xlink:href", function (d) {
+
+                if (cpt["min" + d.data[0].temps].length > 1) {
+                    return "./img/timeline/plus.svg"
+                }
+                else { return d.img }
+            })
+            .attr("y", function (d) {
+
+                return Math.floor(cfg.height / 2) - 75
+
+
+                // console.log(d);
+                // console.log(events);
+
+
+            })
+            .transition()
+            .delay((events.length - 1) * 1000)
+
+
             .attr("pointer-events", "all")
             ;
 
+
+
+
+        console.log("each: " + JSON.stringify(cpt)); // d is datum
 
         const circlenode = svg.selectAll(null)
             .data(events)

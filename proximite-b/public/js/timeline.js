@@ -68,7 +68,7 @@ var nonDatedata2 = [
         "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
         "data": [
-            { temps: 2, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
             { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
             { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
         ]
@@ -114,7 +114,7 @@ var nonDatedata2 = [
         "img": "./img/timeline/park.svg",
         "categorie": "Parc",
         "data": [
-            { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+            { temps: 11, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     }
 ];
