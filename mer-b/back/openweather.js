@@ -170,8 +170,8 @@ exports.choose = (plages, weather) => {
         const weather_plage = weather[i].reduce((a,b)=>a.temperature>b.temperature?a:b)
         plages[i].time = new Date(weather_plage.time * 1000);
         plages[i].weather= {
-            temperature: weather_plage.temperature-273.15,
-            feels_like: weather_plage.feels_like-273.15,
+            temperature: (weather_plage.temperature-273.15).toFixed(2),
+            feels_like: (weather_plage.feels_like-273.15).toFixed(2),
             sunrise: new Date(weather_plage.sunrise * 1000),
             sunset: new Date(weather_plage.sunset * 1000)
         }
