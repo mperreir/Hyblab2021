@@ -137,9 +137,18 @@ exports.getbyfilter = async function(req) {
         return `There is no beaches respecting the planning around, the location, the type and the weather.`;
     }
 
-    return weather
+    // Filter weather with type of sea
+    if (filtres.hasOwnProperty("sea")) {
+        plages, weather = ow.filter_sea(plages, weather, filtres)
+    }
+
+    if (beaches.length == 0) {
+        return `There is no beaches respecting the planning around, the location, the type, the weather and the sea.`;
+    }
 
     // Take the 3 nodes nearest of the initial location
-    return utils.filter(plages, filters, 3)
+    plages = utils.filter(plages, filtres, 3)
+
+    return plages
 };
 

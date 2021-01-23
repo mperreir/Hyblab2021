@@ -43,6 +43,7 @@ exports.format = (data) => {
                 temperature: p.temp,
                 feels_like: p.feels_like,
                 weather: p.weather[0].main,
+                wind: p.wind_speed,
                 sunrise: data_daily[i].sunrise,
                 sunset: data_daily[i].sunset
             });
@@ -54,6 +55,7 @@ exports.format = (data) => {
                 temperature: data_daily[i].temp,
                 feels_like: data_daily[i].feels_like,
                 weather: data_daily[i].weather[0].main,
+                wind: data_daily[i].wind_speed,
                 sunrise: data_daily[i].sunrise,
                 sunset: data_daily[i].sunset
             });
@@ -149,7 +151,25 @@ exports.filter_weather = (plages, weather, filtres) => {
         }
     }
 
+    return plages, weather
+}
 
+exports.filter_sea = (plages, weather, filtres) => {
+
+    const threshold = 5.14444; // 10 Knots in m/s
+
+    for (let i = 0; i < weather.length; i++) {
+        if (filtres.weather === "hectic") {
+            weather[i] = weather[i].filter(item => item.wind > threshold);
+        } else if (filtres.weather === "calm") {
+            weather[i] = weather[i].filter(item => item.wind < threshold);
+        }
+
+        if (!weather[i].length) {
+            weather.splice(i, 1);
+            plages.splice(i, 1);
+        }
+    }
 
     return plages, weather
 }
