@@ -6,7 +6,7 @@
         "api_url4" : "https://overpass.nchc.org.tw/api/interpreter"
     },
     "openweather" : {
-        "api_url" : "https://api.openweathermap.org/data/2.5",
+        "api_url" : "https://api.openweathermap.org/data/2.5/weather?",
         "key" : ""
     }
 }

@@ -66,7 +66,7 @@ exports.getbyfilter = async function(req) {
         return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
     }
 
-    const data = await res.json();
+    const data_map = await res.json();
 
     let beaches = [];
     let harbors = [];
@@ -74,7 +74,7 @@ exports.getbyfilter = async function(req) {
     let car_parks = [];
 
     // Sort the node
-    for (const node of data.elements) {
+    for (const node of data_map.elements) {
         if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
             beaches.push(node)
         } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
@@ -162,18 +162,15 @@ exports.getbyfilter = async function(req) {
             }
         }
     }
+
     if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
-        const weather = require("./constants/openweathermap");
-
-
+        const cst = require("./constants.json");
 
         for (const node of plages) {
-            let lat = `lat=${node.latitude}&`
-            let lon = `lon=${node.longitude}&`
-            let key = `appid=${weather.key}`
 
-            let response_weather = await fetch(weather.api_url + lat + lon + key);
+            let response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
+
             if (!response_weather.ok) {
                 return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
             }
@@ -193,34 +190,33 @@ exports.getbyfilter = async function(req) {
             }
 
 
-            node.weather = {};
-            node.weather.sky = data_weather.weather[0].main;
-            node.weather.temp = data_weather.main.temp -273.15;
-            node.weather.wind =  data_weather.wind.speed;
+            node.weather = {
+                sky: data_weather.weather[0].main,
+                temp: data_weather.main.temp -273.15, // From Kelvin to Celcius
+                wind: data_weather.wind.speed,
+            };
 
-            node.time = {};
-            node.time.actualTime = time(unix_actualTime);
-            node.time.aube = time(unix_sunrise - 3600); // 1 hour before sunrise is "aube"
-            node.time.creneauAube = [time(unix_sunrise - 5400), time(unix_sunrise + 5400)];
-            node.time.crepuscule = time(unix_sunset + 3600); // 1 hour after sunset is "crepuscule"
-            node.time.creneauCrepuscule = [time(unix_sunset - 5400), time(unix_sunset + 5400)];
+            node.time = {
+                actualTime: time(unix_actualTime),
+                aube: time(unix_sunrise - 3600), // 1 hour before sunrise is "aube"
+                creneauAube: [time(unix_sunrise - 5400), time(unix_sunrise + 5400)],
+                crepuscule: time(unix_sunset + 3600); // 1 hour after sunset is "crepuscule",
+                creneauCrepuscule: [time(unix_sunset - 5400), time(unix_sunset + 5400)];
+            };
         }
     }
 
+    // filter
     if (filtres.hasOwnProperty("weather")) {
-
         if (filtres.weather === "stormy") {
             plages = plages.filter(node => ["Thunderstorm", "Ash", "Squall", "Tornado", "Sand"].includes(node.weather.sky))
         }
-
         if (filtres.weather === "clear") {
             plages = plages.filter(node => ["Clear"].includes(node.weather.sky))
         }
-
         if (filtres.weather === "bad") {
             plages = plages.filter(node => ["Rain", "Drizzle", "Fog",  "Smoke", "Snow", "Dust"].includes(node.weather.sky))
         }
-
         if (filtres.weather === "cloudy") {
             plages = plages.filter(node => ["Haze", "Mist", "Clouds"].includes(node.weather.sky))
         }
@@ -238,13 +234,10 @@ exports.getbyfilter = async function(req) {
         }
         if (filtres.time === "day") {
             plages = plages.filter(node => (node.time.actualTime > node.time.creneauAube[1] && node.time.actualTime < node.time.creneauCrepuscule[0]));
-
         }
-
         if (filtres.time === "dusk") {
             plages = plages.filter(node => (node.time.actualTime > node.time.creneauCrepuscule[0] && node.time.actualTime < node.time.creneauCrepuscule[1]));
         }
-
         if (filtres.time === "night") {
             plages = plages.filter(node => (node.time.actualTime < node.time.creneauAube[0] && node.time.actualTime > node.time.creneauCrepuscule[1]));
         }
