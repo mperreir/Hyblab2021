@@ -98,59 +98,22 @@ exports.getbyfilter = async function(req) {
     // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute): https://openweathermap.org/price)
     plages = utils.filter(plages, filtres, 30);
 
-
     // fetching the weather for each beach
-    weather = [];
+    const ow = require("./openweather");
 
-    const cst = require("./constants.json");
+    let data_weather = await ow.api_fetch(plages);
 
-    for (const node of plages) {
-
-        const response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
-
-        if (!response_weather.ok) {
-            if (response_weather.status == 401) {
-                return `Error: You need to input an an API key in the file: mer-b/back/constants.json`;
-            } else {
-                console.log(response_weather)
-                return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
-            }
-        }
-
-        const data_weather = await response_weather.json();
-
-        // format the information
-        const prediction = [];
-
-        const prediction_hourly = data_weather.hourly;
-        const prediction_daily = data_weather.daily;
-
-        for (const p of prediction_hourly) {
-            prediction.push({
-                time: p.dt,
-                temperature: p.temp,
-                feels_like: p.feels_like,
-                weather: p.weather.main,
-                sunrise: prediction_daily[Math.floor(prediction_hourly.indexOf(p)/24)].sunrise,
-                sunset: prediction_daily[Math.floor(prediction_hourly.indexOf(p)/24)].sunset
-            });
-        }
-
-        for (let i = 2; i<prediction_daily.length; i++) {
-            prediction.push({
-                time: prediction_daily[i].dt,
-                temperature: prediction_daily[i].temp,
-                feels_like: prediction_daily[i].feels_like,
-                weather: prediction_daily[i].weather.main,
-                sunrise: prediction_daily[i].sunrise,
-                sunset: prediction_daily[i].sunset
-            });
-        }
-
-        weather.push(prediction);
+    //if there has been an error
+    if (typeof data_weather == "string") {
+        return data_weather
     }
-    
-    return weather;
+
+    console.log(data_weather)
+
+    // Format data of the weather
+    let weather = ow.format(data_weather)
+
+    // Sort with time
 
     // if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
