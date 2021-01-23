@@ -37,3 +37,124 @@ exports.api_url = (filtres) => {
         return prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + `.harbor` : ``) + (lighthouse ? separator_output + `.lighthouse` : ``) + (car ? separator_output + `.parking` : ``) + sufix_output + sufix;
     }
 }
+
+exports.api_fetch = async (url) => {
+
+    const fetch = require('node-fetch');
+    const cst = require("./constants.json");
+
+    let i = 1;
+    let response = await fetch(cst.openstreetmap.api_url1 + url);
+
+    while (!response.ok && i < 4) {
+        i++;
+        response = await fetch(cst.openstreetmap[`api_url${i}`] + url);
+    }
+
+    return response;
+}
+
+exports.sort_node = (data) => {
+
+    let beaches = [];
+    let harbors = [];
+    let lighthouses = [];
+    let car_parks = [];
+
+    // Sort the node
+    for (const node of data) {
+        if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
+            beaches.push(node)
+        } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
+            harbors.push(node)
+        } else if (node.tags.hasOwnProperty("amenity") && node.tags.amenity == "parking") {
+            car_parks.push(node)
+        } else if (node.tags.hasOwnProperty("man_made") && (node.tags.man_made == "lighthouse" || node.tags.man_made == "beacon")) {
+            lighthouses.push(node)
+        }
+    }
+
+    return [beaches, harbors, lighthouses, car_parks]
+}
+
+exports.filter_type = (beaches, filtres) => {
+    
+    if (filtres.hasOwnProperty("type")) {
+        beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
+        if (filtres.type = "sand") {
+            beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+        } else if (filtres.type = "pebble") {
+            beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+        } else if (filtres.type = "rocks") {
+            beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
+        }
+    }
+    
+    return beaches
+}
+
+exports.format = (beaches) => {
+
+    let plages = [];
+
+    for (const node of beaches) {
+        plages.push({
+            latitude: node.lat,
+            longitude: node.lon,
+            nom: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
+            type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
+        });
+    }
+
+    return plages
+}
+
+exports.addinfo = (plages, harbors, lighthouses, car_parks) => {
+
+    const utils = require("./utils");
+
+    function nearest(plage, object) {
+        let nearest = object[0];
+        for (const node in object) {
+            if (utils.dist(plage.latitude, plage.longitude, node.latitude, node.longitude) < nearest) {
+                nearest = node;
+            }
+        }
+        return nearest;
+    }
+
+    if (harbors.length !== 0) {
+        for (const node of plages) {
+            const harbor = nearest(node, harbors);
+            node.port = {
+                latitude: harbor.lat,
+                longitude: harbor.lon,
+                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
+            }
+        }
+    }
+
+    if (lighthouses.length !== 0) {
+        for (const node of plages) {
+            const lighthouse = nearest(node, lighthouses);
+            node.phare = {
+                latitude: lighthouse.lat,
+                longitude: lighthouse.lon,
+                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
+            }
+        }
+    }
+
+    if (car_parks.length !== 0) {
+        for (const node of plages) {
+            const car_park = nearest(node, car_parks);
+            node.parking = {
+                latitude: car_park.lat,
+                longitude: car_park.lon,
+                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
+            }
+        }
+    }
+
+    return plages
+}

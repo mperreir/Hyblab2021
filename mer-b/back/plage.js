@@ -60,17 +60,13 @@ exports.getbyfilter = async function(req) {
     }
 
     const osm = require("./openstreetmap");
-    const cst = require("./constants.json");
+    const utils = require("./utils");
 
+    // Create the url to fetch with criterias
     const url = osm.api_url(filtres);
 
-    let i = 1;
-    let res = await fetch(cst.openstreetmap.api_url1 + url);
-
-    while (!res.ok && i < 4) {
-        i++;
-        res = await fetch(cst.openstreetmap[`api_url${i}`] + url);
-    }
+    // Fetching
+    const res = await osm.api_fetch(url);
     
     if (!res.ok) {
         return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
@@ -78,40 +74,15 @@ exports.getbyfilter = async function(req) {
 
     const data_map = await res.json();
 
-    let beaches = [];
-    let harbors = [];
-    let lighthouses = [];
-    let car_parks = [];
-
     // Sort the node
-    for (const node of data_map.elements) {
-        if (node.tags.hasOwnProperty("natural") && node.tags.natural == "beach") {
-            beaches.push(node)
-        } else if (node.tags.hasOwnProperty("harbour") && node.tags.harbour == "yes") {
-            harbors.push(node)
-        } else if (node.tags.hasOwnProperty("amenity") && node.tags.amenity == "parking") {
-            car_parks.push(node)
-        } else if (node.tags.hasOwnProperty("man_made") && (node.tags.man_made == "lighthouse" || node.tags.man_made == "beacon")) {
-            lighthouses.push(node)
-        }
-    }
+    let [beaches, harbors, lighthouses, car_parks] = osm.sort_node(data_map.elements);
 
     if (beaches.length == 0) {
-        console.log(`There is no beaches respecting the planning around and the location.`);
-        return [];
+        return `There is no beaches respecting the planning around and the location.`;
     }
 
     // Filter the beaches with the type of the surface of it
-    if (filtres.hasOwnProperty("type")) {
-        beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
-        if (filtres.type = "sand") {
-            beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
-        } else if (filtres.type = "pebble") {
-            beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
-        } else if (filtres.type = "rocks") {
-            beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
-        }
-    }
+    beaches = osm.filter_type(beaches, filtres);
 
     if (beaches.length == 0) {
         console.log(`There is no beaches respecting the planning around, the location and the type.`);
@@ -119,75 +90,19 @@ exports.getbyfilter = async function(req) {
     }
 
     // format the beaches information into plages
-    let plages = [];
-    for (const node of beaches) {
-        plages.push({
-            latitude: node.lat,
-            longitude: node.lon,
-            nom: (node.tags.hasOwnProperty("name") ? node.tags.name : null),
-            type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
-        });
-    }
-    
+    let plages = osm.format(beaches);
+
     // add more information about plannings if needed
-    function dist(lat1, lon1, lat2, lon2) {
-        return (lat1-lat2)**2 + (lon1-lon2)**2
-    }
-
-    function nearest(plage, object) {
-        let nearest = object[0];
-        for (const node in object) {
-            if (dist(plage.latitude, plage.longitude, node.latitude, node.longitude) > nearest) {
-                nearest = node;
-            }
-        }
-        return nearest;
-    }
-
-    if (harbors.length !== 0) {
-        for (const node of plages) {
-            const harbor = nearest(node, harbors);
-            node.port = {
-                latitude: harbor.lat,
-                longitude: harbor.lon,
-                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
-            }
-        }
-    }
-
-    if (lighthouses.length !== 0) {
-        for (const node of plages) {
-            const lighthouse = nearest(node, lighthouses);
-            node.phare = {
-                latitude: lighthouse.lat,
-                longitude: lighthouse.lon,
-                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
-            }
-        }
-    }
-
-    if (car_parks.length !== 0) {
-        for (const node of plages) {
-            const car_park = nearest(node, car_parks);
-            node.parking = {
-                latitude: car_park.lat,
-                longitude: car_park.lon,
-                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
-            }
-        }
-    }
+    plages = osm.addinfo(plages, harbors, lighthouses, car_parks);
 
     // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute): https://openweathermap.org/price)
-    function filter(plages, n) {
-
-        plages.sort((a, b) => dist(a.latitude, a.longitude, filtres.latitude, filtres.longitude) - dist(b.latitude, b.longitude, filtres.latitude, filtres.longitude));
-        return plages.slice(0, n)
-    }
-    plages = filter(plages, 30);
+    plages = utils.filter(plages, filtres, 30);
 
 
     // fetching the weather for each beach
     weather = [];
+
+    const cst = require("./constants.json");
 
     for (const node of plages) {
 
