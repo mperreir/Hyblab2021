@@ -204,10 +204,10 @@ let sketchCiel = function(p) {
     }
 
     sketchCiel.updateSketchCiel = function(){
-      if(affichage.ciel == 'pluie'){
+      if(affichage.ciel == 'bad'){
         rainingNow = true;
       }
-      else if(affichage.ciel == 'orageux'){
+      else if(affichage.ciel == 'stormy'){
         rainingNow = true;
         orage = true;
       }
@@ -220,7 +220,7 @@ let sketchCiel = function(p) {
       }
 
 
-      if(affichage.moment == "journee" || affichage.moment == "indifferent"){
+      if(affichage.moment == "day" || affichage.moment == "indifferent"){
         backgroundColor = backgroundColorJour;
         imgdisplayFond = imgFondJour;
         imgdisplayPlante = imgPlanteJour;
@@ -234,10 +234,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.mer){
-          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
+          if(affichage.mer == "calm" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeJour;
           }
-          else if(affichage.mer == "agitee"){
+          else if(affichage.mer == "hectic"){
             imgdisplayMer = imgMerAgiteeJour;
           }
 
@@ -247,10 +247,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.type){
-          if(affichage.type == "galets"){
+          if(affichage.type == "pebble"){
             imgdisplaySol = imgSolGaletJour;
           }
-          else if(affichage.type == "sable" || affichage.type == "indifferent"){
+          else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableJour;
           }
 
@@ -259,7 +259,7 @@ let sketchCiel = function(p) {
           }
         }
         
-        if(affichage.amenagement.includes("phare")){
+        if(affichage.amenagement.includes("lighthouse")){
           imgdisplayPhare = imgPhareJour;
           if(phareY == -1){
             phareY = 100;
@@ -271,7 +271,7 @@ let sketchCiel = function(p) {
         }
 
       }
-      else if(affichage.moment == "nuit"){
+      else if(affichage.moment == "night"){
         backgroundColor = backgroundColorNuit;
         imgdisplayFond = imgFondNuit;
         imgdisplayPlante = imgPlanteNuit;
@@ -284,10 +284,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.mer){
-          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
+          if(affichage.mer == "calm" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeNuit;
           }
-          else if(affichage.mer == "agitee"){
+          else if(affichage.mer == "hectic"){
             imgdisplayMer = imgMerAgiteeNuit;
           }
 
@@ -297,10 +297,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.type){
-          if(affichage.type == "galets"){
+          if(affichage.type == "pebble"){
             imgdisplaySol = imgSolGaletNuit;
           }
-          else if(affichage.type == "sable" || affichage.type == "indifferent"){
+          else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableNuit;
           }
 
@@ -309,7 +309,7 @@ let sketchCiel = function(p) {
           }
         }
 
-        if(affichage.amenagement.includes("phare")){
+        if(affichage.amenagement.includes("lighthouse")){
           imgdisplayPhare = imgPhareNuit;
 
           if(phareY == -1){
@@ -334,10 +334,10 @@ let sketchCiel = function(p) {
         }
         
         if(affichage.mer){
-          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
+          if(affichage.mer == "calm" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeSoleil;
           }
-          else if(affichage.mer == "agitee"){
+          else if(affichage.mer == "hectic"){
             imgdisplayMer = imgMerAgiteeSoleil;
           }
 
@@ -347,10 +347,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.type){
-          if(affichage.type == "galets" ){
+          if(affichage.type == "pebble" ){
             imgdisplaySol = imgSolGaletSoleil;
           }
-          else if(affichage.type == "sable" || affichage.type == "indifferent"){
+          else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableSoleil;
           }
 
@@ -359,7 +359,7 @@ let sketchCiel = function(p) {
           }
         }
 
-        if(affichage.amenagement.includes("phare")){
+        if(affichage.amenagement.includes("lighthouse")){
           imgdisplayPhare = imgPhareSoleil;
 
           if(phareY == -1){
