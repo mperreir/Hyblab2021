@@ -135,11 +135,11 @@ exports.filter_weather = (plages, weather, filtres) => {
     for (let i = 0; i < weather.length; i++) {
         if (filtres.weather === "stormy") {
             weather[i] = weather[i].filter(item => ["Thunderstorm", "Ash", "Squall", "Tornado", "Sand"].includes(item.weather))
-        } else if (filtres.weather[i] === "clear") {
+        } else if (filtres.weather === "clear") {
             weather[i] = weather[i].filter(item => ["Clear"].includes(item.weather))
-        } else if (filtres.weather[i] === "bad") {
+        } else if (filtres.weather === "bad") {
             weather[i] = weather[i].filter(item => ["Rain", "Drizzle", "Fog",  "Smoke", "Snow", "Dust"].includes(item.weather))
-        } else if (filtres.weather[i] === "cloudy") {
+        } else if (filtres.weather === "cloudy") {
             weather[i] = weather[i].filter(item => ["Haze", "Mist", "Clouds"].includes(item.weather))
         }
 
