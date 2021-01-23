@@ -24,7 +24,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlg5BCTUfKKA9Vz1-gz0dFtRrQ2MjpJM4&libraries=places"></script>
     <script src="js/google-address-autocomplete.min.js"></script>
 </head>
-<body class="background-black white">
+<body class="background-black">
     <!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
@@ -36,8 +36,23 @@
 
             <section data-slidr="address-page">
                 <img class="page" src="./img/address_page.svg" alt="Page de renseignement de votre location">
-                <input type="text" class="input-address" id="address1" name="address1" style="width:300px"/>
-                <button class="button-next button-next-address font-s white background-beige">Vers la page age</button>
+                <div class="addresses-main-buttons">
+                    <label for="address1" class="label-address purple">Votre adresse :</label>
+                    <input type="text" class="input-address" id="address1" name="address1"/>
+                    <button class="button-addresses button-next-address-from-continue button-first font-button white background-beige">C'est parti !</button>
+                    <button id="localization-button" class="button-addresses button-second font-button white background-beige">
+                        Localise moi
+                        <img class="loading-icon-white hidden" id="address-localize-loading" src="./img/loading_white.svg" alt="Chargement">
+                        <img class="localize-icon" id="address-localize" src="./img/localisation.svg" alt="Localisation">
+                    </button>
+                    <button class="button-addresses button-next-address-from-nevermind button-third font-button white background-beige">Peu importe</button>
+                </div>
+                <div class="addresses-slider">
+                    <input type="range" id="localize-range" min="5" max="15" value="10">
+                    <span class="slider-legend-left slider-legend"><5km</span>
+                    <span class="slider-legend-center slider-legend">10km</span>
+                    <span class="slider-legend-right slider-legend">>15km</span>
+                </div>
             </section>
 
             <section data-slidr="age-page">
