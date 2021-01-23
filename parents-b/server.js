@@ -1,8 +1,6 @@
 // Use strict mode
 'use strict';
 
-const fs = require('fs');
-
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
@@ -12,20 +10,6 @@ var app = express();
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
-
-app.get('/monParc', (req, res) => {
-
-    fs.readFile('./parents-b/public/data/jardin.json', (err, data) => {
-        if (err) {
-            console.log(err);
-        } else {
-            const json = JSON.parse(data.toString());
-            res.header("Content-Type",'application/json');
-            res.send(JSON.stringify(json));
-        }
-    });
-
-});
 
 // You can then add whatever routing code you need
 

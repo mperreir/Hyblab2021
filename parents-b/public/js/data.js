@@ -1,329 +1,200 @@
-const form = document.getElementById('postCriteria');
-const nbCriteria = document.getElementById('nbCriteria');
+const myCriteria = {
+    "Gardien": null,
+    "Jeux pour enfants": null,
+    "Pataugeoire": null,
+    "Sanitaires": null,
+    "Sanitaires pour handicapés": null,
+    "Chiens autorisés": null,
+    "Jardin clos": null,
+    "Abris": null,
+    "Point d'eau": null,
+    "Table pique-nique": null,
+    "Accessibilité Handicapé": null,
+    "Bancs": null,
+    "Accès Parking": null,
+    "Restauration": null,
+    "Présence d'animaux": null,
+    "Herbe (un minimum) / Sable": null,
+    "Verdure / Plante Espace Vert": null,
+    "CRAPA": null,
+    "Terrains de sport": null,
+    "Activités organisées": null,
+    "Élément de culture": null,
+    "Horaires d'ouverture": null,
+    "Âge": null
+};
 
-function stringToBool(string) {
-    return string === 'true';
+let nbElemChoisit = 0;
+
+function stringToBoolean(string) {
+    return string === "true";
 }
 
-function gardAttribute() {
-    const gard = document.getElementById('gard');
-    if (gard) {
-        gard.value = !stringToBool(gard.value);
+function choiceUpdate(string, currentValue) {
+    if (currentValue === true || currentValue === false) {
+        if (string === "null") {
+            nbElemChoisit--;
+            return null;
+        }
+        else return stringToBoolean(string);
     } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'gard';
-        hidden.name = 'gard';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
+        if (string === "null") {
+            return null;
+        }
+        else {
+            nbElemChoisit++;
+            return stringToBoolean(string);
+        }
     }
 }
 
-function childGameAttribute() {
-    const childGame = document.getElementById('childGame');
-    if (childGame) {
-        childGame.value = !stringToBool(childGame.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'childGame';
-        hidden.name = 'childGame';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function gardAttribute(event) {
+    const gard = myCriteria["Gardien"];
+    myCriteria["Gardien"] = choiceUpdate(event.target.value, gard);
 }
 
-function paddlingPoolAttribute() {
-    const paddlingPool = document.getElementById('paddlingPool');
-    if (paddlingPool) {
-        paddlingPool.value = !stringToBool(paddlingPool.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'paddlingPool';
-        hidden.name = 'paddlingPool';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function childGameAttribute(event) {
+    const childGame = myCriteria["Jeux pour enfants"]
+    myCriteria["Jeux pour enfants"] = choiceUpdate(event.target.value, childGame);
 }
 
-function toiletAttribute() {
-    const toilet = document.getElementById('toilet');
-    if (toilet) {
-        toilet.value = !stringToBool(toilet.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'toilet';
-        hidden.name = 'toilet';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function paddlingPoolAttribute(event) {
+    const paddlingPool = myCriteria["Pataugeoire"];
+    myCriteria["Pataugeoire"] = choiceUpdate(event.target.value, paddlingPool);
 }
 
-function handicapToiletAttribute() {
-    const handicapToilet = document.getElementById('handicapToilet');
-    if (handicapToilet) {
-        handicapToilet.value = !stringToBool(handicapToilet.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'handicapToilet';
-        hidden.name = 'handicapToilet';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function toiletAttribute(event) {
+    const toilet = myCriteria["Sanitaires"];
+    myCriteria["Sanitaires"] = choiceUpdate(event.target.value, toilet);
 }
 
-function dogAttribute() {
-    const dog = document.getElementById('dog');
-    if (dog) {
-        dog.value = !stringToBool(dog.value);
-    } else {
-        console.log("OUI");
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'dog';
-        hidden.name = 'dog';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function handicapToiletAttribute(event) {
+    const handicapToilet = myCriteria["Sanitaires pour handicapés"];
+    myCriteria["Sanitaires pour handicapés"] = choiceUpdate(event.target.value, handicapToilet);
 }
 
-function closedAttribute() {
-    const closed = document.getElementById('closed');
-    if (closed) {
-        closed.value = !stringToBool(closed.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'closed';
-        hidden.name = 'closed';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function dogAttribute(event) {
+    const dog = myCriteria["Chiens autorisés"];
+    myCriteria["Chiens autorisés"] = choiceUpdate(event.target.value, dog);
 }
 
-function shelterAttribute() {
-    const shelter = document.getElementById('shelter');
-    if (shelter) {
-        shelter.value = !stringToBool(shelter.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'shelter';
-        hidden.name = 'shelter';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function closedAttribute(event) {
+    const closed = myCriteria["Jardin clos"];
+    myCriteria["Jardin clos"] = choiceUpdate(event.target.value, closed);
 }
 
-function waterAttribute() {
-    const water = document.getElementById('water');
-    if (water) {
-        water.value = !stringToBool(water.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'water';
-        hidden.name = 'water';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function shelterAttribute(event) {
+    const shelter = myCriteria["Abris"];
+    myCriteria["Abris"] = choiceUpdate(event.target.value, shelter);
 }
 
-function tableAttribute() {
-    const table = document.getElementById('table');
-    if (table) {
-        table.value = !stringToBool(table.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'table';
-        hidden.name = 'table';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function waterAttribute(event) {
+    const water = myCriteria["Point d'eau"];
+    myCriteria["Point d'eau"] = choiceUpdate(event.target.value, water);
 }
 
-function handicapAccesAttribute() {
-    const handicapAcces = document.getElementById('handicapAcces');
-    if (handicapAcces) {
-        handicapAcces.value = !stringToBool(handicapAcces.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'handicapAcces';
-        hidden.name = 'handicapAcces';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function tableAttribute(event) {
+    const table = myCriteria["Table pique-nique"];
+    myCriteria["Table pique-nique"] = choiceUpdate(event.target.value, table);
 }
 
-function benchesAttribute() {
-    const benches = document.getElementById('benches');
-    if (benches) {
-        benches.value = !stringToBool(benches.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'benches';
-        hidden.name = 'benches';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function handicapAccesAttribute(event) {
+    const handicapAcces = myCriteria["Accessibilité Handicapé"];
+    myCriteria["Accessibilité Handicapé"] = choiceUpdate(event.target.value, handicapAcces);
 }
 
-function parkingAttribute() {
-    const parking = document.getElementById('parking');
-    if (parking) {
-        parking.value = !stringToBool(parking.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'parking';
-        hidden.name = 'parking';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function benchesAttribute(event) {
+    const benches = myCriteria["Bancs"];
+    myCriteria["Bancs"] = choiceUpdate(event.target.value, benches);
 }
 
-function restaurantAttribute() {
-    const restaurant = document.getElementById('restaurant');
-    if (restaurant) {
-        restaurant.value = !stringToBool(restaurant.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'restaurant';
-        hidden.name = 'restaurant';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function parkingAttribute(event) {
+    const parking = myCriteria["Accès Parking"];
+    myCriteria["Accès Parking"] = choiceUpdate(event.target.value, parking);
 }
 
-function animalsAttribute() {
-    const animals = document.getElementById('animals');
-    if (animals) {
-        animals.value = !stringToBool(animals.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'animals';
-        hidden.name = 'animals';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function restaurantAttribute(event) {
+    const restaurant = myCriteria["Restauration"];
+    myCriteria["Restauration"] = choiceUpdate(event.target.value, restaurant);
 }
 
-function grassAttribute() {
-    const grass = document.getElementById('grass');
-    if (grass) {
-        grass.value = !stringToBool(grass.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'grass';
-        hidden.name = 'grass';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function animalsAttribute(event) {
+    const animals = myCriteria["Présence d'animaux"];
+    myCriteria["Présence d'animaux"] = choiceUpdate(event.target.value, animals);
 }
 
-
-function greeneryAttribute() {
-    const greenery = document.getElementById('greenery');
-    if (greenery) {
-        greenery.value = !stringToBool(greenery.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'greenery';
-        hidden.name = 'greenery';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function grassAttribute(event) {
+    const grass = myCriteria["Herbe (un minimum) / Sable"];
+    myCriteria["Herbe (un minimum) / Sable"] = choiceUpdate(event.target.value, grass);
 }
 
-
-function crapaAttribute() {
-    const crapa = document.getElementById('crapa');
-    if (crapa) {
-        crapa.value = !stringToBool(crapa.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'crapa';
-        hidden.name = 'crapa';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function greeneryAttribute(event) {
+    const greenery = myCriteria["Verdure / Plante Espace Vert"];
+    myCriteria["Verdure / Plante Espace Vert"] = choiceUpdate(event.target.value, greenery);
 }
 
-
-function sportAttribute() {
-    const sport = document.getElementById('sport');
-    if (sport) {
-        sport.value = !stringToBool(sport.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'sport';
-        hidden.name = 'sport';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function crapaAttribute(event) {
+    const crapa = myCriteria["CRAPA"];
+    myCriteria["CRAPA"] = choiceUpdate(event.target.value, crapa);
 }
 
-
-function activityAttribute() {
-    const activity = document.getElementById('activity');
-    if (activity) {
-        activity.value = !stringToBool(activity.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'activity';
-        hidden.name = 'activity';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function sportAttribute(event) {
+    const sport = myCriteria["Terrains de sport"];
+    myCriteria["Terrains de sport"] = choiceUpdate(event.target.value, sport);
 }
 
+function activityAttribute(event) {
+    const activity = myCriteria["Activités organisées"];
+    myCriteria["Activités organisées"] = choiceUpdate(event.target.value, activity);
+}
 
-function cultureAttribute() {
-    const culture = document.getElementById('culture');
-    if (culture) {
-        culture.value = !stringToBool(culture.value);
-    } else {
-        const hidden = document.createElement('input');
-        hidden.type = 'hidden';
-        hidden.id = 'culture';
-        hidden.name = 'culture';
-        hidden.value = 'true';
-        form.appendChild(hidden);
-        nbCriteria.value = (parseInt(nbCriteria.value) + 1).toString();
-    }
+function cultureAttribute(event) {
+    const culture = myCriteria["Élément de culture"];
+    myCriteria["Élément de culture"] = choiceUpdate(event.target.value, culture);
+}
+
+function fetchData() {
+
+    // Récupé
+    fetch('data/jardins.json')
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(json => {
+            const nbCritere = Object.keys(myCriteria).length;
+            for (const line of json) {
+                for (const [key, value] of Object.entries(line)) {
+                    if (myCriteria[key]) {
+                        if (myCriteria[key] != null && myCriteria[key] === value) {
+                            line["nbElemCorrect"]++;
+                        }
+                    }
+                }
+                line.affinity = line["nbElemCorrect"] * 100 / nbCritere;
+            }
+
+            // Tri des jardins par affinité décroissante
+            json.sort((a,b)=> b.affinity - a.affinity);
+
+            // Récupération des 3 meilleurs
+            const top = json.slice(0, 3);
+
+            // Affichage de la page finale
+            for (const line of top) {
+                /*
+                for (const [key, value] of Object.entries(line)) {
+                    if (myCriteria[key]) {
+                        if (myCriteria[key] != null && myCriteria[key] === value) {
+                            line["nbElemCorrect"]++;
+                        }
+                    }
+                }
+                 */
+            }
+            // document.getElementById('')
+        })
 }
 
 function main() {
@@ -412,6 +283,9 @@ function main() {
     const elementCulture = document.getElementById('elementCulture');
     elementCulture.addEventListener('click', cultureAttribute);
     */
+
+    const searchData = document.getElementById('searchData');
+    searchData.addEventListener('click', fetchData);
 }
 
 main();
