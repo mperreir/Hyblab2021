@@ -3,9 +3,9 @@
     position: absolute;
     top: 35%;
     left: 10%;
+    width: 10%;
     height: auto;
     text-align: center;
-    width: 10%;
     transform: matrix(-1, 0, 0, 1, 0, 0);
     z-index: 2;
 }
@@ -62,44 +62,16 @@
     top: 66%;
 }
 
-.button-non{
-    position: absolute;
-    width: 25%;
-    height: 32%;
-    padding: 0.5em;
-    left: 17%;
-    top: 68%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 8px solid #aba3ca;
-}
-
-.button-oui{
-    position: absolute;
-    width: 25%;
-    height: 32%;
-    padding: 0.5em;
-    left: 78%;
-    top: 68%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 8px solid #aba3ca;
-    cursor: default;
-}
-
-.button-suivant{
+.button-non-fauna-flora{
     position: absolute;
     width: 20%;
-    height: 10%;
-    padding: 0.5em;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    z-index: 2;
-    border: 5px solid #ffe9de;
+    height: 25%;
+}
+
+.button-oui-fauna-flora{
+    position: absolute;
+    width: 20%;
+    height: 25%;
 }
 
 .button-suivant-fauna-flora:hover{

@@ -9,8 +9,8 @@
 }
 
 /* ---------------------- Font -------------------------- */
-.font-s{font-size: 2.5vmin;}
-.font-m{font-size: 4vmin;}
+.font-s{font-size: 0.2em;}
+.font-m{font-size: 0.3em;}
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
@@ -27,6 +27,7 @@
 
 .dark-purple{color: #45396D;}
 .background-dark-purple{background-color: #45396D;}
+
 /* ----------------------------------------------------------------------- */
 /* button default style */
 button{
@@ -36,6 +37,38 @@ button{
     border-radius: 0.5em;
     transition-duration: 0.3s;
     font-family: Comfortaa, serif;
+}
+
+.button-non{
+    left: 17%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: .5em solid #aba3ca;
+    z-index: 2;
+    cursor: default;
+}
+
+.button-oui{
+    left: 78%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: .5em solid #aba3ca;
+    z-index: 2;
+    cursor: default;
+}
+
+.button-suivant{
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+    border: 0.3em solid #ffe9de;
 }
 
 /*default page */

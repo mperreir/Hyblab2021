@@ -41,7 +41,7 @@
     position: absolute;
     top: 13%;
     left: 35%;
-    width: 50%;
+    width: 40%;
     z-index: 2;
 }
 
@@ -112,6 +112,18 @@
     left: 60%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+}
+
+.button-non-access{
+    position: absolute;
+    width: 25%;
+    height: 32%;
+}
+
+.button-oui-access{
+    position: absolute;
+    width: 25%;
+    height: 32%;
 }
 
 .button-suivant-access:hover{
