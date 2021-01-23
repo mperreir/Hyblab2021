@@ -1,5 +1,6 @@
 let initSlideFin = function(){
     let plages = getPlages();
+    console.log(plages);
     console.log(getAffichage());
 
     d3.select('#goback').on('click', function(){

@@ -4,7 +4,9 @@ let affichage = {
     "moment" : "",
     "ciel": "",
     "mer": "",
-    "amenagement" :""
+    "amenagement" :"",
+    "longitude" : "",
+    "latitude": ""
 }
 
 function getAffichage(){
@@ -18,7 +20,9 @@ function affichageReset(){
         "moment" : "",
         "ciel": "",
         "mer": "",
-        "amenagement" :""
+        "amenagement" :"",  
+        "longitude" : affichage.longitude,
+        "latitude": affichage.latitude
     }
 
     sketchCiel.updateSketchCiel();
@@ -80,7 +84,7 @@ function affichageReset(){
                 reponses : [
                     {
                         "texte" : "Aube",
-                        "json": "aube",
+                        "json": "sunrise",
                         "citations": [
                             '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
                             '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
@@ -89,7 +93,7 @@ function affichageReset(){
                     },
                     {
                         "texte" : "Journée",
-                        "json" : "journee",
+                        "json" : "day",
                         "citations": [
                             '"Attachons-nous à reconnaître le caractère précieux de chaque journée" - Dalai Lama',
                             '"Ce qu\'on pense être difficile prend une journée, ce qu\'on pense être impossible prend une semaine" - Jay-Z'
@@ -97,7 +101,7 @@ function affichageReset(){
                     },
                     {
                         "texte" : "Crépuscule",
-                        "json" : "crepuscule",
+                        "json" : "sunset",
                         "citations": [
                             '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
                             '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
@@ -105,7 +109,7 @@ function affichageReset(){
                     },
                     {
                       "texte" : "Nuit",
-                      "json" : "nuit",
+                      "json" : "night",
                       "citations": [
                           '“La nuit la plus sombre a toujours une fin lumineuse.”',
                           '"Il faut toujours viser la lune, car même en cas d\'échec, on atterrit dans les étoiles" - Oscar Wilde',
@@ -124,7 +128,7 @@ function affichageReset(){
                 reponses : [
                     {
                         "texte" : "Sable",
-                        "json": "sable",
+                        "json": "sand",
                         "citations": [
                             'Il y a 10^21 grains de sable sur Terre.',
                             'Certains sables sont d\'origine minérale, d\'autres organique.',
@@ -133,7 +137,7 @@ function affichageReset(){
                     },
                     {
                         "texte" : "Galets",
-                        "json" : "galets",
+                        "json" : "pebble",
                         "citations": [
                             'Le record du monde de ricochets s\'élève à 88 rebonds.',
                             'On trouve des plages de galets surtout en Europe.'
@@ -141,7 +145,7 @@ function affichageReset(){
                     },
                     {
                         "texte" : "Rochers",
-                        "json" : "rochers",
+                        "json" : "rocks",
                         "citations": [
                             'Les rochers les plus anciens peuvent avoir plus d\'un milliard d\'années.'
                         ]
@@ -158,11 +162,11 @@ function affichageReset(){
                 reponses : [
                     {
                         "texte" : "Agitee",
-                        "json": "agitee"
+                        "json": "hectic"
                     },
                     {
                         "texte" : "Calme",
-                        "json" : "calme",
+                        "json" : "calm",
                     },
                     {
                       "texte" : "Indifférent",
@@ -176,7 +180,7 @@ function affichageReset(){
             reponses : [
                 {
                     "texte" : "Clair",
-                    "json": "clair",
+                    "json": "clear",
                     "citations": [
                         '"Gardez votre visage dans le soleil et vous ne verrez pas les ombres" - Helen Keller',
                         '"Le temps que l\'on donne à un ami est toujours du beau temps, quelque soit la météo"'
@@ -184,7 +188,7 @@ function affichageReset(){
                 },
                 {
                     "texte" : "Nuageux",
-                    "json" : "nuageux",
+                    "json" : "cloudy",
                     "citations": [
                         '"Les souvenirs sont du vent, ils inventent les nuages" - Jules Supervielle',
                         '“Exprimer ses émotions, c\'est comme d\'enlever les nuages noirs devant le soleil pour laisser pousser les fleurs.” - Tanya Sénécal'
@@ -196,7 +200,7 @@ function affichageReset(){
                 },
                 {
                     "texte" : "Pluie",
-                    "json" : "pluie",
+                    "json" : "bad",
                     "citations": [
                         '"Les souvenirs sont du vent, ils inventent les nuages" - Jules Supervielle',
                         '“Exprimer ses émotions, c\'est comme d\'enlever les nuages noirs devant le soleil pour laisser pousser les fleurs.” - Tanya Sénécal'
@@ -204,7 +208,7 @@ function affichageReset(){
                 },
                 {
                   "texte" : "Orageux",
-                  "json" : "orageux",
+                  "json" : "stormy",
                   "citations": [
                       '"La vie, ce n\'est pas d\'attendre que les nuages passent, c\'est d\'apprendre à danser sous la pluie" - Sénèque',
                       '"Le repos est un rêve; la vie est un orage" - George Sand'
@@ -215,18 +219,15 @@ function affichageReset(){
           {
             question : "Quels aménagements souhaiteriez-vous à proximité ?",
             element: "amenagement",
+            multiple: true,
             reponses : [
                 {
                     "texte" : "Phare",
-                    "json": "phare"
+                    "json": "lighthouse"
                 },
                 {
                     "texte" : "Port",
-                    "json" : "port",
-                },
-                {
-                  "texte" : "Passer cette question",
-                  "json" : "indifferent",
+                    "json" : "harbor",
                 }
             ]
           },
@@ -246,15 +247,20 @@ function affichageReset(){
 
   function getPlages(){
       let urlGet = 'http://localhost:8080/mer-b/api/plage/';
+      if(affichage.longitude){
+          urlGet += 'longitude=' + affichage.longitude + "&";
+      }
+      if(affichage.latitude){
+          urlGet += 'latitude=' + affichage.latitude + "&";
+      }
+
       if(affichage.type != 'indifferent'){
           urlGet += 'type=' + affichage.type + "&"; 
       }
       if(affichage.moment != 'indifferent'){
           urlGet += 'time=' + affichage.moment + '&';
       }
-      if(affichage.maree != 'indifferent'){
-          urlGet += 'tide=' + affichage.maree + '&';
-      }
+
       if(affichage.ciel != 'indifferent'){
           urlGet += 'weather=' + affichage.ciel + '&';
       }
@@ -267,6 +273,7 @@ function affichageReset(){
       console.log(urlGet);
 
       fetch(urlGet).then(function(response) {
+        console.log(response);
         response.json().then(function(object) {
           console.log(object);
         });

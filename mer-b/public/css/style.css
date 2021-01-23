@@ -209,10 +209,33 @@ h1 {
     transition: all 0.5s ease;
 }
 
+.boutonVisited {
+    display: inline-block;
+    padding: 10px;
+    background: var(--primary-color, #203443);
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--secondary-color, white);
+    transition: all 0.5s ease;
+}
+
 .bouton:hover {
     cursor: pointer;
     background-color: var(--primary-color, #203443);
     color: var(--secondary-color, white);
+}
+
+.boutonVisited:hover{
+    cursor: pointer;
 }
 
 .align-center-vertical {
@@ -220,7 +243,60 @@ h1 {
     align-items: center;
     height: 100%;
 }
-                
+   
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    color: white;
+  }
+
+.material-icons:hover{
+    color: var(--primary-color, #203443);
+}
+
+.materialBouton {
+    width: fit-content;
+    padding: 7px;
+    border-radius: 100px;
+    border: 3px white solid;
+    color: var(--secondary-color, white); 
+    margin-top: 5px;
+    height: 45px;
+    width: 45px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.materialBouton:hover {
+    cursor: pointer;
+    color: var(--primary-color, #203443);
+    border-color: var(--primary-color, #203443);
+}
+
+.materialBouton:hover .material-icons {
+    color: var(--primary-color, #203443);
+}
+
 /***Acceuil***/
 .containerAcceuil {
     width: 480px;
@@ -240,6 +316,23 @@ h1 {
 div#boutonGoSlide2 {
     margin-top: 50px;
 }
+
+/** slide adresse**/
+input#adresse {
+    height: 45px;
+    width: 350px;
+    font-size: 25px;
+    border: 0px;
+    border-radius: 50px;
+    padding-left: 10px;
+    margin-right: 15px;
+    padding-right: 10px;
+}
+
+input#adresse:focus {
+    outline: none;
+}
+
 /***slide questions***/
 #containerQuestion {
     padding: 20px;
