@@ -59,7 +59,7 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    if (!filtres.hasOwnProperty("longitude") || filtres.hasOwnProperty("latitude")) {
+    if (!filtres.hasOwnProperty("longitude") || !filtres.hasOwnProperty("latitude")) {
         return error.e400(`An error has occured with the input: `
         +`you need to specify the ${(filtres.hasOwnProperty("longitude")?"latitude":"longitude")}`);
     }
