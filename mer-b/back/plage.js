@@ -59,6 +59,11 @@ exports.getbyfilter = async function(req) {
         }
     }
 
+    if (!filtres.hasOwnProperty("longitude") || filtres.hasOwnProperty("latitude")) {
+        return error.e400(`An error has occured with the input: `
+        +`you need to specify the ${(filtres.hasOwnProperty("longitude")?"latitude":"longitude")}`);
+    }
+
     // Create the url to fetch with criterias
     const url = osm.api_url(filtres);
 
