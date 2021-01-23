@@ -3,9 +3,8 @@ var positions = ["",""]
 async function autocompletion(adresse, num) {
     var lieu = 'https://api-adresse.data.gouv.fr/search/?q=' + adresse + '&limit=5&autocomplete=1';
     var input = document.getElementById("adresse" + num);
-
-    var datalist = document.getElementById("adresses"+num);
-    datalist.innerHTML = "";
+    var list = document.getElementById("adresses" + num);
+    list.innerHTML = "";
     
     const response = await fetch(lieu)
     var resultAPI = await response.json();
@@ -21,9 +20,9 @@ async function autocompletion(adresse, num) {
         button.addEventListener("click", () => {
             input.value = button.innerHTML;
             positions[num - 1] = button.value;
-            datalist.innerHTML = "";
+            list.innerHTML = "";
         });
-        datalist.appendChild(button);
+        list.appendChild(button);
     })
 }
 
@@ -33,6 +32,6 @@ function validation() {
         console.log("saisir une adresse qui existe !");
     }
     else {
-        console.log("redirection vers page suivante");
+        location.href = 'criteres.html' + location.search + '&adresse1=' + positions[0] + '&adresse2=' + positions[1];
     }
 }
