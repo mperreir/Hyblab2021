@@ -1,4 +1,6 @@
 
+'user strict';
+
 function dist (lat1, lon1, lat2, lon2) {
         return (lat1-lat2)**2 + (lon1-lon2)**2
 }

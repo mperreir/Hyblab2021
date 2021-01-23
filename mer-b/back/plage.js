@@ -1,5 +1,8 @@
 'user strict';
-const fetch = require('node-fetch');
+const error = require("./error");
+const utils = require("./utils");
+const osm = require("./openstreetmap");
+const ow = require("./openweather");
 
 exports.getbyfilter = async function(req) {
 
@@ -24,7 +27,7 @@ exports.getbyfilter = async function(req) {
                     filtres[filtre] = parseFloat(arg);
                     break;
                 } else {
-                    return `An error has occured with the input ${filtre} concerning ${arg}`
+                    return error.e400(`An error has occured with the input ${filtre} concerning ${arg}`);
                 }
             case "type":
             case "time":
@@ -34,33 +37,27 @@ exports.getbyfilter = async function(req) {
                     filtres[filtre] = arg;
                     break;
                 } else {
-                    return `An error has occured with the input ${filtre} concerning ${arg}`
+                    return error.e400(`An error has occured with the input ${filtre} concerning ${arg}`);
                 }
             case "planning":
                 filtres.planning = [];
                 for (const elem of arg.split(',')) {
-                    
                     const choice = elem.split('(')
-                    const value = choice[0];
-                    const dist = choice[1].slice(0, -1);
 
-                    if (!input.planning.includes(value)) {
-                        return `An error has occured with the input planning concerning ${value}`
-                    } else if (!/^\d+$/.test(dist)) {
-                        return `An error has occured with the input planning concerning the distance of ${value}`
+                    if (!input.planning.includes(choice[0])) {
+                        return error.e400(`An error has occured with the input planning concerning ${choice[0]}`);
+                    } else if (choice[1].length == 0 || !/^\d+$/.test(choice[1].slice(0, -1))) {
+                        return error.e400(`An error has occured with the input planning concerning the distance of ${choice[0]}`);
                     } else {
-                        filtres.planning.push(value);
-                        filtres[`dist_${value}`] = dist;
+                        filtres.planning.push(choice[0]);
+                        filtres[`dist_${choice[0]}`] = choice[1].slice(0, -1);
                     }
                 }
                 break;
             default:
-                return `An error has occured with the input: ${filtre}, I don't know what this is !`
+                return error.e400(`An error has occured with the input: ${filtre}`);
         }
     }
-
-    const osm = require("./openstreetmap");
-    const utils = require("./utils");
 
     // Create the url to fetch with criterias
     const url = osm.api_url(filtres);
@@ -69,7 +66,7 @@ exports.getbyfilter = async function(req) {
     const res = await osm.api_fetch(url);
     
     if (!res.ok) {
-        return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
+        return error.e(res.status, `An error has occured when fetching on the openstreetmap api.`);
     }
 
     const data_map = await res.json();
@@ -78,7 +75,7 @@ exports.getbyfilter = async function(req) {
     let [beaches, harbors, lighthouses, car_parks] = osm.sort_node(data_map.elements);
 
     if (beaches.length == 0) {
-        return `There is no beaches respecting the planning around and the location.`;
+        return  error.e204(`Criterias: location + planning`);
     }
 
     // Filter the beaches with the type of the surface of it
@@ -87,8 +84,7 @@ exports.getbyfilter = async function(req) {
     }
 
     if (beaches.length == 0) {
-        console.log(`There is no beaches respecting the planning around, the location and the type.`);
-        return [];
+        return  error.e204(`Criterias: location + planning + type`);
     }
 
     // format the beaches information into plages
@@ -109,17 +105,15 @@ exports.getbyfilter = async function(req) {
     plages = utils.filter(plages, filtres, 30);
 
     // fetching the weather for each beach
-    const ow = require("./openweather");
-
     let data_weather = await ow.api_fetch(plages);
 
     //if there has been an error
-    if (typeof data_weather == "string") {
+    if (!data_weather.ok) {
         return data_weather
     }
 
     // Format data of the weather
-    let weather = ow.format(data_weather)
+    let weather = ow.format(data_weather.data)
 
     // Filter weather with time
     if (filtres.hasOwnProperty("time")) {
@@ -134,7 +128,7 @@ exports.getbyfilter = async function(req) {
     }
 
     if (beaches.length == 0) {
-        return `There is no beaches respecting the planning around, the location, the type and the weather.`;
+        return error.e204(`Criterias: location + planning + type + weather`);
     }
 
     // Filter weather with type of sea
@@ -143,7 +137,7 @@ exports.getbyfilter = async function(req) {
     }
 
     if (beaches.length == 0) {
-        return `There is no beaches respecting the planning around, the location, the type, the weather and the sea.`;
+        return error.e204(`Criterias: location + planning + type + weather + sea`);
     }
 
     // Take the 3 nodes nearest of the initial location
@@ -152,5 +146,10 @@ exports.getbyfilter = async function(req) {
     // Choose a good time to go
     plages = ow.choose(plages, weather)
 
-    return plages
+    return {
+        ok: true,
+        status: 200,
+        descritption: `All things done succesfully`,
+        output: plages
+    };
 };

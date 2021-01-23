@@ -1,26 +1,29 @@
+'user strict';
+const fetch = require('node-fetch');
+const cst = require("./constants.json");
+const error = require("./error");
+
 exports.api_fetch = async (plages) => {
-    
-    const fetch = require('node-fetch');
-    const cst = require("./constants.json");
 
     let data = [];
 
     for (const node of plages) {
 
-        const response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
+        const res = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
 
-        if (!response_weather.ok) {
-            if (response_weather.status == 401) {
-                return `Error: You need to input an an API key in the file: mer-b/back/constants.json`;
+        if (!res.ok) {
+
+            if (res.status == 401) {
+                return error.e(res.status, `Error: You need to input an an API key in the file: mer-b/back/constants.json`);
             } else {
-                return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
+                return error.e(res.status, `An error has occured when fetching on the openweathermap api.`);
             }
         }
 
-        const data_node = await response_weather.json();
+        const data_node = await res.json();
         data.push(data_node)
     }
-    return data
+    return {ok:true, data:data}
 }
 
 exports.format = (data) => {

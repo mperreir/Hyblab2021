@@ -1,3 +1,8 @@
+'user strict';
+const utils = require("./utils");
+const fetch = require('node-fetch');
+const cst = require("./constants.json");
+
 exports.api_url = (filtres) => {
 
     // angle representing 50 km on the earth's surface
@@ -39,9 +44,6 @@ exports.api_url = (filtres) => {
 }
 
 exports.api_fetch = async (url) => {
-
-    const fetch = require('node-fetch');
-    const cst = require("./constants.json");
 
     let i = 1;
     let response = await fetch(cst.openstreetmap.api_url1 + url);
@@ -109,8 +111,6 @@ exports.format = (beaches) => {
 
 exports.addharbors = (plages, harbors) => {
 
-    const utils = require("./utils");
-
     for (const node of plages) {
         const harbor = utils.nearest(node, harbors);
         node.port = {
@@ -119,12 +119,10 @@ exports.addharbors = (plages, harbors) => {
             name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
         }
     }
+    return plages;
 }
 
 exports.addlighthouses = (plages, lighthouses) => {
-
-    const utils = require("./utils");
-
     for (const node of plages) {
         const lighthouse = utils.nearest(node, lighthouses);
         node.phare = {
@@ -133,11 +131,10 @@ exports.addlighthouses = (plages, lighthouses) => {
             name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
         }
     }
+    return plages;
 }
 
 exports.addcar_parks = (plages, car_parks) => {
-
-    const utils = require("./utils");
 
     for (const node of plages) {
         const car_park = utils.nearest(node, car_parks);
@@ -147,4 +144,5 @@ exports.addcar_parks = (plages, car_parks) => {
             name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
         }
     }
+    return plages;
 }
