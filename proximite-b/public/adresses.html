@@ -1,10 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <title>Hyblab 2020</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style_adresses.css">
   <script src="./js/adresses.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,12 +24,13 @@
 
     Adresses
 
-    <input type="text" id="adresse1" required list="adresses1" placeholder="Adresse 1" oninput="autocompletion(this.value, 1)"></input>
-    <datalist id="adresses1">
-    </datalist>
-    <input type="text" id="adresse2" required list="adresses2" placeholder="Adresse 2" oninput="autocompletion(this.value, 2)"></input>
-    <datalist id="adresses2">
-    </datalist>
+    <input type="text" id="adresse1" required placeholder="Adresse 1" oninput="autocompletion(this.value, 1)">
+    <div id="adresses1" class="liste_adresses">
+    </div>
+    <input type="text" id="adresse2" required placeholder="Adresse 2" oninput="autocompletion(this.value, 2)">
+    <div id="adresses2" class="liste_adresses">
+    </div>
 
+    <button onclick="validation()">Valider</button>
 </body>
 </html>
