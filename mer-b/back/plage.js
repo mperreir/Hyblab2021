@@ -130,10 +130,14 @@ exports.getbyfilter = async function(req) {
     }
     
     // add more information about plannings if needed
+    function dist(lat1, lon1, lat2, lon2) {
+        return (lat1-lat2)**2 + (lon1-lon2)**2
+    }
+
     function nearest(plage, object) {
         let nearest = object[0];
         for (const node in object) {
-            if ((plage.latitude - node.latitude)**2 + (plage.longitude - node.longitude)**2 > nearest) {
+            if (dist(plage.latitude, plage.longitude, node.latitude, node.longitude) > nearest) {
                 nearest = node;
             }
         }
@@ -172,6 +176,14 @@ exports.getbyfilter = async function(req) {
             }
         }
     }
+
+    // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute): https://openweathermap.org/price)
+    function filter(plages, n) {
+
+        plages.sort((a, b) => dist(a.latitude, a.longitude, filtres.latitude, filtres.longitude) - dist(b.latitude, b.longitude, filtres.latitude, filtres.longitude));
+        return plages.slice(0, n)
+    }
+    plages = filter(plages, 30);
 
     if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
@@ -258,29 +270,6 @@ exports.getbyfilter = async function(req) {
     }
 
     // Take the 3 nodes nearest of the initial location
-    if (plages.length > 3 ) {
-        let min1 = Infinity;
-        let min2 = Infinity;
-        let min3 = Infinity;
-
-        plages_clone = Array.from(plages)
-        plages_clone.forEach(function (plage, index) {
-            let dist = (plage.latitude - filtres.latitude)**2 + (plage.longitude - filtres.longitude)**2;
-            if (dist < min1) {
-                min3 = min2;
-                min2 = min1;
-                min1 = dist;
-            } else if (dist < min2) {
-                min3 = min2;
-                min2 = dist;
-            } else if (dist < min3) {
-                min3 = dist;
-            } else {
-                plages.splice(index - (plages_clone.length - plages.length), 1);
-            }
-        })
-    }
-
-    return plages
+    return filter(plages, 3)
 };
 
