@@ -84,7 +84,7 @@ function affichageReset(){
                 reponses : [
                     {
                         "texte" : "Aube",
-                        "json": "sunrise",
+                        "json": "dawn",
                         "citations": [
                             '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
                             '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
@@ -101,7 +101,7 @@ function affichageReset(){
                     },
                     {
                         "texte" : "Crépuscule",
-                        "json" : "sunset",
+                        "json" : "dusk",
                         "citations": [
                             '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
                             '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
