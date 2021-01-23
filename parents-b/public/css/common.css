@@ -9,8 +9,8 @@
 }
 
 /* ---------------------- Font -------------------------- */
-.font-s{font-size: 1.2vw;}
-.font-m{font-size: 2vw;}
+.font-s{font-size: 2.5vmin;}
+.font-m{font-size: 4vmin;}
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
@@ -81,6 +81,8 @@ body{
 .button-next:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
 

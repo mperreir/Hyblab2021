@@ -1,7 +1,7 @@
 /* -------------------------- Fauna Flora -------------------- */
 .leaves-fauna-flora{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 10%;
     height: auto;
     text-align: center;
@@ -12,23 +12,23 @@
 
 .oya-fauna-flora{
     position: absolute;
-    top: 22%;
-    left: 22%;
+    top: 13%;
+    left: 25%;
     width: 15%;
     z-index: 2;
 }
 
-.talking-bubble{
+.talking-bubble-fauna-flora{
     position: absolute;
-    top: 28%;
-    left: 37%;
+    top: 24%;
+    left: 38%;
     width: 5%;
     z-index: 2;
 }
 
 .oya-fauna-flora-dialog{
     position: absolute;
-    top: 18%;
+    top: 14%;
     left: 42%;
     width: 25%;
     z-index: 2;
@@ -43,34 +43,32 @@
 }
 
 .dog-picto{
-    top: 35%;
+    top: 30%;
 }
 
 .animals-picto{
-    top: 44%;
+    top: 39%;
 }
 
 .pond-picto{
-    top: 53%;
+    top: 48%;
 }
 
 .grass-picto{
-    top: 62%;
+    top: 57%;
 }
 
 .tree-picto{
-    top: 71%;
+    top: 66%;
 }
-
-
 
 .button-non{
     position: absolute;
     width: 25%;
-    height: 17%;
+    height: 32%;
     padding: 0.5em;
-    left: 22%;
-    top: 73%;
+    left: 17%;
+    top: 68%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: 2;
@@ -80,10 +78,10 @@
 .button-oui{
     position: absolute;
     width: 25%;
-    height: 17%;
+    height: 32%;
     padding: 0.5em;
     left: 78%;
-    top: 73%;
+    top: 68%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: 2;
@@ -103,3 +101,8 @@
     z-index: 2;
     border: 5px solid #ffe9de;
 }
+
+.button-suivant-fauna-flora:hover{
+    box-shadow: 0 16px 20px 0 rgba(0,0,0,0.65),0 24px 75px 0 rgba(0,0,0,0.55);
+}
+
