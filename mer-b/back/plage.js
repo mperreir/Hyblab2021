@@ -6,62 +6,14 @@ const ow = require("./openweather");
 
 exports.getbyfilter = async function(req) {
 
-    const input = {
-        type: ["sand", "pebble", "rocks"],
-        time: ["dawn", "day", "dusk", "night"],
-        weather: ["clear", "cloudy", "bad", "stormy"],
-        sea: ["hectic", "calm"],
-        planning: ["harbor", "lighthouse", "car_park"]
-    }
+    // Create filtres from req
+    let filtres = utils.filtres(req)
 
-    let filtres = {};
-
-    const liste_filtres = req.split('&');
-    for (const e of liste_filtres) {
-        const [filtre, arg] = e.split('=');
-
-        switch (filtre) {
-            case "latitude":
-            case "longitude":
-                if (/^(-?\d+(\.\d+)?).\s*(-?\d+(\.\d+)?)$/.test(arg)) {
-                    filtres[filtre] = parseFloat(arg);
-                    break;
-                } else {
-                    return error.e400(`An error has occured with the input ${filtre} concerning ${arg}`);
-                }
-            case "type":
-            case "time":
-            case "weather":
-            case "sea":
-                if (input[filtre].includes(arg)) {
-                    filtres[filtre] = arg;
-                    break;
-                } else {
-                    return error.e400(`An error has occured with the input ${filtre} concerning ${arg}`);
-                }
-            case "planning":
-                filtres.planning = [];
-                for (const elem of arg.split(',')) {
-                    const choice = elem.split('(')
-
-                    if (!input.planning.includes(choice[0])) {
-                        return error.e400(`An error has occured with the input planning concerning ${choice[0]}`);
-                    } else if (choice.length == 1 || !/^\d+$/.test(choice[1].slice(0, -1))) {
-                        return error.e400(`An error has occured with the input planning concerning the distance of ${choice[0]}`);
-                    } else {
-                        filtres.planning.push(choice[0]);
-                        filtres[`dist_${choice[0]}`] = choice[1].slice(0, -1);
-                    }
-                }
-                break;
-            default:
-                return error.e400(`An error has occured with the input: ${filtre}`);
-        }
-    }
-
-    if (!filtres.hasOwnProperty("longitude") || !filtres.hasOwnProperty("latitude")) {
-        return error.e400(`An error has occured with the input: `
-        +`you need to specify the ${(filtres.hasOwnProperty("longitude")?"latitude":"longitude")}`);
+    //if there has been an error
+    if (!filtres.ok) {
+        return filtres;
+    } else {
+        filtres = filtres.data;
     }
 
     // Create the url to fetch with criterias
@@ -106,7 +58,7 @@ exports.getbyfilter = async function(req) {
         plages = osm.addcar_parks(plages, car_parks);
     }
 
-    // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute): https://openweathermap.org/price)
+    // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute))
     plages = utils.filter(plages, filtres, 30);
 
     // fetching the weather for each beach
