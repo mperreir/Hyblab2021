@@ -3,11 +3,13 @@ const fetch = require('node-fetch');
 
 exports.getbyfilter = async function(req) {
 
-    const type = ["sand", "pebble", "rocks"];
-    const time = ["dawn", "day", "dusk", "night"];
-    const weather = ["clear", "cloudy", "bad", "stormy"];
-    const sea = ["hectic", "calm"];
-    const planning = ["harbor", "lighthouse", "car_park"];
+    const input = {
+        type: ["sand", "pebble", "rocks"],
+        time: ["dawn", "day", "dusk", "night"],
+        weather: ["clear", "cloudy", "bad", "stormy"],
+        sea: ["hectic", "calm"],
+        planning: ["harbor", "lighthouse", "car_park"]
+    }
 
     let filtres = {};
 
@@ -28,7 +30,7 @@ exports.getbyfilter = async function(req) {
             case "time":
             case "weather":
             case "sea":
-                if ([filtre].includes(arg)) {
+                if (input[filtre].includes(arg)) {
                     filtres[filtre] = arg;
                     break;
                 } else {
@@ -42,7 +44,7 @@ exports.getbyfilter = async function(req) {
                     const value = choice[0];
                     const dist = choice[1].slice(0, -1);
 
-                    if (!planning.includes(value)) {
+                    if (!input.planning.includes(value)) {
                         return `An error has occured with the input planning concerning ${value}`
                     } else if (!/^\d+$/.test(dist)) {
                         return `An error has occured with the input planning concerning the distance of ${value}`
@@ -178,7 +180,11 @@ exports.getbyfilter = async function(req) {
             const response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
 
             if (!response_weather.ok) {
-                return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
+                if (response_weather.status == 401) {
+                    return `Error: You need to input an an API key in the file: mer-b/back/constants.json`;
+                } else {
+                    return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
+                }
             }
 
             const data_weather = await response_weather.json();
