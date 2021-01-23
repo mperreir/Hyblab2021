@@ -79,7 +79,7 @@ exports.sort_node = (data) => {
 
 exports.filter_type = (beaches, filtres) => {
     
-    beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
+    beaches = beaches.filter(node => !node.tags.hasOwnProperty("surface"))
     if (filtres.type = "sand") {
         beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
     } else if (filtres.type = "pebble") {

@@ -118,12 +118,15 @@ exports.getbyfilter = async function(req) {
         return data_weather
     }
 
-    console.log(data_weather)
-
     // Format data of the weather
     let weather = ow.format(data_weather)
 
-    // Sort with time
+    // Filter plages with time
+    if (filtres.hasOwnProperty("time")) {
+        weather = ow.filter_time(weather, filtres)
+    }
+
+    return weather
 
     // if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
@@ -155,13 +158,7 @@ exports.getbyfilter = async function(req) {
     //             wind: data_weather.wind.speed,
     //         };
 
-    //         node.time = {
-    //             actualTime: time(unix_actualTime),
-    //             aube: time(unix_sunrise - 3600), // 1 hour before sunrise is "aube"
-    //             creneauAube: [time(unix_sunrise - 5400), time(unix_sunrise + 5400)],
-    //             crepuscule: time(unix_sunset + 3600), // 1 hour after sunset is "crepuscule",
-    //             creneauCrepuscule: [time(unix_sunset - 5400), time(unix_sunset + 5400)]
-    //         };
+    //         
     //     }
     // }
 
@@ -181,28 +178,7 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    /**aube, journée , crépuscule, nuit
-     * ["dawn", "day", "dusk", "night"]
-     */
-
-    if (filtres.hasOwnProperty("time")) {
-        console.log(plages);
-        console.log(plages[0].time.actualTime > plages[0].time.creneauAube[0]);
-        if (filtres.time === "dawn") {
-            plages = plages.filter(node => (node.time.actualTime > node.time.creneauAube[0] && node.time.actualTime < node.time.creneauAube[1]));
-        }
-        if (filtres.time === "day") {
-            plages = plages.filter(node => (node.time.actualTime > node.time.creneauAube[1] && node.time.actualTime < node.time.creneauCrepuscule[0]));
-        }
-        if (filtres.time === "dusk") {
-            plages = plages.filter(node => (node.time.actualTime > node.time.creneauCrepuscule[0] && node.time.actualTime < node.time.creneauCrepuscule[1]));
-        }
-        if (filtres.time === "night") {
-            plages = plages.filter(node => (node.time.actualTime < node.time.creneauAube[0] && node.time.actualTime > node.time.creneauCrepuscule[1]));
-        }
-    }
-
     // Take the 3 nodes nearest of the initial location
-    return filter(plages, 3)
+    return utils.filter(plages, filters, 3)
 };
 
