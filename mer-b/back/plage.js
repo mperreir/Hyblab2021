@@ -121,62 +121,23 @@ exports.getbyfilter = async function(req) {
     // Format data of the weather
     let weather = ow.format(data_weather)
 
-    // Filter plages with time
+    // Filter weather with time
     if (filtres.hasOwnProperty("time")) {
         weather = ow.filter_time(weather, filtres)
+    } else {
+        weather = ow.format_time(weather)
+    }
+
+    // Filter weather with type of weather
+    if (filtres.hasOwnProperty("weather")) {
+        plages, weather = ow.filter_weather(plages, weather, filtres)
+    }
+
+    if (beaches.length == 0) {
+        return `There is no beaches respecting the planning around, the location, the type and the weather.`;
     }
 
     return weather
-
-    // if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
-
-        
-
-    //         const data_weather = await response_weather.json();
-
-            
-
-    //         return data_weather;
-    //         console.log(data_weather);
-
-    //         const unix_sunrise = data_weather.sys.sunrise;
-    //         const unix_sunset = data_weather.sys.sunset;
-    //         const unix_actualTime = data_weather.dt;
-
-    //         function time(unix) {
-    //             let time = new Date(unix * 1000);
-    //             let hours = time.getHours();
-    //             let minutes = "0" + time.getMinutes();
-    //             let seconds = "0" + time.getSeconds();
-    //             return hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    //         }
-
-
-    //         node.weather = {
-    //             sky: data_weather.weather[0].main,
-    //             temp: data_weather.main.temp -273.15, // From Kelvin to Celcius
-    //             wind: data_weather.wind.speed,
-    //         };
-
-    //         
-    //     }
-    // }
-
-    // filter
-    if (filtres.hasOwnProperty("weather")) {
-        if (filtres.weather === "stormy") {
-            plages = plages.filter(node => ["Thunderstorm", "Ash", "Squall", "Tornado", "Sand"].includes(node.weather.sky))
-        }
-        if (filtres.weather === "clear") {
-            plages = plages.filter(node => ["Clear"].includes(node.weather.sky))
-        }
-        if (filtres.weather === "bad") {
-            plages = plages.filter(node => ["Rain", "Drizzle", "Fog",  "Smoke", "Snow", "Dust"].includes(node.weather.sky))
-        }
-        if (filtres.weather === "cloudy") {
-            plages = plages.filter(node => ["Haze", "Mist", "Clouds"].includes(node.weather.sky))
-        }
-    }
 
     // Take the 3 nodes nearest of the initial location
     return utils.filter(plages, filters, 3)

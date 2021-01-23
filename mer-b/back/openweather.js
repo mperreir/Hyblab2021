@@ -42,7 +42,7 @@ exports.format = (data) => {
                 time: p.dt,
                 temperature: p.temp,
                 feels_like: p.feels_like,
-                weather: p.weather.main,
+                weather: p.weather[0].main,
                 sunrise: data_daily[i].sunrise,
                 sunset: data_daily[i].sunset
             });
@@ -53,7 +53,7 @@ exports.format = (data) => {
                 time: data_daily[i].dt,
                 temperature: data_daily[i].temp,
                 feels_like: data_daily[i].feels_like,
-                weather: data_daily[i].weather.main,
+                weather: data_daily[i].weather[0].main,
                 sunrise: data_daily[i].sunrise,
                 sunset: data_daily[i].sunset
             });
@@ -66,7 +66,6 @@ exports.format = (data) => {
 }
 
 exports.filter_time = (weather, filtres) => {
-
 
     let new_weather = [];
     
@@ -100,4 +99,57 @@ exports.filter_time = (weather, filtres) => {
     }
 
     return new_weather
+}
+
+exports.format_time = (weather) => {
+
+    let new_weather = [];
+
+    for (let i=0; i<weather.length; i++) {
+        let new_weather_plage = [];
+        for (let j = 0; j<weather[i][0].length; j++) {
+            let weather_time = weather[i][0][j];
+            weather_time.time    = new Date(weather_time.time    * 1000);
+            weather_time.sunrise = new Date(weather_time.sunrise * 1000);
+            weather_time.sunset  = new Date(weather_time.sunset  * 1000);
+            new_weather_plage.push(weather_time);
+        }
+        for (let j = 0; j<weather[i][1].length; j++) {
+            let weather_time = weather[i][1][j];
+            weather_time.time    = new Date(weather_time.time    * 1000);
+            weather_time.sunrise = new Date(weather_time.sunrise * 1000);
+            weather_time.sunset  = new Date(weather_time.sunset  * 1000);
+            weather_time.temperature = weather_time.temperature["day"];
+            weather_time.feels_like  = weather_time.feels_like["day"];
+            new_weather_plage.push(weather_time);
+        }
+
+        new_weather.push(new_weather_plage);
+    }
+
+    return new_weather
+}
+
+exports.filter_weather = (plages, weather, filtres) => {
+
+    for (let i = 0; i < weather.length; i++) {
+        if (filtres.weather === "stormy") {
+            weather[i] = weather[i].filter(item => ["Thunderstorm", "Ash", "Squall", "Tornado", "Sand"].includes(item.weather))
+        } else if (filtres.weather[i] === "clear") {
+            weather[i] = weather[i].filter(item => ["Clear"].includes(item.weather))
+        } else if (filtres.weather[i] === "bad") {
+            weather[i] = weather[i].filter(item => ["Rain", "Drizzle", "Fog",  "Smoke", "Snow", "Dust"].includes(item.weather))
+        } else if (filtres.weather[i] === "cloudy") {
+            weather[i] = weather[i].filter(item => ["Haze", "Mist", "Clouds"].includes(item.weather))
+        }
+
+        if (!weather[i].length) {
+            weather.splice(i, 1);
+            plages.splice(i, 1);
+        }
+    }
+
+
+
+    return plages, weather
 }
