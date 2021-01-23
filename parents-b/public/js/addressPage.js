@@ -11,7 +11,7 @@ let initAddress = function(){
     });
 
     d3.select(".button-next-address-from-nevermind").on("click", function (){
-        slidrHorizontal.slide("age-page");
+        mySlidr.slide("age-page");
         initAge();
     });
 };
