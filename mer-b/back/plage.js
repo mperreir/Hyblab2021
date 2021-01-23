@@ -149,6 +149,8 @@ exports.getbyfilter = async function(req) {
     // Take the 3 nodes nearest of the initial location
     plages = utils.filter(plages, filtres, 3)
 
+    // Choose a good time to go
+    plages = ow.choose(plages, weather)
+
     return plages
 };
-

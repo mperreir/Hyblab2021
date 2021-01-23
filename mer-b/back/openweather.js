@@ -80,18 +80,12 @@ exports.filter_time = (weather, filtres) => {
             const dusk = filtres.time === "dusk"  && weather_time.time > weather_time.sunset  - 3600 - 5400 && weather_time.time < weather_time.sunset  - 3600 + 5400;
             const night = filtres.time === "night" && weather_time.time > weather_time.sunset  - 3600 + 5400 && weather_time.time < weather_time.sunrise - 3600 - 5400;
             if (dawn || day || dusk || night) {
-                    weather_time.time    = new Date(weather_time.time    * 1000);
-                    weather_time.sunrise = new Date(weather_time.sunrise * 1000);
-                    weather_time.sunset  = new Date(weather_time.sunset  * 1000);
                     new_weather_plage.push(weather_time);
             }
         }
         for (let j = 0; j<weather[i][1].length; j++) {
             let weather_time = weather[i][1][j];
             let time = (filtres.time == "dawn" ? "morn" : filtres.time == "day" ? "day" : filtres.time == "dusk" ? "eve" : "night");
-            weather_time.time    = new Date(weather_time.time    * 1000);
-            weather_time.sunrise = new Date(weather_time.sunrise * 1000);
-            weather_time.sunset  = new Date(weather_time.sunset  * 1000);
             weather_time.temperature = weather_time.temperature[time];
             weather_time.feels_like = weather_time.feels_like[time];
             new_weather_plage.push(weather_time);
@@ -110,17 +104,10 @@ exports.format_time = (weather) => {
     for (let i=0; i<weather.length; i++) {
         let new_weather_plage = [];
         for (let j = 0; j<weather[i][0].length; j++) {
-            let weather_time = weather[i][0][j];
-            weather_time.time    = new Date(weather_time.time    * 1000);
-            weather_time.sunrise = new Date(weather_time.sunrise * 1000);
-            weather_time.sunset  = new Date(weather_time.sunset  * 1000);
-            new_weather_plage.push(weather_time);
+            new_weather_plage.push(weather[i][0][j]);
         }
         for (let j = 0; j<weather[i][1].length; j++) {
             let weather_time = weather[i][1][j];
-            weather_time.time    = new Date(weather_time.time    * 1000);
-            weather_time.sunrise = new Date(weather_time.sunrise * 1000);
-            weather_time.sunset  = new Date(weather_time.sunset  * 1000);
             weather_time.temperature = weather_time.temperature["day"];
             weather_time.feels_like  = weather_time.feels_like["day"];
             new_weather_plage.push(weather_time);
@@ -172,4 +159,20 @@ exports.filter_sea = (plages, weather, filtres) => {
     }
 
     return plages, weather
+}
+
+exports.choose = (plages, weather) => {
+
+    for (let i = 0; i < plages.length; i++) {
+        const weather_plage = weather[i].reduce((a,b)=>a.temperature>b.temperature?a:b)
+        plages[i].time = new Date(weather_plage.time * 1000);
+        plages[i].weather= {
+            temperature: weather_plage.temperature-273.15,
+            feels_like: weather_plage.feels_like-273.15,
+            sunrise: new Date(weather_plage.sunrise * 1000),
+            sunset: new Date(weather_plage.sunset * 1000)
+        }
+    }
+
+    return plages
 }
