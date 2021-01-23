@@ -79,15 +79,13 @@ exports.sort_node = (data) => {
 
 exports.filter_type = (beaches, filtres) => {
     
-    if (filtres.hasOwnProperty("type")) {
-        beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
-        if (filtres.type = "sand") {
-            beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
-        } else if (filtres.type = "pebble") {
-            beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
-        } else if (filtres.type = "rocks") {
-            beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
-        }
+    beaches = beaches.filter(node => !node.tags.hasOwnProperty(surface))
+    if (filtres.type = "sand") {
+        beaches = beaches.filter(node => ["sand", "sable", "sable_et_gallet", "dirt/sand"].includes(node.tags.surface))
+    } else if (filtres.type = "pebble") {
+        beaches = beaches.filter(node => ["pebblestone", "sable_et_gallet", "shingle", "shingles", "dirt/sand"].includes(node.tags.surface))
+    } else if (filtres.type = "rocks") {
+        beaches = beaches.filter(node => ["gravel", "asphalt", "fine_gravel", "stone"].includes(node.tags.surface))
     }
     
     return beaches
@@ -109,52 +107,44 @@ exports.format = (beaches) => {
     return plages
 }
 
-exports.addinfo = (plages, harbors, lighthouses, car_parks) => {
+exports.addharbors = (plages, harbors) => {
 
     const utils = require("./utils");
 
-    function nearest(plage, object) {
-        let nearest = object[0];
-        for (const node in object) {
-            if (utils.dist(plage.latitude, plage.longitude, node.latitude, node.longitude) < nearest) {
-                nearest = node;
-            }
-        }
-        return nearest;
-    }
-
-    if (harbors.length !== 0) {
-        for (const node of plages) {
-            const harbor = nearest(node, harbors);
-            node.port = {
-                latitude: harbor.lat,
-                longitude: harbor.lon,
-                name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
-            }
+    for (const node of plages) {
+        const harbor = utils.nearest(node, harbors);
+        node.port = {
+            latitude: harbor.lat,
+            longitude: harbor.lon,
+            name: (harbor.tags.hasOwnProperty("name") ? harbor.tags.name : null),
         }
     }
+}
 
-    if (lighthouses.length !== 0) {
-        for (const node of plages) {
-            const lighthouse = nearest(node, lighthouses);
-            node.phare = {
-                latitude: lighthouse.lat,
-                longitude: lighthouse.lon,
-                name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
-            }
+exports.addlighthouses = (plages, lighthouses) => {
+
+    const utils = require("./utils");
+
+    for (const node of plages) {
+        const lighthouse = utils.nearest(node, lighthouses);
+        node.phare = {
+            latitude: lighthouse.lat,
+            longitude: lighthouse.lon,
+            name: (lighthouse.tags.hasOwnProperty("name") ? lighthouse.tags.name : null),
         }
     }
+}
 
-    if (car_parks.length !== 0) {
-        for (const node of plages) {
-            const car_park = nearest(node, car_parks);
-            node.parking = {
-                latitude: car_park.lat,
-                longitude: car_park.lon,
-                name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
-            }
+exports.addcar_parks = (plages, car_parks) => {
+
+    const utils = require("./utils");
+
+    for (const node of plages) {
+        const car_park = utils.nearest(node, car_parks);
+        node.parking = {
+            latitude: car_park.lat,
+            longitude: car_park.lon,
+            name: (car_park.tags.hasOwnProperty("name") ? car_park.tags.name : null),
         }
     }
-
-    return plages
 }

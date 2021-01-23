@@ -82,7 +82,9 @@ exports.getbyfilter = async function(req) {
     }
 
     // Filter the beaches with the type of the surface of it
-    beaches = osm.filter_type(beaches, filtres);
+    if (filtres.hasOwnProperty("type")) {
+        beaches = osm.filter_type(beaches, filtres);
+    }
 
     if (beaches.length == 0) {
         console.log(`There is no beaches respecting the planning around, the location and the type.`);
@@ -93,7 +95,15 @@ exports.getbyfilter = async function(req) {
     let plages = osm.format(beaches);
 
     // add more information about plannings if needed
-    plages = osm.addinfo(plages, harbors, lighthouses, car_parks);
+    if (harbors.length !== 0) {
+        plages = osm.addlighthouses(plages, harbors);
+    }
+    if (lighthouses.length !== 0) {
+        plages = osm.addlighthouses(plages, lighthouses);
+    }
+    if (car_parks.length !== 0) {
+        plages = osm.addcar_parks(plages, car_parks);
+    }
 
     // filter 30 plages (limitation by openweathermap for 1 minute (/2 if we want 2 request by minute): https://openweathermap.org/price)
     plages = utils.filter(plages, filtres, 30);
