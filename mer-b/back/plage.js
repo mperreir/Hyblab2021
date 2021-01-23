@@ -46,7 +46,7 @@ exports.getbyfilter = async function(req) {
 
                     if (!input.planning.includes(choice[0])) {
                         return error.e400(`An error has occured with the input planning concerning ${choice[0]}`);
-                    } else if (choice[1].length == 0 || !/^\d+$/.test(choice[1].slice(0, -1))) {
+                    } else if (choice == 1 || !/^\d+$/.test(choice[1].slice(0, -1))) {
                         return error.e400(`An error has occured with the input planning concerning the distance of ${choice[0]}`);
                     } else {
                         filtres.planning.push(choice[0]);
