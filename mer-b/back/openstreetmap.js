@@ -37,18 +37,3 @@ exports.api_url = (filtres) => {
         return prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + `.harbor` : ``) + (lighthouse ? separator_output + `.lighthouse` : ``) + (car ? separator_output + `.parking` : ``) + sufix_output + sufix;
     }
 }
-
-exports.api_fetch = (url) => {
-
-    const cst = require("./constants.json");
-
-    let i = 1;
-    let response = await fetch(cst.openstreetmap.api_url1 + url);
-
-    while (!response.ok && i < 4) {
-        i++;
-        response = await fetch(cst.openstreetmap[`api_url${i}`] + url);
-    }
-
-    return response;
-}

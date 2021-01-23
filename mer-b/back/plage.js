@@ -58,9 +58,17 @@ exports.getbyfilter = async function(req) {
     }
 
     const osm = require("./openstreetmap");
+    const cst = require("./constants.json");
 
     const url = osm.api_url(filtres);
-    const res = osm.api_fetch(url)
+
+    let i = 1;
+    let res = await fetch(cst.openstreetmap.api_url1 + url);
+
+    while (!res.ok && i < 4) {
+        i++;
+        res = await fetch(cst.openstreetmap[`api_url${i}`] + url);
+    }
     
     if (!res.ok) {
         return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
@@ -165,17 +173,17 @@ exports.getbyfilter = async function(req) {
 
     if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
-        const cst = require("./constants.json");
-
         for (const node of plages) {
 
-            let response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
+            const response_weather = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
 
             if (!response_weather.ok) {
                 return `An error has occured (${response_weather.status}) when fetching on the openweathermap api.`;
             }
 
-            let data_weather = await response_weather.json();
+            const data_weather = await response_weather.json();
+
+            console.log(data_weather);
 
             const unix_sunrise = data_weather.sys.sunrise;
             const unix_sunset = data_weather.sys.sunset;
@@ -200,8 +208,8 @@ exports.getbyfilter = async function(req) {
                 actualTime: time(unix_actualTime),
                 aube: time(unix_sunrise - 3600), // 1 hour before sunrise is "aube"
                 creneauAube: [time(unix_sunrise - 5400), time(unix_sunrise + 5400)],
-                crepuscule: time(unix_sunset + 3600); // 1 hour after sunset is "crepuscule",
-                creneauCrepuscule: [time(unix_sunset - 5400), time(unix_sunset + 5400)];
+                crepuscule: time(unix_sunset + 3600), // 1 hour after sunset is "crepuscule",
+                creneauCrepuscule: [time(unix_sunset - 5400), time(unix_sunset + 5400)]
             };
         }
     }
