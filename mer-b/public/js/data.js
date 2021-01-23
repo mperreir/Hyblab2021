@@ -4,7 +4,9 @@ let affichage = {
     "moment" : "",
     "ciel": "",
     "mer": "",
-    "amenagement" :""
+    "amenagement" :"",
+    "longitude" : "",
+    "latitude": ""
 }
 
 function getAffichage(){
@@ -18,7 +20,9 @@ function affichageReset(){
         "moment" : "",
         "ciel": "",
         "mer": "",
-        "amenagement" :""
+        "amenagement" :"",  
+        "longitude" : affichage.longitude,
+        "latitude": affichage.latitude
     }
 
     sketchCiel.updateSketchCiel();
@@ -215,6 +219,7 @@ function affichageReset(){
           {
             question : "Quels aménagements souhaiteriez-vous à proximité ?",
             element: "amenagement",
+            multiple: true,
             reponses : [
                 {
                     "texte" : "Phare",
@@ -223,10 +228,6 @@ function affichageReset(){
                 {
                     "texte" : "Port",
                     "json" : "port",
-                },
-                {
-                  "texte" : "Passer cette question",
-                  "json" : "indifferent",
                 }
             ]
           },
@@ -246,6 +247,13 @@ function affichageReset(){
 
   function getPlages(){
       let urlGet = 'http://localhost:8080/mer-b/api/plage/';
+      if(affichage.longitude){
+          urlGet += 'longitude=' + affichage.longitude + "&";
+      }
+      if(affichage.latitude){
+          urlGet += 'latitude=' + affichage.latitude + "&";
+      }
+      
       if(affichage.type != 'indifferent'){
           urlGet += 'type=' + affichage.type + "&"; 
       }

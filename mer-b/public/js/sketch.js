@@ -169,7 +169,6 @@ let sketchCiel = function(p) {
       }
 
       if(imgdisplaySol){
-        console.log(solY);
         if(solY > 0){
           solY -= 2;
         }
@@ -221,12 +220,12 @@ let sketchCiel = function(p) {
       }
 
 
-      if(affichage.moment == "journee"){
+      if(affichage.moment == "journee" || affichage.moment == "indifferent"){
         backgroundColor = backgroundColorJour;
         imgdisplayFond = imgFondJour;
         imgdisplayPlante = imgPlanteJour;
 
-        if(affichage.ciel) {
+        if(affichage.ciel || affichage.ciel == "indifferent") {
           if(cielY == -1){
             cielY = 200;
           } 
@@ -235,7 +234,7 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.mer){
-          if(affichage.mer == "calme"){
+          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeJour;
           }
           else if(affichage.mer == "agitee"){
@@ -251,7 +250,7 @@ let sketchCiel = function(p) {
           if(affichage.type == "galets"){
             imgdisplaySol = imgSolGaletJour;
           }
-          else if(affichage.type == "sable"){
+          else if(affichage.type == "sable" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableJour;
           }
 
@@ -273,7 +272,7 @@ let sketchCiel = function(p) {
         imgdisplayFond = imgFondNuit;
         imgdisplayPlante = imgPlanteNuit;
 
-        if(affichage.ciel){
+        if(affichage.ciel || affichage.ciel == "indifferent"){
           if(cielY == -1){
             cielY = 200;
           } 
@@ -281,7 +280,7 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.mer){
-          if(affichage.mer == "calme"){
+          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeNuit;
           }
           else if(affichage.mer == "agitee"){
@@ -297,7 +296,7 @@ let sketchCiel = function(p) {
           if(affichage.type == "galets"){
             imgdisplaySol = imgSolGaletNuit;
           }
-          else if(affichage.type == "sable"){
+          else if(affichage.type == "sable" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableNuit;
           }
 
@@ -319,7 +318,7 @@ let sketchCiel = function(p) {
         imgdisplayFond = imgFondSoleil;
         imgdisplayPlante = imgPlanteSoleil;
 
-        if(affichage.ciel){
+        if(affichage.ciel || affichage.ciel == "indifferent"){
           if(cielY == -1){
             cielY = 200;
           } 
@@ -327,7 +326,7 @@ let sketchCiel = function(p) {
         }
         
         if(affichage.mer){
-          if(affichage.mer == "calme"){
+          if(affichage.mer == "calme" || affichage.mer == "indifferent"){
             imgdisplayMer = imgMerCalmeSoleil;
           }
           else if(affichage.mer == "agitee"){
@@ -340,10 +339,10 @@ let sketchCiel = function(p) {
         }
 
         if(affichage.type){
-          if(affichage.type == "galets"){
+          if(affichage.type == "galets" ){
             imgdisplaySol = imgSolGaletSoleil;
           }
-          else if(affichage.type == "sable"){
+          else if(affichage.type == "sable" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableSoleil;
           }
 

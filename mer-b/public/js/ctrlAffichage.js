@@ -1,7 +1,17 @@
 function updateElement(element, reponse){
     let valeur = reponse.json;
     let affichage = getAffichage();
-    affichage[element] = valeur;
+    if(element == "amenagement"){
+      if(affichage[element].includes(valeur)){
+        affichage[element] = affichage[element].replace(valeur + ',','');
+      }
+      else {
+        affichage[element] += valeur + ',';
+      }
+    }
+    else {
+      affichage[element] = valeur;
+    }
 
     sketchCiel.updateSketchCiel(element, reponse);
     console.log(getAffichage());
