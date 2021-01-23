@@ -3,10 +3,13 @@ const fetch = require('node-fetch');
 
 exports.getbyfilter = async function(req) {
 
+    const type = ["sand", "pebble", "rocks"];
+    const time = ["dawn", "day", "dusk", "night"];
+    const weather = ["clear", "cloudy", "bad", "stormy"];
+    const sea = ["hectic", "calm"];
+    const planning = ["harbor", "lighthouse", "car_park"];
+
     let filtres = {};
-    let dist_lighthouse = ``;
-    let dist_harbor= ``;
-    let dist_car = ``;
 
     const liste_filtres = req.split('&');
     for (const e of liste_filtres) {
@@ -14,71 +17,38 @@ exports.getbyfilter = async function(req) {
 
         switch (filtre) {
             case "latitude":
-                if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(arg)) {
-                    filtres.latitude = parseFloat(arg);
-                    break;
-                } else {
-                    return `An error has occured with the input latitude: ${arg},
-                    the argument need to be a float.`
-                }
             case "longitude":
-                if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(arg)) {
-                    filtres.longitude = parseFloat(arg);
+                if (/^(-?\d+(\.\d+)?).\s*(-?\d+(\.\d+)?)$/.test(arg)) {
+                    filtres[filtre] = parseFloat(arg);
                     break;
                 } else {
-                    return `An error has occured with the input longitude: ${arg},
-                    the argument need to be a float.`
+                    return `An error has occured with the input ${filtre} concerning ${arg}`
                 }
             case "type":
-                if (["sand", "pebble", "rocks"].includes(arg)) {
-                    filtres.type = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input type: ${arg},
-                    the argument  need to be sand, pebble or rocks.`
-                }
             case "time":
-                if (["dawn", "day", "dusk", "night"].includes(arg)) {
-                    filtres.time = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input time: ${arg},
-                    the argument need to be sunrise, sunset, day, night, full_moon, new_moon or crescent.`
-                }
             case "weather":
-                if (["clear", "cloudy", "bad", "stormy"].includes(arg)) {
-                    filtres.weather = arg;
-                    break;
-                } else {
-                    return `An error has occured with the input weather: ${arg},
-                    the argument need to be clear, cloudy, bad or stormy.`
-                }
             case "sea":
-                if (["hectic", "calm"].includes(arg)) {
-                    filtres.sea = arg;
+                if ([filtre].includes(arg)) {
+                    filtres[filtre] = arg;
                     break;
                 } else {
-                    return `An error has occured with the input sea: ${arg},
-                    the argument need to be hectic or calm.`
+                    return `An error has occured with the input ${filtre} concerning ${arg}`
                 }
             case "planning":
-                const plannings = arg.split(',')
-                for (const elem of plannings) {
+                filtres.planning = [];
+                for (const elem of arg.split(',')) {
                     
                     const choice = elem.split('(')
                     const value = choice[0];
                     const dist = choice[1].slice(0, -1);
 
-                    if (!["harbor", "lighthouse", "car_park"].includes(value)) {
-                        return `An error has occured with the input planning: ${arg} concerning the ${value},
-                        the argument need to be harbor, lighthouse or car_park.`
+                    if (!planning.includes(value)) {
+                        return `An error has occured with the input planning concerning ${value}`
                     } else if (!/^\d+$/.test(dist)) {
-                        return `An error has occured with the input planning: ${arg} concerning the distance of ${value} it need to be an int.`
+                        return `An error has occured with the input planning concerning the distance of ${value}`
                     } else {
-                        filtres.planning = value;
-                        if (value == "harbor") dist_harbor = dist;
-                        else if(value == "lighthouse") dist_lighthouse = dist;
-                        else dist_car = dist;
+                        filtres.planning.push(value);
+                        filtres[`dist_${value}`] = dist;
                     }
                 }
                 break;
@@ -87,53 +57,16 @@ exports.getbyfilter = async function(req) {
         }
     }
 
-    // angle representing 50 km on the earth's surface
-    // d = 2 * pi * r * a / 360, so a is equal to :
-    const arc = 360 * 50/(2 * 6371 * Math.PI);
+    const osm = require("./openstreetmap");
 
-    const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
-    const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];
-    const france = `%0A%0D%0Aarea%5Bname%3D"France"%5D%3B%0D`; // area["name"="France"];
+    const url = osm.api_url(filtres);
+    const res = osm.api_fetch(url)
     
-    const ask_lighthouse = `%0A%28node%5B"man_made"%3D"lighthouse"%5D%28area%29%3Bnode%5B"man_made"%3D"beacon"%5D%28area%29%3B%29-%3E.lighthouse%3B%0D`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
-    const ask_harbor = `%0Anode%28area%29%5B"harbour"%3D"yes"%5D%5B"seamark%3Atype"%3D"harbour"%5D-%3E.harbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
-    const ask_car = `%0Anode%28area%29%5B"amenity"%3D"parking"%5D-%3E.parking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
-    
-    const pre_ask = `%0A%0D%0Anode`; // node
-    const with_nothing = `%28area%29`; // (area)
-    const with_lighthouse = `%28around.lighthouse%3A${dist_lighthouse}%29`; // (around.lighthouse:10000)
-    const with_harbor = `%28around.harbor%3A${dist_harbor}%29`; // (around.harbor:10000)
-    const with_car = `%28around.carpark%3A${dist_car}%29`; // (around.car:10000)
-    const ask = `%5B"natural"%3D"beach"%5D-%3E.beaches%3B%0D`; // ["natural"="beach"]->.beaches;
-
-    const prefix_output = `%0A++%0D%0A%28.beaches`; // (.beaches
-    const separator_output = `%3B+`; // ;
-    const out_lighthouse = `.lighthouse`; // .lighthouse
-    const out_harbor = `.harbor`; // .harbor
-    const out_car = `.parking`; // .parking
-    const sufix_output = `%3B%29%3B%0D`; // ;);
-
-    const sufix = `%0Aout%3B&target=compact`; // out;
-
-    const cst = require("./constants/openstreetmap");
-
-    if (!filtres.hasOwnProperty("planning")) {
-        var url = prefix + bbox + france + pre_ask + with_nothing + ask + prefix_output + sufix_output + sufix;
-    } else {
-        const harbor = filtres.planning.includes("harbor");
-        const lighthouse = filtres.planning.includes("lighthouse");
-        const car = filtres.planning.includes("car_park");
-
-        var url = prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + out_harbor : ``) + (lighthouse ? separator_output + out_lighthouse : ``) + (car ? separator_output + out_car : ``) + sufix_output + sufix;
+    if (!res.ok) {
+        return `An error has occured (${res.status}) when fetching on the openstreetmap api.`;
     }
 
-    let response = await fetch(cst.api_url1 + url);
-
-    if (!response.ok) {
-        return `An error has occured (${response.status}) when fetching on the openstreetmap api.`;
-    }
-
-    let data = await response.json()
+    const data = await res.json();
 
     let beaches = [];
     let harbors = [];
@@ -175,35 +108,8 @@ exports.getbyfilter = async function(req) {
         return [];
     }
 
-    function dist(lat1, lon1, lat2, lon2) {
-        return (lat1-lat2)**2 + (lon1-lon2)**2
-    }
-
-    // Take the 3 nodes nearest of the initial location
-    if (beaches.length > 3 ) {
-        let min1 = Infinity;
-        let min2 = Infinity;
-        let min3 = Infinity;
-
-        beaches_clone = Array.from(beaches)
-        beaches_clone.forEach(function (node, index) {
-            let dist = dist(node.lat, node.lon, filtres.latitude, filtres.longitude);
-            if (dist < min1) {
-                min3 = min2;
-                min2 = min1;
-                min1 = dist;
-            } else if (dist < min2) {
-                min3 = min2;
-                min2 = dist;
-            } else if (dist < min3) {
-                min3 = dist;
-            } else {
-                beaches.splice(index - (beaches_clone.length - beaches.length), 1);
-            }
-        })
-    }
-
-    var plages = [];
+    // format the beaches information into plages
+    let plages = [];
     for (const node of beaches) {
         plages.push({
             latitude: node.lat,
@@ -212,11 +118,12 @@ exports.getbyfilter = async function(req) {
             type: (node.tags.hasOwnProperty("surface") ? node.tags.surface : null)
         });
     }
-
+    
+    // add more information about plannings if needed
     function nearest(plage, object) {
         let nearest = object[0];
         for (const node in object) {
-            if (dist(plage.latitude, plage.longitude, node.latitude, node.longitude) > nearest) {
+            if ((plage.latitude - node.latitude)**2 + (plage.longitude - node.longitude)**2 > nearest) {
                 nearest = node;
             }
         }
@@ -255,15 +162,6 @@ exports.getbyfilter = async function(req) {
             }
         }
     }
-
-    /**"clear", "cloudy", "bad","stormy"]
-     *
-     * cloudy : Clouds
-     * clear : Clear
-     * stormy :
-     * bad : Rain
-     *
- */
     if (filtres.hasOwnProperty("weather") || filtres.hasOwnProperty("time") || filtres.hasOwnProperty("sea")) {
 
         const weather = require("./constants/openweathermap");
@@ -306,8 +204,6 @@ exports.getbyfilter = async function(req) {
             node.time.creneauAube = [time(unix_sunrise - 5400), time(unix_sunrise + 5400)];
             node.time.crepuscule = time(unix_sunset + 3600); // 1 hour after sunset is "crepuscule"
             node.time.creneauCrepuscule = [time(unix_sunset - 5400), time(unix_sunset + 5400)];
-
-
         }
     }
 
@@ -352,16 +248,32 @@ exports.getbyfilter = async function(req) {
         if (filtres.time === "night") {
             plages = plages.filter(node => (node.time.actualTime < node.time.creneauAube[0] && node.time.actualTime > node.time.creneauCrepuscule[1]));
         }
-
-
     }
 
+    // Take the 3 nodes nearest of the initial location
+    if (plages.length > 3 ) {
+        let min1 = Infinity;
+        let min2 = Infinity;
+        let min3 = Infinity;
 
+        plages_clone = Array.from(plages)
+        plages_clone.forEach(function (plage, index) {
+            let dist = (plage.latitude - filtres.latitude)**2 + (plage.longitude - filtres.longitude)**2;
+            if (dist < min1) {
+                min3 = min2;
+                min2 = min1;
+                min1 = dist;
+            } else if (dist < min2) {
+                min3 = min2;
+                min2 = dist;
+            } else if (dist < min3) {
+                min3 = dist;
+            } else {
+                plages.splice(index - (plages_clone.length - plages.length), 1);
+            }
+        })
+    }
 
-
-
-
-    return plages;
-
+    return plages
 };
 
