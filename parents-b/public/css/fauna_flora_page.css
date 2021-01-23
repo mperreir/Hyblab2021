@@ -1,0 +1,108 @@
+/* -------------------------- Fauna Flora -------------------- */
+.leaves-fauna-flora{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    height: auto;
+    text-align: center;
+    width: 10%;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 2;
+}
+
+.oya-fauna-flora{
+    position: absolute;
+    top: 13%;
+    left: 25%;
+    width: 15%;
+    z-index: 2;
+}
+
+.talking-bubble-fauna-flora{
+    position: absolute;
+    top: 24%;
+    left: 38%;
+    width: 5%;
+    z-index: 2;
+}
+
+.oya-fauna-flora-dialog{
+    position: absolute;
+    top: 14%;
+    left: 42%;
+    width: 25%;
+    z-index: 2;
+}
+
+.picto-fauna-flora{
+    position: absolute;
+    width: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.dog-picto{
+    top: 30%;
+}
+
+.animals-picto{
+    top: 39%;
+}
+
+.pond-picto{
+    top: 48%;
+}
+
+.grass-picto{
+    top: 57%;
+}
+
+.tree-picto{
+    top: 66%;
+}
+
+.button-non{
+    position: absolute;
+    width: 25%;
+    height: 32%;
+    padding: 0.5em;
+    left: 17%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+    border: 8px solid #aba3ca;
+}
+
+.button-oui{
+    position: absolute;
+    width: 25%;
+    height: 32%;
+    padding: 0.5em;
+    left: 78%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+    border: 8px solid #aba3ca;
+    cursor: default;
+}
+
+.button-suivant{
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    padding: 0.5em;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+    border: 5px solid #ffe9de;
+}
+
+.button-suivant-fauna-flora:hover{
+    box-shadow: 0 16px 20px 0 rgba(0,0,0,0.65),0 24px 75px 0 rgba(0,0,0,0.55);
+}
+
