@@ -4,6 +4,7 @@ function updateElement(element, reponse){
     if(element == "amenagement"){
       if(affichage[element].includes(valeur)){
         affichage[element] = affichage[element].replace(valeur + ',','');
+        sketchCiel.updateSketchCiel();
       }
       else {
         affichage[element] += valeur + ',';

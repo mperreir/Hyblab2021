@@ -259,11 +259,15 @@ let sketchCiel = function(p) {
           }
         }
         
-        if(affichage.amenagement == "phare"){
+        if(affichage.amenagement.includes("phare")){
           imgdisplayPhare = imgPhareJour;
           if(phareY == -1){
             phareY = 100;
           }
+        }
+        else {
+          imgdisplayPhare = undefined;
+          phareY = -1;
         }
 
       }
@@ -305,12 +309,16 @@ let sketchCiel = function(p) {
           }
         }
 
-        if(affichage.amenagement == "phare"){
+        if(affichage.amenagement.includes("phare")){
           imgdisplayPhare = imgPhareNuit;
 
           if(phareY == -1){
             phareY = 100;
           }
+        }
+        else {
+          imgdisplayPhare = undefined;
+          phareY = -1;
         }
       }
       else if(affichage.moment){
@@ -351,12 +359,16 @@ let sketchCiel = function(p) {
           }
         }
 
-        if(affichage.amenagement == "phare"){
+        if(affichage.amenagement.includes("phare")){
           imgdisplayPhare = imgPhareSoleil;
 
           if(phareY == -1){
             phareY = 100;
           }
+        }
+        else {
+          imgdisplayPhare = undefined;
+          phareY = -1;
         }
       }
     }
