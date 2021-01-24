@@ -83,3 +83,8 @@ exports.filter = (plages, filtres, n) => {
     return plages.slice(0, n)
 }
 
+exports.filter2 = (plages, weather, filtres, n) => {
+    plages.sort((a, b) => dist(a.latitude, a.longitude, filtres.latitude, filtres.longitude) - dist(b.latitude, b.longitude, filtres.latitude, filtres.longitude));
+    return [plages.slice(0, n), weather.slice(0, n)]
+}
+
