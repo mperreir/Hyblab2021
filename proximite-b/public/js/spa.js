@@ -9,11 +9,18 @@ const add_store = (name) => {
         stores[name] = {}
 };
 
+const store_in_current_page = (data) => {
+    stores[stores["all"]["current_page"]] = data;
+};
+
 const make_page_from_template = (page_name) => {
     const app = document.getElementById('app');
     fetch(`/proximite-b/templates/${page_name}.html`)
         .then(res => res.text())
-        .then(text => { app.innerHTML = text; });
+        .then(text => {
+            app.innerHTML = text;
+            stores["all"]["current_page"] = page_name;
+        });
 }
 
 const goto_home = () => {
@@ -22,7 +29,7 @@ const goto_home = () => {
 };
 const goto_adresses = (persona) => {
     add_store("adresses");
-    stores["personas"]["chosen"] = persona;
+    store_in_current_page({"chosen": persona});
     make_page_from_template("adresses");
 };
 const goto_personas = () => {
@@ -31,7 +38,7 @@ const goto_personas = () => {
 };
 const goto_criteres = (positions) => {
     add_store("criteres");
-    stores["adresses"]["positions"] = positions;
+    store_in_current_page({"positions": positions});
     make_page_from_template("criteres");
 };
 const goto_timeline = () => {
