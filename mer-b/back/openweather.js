@@ -9,14 +9,18 @@ exports.api_fetch = async (plages) => {
 
     for (const node of plages) {
 
-        const res = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
-
+        try {
+            var res = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
+        } catch (e) {
+            res = {ok:false, status:e.code, msg:e.message}
+        }
+    
         if (!res.ok) {
 
             if (res.status == 401) {
                 return error.e(res.status, `Error: You need to input an an API key in the file: mer-b/back/constants.json`);
             } else {
-                return error.e(res.status, `An error has occured when fetching on the openweathermap api.`);
+                return error.e(res.status, (res.msg || `An error has occured when fetching on the openweathermap api.`));
             }
         }
 
@@ -141,7 +145,7 @@ exports.filter_weather = (plages, weather, filtres) => {
         }
     }
 
-    return plages, weather
+    return [plages, weather]
 }
 
 exports.filter_sea = (plages, weather, filtres) => {
@@ -161,7 +165,7 @@ exports.filter_sea = (plages, weather, filtres) => {
         }
     }
 
-    return plages, weather
+    return [plages, weather]
 }
 
 exports.choose = (plages, weather) => {
