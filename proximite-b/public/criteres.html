@@ -2,23 +2,50 @@
 
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <meta charset="utf-8">
+    <title>Hyblab 2020</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/criteres.js"></script>
+    <style>
+        #div1, #div2, #div3 {
+            float: left;
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
 
 </head>
 <body>
-    <ul>
-        <li><a href="index.html">Home</a></li>
+<ul>
+    <li><a href="index.html">Home</a></li>
 
-        <li><a href="personas.html">Personas</a></li>
-        <li><a href="adresses.html">Adresses</a></li>
-        <li><a href="timeline.html">timeline</a></li>
-        <li><a href="conclu.html">conclu</a></li>
-    </ul>
+    <li><a href="personas.html">Personas</a></li>
+    <li><a href="adresses.html">Adresses</a></li>
+    <li><a href="timeline.html">timeline</a></li>
+    <li><a href="conclu.html">conclu</a></li>
+</ul>
 
-    choix bon critere  ET mauvais  faire single page
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <p draggable="true" ondragstart="drag(event)" id="pharmacie">  Pharmacie</p>
+    <p draggable="true" ondragstart="drag(event)" id="boulangerie">  Boulangerie</p>
+    <p draggable="true" ondragstart="drag(event)" id="supermarche">  Supermarche</p>
+    <p draggable="true" ondragstart="drag(event)" id="bus">  Arret bus</p>
+    <p draggable="true" ondragstart="drag(event)" id="ecole">  Ecole</p>
+    <p draggable="true" ondragstart="drag(event)" id="parc">  Parc</p>
+    <p draggable="true" ondragstart="drag(event)" id="culte">  Lieu de culte</p>
+
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div>
+    <button onclick="submitInterest()">Valider</button>
+</div>
 
 </body>
 </html>
