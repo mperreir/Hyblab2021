@@ -46,32 +46,27 @@ module.exports = function (app) {
      *             "latitude": 47.6438269,
      *             "longitude": -3.4470463,
      *             "name": "Port Tudy"
-     *         },
-     *         "time": "2021-01-28T12:00:00.000Z",
-     *         "weather": {
-     *             "temperature": "12.11",
-     *             "feels_like": "3.33",
-     *             "sunrise": "2021-01-28T07:45:19.000Z",
-     *             "sunset": "2021-01-28T17:08:03.000Z"
-     *         }
-     *     }, {
-     *         "latitude": 47.6245791,
-     *         "longitude": -3.4286736,
-     *         "nom": null,
-     *         "type": "sand",
-     *         "phare": {
+     *          },
+     *          "phare": {
      *             "latitude": 47.6438269,
      *             "longitude": -3.4470463,
-     *             "name": "Port Tudy"
-     *         },
-     *         "time": "2021-01-28T12:00:00.000Z",
-     *         "weather": {
-     *             "temperature": "12.27",
-     *             "feels_like": "3.54",
-     *             "sunrise": "2021-01-28T07:45:13.000Z",
-     *             "sunset": "2021-01-28T17:07:56.000Z"
-     *         }
-     *     }]
+     *             "name": "nom du phare"
+     *          },
+     *          "parking": {
+     *             "latitude": 47.6438269,
+     *             "longitude": -3.4470463,
+     *             "name": "nom du parking"
+     *          },
+     *          "time": "2021-01-28T12:00:00.000Z",
+     *          "weather": {
+     *              "temperature": "12.11",
+     *              "feels_like": "3.33",
+     *              "sunrise": "2021-01-28T07:45:19.000Z",
+     *              "sunset": "2021-01-28T17:08:03.000Z"
+     *          }
+     *     },
+     *        ... (max 3)
+     *     ]
      * }
      * 
      * {
