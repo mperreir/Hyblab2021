@@ -31,13 +31,12 @@
 ]
 
  */
-
 const PARCNUMBER = 92;
 const fs = require('fs');
 const Parc = require('./model/Parc');
 const parcs = [];
 for (let i = 0; i < PARCNUMBER; i++) {
-    parcs.push(new Parc(i));
+    parcs.push(new Parc(i + 1));
 }
 
 let data = fs.readFileSync('parents-a/public/data/data.json');
@@ -46,6 +45,6 @@ keys = Object.keys(data);
 keys.forEach(key => {
     Object.keys(data[key]).forEach(id => parcs[id].addAttribute(key, data[key][id]));
 });
-console.log(parcs[0]);
+
 fs.writeFileSync('parents-a/public/data/formatedData.json', JSON.stringify(parcs));
 
