@@ -95,7 +95,7 @@ function setTexte(id){
 
   
 let initSlide3 = function(){
-    for(let i = 0; i + 1 < contenu.questions.length; i++){
+    for(let i = 0; i < contenu.questions.length; i++){
       setTexte(i);
     }
 };

@@ -9,6 +9,9 @@ let initSlideFin = function(){
       initSlide1();
       affichageReset();
       sketchCiel.resetSketchCiel();
+      var root = document.documentElement;
+      root.style.setProperty('--breadcrumb-color', "#9DF5FF");
+      root.style.setProperty('--bouton-texte-color', "#203443");
     });
   
     d3.select('#goback').on('mouseover', function(){

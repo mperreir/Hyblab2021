@@ -158,6 +158,7 @@ div#displayCanvas {
     --primary-color: #203443; 
     --secondary-color: white;
     --citation-color: #203443;
+    --bouton-texte-color: #203443;
     --breadcrumb-color: #9DF5FF;
 }
 
@@ -206,7 +207,7 @@ h1 {
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
-    color: var(--primary-color, #203443);
+    color: var(--bouton-texte-color, #203443);
     transition: all 0.5s ease;
 }
 
@@ -436,6 +437,7 @@ input#adresse:focus {
 #containerQuestion h1 {
     text-align: left;
     margin-bottom: 30px;
+    margin-left: 20px;
 }
 
 
@@ -471,53 +473,30 @@ div#containerReponses {
 
 /***slide fin***/
 .containerFin {
-    width: 80%;
-    height: 80%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-top: 5%;
     position: relative;
 }
 
 .cartePostale {
     color: black;
-    background-color: rgb(124, 118, 118);
-    width: 36em;
-    height: 18em;
-    position: absolute;
-    transform: scale(0.9);
-    opacity: 1;
+    width: 30em;
+    height: 20em;
     text-align: left;
+    display: inline-block;
+    transform: rotate(4deg);
+    margin-left: 50px;
+    margin-bottom: -48px;
 }
-
-.cartePostale:hover {
-    z-index: 99;
-    /*animation: fronte 0.5s linear forwards; */
-}
-
-@keyframes fronte {
-    from { z-index: 0; opacity: 0.5; }
-    to { z-index: 4; opacity: 1; }
-}  
-
 
 .cartePostale.un {
-    transform: rotate(4deg);
-    right:0;
+    transform: rotate(-11deg);
+    margin-top: 49px;
 }
 
 .cartePostale.deux {
-    transform: rotate(-10deg);
-}
-
-.cartePostale.trois {
-    transform: rotate(-2deg);
-    margin-top: 15em;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    transform: rotate(10deg);
 }
 
 div#goback {
@@ -528,12 +507,13 @@ div#goback {
 
 
 .imgCarte {
-    background-color: blueviolet;
-    height: 100%;
-    width: 50%;
-    float: left;
+   display: none;
 }
 
 .cartePostale .texte {
     display: inline-block;
+    background-image: url('../img/lettrefinal.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
 }

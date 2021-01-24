@@ -3,7 +3,7 @@ function updateElement(element, reponse){
     let affichage = getAffichage();
     if(element == "amenagement"){
       if(affichage[element].includes(valeur)){
-        affichage[element] = affichage[element].replace(valeur + ',','');
+        affichage[element] = affichage[element].replace(valeur + '(10000),','');
         sketchCiel.updateSketchCiel();
       }
       else {
@@ -22,12 +22,16 @@ function updateElement(element, reponse){
     if(element == "moment" && reponse.json == "night"){
       root.style.setProperty('--citation-color', "white");
       root.style.setProperty('--breadcrumb-color', "#274652");
+      root.style.setProperty('--bouton-texte-color', "#203443")
+
     }
-    else if(element == "moment" && reponse.json == "day"){
+    else if(element == "moment" && (reponse.json == "day" || reponse.json == "indifferent")){
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
+      root.style.setProperty('--bouton-texte-color', "#203443")
     }
     else if(element == "moment"){
       root.style.setProperty('--breadcrumb-color', "#D07BBC");
+      root.style.setProperty('--bouton-texte-color', "#71265F")
     }
   }
 

@@ -249,16 +249,6 @@ function affichageReset(){
                 },
             ]
           },
-          {
-            question : "Etes vous prêt à trouver la plage de vos rêves ?",
-            element: "fin",
-            reponses : [
-                {
-                    "texte" : "Oui",
-                    "json": "phare"
-                }
-            ]
-          }
         ]
       };
   }

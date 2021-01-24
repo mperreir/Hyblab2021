@@ -1,9 +1,10 @@
 let initSlide2 = function(){
 
   d3.select('#boutonBegin').on('click', function(){
-    mySlidr.slide('page-3');
-    setActif(3);
-    initSlide3();
+    if(getAffichage().longitude){
+      mySlidr.slide('page-3');
+      setActif(3);
+    }
   });
 
 };
@@ -62,11 +63,12 @@ function hinter(event) {
   }
 }
 
-document.querySelector('input').oninput = function() {
+document.querySelector('input').oninput = function(input) {
+  let textInput = input.srcElement.value;
   var huge_list = document.getElementById('huge_list');
 
   huge_list.childNodes.forEach(element => {
-    if(element.getAttribute){
+    if(element.getAttribute && element.value == textInput){
       let geometry = element.getAttribute("data-value");
       let affichage = getAffichage();
       let coordinates = geometry.split(",");
