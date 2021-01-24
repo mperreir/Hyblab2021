@@ -24,3 +24,10 @@ Participants :
     - Guillaume Hutin
     - Paul Bertin
     - Virgile Ghazi
+
+
+## Utilisation
+
+Une clé API doit être utilisée pour utiliser [openweathermap](https://openweathermap.org/api).
+Une fois votre compte créé, allez récupérer votre clé [ici](https://home.openweathermap.org/api_keys).
+Et entré la dans le document `back/constants.json` à la place de API_KEY.
