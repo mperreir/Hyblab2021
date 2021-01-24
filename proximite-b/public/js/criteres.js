@@ -40,12 +40,14 @@ function submitInterest() {
         }
         result.push(interest);
         result.push(disinterest);
-        // console.log(interest);
-        // console.log(disinterest);
+
 
         fetch("/proximite-b/timeline.html", {
             method: "POST",
-            body: JSON.stringify(result)
+            body: JSON.stringify(result),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }).then(res => {
             console.log("Request complete! response:", res);
         });
