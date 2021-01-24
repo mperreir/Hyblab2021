@@ -1,12 +1,12 @@
-function allowDrop(ev) {
+function criteres_allowDrop(ev) {
     ev.preventDefault();
 }
 
-function drag(ev) {
+function criteres_drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
+function criteres_drop(ev) {
     ev.preventDefault();
 
     if(ev.target.id == "div2" && ev.target.children.length < 5){
@@ -22,7 +22,7 @@ function drop(ev) {
     }
 
 }
-function submitInterest() {
+function criteres_submitInterest() {
     var div2 = document.getElementById("div2");
     var div3 = document.getElementById("div3");
     let result =  new Array();
@@ -41,20 +41,10 @@ function submitInterest() {
         result.push(interest);
         result.push(disinterest);
 
-
-        fetch("/proximite-b/timeline.html", {
-            method: "POST",
-            body: JSON.stringify(result),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => {
-            console.log("Request complete! response:", res);
-        });
-    }else {
+        add_store("criteres");
+        stores["criteres"]["chosen"] = result;
+        goto_timeline();
+    } else {
         console.log("Veuillez chosir au moin trois point d'intéret")
     }
-
-
-
 }

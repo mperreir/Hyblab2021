@@ -1,0 +1,26 @@
+<ul>
+    <li><a onclick="goto_home()">Home</a></li>
+
+    <li><a onclick="goto_personas()">Personas</a></li>
+    <li><a onclick="goto_adresses()">Adresses</a></li>
+    <li><a onclick="goto_timeline()">timeline</a></li>
+    <li><a onclick="goto_conclu()">conclu</a></li>
+</ul>
+
+<div id="div1" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)">
+    <p draggable="true" ondragstart="criteres_drag(event)" id="pharmacie">  Pharmacie</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="boulangerie">  Boulangerie</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="supermarche">  Supermarche</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="bus">  Arret bus</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="ecole">  Ecole</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="parc">  Parc</p>
+    <p draggable="true" ondragstart="criteres_drag(event)" id="culte">  Lieu de culte</p>
+
+</div>
+
+<div id="div2" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)"></div>
+<div id="div3" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)"></div>
+
+<div>
+    <button onclick="criteres_submitInterest()">Valider</button>
+</div>
