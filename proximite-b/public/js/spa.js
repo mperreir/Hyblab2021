@@ -43,6 +43,9 @@ const goto_criteres = (positions) => {
 };
 const goto_timeline = () => {
     add_store("timeline");
+    window.addEventListener("resize", timeline_drawTimeLine);
+    timeline_drawTimeLine();
+    console.log("pourt")
     make_page_from_template("timeline");
 };
 const goto_conclu = () => {
