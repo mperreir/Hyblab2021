@@ -7,7 +7,7 @@ exports.api_url = (filtres) => {
 
     // angle representing 50 km on the earth's surface
     // d = 2 * pi * r * a / 360, so a is equal to :
-    const arc = 360 * 50/(2 * 6371 * Math.PI);
+    const arc = 360 * filtres.radius/(2 * 6371 * Math.PI);
 
     const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
     const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];

@@ -17,6 +17,13 @@ exports.filtres = (req) => {
         const [filtre, arg] = e.split('=');
 
         switch (filtre) {
+            case "radius":
+                if (/^[+-]?([0-9]*[.])?[0-9]+$/.test(arg)) {
+                    filtres.radius = parseFloat(arg);
+                    break;
+                } else {
+                    return error.e400(`An error has occured with the input radius concerning ${arg}`);
+                }
             case "latitude":
             case "longitude":
                 if (/^(-?\d+(\.\d+)?).\s*(-?\d+(\.\d+)?)$/.test(arg)) {
@@ -55,9 +62,9 @@ exports.filtres = (req) => {
         }
     }
 
-    if (!filtres.hasOwnProperty("longitude") || !filtres.hasOwnProperty("latitude")) {
+    if (!filtres.hasOwnProperty("radius") || !filtres.hasOwnProperty("longitude") || !filtres.hasOwnProperty("latitude")) {
         return error.e400(`An error has occured with the input: `
-        +`you need to specify the ${(filtres.hasOwnProperty("longitude")?"latitude":"longitude")}`);
+        +`you need to specify the ${(filtres.hasOwnProperty("longitude")?filtres.hasOwnProperty("latitude")?"radius":"latitude":"longitude")}`);
     }
 
     return {ok: true, data:filtres}

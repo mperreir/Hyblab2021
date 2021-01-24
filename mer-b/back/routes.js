@@ -10,6 +10,7 @@ module.exports = function (app) {
      *    with ci as a criteria and pi a parameter
      * 
      * list of criteria :
+     *  - radius              : float cast as a string
      *  - latitude            : float cast as a string
      *  - longitude           : float cast as a string
      *  - type (optionnal)    : string included in ["sand", "pebble", "rocks"]
