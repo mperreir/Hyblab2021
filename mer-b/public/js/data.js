@@ -232,6 +232,24 @@ function affichageReset(){
             ]
           },
           {
+            question : "A quel distance souhaitez-vous trouver ces aménagements ?",
+            element: "distance",
+            reponses : [
+                {
+                    "texte" : "1 km",
+                    "json": "1000"
+                },
+                {
+                    "texte" : "5 km",
+                    "json" : "5000",
+                },
+                {
+                    "texte": "Indifferent",
+                    "json": "20000"
+                },
+            ]
+          },
+          {
             question : "Etes vous prêt à trouver la plage de vos rêves ?",
             element: "fin",
             reponses : [

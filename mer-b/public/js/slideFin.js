@@ -5,6 +5,7 @@ let initSlideFin = function(){
 
     d3.select('#goback').on('click', function(){
       mySlidr.slide('page-1');
+      setActif(1);
       initSlide1();
       affichageReset();
       sketchCiel.resetSketchCiel();

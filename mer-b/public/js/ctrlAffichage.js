@@ -7,7 +7,7 @@ function updateElement(element, reponse){
         sketchCiel.updateSketchCiel();
       }
       else {
-        affichage[element] += valeur + ',';
+        affichage[element] += valeur + '(10000),';
       }
     }
     else {
@@ -16,9 +16,18 @@ function updateElement(element, reponse){
 
     sketchCiel.updateSketchCiel(element, reponse);
     console.log(getAffichage());
-    if(element == "moment" && reponse.json == "nuit"){
-      let root = document.documentElement;
+
+    let root = document.documentElement;
+
+    if(element == "moment" && reponse.json == "night"){
       root.style.setProperty('--citation-color', "white");
+      root.style.setProperty('--breadcrumb-color', "#274652");
+    }
+    else if(element == "moment" && reponse.json == "day"){
+      root.style.setProperty('--breadcrumb-color', "#9DF5FF");
+    }
+    else if(element == "moment"){
+      root.style.setProperty('--breadcrumb-color', "#D07BBC");
     }
   }
 

@@ -158,6 +158,7 @@ div#displayCanvas {
     --primary-color: #203443; 
     --secondary-color: white;
     --citation-color: #203443;
+    --breadcrumb-color: #9DF5FF;
 }
 
 * {
@@ -296,6 +297,98 @@ h1 {
 .materialBouton:hover .material-icons {
     color: var(--primary-color, #203443);
 }
+
+.containerChemin {
+    position: absolute;
+    height: 100%;
+    left: 20px;
+    z-index: 99;
+}
+
+.chemin img {
+    height: 300px;
+}
+
+.chemin {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+.breadcrumbs {
+    position: absolute;
+    top: 0;
+}
+
+.breadcrumb {
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+    background-color: var(--breadcrumb-color, #9DF5FF);
+    border-radius: 50px;
+    position: absolute;
+}
+
+.breadcrumb.breadcrumb-active {
+    background-color: white;
+}
+
+.breadcrumb:hover {
+    cursor: pointer;
+}
+
+div#breadcrumb-page-1 {
+    left: 5px;
+}
+
+div#breadcrumb-page-2 {
+    top: 30px;
+    left: -4px;
+}
+
+div#breadcrumb-page-3 {
+    top: 60px;
+    left: 4px;
+}
+
+div#breadcrumb-page-4 {
+    top: 100px;
+    left: 15px;
+}
+
+div#breadcrumb-page-5 {
+    left: 3px;
+    top: 130px;
+}
+
+div#breadcrumb-page-6 {
+    top: 160px;
+    left: -5px;
+}
+
+div#breadcrumb-page-7 {
+    top: 190px;
+    left: 14px;
+}
+
+div#breadcrumb-page-8 {
+    top: 225px;
+    left: 12px;
+}
+
+div#breadcrumb-page-9 {
+    left: -2px;
+    top: 257px;
+}
+
+div#breadcrumb-page-fin {
+    top: 294px;
+    left: 9px;
+}
+
+
 
 /***Acceuil***/
 .containerAcceuil {
