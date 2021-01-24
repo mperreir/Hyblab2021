@@ -1,3 +1,4 @@
+
 var TimeKnots = {
     draw: function (id, events, options) {
         var cfg = {
@@ -28,7 +29,7 @@ var TimeKnots = {
             events.push({ date: new Date(), name: cfg.addNowLabel || "Today" });
         }
 
-        function createSingleModal(d){
+        function createSingleModal(d) {
             var firstAdress = d.data[0]
             var otherAdress = d.data.slice(1);
             $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
@@ -42,28 +43,45 @@ var TimeKnots = {
             else {
                 $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
             }
+            $("#singleModal").modal('show');
         }
 
-        // function theFunction(){
-        //     console.log("thefunc")
-        // }
-        function createMultipleModal(d){
+
+        function createMultipleModal(d) {
             console.log('jnfsdjnkfdnjkfdsnjkdsfjnfdjn')
             $("#headerMultipleModal").html(
-                JSON.stringify(d))
+                JSON.stringify(d));
 
 
             //TODO link to other modal
-            // d.forEach(element => {
-            //     console.log(element)
-            //     $("#headerMultipleModal").append(
-            //         '<a  onclick="theFunction();"><img src='+element.img+'></a>'
+            d.forEach(element => {
+                console.log(element)
 
-            //     )
-            // })
+          
+                // var img = $('<div>fsdf</div>'); //Equivalent: $(document.createElement('img'))
+
+                // img.appendTo('#headerMultipleModal');
+                // img.on('click', function () { alert('blah'); });
+
+                 var img = $('<img>'); //Equivalent: $(document.createElement('img'))
+                 img.attr("width", 50);
+                 img.attr("height", 50);
+                 img.on('click', function () { 
+                     $("#multipleModal").modal('hide');
+                     createSingleModal(element)
+
+
+                    });
+
+                 img.attr('src', element.img);
+                 img.appendTo('#headerMultipleModal');
+
+            })
+            $("#multipleModal").modal('show');
+
         }
 
-        
+
 
 
         d3.select(id).selectAll("svg").remove();
@@ -233,15 +251,13 @@ var TimeKnots = {
                     console.log('plusplusplus')
 
                     createMultipleModal(cpt["min" + d.data[0].temps]);
-                  
-                    $("#multipleModal").modal('show');
-                    
+
+                   
 
                 }
                 else {
                     createSingleModal(d);
-                  
-                    $("#singleModal").modal('show');
+
                     console.log("click")
                 }
 
