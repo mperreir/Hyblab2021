@@ -110,7 +110,7 @@ var TimeKnots = {
 
         //Calculate times in terms of timestamps
         if (!cfg.dateDimension) {
-            var timestamps = events.map(function (d) { if (d.data.length >= 1) { return d.data[0].temps } else { return 1 } });//new Date(d.date).getTime()});
+            var timestamps = events.map(function (d) { if (d.data) { return d.data[0].temps } else { return 1 } });//new Date(d.date).getTime()});
             var maxValue = d3.max(timestamps);
             var minValue = d3.min(timestamps);
         } else {
@@ -139,7 +139,7 @@ var TimeKnots = {
             .attr("class", "timeline-line")
 
             .attr("x1", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     var ret;
                     if (cfg.horizontalLayout) {
                         var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
@@ -156,7 +156,7 @@ var TimeKnots = {
                 }
             })
             .attr("x2", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (linePrevious.x1 != null) {
                         return linePrevious.x1
                     }
@@ -169,7 +169,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y1", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     var ret;
                     if (cfg.horizontalLayout) {
                         ret = Math.floor(cfg.height / 2)
@@ -184,7 +184,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y2", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (linePrevious.y1 != null) {
                         return linePrevious.y1
                     }
@@ -223,7 +223,7 @@ var TimeKnots = {
 
         node.append("image")
             .each(function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if ((d.categorie != null)) {
                         if (cpt["min" + d.data[0].temps]) {
                             cpt["min" + d.data[0].temps].push(d);
@@ -243,7 +243,7 @@ var TimeKnots = {
             .style("opacity", 0)
 
             .attr("xlink:href", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     return d.img;
                 }
             })
@@ -265,7 +265,7 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         console.log('plusplusplus')
 
@@ -282,7 +282,7 @@ var TimeKnots = {
                 }
             })
             .on("mouseover", function (d) {
-                if (d.categorie != null & (d.data.length >= 1)) {
+                if (d.categorie != null & (d.data)) {
                     d3.select(this).style("cursor", "pointer");
                     if (cfg.dateDimension) {
                         var format = d3.time.format(cfg.dateFormat);
@@ -351,13 +351,13 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
             .attr("xlink:href", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     return d.img
                 }
             })
 
             .attr("x", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cfg.horizontalLayout) {
                         var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                         var x = Math.floor(step * (datum - minValue) + margin);
@@ -370,7 +370,7 @@ var TimeKnots = {
 
             .attr("y", function (d) {
 
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return Math.floor(cfg.height / 2) - 150
                     }
@@ -393,7 +393,7 @@ var TimeKnots = {
             .transition()
 
             .attr("xlink:href", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return "./img/timeline/plus.svg"
                     }
@@ -447,7 +447,7 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .attr("cx", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cfg.horizontalLayout) {
                         var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                         var x = Math.floor(step * (datum - minValue) + margin);
@@ -463,7 +463,7 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
 
-            .style("opacity", function (d) { if (d.data.length >= 1) { return 1 } else { return 0 } });
+            .style("opacity", function (d) { if (d.data) { return 1 } else { return 0 } });
 
 
 
@@ -480,7 +480,7 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { if (d.data.length >= 1) { return d.data[0].temps + " min" } else { return null } })
+            .text(function (d) { if (d.data) { return d.data[0].temps + " min" } else { return null } })
             .attr("y", function (d) {
                 if (cfg.horizontalLayout) {
                     return Math.floor(cfg.height / 2) + 30
@@ -490,7 +490,7 @@ var TimeKnots = {
             })
             //-5 pour centrer le texte
             .attr("x", function (d) {
-                if (d.data.length >= 1) {
+                if (d.data) {
                     if (cfg.horizontalLayout) {
                         var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
                         var x = Math.floor(step * (datum - minValue) + margin);

@@ -5,7 +5,7 @@
 
 
 
-var nonDatedata = [
+var dataTimeLine1 = [
     {
         "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
@@ -18,16 +18,12 @@ var nonDatedata = [
     {
         "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
-        "data": [
-            
-        ]
+        "data": null
     },
     {
         "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
-        "data": [
-           
-        ]
+        "data": null
     },
     {
         "img": "./img/timeline/market.svg",
@@ -61,7 +57,7 @@ var nonDatedata = [
 ];
 
 
-var nonDatedata2 = [
+var dataTimeLine2 = [
     {
         "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
@@ -119,30 +115,20 @@ var nonDatedata2 = [
 
 
 var tab = []
-for (const [key, value] of Object.entries(nonDatedata)) {
-    if (value.data.length >=1) tab.push((value.data)[value.data.length - 1].temps)
+for (const [key, value] of Object.entries(dataTimeLine1)) {
+    if (value.data) tab.push((value.data)[value.data.length - 1].temps)
 
 }
-for (const [key, value] of Object.entries(nonDatedata2)) {
-    if (value.data.length >=1)  tab.push((value.data)[value.data.length - 1].temps)
+for (const [key, value] of Object.entries(dataTimeLine2)) {
+    if (value.data) tab.push((value.data)[value.data.length - 1].temps)
 }
 max = Math.max(...tab)
 
 
 
-nonDatedata = [{
-    "categorie": null,
-    "data": [
-        { temps: 0 },
-    ]
-}, {
-    "categorie": null,
-    "data": [
-        { temps: max },
-    ]
-}].concat(nonDatedata)
 
-nonDatedata2 = [{
+
+dataTimeLine1 = [{
     "categorie": null,
     "data": [
         { temps: 0 },
@@ -152,24 +138,73 @@ nonDatedata2 = [{
     "data": [
         { temps: max },
     ]
-}].concat(nonDatedata2)
+}].concat(dataTimeLine1)
+
+dataTimeLine2 = [{
+    "categorie": null,
+    "data": [
+        { temps: 0 },
+    ]
+}, {
+    "categorie": null,
+    "data": [
+        { temps: max },
+    ]
+}].concat(dataTimeLine2)
+
+
+
+
+
 
 function drawTimeLine() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
-    TimeKnots.draw("#timelineNonDate", nonDatedata, { dateDimension: false, color: ["#2a315b","#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
-    TimeKnots.draw("#timelineNonDate2", nonDatedata2, { dateDimension: false, color: ["#2a315b","#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timeline1", dataTimeLine1, { dateDimension: false, color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timeline2", dataTimeLine2, { dateDimension: false, color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
 };
 
 window.addEventListener("resize", drawTimeLine);
 
+drawTimeLine();
 
+function sleep(ms) {
+    return new Promise(
+      resolve => setTimeout(resolve, ms)
+    );
+  }
 
-function progressBar(){
+async function progressBar() {
     console.log('prods')
-    var valeur =20;
-    $("#bar1").css('width', valeur+'%').attr('aria-valuenow', valeur);
+    var S1 = 50;
+    var S2 = 50;
+    for (let index = 0; index < dataTimeLine1.length; index++) {
+
+        var dataT1 = dataTimeLine1[index].data
+        var dataT2 = dataTimeLine2[index].data
+       console.log(dataTimeLine2[index].categorie)
+        console.log('ttest'+((dataT1!= null) & (dataTimeLine1[index].categorie != null)) + ((dataT2 != null ) & (dataTimeLine2[index].categorie != null )))
+        if ((dataT1 != null) & (dataTimeLine1[index].categorie != null)) {
+            console.log(dataT1)
+
+            S1 += dataT1[0].temps;
+            console.log('S1 : '+S1);
+        }
+        if ((dataT2 != null ) & (dataTimeLine2[index].categorie != null )) {
+            console.log(dataT2)
+
+            S2 += dataT2[0].temps;
+            console.log('S2 : '+S2);
+        }
+       
+        console.log("somme"+S1+S2+(S1+S2))
+
+        await sleep(1000);
+        $("#bar1").css('width', S1 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', (S1 + S2));
+        $("#bar2").css('width', S2 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', (S1 + S2));
+        
+    }
 }
 
 progressBar();
-drawTimeLine();
+
