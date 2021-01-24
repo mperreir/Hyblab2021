@@ -25,12 +25,10 @@ function criteres_drop(ev) {
 function criteres_submitInterest() {
     var div2 = document.getElementById("div2");
     var div3 = document.getElementById("div3");
-    let result =  new Array();
     let interest = new Array();
     let disinterest = new Array();
 
     if(div2.children.length >= 3){
-
         for (let child1 of div2.children) {
             interest.push(child1.id);
         }
@@ -38,12 +36,8 @@ function criteres_submitInterest() {
         for (let child2 of div3.children) {
             disinterest.push(child2.id);
         }
-        result.push(interest);
-        result.push(disinterest);
 
-        add_store("criteres");
-        stores["criteres"]["chosen"] = result;
-        goto_timeline();
+        go_to('timeline', {'interests': interest, 'disinterests': disinterest});
     } else {
         console.log("Veuillez chosir au moin trois point d'intéret")
     }

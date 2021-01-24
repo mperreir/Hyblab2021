@@ -1,17 +1,25 @@
-let stores = {
-    "all": {
-        "current_page": null,
-    },
-};
+var _app_stores = {};
+
+const set_stores = () => {
+    _app_stores = {
+        "all": {
+            "current_page": null,
+        },
+    };
+}
+
+set_stores();
 
 const add_store = (name) => {
-    if (!stores.hasOwnProperty(name))
-        stores[name] = {}
+    if (!_app_stores.hasOwnProperty(name))
+        _app_stores[name] = {}
 };
 
 const store_in_current_page = (data) => {
-    stores[stores["all"]["current_page"]] = data;
+    _app_stores[_app_stores["all"]["current_page"]] = data;
 };
+
+const read_store = (name) => _app_store[name];
 
 const make_page_from_template = (page_name) => {
     const app = document.getElementById('app');
@@ -19,38 +27,29 @@ const make_page_from_template = (page_name) => {
         .then(res => res.text())
         .then(text => {
             app.innerHTML = text;
-            stores["all"]["current_page"] = page_name;
+            _app_stores["all"]["current_page"] = page_name;
         });
 }
 
-const goto_home = () => {
-    stores = {};
-    make_page_from_template("index");
-};
-const goto_adresses = (persona) => {
-    add_store("adresses");
-    store_in_current_page({"chosen": persona});
-    make_page_from_template("adresses");
-};
-const goto_personas = () => {
-    add_store("personas");
-    make_page_from_template("personas");
-};
-const goto_criteres = (positions) => {
-    add_store("criteres");
-    store_in_current_page({"positions": positions});
-    make_page_from_template("criteres");
-};
-const goto_timeline = () => {
-    add_store("timeline");
-    make_page_from_template("timeline")
-    .then(() => {
-        window.addEventListener("resize", timeline_drawTimeLine);
-        timeline_progressBar();
-        timeline_drawTimeLine();
-    });
-};
-const goto_conclu = () => {
-    add_store("conclu");
-    make_page_from_template("conclu");
-};
+const go_to = (page, data, callback) => {
+    if (page === "index")
+        set_stores();
+    add_store(page);
+
+    if (data)
+        store_in_current_page(data);
+
+    make_page_from_template(page)
+        .then(() => {
+            if (page === 'timeline') {
+                window.addEventListener("resize", timeline_drawTimeLine);
+                timeline_progressBar();
+                timeline_drawTimeLine();
+            }
+
+            if (data && !callback && typeof data === 'function')
+                data();
+            else if (data && callback && typeof callback === 'function')
+                callback();
+        });
+}

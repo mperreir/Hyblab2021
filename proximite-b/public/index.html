@@ -43,11 +43,11 @@
         <div id="app">
         </div>
 
-        <script defer type="text/javascript">
+        <script type="text/javascript">
             const urlParams = new URLSearchParams(window.location.search);
 
             if (urlParams.get('page') !== null)
-                make_page_from_template(urlParams.get('page'));
+                go_to(urlParams.get('page'));
             else
                 make_page_from_template("index");
         </script>
