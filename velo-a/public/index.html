@@ -2,9 +2,47 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Véli Good</title>
+
+    <!-- Scripts -->
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="js/slide1.js" defer></script>
+    <script src="js/slide2.js" defer></script>
+    <script src="js/slide3.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <!-- Styles-->
+    <link href="css/app.css" rel="stylesheet"/>
 </head>
 <body>
-<button onclick="document.location = 'app.html'">App</button>
+<header>
+    <h1 id="h1-veligood">Véli Good</h1>
+    <h2 id="h2-veligood">L'appli avec qui tout roule !</h2>
+</header>
+<div id="container">
+    <main id="slidr">
+        <section data-slidr="page-1">
+            <button id="button-home" class="button-slide">Button</button>
+        </section>
+        <section data-slidr="page-2">
+            <h2>On fait quoi ?</h2>
+            <div id="div-page-2">
+                <button id="button-velotafer" class="button-slide">On va vélotafer</button>
+                <button id="button-velododo" class="button-slide">On va vélododo</button>
+                <button id="button-rouler" class="button-slide">On va rouler</button>
+                <button id="button-velodrouiller" class="button-slide">On va vélodrouiller / véloflâner / vélotrainer</button>
+            </div>
+            <button id="button-return-page-2" class="button-slide">Retour</button>
+        </section>
+        <section data-slidr="page-3">
+            <h2>As-tu un vélo ?</h2>
+            <div id="div-page-3">
+                <button id="button-classique" class="button-slide">Vélo classique</button>
+                <button id="button-electrique" class="button-slide">Vélo électrique</button>
+                <button id="button-pied" class="button-slide">Je suis à pied</button>
+            </div>
+            <button id="button-return-page-3" class="button-slide">Retour</button>
+        </section>
+    </main>
+</div>
 </body>
 </html>
