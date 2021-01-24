@@ -15,3 +15,11 @@ router.get('/frise/:criteres/:lat/:long', function (req, res){
 });
 
 
+router.post('/proximite-b/timeline', function (req, res){
+
+    // var username = req.body.username;
+    // var password = req.body.password;
+
+    console.log(req.body);
+
+});
