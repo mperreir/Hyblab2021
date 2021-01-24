@@ -49,8 +49,7 @@ var TimeKnots = {
 
         function createMultipleModal(d) {
             console.log('jnfsdjnkfdnjkfdsnjkdsfjnfdjn')
-            $("#headerMultipleModal").html(
-                JSON.stringify(d));
+            $("#headerMultipleModal").html("");
 
 
             //TODO link to other modal
@@ -74,7 +73,8 @@ var TimeKnots = {
                     });
 
                  img.attr('src', element.img);
-                 img.appendTo('#headerMultipleModal');
+                 $("#headerMultipleModal").append(img)
+                //  img.appendTo('#headerMultipleModal');
 
             })
             $("#multipleModal").modal('show');
