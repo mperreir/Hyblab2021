@@ -29,7 +29,6 @@
         <script defer src="./js/criteres.js"></script>
         <script defer src="./js/adresses.js"></script>
         <script defer src="./js/utils/timeknots.js" type="application/javascript"></script>
-        <script defer src="./js/timeline.js" type="application/javascript"></script>
 
         <script defer src="https://d3js.org/d3.v3.min.js"></script>
         <!-- Optional JavaScript -->
@@ -45,8 +44,15 @@
         </div>
 
         <script defer type="text/javascript">
-            make_page_from_template("index");
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.get('page') !== null)
+                make_page_from_template(urlParams.get('page'));
+            else
+                make_page_from_template("index");
         </script>
+
+        <script src="./js/timeline.js" type="application/javascript"></script>
     </body>
 
 </html>

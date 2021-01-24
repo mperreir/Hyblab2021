@@ -15,7 +15,7 @@ const store_in_current_page = (data) => {
 
 const make_page_from_template = (page_name) => {
     const app = document.getElementById('app');
-    fetch(`/proximite-b/templates/${page_name}.html`)
+    return fetch(`/proximite-b/templates/${page_name}.html`)
         .then(res => res.text())
         .then(text => {
             app.innerHTML = text;
@@ -43,10 +43,12 @@ const goto_criteres = (positions) => {
 };
 const goto_timeline = () => {
     add_store("timeline");
-    window.addEventListener("resize", timeline_drawTimeLine);
-    timeline_drawTimeLine();
-    console.log("pourt")
-    make_page_from_template("timeline");
+    make_page_from_template("timeline")
+    .then(() => {
+        window.addEventListener("resize", timeline_drawTimeLine);
+        timeline_progressBar();
+        timeline_drawTimeLine();
+    });
 };
 const goto_conclu = () => {
     add_store("conclu");

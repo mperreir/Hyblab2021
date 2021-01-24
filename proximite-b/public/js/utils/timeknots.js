@@ -56,28 +56,28 @@ var TimeKnots = {
             d.forEach(element => {
                 console.log(element)
 
-          
+
                 // var img = $('<div>fsdf</div>'); //Equivalent: $(document.createElement('img'))
 
                 // img.appendTo('#headerMultipleModal');
                 // img.on('click', function () { alert('blah'); });
 
-                var p  = $('<p>');
+                var p = $('<p>');
 
-                 var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-                 img.attr("width", 75);
-                 img.attr("height", 75);
-                 img.on('click', function () { 
-                     $("#multipleModal").modal('hide');
-                     createSingleModal(element)
+                var img = $('<img>'); //Equivalent: $(document.createElement('img'))
+                img.attr("width", 75);
+                img.attr("height", 75);
+                img.on('click', function () {
+                    $("#multipleModal").modal('hide');
+                    createSingleModal(element)
 
 
-                    });
+                });
 
-                 img.attr('src', element.img);
-                 p.append(img)
-                 p.append('<b>'+element.categorie+' : </b>' + element.data[0].adresse)
-                 $("#headerMultipleModal").append(p)
+                img.attr('src', element.img);
+                p.append(img)
+                p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
+                $("#headerMultipleModal").append(p)
                 //  img.appendTo('#headerMultipleModal');
 
             })
@@ -110,7 +110,7 @@ var TimeKnots = {
 
         //Calculate times in terms of timestamps
         if (!cfg.dateDimension) {
-            var timestamps = events.map(function (d) { return d.data[0].temps });//new Date(d.date).getTime()});
+            var timestamps = events.map(function (d) { if (d.data.length >= 1) { return d.data[0].temps } else { return 1 } });//new Date(d.date).getTime()});
             var maxValue = d3.max(timestamps);
             var minValue = d3.min(timestamps);
         } else {
@@ -139,48 +139,64 @@ var TimeKnots = {
             .attr("class", "timeline-line")
 
             .attr("x1", function (d) {
-                var ret;
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    ret = Math.floor(step * (datum - minValue) + margin)
+                if (d.data.length >= 1) {
+                    var ret;
+                    if (cfg.horizontalLayout) {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        ret = Math.floor(step * (datum - minValue) + margin)
+                    }
+                    else {
+                        ret = Math.floor(cfg.width / 2)
+                    }
+                    linePrevious.x1 = ret
+                    return ret
                 }
                 else {
-                    ret = Math.floor(cfg.width / 2)
+                    return 0
                 }
-                linePrevious.x1 = ret
-                return ret
             })
             .attr("x2", function (d) {
-                if (linePrevious.x1 != null) {
-                    return linePrevious.x1
+                if (d.data.length >= 1) {
+                    if (linePrevious.x1 != null) {
+                        return linePrevious.x1
+                    }
+                    if (cfg.horizontalLayout) {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        ret = Math.floor(step * (datum - minValue))
+                    }
+                    return Math.floor(cfg.width / 2)
                 }
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    ret = Math.floor(step * (datum - minValue))
-                }
-                return Math.floor(cfg.width / 2)
+                else { return 0 }
             })
             .attr("y1", function (d) {
-                var ret;
-                if (cfg.horizontalLayout) {
-                    ret = Math.floor(cfg.height / 2)
+                if (d.data.length >= 1) {
+                    var ret;
+                    if (cfg.horizontalLayout) {
+                        ret = Math.floor(cfg.height / 2)
+                    }
+                    else {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        ret = Math.floor(step * (datum - minValue)) + margin
+                    }
+                    linePrevious.y1 = ret
+                    return ret
                 }
-                else {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    ret = Math.floor(step * (datum - minValue)) + margin
-                }
-                linePrevious.y1 = ret
-                return ret
+                else { return 0 }
             })
             .attr("y2", function (d) {
-                if (linePrevious.y1 != null) {
-                    return linePrevious.y1
+                if (d.data.length >= 1) {
+                    if (linePrevious.y1 != null) {
+                        return linePrevious.y1
+                    }
+                    if (cfg.horizontalLayout) {
+                        return Math.floor(cfg.height / 2)
+                    }
+                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                    return Math.floor(step * (datum - minValue))
                 }
-                if (cfg.horizontalLayout) {
-                    return Math.floor(cfg.height / 2)
+                else {
+                    return 0
                 }
-                var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                return Math.floor(step * (datum - minValue))
             })
             .style("stroke", function (d) {
                 return cfg.color[0]
@@ -207,31 +223,29 @@ var TimeKnots = {
 
         node.append("image")
             .each(function (d) {
+                if (d.data.length >= 1) {
+                    if ((d.categorie != null)) {
+                        if (cpt["min" + d.data[0].temps]) {
+                            cpt["min" + d.data[0].temps].push(d);
 
-                if ((d.categorie != null)) {
-                    if (cpt["min" + d.data[0].temps]) {
-                        cpt["min" + d.data[0].temps].push(d);
+                        }
+                        else {
+                            cpt["min" + d.data[0].temps] = [d];
+                        }
 
                     }
                     else {
-                        cpt["min" + d.data[0].temps] = [d];
+                        cpt["min" + d.data[0].temps] = []
                     }
-
-                }
-                else {
-                    cpt["min" + d.data[0].temps] = []
                 }
                 // console.log("each: " + JSON.stringify(d)); // d is datum
             })
             .style("opacity", 0)
 
             .attr("xlink:href", function (d) {
-
-
-                console.log("----")
-                console.log(d.categorie + d.data[0].temps)
-                console.log(cpt["min" + d.data[0].temps]);
-                return d.img
+                if (d.data.length >= 1) {
+                    return d.img;
+                }
             })
             .attr("y", function (d) {
 
@@ -251,23 +265,24 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                if (cpt["min" + d.data[0].temps].length > 1) {
-                    console.log('plusplusplus')
+                if (d.data.length >= 1) {
+                    if (cpt["min" + d.data[0].temps].length > 1) {
+                        console.log('plusplusplus')
 
-                    createMultipleModal(cpt["min" + d.data[0].temps]);
+                        createMultipleModal(cpt["min" + d.data[0].temps]);
 
-                   
 
+
+                    }
+                    else {
+                        createSingleModal(d);
+
+                        console.log("click")
+                    }
                 }
-                else {
-                    createSingleModal(d);
-
-                    console.log("click")
-                }
-
             })
             .on("mouseover", function (d) {
-                if (d.categorie != null) {
+                if (d.categorie != null & (d.data.length >= 1)) {
                     d3.select(this).style("cursor", "pointer");
                     if (cfg.dateDimension) {
                         var format = d3.time.format(cfg.dateFormat);
@@ -336,25 +351,32 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
             .attr("xlink:href", function (d) {
-                return d.img
+                if (d.data.length >= 1) {
+                    return d.img
+                }
             })
 
             .attr("x", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x - 25;
+                if (d.data.length >= 1) {
+                    if (cfg.horizontalLayout) {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        var x = Math.floor(step * (datum - minValue) + margin);
+                        return x - 25;
+                    }
+                    return Math.floor(cfg.width / 2)
                 }
-                return Math.floor(cfg.width / 2)
+                else { return 0 }
             })
 
             .attr("y", function (d) {
 
-
-                if (cpt["min" + d.data[0].temps].length > 1) {
-                    return Math.floor(cfg.height / 2) - 150
+                if (d.data.length >= 1) {
+                    if (cpt["min" + d.data[0].temps].length > 1) {
+                        return Math.floor(cfg.height / 2) - 150
+                    }
+                    else { return Math.floor(cfg.height / 2) - 75 }
                 }
-                else { return Math.floor(cfg.height / 2) - 75 }
+                else { return 0 }
 
 
                 // console.log(d);
@@ -371,11 +393,13 @@ var TimeKnots = {
             .transition()
 
             .attr("xlink:href", function (d) {
-
-                if (cpt["min" + d.data[0].temps].length > 1) {
-                    return "./img/timeline/plus.svg"
+                if (d.data.length >= 1) {
+                    if (cpt["min" + d.data[0].temps].length > 1) {
+                        return "./img/timeline/plus.svg"
+                    }
+                    else { return d.img }
                 }
-                else { return d.img }
+                else { return null }
             })
             .attr("y", function (d) {
 
@@ -423,12 +447,15 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .attr("cx", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x;
+                if (d.data.length >= 1) {
+                    if (cfg.horizontalLayout) {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        var x = Math.floor(step * (datum - minValue) + margin);
+                        return x;
+                    }
+                    return Math.floor(cfg.width / 2)
                 }
-                return Math.floor(cfg.width / 2)
+                else { return 0 }
             })
 
             .delay(function (_, i) {
@@ -436,7 +463,7 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
 
-            .style("opacity", 1);
+            .style("opacity", function (d) { if (d.data.length >= 1) { return 1 } else { return 0 } });
 
 
 
@@ -453,7 +480,7 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { return d.data[0].temps + " min" })
+            .text(function (d) { if (d.data.length >= 1) { return d.data[0].temps + " min" } else { return null } })
             .attr("y", function (d) {
                 if (cfg.horizontalLayout) {
                     return Math.floor(cfg.height / 2) + 30
@@ -463,12 +490,15 @@ var TimeKnots = {
             })
             //-5 pour centrer le texte
             .attr("x", function (d) {
-                if (cfg.horizontalLayout) {
-                    var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                    var x = Math.floor(step * (datum - minValue) + margin);
-                    return x - 20;
+                if (d.data.length >= 1) {
+                    if (cfg.horizontalLayout) {
+                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                        var x = Math.floor(step * (datum - minValue) + margin);
+                        return x - 20;
+                    }
+                    return Math.floor(cfg.width / 2) - 5
                 }
-                return Math.floor(cfg.width / 2) - 5
+                else { return 0 }
             })
             .style("opacity", 0)
 
