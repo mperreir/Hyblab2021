@@ -1,7 +1,4 @@
 let initSlideFin = function(){
-    let plages = getPlages();
-    console.log(plages);
-    console.log(getAffichage());
 
     d3.select('#goback').on('click', function(){
       mySlidr.slide('page-1');
@@ -22,3 +19,9 @@ let initSlideFin = function(){
       
     });
   };
+
+function getPlagesSlideFin(){
+  
+  let plages = getPlages();
+  console.log(plages);
+}

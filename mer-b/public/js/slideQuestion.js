@@ -89,7 +89,9 @@ function setTexte(id){
     else {
       mySlidr.slide('page-fin');
       setActif("fin");
-      initSlideFin();
+      getPlagesSlideFin();
+      
+   
     }
   }
 
