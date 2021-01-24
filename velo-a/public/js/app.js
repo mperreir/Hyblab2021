@@ -5,7 +5,7 @@ async function bootstrap() {
         container: 'map', // container id
         style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
         center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
-        zoom: 9 // starting zoom
+        zoom: 11 // starting zoom
     });
 
     // Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
@@ -15,6 +15,7 @@ async function bootstrap() {
             unit: 'metric',
             profile: 'mapbox/cycling',
             language: 'fr',
+            alternatives: true,
             placeholderOrigin: 'Départ',
             placeholderDestination: 'Arrivée',
             controls: {
@@ -24,5 +25,13 @@ async function bootstrap() {
         'top-left'
     );
 
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        })
+    )
 }
 bootstrap();
