@@ -1,27 +1,22 @@
-<html>
+<!DOCTYPE html>
 
 <html lang="fr">
 
-<head>
-    <meta charset="utf-8">
-    <title>Hyblab 2020</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <title>Hyblab 2020</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script def src="./js/spa.js"></script>
+    </head>
 
-</head>
+    <body>
+        <div id="app">
+        </div>
 
-<body>
-    <button id="start_button" onclick="location.href='personas.html';">Démarrer l'expérience !</button>
-
-    <ul>
-        <li><a href="personas.html">Personas</a></li>
-        <li><a href="adresses.html">Adresses</a></li>
-        <li><a href="criteres.html">critere</a></li>
-        <li><a href="timeline.html">timeline</a></li>
-        <li><a href="conclu.html">conclu</a></li>
-    </ul>
-
-    Accueil
-</body>
+        <script type="text/javascript">
+            make_page_from_template("index");
+        </script>
+    </body>
 
 </html>
