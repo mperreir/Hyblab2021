@@ -31,7 +31,7 @@ const geoFindMe = async () => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&result_type=street_address&key=AIzaSyAlg5BCTUfKKA9Vz1-gz0dFtRrQ2MjpJM4');
+        const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&result_type=street_address&key='+GOOGLE_API_KEY);
         const address = await response.json();
 
         addressInput.value = address['results'][0]['formatted_address'];
