@@ -169,38 +169,43 @@ function timeline_drawTimeLine() {
 
 function sleep(ms) {
     return new Promise(
-      resolve => setTimeout(resolve, ms)
+        resolve => setTimeout(resolve, ms)
     );
-  }
+}
+
+/**
+ * 
+ * @param {*} d 
+ */
+function evaluate(d){
+    // console.log(stores["criteres"]["chosen"])
+    // var choix ={"positif": ["boulangerie", "bus", "ecole"],
+    // "negatif": ["pharmacie"]}
+
+    return d.temps;
+}
+
 
 async function timeline_progressBar() {
-    console.log('prods')
-    var S1 = 50;
-    var S2 = 50;
+    var S1 = 1;
+    var S2 = 1;
+    var Somme = S1 + S2;
+    $("#bar1").css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
+    $("#bar2").css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
     for (let index = 0; index < dataTimeLine1.length; index++) {
-
         var dataT1 = dataTimeLine1[index].data
         var dataT2 = dataTimeLine2[index].data
-       console.log(dataTimeLine2[index].categorie)
-        console.log('ttest'+((dataT1!= null) & (dataTimeLine1[index].categorie != null)) + ((dataT2 != null ) & (dataTimeLine2[index].categorie != null )))
         if ((dataT1 != null) & (dataTimeLine1[index].categorie != null)) {
-            console.log(dataT1)
-
-            S1 += dataT1[0].temps;
-            console.log('S1 : '+S1);
+            S1 += evaluate(dataT1[0]);
         }
-        if ((dataT2 != null ) & (dataTimeLine2[index].categorie != null )) {
-            console.log(dataT2)
-
-            S2 += dataT2[0].temps;
-            console.log('S2 : '+S2);
+        if ((dataT2 != null) & (dataTimeLine2[index].categorie != null)) {
+            S2 += evaluate(dataT2[0]);
         }
-       
-        console.log("somme"+S1+S2+(S1+S2))
-
-        await sleep(1000);
-        $("#bar1").css('width', S1 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', (S1 + S2));
-        $("#bar2").css('width', S2 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', (S1 + S2));
-        
+        Somme = S1 + S2;
+        if (dataTimeLine1[index].categorie != null) {
+            await sleep(1000);
+        }
+        $("#bar1").css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
+        $("#bar2").css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
     }
 }
