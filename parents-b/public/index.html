@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="js/config/parameters.js"></script>
     <script src="js/resultsPage.js" defer></script>
     <script src="js/searchingResultsPage.js" defer></script>
     <script src="js/activitiesPage.js" defer></script>
@@ -22,7 +23,10 @@
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
     <!-- For address page -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlg5BCTUfKKA9Vz1-gz0dFtRrQ2MjpJM4&libraries=places"></script>
+    <script id="google_maps"></script>
+    <script>
+        document.getElementById('google_maps').src = 'https://maps.googleapis.com/maps/api/js?key='+GOOGLE_API_KEY+'&libraries=places';
+    </script>
     <script src="js/google-address-autocomplete.min.js"></script>
 </head>
 <body class="background-black">

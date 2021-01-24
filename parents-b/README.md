@@ -27,4 +27,7 @@
     - Guillaume Moles
     - Thibaut Perrouin
     - Colin Renaud
+    
+Pour l'installation :
+- Dans le dossier public/js/config, renommer le fichier sample_parameters.js en parameters.js et insérer la/les clé(s) API manquantes.
   
