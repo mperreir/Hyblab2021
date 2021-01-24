@@ -19,16 +19,14 @@ var nonDatedata = [
         "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
         "data": [
-            { temps: 3, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
-            { temps: 6, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+            
         ]
     },
     {
         "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
         "data": [
-            { temps: 4, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-            { temps: 5, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+           
         ]
     },
     {
@@ -122,10 +120,11 @@ var nonDatedata2 = [
 
 var tab = []
 for (const [key, value] of Object.entries(nonDatedata)) {
-    tab.push((value.data)[value.data.length - 1].temps)
+    if (value.data.length >=1) tab.push((value.data)[value.data.length - 1].temps)
+
 }
 for (const [key, value] of Object.entries(nonDatedata2)) {
-    tab.push((value.data)[value.data.length - 1].temps)
+    if (value.data.length >=1)  tab.push((value.data)[value.data.length - 1].temps)
 }
 max = Math.max(...tab)
 
@@ -165,4 +164,12 @@ function drawTimeLine() {
 window.addEventListener("resize", drawTimeLine);
 
 
+
+function progressBar(){
+    console.log('prods')
+    var valeur =20;
+    $("#bar1").css('width', valeur+'%').attr('aria-valuenow', valeur);
+}
+
+progressBar();
 drawTimeLine();
