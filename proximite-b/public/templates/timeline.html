@@ -6,20 +6,15 @@
     <h2>Timeline Comparaison</h2>
 
     <ul>
-        <li><a onclick="goto_home()">Home</a></li>
+        <li><a href="index.html">Home</a></li>
 
-        <li><a onclick="goto_personas()">Personas</a></li>
-        <li><a onclick="goto_adresses()">Adresses</a></li>
-        <li><a onclick="goto_criteres()">critere</a></li>
-        <li><a onclick="goto_conclu()">conclu</a></li>
+        <li><a href="personas.html">Personas</a></li>
+        <li><a href="adresses.html">Adresses</a></li>
+        <li><a href="criteres.html">critere</a></li>
+        <li><a href="conclu.html">conclu</a></li>
     </ul>
 
-    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title"
-                                                                              data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-
     <!-- Trigger the modal with a button -->
-    <!-- <button type="button" class="btn " data-toggle="modal" data-target="#singleModal">Open Modal</button> -->
-
     <!-- Modal SingleItem -->
     <div class="modal fade" id="singleModal" role="dialog">
         <div class="modal-dialog">
@@ -46,12 +41,10 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                <div id="headerMultipleModal" class="modal-header">
+                <div id="headerMultipleModal" class="modal-body">
                     <!-- <h4 class="modal-title">Modal Header</h4> -->
                 </div>
-                <div id="bodyMultipleModal" class="modal-body">
 
-                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -59,13 +52,17 @@
         </div>
     </div>
 
-
     <div class="card" id="timelineholder">
         <div id="timelineNonDate"></div>
         <div id="timelineNonDate2"></div>
 
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
     </div>
 </div>
+
 
 <div><br><br><br><br><br><br></div>
 

@@ -62,9 +62,11 @@ var TimeKnots = {
                 // img.appendTo('#headerMultipleModal');
                 // img.on('click', function () { alert('blah'); });
 
+                var p  = $('<p>');
+
                  var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-                 img.attr("width", 50);
-                 img.attr("height", 50);
+                 img.attr("width", 75);
+                 img.attr("height", 75);
                  img.on('click', function () { 
                      $("#multipleModal").modal('hide');
                      createSingleModal(element)
@@ -73,7 +75,9 @@ var TimeKnots = {
                     });
 
                  img.attr('src', element.img);
-                 $("#headerMultipleModal").append(img)
+                 p.append(img)
+                 p.append('<b>'+element.categorie+' : </b>' + element.data[0].adresse)
+                 $("#headerMultipleModal").append(p)
                 //  img.appendTo('#headerMultipleModal');
 
             })

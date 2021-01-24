@@ -41,14 +41,14 @@ var nonDatedata = [
     },
     {
         "img": "./img/timeline/doctor.svg",
-        "categorie": "Parc",
+        "categorie": "Docteur",
         "data": [
             { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
         "img": "./img/timeline/bus.svg",
-        "categorie": "Parc",
+        "categorie": "Bus",
         "data": [
             { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
@@ -98,14 +98,14 @@ var nonDatedata2 = [
     },
     {
         "img": "./img/timeline/doctor.svg",
-        "categorie": "Parc",
+        "categorie": "Docteur",
         "data": [
             { temps: 14, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
         "img": "./img/timeline/bus.svg",
-        "categorie": "Parc",
+        "categorie": "Bus",
         "data": [
             { temps: 11, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
