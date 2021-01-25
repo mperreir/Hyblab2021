@@ -160,8 +160,8 @@ dataTimeLine2 = [{
 function timeline_drawTimeLine() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
-    TimeKnots.draw("#timeline1", dataTimeLine1, { dateDimension: false, color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
-    TimeKnots.draw("#timeline2", dataTimeLine2, { dateDimension: false, color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, labelFormat: "%Y" });
+    TimeKnots.draw("#timeline1", dataTimeLine1, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true});
+    TimeKnots.draw("#timeline2", dataTimeLine2, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true});
 };
 
 
