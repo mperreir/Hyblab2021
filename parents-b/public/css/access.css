@@ -1,0 +1,131 @@
+/* ------------------------ Access --------------------- */
+.tree-access{
+    position: absolute;
+    top: 85%;
+    left: 94%;
+    width: 10%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.leaves-access{
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    height: auto;
+    text-align: center;
+    width: 10%;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 2;
+}
+
+.oya-access{
+    position: absolute;
+    top: 15%;
+    left: 75%;
+    width: 15%;
+    z-index: 2;
+}
+
+.talking-bubble-access{
+    position: absolute;
+    top: 20%;
+    left: 73%;
+    width: 5%;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: 2;
+}
+
+.oya-access-dialog{
+    position: absolute;
+    top: 13%;
+    left: 35%;
+    width: 40%;
+    z-index: 2;
+}
+
+.picto-access{
+    position: absolute;
+    width: 5%;
+    z-index: 8;
+}
+
+.disabled-picto{
+    top: 35%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.table-picto{
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.wc-picto{
+    top: 35%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.parking-picto{
+    top: 45%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.restaurant-picto{
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.bench-picto{
+    top: 45%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.tram-picto{
+    top: 55%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.bin-picto{
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.fence-picto{
+    top: 55%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.button-non-access{
+    position: absolute;
+    width: 25%;
+    height: 32%;
+}
+
+.button-oui-access{
+    position: absolute;
+    width: 25%;
+    height: 32%;
+}
+
+.button-suivant-access:hover{
+    box-shadow: 0 16px 20px 0 rgba(0,0,0,0.65),0 24px 75px 0 rgba(0,0,0,0.55);
+}

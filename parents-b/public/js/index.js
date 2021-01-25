@@ -4,12 +4,12 @@ let mySlidr = slidr.create('slidr',{
     controls: 'none',
     direction: 'vertical',
     fade: true,
-    keyboard: true,
-    overflow: true,
+    keyboard: false,
+    overflow: false,
     pause: false,
     theme: '#222',
     timing: { 'fade': '0.5s ease-in' },
-    touch: true,
+    touch: false,
     transition: 'fade'
   }).start();
 
