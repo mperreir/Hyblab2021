@@ -155,8 +155,6 @@ dataTimeLine2 = [{
 
 
 
-
-
 function timeline_draw() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
@@ -174,14 +172,15 @@ function sleep(ms) {
 }
 
 /**
- * 
+ *  "criteres":{
+ *  "interests":["supermarche","bus","boulangerie","pharmacie","parc"],
+ *  "disinterests":["culte","ecole"]}
+ *  }
  * @param {*} d 
  */
 function evaluate(d) {
-    // console.log(stores["criteres"]["chosen"])
-    // var choix ={"positif": ["boulangerie", "bus", "ecole"],
-    // "negatif": ["pharmacie"]}
-
+    // console.log(stores.criteres)
+    
     return d.temps;
 }
 
