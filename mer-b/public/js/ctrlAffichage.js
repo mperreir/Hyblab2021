@@ -28,8 +28,10 @@ function updateElement(element, reponse){
     else if(element == "moment" && (reponse.json == "day" || reponse.json == "indifferent")){
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
       root.style.setProperty('--bouton-texte-color', "#203443")
+      root.style.setProperty('--citation-color', "#203443");
     }
     else if(element == "moment"){
+      root.style.setProperty('--citation-color', "white");
       root.style.setProperty('--breadcrumb-color', "#D07BBC");
       root.style.setProperty('--bouton-texte-color', "#71265F")
     }

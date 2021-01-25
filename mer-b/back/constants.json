@@ -7,6 +7,6 @@
     },
     "openweather" : {
         "api_url" : "https://api.openweathermap.org/data/2.5/onecall?",
-        "key" : "304dc9564fad815ba9259d200fc4aa32"
+        "key" : ""
     }
 }
