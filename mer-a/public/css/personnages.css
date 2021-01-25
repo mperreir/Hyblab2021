@@ -1,0 +1,189 @@
+
+/* normalisation des marges et padding pour simplifier le positionnement des éléments */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    overflow: hidden;   /* pour slidr dans certains navigateurs */
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+#container {
+    position: relative; /* pour permettre le positionnement en absolu des autres éléments */
+}
+
+
+/*-------------------------------------------------------*/
+/*                     DECOR DE FOND                     */
+/*-------------------------------------------------------*/
+
+
+.decor {
+    position: fixed;
+    z-index: 0;
+}
+
+
+/* Affichage des 3 plans */
+
+.plan {
+    position: absolute;
+}
+
+.plan#plan1{
+    z-index: 10;
+}
+
+.plan#plan2 {
+    z-index: 9;
+}
+
+.plan#plan3 {
+    z-index: 1;
+}
+
+
+/* Affichage des 7 vagues */
+
+.wave {
+    position: absolute;
+    margin-top: 50px;
+}
+
+.wave#wave1 {
+    animation: waveDown 1.5s ease-in-out infinite;
+    z-index: 8;
+}
+
+.wave#wave2 {
+    animation: waveUp 2s ease-in-out infinite;
+    z-index: 7;
+}
+
+.wave#wave3 {
+    animation: waveDown 3s ease-in-out infinite;
+    z-index: 6;
+}
+
+.wave#wave4 {
+    animation: waveUp 4s ease-in-out infinite;
+    z-index: 5;
+}
+
+.wave#wave5 {
+    animation: waveDown 5s ease-in-out infinite;
+    z-index: 4;
+}
+
+.wave#wave6 {
+    animation: waveUp 5.5s ease-in-out infinite;
+    z-index: 3;
+}
+
+.wave#wave7 {
+    animation: waveDown 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+
+/* Animation des vagues */
+
+@keyframes waveUp {
+    0%, 100% {
+      top: -50px;
+    }
+  
+    50% {
+      top: 0;
+    }
+}
+
+@keyframes waveDown {
+    0%, 100% {
+      top: 0;
+    }
+  
+    50% {
+      top: -50px;
+    }
+}
+
+
+/*-------------------------------------------------------*/
+/*                      PERSONNAGES                      */
+/*-------------------------------------------------------*/
+
+.choix-personnages {
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+
+    width: fit-content;
+    margin: 180px 100px;
+
+    z-index: 1;
+}
+
+
+/* Affichage des personnages */
+
+.personnages {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.perso {
+    margin: 50px;
+}
+
+.perso:hover {
+	opacity: 0.8;
+}
+
+/*
+.perso#marin {}
+
+.perso#creature {}
+
+.perso#korrigan {}
+
+.perso#religieux {}
+*/
+
+
+/* Affichage des boutons pour effectuer le choix */
+
+.boutons {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: -30px 140px 100px; /* marges haut, droite/gauche, bas */
+}
+
+
+/* Affichage de l'indication */
+
+.indication {
+    position: relative;
+    text-align: center;
+    font-size: 1.5vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+
+    background-color: rgb(255, 255, 240);
+    margin: auto;
+
+    padding: 10px;
+
+    width: 28vw;
+    border-radius: 8%;
+    border: solid;
+}
