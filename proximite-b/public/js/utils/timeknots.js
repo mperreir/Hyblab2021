@@ -110,7 +110,7 @@ var TimeKnots = {
 
         //Calculate times in terms of timestamps
         if (!cfg.dateDimension) {
-            var timestamps = events.map(function (d) { if (d.data!= null) { return d.data[0].temps } else { return 1 } });//new Date(d.date).getTime()});
+            var timestamps = events.map(function (d) { if (d.data!= null) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
             var maxValue = d3.max(timestamps);
             var minValue = d3.min(timestamps);
         } else {
@@ -282,7 +282,7 @@ var TimeKnots = {
                 }
             })
             .on("mouseover", function (d) {
-                if (d.categorie != null & (d.data!= null)) {
+                if (d.categorie != null ) {
                     d3.select(this).style("cursor", "pointer");
                     if (cfg.dateDimension) {
                         var format = d3.time.format(cfg.dateFormat);
@@ -305,11 +305,7 @@ var TimeKnots = {
                         .attr("width", 60)
                         .attr("height", 60)
                         .attr("y", function (d) {
-                            if (cfg.horizontalLayout) {
-                                return Math.floor(cfg.height / 2) - 80
-                            }
-                            var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                            return Math.floor(step * (datum - minValue) + margin)
+                            return Math.floor(cfg.height / 2) - 80
                         })
                         .attr("x", function (d) {
                             if (cfg.horizontalLayout) {
@@ -328,19 +324,18 @@ var TimeKnots = {
                     .attr("width", 50)
                     .attr("height", 50)
                     .attr("y", function (d) {
-                        if (cfg.horizontalLayout) {
-                            return Math.floor(cfg.height / 2) - 75
-                        }
-                        var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                        return Math.floor(step * (datum - minValue) + margin)
+                        return Math.floor(cfg.height / 2) - 75
                     })
                     .attr("x", function (d) {
-                        if (cfg.horizontalLayout) {
-                            var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
-                            var x = Math.floor(step * (datum - minValue) + margin);
-                            return x - 25;
+                        if (d.data!= null) {
+                            if (cfg.horizontalLayout) {
+                                var datum = (cfg.dateDimension) ? new Date(d.date).getTime() : d.data[0].temps;
+                                var x = Math.floor(step * (datum - minValue) + margin);
+                                return x - 25;
+                            }
+                            return Math.floor(cfg.width / 2)
                         }
-                        return Math.floor(cfg.width / 2)
+                        else { return 0 }
                     })
                     ;
             })
