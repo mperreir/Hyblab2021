@@ -82,7 +82,7 @@ function setTexte(id){
   }
 
   function next(id){
-    if(id + 1 < contenu.questions.length){
+    if(id < contenu.questions.length){
       mySlidr.slide('page-' + (id + 3));
       setActif(id + 3);
     }
@@ -91,7 +91,6 @@ function setTexte(id){
       setActif("fin");
       getPlagesSlideFin();
       
-   
     }
   }
 

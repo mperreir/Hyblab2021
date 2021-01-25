@@ -54,7 +54,7 @@ function affichageReset(){
                         ]
                     },
                     {
-                        "texte" : "écriture",
+                        "texte" : "Écriture",
                         "json": "ecriture",
                         "citations" : [
                             '"Les paroles vont comme le vent ; les écrits restent."',
@@ -275,15 +275,23 @@ function affichageReset(){
       if(affichage.mer != 'indifferent'){
           urlGet += 'sea=' + affichage.mer + '&';
       }
-      if(affichage.amenagement != 'indifferent'){
-          urlGet += 'planning=' + affichage.amenagement;
+      if(affichage.amenagement != ''){
+          let planning = affichage.amenagement.slice(0, -1);
+          urlGet += 'planning=' + planning + '&';
       }
+
+      urlGet += 'radius=' + 100;
+
       console.log(urlGet);
 
       fetch(urlGet).then(function(response) {
-        console.log(response);
         response.json().then(function(object) {
-          console.log(object);
+            if(object.status == 200){
+                updateSlideFin(object.criterion_not_met, object.output);
+            }
+            else {
+                console.log(object);
+            }
         });
       });
       

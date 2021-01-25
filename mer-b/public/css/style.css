@@ -479,7 +479,7 @@ div#containerReponses {
     position: relative;
 }
 
-.cartePostale {
+.cartePostaleContainer {
     color: black;
     width: 30em;
     height: 20em;
@@ -488,15 +488,27 @@ div#containerReponses {
     transform: rotate(4deg);
     margin-left: 50px;
     margin-bottom: -48px;
+    perspective: 1400px;
+    margin-top: 25px;
 }
 
-.cartePostale.un {
+.cartePostale
+{
+    position: relative;
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+.cartePostale.cp1 {
     transform: rotate(-11deg);
     margin-top: 49px;
 }
 
-.cartePostale.deux {
+.cartePostale.cp2 {
     transform: rotate(10deg);
+    margin-top: 50px;
 }
 
 div#goback {
@@ -507,13 +519,40 @@ div#goback {
 
 
 .imgCarte {
-   display: none;
+    background: #2196f3;
 }
 
 .cartePostale .texte {
-    display: inline-block;
     background-image: url('../img/lettrefinal.png');
     width: 100%;
     height: 100%;
     background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotateY(180deg);
+
+}
+
+.imgCarte,
+.cartePostale .texte
+{
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+}
+
+.informations {
+    margin-left: 2.8em;
+    margin-top: 9em;
+    width: 12em;
+    line-height: 1.7em;
+    font-size: 14px;
+}
+
+.informations span {
+    font-size: 14px;
 }

@@ -124,7 +124,7 @@ exports.getbyfilter = async function(req) {
         var weather_s = filter_s[1];
         if (plages_s.length == 0) {
             criterion_not_met.push("sea");
-            plages_s = Array.from(beaches_w);
+            plages_s = Array.from(plages_w);
             weather_s = Array.from(weather_w);
         }
     } else {
