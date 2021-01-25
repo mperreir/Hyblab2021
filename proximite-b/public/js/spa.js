@@ -32,7 +32,7 @@ const make_page_from_template = (page_name) => {
 }
 
 const go_to = (page, data, callback) => {
-    console.log(`store before: ${_app_stores}`);
+    console.log('store before:'+ JSON.stringify(_app_stores));
 
     if (page === "index")
         set_stores();
@@ -54,6 +54,6 @@ const go_to = (page, data, callback) => {
             else if (data && callback && typeof callback === 'function')
                 callback();
 
-            console.log(`store after: ${_app_stores}`);
+                console.log('store after:'+ JSON.stringify(_app_stores));
         });
 }
