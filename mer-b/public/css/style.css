@@ -159,14 +159,13 @@ div#displayCanvas {
     --secondary-color: white;
     --citation-color: #203443;
     --bouton-texte-color: #203443;
+    --bouton-bg-color: #203443;
     --breadcrumb-color: #9DF5FF;
 }
 
 * {
     font-size: 15px;
     line-height: 20px;
-    text-align: justify;
-    color: var(--primary-color, #203443);
 }
 
 .logo {
@@ -214,7 +213,7 @@ h1 {
 .boutonVisited {
     display: inline-block;
     padding: 10px;
-    background: var(--primary-color, #203443);
+    background: var(--bouton-bg-color, #203443);
     border-radius: 30px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -232,7 +231,7 @@ h1 {
 
 .bouton:hover {
     cursor: pointer;
-    background-color: var(--primary-color, #203443);
+    background-color: var(--bouton-bg-color, #203443);
     color: var(--secondary-color, white);
 }
 
@@ -273,7 +272,7 @@ h1 {
   }
 
 .material-icons:hover{
-    color: var(--primary-color, #203443);
+    color: var(--bouton-bg-color, #203443);
 }
 
 .materialBouton {
@@ -291,12 +290,12 @@ h1 {
 
 .materialBouton:hover {
     cursor: pointer;
-    color: var(--primary-color, #203443);
-    border-color: var(--primary-color, #203443);
+    color: var(--bouton-bg-color, #203443);
+    border-color: var(--bouton-bg-color, #203443);
 }
 
 .materialBouton:hover .material-icons {
-    color: var(--primary-color, #203443);
+    color: var(--bouton-bg-color, #203443);
 }
 
 .containerChemin {
@@ -389,22 +388,35 @@ div#breadcrumb-page-fin {
     left: 9px;
 }
 
-
+.plante {
+    position: absolute;
+    height: 316px;
+    bottom: 0;
+    left: 20px;
+    display: none;
+}
 
 /***Acceuil***/
 .containerAcceuil {
-    width: 480px;
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    color: var(--citation-color, #203443);
 }
 
 .containerAcceuil h1 {
     text-align: center;
 }
 
+.presentation {
+    text-align: justify;
+}
+
 #containerBackground {
     position:absolute;
+    width: 100%;
+    height: 100%;
 }
 
 div#boutonGoSlide2 {
@@ -425,6 +437,14 @@ input#adresse {
 
 input#adresse:focus {
     outline: none;
+}
+
+.imgLocalisation {
+    text-align: center;
+}
+
+.imgLocalisation img{
+    height: 45px;
 }
 
 /***slide questions***/
@@ -477,7 +497,34 @@ div#containerReponses {
     margin-right: auto;
     text-align: center;
     position: relative;
+    height: 100%;
+    text-align: center;
 }
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    font-weight: 100;
+}
+
+#loading {
+    width: 100%;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .cartePostaleContainer {
     color: black;
@@ -490,6 +537,7 @@ div#containerReponses {
     margin-bottom: -48px;
     perspective: 1400px;
     margin-top: 25px;
+    display: none;
 }
 
 .cartePostale
@@ -533,7 +581,7 @@ div#goback {
     left: 0;
 
     transform: rotateY(180deg);
-
+    color: black !important;
 }
 
 .imgCarte,

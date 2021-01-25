@@ -36,6 +36,9 @@
     <div id="containerBackground">
         <!-- Affichage de notre canvas de ciel en arrière plan -->
         <div id="displayCanvas"></div>
+        <img class="plante" id="planteJour" src="img/Plante/jour.gif" />
+        <img class="plante" id="planteNuit" src="img/Plante/nuit.gif" />
+        <img class="plante" id="planteSoleil" src="img/Plante/soleil.gif" />
     </div>
     <div class="logo">
         <img src="img/logo-blanc.png" />
@@ -76,7 +79,10 @@
             <section data-slidr="page-2" id="page-2">
                 <div class="align-center-vertical">
                     <div class="containerAcceuil">
-                        <h1>Où pratiquez-vous habituellement votre art ? </h1>
+                        <h1>Où effectuez-vous votre art habituellement ? </h1>
+                        <div class="imgLocalisation">
+                            <img src="img/pointlocalisation.png" />
+                        </div>
                         <input type="text" class="form-control" name="name" id="adresse" list="huge_list" placeholder="Votre adresse...">
                         <datalist id="huge_list">
                         </datalist>
@@ -215,6 +221,12 @@
                                     <span class="phareNom">Test</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="align-center-vertical">
+                        <div id="loading">
+                            <h2>Un instant, nous cherchons la plage de vos rêves...</h2>
+                            <div class="loader"></div>
                         </div>
                     </div>
                     <div id="goback" class="bouton">Retour début</div>

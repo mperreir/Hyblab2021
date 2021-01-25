@@ -16,6 +16,9 @@ let sketchCiel = function(p) {
     let imgSolSableJour;
     let imgSolSableNuit;
     let imgSolSableSoleil;
+    let imgSolRochersJour;
+    let imgSolRochersNuit;
+    let imgSolRochersSoleil;
 
     let imgPhareJour;
     let imgPhareNuit;
@@ -40,6 +43,9 @@ let sketchCiel = function(p) {
     let phareY = -1;
     let imgdisplayFond;
     let imgdisplayPlante;
+
+    /*sons*/
+    let sonMer;
 
     /*pluie*/
     var rain = [];
@@ -83,6 +89,10 @@ let sketchCiel = function(p) {
       imgSolSableNuit = p.loadImage('img/Sol/Sable/sablenuit.png');
       imgSolSableSoleil = p.loadImage('img/Sol/Sable/sablesoleil.png');
 
+      imgSolRochersJour = p.loadImage('img/Sol/Rochers/sablerocherjour.png');
+      imgSolRochersNuit = p.loadImage('img/Sol/Rochers/sablerochernuit.png');
+      imgSolRochersSoleil = p.loadImage('img/Sol/Rochers/sablerochersoleil.png');
+
       imgPhareJour = p.loadImage('img/Phare/pharejour.png');
       imgPhareNuit = p.loadImage('img/Phare/pharenuit.png');
       imgPhareSoleil = p.loadImage('img/Phare/pharesoleil.png');
@@ -94,7 +104,6 @@ let sketchCiel = function(p) {
       imgPlanteJour = p.loadImage('img/Plante/plantesjour.png');
       imgPlanteNuit = p.loadImage('img/Plante/plantesnuit.png');
       imgPlanteSoleil = p.loadImage('img/Plante/plantessoleil.png');
-
 
       for (i = 0; i < 100; i++) {
         rain[i] = new Rain(p.random(50, p.windowWidth), p.random(0, -3000));
@@ -122,9 +131,9 @@ let sketchCiel = function(p) {
         p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
       }
 
-      if(imgdisplayPlante){
+      /*if(imgdisplayPlante){
         p.image(imgdisplayPlante, 0, 0, p.windowWidth, p.windowHeight);
-      }
+      }*/
     }
       
     p.windowResized = function () {
@@ -201,7 +210,7 @@ let sketchCiel = function(p) {
       merY = -1;
       solY = -1;
       phareY = -1;
-    }
+     }
 
     sketchCiel.updateSketchCiel = function(){
       if(affichage.ciel == 'bad'){
@@ -253,6 +262,9 @@ let sketchCiel = function(p) {
           else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableJour;
           }
+          else if(affichage.type == "rocks"){
+            imgdisplaySol = imgSolRochersJour;
+          }
 
           if(solY == -1){
             solY = 100;
@@ -303,6 +315,9 @@ let sketchCiel = function(p) {
           else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableNuit;
           }
+          else if(affichage.type == "rocks"){
+            imgdisplaySol = imgSolRochersNuit;
+          }
 
           if(solY == -1){
             solY = 100;
@@ -352,6 +367,9 @@ let sketchCiel = function(p) {
           }
           else if(affichage.type == "sand" || affichage.type == "indifferent"){
             imgdisplaySol = imgSolSableSoleil;
+          }
+          else if(affichage.type == "rocks"){
+            imgdisplaySol = imgSolRochersSoleil;
           }
 
           if(solY == -1){

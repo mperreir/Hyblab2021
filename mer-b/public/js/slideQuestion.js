@@ -33,6 +33,7 @@ function setTexte(id){
           else {
             element.target.setAttribute("class", "boutonVisited");
           }
+          
           updateElement(question.element, reponse);
           //next(id + 1);
         });

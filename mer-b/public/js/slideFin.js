@@ -6,6 +6,7 @@ let initSlideFin = function(){
       initSlide1();
       affichageReset();
       sketchCiel.resetSketchCiel();
+      resetDisplay();
       var root = document.documentElement;
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
       root.style.setProperty('--bouton-texte-color', "#203443");
@@ -52,7 +53,13 @@ for(let card of cards){
 function updateSlideFin(criteres, plages){
   console.log(criteres);
   console.log(plages);
+  let loading = document.getElementById("loading");
+  loading.style.display = "none";
+  let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");
   plages.forEach((element, index) => {
+
+    cartesPostalesList[index].style.display = "inline-block";
+
     let cartePostale = document.getElementById("cp" + (index + 1));
     console.log(cartePostale);
     let nomPlage = cartePostale.querySelector(".nomPlage");

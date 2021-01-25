@@ -232,7 +232,7 @@ function affichageReset(){
             ]
           },
           {
-            question : "A quel distance souhaitez-vous trouver ces aménagements ?",
+            question : "A quel distance de la plage souhaitez-vous trouver ces aménagements ?",
             element: "distance",
             reponses : [
                 {
@@ -242,6 +242,10 @@ function affichageReset(){
                 {
                     "texte" : "5 km",
                     "json" : "5000",
+                },
+                {
+                    "texte" : "10 km",
+                    "json" : "10000",
                 },
                 {
                     "texte": "Indifferent",
