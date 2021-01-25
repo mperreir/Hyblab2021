@@ -4,9 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>Média  Sea</title>
-    <link rel="stylesheet" href="css/legende.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
@@ -16,56 +17,27 @@
     <script src="js/index.js" defer></script>
   </head>
   <body>
-      <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-      <div id="container">
-          <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-          <main id = "slidr">
-              <section data-slidr="page-1">
-                  <header>
-                      <h1 id="titre">Welcome to</h1>
-                  </header>
-                  
-                  <img src="assets/img/logo_hyblab.png" id="logo-hyblab"></img>
-
-                  <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                      <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                  </video>
-
-                  <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                  <footer></footer>
-              </section>
-              <section data-slidr="page-2">
-                  <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                  <footer id="bandeau">
-                          <!-- Logo Hyblab -->
-                            <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                        
-                            <!-- Les organisateurs -->
-                            <ul>
-                              <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                              <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                              <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                              <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                              <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                            </ul>
-                            <!-- Les autres logos -->
-                            <ul>
-                              <!-- Logos CC et opensource -->
-                              <li>
-                              <ul>
-                                <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                                <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                              </ul>
-                              </li>
-                              <!-- Logo de votre porteur de projet -->
-                              <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                              <!-- Partenaires institutionnels -->
-                              <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                              <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                            </ul>
-                  </footer>
-              </section>
-          </main>
-      </div>
+    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+    <div id="container">
+        <img src="assets/img/decor1/PLAN_1.png" class="object" id="plan1" alt="">
+        <img src="assets/img/decor1/PLAN_2.png" class="object" id="plan2" alt="">
+        <img src="assets/img/decor1/PLAN_4.png" class="object" id="plan4" alt="">
+        <img src="assets/img/decor1/VAGUE_1.png" class="object" id="vague1" alt="">
+        <img src="assets/img/decor1/VAGUE_2.png" class="object" id="vague2" alt="">
+        <img src="assets/img/decor1/VAGUE_3.png" class="object" id="vague3" alt="">
+        <img src="assets/img/decor1/VAGUE_4.png" class="object" id="vague4" alt="">
+        <img src="assets/img/decor1/VAGUE_5.png" class="object" id="vague5" alt="">
+        <img src="assets/img/decor1/VAGUE_6.png" class="object" id="vague6" alt="">
+        <img src="assets/img/decor1/VAGUE_7.png" class="object" id="vague7" alt="">
+      
+      <section id="accueil">
+  
+        <h4>MEDIA & SEA PRÉSENTE</h4>
+        <img src="assets/img/logo/logo_hyblab.png" alt="logo" id="logo">
+        <p>Les plus belles plages de Bretagne à découvrir à travers les légendes côtières les plus connues de France. Embarquez dans un voyage interactif à travers leurs histoires et trouvez votre destination. </p>
+        <div id="button">DÉCOUVRIR</div>
+      </section>
+     
+    </div>
   </body>
 </html>
