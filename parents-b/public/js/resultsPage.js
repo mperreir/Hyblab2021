@@ -3,4 +3,10 @@ let initResults = function(){
         mySlidr.slide("home-page");
         initHome();
     });
+
 };
+
+d3.select(".results_card").on("click", function (){
+    console.log(this);
+    document.getElementById("modal_more_information").style.visibility = "visible";
+});

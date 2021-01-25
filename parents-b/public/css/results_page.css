@@ -21,3 +21,17 @@
     width: 23%;
     z-index: 1;
 }
+
+a > img{
+    width: 100%;
+}
+
+.results_card:hover {
+    z-index: 3!important;
+}
+
+#modal_more_information{
+    visibility: hidden;
+    z-index: 10;
+}
+
