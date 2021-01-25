@@ -44,7 +44,6 @@ let initAge = function(){
     let cpt = 0;  
     
 
-
     //---------------DES L'OUVERTURE-----------------
     var x = document.getElementById("image_age");
     x.setAttribute("src", "././img/age/agebb.svg");
@@ -58,8 +57,6 @@ let initAge = function(){
     document.getElementById("supp_lego").hidden = true;
     document.getElementById("ballon").hidden = true;
     document.getElementById("supp_ballon").hidden = true;
-
-
 
 
     //---------------BOUTTONS-----------------
