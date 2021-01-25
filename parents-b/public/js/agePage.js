@@ -41,8 +41,8 @@ let initAge = function(){
     }
   }
 
-    let cpt = 0;  
-    
+    let cpt = 0;
+
 
     //---------------DES L'OUVERTURE-----------------
     var x = document.getElementById("image_age");
@@ -61,8 +61,8 @@ let initAge = function(){
 
     //---------------BOUTTONS-----------------
     //Bouton suivant
-    d3.select(".button-next-age").on("click", function (){
-        mySlidr.slide("access-page");
+    d3.select('.button-next-age').on('click', function (){
+        mySlidr.slide('right');
         initAccess();
     });
 
@@ -77,7 +77,7 @@ let initAge = function(){
       cpt =cpt+1;
       setImage(cpt);
     });
-    
+
     //Bouton plus
     d3.select(".boutton_add").on("click",  function (){
       activeLogoChoix(cpt);
@@ -104,11 +104,11 @@ let initAge = function(){
       document.getElementById("supp_ballon").hidden = true;
     });
 
-   
+
 
 
     //----------ANIMATIONS---------------
-    //Premier robot 
+    //Premier robot
     anime({
         targets: '#age_yeux_cache',
         translateY: '3000%',
@@ -117,7 +117,7 @@ let initAge = function(){
         direction: 'alternate',
         loop: false
       });
-    
+
     //Devrait avoir lieu à un onclic sur les fleche/plus
     //Deuxieme robot
     anime({
@@ -148,4 +148,3 @@ let initAge = function(){
     });
 
 };
-
