@@ -1,4 +1,16 @@
-const myCriteria = {
+'use strict';
+
+let myCriteria = {
+    "Géolocalisation": {
+        lat: null,
+        lng: null,
+        valid: null
+    },
+    "Distances" : {
+        max: 10,
+        reel: null,
+        duration: null
+    },
     "Gardien": null,
     "Jeux pour enfants": null,
     "Pataugeoire": null,
@@ -48,13 +60,42 @@ function choiceUpdate(string, currentValue) {
     }
 }
 
+function distAttribute(event) {
+    myCriteria["Distances"].max = parseInt(event.target.value);
+    console.log(myCriteria["Distances"]);
+}
+
+function geoAttribute(latitude, longitude) {
+    const geo = myCriteria["Géolocalisation"];
+    if (!geo.lat && !geo.lng) nbElemChoisit++;
+    myCriteria["Géolocalisation"].lat = parseFloat(latitude).toFixed(9);
+    myCriteria["Géolocalisation"].lng = parseFloat(longitude).toFixed(9);
+}
+
+function latAttribute(event) {
+    const geo = myCriteria["Géolocalisation"];
+    if (!geo.lat && !geo.lng) {
+        nbElemChoisit++;
+    }
+    myCriteria["Géolocalisation"].lat = parseInt(event.target.value);
+}
+
+function lngAttribute(event) {
+    const geo = myCriteria["Géolocalisation"];
+    if (!geo.lat && !geo.lng) {
+        nbElemChoisit++;
+    }
+    myCriteria["Géolocalisation"].lng = parseInt(event.target.value);
+    console.log(myCriteria)
+}
+
 function gardAttribute(event) {
     const gard = myCriteria["Gardien"];
     myCriteria["Gardien"] = choiceUpdate(event.target.value, gard);
 }
 
 function childGameAttribute(event) {
-    const childGame = myCriteria["Jeux pour enfants"]
+    const childGame = myCriteria["Jeux pour enfants"];
     myCriteria["Jeux pour enfants"] = choiceUpdate(event.target.value, childGame);
 }
 
@@ -163,18 +204,92 @@ function fetchData() {
             }
         })
         .then(json => {
+            if (myCriteria["Géolocalisation"].lat && myCriteria["Géolocalisation"].lng) {
+
+                const geolocations = json.map(line => line["Géolocalisation"]);
+                const service = new google.maps.DistanceMatrixService();
+                const origin = new google.maps.LatLng(myCriteria["Géolocalisation"].lat, myCriteria["Géolocalisation"].lng);
+                const destinations1 = [];
+
+                geolocations.forEach(x => {
+                    const latLng = x.split(', ');
+                    const newDesti = new google.maps.LatLng(parseFloat(latLng[0]).toFixed(9), parseFloat(latLng[1]).toFixed(9));
+                    destinations1.push(newDesti);
+                });
+                const destinations2 = destinations1.splice(0, 25);
+                const destinations3 = destinations1.splice(0, 25);
+                const destinations4 = destinations1.splice(0, 25);
+                const destinations = [];
+                destinations.push(destinations2);
+                destinations.push(destinations3);
+                destinations.push(destinations4);
+                destinations.push(destinations1);
+                destinations.forEach((x, i) => {
+                    service.getDistanceMatrix({
+                        origins: [origin],
+                        destinations: x,
+                        travelMode: google.maps.TravelMode.WALKING,
+                        unitSystem: google.maps.UnitSystem.METRIC
+                    }, (response, status) => {
+                        if (status === 'OK') {
+                            const respOrigin = response.originAddresses;
+                            const respDestinations = response.destinationAddresses;
+                            for (let current = 0; current < respOrigin.length; current++) {
+                                const results = response.rows[current].elements;
+                                for (let j = 0; j < results.length; j++) {
+                                    const element = results[j];
+                                    const distance = parseFloat(element.distance.text.split(' km')[0].replace(',', '.')).toFixed(1);
+                                    const duration = element.duration.text;
+                                    const from = respOrigin[current];
+                                    const to = respDestinations[j];
+                                    console.log('-----------------------');
+                                    console.log(from);
+                                    console.log(to);
+                                    console.log(distance);
+                                    console.log(json[25*i + j]);
+                                    myCriteria["Distances"].reel = distance;
+                                    myCriteria["Distances"].duration = duration;
+                                    console.log(myCriteria["Distances"].max);
+                                    console.log(myCriteria["Distances"].reel);
+                                    console.log((myCriteria["Distances"].max >= myCriteria["Distances"].reel));
+                                    myCriteria["Géolocalisation"].valid = (myCriteria["Distances"].max >= myCriteria["Distances"].reel);
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+            return json;
+        })
+        .then(json => {
+            console.log(json);
             const nbCritere = Object.keys(myCriteria).length;
             for (const line of json) {
                 for (const [key, value] of Object.entries(line)) {
-                    if (myCriteria[key]) {
-                        if (myCriteria[key] != null && myCriteria[key] === value) {
-                            line["nbElemCorrect"]++;
-                        }
+                    switch (key) {
+                        case "Géolocalisation":
+                            console.log("myCriteria[\"Géolocalisation\"]");
+                            console.log(myCriteria["Géolocalisation"]);
+                            if (myCriteria["Géolocalisation"].valid) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            }
+                            break;
+                        case "Distances":
+                            break;
+                        default:
+                            if (myCriteria[key]) {
+                                if (myCriteria[key] != null && myCriteria[key] === value) {
+                                    line["nbElemCorrect"]++;
+                                    line["listElemMatch"].push(key);
+                                }
+                            }
+                            break;
                     }
                 }
                 line.affinity = line["nbElemCorrect"] * 100 / nbCritere;
             }
-
+            console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);
 
@@ -198,6 +313,10 @@ function fetchData() {
 }
 
 function main() {
+
+    const dist = document.getElementById('localize-range');
+    dist.addEventListener('input', distAttribute);
+
     /*
     // TODO 'garde' sera à remplacer par l'id de l'élément à tester
     const garde = document.getElementById('garde');
@@ -282,10 +401,10 @@ function main() {
     // TODO 'elementCulture' sera à remplacer par l'id de l'élément à tester
     const elementCulture = document.getElementById('elementCulture');
     elementCulture.addEventListener('click', cultureAttribute);
-    */
-
+*/
     const searchData = document.getElementById('searchData');
     searchData.addEventListener('click', fetchData);
+
 }
 
 main();
