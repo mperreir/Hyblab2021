@@ -157,13 +157,13 @@ dataTimeLine2 = [{
 
 
 
-function timeline_drawTimeLine() {
+function timeline_draw() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
-    TimeKnots.draw("#timeline1", dataTimeLine1, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true});
-    TimeKnots.draw("#timeline2", dataTimeLine2, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true});
+    TimeKnots.draw("#timeline1", dataTimeLine1, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
+    TimeKnots.draw("#timeline2", dataTimeLine2, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
+    timeline_progressBar();
 };
-
 
 
 
@@ -177,7 +177,7 @@ function sleep(ms) {
  * 
  * @param {*} d 
  */
-function evaluate(d){
+function evaluate(d) {
     // console.log(stores["criteres"]["chosen"])
     // var choix ={"positif": ["boulangerie", "bus", "ecole"],
     // "negatif": ["pharmacie"]}
@@ -190,8 +190,30 @@ async function timeline_progressBar() {
     var S1 = 1;
     var S2 = 1;
     var Somme = S1 + S2;
-    $("#bar1").css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
-    $("#bar2").css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
+
+    $("#progressDiv").html("")
+    var b1 =$('<div>') ;
+    b1.attr('id', 'bar1')
+        .attr('class', 'progress-bar bar-T1')
+        .attr('role', 'progressbar')
+        .css("width", '50%')
+        .attr('aria-valuemin', '0')
+        .attr('aria-valuemax', '100')
+        .text("adresse1");
+
+    var b2 = $('<div>');
+    b2.attr('id', 'bar2')
+        .attr('class', 'progress-bar bar-T2')
+        .attr('role', 'progressbar')
+        .css("width", '50%')
+        .attr('aria-valuemin', '0')
+        .attr('aria-valuemax', '100')
+        .text("adresse2");;
+
+    $("#progressDiv").append(b1);
+    $("#progressDiv").append(b2);
+    b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
+    b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
     for (let index = 0; index < dataTimeLine1.length; index++) {
         var dataT1 = dataTimeLine1[index].data
         var dataT2 = dataTimeLine2[index].data
@@ -205,7 +227,7 @@ async function timeline_progressBar() {
         if (dataTimeLine1[index].categorie != null) {
             await sleep(1000);
         }
-        $("#bar1").css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
-        $("#bar2").css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
+        b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
+        b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
     }
 }
