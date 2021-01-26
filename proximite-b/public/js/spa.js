@@ -1,3 +1,5 @@
+/*            stores             */
+
 var _app_stores = {};
 
 const set_stores = () => {
@@ -21,7 +23,14 @@ const store_in_current_page = (data) => {
 
 const read_store = (name) => _app_store[name];
 
+/*          fin des stores               */
+
+
+
 const make_page_from_template = (page_name) => {
+    // load the correct css
+    css_dyn_loader(`/proximite-b/css/${page_name}.css`);
+
     const app = document.getElementById('app');
     return fetch(`/proximite-b/templates/${page_name}.html`)
         .then(res => res.text())
@@ -29,6 +38,29 @@ const make_page_from_template = (page_name) => {
             app.innerHTML = text;
             _app_stores["all"]["current_page"] = page_name;
         });
+}
+
+const css_dyn_loader = (filename) => {
+    let head = document.head;
+    let style = null;
+
+    const links = head.getElementsByTagName('link');
+    let ll = [];
+    for (const link of links)
+        ll.push(link);
+
+    if (ll.filter(e => e.href.startsWith('css/')).length !== 2)
+        style = document.createElement('link');
+    else {
+        style = head.getElementsByTagName('link');
+        style = style[style.length - 1];
+    }
+
+    style.type = 'text/css';
+    style.rel = "stylesheet";
+    style.href = filename;
+
+    head.appendChild(style);
 }
 
 const go_to = (page, data, callback) => {
@@ -47,12 +79,34 @@ const go_to = (page, data, callback) => {
                 window.addEventListener("resize", timeline_progressbar_draw);
                 timeline_progressbar_draw();
             }
+            else if (page === 'criteres') {
+                $(function() {
+                    $( "#sortable1, #sortable2, #sortable3" ).sortable({
+                        connectWith: ".connectedSortable"
+                    }).disableSelection();
+                });
+
+                $(function() {
+                    $( "#sortable2" ).on( "sortreceive", function(event, ui) {
+                        if ($("#sortable2 li").length > 5)
+                            $(ui.sender).sortable('cancel');
+                    });
+
+                });
+
+                $(function() {
+                    $( "#sortable3" ).on( "sortreceive", function(event, ui) {
+                        if($("#sortable3 li").length > 3)
+                            $(ui.sender).sortable('cancel');
+                    });
+                });
+            }
 
             if (data && !callback && typeof data === 'function')
                 data();
             else if (data && callback && typeof callback === 'function')
                 callback();
 
-                console.log('store after:'+ JSON.stringify(_app_stores));
+            console.log('store after:'+ JSON.stringify(_app_stores));
         });
 }
