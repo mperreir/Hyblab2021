@@ -24,20 +24,25 @@ module.exports = () => {
     const app = express();
 
     // routes depuis les fichiers json
-    app.get('/abris-velo/:quartier', JsonRoute((req) => loadJSONFile('abris-velo.json')[req.params['quartier']]));
-    app.get('/amenagements-cyclables/:quartier', JsonRoute((req) => loadJSONFile('amenagements-cyclables.json')[req.params['quartier']]));
-    app.get('/gonfleurs-libre-service/:quartier', JsonRoute((req) => loadJSONFile('gonfleurs-libre-service.json')[req.params['quartier']]));
-    app.get('/stations-velo-libre-service/:quartier', JsonRoute((req) => loadJSONFile('stations-velo-libre-service.json')[req.params['quartier']]));
-    app.get('/arrets-tan/:quartier', JsonRoute((req) => loadJSONFile('arrets-tan.json')[req.params['quartier']]));
-    app.get('/velocistes/:quartier', JsonRoute((req) => loadJSONFile('velocistes.json')[req.params['quartier']]));
-    app.get('/services-velos-bicloo/', JsonRoute(() => loadJSONFile('services-velos-bicloo.json')));
+    app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier'])));
+    app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
+    app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier'])));
+    app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier'])));
+    app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier'])));
+    app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier'])));
+    app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('services-velos-bicloo.json')));
 
     // routes depuis l'api de nantes metropole
-    app.get('/disponibilites-parcs-relais/:quartier', JsonRoute((req) => fetchData(API_NANTES_ROUTES.parcs_relais, req.params['quartier'])));
-    app.get('/disponibilites-places-parking/:quartier', JsonRoute((req) => fetchData(API_NANTES_ROUTES.places_parking, req.params['quartier'])));
-    app.get('/disponibilites-bicloo/:quartier', JsonRoute((req) => fetchData(API_NANTES_ROUTES.disponibilites_bicloo, req.params['quartier'])));
+    app.get('/disponibilites-parcs-relais/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.parcs_relais, req.params['quartier'])));
+    app.get('/disponibilites-places-parking/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.places_parking, req.params['quartier'])));
+    app.get('/disponibilites-bicloo/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.disponibilites_bicloo, req.params['quartier'])));
 
     app.get('/update/', (req,res) => update(req, res));
+
+    function getLocalJSONData(file_name, quartier=null){
+        const data = loadJSONFile(file_name);
+        return quartier?data[quartier]:data;
+    }
 
     // utilitaire pour créer une route qui envoie du json
     function JsonRoute(callback) {
@@ -50,20 +55,20 @@ module.exports = () => {
         };
     }
 
-    function update(req, res) {
+    async function update(req, res) {
         const api_routes = loadJSONFile('nantes-api-fetcher.json');
         const quartiers = loadJSONFile('quartiers.json');
-        api_routes.forEach(async o => {
+        for (const o of api_routes) {
             let data = {};
-            if(o.quartiers){
+            if (o.quartiers) {
                 for (const k of Object.keys(quartiers)) {
                     data[k] = await fetchData(o.route, k);
                 }
-            }else{
+            } else {
                 data = await fetchData(o.route);
             }
             fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
-        })
+        }
         res.send('Done');
     }
 
