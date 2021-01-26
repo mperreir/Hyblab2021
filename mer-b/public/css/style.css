@@ -180,6 +180,15 @@ div#displayCanvas {
     width: 200px;
 }
 
+#boutonSon{
+	position: absolute;
+	left: 10px;
+    z-index: 99;
+	top: 26%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+	
 h1 {
     font-family: 'Abril Fatface', cursive;
     font-style: normal;
