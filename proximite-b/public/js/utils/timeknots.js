@@ -1,5 +1,76 @@
 
 var TimeKnots = {
+
+
+    /**
+     * Function used to generate a modal that allow user 
+     * to have more information about a "categorie"
+     * 
+     * @param {*} d d is an object of this form : 
+     * {
+     *   "img": "./img/timeline/market.svg",
+     *   "categorie": "Supermache",
+     *   "data": [
+     *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+     *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+     *    ]
+     *    }
+     */
+    createSingleModal: function (d) {
+        var firstAdress = d.data[0]
+        var otherAdress = d.data.slice(1);
+        $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
+        $("#otherItemsSingleModal").html("");
+        if (otherAdress.length >= 1) {
+            otherAdress.forEach(element => {
+                $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+            });
+        }
+        else {
+            $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+        }
+        $("#singleModal").modal('show');
+    },
+
+    /**
+     * Function used to generate a modal that allow user 
+     * to go through items on the same time level
+     * 
+     * @param {*} d is an ARRAY of object of this form :
+     * * {
+     *   "img": "./img/timeline/market.svg",
+     *   "categorie": "Supermache",
+     *   "data": [
+     *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+     *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+     *    ]
+     *    }
+     */
+    createMultipleModal: function (d) {
+        console.log(d)
+        $("#headerMultipleModal").html("");
+        d.forEach(element => {
+            var p = $('<p>');
+            var img = $('<img>'); //Equivalent: $(document.createElement('img'))
+            img.attr("width", 75);
+            img.attr("height", 75);
+            img.on('click', function () {
+                $("#multipleModal").modal('hide');
+                TimeKnots.createSingleModal(element)
+            });
+            img.attr('src', element.img);
+            p.append(img)
+            p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
+            $("#headerMultipleModal").append(p)
+        })
+        $("#multipleModal").modal('show');
+    },
+    /**
+     * This function is used to generate the timeline and draw it
+     * @param {*} id 
+     * @param {*} events 
+     * @param {*} options 
+     */
     draw: function (id, events, options) {
         var cfg = {
             width: 600,
@@ -19,71 +90,10 @@ var TimeKnots = {
             }
         }
 
-        /**
-         * Function used to generate a modal that allow user 
-         * to have more information about a "categorie"
-         * 
-         * @param {*} d d is an object of this form : 
-         * {
-         *   "img": "./img/timeline/market.svg",
-         *   "categorie": "Supermache",
-         *   "data": [
-         *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-         *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
-         *    ]
-         *    }
-         */
-        function createSingleModal(d) {
-            var firstAdress = d.data[0]
-            var otherAdress = d.data.slice(1);
-            $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
-            $("#otherItemsSingleModal").html("");
-            if (otherAdress.length >= 1) {
-                otherAdress.forEach(element => {
-                    $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
-                });
-            }
-            else {
-                $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
-            }
-            $("#singleModal").modal('show');
-        }
 
 
-        /**
-         * Function used to generate a modal that allow user 
-         * to go through items on the same time level
-         * 
-         * @param {*} d is an ARRAY of object of this form :
-         * * {
-         *   "img": "./img/timeline/market.svg",
-         *   "categorie": "Supermache",
-         *   "data": [
-         *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-         *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
-         *    ]
-         *    }
-         */
-        function createMultipleModal(d) {
-            console.log(d)
-            $("#headerMultipleModal").html("");
 
-            d.forEach(element => {
-                var p = $('<p>');
-                var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-                img.attr("width", 75);
-                img.attr("height", 75);
-                img.on('click', function () {
-                    $("#multipleModal").modal('hide');
-                    createSingleModal(element)
-                });
-                img.attr('src', element.img);
-                p.append(img)
-                p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
-                $("#headerMultipleModal").append(p)
-            })
-            $("#multipleModal").modal('show');
-        }
+
 
 
         d3.select(id).selectAll("svg").remove();
@@ -220,10 +230,10 @@ var TimeKnots = {
             .on('click', function (d) {
                 if (d.data != null) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
-                        createMultipleModal(cpt["min" + d.data[0].temps]);
+                        TimeKnots.createMultipleModal(cpt["min" + d.data[0].temps]);
                     }
                     else {
-                        createSingleModal(d);
+                        TimeKnots.createSingleModal(d);
                     }
                 }
             })
