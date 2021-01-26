@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p> {{ question }} </p>
+  <div id="allQuestion">
+    <p id="question"> {{ question }} </p>
     <answer v-bind:answers="answers"></answer>
   </div>
 </template>
@@ -19,4 +19,20 @@ export default Vue.component("question", {
 </script>
 
 <style scoped>
+  #allQuestion {
+    display: block;
+    position: absolute;
+    width: 30%;
+    top: 30%;
+    left: 30%;
+  }
+
+  #question {
+    display: block;
+    color: white;
+    position: relative;
+
+    text-align: center;
+    font-weight: bold;
+  }
 </style>
