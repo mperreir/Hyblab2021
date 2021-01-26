@@ -2,6 +2,9 @@ import React from 'react';
 import logo from '../img/logo_hyblab.png'
 import Home from './Home'
 import Theme from './Theme';
+import Attributs from './Attributs';
+import Moyen from './Moyen';
+import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
@@ -14,6 +17,12 @@ class App extends  React.Component {
                 return <Home onNextPage={this.nextPage}/>;
             case 1:
                 return <Theme onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+            case 2:
+                return <Attributs onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+            case 3:
+                return <Moyen onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+            case 4:
+                return <AcceuilCarte/>;
         }
     };
 

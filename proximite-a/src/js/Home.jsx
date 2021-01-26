@@ -6,7 +6,7 @@ class Home extends  React.Component {
         return (
             <div>
                 <input type='text' placeholder='entrez votre prénom'/>
-                <input type='button' value='test' onClick={onNextPage}/>
+                <input type='button' value='Explorer' onClick={onNextPage}/>
             </div>
         );
     }
