@@ -72,12 +72,31 @@ let initAge = function(){
       cpt =cpt-1;
       setImage(cpt);
     });
+    //Mouse over de fleche gauche
+    d3.select(".fleche_gauche").on("mouseover",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/fleche_gauche.svg");
+    });
+    d3.select(".fleche_gauche").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/flecheG.svg");
+    });
+      
 
     d3.select(".fleche_droite").on("click",  function (){
       cpt =cpt+1;
       setImage(cpt);
     });
-    
+    //Mouse over de fleche droite
+    d3.select(".fleche_droite").on("mouseover",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/fleche_droite.svg");
+    });
+    d3.select(".fleche_droite").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/flecheD.svg");
+    });
+
     //Bouton plus
     d3.select(".boutton_add").on("click",  function (){
       activeLogoChoix(cpt);
@@ -104,48 +123,45 @@ let initAge = function(){
       document.getElementById("supp_ballon").hidden = true;
     });
 
-   
-
 
     //----------ANIMATIONS---------------
     //Premier robot 
     anime({
-        targets: '#age_yeux_cache',
+        targets: '.age_yeux_cache',
         translateY: '3000%',
-        delay : 2800,
+        delay : 4300,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false
       });
     
-    //Devrait avoir lieu à un onclic sur les fleche/plus
+    anime({
+        targets: '.age_yeux_cache2',
+        translateY: '3000%',
+        delay : 4280,
+        opacity: 0,
+    });
+    
     //Deuxieme robot
     anime({
       targets: '#age_arrive',
       translateY: '-500%',
-      delay : 2750,
+      delay : 4350,
       easing: 'easeInOutQuad',
       direction: 'alternate',
       loop: false
     });
 
-    anime({
-      targets: '#vague_chut',
-      translateY: '-700%',
-      delay : 3150,
-      easing: 'easeInOutQuad',
-      direction: 'alternate',
-      loop: false
+    let txt2 = anime.timeline({
+        targets: '.txt2'
     });
-
-    anime({
-      targets: '#txt_chut',
-      translateY: '-1300%',
-      delay : 3150,
-      easing: 'easeInOutQuad',
-      direction: 'alternate',
-      loop: false
-    });
-
+        txt2
+            .add({
+                opacity: 0,
+            })
+            .add({
+                delay : 4450,
+                opacity: 1,
+            })
 };
 
