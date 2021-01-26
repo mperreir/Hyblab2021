@@ -22,20 +22,121 @@ section{
     height: 100%;
 }
 
-section[data-slidr="page-2.1"] {
-    background: linear-gradient(0deg, #6FB5EF, #6FB5EF);
+section[data-slidr="page-3"] {
+    background: linear-gradient(90.42deg, #6FB5EF 26.39%, #3391DE 82.69%);
+}
+
+#logo {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#oui {
+    position: absolute;
+    width: 5%;
+    bottom: 25%;
+    right: 60%;
+}
+
+#non {
+    position: absolute;
+    width: 5%;
+    bottom: 25%;
+    right: 33%;
+}
+
+#bouton_aventurier {
+    position: absolute;
+    width: 22%;
+    bottom: 32%;
+    right: 51%;
+}
+
+#bouton_non_aventurier {
+    position: absolute;
+    width: 18%;
+    bottom: 32%;
+    right: 28%;
+}
+
+#aventurier {
+    position: absolute;
+    width: 45%;
+    bottom: 68%;
+    right: 28%;
+}
+
+#arbuste_vert {
+    position: absolute;
+    width: 35%;
+    bottom: 8%;
+    right: 9%;
+}
+
+#arbuste_bleu {
+    position: absolute;
+    width: 58%;
+    bottom: 2%;
+    right: -11%;
+}
+
+#arbre_jaune {
+    position: absolute;
+    width: 24%;
+    bottom: 12%;
+    right: 3%;
+}
+
+#arbre_rouge {
+    position: absolute;
+    width: 20%;
+    bottom: 10%;
+    right: 80%;
+}
+
+#gros_nuage {
+    position: absolute;
+    width: 30%;
+    bottom: 58%;
+    right: 62%;
 }
 
 #dune {
     position: absolute;
     width: 100%;
+    bottom: 0%;
 }
 
-#arbre-bleu {
+#feuille_rouge {
     position: absolute;
-    bottom: 15%;
-    right: 10%;
+    width: 11%;
+    bottom: 10%;
+    right: 4%;
 }
+
+#feuille_bleue {
+    position: absolute;
+    width: 10%;
+    bottom: 7%;
+    right: 76%;
+}
+
+#pelouse_gauche {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse_droite {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+
 
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
