@@ -1,0 +1,19 @@
+div#conclu_container {
+    background-image: url('/proximite-b/img/Background-lastslide.svg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p#conclu_text {
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    width: 24em;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
+}

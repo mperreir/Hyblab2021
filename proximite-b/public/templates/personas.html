@@ -1,32 +1,10 @@
-<table>
-    <thead>
-        <tr>
-            <th colspan='3'>Veuillez sélectionner une personna</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-            <td>
-                <button id="choiceE" onclick="go_to('greeters', {'chosen': 'jeune'});">Etudiant</button>
-            </td>
-            <td>
-                <button id="choiceF" onclick="go_to('greeters', {'chosen': 'famille'});">Famille</button>
-            </td>
-            <td>
-                <button id="choicePA" onclick="go_to('greeters', {'chosen': 'senior'});">Personne âgée</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<ul>
-    <li><a onclick="go_to('index')">Home</a></li>
-
-    <li><a onclick="go_to('adresses')">adresses</a></li>
-    <li><a onclick="go_to('personas')">personas</a></li>
-    <li><a onclick="go_to('timeline')">timeline</a></li>
-    <li><a onclick="go_to('conclu')">conclu</a></li>
-</ul>
-
-personnas
+<div class="container-fluid" id="persona_background">
+    <p id="persona_titre" class="figma_color_blue">Choisissez votre profil: </p>
+    <a onclick="go_to('adresses', {'chosen': 'etudiant'});"><img id="etudiant" src="/proximite-b/img/persona/Etudiant.svg"/></a>
+    <a onclick="go_to('adresses', {'chosen': 'famille'});"><img id="famille" src="/proximite-b/img/persona/Famille.svg"/></a>
+    <a onclick="go_to('adresses', {'chosen': 'vieux'});"><img id="senior" src="/proximite-b/img/persona/Senior.svg"/></a>
+    <button id="bouton_accueil" onclick="go_to('index')"></button>
+    <button class="figma_button figma_bg_yellow" id="bouton_etudiant" onclick="go_to('adresses', {'chosen': 'etudiant'});">Etudiant</button>
+    <button class="figma_button figma_bg_blue" id="bouton_famille" onclick="go_to('adresses', {'chosen': 'famille'});">Famille</button>
+    <button class="figma_button figma_bg_orange" id="bouton_senior" onclick="go_to('adresses', {'chosen': 'vieux'});">Vieux</button>
+</div>
