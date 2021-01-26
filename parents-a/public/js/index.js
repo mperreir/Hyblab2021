@@ -22,7 +22,7 @@ let initSlide1 = function() {
 }
 
 let initSlide2 = function() {
-    setTimeout(suiteTraitement, 2000)
+    setTimeout(suiteTraitement, 1000)
     function suiteTraitement()
     {
         mySlidr.slide('page-2.1');
@@ -37,4 +37,6 @@ let initSlide2_1 = function() {
     });
 
 }
+
+//Initialisation du diaporama 
 initSlide1();

@@ -27,6 +27,29 @@ section{
     width: 100%;
     height: 100%;
 }
+/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
+#slidr, #slidr section{
+    height: 100%;
+
+
+}
+
+#slidr section[data-slidr="page-1"]{
+    background-color: #171EB1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+section[data-slidr="page-2"] {
+    background:  linear-gradient(90.42deg,
+    #1F2BB6 13.84%,
+    #4166CF 22.53%,
+    #5A91E0 37.19%,
+    #69ABEB 56.01%,
+    #6FB5EF 78.06%);
+}
+
 
 /* PAGE 2.1 */
 section[data-slidr="page-2.1"] {
