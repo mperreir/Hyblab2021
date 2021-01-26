@@ -4,6 +4,8 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
+
+const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -39,6 +41,9 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   res.status(200).json(rows);
 });
 
+
+
+
 // Add route to get the legends
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
@@ -72,6 +77,42 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     res.status(200);
     res.json({data:legendes});
 });
+
+// Route to get get one legend by id
+app.get(`/legende/:id`, async (req, res) => {
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
+
+    const row = await db.all(sql, [encodeURI(req.params.id)]);
+
+    console.log(row);
+    res.status(200).json(row);
+});
+
+
+// Route to reach the departements page
+app.get(`/departements`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departements.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the personnages page
+app.get(`/personnages`, async (req, res) => {
+  let data = await fs.readFile(`./public/html/personnages.html`);
+  res.status(200).send(data.toString());
+});
+
+// Route to reach the departement page
+app.get(`/departement`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departement.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the legende page
+app.get(`/legende`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/legende.html`);
+    res.status(200).send(data.toString());
+})
 
 // close the database connection
 /*db.close((err) => {
