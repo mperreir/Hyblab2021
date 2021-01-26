@@ -8,27 +8,35 @@ div#index_content_greeter {
     background-position-y: 30% ;
 }
 
-p {
+.bulle {
     width:270px;
     height: 230px;
-    text-align: center;
+    text-align: justify;
     padding: 15px;
-    vertical-align: center;
     position: absolute;
+    display: flex;
     background-repeat: no-repeat;
     background-size: contain;
     top: 12%;
 }
 
-p#text_etu{
+.bulle_etu{
     background-image: url('/proximite-b/img/greeter/Bulle_droite.svg');
     left: 17%
 }
 
-p.text_greeter{
+.bulle_greeter{
     background-image: url('/proximite-b/img/greeter/Bulle_gauche.svg');
     right: 15%
 }
+
+.text_bulle{
+    position: relative;
+    top:-10%;
+    margin: auto;
+}
+
+
 
 #greeter_suivant_button{
     position: absolute;
