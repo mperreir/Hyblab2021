@@ -5,20 +5,25 @@
 <head>
     <meta charset="utf-8">
     <title>Hyblab 2020</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homepage.css">
+
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="js/tailwind.config.js" defer></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-    <script
-        src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/homepage.css">
-    <script src="js/button-behaviour.js" defer></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
 
+    <script src="js/button-behaviour.js" defer></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
+    <script src="js/choixVoiture.js" defer></script>
+    <script src="js/choixVelo.js" defer></script>
+    <script src="js/choixBicloo.js" defer></script>
+    <script src="js/choixTransport.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -27,7 +32,119 @@
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
+            <section data-slidr="page-accueil">
+                <img class="w-screen" src="assets/homepage.svg"/>
+                <img class="h-2/6" id="startButton" src="assets/startButton.svg"/>
+            </section>
 
+            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
+                <img src="assets/carte-title.svg"/>
+                <div id="carte" class="w-11/12"></div>
+                <img src="assets/logo.svg"/>
+            </section>
+
+            <!--Sections des choix de transport dénomination : choix-transport-x -->
+
+            <!--choix transport 1 : voiture -->
+
+            <section data-slidr="choix-transport-1">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-voit" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/voiture.svg" class="h-80" id="voiture" alt="voiture"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-voit" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+
+
+            <!--choix transport 2 : velo -->
+
+            <section data-slidr="choix-transport-2">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-velo" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/velo.svg" class="h-80" id="velo" alt="Vélo"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-velo" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+
+            <!--choix transport 3 : bicloo -->
+
+            <section data-slidr="choix-transport-3">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/bicloo.svg" class="h-80" id="bicloo" alt="bicloo"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+            <!--choix transport 4 : transport en commun -->
+
+            <section data-slidr="choix-transport-4">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/transportCommun1.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
             <section data-slidr="page-accueil">
                 <img class="w-screen" src="assets/homepage.svg"/>
                 <img class="h-2/6" id="startButton" src="assets/startButton.svg"/>
@@ -81,6 +198,9 @@
                 </footer>
             </section>
             <section data-slidr="page-3">
+                <div style="display: flex;">
+                    <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super long</div>
+                </div>
                 <div style="display: flex;">
                     <div class="fancy-button rounded-full">Bonjour</div>
                     <div class="fancy-button rounded-full">Ceci est un bouton</div>

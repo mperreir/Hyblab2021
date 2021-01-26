@@ -4,10 +4,10 @@
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
  */
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
- @tailwind screens;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
 
 /* contraindre le format des slides affichés sur la page web */
 
@@ -36,7 +36,7 @@ body {
     src: url(../fonts/lemon-juice.otf);
 }
 
-.content{
+.content {
     font-family: lemon-juice;
 }
 
@@ -151,10 +151,11 @@ section[data-slidr="page-2"] {
 
 /* ------------ Style des boutons ------------ */
 
-.fancy-button{
+.fancy-button {
     border: solid 5px white;
 
     padding: 0px 2rem;
+    margin: 0 2rem;
 
     font-size: 5vw;
     text-align: center;
@@ -162,6 +163,28 @@ section[data-slidr="page-2"] {
     color: white;
     background-color: #f98e12;
     font-family: lemon-juice;
+}
+
+
+/* ------------ Style des titres ------------ */
+
+
+.fancy-title {
+    max-width: 350px;
+    border: solid 5px white;
+
+    padding: 1rem 2rem;
+
+    font-size: 4vw;
+    text-align: center;
+    line-height: 3rem;
+
+    color: white;
+    background-color: #f98e12;
+    font-family: lemon-juice;
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
@@ -194,7 +217,8 @@ dessus de l'apect ratio 16/9 */
         width: calc(100 * 16vh / 9);
         height: 100vh;
     }
-    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
+
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
     body {
         font-size: 16vh;

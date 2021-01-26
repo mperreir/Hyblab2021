@@ -9,34 +9,32 @@ let initSlide1 = function () {
         initCarte();
     });
 
-    d3.select('#startButton').on('mouseover', function () {
-        anime({
-            targets: '#startButton',
-            scale: 1.2
-        });
-    });
+  d3.select('#startButton').on('mouseover', function () {
+      anime({
+          targets: '#startButton',
+          scale: 1.2
+      });
+  });
 
-    d3.select('#startButton').on('mouseout', function () {
-        anime({
-            targets: '#startButton',
-            scale: 1
-        });
-    });
+  d3.select('#startButton').on('mouseout', function () {
+      anime({
+          targets: '#startButton',
+          scale: 1
+      });
+  });
 
-    anime({
-        targets: '#titre',
-        translateX: '100%',
-        easing: 'easeInOutQuad',
-        direction: 'alternate',
-        loop: true
-    });
+  anime({
+      targets: '#titre',
+      translateX: '100%',
+      easing: 'easeInOutQuad',
+      direction: 'alternate',
+      loop: true
+  });
 
-    d3.json('data/dummy.json')
-        .then(function (data) {
-            d3.select('footer')
-                .html('p')
-                .text(data.message);
-        });
+  d3.json('data/dummy.json')
+      .then(function (data) {
+          d3.select('footer')
+              .html('p')
+              .text(data.message);
+      });
 };
-
-
