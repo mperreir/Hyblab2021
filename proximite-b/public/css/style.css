@@ -1,40 +1,7 @@
-#index_content {
-    background-image: url('/proximite-b/img/index/background.svg');
+div#app {
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
     width: 100%;
     height: 100%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#start_button {
-    position: absolute;
-    left: 14%;
-    top: 77%;
-    height: 6%;
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    background-image: url('/proximite-b/img/index/button.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-
 }
