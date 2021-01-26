@@ -9,18 +9,18 @@ exports.api_url = (filtres) => {
     // d = 2 * pi * r * a / 360, so a is equal to :
     const arc = 360 * filtres.radius/(2 * 6371 * Math.PI);
 
-    const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
-    const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];
-    const france = `%0A%0D%0Aarea%5Bname%3D"France"%5D%3B%0D`; // area["name"="France"];
+    const prefix = `?data=[out:json]`; // [out:json]
+    const bbox = `[bbox:${filtres.latitude - arc},${filtres.longitude - arc},${filtres.latitude + arc},${filtres.longitude + arc}];`; // [bbox:_,_,_,_];
+    const france = `area[name="France"];`; // area["name"="France"];
     
-    const pre_ask = `%0A%0D%0Anode`; // node
-    const with_nothing = `%28area%29`; // (area)
-    const ask = `%5B"natural"%3D"beach"%5D-%3E.beaches%3B%0D`; // ["natural"="beach"]->.beaches;
+    const pre_ask = `node`; // node
+    const with_nothing = `(area)`; // (area)
+    const ask = `["natural"="beach"]->.beaches;`; // ["natural"="beach"]->.beaches;
 
-    const prefix_output = `%0A++%0D%0A%28.beaches`; // (.beaches
-    const sufix_output = `%3B%29%3B%0D`; // ;);
+    const prefix_output = `++(.beaches`; // (.beaches
+    const sufix_output = `;);`; // ;);
 
-    const sufix = `%0Aout%3B&target=compact`; // out;
+    const sufix = `out;&target=compact`; // out;
 
     if (!filtres.hasOwnProperty("planning")) {
         return  prefix + bbox + france + pre_ask + with_nothing + ask + prefix_output + sufix_output + sufix;
@@ -29,15 +29,15 @@ exports.api_url = (filtres) => {
         const lighthouse = filtres.planning.includes("lighthouse");
         const car = filtres.planning.includes("car_park");
     
-        const ask_lighthouse = `%0A%28node%5B"man_made"%3D"lighthouse"%5D%28area%29%3Bnode%5B"man_made"%3D"beacon"%5D%28area%29%3B%29-%3E.lighthouse%3B%0D`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
-        const ask_harbor = `%0Anode%28area%29%5B"harbour"%3D"yes"%5D%5B"seamark%3Atype"%3D"harbour"%5D-%3E.harbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
-        const ask_car = `%0Anode%28area%29%5B"amenity"%3D"parking"%5D-%3E.parking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
+        const ask_lighthouse = `(node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
+        const ask_harbor = `node(area)["harbour"="yes"]["seamark:type"="harbour"]->.harbor;`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
+        const ask_car = `node(area)["amenity"="parking"]->.parking;`; // node["amenity"="parking"](area)->.carpark;
         
-        const with_lighthouse = `%28around.lighthouse%3A${(lighthouse?filtres.dist_lighthouse:"0")}%29`; // (around.lighthouse:10000)
-        const with_harbor = `%28around.harbor%3A${(harbor?filtres.dist_harbor:"0")}%29`; // (around.harbor:10000)
-        const with_car = `%28around.carpark%3A${(car?filtres.dist_car:"0")}%29`; // (around.car:10000)
+        const with_lighthouse = `(around.lighthouse:${(lighthouse?filtres.dist_lighthouse:"0")})`; // (around.lighthouse:10000)
+        const with_harbor = `(around.harbor:${(harbor?filtres.dist_harbor:"0")})`; // (around.harbor:10000)
+        const with_car = `(around.carpark:${(car?filtres.dist_car:"0")})`; // (around.car:10000)
 
-        const separator_output = `%3B+`; // ;
+        const separator_output = `;+`; // ;
 
         return prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + `.harbor` : ``) + (lighthouse ? separator_output + `.lighthouse` : ``) + (car ? separator_output + `.parking` : ``) + sufix_output + sufix;
     }
