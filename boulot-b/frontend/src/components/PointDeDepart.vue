@@ -6,13 +6,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 export default Vue.extend({
   name: "PointDeDepart",
   methods: {
     launch() {
-      this.$emit("switch-component", "question");
+      this.$emit("switch-component", "Nav");
     },
   },
 });
