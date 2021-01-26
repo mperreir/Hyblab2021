@@ -1,11 +1,11 @@
 var positions = ["",""]
 
-async function autocompletion(adresse, num) {
+async function adresses_autocompletion(adresse, num) {
     var lieu = 'https://api-adresse.data.gouv.fr/search/?q=' + adresse + '&limit=5&autocomplete=1';
     var input = document.getElementById("adresse" + num);
     var list = document.getElementById("adresses" + num);
     list.innerHTML = "";
-    
+
     const response = await fetch(lieu)
     var resultAPI = await response.json();
     data = [];
@@ -26,12 +26,12 @@ async function autocompletion(adresse, num) {
     })
 }
 
-function validation() {
+function adresses_validation() {
     console.log(positions);
     if (positions[0] == "" || positions[1] == "") {
         console.log("saisir une adresse qui existe !");
     }
     else {
-        location.href = 'criteres.html' + location.search + '&adresse1=' + positions[0] + '&adresse2=' + positions[1];
+        go_to('criteres', {'positions': positions});
     }
 }

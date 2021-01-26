@@ -1,27 +1,53 @@
-<html>
+<!DOCTYPE html>
 
 <html lang="fr">
 
-<head>
-    <meta charset="utf-8">
-    <title>Hyblab 2020</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
+        <title>Hyblab 2020</title>
 
-<body>
-    <button id="start_button" onclick="location.href='personas.html';">Démarrer l'expérience !</button>
+        <!-- styles -->
+        <link rel="stylesheet" href="css/style.css">
 
-    <ul>
-        <li><a href="personas.html">Personas</a></li>
-        <li><a href="adresses.html">Adresses</a></li>
-        <li><a href="criteres.html">critere</a></li>
-        <li><a href="timeline.html">timeline</a></li>
-        <li><a href="conclu.html">conclu</a></li>
-    </ul>
+        <!-- external style -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    Accueil
-</body>
+        <!-- SPA.js handles the single page application and must be included before anything else -->
+        <script src="./js/spa.js"></script>
+
+        <!-- external js code -->
+        <script defer src="https://d3js.org/d3.v3.min.js"></script>
+        <script defer src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <!-- our js code goes here -->
+        <script defer src="./js/criteres.js"          type="application/javascript"></script>
+        <script defer src="./js/adresses.js"          type="application/javascript"></script>
+        <script defer src="./js/utils/dataCleaner.js" type="application/javascript"></script>
+        <script defer src="./js/utils/timeknots.js"   type="application/javascript"></script>
+        <script defer src="./js/utils/progressBar.js" type="application/javascript"></script>
+        <script defer src="./js/utils/timeknots.js"   type="application/javascript"></script>
+        <script defer src="./js/timeline.js"          type="application/javascript"></script>
+    </head>
+
+    <body>
+        <!-- here goes nothing -->
+        <div id="app">
+        </div>
+
+        <script type="text/javascript">
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.get('page') !== null)
+                go_to(urlParams.get('page'));
+            else
+                make_page_from_template("index");
+        </script>
+    </body>
 
 </html>

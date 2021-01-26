@@ -1,0 +1,38 @@
+div#index_content {
+    background-image: url('/proximite-b/img/index/background.svg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#body {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 250px;
+    padding-left: 125px;
+}
+
+button#start_button {
+    height: 2em;
+    width: 11em;
+}
+
+img#index_logo {
+    width: 10%;
+    position: absolute;
+    z-index: 999;
+}
+
+div#index_text {
+    width: 24em;
+}
+
+.font-architect {
+    font-family: ArchitectDaughter;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
+}
