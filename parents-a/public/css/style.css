@@ -28,11 +28,11 @@ body{
 #slidr section[data-slidr="page-1"]{
     background-color: #171EB1;
     height: 100%;
+    width: 100%;
     text-align: center;
-
-    
 }
 
 section[data-slidr="page-1"] #logo{
+    
 }
 
