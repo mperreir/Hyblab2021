@@ -1,3 +1,9 @@
+const BEBE = 2;
+const PETIT = 4.5;
+const MOYEN = 7.5;
+const GRAND = 10.5;
+
+
 let initAge = function(){
 
     //---------------FONCTIONS-----------------
@@ -21,23 +27,27 @@ let initAge = function(){
 
     //Pour afficher le logo et les croix de suppression lors d'un choix avec le boutton plus
     function activeLogoChoix(cpt){
-        let valeurImage= cpt%4;
+        valeurImage= cpt%4;
         console.log(valeurImage)
         if(valeurImage==0 ){
             document.getElementById("bb").hidden = false;
             document.getElementById("supp_bb").hidden = false;
+            addAge(BEBE);
         }
         if(valeurImage==1 || valeurImage==-1 ){
             document.getElementById("nounours").hidden = false;
             document.getElementById("supp_nounours").hidden = false;
+            addAge(PETIT);
         }
         if(valeurImage==2 || valeurImage==-2 ){
             document.getElementById("lego").hidden = false;
             document.getElementById("supp_lego").hidden = false;
+            addAge(MOYEN);
         }
         if(valeurImage==3 || valeurImage==-3 ){
             document.getElementById("ballon").hidden = false;
             document.getElementById("supp_ballon").hidden = false;
+            addAge(GRAND);
         }
     }
 
@@ -69,14 +79,34 @@ let initAge = function(){
 
     //Gestion des fleches pour changement image
     //Recupere l'image et modifie la source en fonction du resultat de la division euclidienne
-    d3.select(".fleche_gauche").on("click",  function (){
+    d3.select(".fleche_gauche").on("click", function (){
         cpt =cpt-1;
+        if (cpt <0) cpt = 3;
         setImage(cpt);
     });
+    //Mouse over de fleche gauche
+    d3.select(".fleche_gauche").on("mouseover",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/fleche_gauche.svg");
+    });
+    d3.select(".fleche_gauche").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/flecheG.svg");
+    });
+
 
     d3.select(".fleche_droite").on("click",  function (){
         cpt =cpt+1;
         setImage(cpt);
+    });
+    //Mouse over de fleche droite
+    d3.select(".fleche_droite").on("mouseover",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/fleche_droite.svg");
+    });
+    d3.select(".fleche_droite").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/flecheD.svg");
     });
 
     //Bouton plus
@@ -88,67 +118,69 @@ let initAge = function(){
     d3.select(".supp_bb").on("click",  function (){
         document.getElementById("bb").hidden = true;
         document.getElementById("supp_bb").hidden = true;
+        removeAge(BEBE);
     });
 
     d3.select(".supp_nounours").on("click",  function (){
         document.getElementById("nounours").hidden = true;
         document.getElementById("supp_nounours").hidden = true;
+        removeAge(PETIT);
     });
 
     d3.select(".supp_lego").on("click",  function (){
         document.getElementById("lego").hidden = true;
         document.getElementById("supp_lego").hidden = true;
+        removeAge(MOYEN);
     });
 
     d3.select(".supp_ballon").on("click",  function (){
         document.getElementById("ballon").hidden = true;
         document.getElementById("supp_ballon").hidden = true;
+        removeAge(GRAND);
     });
-
-
 
 
     //----------ANIMATIONS---------------
     //Premier robot
     anime({
-        targets: '#age_yeux_cache',
+        targets: '.age_yeux_cache',
         translateY: '3000%',
-        delay : 2800,
+        delay : 4300,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false
     });
 
-    //Devrait avoir lieu à un onclic sur les fleche/plus
+    anime({
+        targets: '.age_yeux_cache2',
+        translateY: '3000%',
+        delay : 4280,
+        opacity: 0,
+    });
+
     //Deuxieme robot
     anime({
         targets: '#age_arrive',
         translateY: '-500%',
-        delay : 2750,
+        delay : 4350,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false
     });
 
-    anime({
-        targets: '#vague_chut',
-        translateY: '-700%',
-        delay : 3150,
-        easing: 'easeInOutQuad',
-        direction: 'alternate',
-        loop: false
+    let txt2 = anime.timeline({
+        targets: '.txt2'
     });
+    txt2
+        .add({
+            opacity: 0,
+        })
+        .add({
+            delay : 4450,
+            opacity: 1,
+        });
 
-    anime({
-        targets: '#txt_chut',
-        translateY: '-1300%',
-        delay : 3150,
-        easing: 'easeInOutQuad',
-        direction: 'alternate',
-        loop: false
-    });
-
-    //Bouton Suivant
+//Bouton Suivant
     let tl_suivant_age_over = anime.timeline({
         easing: 'linear',
         loop:true

@@ -16,8 +16,10 @@ let initAddress = function(){
     });
 };
 
+
+
 new AddressAutocomplete('#address1', function (result) {
-    console.log(result);
+    geoAttribute(result.coordinates.lat, result.coordinates.lng);
 });
 
 const geoFindMe = async () => {
@@ -30,6 +32,7 @@ const geoFindMe = async () => {
     async function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+        geoAttribute(latitude, longitude);
 
         const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&result_type=street_address&key='+GOOGLE_API_KEY);
         const address = await response.json();
@@ -56,6 +59,27 @@ const geoFindMe = async () => {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 
-}
+};
 
 document.querySelector('#localization-button').addEventListener('click', geoFindMe);
+
+const
+    range = document.getElementById('localize-range'),
+    rangeValue = document.getElementById('rangeValue'),
+    setValue = ()=>{
+        const
+            newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+            newPosition = 10 - (newValue * 0.2) + (range.value - 10)*1.65 ;
+
+        if(range.value === range.min){
+            rangeValue.innerHTML = `<span class="font-slider"><${range.value} km</span>`;
+        }else if(range.value === range.max){
+            rangeValue.innerHTML = `<span class="font-slider">>${range.value} km</span>`;
+        }else{
+            rangeValue.innerHTML = `<span class="font-slider">${range.value} km</span>`;
+        }
+
+        rangeValue.style.left = `calc(${newValue}% + (${newPosition}vw))`;
+    };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);

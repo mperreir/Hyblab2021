@@ -17,3 +17,13 @@ let mySlidr = slidr.create('slidr',{
 
 // on s'occupe de la 1ère slide
 initHome();
+
+
+// Vérification que tout est bien paramétré
+const req = new XMLHttpRequest();
+req.open('GET', './js/config/parameters.js', false);
+req.send();
+
+if(req.status !== 200){
+    alert('Le fichier parameters.js n\'existe pas. Vous devez renommer le fichier sample_parameters.js en parameters.js et le compléter');
+}
