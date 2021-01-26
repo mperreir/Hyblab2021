@@ -1,0 +1,22 @@
+#themeContainer{
+    height: 100%;
+}
+
+
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:checked + label>img {
+    box-shadow: 0 0 3px 3px #fcfff3;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio] + label>img {
+    width: 150px;
+    height: 150px;
+    transition: 500ms all;
+}
+

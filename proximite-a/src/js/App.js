@@ -4,11 +4,12 @@ import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
+
 class App extends  React.Component {
 
     state = {
-        pageId:0
-    }
+        pageId:1
+    };
 
     getPage = () =>{
         switch (this.state.pageId) {
@@ -36,7 +37,7 @@ class App extends  React.Component {
 
     render() {
         return (
-            <div>
+            <div id="mainContainer">
 
                 {this.getPage()}
             </div>
