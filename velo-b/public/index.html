@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="js/tailwind.config.js" defer></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
   <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
@@ -50,16 +51,16 @@
         
         <div class="flex flex-row justify-between items-center my-20">
           <img src="assets/choix/flecheG.svg" id="fleche-gauche-voit" alt="Fleche Gauche"></img>
-          <img src="assets/choix/voiture.svg" id="voiture" alt="voiture"></img>
+          <img src="assets/choix/voiture.svg" class="max-h-80" id="voiture" alt="voiture"></img>
           <img src="assets/choix/flecheD.svg" id="fleche-droite-voit" alt="Fleche Droite"></img>
         </div>
 
+        <div class="flex items-end justify-center">
+          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
+        </div>
         <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer class="flex items-end">
-          <div class="flex flex-row">
-            <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-            <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-          </div>
+        <footer>
         </footer>
       </section>
 
@@ -75,18 +76,17 @@
 
         <div class="flex flex-row justify-between items-center my-20">
           <img src="assets/choix/flecheG.svg" id="fleche-gauche-velo" alt="Fleche Gauche"></img>
-          <img src="assets/choix/velo.svg" id="velo" alt="Vélo"></img>
+          <img src="assets/choix/velo.svg" class="max-h-80" id="velo" alt="Vélo"></img>
           <img src="assets/choix/flecheD.svg" id="fleche-droite-velo" alt="Fleche Droite"></img>
         </div>
 
-
+        <div class="flex items-end justify-center">
+          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
+        </div>
 
         <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer class="flex items-end">
-          <div class="flex flex-row">
-            <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-            <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-          </div>
+        <footer >
         </footer>
       </section>
 
@@ -101,15 +101,16 @@
 
         <div class="flex flex-row justify-between items-center my-20">
           <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
-          <img src="assets/choix/bicloo.svg" id="bicloo" alt="bicloo"></img>
+          <img src="assets/choix/bicloo.svg"  class="max-h-80" id="bicloo" alt="bicloo"></img>
           <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
         </div>  
+
+        <div class="flex items-end justify-center">
+          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
+        </div>
         <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer class="flex items-end">
-          <div class="flex flex-row">
-            <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-            <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-          </div>
+        <footer>
         </footer>
       </section>
       <!--choix transport 4 : transport en commun -->
@@ -123,19 +124,19 @@
 
         <div class="flex flex-row justify-between items-center my-20">
           <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
-          <img src="assets/choix/transportCommun1.svg" class="transport-4" id="transport-1" alt="Bateau"></img>
-          <img src="assets/choix/transportCommun2.svg" class="transport-4" id="transport-2" alt="Tram"></img>
-          <img src="assets/choix/transportCommun3.svg" class="transport-4" id="transport-3" alt="Bus"></img>
+          <img src="assets/choix/transportCommun1.svg" class="max-h-80" id="transport" alt="Bateau"></img>
+          <!--<img src="assets/choix/transportCommun2.svg" class="max-h-80" id="transport-2" alt="Tram"></img>
+          <img src="assets/choix/transportCommun3.svg" class="max-h-80" id="transport-3" alt="Bus"></img>-->
           <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
         </div>
         
+        <div class="flex items-end justify-center">
+          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
+        </div>
 
         <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer class="flex items-end">
-          <div class="flex items-end justify-center">
-            <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-            <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-          </div>
+        <footer>
         </footer>
       </section>
 
