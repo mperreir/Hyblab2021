@@ -1,24 +1,23 @@
-body{
-    /* fond */
-    background: linear-gradient(90.42deg,
-    #6FB5EF 13.84%,
-    #69ABEB 22.53%,
-    #5A91E0 37.19%,
-    #4166CF 56.01%,
-    #1F2BB6 78.06%,
-    #171EB1 82.69%);
+/* normalisation des marges et padding pour simplifier le positionnement des éléments */
+*{
+    padding:0;
+    margin:0;
 }
 
-.dune {
-    /* DUNE */
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    height: 100%;
-    width: 100%;
+body{
+    overflow: hidden;   /* pour slidr dans certains navigateurs */
+}
 
+#container{
+    position: relative; /* pour permettre le positionnement en absolu des autres éléments */
+}
 
-    background: url(../img/home/dune.svg) no-repeat;
+/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
+#slidr, #slidr section{
+
+    background: #171EB1;
+}
+
+section[data-slidr="page-1"] #logo{
+
 }

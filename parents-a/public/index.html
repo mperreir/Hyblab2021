@@ -5,14 +5,21 @@
     <meta charset="utf-8">
     <title>Nantes à vue de nez</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <script src="bootstrap/js/bootstrap.js"></script>
-
+    <!--<script src="bootstrap/js/bootstrap.js"></script>-->
+    <script src="js/index.js" defer></script>
+    <script src="js/slide1.js" defer></script>
+    <script src="js/slide2.js" defer></script>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="dune"></div>
+    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+    <div id="container">
+        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
+        <main id = "slidr">
+            <section data-slidr="page-1">
+                <img src="img/logo.png" id="logo">
+            </section>
+        </main>
     </div>
 </body>
 </html>
