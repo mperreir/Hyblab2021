@@ -1,19 +1,29 @@
 [{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_stations-velos-libre-service-nantes-metropole&q=&lang=fr&facet=commune&facet=descriptif",
-  "fileName" : "stations-velo-libre-service.json"
+  "fileName" : "stations-velo-libre-service.json",
+  "quartiers": true
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_gonfleurs-libre-service-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions",
-  "fileName" : "gonfleurs-libre-service.json"
+  "fileName" : "gonfleurs-libre-service.json",
+  "quartiers": true
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_abris-velos-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions&facet=gestionnaire",
-  "fileName" : "abris-velo.json"
+  "fileName" : "abris-velo.json",
+  "quartiers": true
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_velocistes-nantes-metropole&q=&lang=fr&facet=ville&facet=velos_classiques&facet=vae&facet=reparation_toutes_marques&facet=reparation_sans_rdv",
-  "fileName" : "velocistes.json"
+  "fileName" : "velocistes.json",
+  "quartiers": true
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=&lang=fr",
-  "fileName" : "arrets-tan.json"
+  "fileName" : "arrets-tan.json",
+  "quartiers": true
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_amenagements-cyclables-nantes-metropole&q=&lang=fr&facet=type&facet=sens&facet=commune&facet=utilisation",
-  "fileName" : "amenagements-cyclables.json"
+  "fileName" : "amenagements-cyclables.json",
+  "quartiers": true
+},{
+  "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_services-velos-bicloo-nantes-metropole-tarifs&q=&lang=fr&facet=type_de_service&facet=nom_du_service&facet=type_de_tarif",
+  "fileName" : "tarifs-bicloo.json",
+  "quartiers": false
 }]
