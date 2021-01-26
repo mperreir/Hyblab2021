@@ -19,12 +19,41 @@ body {
 
 
 /*-------------------------------------------------------*/
+/*                     Fil d'ARIANE                      */
+/*-------------------------------------------------------*/
+
+
+/* Illumination des deux 1ers cercles et du 1er trait */
+/* (le placement des éléments est décrit dans 'fil-ariane.css') */
+
+#cercle_outer1 {
+    opacity: 1;
+}
+
+#cercle_inner1 {
+    opacity: 1;
+}
+
+#cercle_outer2 {
+    opacity: 1;
+}
+
+#cercle_inner2 {
+    opacity: 1;
+}
+
+#trait1 {
+    opacity: 1;
+}
+
+
+/*-------------------------------------------------------*/
 /*                     DECOR DE FOND                     */
 /*-------------------------------------------------------*/
 
 
 .decor {
-    position: absolute;
+    position: relative;
     z-index: 0;
 }
 
@@ -98,11 +127,14 @@ body {
 /* Animation des vagues */
 
 @keyframes waveUp {
+
+    /* position basse */
     0%, 100% {
       top: -4vh;
       scale: 1.0;
     }
-  
+
+    /* position haute */
     50% {
       top: 0;
       scale: 1.05;
@@ -110,11 +142,14 @@ body {
 }
 
 @keyframes waveDown {
+
+    /* position haute */
     0%, 100% {
       top: 0;
       scale: 1.05;
     }
-  
+
+    /* position basse */
     50% {
       top: -4vh;
       scale: 1.0;
@@ -154,45 +189,49 @@ body {
     transition: 0.2s ease-in-out;
 }
 
+.perso#creature {
+    margin-top: 8vh;
+    margin-right: -4vw;
+    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png");
+    background-repeat: no-repeat;
+    background-position: top 32% left 36.5%; /* placement du personnage dans la box */
+    background-size: 500%;
+}
+
+.perso#marin {
+    background-image: url("../assets/img/personnages/image_Histoires_Maritimes.png");
+    background-repeat: no-repeat;
+    background-position: top 31% left 52%; /* placement du personnage dans la box */
+    background-size: 600%;
+}
+
+.perso#religieux {
+    margin-top: 7vh;
+    margin-left: -5vw;
+    background-image: url("../assets/img/personnages/image_Croyances_Religion.png.png");
+    background-repeat: no-repeat;
+    background-position: top 39% left 63%; /* placement du personnage dans la box */
+    background-size: 560%;
+}
+
+.zone-marin {
+    /* on place le marin au-dessus pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    z-index: 1;
+}
+
 
  /* Gestion des effets sur les personnages */
 
 .perso:hover {
-    transform: scale(1.1);
-}
-
-.perso#creature {
-    margin-top: 8vh;
-    margin-right: -5vw;
-    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png");
-    background-repeat: no-repeat;
-    background-position: top 32% left 36.5%;
-    background-size: 510%;
+    transform: scale(1.1); /* zoom */
 }
 
 .perso#creature:hover {
     background-image: url("../assets/img/personnages/image_Créatures_Fantastiques_hover.png");
 }
 
-.perso#marin {
-    margin-left: -1vw;
-    background-image: url("../assets/img/personnages/image_Histoires_Maritimes.png");
-    background-repeat: no-repeat;
-    background-position: top 31% left 52%;
-    background-size: 600%;
-}
-
 .perso#marin:hover {
     background-image: url("../assets/img/personnages/image_Histoires_Maritimes_hover.png");
-}
-
-.perso#religieux {
-    margin-top: 8vh;
-    margin-left: -6vw;
-    background-image: url("../assets/img/personnages/image_Croyances_Religion.png.png");
-    background-repeat: no-repeat;
-    background-position: top 39% left 63%;
-    background-size: 560%;
 }
 
 .perso#religieux:hover {
@@ -200,25 +239,28 @@ body {
 }
 
 
-/* Affichage du type de légende selon le personnage survolé */
+/*-------------------------------------------------------*/
+/*                        TEXTES                         */
+/*-------------------------------------------------------*/
 
-.zone-creature {
-    z-index: 0; /* on place les créatures par-dessus le marin */
-}
 
-.zone-creature:hover .cat-creature {
-    transition: all 0.3s;
-    opacity: 1;
-}
+/* Mise en forme des textes et de leur arrière-plan */
 
-.zone-marin:hover .cat-marin {
-    transition: all 0.3s;
-    opacity: 1;
-}
+.texte {
 
-.zone-religieux:hover .cat-religieux {
-    transition: all 0.3s;
-    opacity: 1;
+    /* aspect du texte */
+    text-align: center;
+    font-size: 1.5vw;
+    font-family: Helvetica;
+    color: black;
+
+    /* aspect de l'arrière-plan */
+    margin: -8vh;
+    padding: 2%;
+    background-color: white;
+    border-radius: 25px;
+    border: solid;
+    border-width: 1px;
 }
 
 
@@ -232,36 +274,35 @@ body {
 
 .cat-creature {
     top: -2vh;
-    right: 8vw;
+    right: 5vw;
 }
 
 .cat-marin {
     top: -14vh;
-    left: 1vw;
+    left: 3vw;
 }
 
 .cat-religieux {
-    top: 6vh;
+    top: 5vh;
     left: 4vw;
 }
 
 
+/* Affichage du type de légende selon le personnage survolé */
 
-/* Mise en forme des textes de leur arrière-plan */
+.zone-creature:hover .cat-creature:not(:hover) {
+    transition: all 0.3s;
+    opacity: 1;
+}
 
-.texte {
-    /* aspect du texte */
-    text-align: center;
-    font-size: 1.5vw;
-    font-family: Helvetica;
-    color: black;
+.zone-marin:hover .cat-marin:not(:hover) {
+    transition: all 0.3s;
+    opacity: 1;
+}
 
-    /* aspect de l'arrière-plan */
-    margin: -8vh;
-    padding: 2%;
-    background-color: white;
-    border-radius: 8%;
-    border: solid;
+.zone-religieux:hover .cat-religieux:not(:hover) {
+    transition: all 0.3s;
+    opacity: 1;
 }
 
 
@@ -270,5 +311,5 @@ body {
 .indication {
     position: relative;
     width: 26vw;
-    margin: 6vh auto 0;
+    margin: 5vh auto 0;
 }
