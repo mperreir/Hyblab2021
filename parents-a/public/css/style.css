@@ -32,7 +32,8 @@ body{
     text-align: center;
 }
 
-section[data-slidr="page-1"] #logo{
-    
+section[data-slidr="page-2"] {
+    background: linear-gradient(0.25turn, #171EB1, #7f86a8, #afb4c7);    height: 100%;
+    width: 100%;
 }
 
