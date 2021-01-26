@@ -1,70 +1,47 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Véli Good</title>
+
+    <!-- Libraries-->
+    <script src="js/lib/slidr.js" defer></script>
+
+    <!-- Scripts -->
+    <script type="module" src="js/index.js" defer></script>
+    <!-- Styles-->
+    <link href="css/app.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
-        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
-                
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
-
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
-
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
-            </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                            </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
-            </section>
-        </main>
-    </div>
+<header>
+    <h1 id="h1-veligood">Véli Good</h1>
+    <h2 id="h2-veligood">L'appli avec qui tout roule !</h2>
+</header>
+<div id="container">
+    <main id="slidr">
+        <section data-slidr="page-1">
+            <button id="button-home" class="button-slide">Button</button>
+        </section>
+        <section data-slidr="page-2">
+            <h2>On fait quoi ?</h2>
+            <div id="div-page-2">
+                <button id="button-velotafer" class="button-slide">On va vélotafer</button>
+                <button id="button-velododo" class="button-slide">On va vélododo</button>
+                <button id="button-rouler" class="button-slide">On va rouler</button>
+                <button id="button-velodrouiller" class="button-slide">On va vélodrouiller / véloflâner / vélotrainer</button>
+            </div>
+            <button id="button-return-page-2" class="button-slide">Retour</button>
+        </section>
+        <section data-slidr="page-3">
+            <h2>As-tu un vélo ?</h2>
+            <div id="div-page-3">
+                <button id="button-classique" class="button-slide">Vélo classique</button>
+                <button id="button-electrique" class="button-slide">Vélo électrique</button>
+                <button id="button-pied" class="button-slide">Je suis à pied</button>
+            </div>
+            <button id="button-return-page-3" class="button-slide">Retour</button>
+        </section>
+    </main>
+</div>
 </body>
 </html>

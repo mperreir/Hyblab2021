@@ -1,6 +1,5 @@
-import { initSlide1 } from "./slide1.js";
-
-let mySlidr = slidr.create('slidr', {
+// init du slider (qui peut aussi dfaire des fondus enchainé)
+let mySlidr = slidr.create('slidr',{
     breadcrumbs: false,
     controls: 'none',
     direction: 'vertical',
@@ -9,10 +8,10 @@ let mySlidr = slidr.create('slidr', {
     overflow: true,
     pause: false,
     theme: '#222',
-    timing: {'fade': '0.5s ease-in'},
+    timing: { 'fade': '0.5s ease-in' },
     touch: true,
     transition: 'fade'
-}).start();
+  }).start();
 
 // on s'occupe de la 1ère slide
-initSlide1(mySlidr);
+initSlide1();
