@@ -6,6 +6,7 @@ div#persona_background {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 p#persona_titre {
     position: absolute;
     left: 30%;
@@ -18,6 +19,7 @@ p#persona_titre {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 button#bouton_accueil {
     position: absolute;
     left: 14%;
@@ -29,6 +31,7 @@ button#bouton_accueil {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 img#etudiant {
     position: absolute;
     left: 5%;
@@ -36,6 +39,7 @@ img#etudiant {
     height: 50%;
     background-repeat: no-repeat;
 }
+
 img#famille {
     position: absolute;
     left: 38.5%;
@@ -43,6 +47,7 @@ img#famille {
     height: 50%;
     background-repeat: no-repeat;
 }
+
 img#senior {
     position: absolute;
     left: 72%;
@@ -50,38 +55,21 @@ img#senior {
     height: 50%;
     background-repeat: no-repeat;
 }
+
 button#bouton_etudiant {
     position: absolute;
     left: 14%;
     top: 77%;
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    background-image: url('./img/persona/Bouton-etudiant.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
 }
+
 button#bouton_famille {
     position: absolute;
     left: 44%;
     top: 77%;
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    background-image: url('./img/persona/Bouton-famille.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
 }
+
 button#bouton_senior {
-    background-color: blue;
     position: absolute;
     left: 74%;
     top: 77%;
-    width: 1000%;
-    /* color: transparent; */
-    background-color: transparent;
-    border: none;
-    background-image: url('./img/persona/Bouton-senior.svg');
-    /* background-size: contain; */
-    background-repeat: no-repeat;
 }
