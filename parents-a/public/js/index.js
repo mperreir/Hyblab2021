@@ -14,7 +14,7 @@ let mySlidr = slidr.create('slidr',{
   }).start();
 
 let initSlide2_1 = function() {
-    d3.select('#button').on('click', function(){
+    d3.select('#button-p2-1').on('click', function(){
         mySlidr.slide('page-3');
         initSlide3();
     });

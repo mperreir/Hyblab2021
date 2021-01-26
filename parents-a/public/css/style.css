@@ -32,46 +32,46 @@ section[data-slidr="page-2.1"] {
     #1F2BB6 78.06%);
 }
 
-#dune {
+#dune-p2-1 {
     position: absolute;
     width: 100%;
 }
 
-#arbre-bleu {
+#arbre-bleu-p2-1 {
     position: absolute;
     bottom: 15%;
     right: 10%;
     width: 40%;
 }
 
-#mascotte {
+#mascotte-p2-1 {
     position: absolute;
     bottom: 4%;
     left: 10%;
     width: 25%;
 }
 
-#nuage {
+#nuage-p2-1 {
     position: absolute;
     top: 25%;
     width: 15%;
 }
 
-#gros_nuage {
+#gros_nuage-p2-1 {
     position: absolute;
     top: -5%;
     width: 30%;
     left: 15%;
 }
 
-#pelouse {
+#pelouse-p2-1 {
     position: absolute;
     width: 30%;
     right: 0%;
     bottom: 0%;
 }
 
-#arbuste_bleu {
+#arbuste_bleu-p2-1 {
     position: absolute;
     bottom: 9%;
     right: 12%;
@@ -79,7 +79,7 @@ section[data-slidr="page-2.1"] {
     width: 45%;
 }
 
-#double_feuille_verte {
+#double_feuille_verte-p2-1 {
     position: absolute;
     bottom: 13%;
     right: 36%;
@@ -87,49 +87,49 @@ section[data-slidr="page-2.1"] {
     transform: rotate(350deg);
 }
 
-#arbuste_vert {
+#arbuste_vert-p2-1 {
     position: absolute;
     bottom: 10%;
     right: 11%;
     width: 35%;
 }
 
-#arbre_jaune {
+#arbre_jaune-p2-1 {
     position: absolute;
     bottom: 10%;
     right: 0%;
     width: 25%;
 }
 
-#chaise {
+#chaise-p2-1 {
     position: absolute;
     bottom: 3%;
     left: 42%;
     width: 15%;
 }
 
-#vector {
+#vector-p2-1 {
     position: absolute;
     width: 25%;
     bottom: 40%;
     left: 25%;
 }
 
-#texte {
+#texte-p2-1 {
     position: absolute;
     width: 20%;
     left: 23%;
     top: 42%;
 }
 
-#button {
+#button-p2-1 {
     position: absolute;
     width: 4%;
     left: 44%;
     top: 46%;
 }
 
-#logo {
+#logo-p2-1 {
     position: absolute;
     width: 6%;
     bottom: 85%;
