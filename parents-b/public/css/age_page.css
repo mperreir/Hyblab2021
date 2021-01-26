@@ -9,28 +9,28 @@
 
 .yeux_cache{
     position: absolute;
-    top: 7%;
+    top: 8%;
     left : 2.5%;
     width: 19%;
     font-size: 23% ;
-    z-index: 2;
+    z-index: 1;
 }
 
 .vague_age{
     position: absolute;
-    top: 13%;
+    top: 14%;
     left : 22%;
     width: 5%;
     transform: rotate(16deg);
-    z-index: 2;
+    z-index: 1;
 }
 
 .text_rbt_age{
     position: absolute;
-    top: 9%;
+    top: 10%;
     left : 28%;
     font-size: 30% ;
-    z-index: 2;
+    z-index: 1;
 }
 
 .arrive_age{
@@ -43,7 +43,7 @@
 
 .vague_chut{
     position: absolute;
-    top: 128%;
+    top: 74%;
     left : 31%;
     width: 4%;
     z-index: 1;
@@ -51,7 +51,7 @@
 
 .age_chut{
     position: absolute;
-    top: 140%;
+    top: 74%;
     left : 35.5%;
     width: 20%;
     z-index: 1;
