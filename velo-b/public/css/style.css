@@ -196,6 +196,28 @@ section[data-slidr="page-2"] {
 }
 
 
+/* ------------ Style des titres ------------ */
+
+
+.fancy-title{
+    max-width: 350px;
+    border: solid 5px white;
+
+    padding: 1rem 2rem;
+
+    font-size: 4vw;
+    text-align: center;
+    line-height: 3rem;
+
+    color: white;
+    background-color: #f98e12;
+    font-family: lemon-juice;
+
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
