@@ -1,3 +1,31 @@
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Use this directive to control where Tailwind injects the responsive
+ * variations of each utility.
+ *
+ * If omitted, Tailwind will append these classes to the very end of
+ * your stylesheet by default.
+ */
+@tailwind screens;
+
+
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 
 /**
@@ -20,7 +48,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: white;
     color: white;
     overflow: hidden;
     /* pour slidr dans certains navigateurs */
@@ -60,27 +88,8 @@ body {
     top: 10%;
     position: absolute;
     font-size: 30%;
+    color: black;
 }
-
-#logo-hyblab {
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left: -25%;
-    margin-top: calc(-7.5% * 9 / 16);
-    /* les marges sont exprimées en % de la largeur... :-( */
-    position: absolute;
-    font-size: 50%;
-    cursor: pointer;
-}
-
-#background-video {
-    position: relative;
-    /* on doit positionner un éléments pour pouvoir ajuster sont z-index */
-    z-index: -1;
-}
-
 
 /* on centre l'image de fin */
 
@@ -93,18 +102,6 @@ body {
     margin-top: calc(-25% * 9 / 16);
     /* les marges sont exprimées en % de la largeur... :-( */
 }
-
-
-/* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
-
-section[data-slidr="page-1"] footer {
-    width: 100%;
-    bottom: 5%;
-    position: absolute;
-    font-size: 20%;
-    text-align: center;
-}
-
 
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 

@@ -13,7 +13,10 @@
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script
         src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <script src="js/button-behaviour.js" defer></script>
+
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/index.js" defer></script>
@@ -24,18 +27,13 @@
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
 
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
-
-                <img class="w-screen h-auto" src="assets/homepage.svg"></img>
-
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
+            <section data-slidr="page-acceuil">
+                <img class="w-screen" src="assets/homepage.svg"></img>
+                <img class="h-2/6" id="startButton" src="assets/startButton.svg"></img>
             </section>
+
+
             <section data-slidr="page-2">
                 <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
                 <footer id="bandeau">
