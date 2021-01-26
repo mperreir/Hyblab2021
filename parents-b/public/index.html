@@ -3,6 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="./img/common/logo.svg"/>
     <title>Hyblab 2020</title>
     <link href="https://fonts.googleapis.com/css?family=Mulish" rel='stylesheet'>
     <link rel="stylesheet" href="css/styles.css">
@@ -19,7 +20,6 @@
     <script src="js/faunaFloraPage.js" defer></script>
     <script src="js/accessPage.js" defer></script>
     <script src="js/agePage.js" defer></script>
-    <script src="js/addressPage.js" defer></script>
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
     <!-- For address page -->
@@ -52,13 +52,15 @@
                 <div class="addresses-main-buttons">
                     <label for="address1" class="label-address dark-purple">Votre adresse :</label>
                     <input type="text" class="input-address" id="address1" name="address1"/>
+                    <input type="hidden" id="lat" name="lat" value="">
+                    <input type="hidden" id="lng" name="lat" value="">
                     <button class="button-addresses button-next-address-from-continue button-first font-big-button white background-beige">C'est parti !</button>
                     <button id="localization-button" class="button-addresses button-second font-big-button white background-beige">
                         Localise moi
                         <img class="loading-icon-white hidden" id="address-localize-loading" src="./img/loading_white.svg" alt="Chargement">
                         <img class="localize-icon" id="address-localize" src="./img/localisation.svg" alt="Localisation">
                     </button>
-                    <button class="button-addresses button-next-address-from-nevermind button-third font-big-button white background-beige">Peu importe</button>
+                    <button id="removeGeo" class="button-addresses button-next-address-from-nevermind button-third font-big-button white background-beige">Peu importe</button>
                 </div>
                 <div class="addresses-slider">
                     <input type="range" id="localize-range" min="5" max="15" value="10">
@@ -175,7 +177,7 @@
                     <input type="checkbox" checked>
                     <span class="slider round" title="Éléments culturels" ></span>
                 </label>
-                <button class="button-suivant-activities button-suivant font-m dark-purple background-beige">SUIVANT</button>
+                <button id="searchData" class="button-suivant-activities button-suivant font-m dark-purple background-beige">SUIVANT</button>
             </section>
 
             <section data-slidr="searching-results-page">
@@ -193,10 +195,8 @@
                 <button class="button-next button-next-results font-s white background-beige">Vers la page d'accueil</button>
             </section>
         </main>
-        <form id="postCriteria" method="post" action="monParc">
-            <input type="hidden" id="nbCriteria" name="nbCriteria" value="0">
-        </form>
     </div>
 </body>
 <script src="js/data.js" defer></script>
+<script src="js/addressPage.js" defer></script>
 </html>
