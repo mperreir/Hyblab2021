@@ -11,7 +11,8 @@ let addresstocoordinates = async function(adresse){
     return coordinates;
 }
 
-/*let result =  addresstocoordinates('41 boulevard albert einstein nantes france')
+/*
+let result =  addresstocoordinates('41 Boulevard Albert Einstein 44300 Nantes')
     .then(data => {console.log(data)});
 */
 exports.addresstocoordinates = addresstocoordinates;
