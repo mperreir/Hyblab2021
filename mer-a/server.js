@@ -100,9 +100,8 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-app.get(`/personnages`, async (req, res) => {
-  await fs.readFile(`${config.ROOT}public/html/personnages.html`, (err, data) => {
-    if(err) {
+
+app.get(`/personnages/:idDep`, async (req, res) => {
       console.error(err);
       res.status(500).send('Invalid file path.');
     }
@@ -111,7 +110,7 @@ app.get(`/personnages`, async (req, res) => {
 });
 
 // Route to reach the departement page
-app.get(`/departement`, async (req, res) => {
+app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     await fs.readFile(`${config.ROOT}public/html/departement.html`, (err, data) => {
       if(err) {
         console.error(err);
@@ -122,7 +121,8 @@ app.get(`/departement`, async (req, res) => {
 });
 
 // Route to reach the legende page
-app.get(`/legende`, async (req, res) => {
+
+app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
     await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
       if(err) {
         console.error(err);
