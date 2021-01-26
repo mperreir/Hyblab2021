@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="js/config/parameters.js"></script>
     <script src="js/resultsPage.js" defer></script>
     <script src="js/searchingResultsPage.js" defer></script>
@@ -196,10 +197,23 @@
                 <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
 
                 <img class="page" src="img/results_page/background.svg" alt="Page des résultats">
-                <a href="#" id="result_one" class="results_card"><img src="img/results_page/result_card_one.svg" alt="Résultats n°1"></a>
-                <a href="#" id="result_two" class="results_card"><img src="img/results_page/result_card_two.svg" alt="Résultats n°2"></a>
-                <a href="#" id="result_three" class="results_card"><img src="img/results_page/result_card_three.svg" alt="Résultats n°3"></a>
-                <img id="modal_more_information" src="img/results_page/modal_more_information.svg" alt="Plus d'information sur le parc sélectionné">
+
+                <div id="result-one" class="results-card">
+                    <img class="percentage-circle" src="img/results_page/percentage_circle.svg">
+                    <img src="img/results_page/result_card_one.svg" alt="Résultats n°1">
+                    <img class="result-icon-slider" src="img/results_page/background_icon_result_1.svg">
+                </div>
+                <div id="result-two" class="results-card">
+                    <img class="percentage-circle" src="img/results_page/percentage_circle.svg">
+                    <img src="img/results_page/result_card_two.svg" alt="Résultats n°2">
+                    <img class="result-icon-slider" src="img/results_page/background_icon_result_2_3.svg">
+                </div>
+                <div id="result-three" class="results-card">
+                    <img class="percentage-circle" src="img/results_page/percentage_circle.svg">
+                    <img src="img/results_page/result_card_three.svg" alt="Résultats n°3">
+
+                    <img class="result-icon-slider" src="img/results_page/background_icon_result_2_3.svg">
+                </div>
                 <button class="button-suivant-results button-suivant font-m dark-purple background-beige">Rechercher à nouveau</button>
             </section>
         </main>

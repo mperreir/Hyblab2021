@@ -1,37 +1,51 @@
-#result_one{
+#result-one{
     position: absolute;
-    top: 15%;
+    top: 13%;
     left: 37%;
     width: 26%;
     z-index: 2;
 }
 
-#result_two{
+#result-two{
     position: absolute;
-    top: 19%;
+    top: 17%;
     left: 20%;
-    width: 23%;
+    width: 24%;
     z-index: 1;
 }
 
-#result_three{
+#result-three{
     position: absolute;
-    top: 19%;
+    top: 17%;
     left: 57%;
-    width: 23%;
+    width: 24%;
     z-index: 1;
 }
 
-a > img{
-    width: 100%;
+.percentage-circle{
+    position: absolute;
+    width: 30%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-.results_card:hover {
+.result-icon-slider{
+    position: absolute;
+    width: 95%;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+div > img{
+    width: 100%;
+    height: 100%;
+}
+
+.results-card:hover {
     z-index: 3!important;
 }
-
-#modal_more_information{
-    visibility: hidden;
-    z-index: 10;
-}
-

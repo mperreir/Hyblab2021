@@ -4,9 +4,9 @@ let initResults = function(){
         initHome();
     });
 
+    new Splide( '.result-icon-slider', {
+        type    : 'loop',
+        perPage : 3,
+        autoplay: true,
+    } ).mount();
 };
-
-d3.select(".results_card").on("click", function (){
-    console.log(this);
-    document.getElementById("modal_more_information").style.visibility = "visible";
-});
