@@ -1,4 +1,5 @@
 import { initSlide3 } from "./slide3.js";
+import { initSlide1 } from "./slide1.js";
 
 export const initSlide2 = function(mySlidr){
 
@@ -23,12 +24,7 @@ export const initSlide2 = function(mySlidr){
     };
 
     document.getElementById("button-return-page-2").onclick = () => {
-        anime({
-            targets: '.button-return-page-2',
-            scale: 0.5
-        });
         mySlidr.slide('page-1');
-        initSlide1(mySlidr);
     };
 
 }
