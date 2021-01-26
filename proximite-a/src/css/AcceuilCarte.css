@@ -44,12 +44,20 @@
     color: #8356db;
 }
 
-#containerInterractionLogo{
-    width: 130px;
+#containerInterractionLogoP1{
+    width: 150px;
     position: relative;
     bottom: 20px;
-    right: 60px;
+    right: 20px;
 }
+
+#containerInterractionLogoP2{
+    width: 130px;
+    position: relative;
+    bottom: 50px;
+    right: 20px;
+}
+
 #containerInterractionLogoPersonnage{
     width: 130px;
 }
@@ -90,8 +98,8 @@ h5{
 /*Phase 2*/
 #containerInterraction2{
     position: absolute;
-    top: 10%;
-    left: 2%;
+    top: 4%;
+    left: 3%;
     background-color: white;
     padding: 20px;
     z-index: 2;
@@ -138,4 +146,27 @@ input[type=radio] + label>img {
     width: 150px;
     height: 150px;
     transition: 500ms all;
+}
+
+.leaflet-control-container, .leaflet-bar {
+    position: absolute;
+    right: 35px;
+    bottom: 25px;
+    border: none !important;
+}
+
+.leaflet-control-zoom-in, .leaflet-control-zoom-out{
+    background-color: whitesmoke !important;
+    border: none;
+    color: #8356db !important;
+    height: 50px !important;
+    width: 50px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.form-check-input:checked{
+    background-color: #8356db;
+    border-color: #8356db;
 }

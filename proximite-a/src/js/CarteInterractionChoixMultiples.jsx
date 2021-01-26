@@ -16,13 +16,13 @@ class CarteInterractionChoixMultiples extends  React.Component {
             <div id="containerInterraction2">
                 <div class="phase2Top">
                     <div class="phase2TopLeft">
-                        <img src={logo} id="containerInterractionLogo"/>
+                        <img src={logo} id="containerInterractionLogoP2"/>
                         <span><b>Hello</b> Julie</span>
                         <span>4 Rue Sainte Catherine</span>
                         <span>44000 Nantes</span>
                     </div>
                     <div class="phase2TopRight">
-                        <img src={personnage} id="containerInterractionLogoPersonnage"/>
+                        <img src={personnage}/>
                     </div>
                 </div>
                 <hr/>
@@ -33,14 +33,14 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
 
                             <div class="col">
-                                <input type="radio" name="pied" id="pied" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="pied" className="input-hidden"/>
                                 <label htmlFor="pied">
                                     <img class="imgPictogram" src={pied} alt="pied"/>
                                 </label>
                             </div>
 
                             <div class="col">
-                                <input type="radio" name="velo" id="velo" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="velo" className="input-hidden"/>
                                 <label htmlFor="velo">
                                     <img class="imgPictogram" src={velo} alt="velo"/>
                                 </label>
@@ -48,28 +48,28 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
 
                             <div className="col">
-                                <input type="radio" name="fauteil" id="fauteil" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="fauteil" className="input-hidden"/>
                                 <label htmlFor="fauteil">
                                     <img className="imgPictogram" src={fauteil} alt="fauteil"/>
                                 </label>
                             </div>
 
                             <div className="col">
-                                <input type="radio" name="trottinette" id="trottinette" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="trottinette" className="input-hidden"/>
                                 <label htmlFor="trottinette">
                                     <img className="imgPictogram" src={trottinette} alt="trottinette"/>
                                 </label>
                             </div>
 
                             <div className="col">
-                                <input type="radio" name="skate" id="skate" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="skate" className="input-hidden"/>
                                 <label htmlFor="skate">
                                     <img className="imgPictogram" src={skate} alt="skate"/>
                                 </label>
                             </div>
 
                             <div className="col">
-                                <input type="radio" name="roller" id="roller" className="input-hidden"/>
+                                <input type="radio" name="moyen" id="roller" className="input-hidden"/>
                                 <label htmlFor="roller">
                                     <img className="imgPictogram" src={roller} alt="roller"/>
                                 </label>

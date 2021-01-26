@@ -7,7 +7,7 @@ import Home from "./App";
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 2
+        popupPhase : 1
     };
 
     getPhase = () =>{
@@ -33,7 +33,7 @@ class AcceuilCarte extends  React.Component {
     render() {
         return (
             <div id="map">
-                <MapContainer center={[47.2819, -1.5158]} zoom={13} scrollWheelZoom={false}>
+                <MapContainer center={[47.2819, -1.5158]} zoom={13} scrollWheelZoom={true}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
