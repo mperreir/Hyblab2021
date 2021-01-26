@@ -1,4 +1,4 @@
-// init du slider (qui peut aussi faire des fondus enchainé)
+// init du slider (qui peut aussi dfaire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: false,
     controls: 'none',
@@ -13,5 +13,5 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
-// on s'occupe de la 1ère slide
+initButtons();
 initSlide1();

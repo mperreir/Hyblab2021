@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8">
     <title>Hyblab 2020</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -13,6 +12,10 @@
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script
         src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <script src="js/button-behaviour.js" defer></script>
+
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
@@ -27,7 +30,7 @@
 
             <section data-slidr="page-accueil">
                 <img class="w-screen" src="assets/homepage.svg"/>
-                <img id="logo-hyblab" src="assets/startButton.svg"/>
+                <img class="h-2/6" id="startButton" src="assets/startButton.svg"/>
             </section>
 
             <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
@@ -76,6 +79,12 @@
                                     src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
                     </ul>
                 </footer>
+            </section>
+            <section data-slidr="page-3">
+                <div style="display: flex;">
+                    <div class="fancy-button rounded-full">Bonjour</div>
+                    <div class="fancy-button rounded-full">Ceci est un bouton</div>
+                </div>
             </section>
         </main>
     </div>

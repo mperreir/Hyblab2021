@@ -1,24 +1,24 @@
 let initSlide1 = function () {
 
-    d3.select('#logo-hyblab').on('click', function () {
+    d3.select('#startButton').on('click', function () {
         anime({
-            targets: '#logo-hyblab',
+            targets: '#startButton',
             scale: 0
         });
         mySlidr.slide('page-carte');
         initCarte();
     });
 
-    d3.select('#logo-hyblab').on('mouseover', function () {
+    d3.select('#startButton').on('mouseover', function () {
         anime({
-            targets: '#logo-hyblab',
+            targets: '#startButton',
             scale: 1.2
         });
     });
 
-    d3.select('#logo-hyblab').on('mouseout', function () {
+    d3.select('#startButton').on('mouseout', function () {
         anime({
-            targets: '#logo-hyblab',
+            targets: '#startButton',
             scale: 1
         });
     });

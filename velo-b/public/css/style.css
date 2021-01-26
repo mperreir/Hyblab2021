@@ -1,5 +1,13 @@
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ @tailwind screens;
 
 /* contraindre le format des slides affichés sur la page web */
 
@@ -23,6 +31,15 @@ body {
     /* pour permettre le positionnement en absolu des autres éléments */
 }
 
+@font-face {
+    font-family: lemon-juice;
+    src: url(../fonts/lemon-juice.otf);
+}
+
+.content{
+    font-family: lemon-juice;
+}
+
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 
@@ -44,19 +61,6 @@ body {
     position: absolute;
     font-size: 30%;
     color: black;
-}
-
-#logo-hyblab {
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left: -25%;
-    margin-top: calc(-7.5% * 9 / 16);
-    /* les marges sont exprimées en % de la largeur... :-( */
-    position: absolute;
-    font-size: 50%;
-    cursor: pointer;
 }
 
 /* on centre l'image de fin */
@@ -145,12 +149,24 @@ section[data-slidr="page-2"] {
     height: 2em;
 }
 
+/* ------------ Style des boutons ------------ */
+
+.fancy-button{
+    border: solid 5px white;
+
+    padding: 0px 2rem;
+
+    font-size: 5vw;
+    text-align: center;
+
+    color: white;
+    background-color: #f98e12;
+    font-family: lemon-juice;
+}
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
-
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
-
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
 tant qu'on est en dessous de l'apect ratio 16/9 */
@@ -169,8 +185,7 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
     }
 }
 
-
-/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
+/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
 dessus de l'apect ratio 16/9 */
 
 @media screen and (min-aspect-ratio: 16/9) {
@@ -179,8 +194,7 @@ dessus de l'apect ratio 16/9 */
         width: calc(100 * 16vh / 9);
         height: 100vh;
     }
-
-    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
     body {
         font-size: 16vh;
