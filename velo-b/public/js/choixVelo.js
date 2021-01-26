@@ -12,9 +12,9 @@ let initSlideChoixVelo = function(){
     initSlide2();
   });
 
-  d3.select('#fleche-droite').on('click', function(){
+  d3.select('#fleche-droite-velo').on('click', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-velo',
         scale: 0
       });
       mySlidr.slide('choix-transport-3');
@@ -22,42 +22,42 @@ let initSlideChoixVelo = function(){
   });
 
 
-  d3.select('#fleche-droite').on('mouseover', function(){
+  d3.select('#fleche-droite-velo').on('mouseover', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-velo',
         scale: 1.2
       });
   });   
 
-  d3.select('#fleche-droite').on('mouseout', function(){
+  d3.select('#fleche-droite-velo').on('mouseout', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-velo',
         scale: 1
       });
       
   });
 
 
-  d3.select('#fleche-gauche').on('click', function(){
+  d3.select('#fleche-gauche-velo').on('click', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-velo',
         scale: 0
       });
       mySlidr.slide('choix-transport-1');
       initSlideChoixVoiture();
   });
 
-  d3.select('#fleche-gauche').on('mouseover', function(){
+  d3.select('#fleche-gauche-velo').on('mouseover', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-velo',
         scale: 1.2
       });
       
   });
 
-  d3.select('#fleche-gauche').on('mouseout', function(){
+  d3.select('#fleche-gauche-velo').on('mouseout', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-velo',
         scale: 1
       });
   });

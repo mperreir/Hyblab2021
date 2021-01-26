@@ -12,51 +12,51 @@ let initSlideChoixBicloo = function(){
     initSlide2();
   });
 
-  d3.select('#fleche-droite').on('click', function(){
+  d3.select('#fleche-droite-bycl').on('click', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-bycl',
         scale: 0
       });
       mySlidr.slide('choix-transport-4');
       initSlideChoixTransport();
   });
 
-  d3.select('#fleche-droite').on('mouseover', function(){
+  d3.select('#fleche-droite-bycl').on('mouseover', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-bycl',
         scale: 1.2
       });
       
   });
 
-  d3.select('#fleche-droite').on('mouseout', function(){
+  d3.select('#fleche-droite-bycl').on('mouseout', function(){
     anime({
-        targets: '#fleche-droite',
+        targets: '#fleche-droite-bycl',
         scale: 1
       }); 
   });
 
 
-  d3.select('#fleche-gauche').on('click', function(){
+  d3.select('#fleche-gauche-bycl').on('click', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-bycl',
         scale: 0
       });
       mySlidr.slide('choix-transport-2');
       initSlideChoixVelo();
   });
 
-  d3.select('#fleche-gauche').on('mouseover', function(){
+  d3.select('#fleche-gauche-bycl').on('mouseover', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-bycl',
         scale: 1.2
       });
       
   });
 
-  d3.select('#fleche-gauche').on('mouseout', function(){
+  d3.select('#fleche-gauche-bycl').on('mouseout', function(){
     anime({
-        targets: '#fleche-gauche',
+        targets: '#fleche-gauche-bycl',
         scale: 1
       });
   });
