@@ -93,7 +93,7 @@ app.use(express.static(path.join(__dirname, '../__common-logos__')));
 // or more generally: http(s)://server_name:port/name_of_you_project/
 
 // Pour lancer depuis mer-a (npm start)
-app.listen(8080);
+//app.listen(8080);
 
 //Pour lancer depuis Hyblab2021 / racine (npm start)
-//module.exports = app;
+module.exports = app;

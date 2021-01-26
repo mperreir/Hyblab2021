@@ -9,6 +9,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "sqlite": "^4.0.19",
     "sqlite3": "^5.0.1"
   },
   "author": "MPDS",
