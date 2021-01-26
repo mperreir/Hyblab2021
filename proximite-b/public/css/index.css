@@ -19,3 +19,7 @@ button#start_button {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+img#index_logo {
+    width: 10%;
+}
