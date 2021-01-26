@@ -13,5 +13,12 @@ let mySlidr = slidr.create('slidr',{
     transition: 'fade'
   }).start();
 
+let initSlide2_1 = function() {
+    d3.select('#button').on('click', function(){
+        mySlidr.slide('page-3');
+        initSlide3();
+    });
+
+}
 // on s'occupe de la 1ère slide
-initSlide1();
+initSlide2_1();
