@@ -1,7 +1,42 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/proximite-b/fonts/Montserrat-Light.otf');
+}
+
+@font-face {
+    font-family: 'ArchitectDaughter';
+    src: url('/proximite-b/fonts/ArchitectsDaughter.ttf');
+}
+
 div#app {
     background-color: transparent;
     margin: 0px;
     padding: 0px;
     width: 100%;
     height: 100%;
+    font-family: Montserrat;
 }
+
+.figma_bg_orange {
+    background-color: #E3572C;
+}
+
+.figma_bg_yellow {
+    background-color: #F3B800;
+}
+
+.figma_bg_blue {
+    background-color: #BFE3EE;
+}
+
+.figma_button {
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-family: ArchitectDaughter;
+}
+
+.figma_button:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
