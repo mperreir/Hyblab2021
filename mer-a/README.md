@@ -55,11 +55,7 @@ Le site web sera disponible à l'adresse <code>localhost:8080</code> équivalent
 <code>/api/all/regions</code> : *Retourne les zones existantes et leur identifiant*<br/><br/>
 <code>/api/all/types</code> : *Retourne les types existants et leur identifiant*<br/><br/>
 <code>/api/:region_id/:type_id</code> : *Retourne les légendes pour la zone <code>region_id</code> et le type <code>type_id</code>*<br/><br/>
-<code>/legende/:id</code> : *Retourne la légende ayant pour id <code>id</code>*<br/><br/>
-<code>/departements</code> : *Pour accéder à la page de choix du département/région/zone*<br/><br/>
-<code>/personnages</code> : *Pour accéder à la page de choix du type de légende/personnage*<br/><br/> 
-<code>/departement</code> : *Pour accéder à la page de choix de la légende*<br/><br/>
-<code>/legende</code> : *Pour accéder à la page d'affichage d'une légende*<br/><br/>
+<code>/api/legende/:id</code> : *Retourne la légende ayant pour id <code>id</code>*<br/><br/>
 
 ## Accès
 
