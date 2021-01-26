@@ -1,4 +1,11 @@
 /* ------------------------- Page Home ---------------------------- */
+.trees-home{
+    position: absolute;
+    top: 53%;
+    left: 14%;
+    width: 15%;
+    z-index: 2;
+}
 
 .shooting-stars{
     position: absolute;
@@ -23,6 +30,24 @@
     top: 15%;
     left: 39%;
     width: 20%;
+    z-index: 2;
+}
+
+.rocket-hello{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    width: 10%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.smoke-hello{
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    width: 30%;
+    opacity: 0;
     z-index: 2;
 }
 

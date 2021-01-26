@@ -3,7 +3,7 @@ let initAge = function(){
   //---------------FONCTIONS-----------------
   //Pour avoir l'image du jeu adéquat avec fleche
   function setImage(cpt){
-    valeurImage= cpt%4;
+    let valeurImage= cpt%4;
     console.log(valeurImage)
     if(valeurImage==0 ){
       x.setAttribute("src", "././img/age/agebb.svg");
@@ -21,7 +21,7 @@ let initAge = function(){
 
   //Pour afficher le logo et les croix de suppression lors d'un choix avec le boutton plus
   function activeLogoChoix(cpt){
-    valeurImage= cpt%4;
+    let valeurImage= cpt%4;
     console.log(valeurImage)
     if(valeurImage==0 ){
       document.getElementById("bb").hidden = false;
@@ -45,7 +45,7 @@ let initAge = function(){
 
 
     //---------------DES L'OUVERTURE-----------------
-    var x = document.getElementById("image_age");
+    let x = document.getElementById("image_age");
     x.setAttribute("src", "././img/age/agebb.svg");
 
     //Cache tous les elements de choix d'age au début

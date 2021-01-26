@@ -24,7 +24,26 @@ let initHome = function(){
     });*/
 
     d3.select('.button-begin').on('click', function (){
-        mySlidr.slide('down');
-        initAddress();
+        anime({
+            targets: ".oya-hello",
+            translateX: '80%',
+            scale: 0.6,
+            duration: 2000,
+            easing: 'easeOutCubic'
+        }),
+            anime({
+                targets: ".rocket-hello",
+                scale: 0.1
+            }),
+                anime({
+                    targets: ".rocket-hello",
+                    opacity: 1,
+                    duration: 2000,
+                    delay: 2000,
+                })
+                .finished.then(() => {
+                        mySlidr.slide('down');
+                        initAddress();
+                });
     });
 };
