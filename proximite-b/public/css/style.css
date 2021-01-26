@@ -21,6 +21,10 @@ div#app {
     color: #2A315B;
 }
 
+.figma_bg_darkblue {
+    background-color: #2A315B;
+}
+
 .figma_bg_orange {
     background-color: #E3572C;
 }
@@ -38,6 +42,14 @@ div#app {
     border: none;
     border-radius: 15px;
     font-family: ArchitectDaughter;
+}
+
+.figma_input_txt {
+    background-radius: 15px;
+    font-family: ArchitectDaughter;
+    color: #444444;
+    border: none;
+    border-radius: 15px;
 }
 
 .figma_button:hover {

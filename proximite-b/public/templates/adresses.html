@@ -1,19 +1,11 @@
-﻿<ul>
-    <li><a onclick="go_to('index')">Home</a></li>
-    <li><a onclick="go_to('personas')">Personas</a></li>
-    <li><a onclick="go_to('criteres')">critere</a></li>
-    <li><a onclick="go_to('timeline')">timeline</a></li>
-    <li><a onclick="go_to('conclu')">conclu</a></li>
-</ul>
+﻿<div id="adresses_content">
+    <input class="figma_input_txt" type="text" id="adresse1" required placeholder="Adresse 1" oninput="adresses_autocompletion(this.value, 1)">
+    <div id="adresses1" class="liste_adresses">
+    </div>
 
+    <input class="figma_input_txt" type="text" id="adresse2" required placeholder="Adresse 2" oninput="adresses_autocompletion(this.value, 2)">
+    <div id="adresses2" class="liste_adresses">
+    </div>
 
-Adresses
-
-<input type="text" id="adresse1" required placeholder="Adresse 1" oninput="adresses_autocompletion(this.value, 1)">
-<div id="adresses1" class="liste_adresses">
+    <button class="figma_button figma_bg_darkblue" id="go_bouton" onclick="adresses_validation()">Valider</button>
 </div>
-<input type="text" id="adresse2" required placeholder="Adresse 2" oninput="adresses_autocompletion(this.value, 2)">
-<div id="adresses2" class="liste_adresses">
-</div>
-
-<button onclick="adresses_validation()">Valider</button>
