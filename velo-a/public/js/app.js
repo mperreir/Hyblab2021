@@ -34,4 +34,10 @@ async function bootstrap() {
         })
     )
 }
+
 bootstrap();
+
+import('./modules/stationsVelos.mjs')
+    .then((module) => {
+        module.getAbrisVelos();
+    });
