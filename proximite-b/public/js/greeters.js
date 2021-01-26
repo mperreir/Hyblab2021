@@ -1,14 +1,23 @@
-function background_from_persona(){
-    persona = "famille";
+function greeter_background(){
+    persona = "senior";
     if (persona == "jeune"){
-        $('#index_content_greeter').style.backgroundImage = url('/proximite-b/img/index/sans_la_bulle_jeune.svg'); 
+        $('#index_content_greeter').css("background-image", "url('/proximite-b/img/greeter/sans_la_bulle_jeune.svg')");
     }
     else if (persona == "famille"){
-        $('#index_content_greeter').style.backgroundImage = url('/proximite-b/img/index/sans_la_bulle_famille.svg'); 
+        $('#index_content_greeter').css("background-image", "url('/proximite-b/img/greeter/sans_la_bulle_famille.svg')");
     }
     else if (persona == "senior"){
-        $('#index_content_greeter').style.backgroundImage = url('/proximite-b/img/index/sans_la_bulle_senior.svg'); 
+        $('#index_content_greeter').css("background-image", "url('/proximite-b/img/greeter/sans_la_bulle_senior.svg')"); 
+    }
+}
+function greeter_action(value){
+    console.log(value)
+    if (value == 1){
+        console.log('ici')
+        $('#second').hide();
+        $('#first').show();
     }
 }
 
-background_from_persona();
+greeter_background();
+
