@@ -9,29 +9,58 @@ div#adresses_content {
 
 #adresse1 {
     position: absolute;
+    top: 50%;
+    left: 41%;
+    background-image: url('/proximite-b/img/adresses/picto-local.svg');
+    background-repeat: no-repeat;
+    background-size: 1.5em;
+    background-position-y: center;
+    background-position-x: 0.2em;
+}
+
+#adresses1 {
+    position: absolute;
     top: 55%;
-    left: 40%;
+    left: 41%;
 }
 
 #adresse2 {
     position: absolute;
+    top: 60%;
+    left: 41%;
+    background-image: url('/proximite-b/img/adresses/picto-local.svg');
+    background-repeat: no-repeat;
+    background-size: 1.5em;
+    background-position-y: center;
+    background-position-x: 0.2em;
+}
+
+#adresses2 {
+    position: absolute;
     top: 65%;
-    left: 40%;
+    left: 41%;
 }
 
 #go_bouton {
     position: absolute;
     top: 75%;
-    left: 40%;
+    left: 44%;
+    width: 7em;
+    height: 2em;
 }
 
-.liste_adresses{
-    width: 500px;
-    background-color: gray;
+.liste_adresses {
+    width: 400px;
+    background-color: #E5E5E4;
+    border-radius: 15px;
+    z-index: 9999;
 }
 
-.bouton_adresse{
+.bouton_adresse {
     border: none;
-    width: 500px;
+    width: 100%;
     text-align: left;
+    border-radius: 15px;
+    background-color: transparent;
+    margin: 5px;
 }

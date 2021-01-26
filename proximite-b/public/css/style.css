@@ -50,6 +50,11 @@ div#app {
     color: #444444;
     border: none;
     border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 2em;
+    width: 17em;
 }
 
 .figma_button:hover {
