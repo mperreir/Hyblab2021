@@ -80,7 +80,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}', 
-          'assets/img/personnage/image${row.categorie.replace(" ", "_")}');\n`);
+          'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
         catList.push(row.categorie);
         countIdCat++;
       }
