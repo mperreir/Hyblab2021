@@ -16,14 +16,14 @@ var dataTimeLine1 = [
     },
     {
         "categorie": "Pharmacie",
-        "data": null
+        "data": []
     },
     {
         "categorie": "Ecole",
-        "data": null
+        "data": []
     },
     {
-        "categorie": "Supermache",
+        "categorie": "Supermarche",
         "data": [
             { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
             { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
@@ -73,7 +73,7 @@ var dataTimeLine2 = [
         ]
     },
     {
-        "categorie": "Supermache",
+        "categorie": "Supermarche",
         "data": [
             { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
             { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },

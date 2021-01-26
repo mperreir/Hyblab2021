@@ -112,7 +112,7 @@ var TimeKnots = {
 
 
         //Calculate times in terms of timestamps
-        var timestamps = events.map(function (d) { if (d.data != null) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
+        var timestamps = events.map(function (d) { if (d.data.length >=1) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
         var maxValue = d3.max(timestamps);
         var minValue = d3.min(timestamps);
 
@@ -135,7 +135,7 @@ var TimeKnots = {
             .attr("class", "timeline-line")
 
             .attr("x1", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var ret;
                     var time = d.data[0].temps;
                     ret = Math.floor(step * (time - minValue) + margin)
@@ -147,7 +147,7 @@ var TimeKnots = {
                 }
             })
             .attr("x2", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (linePrevious.x1 != null) {
                         return linePrevious.x1
                     }
@@ -158,7 +158,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y1", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var ret;
                     ret = Math.floor(cfg.height / 2)
                     linePrevious.y1 = ret
@@ -167,7 +167,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y2", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (linePrevious.y1 != null) {
                         return linePrevious.y1
                     }
@@ -197,7 +197,7 @@ var TimeKnots = {
         //cercel/images
         node.append("image")
             .each(function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if ((d.categorie != null)) {
                         if (cpt["min" + d.data[0].temps]) {
                             cpt["min" + d.data[0].temps].push(d);
@@ -215,7 +215,7 @@ var TimeKnots = {
             })
             .style("opacity", 0)
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     return d.img;
                 }
             })
@@ -228,7 +228,7 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         TimeKnots.createMultipleModal(cpt["min" + d.data[0].temps]);
                     }
@@ -273,7 +273,7 @@ var TimeKnots = {
                         return Math.floor(cfg.height / 2) - 75
                     })
                     .attr("x", function (d) {
-                        if (d.data != null) {
+                        if (d.data.length >=1) {
                             var time = d.data[0].temps;
                             var x = Math.floor(step * (time - minValue) + margin);
                             return x - 25;
@@ -289,12 +289,12 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     return d.img
                 }
             })
             .attr("x", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 25;
@@ -302,7 +302,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return Math.floor(cfg.height / 2) - 150
                     }
@@ -314,7 +314,7 @@ var TimeKnots = {
 
             .transition()
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return "./img/timeline/plus.svg"
                     }
@@ -350,7 +350,7 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .attr("cx", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x;
@@ -361,7 +361,7 @@ var TimeKnots = {
                 if (i <= 1) return 0;
                 else return (i - 1) * 1000;
             })
-            .style("opacity", function (d) { if (d.data != null) { return 1 } else { return 0 } });
+            .style("opacity", function (d) { if (d.data.length >=1) { return 1 } else { return 0 } });
 
 
 
@@ -371,14 +371,14 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { if (d.data != null) { return d.data[0].temps + " min" } else { return null } })
+            .text(function (d) { if (d.data.length >=1) { return d.data[0].temps + " min" } else { return null } })
             .attr("y", function (d) {
                 return Math.floor(cfg.height / 2) + 30
 
             })
             //-5 pour centrer le texte
             .attr("x", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 20;
