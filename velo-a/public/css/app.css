@@ -1,8 +1,11 @@
 html {
-    background: #b7d5ed;
+    margin: 0;
+    padding: 0;
+    height: 0;
 }
 
-html, body {
+body {
+    background: #b7d5ed;
     margin: 0;
     padding: 0;
     height: 100%;
