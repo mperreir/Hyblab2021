@@ -28,6 +28,14 @@
 
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ @tailwind screens;
 
 /* contraindre le format des slides affichés sur la page web */
 
@@ -49,6 +57,15 @@ body {
 #container {
     position: relative;
     /* pour permettre le positionnement en absolu des autres éléments */
+}
+
+@font-face {
+    font-family: lemon-juice;
+    src: url(../fonts/lemon-juice.otf);
+}
+
+.content{
+    font-family: lemon-juice;
 }
 
 
@@ -160,6 +177,22 @@ section[data-slidr="page-2"] {
     height: 2em;
 }
 
+/* ------------ Style des boutons ------------ */
+
+.fancy-button{
+    border: solid 5px white;
+
+    padding: 0px 2rem;
+
+    font-size: 5vw;
+    text-align: center;
+
+    color: white;
+    background-color: #f98e12;
+    font-family: lemon-juice;
+}
+
+
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
@@ -170,6 +203,7 @@ section[data-slidr="page-2"] {
 /* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre, 
 tant qu'on est en dessous de l'apect ratio 16/9 */
 
+
 @media screen and (max-aspect-ratio: 16/9) {
     #container {
         margin-top: calc((100vh - 100 * 9vw / 16) / 2);
@@ -178,11 +212,11 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
     }
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
+    
     body {
         font-size: 9vw;
     }
 }
-
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
 dessus de l'apect ratio 16/9 */
