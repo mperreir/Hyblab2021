@@ -9,6 +9,7 @@
     <div id="stepper">
       <slot name="stepper" ></slot>
     </div>
+    <slot/>
   </div>
 </template>
 
@@ -27,7 +28,7 @@ export default {
   right:0;
   display: grid;
   grid-template-columns: 0.9fr 1.2fr 0.9fr;
-  grid-template-rows: 0.8fr 1.6fr 0.6fr;
+  grid-template-rows: 0.7fr 2fr 0.3fr;
   gap: 0px 0px;
   grid-template-areas:
     "wazo . canari"

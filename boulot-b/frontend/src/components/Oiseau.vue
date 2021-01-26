@@ -36,7 +36,7 @@ text-align: left;
 
 <script >
 import lottie from "lottie-web";
-   const animationData = () => import("../assets/animationJson/wazo_culture.json");
+const animationData = () => import("../assets/animationJson/wazo_culture.json");
 
 export default {
   name: "Oiseau",
