@@ -44,9 +44,8 @@ const go_to = (page, data, callback) => {
     make_page_from_template(page)
         .then(() => {
             if (page === 'timeline') {
-                window.addEventListener("resize", timeline_draw);
-                timeline_progressBar();
-                timeline_draw();
+                window.addEventListener("resize", timeline_progressbar_draw);
+                timeline_progressbar_draw();
             }
 
             if (data && !callback && typeof data === 'function')
