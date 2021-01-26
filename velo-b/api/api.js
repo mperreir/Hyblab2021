@@ -17,7 +17,7 @@ module.exports = () => {
     const app = express();
     
     // routes
-    app.get('/abris-velos/:quartier', JsonRoute((req,res) => loadJsonFile('abris-velo-nantes-metropole.json')[req.params['quartier']]));
+    app.get('/abris-velos/:quartier', JsonRoute((req,res) => loadJSONFile('abris-velos-nantes-metropole.json')[req.params['quartier']]));
     app.get('/test/',JsonRoute((req, res) => loadJSONFile('abris-velos-nantes-metropole.json')));
     
     // utilitaire pour créer une route qui envoie du json
