@@ -42,7 +42,16 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
 });
 
 
+// Route to get get one legend by id
+app.get(`${config.API_URL}legende/:id`, async (req, res) => {
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
 
+    const row = await db.get(sql, [req.params.id]);
+
+    console.log(row);
+    res.status(200).json(row);
+});
 
 // Add route to get the legends
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
@@ -54,7 +63,7 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     console.log(sql + `\ndep: "${req.params.region}",\ncat: "${req.params.typeHistoire}"`);
 
     // Get the query result
-    const rows = await db.all(sql, [encodeURI(req.params.region), encodeURI(req.params.typeHistoire)]);
+    const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
         var legende = new Legende(
@@ -89,6 +98,30 @@ app.get(`/legende/:id`, async (req, res) => {
     res.status(200).json(row);
 });
 
+
+// Route to reach the departements page
+app.get(`/departements`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departements.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the personnages page
+app.get(`/personnages`, async (req, res) => {
+  let data = await fs.readFile(`./public/html/personnages.html`);
+  res.status(200).send(data.toString());
+});
+
+// Route to reach the departement page
+app.get(`/departement`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departement.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the legende page
+app.get(`/legende`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/legende.html`);
+    res.status(200).send(data.toString());
+})
 
 // Route to reach the departements page
 app.get(`/departements`, async (req, res) => {

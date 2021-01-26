@@ -27,6 +27,14 @@ async function getTypesId(callback) {
     return result;
 }
 
+async function getLegendeById(id, callback) {
+    //Récupération des données
+    let result = (await (await fetchAsync(API_URL + API_LEGENDE + id, 'GET')).json());
+    //Transmission des données
+    callback(result);
+    return result;
+}
+
 //Déclaration de la fonction permettant de récupérer le résultat d'une URL
 async function fetchAsync(url, method) {
     let options = null;
