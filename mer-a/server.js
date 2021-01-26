@@ -97,19 +97,19 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-app.get(`/departements/:idDepartement/personnages`, async (req, res) => {
+app.get(`/personnages/:idDep`, async (req, res) => {
   let data = await fs.readFile(`./public/html/personnages.html`);
   res.status(200).send(data.toString());
 });
 
 // Route to reach the departement page
-app.get(`/departements/:idDepartement/personnages/:idTypeHistoire/legendes`, async (req, res) => {
-    let data = await fs.readFile(`./public/html/legendes.html`);
+app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departement.html`);
     res.status(200).send(data.toString());
 });
 
 // Route to reach the legende page
-app.get(`/departements/:idDepartement/personnages/:idTypeHistoire/legendes/:idLegende`, async (req, res) => {
+app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
     let data = await fs.readFile(`./public/html/legende.html`);
     res.status(200).send(data.toString());
 })
