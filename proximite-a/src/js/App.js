@@ -8,7 +8,7 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        pageId:1
+        pageId:4
     };
 
     getPage = () =>{
@@ -38,7 +38,6 @@ class App extends  React.Component {
     render() {
         return (
             <div id="mainContainer">
-
                 {this.getPage()}
             </div>
         );
