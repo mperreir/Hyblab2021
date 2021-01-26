@@ -2,16 +2,24 @@
 
 // import des module Utiles
 const express = require('express');
+const fs = require('fs');
+
+function loadJSONFile(file_name){
+    let rawdata = fs.readFileSync(`./velo-b/api/data/${file_name}`);
+    let jsondata = JSON.parse(rawdata);
+    return jsondata
+}
 
 // export de notre application vers le serveur principal
 module.exports = () => {
 
     // création d'une app express
     const app = express();
-    
+
     // exemple de route
     //app.get('/example/', JsonRoute((req, res) => SQL(`select * from Example;`)));
-    
+    app.get('/test/',JsonRoute((req, res) => loadJSONFile('abris-velos-nantes-metropole.json')));
+
     // utilitaire pour créer une route qui envoie du json
     function JsonRoute(callback) {
         return function(req, res) {
@@ -22,7 +30,6 @@ module.exports = () => {
             res.send(JSON.stringify(callback(req, res)));
         };
     }
-    
+
     return app;
 }
-
