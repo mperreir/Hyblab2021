@@ -43,6 +43,7 @@ body {
     top: 10%;
     position: absolute;
     font-size: 30%;
+    color: black;
 }
 
 #logo-hyblab {
@@ -58,13 +59,6 @@ body {
     cursor: pointer;
 }
 
-#background-video {
-    position: relative;
-    /* on doit positionner un éléments pour pouvoir ajuster sont z-index */
-    z-index: -1;
-}
-
-
 /* on centre l'image de fin */
 
 #img-fini {
@@ -76,18 +70,6 @@ body {
     margin-top: calc(-25% * 9 / 16);
     /* les marges sont exprimées en % de la largeur... :-( */
 }
-
-
-/* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
-
-section[data-slidr="page-1"] footer {
-    width: 100%;
-    bottom: 5%;
-    position: absolute;
-    font-size: 20%;
-    text-align: center;
-}
-
 
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 
