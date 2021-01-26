@@ -1,0 +1,39 @@
+div#index_content_greeter {
+    background-image: url('/proximite-b/img/greeter/sans_la_bulle_jeune.svg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 30% ;
+}
+
+p {
+    width:270px;
+    height: 230px;
+    text-align: center;
+    padding: 15px;
+    vertical-align: center;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 12%;
+}
+
+p#text_etu{
+    background-image: url('/proximite-b/img/greeter/Bulle_droite.svg');
+    left: 17%
+}
+
+p.text_greeter{
+    background-image: url('/proximite-b/img/greeter/Bulle_gauche.svg');
+    right: 15%
+}
+
+#greeter_suivant_button{
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left : 45%;
+    top : 40%
+}
