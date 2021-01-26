@@ -1,27 +1,16 @@
-let initCarte = function () {
+const initCarte = function () {
+    d3.xml("assets/carte.svg").then(data => {
+        const carte = d3.select("#carte");
+        carte.node().append(data.documentElement);
 
-    // d3.select('#logo-hyblab').on('click', function () {
-    //     anime({
-    //         targets: '#logo-hyblab',
-    //         scale: 0
-    //     });
-    //     mySlidr.slide('page-2');
-    //     initSlide2();
-    // });
-    //
-    // d3.select('#logo-hyblab').on('mouseover', function () {
-    //     anime({
-    //         targets: '#logo-hyblab',
-    //         scale: 1.2
-    //     });
-    // });
-    //
-    // d3.select('#logo-hyblab').on('mouseout', function () {
-    //     anime({
-    //         targets: '#logo-hyblab',
-    //         scale: 1
-    //     });
-    // });
+        const parts = carte.selectAll("g")
+            .on("mouseover", function () {
+                parts.style("opacity", .5);
+                d3.select(this).style("opacity", 1);
+            })
+            .on("mouseout", () => parts.style("opacity", 1))
+            .on("click", function () {
+                console.log(this.id); // selectionné
+            });
+    });
 };
-
-

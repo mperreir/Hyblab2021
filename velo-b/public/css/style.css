@@ -161,6 +161,7 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
         width: 100vw;
         height: calc(100 * 9vw / 16);
     }
+
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
     body {
@@ -178,6 +179,7 @@ dessus de l'apect ratio 16/9 */
         width: calc(100 * 16vh / 9);
         height: 100vh;
     }
+
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
     body {
