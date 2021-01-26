@@ -2,14 +2,13 @@
 
 Porteur de projet : 
 
-Sujet :
+Sujet : Boulot B
 
-Nom d'équipe :
+Nom d'équipe : Wazo
 
 Participants : 
 
-- Sciencescom
-
-- AGR :
-- Polytech :  Antoine Garnier
+- AGR : Charles Gauthier, Rebecca Grima
+- Polytech :  Corentain Foulon, Antoine Garnier, Evan Gisdal, Clément Hue, Florent Rivière, Mickaël Lumière Tran, Émile Vigin 
+- Sciencescom : Eva Corman, Vincent Raoul
 
