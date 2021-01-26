@@ -1,11 +1,3 @@
-div#app {
-    background-color: transparent;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-}
-
 @font-face {
     font-family: 'Montserrat';
     src: url('/proximite-b/fonts/Montserrat-Light.otf');
@@ -14,6 +6,15 @@ div#app {
 @font-face {
     font-family: 'ArchitectDaughter';
     src: url('/proximite-b/fonts/ArchitectsDaughter.ttf');
+}
+
+div#app {
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat;
 }
 
 .figma_bg_orange {
