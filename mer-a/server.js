@@ -4,6 +4,8 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
+
+const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -75,16 +77,43 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
 
 // Route to get get one legend by id
 app.get(`/legende/:id`, async (req, res) => {
-  var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
-  INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
 
-  const row = await db.all(sql, [encodeURI(req.params.id)]);
+    const row = await db.all(sql, [encodeURI(req.params.id)]);
 
-  console.log(row);
-  res.status(200).json(row);
+    console.log(row);
+    res.status(200).json(row);
 });
 
+app.get(`/images`, (req, res) => {
 
+});
+
+app.get(`/departements`, async (req, res) => {
+
+    let data = await fs.readFile(`./public/html/departements.html`);
+
+    res.status(200).send(data.toString());
+});
+
+// Route from department to character
+app.get(`/personnages`, async (req, res) => {
+  //We have to send the character design here.
+
+  let data = await fs.readFile(`./public/html/personnages.html`);
+  
+  res.status(200).send(data.toString());
+
+});
+
+app.get(`/departement`, async (req, res) => {
+
+    let data = await fs.readFile(`./public/html/departement.html`);
+
+    res.status(200).send(data.toString());
+
+});
 
 // close the database connection
 /*db.close((err) => {
