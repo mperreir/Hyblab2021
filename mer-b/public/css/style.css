@@ -572,6 +572,7 @@ div#goback {
 
 .imgCarte {
     background: #2196f3;
+    background-size: cover;
 }
 
 .cartePostale .texte {
@@ -603,8 +604,18 @@ div#goback {
     width: 12em;
     line-height: 1.7em;
     font-size: 14px;
+    display: inline-block;
 }
 
 .informations span {
     font-size: 14px;
+}
+
+.horaire {
+    display: inline-block;
+    width: 160px;
+    margin-left: 41px;
+    margin-top: 10em;
+    text-align: center;
+    vertical-align: top;
 }
