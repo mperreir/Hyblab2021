@@ -29,8 +29,7 @@ class App extends  React.Component {
     render() {
         return (
             <div>
-                <img src={logo} alt="Logo"  width="500"/>
-                <h1>Welcome to Hyblab</h1>
+
                 {this.getPage()}
             </div>
         );
