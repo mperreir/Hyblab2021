@@ -291,7 +291,7 @@ function affichageReset(){
       fetch(urlGet).then(function(response) {
         response.json().then(function(object) {
             if(object.status == 200){
-                updateSlideFin(object.criterion_not_met, object.output);
+                addPhotos(object.output, object.criterion_not_met);
             }
             else {
                 console.log(object);
@@ -299,4 +299,26 @@ function affichageReset(){
         });
       });
       
+  }
+
+  async function addPhotos(plages, criteres){
+    let index = 0;
+    for (let plage of plages){
+        await fetch('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=e47ea38ffdc94e3399c6f6d3fcd14587&per_page=1&lat=' + plage.latitude + '&lon=' + plage.longitude)
+        .then(response => response.text())
+        .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+        .then(data => {
+            console.log(data);
+            let photo = data.getElementsByTagName("photo")[0];
+            let serverId = photo.getAttribute("server");
+            let id = photo.getAttribute("id");
+            let secret = photo.getAttribute("secret");
+            plage.photo = "https://live.staticflickr.com/" + serverId+ "/" + id + "" + "_" + secret + "_w.jpg";
+        });
+
+        if(index == (plages.length - 1)){
+            updateSlideFin(plages, criteres);
+        }  
+        index ++;
+    }
   }

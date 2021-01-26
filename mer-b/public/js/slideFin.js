@@ -50,7 +50,7 @@ for(let card of cards){
   });
 }
 
-function updateSlideFin(criteres, plages){
+function updateSlideFin(plages, criteres){
   console.log(criteres);
   console.log(plages);
   let loading = document.getElementById("loading");
@@ -58,10 +58,15 @@ function updateSlideFin(criteres, plages){
   let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");
   plages.forEach((element, index) => {
 
+
     cartesPostalesList[index].style.display = "inline-block";
 
     let cartePostale = document.getElementById("cp" + (index + 1));
     console.log(cartePostale);
+
+    let imgPlage = cartePostale.querySelector(".imgCarte");
+    imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
+
     let nomPlage = cartePostale.querySelector(".nomPlage");
     element.nom = element.nom.replaceAll("_", " ");
     nomPlage.innerHTML = element.nom;

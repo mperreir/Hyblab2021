@@ -549,6 +549,10 @@ h2 {
     transform-style: preserve-3d;
 }
 
+.imgCarte {
+    background-size: cover;
+}
+
 .cartePostale.cp1 {
     transform: rotate(-11deg);
     margin-top: 49px;
