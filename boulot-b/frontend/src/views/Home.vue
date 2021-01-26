@@ -1,15 +1,15 @@
 <template>
   <div id="container">
-    <div id="canari"> </div>
+    <div id="canari"></div>
     <div id="launcher">
       <Input class="depart" placeholder="point de départ..." />
-      <Input  class="arrive" placeholder="point d'arrivée..." />
-      <ButtonCustom @click="launch" text="C'est partie !"  color="blue" />
+      <Input class="arrive" placeholder="point d'arrivée..." />
+      <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
 import Input from "../components/Input.vue";
@@ -20,18 +20,17 @@ export default Vue.extend({
   components: {
     Input,
     ChoixTypeDeplacement,
-    ButtonCustom
+    ButtonCustom,
   },
   methods: {
     launch() {
-      this.$router.push({name:"type-destination"})
-    }
-  }
+      this.$router.push({ name: "type-destination" });
+    },
+  },
 });
 </script>
 
 <style scoped>
-
 #container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -43,11 +42,13 @@ export default Vue.extend({
     ". launcher .";
 }
 
-#canari { grid-area: canari; }
+#canari {
+  grid-area: canari;
+}
 
-#launcher { grid-area: launcher; }
-
-
+#launcher {
+  grid-area: launcher;
+}
 
 #launcher {
   display: flex;
@@ -71,6 +72,4 @@ export default Vue.extend({
   flex: 0 1 auto;
   align-self: auto;
 }
-
-
 </style>

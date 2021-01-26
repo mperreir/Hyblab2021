@@ -2,7 +2,7 @@
 
 Porteur de projet : 
 
-Sujet : Boulot B
+Sujet : Service d'aide au trajet Domicile - Boulot
 
 Nom d'équipe : Wazo
 

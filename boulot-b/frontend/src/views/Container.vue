@@ -32,7 +32,7 @@ export default {
   grid-template-areas:
     "wazo . canari"
     ". question canari"
-    "stepper . .";
+    "stepper stepper stepper";
 
 }
 

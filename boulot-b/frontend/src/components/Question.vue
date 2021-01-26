@@ -1,27 +1,26 @@
 <template>
   <div id="allQuestion">
-    <p id="question"> {{ question }} </p>
+    <p id="question">{{ question }}</p>
     <div id="answers">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
-import Answer from "../components/Answer.vue"
+import Answer from "../components/Answer.vue";
 
 export default Vue.component("question", {
   name: "question",
   props: ["question"],
   components: {
-    Answer
-  }
+    Answer,
+  },
 });
 </script>
 
 <style scoped>
-
 #answers {
   display: flex;
   flex-direction: column;
@@ -31,20 +30,20 @@ export default Vue.component("question", {
   align-items: center;
 }
 
-  #allQuestion {
-    display: block;
-    position: absolute;
-    width: 30%;
-    top: 30%;
-    left: 30%;
-  }
+#allQuestion {
+  display: block;
+  position: absolute;
+  width: 30%;
+  top: 30%;
+  left: 30%;
+}
 
-  #question {
-    display: block;
-    color: white;
-    position: relative;
+#question {
+  display: block;
+  color: white;
+  position: relative;
 
-    text-align: center;
-    font-weight: bold;
-  }
+  text-align: center;
+  font-weight: bold;
+}
 </style>
