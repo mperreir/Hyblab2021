@@ -66,12 +66,16 @@ button{
     position: absolute;
     width: 20%;
     height: 10%;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+    left: 40%;
+    top: 80%;
     z-index: 2;
     border: 0.3em solid #ffe9de;
+}
+
+.button-suivant:hover{
+    color: #FFCDB6;
+    background-color: #45396D;
+    border: 0.2em solid #aba3ca;
 }
 
 /*default page */
