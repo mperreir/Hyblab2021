@@ -34,14 +34,14 @@
 ## Comment lancer le projet
 
 Il faut d'abord télécharger le projet par clonage ou par ZIP.<br/>
-Il vous ait nécessaire d'avoir une version récente de NodeJS <code>12.X +</code> puis,
+Il vous est nécessaire d'avoir une version récente de NodeJS <code>12.X +</code> puis,
 en passant par la racine, tapez :<br/>
 
     npm install
     npm start
 
 ou bien en passant par le dossier 'mer-a', décommentez la ligne <code>// app.listen(8080);</code><br/>
-et commentez <code>module.exports = app;</code> à la fin du ficher 'server.js' puis, tapez les commandes :<br/>
+et commentez <code>module.exports = app;</code> à la fin du ficher 'server.js' puis, tapez les commandes suivantes:<br/>
 
     npm install
     npm start
