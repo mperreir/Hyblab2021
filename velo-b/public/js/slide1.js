@@ -5,8 +5,8 @@ let initSlide1 = function(){
         targets: '#logo-hyblab',
         scale: 0
       });
-    mySlidr.slide('choix-transport-4');
-    initSlide3();
+    mySlidr.slide('choix-transport-1');
+    initSlideChoixVoiture();
   });
 
   d3.select('#logo-hyblab').on('mouseover', function(){

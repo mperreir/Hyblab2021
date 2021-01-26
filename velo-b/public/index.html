@@ -12,7 +12,10 @@
   <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
   <script src="js/slide1.js" defer></script>
   <script src="js/slide2.js" defer></script>
-  <script src="js/slide3.js" defer></script>
+  <script src="js/choixVoiture.js" defer></script>
+  <script src="js/choixVelo.js" defer></script>
+  <script src="js/choixBicloo.js" defer></script>
+  <script src="js/choixTransport.js" defer></script>
   <script src="js/index.js" defer></script>
 </head>
 <body>
@@ -36,6 +39,59 @@
             </section>
 
             <!--Sections des choix de transport dénomination : choix-transport-x -->
+            
+            <!--choix transport 4 : voitur -->
+
+            <section data-slidr="choix-transport-1">
+              <header>
+                <img src="assets/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
+              </header>
+              
+              <img src="assets/flecheD.svg" id="fleche-droite" alt="Fleche Droite"></img>
+              <img src="assets/flecheG.svg" id="fleche-gauche" alt="Fleche Gauche"></img>
+              <img src="assets/ok.svg" id="ok-button" alt="Bouton ok"></img>
+              <img src="assets/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+              <img src="assets/voiture.svg" id="voiture" alt="voiture"></img>
+
+              <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+              <footer></footer>
+          </section>
+            
+            
+            <!--choix transport 4 : velo -->
+
+            <section data-slidr="choix-transport-2">
+              <header>
+                <img src="assets/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
+              </header>
+              
+              <img src="assets/flecheD.svg" id="fleche-droite" alt="Fleche Droite"></img>
+              <img src="assets/flecheG.svg" id="fleche-gauche" alt="Fleche Gauche"></img>
+              <img src="assets/ok.svg" id="ok-button" alt="Bouton ok"></img>
+              <img src="assets/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+              <img src="assets/velo.svg" id="velo" alt="Vélo"></img>
+            
+
+              <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+              <footer></footer>
+          </section>
+
+            <!--choix transport 4 : bicloo -->
+
+            <section data-slidr="choix-transport-3">
+              <header>
+                <img src="assets/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
+              </header>
+              
+              <img src="assets/flecheD.svg" id="fleche-droite" alt="Fleche Droite"></img>
+              <img src="assets/flecheG.svg" id="fleche-gauche" alt="Fleche Gauche"></img>
+              <img src="assets/ok.svg" id="ok-button" alt="Bouton ok"></img>
+              <img src="assets/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
+              <img src="assets/bicloo.svg" id="bicloo" alt="bicloo"></img>
+
+              <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+              <footer></footer>
+          </section>
             <!--choix transport 4 : transport en commun -->
 
             <section data-slidr="choix-transport-4">
@@ -47,7 +103,9 @@
               <img src="assets/flecheG.svg" id="fleche-gauche" alt="Fleche Gauche"></img>
               <img src="assets/ok.svg" id="ok-button" alt="Bouton ok"></img>
               <img src="assets/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-              <img src="assets/transportCommun1.svg" id="transport-4" alt="le Bus"></img>
+              <img src="assets/transportCommun1.svg" class="transport-4" id="transport-1" alt="Bateau"></img>
+              <img src="assets/transportCommun2.svg" class="transport-4" id="transport-2" alt="Tram"></img>
+              <img src="assets/transportCommun3.svg" class="transport-4" id="transport-3" alt="Bus"></img>
 
               <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
               <footer></footer>
