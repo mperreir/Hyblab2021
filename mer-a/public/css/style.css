@@ -1,122 +1,84 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Segoe UI", sans-serif;
-  background: url(../assets/img/decor1/DECOR_1.png) no-repeat;
-  background-size: cover;
-  height: 100vh;
+  font-size: 18px;
 }
 
-div#container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+div#scene {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-div#container img.object {
-  position: absolute;
-  width: 100%
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: contain;
-}
-
-img#vague1 {
+/*img#vague1 {
   animation: waveDown 4s ease-in-out infinite;
-  z-index: 8;
 }
 
 img#vague2 {
   animation: waveUp 6s ease-in-out infinite;
-  z-index: 7;
 }
 
 img#vague3 {
   animation: waveDown 7s ease-in-out infinite;
-  z-index: 6;
 }
 
 img#vague4 {
   animation: waveUp 5s ease-in-out infinite;
-  z-index: 5;
 }
 
 img#vague5 {
   animation: waveDown 4s ease-in-out infinite;
-  z-index: 4;
 }
 
 img#vague6 {
   animation: waveUp 6s ease-in-out infinite;
-  z-index: 3;
 }
 
 img#vague7 {
   animation: waveDown 4s ease-in-out infinite;
-  z-index: 2;
-}
-
-img#plan1 {
-  z-index: 9;
-}
-
-img#plan2 {
-  z-index: 9;
-}
-
-img#plan4 {
-  z-index: 1;
 }
 
 @keyframes waveDown {
   0%   {
     top: 0px;
-    transform: scale(1.01);
   }
 
   50%  {
     top: 25px;
-    transform: scale(1);
   }
 
   100% {
     top: 0px;
-    transform: scale(1.01);
   }
 }
 
 @keyframes waveUp {
   0%   {
     top: 25px;
-    transform: scale(1);
   }
   50%  {
     top: 0px;
-    transform: scale(1.01);
   }
   100% {
     top: 25px;
-    transform: scale(1);
   }
-}
+}*/
 
-section#accueil {
+div#content {
+  position: absolute;
+  width: 43.75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-section#accueil h4 {
+div#content h4 {
   font-weight: bold;
   color: #FFF;
   font-family: "Helvetica";
@@ -124,22 +86,19 @@ section#accueil h4 {
   z-index: 10;
 }
 
-section#accueil img#logo {
+div#content img#logo {
   width: 50%;
   height: auto;
-  z-index: 10;
   margin-bottom: 2.5%;
 }
 
-section#accueil p {
-  width: 43.75%;
+div#content p {
   color: #FFF; 
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  z-index: 10;
 }
 
-div#button {
+div#content div#button {
   margin: 0 auto;
   display: inline-block;
   position: relative;
@@ -151,13 +110,15 @@ div#button {
   border: none;
   text-align: center;
   transition: transform 1s ease-in-out;
-  z-index: 10;
   margin-top: 2.5%;
 }
 
-div#button:hover {
+div#content div#button:hover {
   background-color: #95ABE2;
   color: #FFF;
-  transform: scale(2);
   cursor: pointer;
+}
+
+img.bg {
+  filter: brightness(50%);
 }
