@@ -5,21 +5,38 @@
     <meta charset="utf-8">
     <title>Nantes à vue de nez</title>
     <link rel="stylesheet" href="css/style.css">
-    <!--<script src="bootstrap/js/bootstrap.js"></script>-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
     <script src="js/index.js" defer></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
 </head>
 
 <body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
-        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <img src="img/logo.png" id="logo">
-            </section>
-        </main>
-    </div>
+        <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+        <div id="container">
+            <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
+            <main id = "slidr">
+                <section data-slidr="page-1" >
+                    <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">        
+                        <header class="masthead mb-auto"></header>
+
+                        <main role="main" class="inner cover">
+                            <img  src="img/logo.png" class="img-fluid " id="logo">
+                        </main>
+
+                        <footer class="mastfoot mt-auto"></footer>  
+                    </div>
+                </section>
+                
+                <section data-slidr="page-2" >
+                    <div class="blue-gradient">        
+                       
+                    </div>
+                </section>
+            </main>
+      </div>
 </body>
 </html>

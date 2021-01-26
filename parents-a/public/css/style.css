@@ -3,21 +3,37 @@
     padding:0;
     margin:0;
 }
+html, body
+{
+    height: 100%;
+}
 
 body{
     overflow: hidden;   /* pour slidr dans certains navigateurs */
 }
 
 #container{
-    position: relative; /* pour permettre le positionnement en absolu des autres éléments */
+    position: relative;
+    height: 100% ;
+    /* pour permettre le positionnement en absolu des autres éléments */
 }
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 #slidr, #slidr section{
+    height: 100%;
 
-    background: #171EB1;
-}
-
-section[data-slidr="page-1"] #logo{
 
 }
+
+#slidr section[data-slidr="page-1"]{
+    background-color: #171EB1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+section[data-slidr="page-2"] {
+    background: linear-gradient(0.25turn, #171EB1, #7f86a8, #afb4c7);    height: 100%;
+    width: 100%;
+}
+
