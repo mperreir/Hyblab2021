@@ -22,7 +22,7 @@ module.exports = () => {
     app.get('/amenagements-cyclables/:quartier', JsonRoute((req,res) => loadJSONFile('amenagements-cyclables.json')[req.params['quartier']]));
     app.get('/gonfleurs-libre-service/:quartier', JsonRoute((req,res) => loadJSONFile('gonfleurs-libre-service.json')[req.params['quartier']]));
     app.get('/stations-velos-libre-service/:quartier', JsonRoute((req,res) => loadJSONFile('stations-velos-libre-service.json')[req.params['quartier']]));
-    app.get('/tan-arrets/:quartier', JsonRoute((req,res) => loadJSONFile('tan-arrets.json')[req.params['quartier']]));
+    app.get('/arrets-tan/:quartier', JsonRoute((req,res) => loadJSONFile('arrets-tan.json')[req.params['quartier']]));
     app.get('/velocistes/:quartier', JsonRoute((req,res) => loadJSONFile('velocistes.json')[req.params['quartier']]));
     app.get('/services-velos-bicloo/', JsonRoute((req,res) => loadJSONFile('services-velos-bicloo.json')));
     
