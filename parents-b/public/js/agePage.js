@@ -1,3 +1,9 @@
+const BEBE = 2;
+const PETIT = 4.5;
+const MOYEN = 7.5;
+const GRAND = 10.5;
+
+
 let initAge = function(){
 
   //---------------FONCTIONS-----------------
@@ -26,23 +32,27 @@ let initAge = function(){
     if(valeurImage==0 ){
       document.getElementById("bb").hidden = false;
       document.getElementById("supp_bb").hidden = false;
+        addAge(BEBE);
     }
     if(valeurImage==1 || valeurImage==-1 ){
       document.getElementById("nounours").hidden = false;
       document.getElementById("supp_nounours").hidden = false;
+        addAge(PETIT);
     }
     if(valeurImage==2 || valeurImage==-2 ){
       document.getElementById("lego").hidden = false;
       document.getElementById("supp_lego").hidden = false;
+      addAge(MOYEN);
     }
     if(valeurImage==3 || valeurImage==-3 ){
       document.getElementById("ballon").hidden = false;
       document.getElementById("supp_ballon").hidden = false;
+      addAge(GRAND);
     }
   }
 
-    let cpt = 0;  
-    
+    let cpt = 0;
+
 
     //---------------DES L'OUVERTURE-----------------
     var x = document.getElementById("image_age");
@@ -82,7 +92,7 @@ let initAge = function(){
         var x = document.getElementById("fleche_gauche");
         x.setAttribute("src", "././img/age/flecheG.svg");
     });
-      
+
 
     d3.select(".fleche_droite").on("click",  function (){
       cpt =cpt+1;
@@ -107,26 +117,30 @@ let initAge = function(){
     d3.select(".supp_bb").on("click",  function (){
       document.getElementById("bb").hidden = true;
       document.getElementById("supp_bb").hidden = true;
+      removeAge(BEBE);
     });
 
     d3.select(".supp_nounours").on("click",  function (){
       document.getElementById("nounours").hidden = true;
       document.getElementById("supp_nounours").hidden = true;
+      removeAge(PETIT);
     });
 
     d3.select(".supp_lego").on("click",  function (){
       document.getElementById("lego").hidden = true;
       document.getElementById("supp_lego").hidden = true;
+      removeAge(MOYEN);
     });
 
     d3.select(".supp_ballon").on("click",  function (){
       document.getElementById("ballon").hidden = true;
       document.getElementById("supp_ballon").hidden = true;
+      removeAge(GRAND);
     });
 
 
     //----------ANIMATIONS---------------
-    //Premier robot 
+    //Premier robot
     anime({
         targets: '.age_yeux_cache',
         translateY: '3000%',
@@ -135,14 +149,14 @@ let initAge = function(){
         direction: 'alternate',
         loop: false
       });
-    
+
     anime({
         targets: '.age_yeux_cache2',
         translateY: '3000%',
         delay : 4280,
         opacity: 0,
     });
-    
+
     //Deuxieme robot
     anime({
       targets: '#age_arrive',

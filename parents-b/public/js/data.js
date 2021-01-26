@@ -32,7 +32,7 @@ let myCriteria = {
     "Activités organisées": null,
     "Élément de culture": null,
     "Horaires d'ouverture": null,
-    "Âge": null
+    "Âge": []
 };
 
 let nbElemChoisit = 0;
@@ -57,6 +57,18 @@ function choiceUpdate(string, currentValue) {
             return stringToBoolean(string);
         }
     }
+}
+
+function addAge(newAge) {
+    myCriteria["Âge"].push(newAge);
+    console.log("AGE +");
+    console.log(myCriteria["Âge"]);
+}
+
+function removeAge(rmAge) {
+    myCriteria["Âge"].splice(myCriteria["Âge"].indexOf(rmAge), 1)
+    console.log("AGE -");
+    console.log(myCriteria["Âge"]);
 }
 
 function distAttribute(event) {
@@ -283,6 +295,28 @@ function fetchData() {
                             if (value.valid) {
                                 line["nbElemCorrect"]++;
                                 line["listElemMatch"].push(key);
+                            }
+                            break;
+                        case "Âge":
+                            const length = myCriteria["Âge"].length;
+                            if (value && length > 0) {
+                                let add = false;
+                                myCriteria["Âge"].forEach(age => {
+                                    const ages = line["Âge"].split('-');
+                                    const minAge = parseInt(ages[0]);
+                                    const maxAge = parseInt(ages[1]);
+                                    if (minAge <= age && age <= maxAge) {
+                                        line["nbElemCorrect"] = line["nbElemCorrect"] + 1/length;
+                                        add = true;
+                                    } else {
+                                        if (age > maxAge) {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (age-maxAge)/maxAge).toFixed(2)/length;
+                                        } else {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (minAge-age)/minAge).toFixed(2)/length;
+                                        }
+                                    }
+                                });
+                                if (add) line["listElemMatch"].push(key);
                             }
                             break;
                         default:
