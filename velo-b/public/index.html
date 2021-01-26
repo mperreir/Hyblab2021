@@ -8,25 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
 
-
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="js/tailwind.config.js" defer></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-    <script
-        src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
 
     <script src="js/button-behaviour.js" defer></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
+    <script src="js/carte.js" defer></script>
     <script src="js/choixVoiture.js" defer></script>
     <script src="js/choixVelo.js" defer></script>
     <script src="js/choixBicloo.js" defer></script>
     <script src="js/choixTransport.js" defer></script>
     <script src="js/index.js" defer></script>
-
 </head>
 
 <body>
@@ -34,13 +32,15 @@
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-            <section data-slidr="page-1">
+            <section data-slidr="page-accueil">
+                <img class="w-screen" src="assets/homepage.svg"/>
+                <img class="h-2/6" id="startButton" src="assets/startButton.svg"/>
+            </section>
 
-                <section data-slidr="page-acceuil">
-                    <img class="w-screen" src="assets/homepage.svg"></img>
-                    <img class="h-2/6" id="startButton" src="assets/startButton.svg"></img>
-                </section>
-                
+            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
+                <img src="assets/carte-title.svg"/>
+                <div id="carte" class="w-11/12"></div>
+                <img src="assets/logo.svg"/>
             </section>
 
             <!--Sections des choix de transport dénomination : choix-transport-x -->
@@ -145,8 +145,16 @@
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
                 </footer>
+            <section data-slidr="page-accueil">
+                <img class="w-screen" src="assets/homepage.svg"/>
+                <img class="h-2/6" id="startButton" src="assets/startButton.svg"/>
             </section>
 
+            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
+                <img src="assets/carte-title.svg"/>
+                <div id="carte" class="w-11/12"></div>
+                <img src="assets/logo.svg"/>
+            </section>
 
             <section data-slidr="page-2">
                 <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
@@ -163,8 +171,7 @@
                         <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg"
                                     alt="Université de Nantes"></a></li>
                         <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png"
-                                    alt="Polytech Nantes"></a>
-                        </li>
+                                    alt="Polytech Nantes"></a></li>
                         <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg"
                                     alt="SciencesCom"></a>
                         </li>

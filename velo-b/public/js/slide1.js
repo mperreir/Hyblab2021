@@ -1,13 +1,13 @@
 let initSlide1 = function () {
 
-  d3.select('#startButton').on('click', function () {
-      anime({
-          targets: '#startButton',
-          scale: 0
-      });
-      mySlidr.slide('choix-transport-1');
-      initSlideChoixVoiture();
-  });
+    d3.select('#startButton').on('click', function () {
+        anime({
+            targets: '#startButton',
+            scale: 0
+        });
+        mySlidr.slide('page-carte');
+        initCarte();
+    });
 
   d3.select('#startButton').on('mouseover', function () {
       anime({

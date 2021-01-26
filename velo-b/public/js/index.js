@@ -14,7 +14,4 @@ let mySlidr = slidr.create('slidr', {
 }).start();
 
 initButtons();
-
-// on s'occupe de la 1ère slide
 initSlide1();
-
