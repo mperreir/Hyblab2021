@@ -258,7 +258,7 @@ function affichageReset(){
   }
 
   function getPlages(){
-      let urlGet = 'http://localhost:8080/mer-b/api/plage/';
+      let urlGet = window.location.href + 'api/plage/';
       if(affichage.longitude){
           urlGet += 'longitude=' + affichage.longitude + "&";
       }
