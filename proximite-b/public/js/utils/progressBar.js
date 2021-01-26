@@ -40,23 +40,23 @@ var ProgressBar = {
         var b1 = $('<div>');
         b1.attr('class', 'progress-bar bar-T1')
             .attr('role', 'progressbar')
-            .css("width", '50%')
+            .css("width", (S1 / (Somme)) * 100 + '%')
             .attr('aria-valuemin', '0')
-            .attr('aria-valuemax', '100')
+            .attr('aria-valuenow', S1)
+            .attr('aria-valuemax', Somme)
             .text("adresse1");
 
         var b2 = $('<div>');
         b2.attr('class', 'progress-bar bar-T2')
             .attr('role', 'progressbar')
-            .css("width", '50%')
+            .css("width", (S2 / (Somme)) * 100 + '%')
             .attr('aria-valuemin', '0')
-            .attr('aria-valuemax', '100')
+            .attr('aria-valuenow', S2)
+            .attr('aria-valuemax', Somme)
             .text("adresse2");;
 
         $(id).append(b1);
         $(id).append(b2);
-        b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
-        b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
         for (let index = 0; index < dataTimeLine1.length; index++) {
             var dataT1 = dataTimeLine1[index].data
             var dataT2 = dataTimeLine2[index].data
