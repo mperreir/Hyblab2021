@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import ChoixTypeDeplacement from "@/views/ChoixTypeDeplacement";
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -10,6 +11,11 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/choix-type-destination',
+    name: "type-destination",
+    component: ChoixTypeDeplacement
+  }
 ]
 
 const router = new VueRouter({

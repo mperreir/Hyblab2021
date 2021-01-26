@@ -1,27 +1,20 @@
 <template>
-  <component @switch-component="switchComponent" :is="component"></component>
+  <button @click="launch"> clique</button>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import PointDeDepart from "@/components/PointDeDepart.vue";
-import Question from "@/components/Question.vue";
+import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
 
 export default Vue.extend({
   name: "Home",
   components: {
-    PointDeDepart,
-    Question,
-  },
-  data() {
-    return {
-      component: "PointDeDepart",
-    };
+    ChoixTypeDeplacement
   },
   methods: {
-    switchComponent(component = "PointDeDepart") {
-      this.component = component;
-    },
-  },
+    launch() {
+      this.$router.push({name:"type-destination"})
+    }
+  }
 });
 </script>
