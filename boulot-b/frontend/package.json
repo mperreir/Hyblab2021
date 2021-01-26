@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "vue-cli-service serve ",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test:unit"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "lottie-web": "^5.7.6",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },

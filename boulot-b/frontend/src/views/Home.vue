@@ -2,20 +2,28 @@
   <component @switch-component="switchComponent" :is="component"></component>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
-import PointDeDepart from "@/components/PointDeDepart.vue";
-import Question from "@/components/Question.vue";
+
+import PointDeDepart from "../components/PointDeDepart";
+import Question from "../components/Question";
+import Oiseau from "../components/Oiseau";
+
 
 export default Vue.extend({
   name: "Home",
   components: {
     PointDeDepart,
+    
     Question,
+    Oiseau,
+
   },
   data() {
     return {
-      component: "PointDeDepart",
+      // component: "PointDeDepart",
+      component: "Oiseau",
+
     };
   },
   methods: {
@@ -24,4 +32,6 @@ export default Vue.extend({
     },
   },
 });
+
+
 </script>
