@@ -1,5 +1,6 @@
 
 /* Normalisation des marges et padding pour simplifier le positionnement des éléments */
+
 * {
     padding: 0;
     margin: 0;
@@ -7,10 +8,9 @@
 
 body {
     background-color: black;
-    /* overflow: hidden; pour slidr dans certains navigateurs */
-    width: 100%;
-    height: 100%;
-    margin-left: 5%;
+    overflow: hidden; /* pour slidr dans certains navigateurs */
+    height: 100vh;
+    width: 100vw;
 }
 
 #container {
@@ -33,6 +33,8 @@ body {
 
 .plan {
     position: absolute;
+    height: 100vh;
+    width: 100vw;
 }
 
 .plan#plan1{
@@ -52,6 +54,8 @@ body {
 
 .wave {
     position: absolute;
+    height: 100vh;
+    width: 100vw;
     margin-top: 4vh;
 }
 
@@ -96,20 +100,24 @@ body {
 @keyframes waveUp {
     0%, 100% {
       top: -4vh;
+      scale: 1.0;
     }
   
     50% {
       top: 0;
+      scale: 1.05;
     }
 }
 
 @keyframes waveDown {
     0%, 100% {
       top: 0;
+      scale: 1.05;
     }
   
     50% {
       top: -4vh;
+      scale: 1.0;
     }
 }
 
@@ -121,48 +129,9 @@ body {
 
 .choix-personnages {
     position: absolute;
-    align-self: center;
-    justify-self: center;
-    width: 80%;
-    margin: 5%;
+    width: 50vw;
+    margin: 25vh 25vw 0;
     z-index: 1;
-}
-
-
-/* Affichage des boutons pour choisir le personnage */
-
-.boutons {
-    position: relative;
-    display: flex;
-    justify-items: center;
-    justify-content: space-between;
-    margin: -10% auto 5%; /* marges haut, droite/gauche, bas */
-}
-
-.btn {
-    margin: 3%;
-    background-color: transparent;
-    border-width: 0;
-}
-
-.btn-marin:hover .cat-marin {
-    transition: all 0.5s;
-    opacity: 1;
-}
-
-.btn-creature:hover .cat-creature {
-    transition: all 0.5s;
-    opacity: 1;
-}
-
-.btn-korrigan:hover .cat-korrigan {
-    transition: all 0.5s;
-    opacity: 1;
-}
-
-.btn-religieux:hover .cat-religieux {
-    transition: all 0.5s;
-    opacity: 1;
 }
 
 
@@ -171,21 +140,85 @@ body {
 .personnages {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.choix {
+    border-width: 0;
+    text-decoration: none;
 }
 
 .perso {
-	-webkit-filter: grayscale(100%); /* Filtre gris sur les personnages non survolés */
-	filter: grayscale(100%);
-	-webkit-transition: .2s ease-in-out;
-	transition: .2s ease-in-out;
+    height: 55vh;
+    width: 16vw;
+    transition: 0.2s ease-in-out;
 }
+
+
+ /* Gestion des effets sur les personnages */
 
 .perso:hover {
     transform: scale(1.1);
-	-webkit-filter: grayscale(0);
-	filter: grayscale(0);
+}
+
+.perso#creature {
+    margin-top: 8vh;
+    margin-right: -5vw;
+    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png");
+    background-repeat: no-repeat;
+    background-position: top 32% left 36.5%;
+    background-size: 510%;
+}
+
+.perso#creature:hover {
+    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques_hover.png");
+}
+
+.perso#marin {
+    margin-left: -1vw;
+    background-image: url("../assets/img/personnages/image_Histoires_Maritimes.png");
+    background-repeat: no-repeat;
+    background-position: top 31% left 52%;
+    background-size: 600%;
+}
+
+.perso#marin:hover {
+    background-image: url("../assets/img/personnages/image_Histoires_Maritimes_hover.png");
+}
+
+.perso#religieux {
+    margin-top: 8vh;
+    margin-left: -6vw;
+    background-image: url("../assets/img/personnages/image_Croyances_Religion.png.png");
+    background-repeat: no-repeat;
+    background-position: top 39% left 63%;
+    background-size: 560%;
+}
+
+.perso#religieux:hover {
+    background-image: url("../assets/img/personnages/image_Croyances_Religion_hover.png");
+}
+
+
+/* Affichage du type de légende selon le personnage survolé */
+
+.zone-creature {
+    z-index: 0; /* on place les créatures par-dessus le marin */
+}
+
+.zone-creature:hover .cat-creature {
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+.zone-marin:hover .cat-marin {
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+.zone-religieux:hover .cat-religieux {
+    transition: all 0.3s;
+    opacity: 1;
 }
 
 
@@ -193,18 +226,42 @@ body {
 
 .categorie {
     position: relative;
-    background-color: white;
-    margin: 5vh auto 0;
-    height: 10vh;
-    width: 22vh;
-    display: flex;
-    justify-content: center;
+    width: 18vw;
+    opacity: 0;
+}
 
+.cat-creature {
+    top: -2vh;
+    right: 8vw;
+}
+
+.cat-marin {
+    top: -14vh;
+    left: 1vw;
+}
+
+.cat-religieux {
+    top: 6vh;
+    left: 4vw;
+}
+
+
+
+/* Mise en forme des textes de leur arrière-plan */
+
+.texte {
+    /* aspect du texte */
+    text-align: center;
     font-size: 1.5vw;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Helvetica;
     color: black;
 
-    opacity: 0;
+    /* aspect de l'arrière-plan */
+    margin: -8vh;
+    padding: 2%;
+    background-color: white;
+    border-radius: 8%;
+    border: solid;
 }
 
 
@@ -212,17 +269,6 @@ body {
 
 .indication {
     position: relative;
-    text-align: center;
-    font-size: 1.5vw;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
-
-    background-color: white;
-    margin: 8% auto;
-
-    padding: 10px;
-
-    width: 28vw;
-    border-radius: 8%;
-    border: solid;
+    width: 26vw;
+    margin: 6vh auto 0;
 }
