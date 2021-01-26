@@ -18,3 +18,9 @@ html, body {
     background-color: white;
     height: 100%;
 }
+
+.mapboxgl-ctrl-directions{
+    width: 95%!important;
+    min-width: 0!important;
+
+}
