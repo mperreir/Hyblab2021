@@ -7,29 +7,56 @@ module.exports = {
         return data.filter(p => p.Type === 'Parc');
     },
 
-    getParcWithAnimals: () => {
-        return data.filter(p => p.Animmaux !== null);
+    // getParcWithAnimals: () => {
+    //     return data.filter(p => p.Animmaux !== null);
+    // },
+
+    // getParcWithInsaneTrees() {
+    //     return data.filter(p => p['Nb arbre formidable'] > 0);
+    // },
+
+    // getParcPourEnfantAventurier() {
+    //     return data.filter(p => p['Animaux'] !== null || p['Nb arbre'] > 100 || p['Nb plantes'] !== null);
+    // },
+
+    // getParcGrandPeriple() {
+    //     return this.getParcPourEnfantAventurier().filter(p => p['Nb arbre formidable'] > 0 || p['Jeux pour enfants'] === 'OUI');
+    // },
+
+    // getParcCalme() {
+    //     let moyenne = 0;
+    //     data.forEach(p => {
+    //         moyenne += p['Nb arbre'];
+    //     });
+    //     moyenne /= data.length;
+    //     return this.getParcGrandPeriple().filter(p => p['Nb arbre'] > moyenne);
+    // }
+
+    getParcAventurier() {
+        return data.filter(p => p['Nb arbre'] > 30 || p['Nb plantes'] !== null || p['Animaux'] !== null)
     },
 
-    getParcWithInsaneTrees() {
-        return data.filter(p => p['Nb arbre formidable'] > 0);
+    getParcNonAventurier() {
+        return data.filter(p => p['Nb plantes'] !== null || p['Indice de Shanon arbres'] > 1)
     },
 
-    getParcPourEnfantAventurier() {
-        return data.filter(p => p['Animaux'] !== null || p['Nb arbre'] > 100 || p['Nb plantes'] !== null);
+    getParcPleinLaVue(data) {
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null)
     },
 
-    getParcGrandPeriple() {
-        return this.getParcPourEnfantAventurier().filter(p => p['Nb arbre formidable'] > 0 || p['Jeux pour enfants'] === 'OUI');
+    getParcNonPleinLaVue(data) {
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null)
     },
 
-    getParcCalme() {
-        let moyenne = 0;
-        data.forEach(p => {
-            moyenne += p['Nb arbre'];
-        });
-        moyenne /= data.length;
-        return this.getParcGrandPeriple().filter(p => p['Nb arbre'] > moyenne);
-    }
+    getParcBeauDecor(data) {
+        return data.filter(p => p['Element visuel atypique'])
+    }, 
 
+    getParcBeauPaysage(data) {
+        return data.filter(p => p['Indice de Shanon arbres'] > 2)
+    },
+
+    getParcAvecAnimaux(data) {
+        return data.filter(p => p['Animaux'] !== null)
+    },
 }
