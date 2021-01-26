@@ -9,8 +9,8 @@ module.exports = () => {
     // création d'une app express
     const app = express();
     
-    // exemple de route
-    //app.get('/example/', JsonRoute((req, res) => SQL(`select * from Example;`)));
+    // routes
+    app.get('/abris-velos/:quartier', JsonRoute((req,res) => loadJsonFile('abris-velo-nantes-metropole.json')[req.params['quartier']]));
     
     // utilitaire pour créer une route qui envoie du json
     function JsonRoute(callback) {
