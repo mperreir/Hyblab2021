@@ -10,7 +10,7 @@ div#adresses_content {
 #adresse1 {
     position: absolute;
     top: 50%;
-    left: 41%;
+    left: 37%;
     background-image: url('/proximite-b/img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
@@ -21,13 +21,13 @@ div#adresses_content {
 #adresses1 {
     position: absolute;
     top: 55%;
-    left: 41%;
+    left: 37%;
 }
 
 #adresse2 {
     position: absolute;
     top: 60%;
-    left: 41%;
+    left: 37%;
     background-image: url('/proximite-b/img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
@@ -38,7 +38,7 @@ div#adresses_content {
 #adresses2 {
     position: absolute;
     top: 65%;
-    left: 41%;
+    left: 37%;
 }
 
 #go_bouton {
