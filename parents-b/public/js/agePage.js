@@ -61,8 +61,8 @@ let initAge = function(){
 
     //---------------BOUTTONS-----------------
     //Bouton suivant
-    d3.select(".button-next-age").on("click", function (){
-        mySlidr.slide("access-page");
+    d3.select('.button-next-age').on('click', function (){
+        mySlidr.slide('right');
         initAccess();
     });
 

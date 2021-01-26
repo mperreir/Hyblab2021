@@ -5,19 +5,21 @@ let initAddress = function(){
         if(addressInput.value == null || addressInput.value === ''){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
-            mySlidr.slide("age-page");
+            mySlidr.slide('right');
             initAge();
         }
     });
 
     d3.select(".button-next-address-from-nevermind").on("click", function (){
-        mySlidr.slide("age-page");
+        mySlidr.slide('right');
         initAge();
     });
 };
 
+
+
 new AddressAutocomplete('#address1', function (result) {
-    console.log(result);
+    geoAttribute(result.coordinates.lat, result.coordinates.lng);
 });
 
 const geoFindMe = async () => {
@@ -30,6 +32,7 @@ const geoFindMe = async () => {
     async function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
+        geoAttribute(latitude, longitude);
 
         const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&result_type=street_address&key='+GOOGLE_API_KEY);
         const address = await response.json();
@@ -56,6 +59,6 @@ const geoFindMe = async () => {
         navigator.geolocation.getCurrentPosition(success, error);
     }
 
-}
+};
 
 document.querySelector('#localization-button').addEventListener('click', geoFindMe);
