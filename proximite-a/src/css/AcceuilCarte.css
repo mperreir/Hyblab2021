@@ -39,7 +39,18 @@
     width: 100%;
 }
 
+.titlePhase2Section{
+    font-weight: bold;
+    color: #8356db;
+}
+
 #containerInterractionLogo{
+    width: 130px;
+    position: relative;
+    bottom: 20px;
+    right: 60px;
+}
+#containerInterractionLogoPersonnage{
     width: 130px;
 }
 
@@ -76,9 +87,55 @@ h5{
     background-color: #8356db;
 }
 
-/*@media screen and (max-width: 1280px)
-{
-    #containerInterraction{
-        flex-direction: row;
-    }
-}*/
+/*Phase 2*/
+#containerInterraction2{
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    background-color: white;
+    padding: 20px;
+    z-index: 2;
+    border-radius: 30px;
+}
+
+.phase2Top{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+hr{
+    background-color: mediumpurple;
+}
+.phase2TopLeft{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sectionReduire{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.imgPictogram{
+    width: 50px !important;
+    height: 50px !important;
+    padding: 3px;
+    border-radius: 100%;
+}
+#containerPictograms{
+    height: 200px;
+    overflow-y: scroll;
+    scrollbar-color: #8356db rgba(131, 86, 219, 0.09);
+    scrollbar-width: thin;
+}
+
+input[type=radio]:checked + label>img {
+    box-shadow: 0 0 3px 3px #8356db;
+}
+input[type=radio] + label>img {
+    width: 150px;
+    height: 150px;
+    transition: 500ms all;
+}

@@ -1,17 +1,18 @@
 import React from 'react';
 import '../css/AcceuilCarte.css'
 import logo from '../img/LOGO OK_logo principal.png'
-import personnage from '../img/Perso-hyblab-03.png'
+
 
 class CarteInterractionChoixLieu extends  React.Component {
 
     render() {
+        const {onNextPhase} = this.props;
         return (
             <div id="containerInterraction" class="container">
                 <div class="row">
                     <div id="containerInterractionLeftSection" class="col-xl-4">
                         <div id="containerInterractionLeftUpperSection">
-                            <img src={logo} id="containerInterractionLogo"/>
+
                         </div>
                         <img src={personnage} className="mt-4" width={200}/>
                         <div id="textInterractionIntro">Voyons ce qu’il y a autour de toi ! Voici des lieux qui pourraient t’intéresser. Le(s)quel(s) as-tu envie de visiter ?</div>
@@ -57,7 +58,7 @@ class CarteInterractionChoixLieu extends  React.Component {
                                 </div>
                             </div>
                         </div>
-                            <input type='button' width="50" class="btn btnPurple" value="Valider"/>
+                            <input type='button' width="50" class="btn btnPurple" value="Valider" onClick={onNextPhase}/>
                     </div>
                 </div>
             </div>
