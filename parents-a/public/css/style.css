@@ -3,21 +3,38 @@
     padding:0;
     margin:0;
 }
+html, body
+{
+    height: 100%;
+}
 
 body{
     overflow: hidden;   /* pour slidr dans certains navigateurs */
 }
 
 #container{
-    position: relative; /* pour permettre le positionnement en absolu des autres éléments */
+    position: relative;
+    height: 100% ;
+    /* pour permettre le positionnement en absolu des autres éléments */
 }
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 #slidr, #slidr section{
+    height: 100%;
 
-    background: #171EB1;
+
+}
+
+#slidr section[data-slidr="page-1"]{
+    background-color: #171EB1;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+
+    
 }
 
 section[data-slidr="page-1"] #logo{
-
+    vertical-align: middle;
 }
+
