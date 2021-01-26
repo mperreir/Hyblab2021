@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <component @switch-component="switchComponent" :is="component"></component>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts">
+import Vue from "vue";
+import PointDeDepart from "@/components/PointDeDepart.vue";
+import Question from "@/components/Question.vue";
 
-export default {
-  name: 'Home',
+export default Vue.extend({
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    PointDeDepart,
+    Question,
+  },
+  data() {
+    return {
+      component: "PointDeDepart",
+    };
+  },
+  methods: {
+    switchComponent(component = "PointDeDepart") {
+      this.component = component;
+    },
+  },
+});
 </script>
