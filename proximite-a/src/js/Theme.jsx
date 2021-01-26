@@ -8,9 +8,11 @@ class Theme extends  React.Component {
         return (
             <div id="themeContainer" class="d-flex flex-column">
                 <img src={logo} width={100} class="mt-2 ml-5"></img>
-                <ThemeSelector onNextPage={onNextPage}/>
-                <input type='button' class="btnNavigation btn btn-primary" id='btnPrevious' value='←' onClick={onPreviousPage}/>
-                <input type='button' class="btnNavigation btn btn-primary" id='btnNext' value='→' onClick={onNextPage}/>
+                <div class="d-flex h-100 justify-content-between align-items-center">
+                    <input type='button' class="btnNavigation m-3 btn btn-primary" id='btnPrevious' value='←' onClick={onPreviousPage}/>
+                    <ThemeSelector onNextPage={onNextPage}/>
+                    <input type='button' class="btnNavigation m-3 btn btn-primary" id='btnNext' value='→' onClick={onNextPage}/>
+                </div>
             </div>
         );
     }

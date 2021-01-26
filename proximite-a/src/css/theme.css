@@ -3,14 +3,7 @@
 }
 
 .btnNavigation{
-    position: absolute;
-    top: 250px;
-}
-#btnPrevious{
-    left: 5px;
-}
-#btnNext{
-    right: 5px;
+    width: 50px;
 }
 
 .input-hidden {

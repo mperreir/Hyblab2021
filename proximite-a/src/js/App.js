@@ -8,7 +8,7 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        pageId:0
+        pageId:1
     };
 
     getPage = () =>{
