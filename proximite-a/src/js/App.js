@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../img/logo_hyblab.png'
 import Home from './Home'
 import Theme from './Theme';
 import Attributs from './Attributs';
