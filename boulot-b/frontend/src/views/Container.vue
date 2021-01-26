@@ -42,7 +42,7 @@ export default {
 }
 
 #canari {
-  align-self: center;
+  margin-top: 20px;
   grid-area: canari;
 }
 

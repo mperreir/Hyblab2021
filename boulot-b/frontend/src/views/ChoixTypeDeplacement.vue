@@ -7,7 +7,7 @@
       </Question>
     </template>
     <template #canari>
-      canari
+      <Oiseau/>
     </template>
     <template #stepper>
       <Stepper actif="1" />
@@ -20,6 +20,7 @@ import Container from "@/views/Container"
 import Question from "@/components/Question";
 import ButtonCustom from "@/components/ButtonCustom";
 import Stepper from "@/components/Stepper";
+import Oiseau from "@/components/Oiseau";
 
 export default {
   name: "ChoixTypeDeplacement",
@@ -32,7 +33,8 @@ export default {
     Question,
     Container,
     ButtonCustom,
-    Stepper
+    Stepper,
+    Oiseau
   }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div id="container">
-    <div id="canari"></div>
+    <div id="canari">
+      <Oiseau/>
+    </div>
     <div id="launcher">
       <Input class="depart" placeholder="point de départ..." />
       <Input class="arrive" placeholder="point d'arrivée..." />
@@ -14,6 +16,7 @@ import Vue from "vue";
 import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
 import Input from "../components/Input.vue";
 import ButtonCustom from "../components/ButtonCustom.vue";
+import Oiseau from "@/components/Oiseau";
 
 export default Vue.extend({
   name: "Home",
@@ -21,6 +24,7 @@ export default Vue.extend({
     Input,
     ChoixTypeDeplacement,
     ButtonCustom,
+    Oiseau
   },
   methods: {
     launch() {
