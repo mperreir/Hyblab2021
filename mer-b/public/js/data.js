@@ -258,7 +258,7 @@ function affichageReset(){
   }
 
   function getPlages(){
-      let urlGet = window.location.href;
+      let urlGet = window.location.href + 'api/plage/';
       if(affichage.longitude){
           urlGet += 'longitude=' + affichage.longitude + "&";
       }
