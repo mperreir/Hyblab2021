@@ -29,12 +29,10 @@ body{
     background-color: #171EB1;
     height: 100%;
     text-align: center;
-    vertical-align: middle;
 
     
 }
 
 section[data-slidr="page-1"] #logo{
-    vertical-align: middle;
 }
 
