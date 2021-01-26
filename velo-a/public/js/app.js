@@ -1,4 +1,5 @@
-import { abrisVeloDisplayData } from "./abrisVelo.js";
+import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
+import { getStationsVelos } from "./modules/stationsVelos.mjs";
 
 async function bootstrap() {
 
@@ -35,16 +36,31 @@ async function bootstrap() {
             trackUserLocation: true
         })
     )
-    // add abris velo to the map
-    abrisVeloDisplayData(mapboxgl, map);
+
+    function points(data, url) {
+
+        data.forEach((d) => {
+            const el = document.createElement("div");
+            el.className = "marker";
+            el.style.backgroundImage = `url(${url})`;
+
+            new mapboxgl.Marker(el)
+                .setLngLat([d.longitude, d.latitude])
+                .setPopup(new mapboxgl.Popup().setHTML(d.text))
+                .addTo(map);
+        });
+    }
+
+    abrisVeloDisplayData().then(data => {
+        points(data, "https://svgshare.com/i/TVr.svg");
+    });
+
+    getStationsVelos().then(data => {
+        points(data, "https://svgshare.com/i/TUq.svg");
+    });
 }
 
 bootstrap();
-
-import('./modules/stationsVelos.mjs')
-    .then((module) => {
-        module.getAbrisVelos();
-    });
 
 document.getElementById("input-meteo").onclick = () => {
     document.location.href = "question.html?page=météo";

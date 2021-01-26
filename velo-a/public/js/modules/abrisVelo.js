@@ -1,6 +1,10 @@
-const STATIONS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_stations-velos-libre-service-nantes-metropole&q=&facet=commune&facet=descriptif";
+const ABRIS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_abris-velos-nantes-metropole&q=&rows=500&facet=commune&facet=conditions&facet=gestionnaire";
 
-const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
+/**
+ * Fetch "abris velo" of Nantes Metropole and return them
+ * @return {Promise<any>} - Abris velo
+ */
+const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
     .then(response => {
         return response.json();
     })
@@ -9,8 +13,13 @@ const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
         return undefined;
     });
 
-export async function getStationsVelos(){
-    const data = await stationsVeloFetchData();
+/**
+ * Display "abris velo" of Nantes Metropole on the map
+ * @param {Object} mapboxgl - The Mapbox Map
+ * @param {Map} map - The Mapbox Map
+ */
+export async function abrisVeloDisplayData() {
+    const data = await abrisVeloFetchData();
 
     if (!data || !data.records || !data.records.length) return;
 
@@ -30,8 +39,8 @@ export async function getStationsVelos(){
             </div>`;
 
         const marker = {
-            longitude: record.fields.geo_shape.coordinates[0],
-            latitude: record.fields.geo_shape.coordinates[1],
+            longitude: record.fields.location[1],
+            latitude: record.fields.location[0],
             text: html
         }
 
@@ -39,5 +48,5 @@ export async function getStationsVelos(){
     });
 
     return markers;
-}
 
+}
