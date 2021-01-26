@@ -1,5 +1,5 @@
 div#index_content_greeter {
-    background-image: url('/proximite-b/img/greeter/sans_la_bulle_jeune.svg');
+    background-image: url('');
     width: 100%;
     height: 100%;
     position: absolute;
@@ -20,7 +20,7 @@ div#index_content_greeter {
     top: 12%;
 }
 
-.bulle_etu{
+.bulle_persona{
     background-image: url('/proximite-b/img/greeter/Bulle_droite.svg');
     left: 17%
 }

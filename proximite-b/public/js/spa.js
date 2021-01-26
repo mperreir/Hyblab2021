@@ -21,7 +21,7 @@ const store_in_current_page = (data) => {
     _app_stores[_app_stores["all"]["current_page"]] = data;
 };
 
-const read_store = (name) => _app_store[name];
+const read_store = (name) => _app_stores[name];
 
 /*          fin des stores               */
 
@@ -101,7 +101,9 @@ const go_to = (page, data, callback) => {
                     });
                 });
             }
-
+            else if (page === 'greeters'){
+                greeter_background();
+            }
             if (data && !callback && typeof data === 'function')
                 data();
             else if (data && callback && typeof callback === 'function')
