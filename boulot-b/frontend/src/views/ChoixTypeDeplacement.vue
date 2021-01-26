@@ -1,7 +1,7 @@
 <template>
   <Container>
-    <template #question>
-      <Question question="Ou es-tu ?" v-bind:answers="answers"/>
+    <template #question >
+      <Question question="Tu te déplace..." :answers="answers"/>
     </template>
     <template #canari>
       canari
@@ -19,7 +19,7 @@ export default {
   name: "ChoixTypeDeplacement",
   data() {
     return {
-      answers: ["oui","non"]
+      answers: ["A pied","A vélo"]
     }
   },
   components: {

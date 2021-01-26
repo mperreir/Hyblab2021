@@ -1,6 +1,5 @@
 <template>
   <div id="wrapper">
-    <img id="wazo" src="@/assets/wazo.png"/>
     <div id="question">
       <slot name="question" ></slot>
     </div>
@@ -22,7 +21,6 @@ export default {
 <style scoped>
 #wrapper {
   position:absolute;
-  background-color: #1e6aff;
   top:0;
   bottom:0;
   left:0;
@@ -50,10 +48,5 @@ export default {
 
 #stepper { grid-area: stepper; }
 
-#wazo {
-  margin: 10px;
-  width: 30%;
-  grid-area: wazo;
-}
 
 </style>
