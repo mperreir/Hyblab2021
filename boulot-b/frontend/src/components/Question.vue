@@ -1,16 +1,20 @@
 <template>
-  <div>michel</div>
+  <div>
+    <p> {{ question }} </p>
+    <answer v-bind:answers="answers"></answer>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({
+import Answer from "../components/Answer.vue"
+
+export default Vue.component("question", {
   name: "question",
-  methods: {
-    launch() {
-      this.$emit("switch-component");
-    },
-  },
+  props: ["question", "answers"],
+  components: {
+    Answer
+  }
 });
 </script>
 
