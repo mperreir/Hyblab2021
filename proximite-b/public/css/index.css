@@ -10,7 +10,7 @@ div#index_content {
 button#start_button {
     position: absolute;
     left: 14%;
-    top: 77%;
+    top: 65%;
     height: 6%;
     color: transparent;
     background-color: transparent;
@@ -22,4 +22,29 @@ button#start_button {
 
 img#index_logo {
     width: 10%;
+}
+
+div#index_text {
+    position: absolute;
+    top: 25%;
+    left: 14%;
+    width: 24em;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/proximite-b/fonts/Montserrat-Light.otf');
+}
+
+@font-face {
+    font-family: 'ArchitectDaughter';
+    src: url('/proximite-b/fonts/ArchitectsDaughter.ttf');
+}
+
+.font-architect {
+    font-family: ArchitectDaughter;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
 }
