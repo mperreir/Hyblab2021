@@ -7,7 +7,6 @@
 
 var dataTimeLine1 = [
     {
-        "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
         "data": [
             { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -16,17 +15,14 @@ var dataTimeLine1 = [
         ]
     },
     {
-        "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
         "data": null
     },
     {
-        "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
         "data": null
     },
     {
-        "img": "./img/timeline/market.svg",
         "categorie": "Supermache",
         "data": [
             { temps: 6, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -34,21 +30,18 @@ var dataTimeLine1 = [
         ]
     },
     {
-        "img": "./img/timeline/doctor.svg",
         "categorie": "Docteur",
         "data": [
             { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/bus.svg",
         "categorie": "Bus",
         "data": [
             { temps: 7, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/park.svg",
         "categorie": "Parc",
         "data": [
             { temps: 9, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -59,7 +52,6 @@ var dataTimeLine1 = [
 
 var dataTimeLine2 = [
     {
-        "img": "./img/timeline/boulangerie.svg",
         "categorie": "Boulangerie",
         "data": [
             { temps: 1, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -68,14 +60,12 @@ var dataTimeLine2 = [
         ]
     },
     {
-        "img": "./img/timeline/pharmacie.svg",
         "categorie": "Pharmacie",
         "data": [
             { temps: 8, nom: "Boulang2", adresse: "12 Rue XXXX XX XX" },
         ]
     },
     {
-        "img": "./img/timeline/ecole.svg",
         "categorie": "Ecole",
         "data": [
             { temps: 3, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -83,7 +73,6 @@ var dataTimeLine2 = [
         ]
     },
     {
-        "img": "./img/timeline/market.svg",
         "categorie": "Supermache",
         "data": [
             { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -91,21 +80,18 @@ var dataTimeLine2 = [
         ]
     },
     {
-        "img": "./img/timeline/doctor.svg",
         "categorie": "Docteur",
         "data": [
             { temps: 14, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/bus.svg",
         "categorie": "Bus",
         "data": [
             { temps: 11, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
         ]
     },
     {
-        "img": "./img/timeline/park.svg",
         "categorie": "Parc",
         "data": [
             { temps: 11, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
@@ -114,44 +100,8 @@ var dataTimeLine2 = [
 ];
 
 
-var tab = []
-for (const [key, value] of Object.entries(dataTimeLine1)) {
-    if (value.data) tab.push((value.data)[value.data.length - 1].temps)
 
-}
-for (const [key, value] of Object.entries(dataTimeLine2)) {
-    if (value.data) tab.push((value.data)[value.data.length - 1].temps)
-}
-max = Math.max(...tab)
-
-
-
-
-
-dataTimeLine1 = [{
-    "categorie": null,
-    "data": [
-        { temps: 0 },
-    ]
-}, {
-    "categorie": null,
-    "data": [
-        { temps: max },
-    ]
-}].concat(dataTimeLine1)
-
-dataTimeLine2 = [{
-    "categorie": null,
-    "data": [
-        { temps: 0 },
-    ]
-}, {
-    "categorie": null,
-    "data": [
-        { temps: max },
-    ]
-}].concat(dataTimeLine2)
-
+[dataTimeLine1,dataTimeLine2] = clean_data(dataTimeLine1,dataTimeLine2)
 
 
 
