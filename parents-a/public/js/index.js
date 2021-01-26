@@ -18,10 +18,18 @@ console.log("Index")
 // on s'occupe de la 1ère slide
 let initSlide1 = function() {
   d3.select('#logo').on('click', function(){
-      transition: 'linear';
       mySlidr.slide('page-2');
       initSlide2();
     });
 }
 
 initSlide1();
+
+let initSlide2 = function() {
+    setTimeout(suiteTraitement, 2000)
+    function suiteTraitement()
+    {
+        mySlidr.slide('page-1');
+        initSlide1();
+    }
+}
