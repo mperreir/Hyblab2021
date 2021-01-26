@@ -12,7 +12,7 @@ export default Vue.extend({
   name: "PointDeDepart",
   methods: {
     launch() {
-      this.$emit("switch-component", "Nav");
+      this.$emit("switch-component", "question");
     },
   },
 });

@@ -3,11 +3,11 @@
     <img @click="back_home" id="home" src="@/assets/home.svg" alt="home" title="Home"/>
 
     <ul class="progressbar">
-        <li class="active"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li id="1"></li>
+        <li id="2"></li>
+        <li id="3"></li>
+        <li id="4"></li>
+        <li id="5"></li>
     </ul>
   </div>
 </template>
@@ -15,13 +15,27 @@
 <script>
 import Vue from "vue";
 export default Vue.extend({
-  name: "Nav",
+  name: "fil-conducteur",
+  props: {
+      actif: {
+          type: Number,
+          default: 0
+      }
+  },
   methods: {
     back_home() {
       this.$emit("switch-component", "PointDeDepart");
     },
+    setClass() {
+        let elem = document.getElementById(this.actif);
+        elem.className = 'active';
+    },
   },
+  mounted: function() {
+      this.setClass()
+  }
 });
+
 </script>
 
 <style scoped>
