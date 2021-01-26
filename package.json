@@ -4,15 +4,21 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha ./velo-b/api/test/ --timeout 60000 --exit"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "http-proxy-agent": "^4.0.1",
     "node-fetch": "^2.6.1"
   },
   "author": "MPDS",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1",
+    "mocha-junit-reporter": "^2.0.0",
     "stylelint-config-recommended": "^3.0.0"
   }
 }

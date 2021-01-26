@@ -4,6 +4,8 @@
 const express = require('express');
 const fs = require('fs');
 const fetch = require('node-fetch');
+const HttpProxyAgent = require('http-proxy-agent');
+const config = require('../config');
 
 const API_NANTES_ROUTES = {
     parcs_relais: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-relais-nantes-metropole-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut&rows=-1",
@@ -30,7 +32,7 @@ module.exports = () => {
     app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier'])));
     app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier'])));
     app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier'])));
-    app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('services-velos-bicloo.json')));
+    app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('tarifs-bicloo.json')));
 
     // routes depuis l'api de nantes metropole
     app.get('/disponibilites-parcs-relais/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.parcs_relais, req.params['quartier'])));
@@ -41,7 +43,7 @@ module.exports = () => {
 
     function getLocalJSONData(file_name, quartier=null){
         const data = loadJSONFile(file_name);
-        return quartier?data[quartier]:data;
+        return quartier?data[quartier]:(Array.isArray(data)?data:Object.values(data).flat());
     }
 
     // utilitaire pour créer une route qui envoie du json
@@ -51,14 +53,15 @@ module.exports = () => {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
             });
-            res.send(JSON.stringify(await callback(req, res)));
+            res.status(200).send(JSON.stringify(await callback(req, res)));
         };
     }
 
     async function update(req, res) {
         const api_routes = loadJSONFile('nantes-api-fetcher.json');
         const quartiers = loadJSONFile('quartiers.json');
-        for (const o of api_routes) {
+
+        /*for (const o of api_routes) {
             let data = {};
             if (o.quartiers) {
                 for (const k of Object.keys(quartiers)) {
@@ -69,11 +72,12 @@ module.exports = () => {
             }
             fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
         }
+         */
         const liste_bicloo = Object.values(loadJSONFile('stations-velo-libre-service.json')).flat();
         const liste_arrets = Object.values(loadJSONFile('arrets-tan.json')).flat();
         liste_arrets.map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
         fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
-        res.send('Done');
+        res.status(200).send('Done');
     }
 
     function IsBiclooNear(arret, stations_bicloos)
@@ -95,7 +99,11 @@ module.exports = () => {
             const polygon_api = quartiers[quartier].reduce((acc, val) => acc + `(${val[0]}%2C${val[1]})%2C`, '').slice(0, -3);
             url += '&geofilter.polygon=' + polygon_api;
         }
-        const response = await fetch(url);
+
+        let options = {
+            agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128'),
+        };
+        const response = await fetch(url, config.env==='prod'?options:undefined);
         return (await response.json()).records.map(r => r.fields);
     }
 
