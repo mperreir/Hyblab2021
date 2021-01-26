@@ -15,6 +15,7 @@
         src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
+    <script src="js/carte.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -24,11 +25,16 @@
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
 
-            <section data-slidr="page-acceuil">
-                <img class="w-screen" src="assets/homepage.svg"></img>
-                <img id="logo-hyblab" src="assets/startButton.svg"></img>
+            <section data-slidr="page-accueil">
+                <img class="w-screen" src="assets/homepage.svg"/>
+                <img id="logo-hyblab" src="assets/startButton.svg"/>
             </section>
 
+            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
+                <img src="assets/carte-title.svg"/>
+                <img src="assets/carte.svg" width="75%"/>
+                <img src="assets/logo.svg"/>
+            </section>
 
             <section data-slidr="page-2">
                 <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">

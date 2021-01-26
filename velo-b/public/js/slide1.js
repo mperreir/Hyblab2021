@@ -5,8 +5,8 @@ let initSlide1 = function () {
             targets: '#logo-hyblab',
             scale: 0
         });
-        mySlidr.slide('page-2');
-        initSlide2();
+        mySlidr.slide('page-carte');
+        initCarte();
     });
 
     d3.select('#logo-hyblab').on('mouseover', function () {

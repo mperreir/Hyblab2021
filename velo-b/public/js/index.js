@@ -1,4 +1,4 @@
-// init du slider (qui peut aussi dfaire des fondus enchainé)
+// init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: false,
     controls: 'none',
