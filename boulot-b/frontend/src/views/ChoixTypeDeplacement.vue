@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Container from "@/components/Container"
+import Container from "@/views/Container"
 export default {
   name: "ChoixTypeDeplacement",
   components: {
