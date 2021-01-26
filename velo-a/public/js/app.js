@@ -1,3 +1,5 @@
+import { abrisVeloDisplayData } from "./abrisVelo.js";
+
 async function bootstrap() {
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
@@ -33,6 +35,9 @@ async function bootstrap() {
             trackUserLocation: true
         })
     )
+
+    // add abris velo to the map
+    abrisVeloDisplayData(mapboxgl, map);
 }
 
 bootstrap();
