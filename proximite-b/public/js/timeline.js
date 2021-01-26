@@ -110,5 +110,5 @@ function timeline_progressbar_draw() {
     var heightCard = 300;
     TimeKnots.draw("#timeline1", dataTimeLine1, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
     TimeKnots.draw("#timeline2", dataTimeLine2, { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
-    ProgressBar.draw();
+    ProgressBar.draw("#progressDiv");
 };

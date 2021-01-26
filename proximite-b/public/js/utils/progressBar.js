@@ -26,18 +26,19 @@ var ProgressBar = {
         return d.temps;
     },
     /**
+     *     
      * Function used to generate and draw the progress bar
+     * @param {*} id id of the div where 2 bar will be added
      */
-    draw: async function () {
+    draw: async function (id) {
 
         var S1 = 1;
         var S2 = 1;
         var Somme = S1 + S2;
 
-        $("#progressDiv").html("")
+        $(id).html("")
         var b1 = $('<div>');
-        b1.attr('id', 'bar1')
-            .attr('class', 'progress-bar bar-T1')
+        b1.attr('class', 'progress-bar bar-T1')
             .attr('role', 'progressbar')
             .css("width", '50%')
             .attr('aria-valuemin', '0')
@@ -45,16 +46,15 @@ var ProgressBar = {
             .text("adresse1");
 
         var b2 = $('<div>');
-        b2.attr('id', 'bar2')
-            .attr('class', 'progress-bar bar-T2')
+        b2.attr('class', 'progress-bar bar-T2')
             .attr('role', 'progressbar')
             .css("width", '50%')
             .attr('aria-valuemin', '0')
             .attr('aria-valuemax', '100')
             .text("adresse2");;
 
-        $("#progressDiv").append(b1);
-        $("#progressDiv").append(b2);
+        $(id).append(b1);
+        $(id).append(b2);
         b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
         b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
         for (let index = 0; index < dataTimeLine1.length; index++) {
