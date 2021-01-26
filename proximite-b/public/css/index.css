@@ -9,15 +9,10 @@ div#index_content {
 
 button#start_button {
     position: absolute;
-    left: 14%;
-    top: 65%;
+    left: 8%;
+    top: 68%;
     height: 6%;
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    background-image: url('/proximite-b/img/index/button.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
+    width: 11em;
 }
 
 img#index_logo {
@@ -26,19 +21,9 @@ img#index_logo {
 
 div#index_text {
     position: absolute;
-    top: 25%;
-    left: 14%;
+    top: 30%;
+    left: 8%;
     width: 24em;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('/proximite-b/fonts/Montserrat-Light.otf');
-}
-
-@font-face {
-    font-family: 'ArchitectDaughter';
-    src: url('/proximite-b/fonts/ArchitectsDaughter.ttf');
 }
 
 .font-architect {
