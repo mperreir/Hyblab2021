@@ -43,8 +43,8 @@ div#adresses_content {
 
 #go_bouton {
     position: absolute;
-    top: 75%;
-    left: 44%;
+    top: 72%;
+    left: 46%;
     width: 7em;
     height: 2em;
 }
@@ -63,4 +63,19 @@ div#adresses_content {
     border-radius: 15px;
     background-color: transparent;
     margin: 5px;
+}
+
+button#bouton_accueil {
+    position: absolute;
+    left: 85.6%;
+    top: 4%;
+    width: 3em;
+    height: 1em;
+    background-image: url('/proximite-b/img/adresses/Bouton-accueil.svg');
+    font-size: 3em;
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
 }

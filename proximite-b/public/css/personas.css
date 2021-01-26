@@ -8,15 +8,14 @@ div#persona_background {
 }
 
 p#persona_titre {
-    position: absolute;
-    left: 27.5%;
-    top: 5%;
     font-size: 3.5em;
     font-family: ArchitectDaughter;
     background-color: transparent;
     border: none;
     background-size: contain;
     background-repeat: no-repeat;
+    text-align: center;
+    margin-top: 20px;
 }
 
 button#bouton_accueil {
