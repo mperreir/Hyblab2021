@@ -12,8 +12,8 @@ const initCarte = function () {
             .on("click", function () {
                 console.log(this.id); // selectionné
 
-                mySlidr.slide('choix-transport-1');
-                initSlideChoixTransport();
+                mySlidr.slide('choix-transport-2');
+                initSlideChoixVelo();
             });
     });
 };
