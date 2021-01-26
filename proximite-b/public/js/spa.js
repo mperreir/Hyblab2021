@@ -47,6 +47,30 @@ const go_to = (page, data, callback) => {
                 window.addEventListener("resize", timeline_progressbar_draw);
                 timeline_progressbar_draw();
             }
+            if(page =='criteres'){
+                $( function() {
+                    $( "#sortable1, #sortable2, #sortable3" ).sortable({
+                        connectWith: ".connectedSortable"
+                    }).disableSelection();
+                } );
+
+                $( function() {
+                    $( "#sortable2" ).on( "sortreceive", function(event, ui) {
+                        if($("#sortable2 li").length > 5){
+                            $(ui.sender).sortable('cancel');
+                        }
+                    });
+
+                });
+
+                $( function() {
+                    $( "#sortable3" ).on( "sortreceive", function(event, ui) {
+                        if($("#sortable3 li").length > 3){
+                            $(ui.sender).sortable('cancel');
+                        }
+                    });
+                });
+            }
 
             if (data && !callback && typeof data === 'function')
                 data();
