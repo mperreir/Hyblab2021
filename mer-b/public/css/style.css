@@ -156,11 +156,12 @@ div#displayCanvas {
 /***général***/
 :root { 
     --primary-color: #203443; 
+    --question-color: #203443
     --secondary-color: white;
     --citation-color: #203443;
     --bouton-texte-color: #203443;
     --bouton-bg-color: #203443;
-    --breadcrumb-color: #9DF5FF;
+    --breadcrumb-color: #6E889B;
 }
 
 * {
@@ -186,7 +187,7 @@ h1 {
     font-size: 45px;
     line-height: 61px;
     /* identical to box height */
-    color:var(--secondary-color, white);
+    color:var(--question-color, #203443);
     margin-bottom: 50px;
     max-width: 740px;
 }
@@ -326,7 +327,7 @@ h1 {
     width: 12px;
     height: 12px;
     margin: 2px;
-    background-color: var(--breadcrumb-color, #9DF5FF);
+    background-color: var(--breadcrumb-color, #6e889b);
     border-radius: 50px;
     position: absolute;
 }
