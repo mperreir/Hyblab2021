@@ -14,9 +14,9 @@ module.exports = router;
 // });
 
 router.get('/api', async function (req, res){
-    let results = await api.all_positions(['pharmacie','boulangerie','supermarche','medecin','arret_bus','ecole','parc','lieu_de_culte','coiffeur','musee','bibliotheque','salle_de_sport'], -1.554093, 47.228982);
-    return res.json(results);
-    // return res.send("CACA");
+    let results = await api.all_positions(['Boulangerie','Médecin','Ecole','Supermarché','Parc','Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur','Musee','Bibliotheque','Salle de sport'], 'young', -1.547090210478156, 47.2191999412145); // -1.554093, 47.228982
+    res.header("Content-Type",'application/json');
+    return res.send(JSON.stringify(results, null, 4));
 });
 
 router.post('/proximite-b/timeline', function (req, res){
