@@ -51,26 +51,26 @@ img#vague7 {
 
 @keyframes waveDown {
   0%   {
-    top: 0px;
+    transform: translateY(0px);
   }
 
   50%  {
-    top: 25px;
+    transform: translateY(15px);
   }
 
   100% {
-    top: 0px;
+    transform: translateY(0px);
   }
 }
 
 @keyframes waveUp {
   0%   {
-    top: 25px;
+    transform: translateY(15px);
   }
   50%  {
-    top: 0px;
+    transform: translateY(0px);
   }
   100% {
-    top: 25px;
+    transform: translateY(15px);
   }
 }
