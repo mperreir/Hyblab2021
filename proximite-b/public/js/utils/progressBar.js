@@ -17,7 +17,7 @@ var ProgressBar = {
      * @param {*} d 
      */
     evaluate: function (data, critere) {
-        if (data != null){
+        if (data.length >=1){
             interests = ["Supermarche","Boulangerie","Bus"];
             desinterests = ["Ecole","Pharmacie","Docteur","Parc"];
             if (interests.includes(critere)){

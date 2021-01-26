@@ -16,11 +16,11 @@ var dataTimeLine1 = [
     },
     {
         "categorie": "Pharmacie",
-        "data": null
+        "data": []
     },
     {
         "categorie": "Ecole",
-        "data": null
+        "data": []
     },
     {
         "categorie": "Supermarche",
