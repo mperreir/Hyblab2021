@@ -7,22 +7,25 @@ div#index_content {
     background-size: cover;
 }
 
+div#body {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 250px;
+    padding-left: 125px;
+}
+
 button#start_button {
-    position: absolute;
-    left: 8%;
-    top: 68%;
-    height: 6%;
+    height: 2em;
     width: 11em;
 }
 
 img#index_logo {
     width: 10%;
+    position: absolute;
+    z-index: 999;
 }
 
 div#index_text {
-    position: absolute;
-    top: 30%;
-    left: 8%;
     width: 24em;
 }
 
