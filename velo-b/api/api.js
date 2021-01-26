@@ -50,10 +50,10 @@ module.exports = () => {
         };
     }
 
-    function update(req, res) {
+    async function update(req, res) {
         const api_routes = loadJSONFile('nantes-api-fetcher.json');
         const quartiers = loadJSONFile('quartiers.json');
-        api_routes.forEach(async o => {
+        /*for (const o of api_routes) {
             let data = {};
             if(o.quartiers){
                 for (const k of Object.keys(quartiers)) {
@@ -63,8 +63,19 @@ module.exports = () => {
                 data = await fetchData(o.route);
             }
             fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
-        })
+        }*/
+        const liste_bicloo = loadJSONFile('stations-velo-libre-service.json');
+        const liste_arrets = Object.values(loadJSONFile("arrets-tan.json"));
+        console.log(liste_arrets);
+        for (const arret of liste_arrets) arret.bicloo_near = IsBiclooNear(arret, liste_bicloo);
+        fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
+        console.log(loadJSONFile("arrets-tan.json"));
         res.send('Done');
+    }
+
+    function IsBiclooNear(arret, stations_bicloos)
+    {
+        return (undefined !== stations_bicloos.find(station => (arret.stop_coordinates["0"] - station.geoshape.coordinates["0"])^2 + (arret.stop_coordinates["1"] - station.geoshape.coordinates["1"])^2 < 0.000001))
     }
 
     /*
