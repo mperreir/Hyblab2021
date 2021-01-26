@@ -3,41 +3,36 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Média  Sea</title>
+    <title>M&eacute;dia  Sea</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-    <script src="js/slide1.js" defer></script>
-    <script src="js/slide2.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="js/index.js" defer></script>
   </head>
   <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
-        <img src="assets/img/decor1/PLAN_1.png" class="object" id="plan1" alt="">
-        <img src="assets/img/decor1/PLAN_2.png" class="object" id="plan2" alt="">
-        <img src="assets/img/decor1/PLAN_4.png" class="object" id="plan4" alt="">
-        <img src="assets/img/decor1/VAGUE_1.png" class="object" id="vague1" alt="">
-        <img src="assets/img/decor1/VAGUE_2.png" class="object" id="vague2" alt="">
-        <img src="assets/img/decor1/VAGUE_3.png" class="object" id="vague3" alt="">
-        <img src="assets/img/decor1/VAGUE_4.png" class="object" id="vague4" alt="">
-        <img src="assets/img/decor1/VAGUE_5.png" class="object" id="vague5" alt="">
-        <img src="assets/img/decor1/VAGUE_6.png" class="object" id="vague6" alt="">
-        <img src="assets/img/decor1/VAGUE_7.png" class="object" id="vague7" alt="">
-      
-      <section id="accueil">
-  
-        <h4>MEDIA & SEA PRÉSENTE</h4>
-        <img src="assets/img/logo/logo_hyblab.png" alt="logo" id="logo">
-        <p>Les plus belles plages de Bretagne à découvrir à travers les légendes côtières les plus connues de France. Embarquez dans un voyage interactif à travers leurs histoires et trouvez votre destination. </p>
-        <div id="button">DÉCOUVRIR</div>
-      </section>
-     
+      <div id="scene">
+        <div><img src="assets/img/decor1/BG.png" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.05"><img src="assets/img/decor1/PLAN_4.png" class="bg" id="plan4" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.1"><img src="assets/img/decor1/VAGUE_7.png" class="bg" id="vague7" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.13"><img src="assets/img/decor1/VAGUE_6.png" class="bg" id="vague6" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.1"><img src="assets/img/decor1/VAGUE_5.png" class="bg" id="vague5" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.12"><img src="assets/img/decor1/VAGUE_4.png" class="bg" id="vague4" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.09"><img src="assets/img/decor1/VAGUE_3.png" class="bg" id="vague3" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.13"><img src="assets/img/decor1/VAGUE_2.png" class="bg" id="vague2" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.11"><img src="assets/img/decor1/VAGUE_1.png" class="bg" id="vague1" alt=""></div>
+        <div data-depth-x="0.1" data-depth-y="0.2"><img src="assets/img/decor1/PLAN_2.png" class="bg" id="plan2" alt=""></div>
+        <div data-pointer-events="false" data-depth-x="0.1" data-depth-y="0.40"><img src="assets/img/decor1/PLAN_1.png" class="bg" id="plan1" alt=""></div>
+      </div>
+       <div id="content">
+        <h4>M&Eacute;DIA & SEA PR&Eacute;SENTE</h4>
+        <img src="assets/img/logo/logo.png" alt="logo" id="logo">
+        <p>Les plus belles plages de Bretagne &agrave; d&eacute;couvrir &agrave; travers les l&eacute;gendes c&ocirc;ti&egrave;res les plus connues de France. Embarquez dans un voyage interactif &agrave; travers leurs histoires et trouvez votre destination. </p>
+        <div id="button">D&Eacute;COUVRIR</div>
+      </div>
     </div>
   </body>
 </html>

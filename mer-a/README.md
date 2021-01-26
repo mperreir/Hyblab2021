@@ -55,6 +55,7 @@ Le site web sera disponible à l'adresse <code>localhost:8080</code> équivalent
 <code>/api/all/regions</code> : *Retourne les zones existantes et leur identifiant*<br/><br/>
 <code>/api/all/types</code> : *Retourne les types existants et leur identifiant*<br/><br/>
 <code>/api/:region_id/:type_id</code> : *Retourne les légendes pour la zone <code>region_id</code> et le type <code>type_id</code>*<br/><br/>
+<code>/api/legende/:id</code> : *Retourne la légende ayant pour id <code>id</code>*<br/><br/>
 
 ## Accès
 
@@ -89,5 +90,14 @@ Ce fichier met à dispositions 3 fonctions asynchrones pour utiliser les routes 
   - <code>callback</code> : *fonction permettant de traiter le résultat de la requête (prend le résultat en paramètre)*
   - <code>@return</code> : *retourne une promesse ([JS Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))*
   - <code>@query_result</code> : *tableau d'objets <code>[{'id': &lt;int&gt;, 'nomCategorie': &lt;string&gt;}, ...]</code>*
+
+- Pour récupérer une légende en particulier :
+
+        async function getLegendeById(id, callback)
+  
+  - <code>id</code> : *l'identifiant de la légende*
+  - <code>callback</code> : *fonction permettant de traiter le résultat de la requête (prend le résultat en paramètre)*
+  - <code>@return</code> : *retourne une promesse ([JS Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise))*
+  - <code>@query_result</code> : *légende correspondant à l'identifiant <code>Legende{}</code> (voir plus [Legende](server/classes/Legende.js))*
 
 ## Code documentation
