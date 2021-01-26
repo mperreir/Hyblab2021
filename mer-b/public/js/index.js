@@ -46,3 +46,13 @@ function addEventListenerBreadcrumbs(){
 }
 
 addEventListenerBreadcrumbs();
+
+function addEventListenerSound() {
+	let boutonSon = document.getElementById("boutonSon");
+	let volume = document.getElementById("volumeSon");
+	boutonSon.addEventListener("click", function(){
+		audio.volume = 0;
+	})
+}
+
+addEventListenerSound();
