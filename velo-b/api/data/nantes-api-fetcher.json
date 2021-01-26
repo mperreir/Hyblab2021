@@ -3,7 +3,7 @@
   "fileName" : "stations-velo-libre-service.json"
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_gonfleurs-libre-service-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions",
-  "fileName" : "gonfleurs-velo.json"
+  "fileName" : "gonfleurs-libre-service.json"
 },{
   "route" : "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_abris-velos-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions&facet=gestionnaire",
   "fileName" : "abris-velo.json"
