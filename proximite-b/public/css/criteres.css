@@ -14,7 +14,6 @@ div#critere_page {
     min-height: 40px;
     list-style-type: none;
     margin: 0;
-    /*padding: 5px 0 0 0;*/
     float: left;
     margin-right: 10px;
     top : 6%;
@@ -54,13 +53,11 @@ li{
     margin: 5px;
     padding: 10px;
     font-size: 1.2em;
-    /*width: 200px;*/
 
 }
 
 #sortable1 li{
     display:inline-block;
-    margin: auto;
 }
 
 button{
