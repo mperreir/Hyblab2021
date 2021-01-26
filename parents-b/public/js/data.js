@@ -3,8 +3,7 @@
 let myCriteria = {
     "Géolocalisation": {
         lat: null,
-        lng: null,
-        valid: null
+        lng: null
     },
     "Distances" : {
         max: 10,
@@ -70,6 +69,12 @@ function geoAttribute(latitude, longitude) {
     if (!geo.lat && !geo.lng) nbElemChoisit++;
     myCriteria["Géolocalisation"].lat = parseFloat(latitude).toFixed(9);
     myCriteria["Géolocalisation"].lng = parseFloat(longitude).toFixed(9);
+}
+
+function noGeoAttribute(event) {
+    myCriteria["Géolocalisation"].lat = null;
+    myCriteria["Géolocalisation"].lng = null;
+    nbElemChoisit--;
 }
 
 function latAttribute(event) {
@@ -196,8 +201,12 @@ function cultureAttribute(event) {
 
 function fetchData() {
 
-    // Récupé
-    fetch('data/jardins.json')
+    // Récupé les données sur tous les jardins
+    fetch('data/jardins.json', {
+        headers : {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }})
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -240,19 +249,21 @@ function fetchData() {
                                     const element = results[j];
                                     const distance = parseFloat(element.distance.text.split(' km')[0].replace(',', '.')).toFixed(1);
                                     const duration = element.duration.text;
-                                    const from = respOrigin[current];
-                                    const to = respDestinations[j];
+                                    /*
                                     console.log('-----------------------');
                                     console.log(from);
                                     console.log(to);
                                     console.log(distance);
-                                    console.log(json[25*i + j]);
-                                    myCriteria["Distances"].reel = distance;
-                                    myCriteria["Distances"].duration = duration;
+                                     */
+                                    json[25*i + j]["Distances"]["reel"] = distance;
+                                    json[25*i + j]["Distances"]["duration"] = duration;
+                                    /*
                                     console.log(myCriteria["Distances"].max);
-                                    console.log(myCriteria["Distances"].reel);
-                                    console.log((myCriteria["Distances"].max >= myCriteria["Distances"].reel));
-                                    myCriteria["Géolocalisation"].valid = (myCriteria["Distances"].max >= myCriteria["Distances"].reel);
+                                    console.log(json[25*i + j]["Distances"]["reel"]);
+                                    console.log(json[25*i + j]["Distances"]["duration"] = duration);
+                                    console.log((myCriteria["Distances"].max >= distance));
+                                     */
+                                    json[25*i + j]["Distances"]["valid"] = (myCriteria["Distances"].max >= distance);
                                 }
                             }
                         }
@@ -262,20 +273,17 @@ function fetchData() {
             return json;
         })
         .then(json => {
-            console.log(json);
             const nbCritere = Object.keys(myCriteria).length;
             for (const line of json) {
                 for (const [key, value] of Object.entries(line)) {
                     switch (key) {
                         case "Géolocalisation":
-                            console.log("myCriteria[\"Géolocalisation\"]");
-                            console.log(myCriteria["Géolocalisation"]);
-                            if (myCriteria["Géolocalisation"].valid) {
+                            break;
+                        case "Distances":
+                            if (value.valid) {
                                 line["nbElemCorrect"]++;
                                 line["listElemMatch"].push(key);
                             }
-                            break;
-                        case "Distances":
                             break;
                         default:
                             if (myCriteria[key]) {
@@ -306,7 +314,7 @@ function fetchData() {
                         }
                     }
                 }
-                 */
+                */
             }
             // document.getElementById('')
         })
@@ -316,6 +324,9 @@ function main() {
 
     const dist = document.getElementById('localize-range');
     dist.addEventListener('input', distAttribute);
+
+    const removeGeo = document.getElementById('removeGeo');
+    removeGeo.addEventListener('click', noGeoAttribute);
 
     /*
     // TODO 'garde' sera à remplacer par l'id de l'élément à tester

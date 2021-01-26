@@ -5,6 +5,10 @@
     "Type": "Jardin",
     "Adresse": "Rue Stanislas Baudry",
     "Géolocalisation": "47.219670206, -1.543081259",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=116",
     "Accès transports en commun": "Gare SNCF Lignes 1",
@@ -42,6 +46,10 @@
     "Type": "Parc",
     "Adresse": "95 Route de Gachet",
     "Géolocalisation": "47.286413177, -1.524379919",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=1078",
     "Accès transports en commun": "Ligne 2 Place du cirque / Ligne C6 Grandes Ecoles",
@@ -79,6 +87,10 @@
     "Type": "Parc",
     "Adresse": "Rue de la Révolution des Oeillets",
     "Géolocalisation": "47.21851405, -1.517565068",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=150",
     "Accès transports en commun": "Bus C3 Arrêt La Roche",
@@ -116,6 +128,10 @@
     "Type": "Parc",
     "Adresse": "Boulevard des Anglais",
     "Géolocalisation": "47.223927005, -1.582527609",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=36",
     "Accès transports en commun": "Ligne C3 Procé",
@@ -153,6 +169,10 @@
     "Type": "Parc",
     "Adresse": "Boulevard Auguste Péneau",
     "Géolocalisation": "47.228394783, -1.510025785",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=170",
     "Accès transports en commun": "Tramway Ligne 1 ou bus lignes 12 58 75 82 92",
@@ -190,6 +210,10 @@
     "Type": "Parc",
     "Adresse": "227 Boulevard Robert Schuman",
     "Géolocalisation": "47.244330315, -1.578662782",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=1324",
     "Accès transports en commun": "Ligne C2 Berlioz",
@@ -227,6 +251,10 @@
     "Type": "Parc",
     "Adresse": "Boulevard de Doulon",
     "Géolocalisation": "47.227481012, -1.526575092",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=147",
     "Accès transports en commun": "Mitrie Ligne 11",
@@ -264,6 +292,10 @@
     "Type": "Square",
     "Adresse": "1 Cours Commandant d'Estienne d'Orves",
     "Géolocalisation": "47.214355669, -1.55106917",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=134",
     "Accès transports en commun": "Bouffay Ligne 1",
@@ -301,6 +333,10 @@
     "Type": "Parc",
     "Adresse": "1 Boulevard Jules Verne",
     "Géolocalisation": "47.23506576, -1.536147076",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=130",
     "Accès transports en commun": "Ligne C2 Place du cirque/ Ligne C1 Rond point de paris",
@@ -338,6 +374,10 @@
     "Type": "Parc",
     "Adresse": "54 Rue de l'Abbaye",
     "Géolocalisation": "47.201152748, -1.597659156",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=180",
     "Accès transports en commun": "Bois Hardy Ligne 25 Gare de chantenay Ligne 81",
@@ -375,6 +415,10 @@
     "Type": "Parc",
     "Adresse": "Cours de la Prairie d'Amont",
     "Géolocalisation": "47.212430799, -1.520734077",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=211",
     "Accès transports en commun": "Hôtel de région bus 26",
@@ -412,6 +456,10 @@
     "Type": "Square",
     "Adresse": "40 Rue Maurice Terrien",
     "Géolocalisation": "47.204126652, -1.593135984",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=136",
     "Accès transports en commun": "Cabrol Ligne 70",
@@ -449,6 +497,10 @@
     "Type": "Parc",
     "Adresse": "Rue Noire",
     "Géolocalisation": "47.225293641, -1.562996681",
+    "Distances": {
+      "reel": null,
+      "valid": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=140",
     "Accès transports en commun": "Poitou Ligne 3 ou Ligne C2 Brunneau",
@@ -486,6 +538,11 @@
     "Type": "Jardin",
     "Adresse": "Rue des Dervallières",
     "Géolocalisation": "47.222289579, -1.581562071",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=35",
     "Accès transports en commun": "Ligne C3 Procé",
@@ -523,6 +580,11 @@
     "Type": "Square",
     "Adresse": "47 Rue du Bois Hercé",
     "Géolocalisation": "47.207832925, -1.592349755",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=177",
     "Accès transports en commun": "Marseillaise Ligne 11 ou Ligne 1 Egalité",
@@ -560,6 +622,11 @@
     "Type": "Square",
     "Adresse": "Place de l'Hôtel de Ville",
     "Géolocalisation": "47.217388806, -1.554488382",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=115",
     "Accès transports en commun": "Hôtel de Ville Lignes 11 12 21 22 23 C LU",
@@ -597,6 +664,11 @@
     "Type": "Square",
     "Adresse": "Rue Augustin Fresnel",
     "Géolocalisation": "47.242997471, -1.522931446",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=168",
     "Accès transports en commun": "Fresnel Ligne 21 11",
@@ -634,6 +706,11 @@
     "Type": "Square",
     "Adresse": "Rue du Scorff",
     "Géolocalisation": "47.20215614, -1.551546408",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=173",
     "Accès transports en commun": "MIN Ligne 26",
@@ -671,6 +748,11 @@
     "Type": "Square",
     "Adresse": "Quai du Marquis d'Aiguillon",
     "Géolocalisation": "47.201897707, -1.576891896",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": null,
     "Accès transports en commun": "Ligne 1 Arrêt Gare Maritime",
@@ -708,6 +790,11 @@
     "Type": "Square",
     "Adresse": "Rue de l'Hermitage",
     "Géolocalisation": "47.203462372, -1.575919107",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": null,
     "Accès transports en commun": "Ligne 1 Arrêt Gare Maritime",
@@ -745,6 +832,11 @@
     "Type": "Square",
     "Adresse": "Boulevard des Américains",
     "Géolocalisation": "47.233218794, -1.574376828",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": null,
     "Accès transports en commun": "Ligne 3 Alexandre Vincent Sainte thérèse",
@@ -782,6 +874,11 @@
     "Type": "Square",
     "Adresse": "Rue de la Brasserie",
     "Géolocalisation": "47.209235504, -1.570756744",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=158",
     "Accès transports en commun": "René Bouhier Ligne 11",
@@ -819,6 +916,11 @@
     "Type": "Square",
     "Adresse": "Rue Sully",
     "Géolocalisation": "47.222259455, -1.552084829",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=121",
     "Accès transports en commun": "Ligne 2 Saint Mihiel",
@@ -856,6 +958,11 @@
     "Type": "Square",
     "Adresse": "Place de l'Edit de Nantes",
     "Géolocalisation": "47.214353637, -1.567765124",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=159",
     "Accès transports en commun": "Edit de Nantes Lignes 21 23 24 56 H",
@@ -893,6 +1000,11 @@
     "Type": "Square",
     "Adresse": "Rue Jean Baptiste Barré",
     "Géolocalisation": "47.222746897, -1.52754388",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=148",
     "Accès transports en commun": "Ligne 1 Hopital Bellier",
@@ -930,6 +1042,11 @@
     "Type": "Square",
     "Adresse": "Place Edouard Normand",
     "Géolocalisation": "47.21919126, -1.563760056",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=165",
     "Accès transports en commun": "Jean Jaurès Ligne 3",
@@ -967,6 +1084,11 @@
     "Type": "Square",
     "Adresse": "Boulevard des Américains",
     "Géolocalisation": "47.234966359, -1.571503644",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=182",
     "Accès transports en commun": "Américains Ligne C2",
@@ -1004,6 +1126,11 @@
     "Type": "Square",
     "Adresse": "Place de la Petite Hollande",
     "Géolocalisation": "47.211902417, -1.557917257",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=123",
     "Accès transports en commun": "Commerce Lignes 11 32 51 52 54 CDB",
@@ -1041,6 +1168,11 @@
     "Type": "Square",
     "Adresse": "Boulevard Général de Gaulle",
     "Géolocalisation": "47.203698082, -1.535919984",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=135",
     "Accès transports en commun": "Ile de Nantes Ligne 4",
@@ -1078,6 +1210,11 @@
     "Type": "Square",
     "Adresse": "3 Rue des Garennes",
     "Géolocalisation": "47.201151879, -1.581174398",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/Mobile/Jardins/Jardin.asp?RCS=131",
     "Accès transports en commun": "Ligne 26 St Nicolas/ Ligne C1 Lusanças",
@@ -1115,6 +1252,11 @@
     "Type": "Square",
     "Adresse": "Rue Dugommier",
     "Géolocalisation": "47.21610711, -1.563502501",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=163",
     "Accès transports en commun": "Delorme Ligne 22 51 54 F",
@@ -1152,6 +1294,11 @@
     "Type": "Square",
     "Adresse": "Rue des Usines",
     "Géolocalisation": "47.194884884, -1.616115737",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=138",
     "Accès transports en commun": "Ligne 1 gare maritime / Ligne E1 Gare de Chantenay",
@@ -1189,6 +1336,11 @@
     "Type": "Square",
     "Adresse": "Rue Petite Biesse",
     "Géolocalisation": "47.202467919, -1.54658165",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=154",
     "Accès transports en commun": "Mangin 2 3 - Bourgault Ducou 42 B - bus C5 vincent gâche",
@@ -1226,6 +1378,11 @@
     "Type": "Square",
     "Adresse": "Allée de la Bourse",
     "Géolocalisation": "47.212417092, -1.558971994",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": null,
     "Accès transports en commun": "Commerce Lignes 1 2 3",
@@ -1263,6 +1420,11 @@
     "Type": "Jardin",
     "Adresse": "Quai Henri Barbusse",
     "Géolocalisation": "47.226122945, -1.554328902",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=120",
     "Accès transports en commun": "Saint Mihiel Ligne 2",
@@ -1300,6 +1462,11 @@
     "Type": "Parc",
     "Adresse": "Rue Francisco Ferrer",
     "Géolocalisation": "47.221160887, -1.533067949",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1391",
     "Accès transports en commun": "Ligne 1 Moutonnerie",
@@ -1337,6 +1504,11 @@
     "Type": "Square",
     "Adresse": "Rue de l'Adour",
     "Géolocalisation": "47.207947861, -1.610185329",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=178",
     "Accès transports en commun": "Romain Rolland Ligne 1",
@@ -1374,6 +1546,11 @@
     "Type": "Parc",
     "Adresse": "Route de Saint Joseph",
     "Géolocalisation": "47.262171049, -1.533059502",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=128",
     "Accès transports en commun": "Ligne 1 Beaujoire",
@@ -1411,6 +1588,11 @@
     "Type": "Square",
     "Adresse": "Rue de la Haluchère",
     "Géolocalisation": "47.246274624, -1.516323123",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1532",
     "Accès transports en commun": "Ligne 1 Pin Sec",
@@ -1448,6 +1630,11 @@
     "Type": "Parc",
     "Adresse": "Rue trues Le Nain",
     "Géolocalisation": "47.224961238, -1.595048712",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?RCS=34",
     "Accès transports en commun": "Ligne 54 Grand Carcouet; Ligne 25 Le nain",
@@ -1485,6 +1672,11 @@
     "Type": "Square",
     "Adresse": "Rue du Prinquiau",
     "Géolocalisation": "47.212158424, -1.587094454",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=155",
     "Accès transports en commun": "Conventions Lignes 11 70",
@@ -1522,6 +1714,11 @@
     "Type": "Square",
     "Adresse": "Rue Etienne Coutan",
     "Géolocalisation": "47.204560257, -1.610527809",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=179",
     "Accès transports en commun": "Bernanos Lignes 25 H 74 ou ligne 1 Romain Rolland",
@@ -1559,6 +1756,11 @@
     "Type": "Square",
     "Adresse": "Rue Charles Housset",
     "Géolocalisation": "47.202643938, -1.608377624",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=126",
     "Accès transports en commun": "Ligne 1 Lauriers",
@@ -1596,6 +1798,11 @@
     "Type": "Parc",
     "Adresse": "Rue de l'Hermitage",
     "Géolocalisation": "47.201451818, -1.57758802",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": null,
     "Accès transports en commun": null,
@@ -1633,6 +1840,11 @@
     "Type": "Square",
     "Adresse": "Rue Léon Serpollet",
     "Géolocalisation": "47.254476774, -1.520812473",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1330",
     "Accès transports en commun": "Ligne 1 Halvêque",
@@ -1670,6 +1882,11 @@
     "Type": "Square",
     "Adresse": "Rue Faustin Hélie",
     "Géolocalisation": "47.218059262, -1.563925558",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=127",
     "Accès transports en commun": "Ligne 54 St Nicolas",
@@ -1707,6 +1924,11 @@
     "Type": "Square",
     "Adresse": "Place de la Monnaie",
     "Géolocalisation": "47.213007594, -1.565112171",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=118",
     "Accès transports en commun": "Ligne C3 Copernic",
@@ -1744,6 +1966,11 @@
     "Type": "Square",
     "Adresse": "Boulevard Gustave Roch",
     "Géolocalisation": "47.205152581, -1.548690025",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": null,
     "Accès transports en commun": "Ligne 5 Vincent Gâche",
@@ -1781,6 +2008,11 @@
     "Type": "Square",
     "Adresse": "22 Boulevard Gustave Roch",
     "Géolocalisation": "47.205091544, -1.54996601",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=152",
     "Accès transports en commun": "Wattignies Lignes 2 ; 3",
@@ -1818,6 +2050,11 @@
     "Type": "Parc",
     "Adresse": "Boulevard trues Millet",
     "Géolocalisation": "47.22660635, -1.521853047",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=169",
     "Accès transports en commun": "Toutes Aides Lignes 12 70 ; Mairie de Doulon Ligne 1",
@@ -1855,6 +2092,11 @@
     "Type": "Square",
     "Adresse": "Rue Jules Bréchoir",
     "Géolocalisation": "47.225246573, -1.522567572",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=149",
     "Accès transports en commun": "Toutes Aides 58 A 75 82 92 - Bd de Doulon Ligne 1",
@@ -1892,6 +2134,11 @@
     "Type": "Parc",
     "Adresse": "Rue Désiré Colombe",
     "Géolocalisation": "47.212500458, -1.568438115",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=176",
     "Accès transports en commun": "Jean V Ligne 11",
@@ -1929,6 +2176,11 @@
     "Type": "Square",
     "Adresse": "Bas Chemin de Vertou",
     "Géolocalisation": "47.182975944, -1.519982263",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1228",
     "Accès transports en commun": "Ligne 1 Duchenne Anne-Chateau / Ligne 4 Bourdonnière",
@@ -1966,6 +2218,11 @@
     "Type": "Parc",
     "Adresse": "Rue Eugène Thomas",
     "Géolocalisation": "47.262856242, -1.570989823",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1921",
     "Accès transports en commun": "Ligne 50 Einstein",
@@ -2003,6 +2260,11 @@
     "Type": "Parc",
     "Adresse": "Rue trues Joxe",
     "Géolocalisation": "47.205629815, -1.544842016",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1817",
     "Accès transports en commun": "Lignes 2 3 Wattignies",
@@ -2040,6 +2302,11 @@
     "Type": "Square",
     "Adresse": "Rue du Général de Bollardière",
     "Géolocalisation": "47.209304184, -1.529471963",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=2013",
     "Accès transports en commun": "Lignes 5 26 Pompidou",
@@ -2077,6 +2344,11 @@
     "Type": "Jardin",
     "Adresse": "Quai François Mitterrand",
     "Géolocalisation": "47.207524454, -1.559628221",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1580",
     "Accès transports en commun": "Ligne 1 Chantiers Navals",
@@ -2114,6 +2386,11 @@
     "Type": "Jardin",
     "Adresse": "Rue Dos d'Ane",
     "Géolocalisation": "47.196736189, -1.545225657",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=29",
     "Accès transports en commun": "Arrêt Pirmil Lignes 2 3",
@@ -2151,6 +2428,11 @@
     "Type": "Square",
     "Adresse": "Rue Jacques Feyder",
     "Géolocalisation": "47.230433767, -1.585486985",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1536",
     "Accès transports en commun": "Ligne 54 Petit Carcouet",
@@ -2188,6 +2470,11 @@
     "Type": "Parc",
     "Adresse": "Rue de la Brianderie",
     "Géolocalisation": "47.200407872, -1.585057154",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1937",
     "Accès transports en commun": "Ligne 54 St Nicolas ; Ligne C1 Hérelle",
@@ -2225,6 +2512,11 @@
     "Type": "Cours",
     "Adresse": "Cours Cambronne",
     "Géolocalisation": "47.211941697, -1.563188661",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=117",
     "Accès transports en commun": "Ligne 1 Médiathèque",
@@ -2262,6 +2554,11 @@
     "Type": "Douves",
     "Adresse": "Rue des Etats",
     "Géolocalisation": "47.215616856, -1.550132735",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=518",
     "Accès transports en commun": "Bouffay Ligne 1",
@@ -2299,6 +2596,11 @@
     "Type": "Square",
     "Adresse": "Rue d'Ancin",
     "Géolocalisation": "47.211108562, -1.562786666",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=347",
     "Accès transports en commun": "Ligne 1 Médiathèque",
@@ -2336,6 +2638,11 @@
     "Type": "Square",
     "Adresse": "Square Jean Heurtin",
     "Géolocalisation": "47.214941161, -1.544728149",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1342",
     "Accès transports en commun": "Ligne 1 Duchesse Anne Château ou ligne C3 Lieu Unique",
@@ -2373,6 +2680,11 @@
     "Type": "Square",
     "Adresse": "Passage Berthault",
     "Géolocalisation": "47.212117288, -1.548363523",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1479",
     "Accès transports en commun": "Ligne 2 Aimé Delrue",
@@ -2410,6 +2722,11 @@
     "Type": "Square",
     "Adresse": "Impasse Saint Laurent",
     "Géolocalisation": "47.217791038, -1.549939394",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=519",
     "Accès transports en commun": "Ligne C2 Cirque Marais + Ligne 12 Saint Pierre",
@@ -2447,6 +2764,11 @@
     "Type": "Square",
     "Adresse": "Rue des Courtils",
     "Géolocalisation": "47.200438175, -1.593339276",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=382",
     "Accès transports en commun": "Ligne 1 Gare maritime et ligne 81 Gare de Chantenay",
@@ -2484,6 +2806,11 @@
     "Type": "Square",
     "Adresse": "Rue de l'Hermitage",
     "Géolocalisation": "47.20208672, -1.577317523",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=162",
     "Accès transports en commun": "Lechat Ligne 21 H",
@@ -2521,6 +2848,11 @@
     "Type": "Square",
     "Adresse": "Place Canclaux",
     "Géolocalisation": "47.214407035, -1.574481754",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=157",
     "Accès transports en commun": "Canclaux Lignes 21 23 24 H",
@@ -2558,6 +2890,11 @@
     "Type": "Square",
     "Adresse": "Boulevard Benoit Frachon",
     "Géolocalisation": "47.207636895, -1.580369213",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44100,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1642",
     "Accès transports en commun": "Ligne 1 Du Chauffault",
@@ -2595,6 +2932,11 @@
     "Type": "Square",
     "Adresse": "Place Emile Fritsch",
     "Géolocalisation": "47.228755748, -1.566077293",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1507",
     "Accès transports en commun": "Ligne C2 Le Goffic",
@@ -2632,6 +2974,11 @@
     "Type": "Square",
     "Adresse": "Rue Toulmouche",
     "Géolocalisation": "47.230985553, -1.553230918",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1599",
     "Accès transports en commun": "Ligne 2 St Félix",
@@ -2669,6 +3016,11 @@
     "Type": "Jardin",
     "Adresse": "Petite Avenue de Longchamp",
     "Géolocalisation": "47.238068534, -1.58261936",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1588",
     "Accès transports en commun": "Ligne 3 Beauséjour",
@@ -2706,6 +3058,11 @@
     "Type": "Square",
     "Adresse": "Rue de Chypre",
     "Géolocalisation": "47.216227353, -1.52397103",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1725",
     "Accès transports en commun": "Ligne C3 Hongrie",
@@ -2743,6 +3100,11 @@
     "Type": "Parc",
     "Adresse": "Mail Pablo Picasso",
     "Géolocalisation": "47.215031421, -1.536421603",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1846",
     "Accès transports en commun": "Ligne C3 Picasso",
@@ -2780,6 +3142,11 @@
     "Type": "Square",
     "Adresse": "Rue Saint François",
     "Géolocalisation": "47.218214628, -1.545475581",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44000,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=507",
     "Accès transports en commun": "Duchesse Anne-Chateau Ligne 1",
@@ -2817,6 +3184,11 @@
     "Type": "Square",
     "Adresse": "Boulevard de la Pilotière",
     "Géolocalisation": "47.244991512, -1.524731903",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1638",
     "Accès transports en commun": "Ligne 11 Dunant",
@@ -2854,6 +3226,11 @@
     "Type": "Square",
     "Adresse": "Place de la Basse Mar",
     "Géolocalisation": "47.208045371, -1.525271329",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=153",
     "Accès transports en commun": "Pompidou 24 52 B Bus C5",
@@ -2891,6 +3268,11 @@
     "Type": "Square",
     "Adresse": "Rue Henri Bergson",
     "Géolocalisation": "47.254384826, -1.570838214",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=183",
     "Accès transports en commun": "Ligne C2 Bout des Pavés",
@@ -2928,6 +3310,11 @@
     "Type": "Parc",
     "Adresse": "Boulevard des Tribunes",
     "Géolocalisation": "47.245503012, -1.558412555",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=187",
     "Accès transports en commun": "Ligne C2 Pont du Cens ; Ligne 25 Hippodrome",
@@ -2965,6 +3352,11 @@
     "Type": "Parc",
     "Adresse": "Boulevard Léon Bureau",
     "Géolocalisation": "47.206784284, -1.566216173",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1237",
     "Accès transports en commun": "Ligne 1 Chantiers Navals",
@@ -3002,6 +3394,11 @@
     "Type": "Place",
     "Adresse": "Rue de l'Echappée",
     "Géolocalisation": "47.203761224, -1.548040303",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1060",
     "Accès transports en commun": "Wattignies Ligne 2",
@@ -3039,6 +3436,11 @@
     "Type": "Place",
     "Adresse": "Place de la Guiroué",
     "Géolocalisation": "47.208472088, -1.527572163",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1471",
     "Accès transports en commun": "Ligne C2 ou ligne 2 Place du Cirque",
@@ -3076,6 +3478,11 @@
     "Type": "Stade",
     "Adresse": "Route de Saint Joseph",
     "Géolocalisation": "47.257841779, -1.524953085",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1182",
     "Accès transports en commun": "Beaujoire Ligne 1",
@@ -3113,6 +3520,11 @@
     "Type": "Parc",
     "Adresse": "Rue de Coetquelfen",
     "Géolocalisation": "47.245005506, -1.541810063",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=2033",
     "Accès transports en commun": "Ligne 2 Michelet / Ligne 23 Bonneville",
@@ -3150,6 +3562,11 @@
     "Type": "Jardin",
     "Adresse": "Allée de Portricq",
     "Géolocalisation": "47.26691362, -1.521506652",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1077",
     "Accès transports en commun": "Ligne 2 Place du cirque / Ligne C6 Portricq",
@@ -3187,6 +3604,11 @@
     "Type": "Jardin",
     "Adresse": "Rue du Nadir",
     "Géolocalisation": "47.267014768, -1.518965824",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1075",
     "Accès transports en commun": "Ligne 2 Place du cirque / Ligne C6 St Joseph de porterie",
@@ -3224,6 +3646,11 @@
     "Type": "Jardin",
     "Adresse": "Passage des Tauzins",
     "Géolocalisation": "47.265744568, -1.520213888",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1074",
     "Accès transports en commun": "Ligne 2 Place du Cirque / Ligne C6 Portricq",
@@ -3261,6 +3688,11 @@
     "Type": "Jardin",
     "Adresse": "Rue Tristan Corbière",
     "Géolocalisation": "47.268808315, -1.516828004",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1076",
     "Accès transports en commun": "Ligne 2 Place du cirque / Ligne C6 St Joseph de porterie",
@@ -3298,6 +3730,11 @@
     "Type": "Square",
     "Adresse": "Rue de la Grange au Loup",
     "Géolocalisation": "47.266083044, -1.523076419",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44300,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=1475",
     "Accès transports en commun": "Ligne 2 Place du Cirque / Ligne C6 Portricq",
@@ -3335,6 +3772,11 @@
     "Type": "Jardin",
     "Adresse": "Rue Gaëtan Rondeau",
     "Géolocalisation": "47.207163534, -1.533640326",
+    "Distances": {
+      "reel": null,
+      "valid": null,
+      "duration": null
+    },
     "Code postal": 44200,
     "Web": "https://jardins.nantes.fr/N/Jardin/Parcs-Jardins/Jardin-Description.asp?Rcs=124",
     "Accès transports en commun": "Ligne 1 Duchesse anne château / Ligne 4 Ile de Nantes",
