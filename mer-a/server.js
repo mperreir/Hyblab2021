@@ -100,7 +100,7 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-app.get(`/personnages`, async (req, res) => {
+app.get(`/personnages/:idDep`, async (req, res) => {
   await fs.readFile(`./public/html/personnages.html`, (err, data) => {
     if(err) {
       console.error(err);
@@ -111,7 +111,7 @@ app.get(`/personnages`, async (req, res) => {
 });
 
 // Route to reach the departement page
-app.get(`/departement`, async (req, res) => {
+app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     await fs.readFile(`./public/html/departement.html`, (err, data) => {
       if(err) {
         console.error(err);
@@ -122,7 +122,7 @@ app.get(`/departement`, async (req, res) => {
 });
 
 // Route to reach the legende page
-app.get(`/legende`, async (req, res) => {
+app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
     await fs.readFile(`./public/html/legende.html`, (err, data) => {
       if(err) {
         console.error(err);
