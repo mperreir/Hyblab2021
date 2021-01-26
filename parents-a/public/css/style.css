@@ -12,12 +12,3 @@ body{
     position: relative; /* pour permettre le positionnement en absolu des autres éléments */
 }
 
-/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
-#slidr, #slidr section{
-
-    background: #171EB1;
-}
-
-section[data-slidr="page-1"] #logo{
-
-}
