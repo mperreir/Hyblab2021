@@ -1,0 +1,35 @@
+div#index_content {
+    background-image: url('/proximite-b/img/index/background.svg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button#start_button {
+    position: absolute;
+    left: 8%;
+    top: 68%;
+    height: 6%;
+    width: 11em;
+}
+
+img#index_logo {
+    width: 10%;
+}
+
+div#index_text {
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    width: 24em;
+}
+
+.font-architect {
+    font-family: ArchitectDaughter;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
+}

@@ -1,5 +1,76 @@
 
 var TimeKnots = {
+
+
+    /**
+     * Function used to generate a modal that allow user 
+     * to have more information about a "categorie"
+     * 
+     * @param {*} d d is an object of this form : 
+     * {
+     *   "img": "./img/timeline/market.svg",
+     *   "categorie": "Supermache",
+     *   "data": [
+     *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+     *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+     *    ]
+     *    }
+     */
+    createSingleModal: function (d) {
+        var firstAdress = d.data[0]
+        var otherAdress = d.data.slice(1);
+        $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
+        $("#otherItemsSingleModal").html("");
+        if (otherAdress.length >= 1) {
+            otherAdress.forEach(element => {
+                $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+            });
+        }
+        else {
+            $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+        }
+        $("#singleModal").modal('show');
+    },
+
+    /**
+     * Function used to generate a modal that allow user 
+     * to go through items on the same time level
+     * 
+     * @param {*} d is an ARRAY of object of this form :
+     * * {
+     *   "img": "./img/timeline/market.svg",
+     *   "categorie": "Supermache",
+     *   "data": [
+     *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
+     *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
+     *    ]
+     *    }
+     */
+    createMultipleModal: function (d) {
+        console.log(d)
+        $("#headerMultipleModal").html("");
+        d.forEach(element => {
+            var p = $('<p>');
+            var img = $('<img>'); //Equivalent: $(document.createElement('img'))
+            img.attr("width", 75);
+            img.attr("height", 75);
+            img.on('click', function () {
+                $("#multipleModal").modal('hide');
+                TimeKnots.createSingleModal(element)
+            });
+            img.attr('src', element.img);
+            p.append(img)
+            p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
+            $("#headerMultipleModal").append(p)
+        })
+        $("#multipleModal").modal('show');
+    },
+    /**
+     * This function is used to generate the timeline and draw it
+     * @param {*} id 
+     * @param {*} events 
+     * @param {*} options 
+     */
     draw: function (id, events, options) {
         var cfg = {
             width: 600,
@@ -19,71 +90,10 @@ var TimeKnots = {
             }
         }
 
-        /**
-         * Function used to generate a modal that allow user 
-         * to have more information about a "categorie"
-         * 
-         * @param {*} d d is an object of this form : 
-         * {
-         *   "img": "./img/timeline/market.svg",
-         *   "categorie": "Supermache",
-         *   "data": [
-         *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-         *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
-         *    ]
-         *    }
-         */
-        function createSingleModal(d) {
-            var firstAdress = d.data[0]
-            var otherAdress = d.data.slice(1);
-            $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
-            $("#otherItemsSingleModal").html("");
-            if (otherAdress.length >= 1) {
-                otherAdress.forEach(element => {
-                    $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
-                });
-            }
-            else {
-                $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
-            }
-            $("#singleModal").modal('show');
-        }
 
 
-        /**
-         * Function used to generate a modal that allow user 
-         * to go through items on the same time level
-         * 
-         * @param {*} d is an ARRAY of object of this form :
-         * * {
-         *   "img": "./img/timeline/market.svg",
-         *   "categorie": "Supermache",
-         *   "data": [
-         *      { temps: 5, nom: "Boulang1", adresse: "184 Rue XXXXX XX XXX" },
-         *      { temps: 9, nom: "Boulang3", adresse: "4 Rue XXX XX XXX" },
-         *    ]
-         *    }
-         */
-        function createMultipleModal(d) {
-            console.log(d)
-            $("#headerMultipleModal").html("");
 
-            d.forEach(element => {
-                var p = $('<p>');
-                var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-                img.attr("width", 75);
-                img.attr("height", 75);
-                img.on('click', function () {
-                    $("#multipleModal").modal('hide');
-                    createSingleModal(element)
-                });
-                img.attr('src', element.img);
-                p.append(img)
-                p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
-                $("#headerMultipleModal").append(p)
-            })
-            $("#multipleModal").modal('show');
-        }
+
 
 
         d3.select(id).selectAll("svg").remove();
@@ -102,7 +112,7 @@ var TimeKnots = {
 
 
         //Calculate times in terms of timestamps
-        var timestamps = events.map(function (d) { if (d.data != null) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
+        var timestamps = events.map(function (d) { if (d.data.length >=1) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
         var maxValue = d3.max(timestamps);
         var minValue = d3.min(timestamps);
 
@@ -125,7 +135,7 @@ var TimeKnots = {
             .attr("class", "timeline-line")
 
             .attr("x1", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var ret;
                     var time = d.data[0].temps;
                     ret = Math.floor(step * (time - minValue) + margin)
@@ -137,7 +147,7 @@ var TimeKnots = {
                 }
             })
             .attr("x2", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (linePrevious.x1 != null) {
                         return linePrevious.x1
                     }
@@ -148,7 +158,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y1", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var ret;
                     ret = Math.floor(cfg.height / 2)
                     linePrevious.y1 = ret
@@ -157,7 +167,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y2", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (linePrevious.y1 != null) {
                         return linePrevious.y1
                     }
@@ -187,7 +197,7 @@ var TimeKnots = {
         //cercel/images
         node.append("image")
             .each(function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if ((d.categorie != null)) {
                         if (cpt["min" + d.data[0].temps]) {
                             cpt["min" + d.data[0].temps].push(d);
@@ -205,7 +215,7 @@ var TimeKnots = {
             })
             .style("opacity", 0)
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     return d.img;
                 }
             })
@@ -218,12 +228,12 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
-                        createMultipleModal(cpt["min" + d.data[0].temps]);
+                        TimeKnots.createMultipleModal(cpt["min" + d.data[0].temps]);
                     }
                     else {
-                        createSingleModal(d);
+                        TimeKnots.createSingleModal(d);
                     }
                 }
             })
@@ -263,7 +273,7 @@ var TimeKnots = {
                         return Math.floor(cfg.height / 2) - 75
                     })
                     .attr("x", function (d) {
-                        if (d.data != null) {
+                        if (d.data.length >=1) {
                             var time = d.data[0].temps;
                             var x = Math.floor(step * (time - minValue) + margin);
                             return x - 25;
@@ -279,12 +289,12 @@ var TimeKnots = {
                 else return (i - 1) * 1000;
             })
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     return d.img
                 }
             })
             .attr("x", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 25;
@@ -292,7 +302,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return Math.floor(cfg.height / 2) - 150
                     }
@@ -304,7 +314,7 @@ var TimeKnots = {
 
             .transition()
             .attr("xlink:href", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return "./img/timeline/plus.svg"
                     }
@@ -340,7 +350,7 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .attr("cx", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x;
@@ -351,7 +361,7 @@ var TimeKnots = {
                 if (i <= 1) return 0;
                 else return (i - 1) * 1000;
             })
-            .style("opacity", function (d) { if (d.data != null) { return 1 } else { return 0 } });
+            .style("opacity", function (d) { if (d.data.length >=1) { return 1 } else { return 0 } });
 
 
 
@@ -361,14 +371,14 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { if (d.data != null) { return d.data[0].temps + " min" } else { return null } })
+            .text(function (d) { if (d.data.length >=1) { return d.data[0].temps + " min" } else { return null } })
             .attr("y", function (d) {
                 return Math.floor(cfg.height / 2) + 30
 
             })
             //-5 pour centrer le texte
             .attr("x", function (d) {
-                if (d.data != null) {
+                if (d.data.length >=1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 20;

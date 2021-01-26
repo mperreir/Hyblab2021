@@ -1,26 +1,30 @@
 <ul>
     <li><a onclick="go_to('home')">Home</a></li>
-
     <li><a onclick="go_to('personas')">Personas</a></li>
     <li><a onclick="go_to('adresses')">Adresses</a></li>
     <li><a onclick="go_to('timeline')">timeline</a></li>
     <li><a onclick="go_to('conclu')">conclu</a></li>
 </ul>
 
-<div id="div1" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)">
-    <p draggable="true" ondragstart="criteres_drag(event)" id="pharmacie">  Pharmacie</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="boulangerie">  Boulangerie</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="supermarche">  Supermarche</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="bus">  Arret bus</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="ecole">  Ecole</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="parc">  Parc</p>
-    <p draggable="true" ondragstart="criteres_drag(event)" id="culte">  Lieu de culte</p>
+<ul id="sortable1" class="connectedSortable">
+    <li class="ui-state-default" id="pharmacie">Pharmacie</li>
+    <li class="ui-state-default" id="boulangerie">Boulangerie</li>
+    <li class="ui-state-default" id="supermarche">Supermarche</li>
+    <li class="ui-state-default" id="bus">Arret bus</li>
+    <li class="ui-state-default" id="ecole">Ecole</li>
+    <li class="ui-state-default" id="parc">Parc</li>
+    <li class="ui-state-default" id="culte">Lieu de culte</li>
+</ul>
 
-</div>
+<ul id="sortable2" class="connectedSortable">
 
-<div id="div2" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)"></div>
-<div id="div3" ondrop="criteres_drop(event)" ondragover="criteres_allowDrop(event)"></div>
+</ul>
+
+<ul id="sortable3" class="connectedSortable">
+
+</ul>
 
 <div>
     <button onclick="criteres_submitInterest()">Valider</button>
 </div>
+
