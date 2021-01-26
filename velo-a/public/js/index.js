@@ -1,3 +1,5 @@
+import { initSlide1 } from "./slide1.js";
+
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: false,
     controls: 'none',
@@ -13,4 +15,4 @@ let mySlidr = slidr.create('slidr', {
 }).start();
 
 // on s'occupe de la 1ère slide
-initSlide1();
+initSlide1(mySlidr);

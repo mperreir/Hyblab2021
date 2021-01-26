@@ -1,4 +1,4 @@
-let initSlide3 = function(){
+export const initSlide3 = function(mySlidr){
 
     document.getElementById("button-classique").onclick = () => {
         document.location.href = "app.html";
