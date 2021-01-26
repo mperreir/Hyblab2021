@@ -65,7 +65,7 @@ let initSlideChoixVoiture = function () {
     mySlidr.slide('page-2');
     initSlide2();
   });
-
+  /*
   d3.select('#ok-button').on('mouseover', function () {
     anime({
       targets: '#ok-button',
@@ -80,7 +80,7 @@ let initSlideChoixVoiture = function () {
       scale: 1
     });
   });
-
+  */
   d3.select('#plus-info').on('click', function () {
     anime({
       targets: '#plus-info',
@@ -89,7 +89,7 @@ let initSlideChoixVoiture = function () {
     mySlidr.slide('page-2');
     initSlide2();
   });
-
+  /*
   d3.select('#plus-info').on('mouseover', function () {
     anime({
       targets: '#plus-info',
@@ -105,5 +105,5 @@ let initSlideChoixVoiture = function () {
     });
   });
 
-
+  */
 };

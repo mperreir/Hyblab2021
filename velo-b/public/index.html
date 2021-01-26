@@ -3,196 +3,203 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/homepage.css">
-  
-  
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <script src="js/tailwind.config.js" defer></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  
-  <script src="js/button-behaviour.js" defer></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/choixVoiture.js" defer></script>
-  <script src="js/choixVelo.js" defer></script>
-  <script src="js/choixBicloo.js" defer></script>
-  <script src="js/choixTransport.js" defer></script>
-  <script src="js/index.js" defer></script>
-  
+    <meta charset="utf-8">
+    <title>Hyblab 2020</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homepage.css">
+
+
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="js/tailwind.config.js" defer></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script
+        src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+
+    <script src="js/button-behaviour.js" defer></script>
+    <script src="js/slide1.js" defer></script>
+    <script src="js/slide2.js" defer></script>
+    <script src="js/choixVoiture.js" defer></script>
+    <script src="js/choixVelo.js" defer></script>
+    <script src="js/choixBicloo.js" defer></script>
+    <script src="js/choixTransport.js" defer></script>
+    <script src="js/index.js" defer></script>
+
 </head>
 
 <body>
-  <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-  <div id="container">
-    <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-    <main id="slidr">
-      <section data-slidr="page-1">
-        <header>
-          <h1 id="titre">Welcome to</h1>
-        </header>
+    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+    <div id="container">
+        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
+        <main id="slidr">
+            <section data-slidr="page-1">
+                <header>
+                    <h1 id="titre">Welcome to</h1>
+                </header>
 
-        <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
+                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
 
-        <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer></footer>
-      </section>
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer></footer>
+            </section>
 
-      <!--Sections des choix de transport dénomination : choix-transport-x -->
+            <!--Sections des choix de transport dénomination : choix-transport-x -->
 
-      <!--choix transport 1 : voiture -->
+            <!--choix transport 1 : voiture -->
 
-      <section data-slidr="choix-transport-1">
-        <header>
-          <div class="flex justify-center my-5">
-            <img src="assets/choix/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
-          </div>
-        </header>
-        
-        <div class="flex flex-row justify-between items-center my-20">
-          <img src="assets/choix/flecheG.svg" id="fleche-gauche-voit" alt="Fleche Gauche"></img>
-          <img src="assets/choix/voiture.svg" class="max-h-80" id="voiture" alt="voiture"></img>
-          <img src="assets/choix/flecheD.svg" id="fleche-droite-voit" alt="Fleche Droite"></img>
-        </div>
+            <section data-slidr="choix-transport-1">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
 
-        <div class="flex items-end justify-center">
-          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-        </div>
-        <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer>
-        </footer>
-      </section>
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-voit" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/voiture.svg" class="h-80" id="voiture" alt="voiture"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-voit" alt="Fleche Droite"></img>
+                </div>
 
-
-      <!--choix transport 2 : velo -->
-
-      <section data-slidr="choix-transport-2">
-        <header>
-          <div class="flex justify-center my-5">
-            <img src="assets/choix/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
-          </div>
-        </header>
-
-        <div class="flex flex-row justify-between items-center my-20">
-          <img src="assets/choix/flecheG.svg" id="fleche-gauche-velo" alt="Fleche Gauche"></img>
-          <img src="assets/choix/velo.svg" class="max-h-80" id="velo" alt="Vélo"></img>
-          <img src="assets/choix/flecheD.svg" id="fleche-droite-velo" alt="Fleche Droite"></img>
-        </div>
-
-        <div class="flex items-end justify-center">
-          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-        </div>
-
-        <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer >
-        </footer>
-      </section>
-
-      <!--choix transport 3 : bicloo -->
-
-      <section data-slidr="choix-transport-3">
-        <header>
-          <div class="flex justify-center my-5">
-            <img src="assets/choix/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
-          </div>
-        </header>
-
-        <div class="flex flex-row justify-between items-center my-20">
-          <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
-          <img src="assets/choix/bicloo.svg"  class="max-h-80" id="bicloo" alt="bicloo"></img>
-          <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
-        </div>  
-
-        <div class="flex items-end justify-center">
-          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-        </div>
-        <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer>
-        </footer>
-      </section>
-      <!--choix transport 4 : transport en commun -->
-
-      <section data-slidr="choix-transport-4">
-        <header>
-          <div class="flex justify-center my-5">
-            <img src="assets/choix/indicationchoix.svg" id="indication-choix" alt="Indication choix transport"></img>
-          </div>
-        </header>
-
-        <div class="flex flex-row justify-between items-center my-20">
-          <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
-          <img src="assets/choix/transportCommun1.svg" class="max-h-80" id="transport" alt="Bateau"></img>
-          <!--<img src="assets/choix/transportCommun2.svg" class="max-h-80" id="transport-2" alt="Tram"></img>
-          <img src="assets/choix/transportCommun3.svg" class="max-h-80" id="transport-3" alt="Bus"></img>-->
-          <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
-        </div>
-        
-        <div class="flex items-end justify-center">
-          <img src="assets/choix/plusinfo.svg" id="plus-info" alt="Bouton +infos"></img>
-          <img src="assets/choix/ok.svg" id="ok-button" alt="Bouton ok"></img>
-        </div>
-
-        <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-        <footer>
-        </footer>
-      </section>
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
 
 
-      <section data-slidr="page-2">
-        <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-        <footer id="bandeau">
-          <!-- Logo Hyblab -->
-          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
+            <!--choix transport 2 : velo -->
 
-          <!-- Les organisateurs -->
-          <ul>
-            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg"
-                  alt="Université de Nantes"></a></li>
-            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png"
-                  alt="Polytech Nantes"></a>
-            </li>
-            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a>
-            </li>
-          </ul>
-          <!-- Les autres logos -->
-          <ul>
-            <!-- Logos CC et opensource -->
-            <li>
-              <ul>
-                <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-              </ul>
-            </li>
-            <!-- Logo de votre porteur de projet -->
-            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png"
-                  alt="Logo de mon porteur de projet"></a></li>
-            <!-- Partenaires institutionnels -->
-            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png"
-                  alt="Pays de La Loire"></a></li>
-            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel"
-                  src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-          </ul>
-        </footer>
-      </section>
-      <section data-slidr="page-3">
-        <div style="display: flex;">
-            <div class="fancy-button rounded-full">Bonjour</div>
-            <div class="fancy-button rounded-full">Ceci est un bouton</div>
-        </div>
-    </section>
-    </main>
-  </div>
+            <section data-slidr="choix-transport-2">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-velo" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/velo.svg" class="h-80" id="velo" alt="Vélo"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-velo" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+
+            <!--choix transport 3 : bicloo -->
+
+            <section data-slidr="choix-transport-3">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/bicloo.svg" class="h-80" id="bicloo" alt="bicloo"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+            <!--choix transport 4 : transport en commun -->
+
+            <section data-slidr="choix-transport-4">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/transportCommun1.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+            </section>
+
+
+            <section data-slidr="page-2">
+                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
+                <footer id="bandeau">
+                    <!-- Logo Hyblab -->
+                    <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
+
+                    <!-- Les organisateurs -->
+                    <ul>
+                        <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a>
+                        </li>
+                        <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png"
+                                    alt="AGR école de l'image"></a></li>
+                        <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg"
+                                    alt="Université de Nantes"></a></li>
+                        <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png"
+                                    alt="Polytech Nantes"></a>
+                        </li>
+                        <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg"
+                                    alt="SciencesCom"></a>
+                        </li>
+                    </ul>
+                    <!-- Les autres logos -->
+                    <ul>
+                        <!-- Logos CC et opensource -->
+                        <li>
+                            <ul>
+                                <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
+                                <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source">
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Logo de votre porteur de projet -->
+                        <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png"
+                                    alt="Logo de mon porteur de projet"></a></li>
+                        <!-- Partenaires institutionnels -->
+                        <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel"
+                                    src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
+                        <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel"
+                                    src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
+                    </ul>
+                </footer>
+            </section>
+            <section data-slidr="page-3">
+                <div style="display: flex;">
+                    <div class="fancy-button rounded-full">Bonjour</div>
+                    <div class="fancy-button rounded-full">Ceci est un bouton</div>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>

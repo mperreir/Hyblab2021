@@ -62,7 +62,7 @@ let initSlideChoixTransport = function () {
     mySlidr.slide('page-2');
     initSlide2();
   });
-
+  /*
   d3.select('#ok-button').on('mouseover', function () {
     anime({
       targets: '#ok-button',
@@ -77,7 +77,7 @@ let initSlideChoixTransport = function () {
       scale: 1
     });
   });
-
+  */
   d3.select('#plus-info').on('click', function () {
     anime({
       targets: '#plus-info',
@@ -86,7 +86,7 @@ let initSlideChoixTransport = function () {
     mySlidr.slide('page-2');
     initSlide2();
   });
-
+  /*
   d3.select('#plus-info').on('mouseover', function () {
     anime({
       targets: '#plus-info',
@@ -101,11 +101,11 @@ let initSlideChoixTransport = function () {
       scale: 1
     });
   });
-
+  */
 
   /*======================= Changer de Image Transport ===========================*/
 
-  d3.select('#transport').on('mouseover', function () {
+  d3.select('#transport').on('click', function () {
     changeImage(this);
   });
 
