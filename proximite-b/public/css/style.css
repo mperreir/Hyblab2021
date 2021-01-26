@@ -17,6 +17,10 @@ div#app {
     font-family: Montserrat;
 }
 
+.figma_color_blue {
+    color: #2A315B;
+}
+
 .figma_bg_orange {
     background-color: #E3572C;
 }
