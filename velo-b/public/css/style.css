@@ -155,7 +155,8 @@ section[data-slidr="page-2"] {
     border: solid 5px white;
 
     padding: 0px 2rem;
-
+    margin: 0 2rem;
+    
     font-size: 5vw;
     text-align: center;
 
