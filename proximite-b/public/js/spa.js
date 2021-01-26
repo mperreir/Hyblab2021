@@ -111,7 +111,9 @@ const go_to = (page, data, callback) => {
                     });
                 });
             }
-
+            else if (page === 'greeters'){
+                greeter_background();
+            }
             if (data && !callback && typeof data === 'function')
                 data();
             else if (data && callback && typeof callback === 'function')

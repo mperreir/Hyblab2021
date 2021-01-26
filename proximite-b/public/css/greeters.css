@@ -1,0 +1,47 @@
+div#greeter_content {
+    background-image: url('');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 30% ;
+}
+
+.bulle {
+    width:270px;
+    height: 230px;
+    text-align: justify;
+    padding: 15px;
+    position: absolute;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 12%;
+}
+
+.bulle_persona{
+    background-image: url('/proximite-b/img/greeter/Bulle_droite.svg');
+    left: 17%
+}
+
+.bulle_greeter{
+    background-image: url('/proximite-b/img/greeter/Bulle_gauche.svg');
+    right: 15%
+}
+
+.text_bulle{
+    position: relative;
+    top:-10%;
+    margin: auto;
+}
+
+
+
+#greeter_suivant_button{
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left : 45%;
+    top : 40%
+}
