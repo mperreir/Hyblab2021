@@ -20,7 +20,7 @@ let initFaunaFlora = function(){
             })
             .add({
                 targets: ".button-suivant-fauna-flora",
-                scale: 0.8,
+                scale: 0.9,
                 duration: 500
             })
             .add({

@@ -20,7 +20,7 @@ let initAccess = function(){
             })
             .add({
                 targets: ".button-suivant-access",
-                scale: 0.8,
+                scale: 0.9,
                 duration: 500
             })
             .add({

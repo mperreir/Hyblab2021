@@ -163,7 +163,7 @@ let initAge = function(){
             })
             .add({
                 targets: ".button-suivant-age",
-                scale: 0.8,
+                scale: 0.9,
                 duration: 500
             })
             .add({

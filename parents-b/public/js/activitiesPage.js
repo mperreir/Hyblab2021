@@ -20,7 +20,7 @@ let initActivities = function(){
             })
             .add({
                 targets: ".button-suivant-activities",
-                scale: 0.8,
+                scale: 0.9,
                 duration: 500
             })
             .add({
