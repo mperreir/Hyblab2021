@@ -11,6 +11,9 @@ const initCarte = function () {
             .on("mouseout", () => parts.style("opacity", 1))
             .on("click", function () {
                 console.log(this.id); // selectionné
+
+                mySlidr.slide('choix-transport-1');
+                initSlideChoixTransport();
             });
     });
 };
