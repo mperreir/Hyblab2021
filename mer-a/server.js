@@ -4,6 +4,8 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
+
+const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -24,23 +26,50 @@ let db = null;
   db = await open({filename: config.DB_PATH, driver: sqlite3.Database});
 })();
 
+
+app.get(`${config.API_URL}all/regions`, async (req, res) => {
+  let sql = 'SELECT * FROM DEPARTEMENT;'
+  const rows = await db.all(sql, []);
+  console.log(rows);
+  res.status(200).json(rows);
+});
+
+app.get(`${config.API_URL}all/types`, async (req, res) => {
+  let sql = 'SELECT * FROM CATEGORIE;'
+  const rows = await db.all(sql, []);
+  console.log(rows);
+  res.status(200).json(rows);
+});
+
+
+// Route to get get one legend by id
+app.get(`${config.API_URL}legende/:id`, async (req, res) => {
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
+
+    const row = await db.get(sql, [req.params.id]);
+
+    console.log(row);
+    res.status(200).json(row);
+});
+
 // Add route to get the legends
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
     var legendes = [];
-    var sql = `SELECT * FROM Legende 
-                WHERE departement = ?
-                AND categorie = ?;`;
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+                INNER JOIN Categorie ON Categorie.id = categorieId WHERE departementId = ?
+                AND categorieId = ?;`;
     console.log(sql + `\ndep: "${req.params.region}",\ncat: "${req.params.typeHistoire}"`);
 
     // Get the query result
-    const rows = await db.all(sql, [encodeURI(req.params.region), encodeURI(req.params.typeHistoire)]);
+    const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
         var legende = new Legende(
             decodeURI(row.nom), 
-            decodeURI(row.departement), 
-            decodeURI(row.categorie), 
+            decodeURI(row.nomDepartement), //A modifier
+            decodeURI(row.nomCategorie),   //A modifier
             decodeURI(row.resume), 
             decodeURI(row.histoire), 
             row.latitude, 
@@ -58,6 +87,30 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     res.json({data:legendes});
 });
 
+
+// Route to reach the departements page
+app.get(`/departements`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departements.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the personnages page
+app.get(`/personnages`, async (req, res) => {
+  let data = await fs.readFile(`./public/html/personnages.html`);
+  res.status(200).send(data.toString());
+});
+
+// Route to reach the departement page
+app.get(`/departement`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/departement.html`);
+    res.status(200).send(data.toString());
+});
+
+// Route to reach the legende page
+app.get(`/legende`, async (req, res) => {
+    let data = await fs.readFile(`./public/html/legende.html`);
+    res.status(200).send(data.toString());
+})
 
 // close the database connection
 /*db.close((err) => {
