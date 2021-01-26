@@ -1,6 +1,10 @@
 // Use strict mode
 'use strict';
 
+var path = require('path');
+const env = require('dotenv');
+env.config({path : path.resolve(process.cwd(), 'proximite-b/.env')});
+
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
@@ -25,6 +29,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x - client - key, x - client - token, x - client - secret, Authorization");
     next();
 });
+app.use(router);
 
 app.use(router);
 
