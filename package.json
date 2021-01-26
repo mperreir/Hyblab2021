@@ -11,5 +11,7 @@
   },
   "author": "MPDS",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "stylelint-config-recommended": "^3.0.0"
+  }
 }

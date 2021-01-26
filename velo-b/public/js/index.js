@@ -13,5 +13,7 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
+initButtons();
+
 // on s'occupe de la 1ère slide
 initSlide1();
