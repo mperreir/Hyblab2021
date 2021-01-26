@@ -6,9 +6,9 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 const API_NANTES_ROUTES = {
-    parcs_relais: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-relais-nantes-metropole-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut",
-    disponibilites_bicloo: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_stations-velos-libre-service-nantes-metropole-disponibilites&q=&lang=fr&facet=banking&facet=bonus&facet=status&facet=contract_name",
-    places_parking: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parkings-publics-nantes-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut",
+    parcs_relais: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-relais-nantes-metropole-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut&rows=-1",
+    disponibilites_bicloo: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_stations-velos-libre-service-nantes-metropole-disponibilites&q=&lang=fr&facet=banking&facet=bonus&facet=status&facet=contract_name&rows=-1",
+    places_parking: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parkings-publics-nantes-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut&rows=-1",
 }
 
 function loadJSONFile(file_name){
@@ -79,7 +79,7 @@ module.exports = () => {
             url += '&geofilter.polygon=' + polygon_api;
         }
         const response = await fetch(url);
-        return await response.json();
+        return (await response.json()).records.map(r => r.fields);
     }
 
     return app;
