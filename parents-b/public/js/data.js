@@ -367,9 +367,7 @@ function main() {
     const garde = document.getElementById('garde');
     garde.addEventListener('click', gardAttribute);
 
-    // TODO 'jeuxEnfant' sera à remplacer par l'id de l'élément à tester
-    const jeuxEnfant = document.getElementById('jeuxEnfant');
-    jeuxEnfant.addEventListener('click', childGameAttribute);
+
 
     // TODO 'pataugeoire' sera à remplacer par l'id de l'élément à tester
     const pataugeoire = document.getElementById('pataugeoire');
@@ -430,23 +428,27 @@ function main() {
     // TODO 'verdure' sera à remplacer par l'id de l'élément à tester
     const verdure = document.getElementById('verdure');
     verdure.addEventListener('click', greeneryAttribute);
-
-    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
-    const crapa = document.getElementById('crapa');
-    crapa.addEventListener('click', crapaAttribute);
-
-    // TODO 'terrainSport' sera à remplacer par l'id de l'élément à tester
-    const terrainSport = document.getElementById('terrainSport');
-    terrainSport.addEventListener('click', sportAttribute);
-
-    // TODO 'activite' sera à remplacer par l'id de l'élément à tester
-    const activite = document.getElementById('activite');
-    activite.addEventListener('click', activityAttribute);
-
-    // TODO 'elementCulture' sera à remplacer par l'id de l'élément à tester
-    const elementCulture = document.getElementById('elementCulture');
-    elementCulture.addEventListener('click', cultureAttribute);
 */
+    // Crapa
+    const crapa = document.getElementById('crapa-input');
+    crapa.addEventListener('change', crapaAttribute);
+
+    // Games
+    const jeuxEnfant = document.getElementById('games-input');
+    jeuxEnfant.addEventListener('change', childGameAttribute);
+
+    // Sport
+    const terrainSport = document.getElementById('sport-field-input');
+    terrainSport.addEventListener('change', sportAttribute);
+
+    // Activite
+    const activite = document.getElementById('activities-input');
+    activite.addEventListener('change', activityAttribute);
+
+    // element culturels
+    const elementCulture = document.getElementById('statue-input');
+    elementCulture.addEventListener('click', cultureAttribute);
+
     const searchData = document.getElementById('searchData');
     searchData.addEventListener('click', fetchData);
 
