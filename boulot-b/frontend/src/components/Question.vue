@@ -30,13 +30,6 @@ export default Vue.component("question", {
   align-items: center;
 }
 
-#allQuestion {
-  display: block;
-  position: absolute;
-  width: 30%;
-  top: 30%;
-  left: 30%;
-}
 
 #question {
   display: block;

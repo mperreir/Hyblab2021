@@ -19,6 +19,7 @@ export default Vue.component("buttonCustom", {
 
 <style scoped>
   .button {
+    margin: 10px;
     display: block;
     border: none;
     border-radius: 5px;
@@ -43,4 +44,5 @@ export default Vue.component("buttonCustom", {
   #blue {
     background-color: #0ec0ec;
   }
+
 </style>

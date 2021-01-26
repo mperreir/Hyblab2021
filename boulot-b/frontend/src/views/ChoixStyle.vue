@@ -1,16 +1,16 @@
 <template>
   <Container>
     <template #question >
-      <Question  question="Tu te déplaces...">
-          <ButtonCustom @click="next" class="pied" text="A pied" color="yellow"/>
-          <ButtonCustom @click="next" class="velo"  text="A vélo" color="blue" />
+      <Question  >
+        <ButtonCustom class="pied" text="Grands boulevards" color="yellow"/>
+        <ButtonCustom class="velo"  text="Petites ruelles" color="blue" />
       </Question>
     </template>
     <template #canari>
       <Oiseau/>
     </template>
     <template #stepper>
-      <Stepper :actif=1 />
+      <Stepper :actif=2 />
     </template>
   </Container>
 </template>
@@ -23,10 +23,10 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
 export default {
-  name: "ChoixTypeDeplacement",
-  methods: {
-    next() {
-      this.$router.push({name:"choix-style" })
+  name: "ChoixStyle",
+  data() {
+    return {
+      answers: ["A pied","A vélo"]
     }
   },
   components: {
@@ -40,5 +40,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
