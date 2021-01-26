@@ -73,6 +73,19 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     res.json({data:legendes});
 });
 
+// Route to get get one legend by id
+app.get(`/legende/:id`, async (req, res) => {
+  var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+  INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
+
+  const row = await db.all(sql, [encodeURI(req.params.id)]);
+
+  console.log(row);
+  res.status(200).json(row);
+});
+
+
+
 // close the database connection
 /*db.close((err) => {
   if (err) {
