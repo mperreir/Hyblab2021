@@ -11,5 +11,5 @@ Participants :
 - Sciencescom
 
 - AGR :
-- Polytech :  
+- Polytech :  Antoine Garnier
 
