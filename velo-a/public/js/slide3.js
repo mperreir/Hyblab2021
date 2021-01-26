@@ -1,3 +1,5 @@
+import { initSlide2 } from "./slide2.js";
+
 export const initSlide3 = function(mySlidr){
 
     document.getElementById("button-classique").onclick = () => {
@@ -13,12 +15,7 @@ export const initSlide3 = function(mySlidr){
     };
 
     document.getElementById("button-return-page-3").onclick = () => {
-        anime({
-            targets: '.button-return-page-3',
-            scale: 0.5
-        });
         mySlidr.slide('page-2');
-        initSlide2();
     };
 
 }
