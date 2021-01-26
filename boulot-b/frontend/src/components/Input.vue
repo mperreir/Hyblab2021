@@ -19,6 +19,11 @@ export default {
   background-color: #ffdb27;
   padding: 5px 5px 5px 20px;
 }
+
+#input:hover ,#input:focus {
+  background-color: #fbdc51;
+}
+
 #input::placeholder {
   color: white;
   font-weight: bolder;

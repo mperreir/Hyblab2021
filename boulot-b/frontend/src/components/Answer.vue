@@ -1,7 +1,7 @@
 <template>
   <div class="answers">
-    <div v-for="answer in answers" :key="answer">
-      <buttonCustom v-bind:text="answer" v-bind:color=chooseColor(color)></buttonCustom>
+    <div v-for="answer in answers" >
+      <buttonCustom :text="answer" :color=chooseColor(color)></buttonCustom>
     </div>
   </div>
 </template>

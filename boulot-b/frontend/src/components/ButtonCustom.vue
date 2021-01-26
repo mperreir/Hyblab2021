@@ -1,7 +1,7 @@
 <template>
-  <div v-on:click="click(text)" v-bind:id=color class="button">
+  <button @click="click" :id=color class="button">
     {{ text }}
-  </div>
+  </button>
 </template>
 
 <script lang="ts">
@@ -10,8 +10,8 @@ export default Vue.component("buttonCustom", {
   name: "buttonCustom",
   props: ['color', 'text'],
   methods: {
-    click(text) {
-      this.$emit("getChoice", text)
+    click() {
+      this.$emit("click")
     }
   }
 });
@@ -20,14 +20,24 @@ export default Vue.component("buttonCustom", {
 <style scoped>
   .button {
     display: block;
+    border: none;
+    border-radius: 5px;
     position: relative;
-
+    color: white;
+    font-weight: bold;
+    padding: 8px 30px;
+    cursor: pointer;
     text-align: center;
-    margin-bottom: 5px;
   }
 
   #yellow {
     background-color: yellow;
+  }
+  #yellow:hover {
+    background-color: #bbbb00;
+  }
+  #blue:hover {
+    background-color: #0790a8;
   }
 
   #blue {

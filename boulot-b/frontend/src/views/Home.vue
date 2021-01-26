@@ -4,7 +4,7 @@
     <div id="launcher">
       <Input class="depart" placeholder="point de départ..." />
       <Input  class="arrive" placeholder="point d'arrivée..." />
-      <button class="launch" @click="launch"> C'est parti !</button>
+      <ButtonCustom @click="launch" text="C'est partie !"  color="blue" />
     </div>
   </div>
 </template>
@@ -13,12 +13,14 @@
 import Vue from "vue";
 import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
 import Input from "../components/Input.vue";
+import ButtonCustom from "../components/ButtonCustom.vue";
 
 export default Vue.extend({
   name: "Home",
   components: {
     Input,
-    ChoixTypeDeplacement
+    ChoixTypeDeplacement,
+    ButtonCustom
   },
   methods: {
     launch() {
@@ -70,10 +72,5 @@ export default Vue.extend({
   align-self: auto;
 }
 
-.launch:nth-child(3) {
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
-}
 
 </style>

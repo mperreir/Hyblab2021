@@ -1,7 +1,9 @@
 <template>
   <div id="allQuestion">
     <p id="question"> {{ question }} </p>
-    <answer v-bind:answers="answers"></answer>
+    <div id="answers">
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,7 @@ import Answer from "../components/Answer.vue"
 
 export default Vue.component("question", {
   name: "question",
-  props: ["question", "answers"],
+  props: ["question"],
   components: {
     Answer
   }
@@ -19,6 +21,16 @@ export default Vue.component("question", {
 </script>
 
 <style scoped>
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+}
+
   #allQuestion {
     display: block;
     position: absolute;
