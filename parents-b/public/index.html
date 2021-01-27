@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="js/config/parameters.js"></script>
     <script src="js/resultsPage.js" defer></script>
     <script src="js/searchingResultsPage.js" defer></script>
@@ -203,7 +202,12 @@
                 <div id="result-one" class="results-card">
                     <img class="percentage-circle" src="img/results_page/percentage_circle.svg">
                     <img src="img/results_page/result_card_one.svg" alt="Résultats n°1">
-                    <img class="result-icon-slider" src="img/results_page/background_icon_result_1.svg">
+                    <div class="result-icon-slider">
+                        <img src="img/results_page/background_icon_result_1.svg">
+                        <div class="marquee-rtl">
+                            <div>aaa</div>
+                        </div>
+                    </div>
                 </div>
                 <div id="result-two" class="results-card">
                     <img class="percentage-circle" src="img/results_page/percentage_circle.svg">
@@ -216,6 +220,7 @@
 
                     <img class="result-icon-slider" src="img/results_page/background_icon_result_2_3.svg">
                 </div>
+                <img id="robot_showing_results" src="img/results_page/robot_showing_results.gif">
                 <button class="button-suivant-results button-suivant font-m dark-purple background-beige">Rechercher à nouveau</button>
             </section>
         </main>

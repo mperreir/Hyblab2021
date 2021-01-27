@@ -49,3 +49,41 @@ div > img{
 .results-card:hover {
     z-index: 3!important;
 }
+
+
+/* le block conteneur */
+.marquee-rtl {
+    max-width: 10em;                      /* largeur de la fenêtre */
+    margin: 1em auto 2em;
+    border: 10px solid #F0F0FF;
+    overflow: hidden;                     /* masque tout ce qui dépasse */
+    box-shadow: 0 .25em .5em #CCC,inset 0 0 1em .25em #CCC;
+}
+
+/* le bloc défilant */
+.marquee-rtl > :first-child {
+    font-size: x-small;
+    display: inline-block;                /* modèle de boîte en ligne */
+    padding-right: 2em;                   /* un peu d'espace pour la transition */
+    padding-left: 100%;                   /* placement à droite du conteneur */
+    white-space: nowrap;                  /* pas de passage à la ligne */
+    animation: defilement-rtl 15s infinite linear;
+}
+
+@keyframes defilement-rtl {
+    0% {
+        transform: translate3d(0,0,0);      /* position initiale à droite */
+    }
+    100% {
+        transform: translate3d(-100%,0,0);  /* position finale à gauche */
+    }
+}
+
+#robot_showing_results{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    top: 38%;
+    right: -15%;
+    width: 25%;
+}
