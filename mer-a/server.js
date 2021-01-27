@@ -94,6 +94,7 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
+
 app.get(`/personnages`, async (req, res) => {
     res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
