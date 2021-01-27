@@ -1,1 +1,93 @@
-Bonjour je suis la page personnage
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/personnages.css">
+    <link rel="stylesheet" href="../css/fil_ariane.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <title>Média & Sea</title>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- Copie du fil d'Ariane, car import du fichier html non réussi -->
+        <div class="fil_ariane">
+            <div class="cercle_outer" id="cercle_outer1"></div>
+            <div class="cercle_inner" id="cercle_inner1"></div>
+            <div class="trait" id="trait1"></div>
+            <div class="cercle_outer" id="cercle_outer2"></div>
+            <div class="cercle_inner" id="cercle_inner2"></div>
+            <div class="trait" id="trait2"></div>
+            <div class="cercle_outer" id="cercle_outer3"></div>
+            <div class="cercle_inner" id="cercle_inner3"></div>
+            <div class="trait" id="trait3"></div>
+            <div class="cercle_outer" id="cercle_outer4"></div>
+            <div class="cercle_inner" id="cercle_inner4"></div>
+        </div>
+    
+        <div class="decor">
+
+            <img class="plan" id="plan1" src="../assets/img/background/PLAN_1.png" alt="">
+            <img class="plan" id="plan2" src="../assets/img/background/PLAN_2.png" alt="">
+            <img class="plan" id="plan3" src="../assets/img/background/PLAN_4.png" alt="">
+
+            <img class="wave" id="wave1" src="../assets/img/background/VAGUE_1.png" alt="">
+            <img class="wave" id="wave2" src="../assets/img/background/VAGUE_2.png" alt="">
+            <img class="wave" id="wave3" src="../assets/img/background/VAGUE_3.png" alt="">
+            <img class="wave" id="wave4" src="../assets/img/background/VAGUE_4.png" alt="">
+            <img class="wave" id="wave5" src="../assets/img/background/VAGUE_5.png" alt="">
+            <img class="wave" id="wave6" src="../assets/img/background/VAGUE_6.png" alt="">
+            <img class="wave" id="wave7" src="../assets/img/background/VAGUE_7.png" alt="">
+
+        </div>
+
+        <div class="choix-personnages">
+
+            <nav class="personnages">
+
+                <div class="zone zone-creature">
+                    <p class="texte categorie cat-creature">Créatures Fantastiques</p>
+                    <a href="" class="choix choix-creature">
+                        <div class="perso" id="creature"></div>
+                    </a>
+                </div>
+
+                <div class="zone zone-marin">
+                    <p class="texte categorie cat-marin">Histoires Maritimes</p>
+                    <a href="" class="choix choix-marin">
+                        <div class="perso" id="marin"></div>
+                    </a>
+                </div>
+
+                <div class="zone zone-religieux">
+                    <p class="texte categorie cat-religieux">Croyances et Religions</p>
+                    <a href="" class="choix choix-religieux">
+                        <div class="perso" id="religieux"></div>
+                    </a>
+                </div>
+
+            </nav>
+            
+            <div class="texte indication">
+                <p>Pour continuer le voyage,</p>
+                <p>choisissez un thème de légende !</p>            
+            </div>
+
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
