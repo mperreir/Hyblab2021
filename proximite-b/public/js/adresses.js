@@ -32,6 +32,9 @@ function adresses_validation() {
         console.log("saisir une adresse qui existe !");
     }
     else {
-        go_to('criteres', {'positions': positions});
+        go_to('criteres', {'positions': {
+            adresse1: positions[0].split(','),
+            adresse2: positions[1].split(','),
+        }});
     }
 }
