@@ -1,0 +1,65 @@
+#MoyenContainer{
+    height: 100%;
+    
+}
+#Theme{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 74px 74px 0px;
+    height: 100%;
+    width: 35%;
+    background-color: #ffffff;
+    
+}
+#Localisation{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 80%;
+    width: 85%;
+    background-color: #756EFF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 26px;
+}
+#Localisation img{
+    width: 40px;
+    height: 50px;
+    
+}
+#Moyen{
+    margin-top: 10%;
+    color: #756EFF;
+}
+
+.btnNavigation{
+    width: 50px;
+}
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+#changepage{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 2px solid #756EFF;
+    border-radius: 50%;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #756EFF;
+}
+
+input[type=radio]:checked + label>img {
+    box-shadow: 0 0 3px 3px #756EFF;
+    opacity: 1;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio] + label>img {
+    width: 120px;
+    height: 120px;
+    transition: 500ms all;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
