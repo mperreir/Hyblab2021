@@ -1,7 +1,6 @@
 'use strict';
 
 const fetch = require('node-fetch');
-const { request, map } = require('./server');
 
 async function all_positions(list_criteres, persona, longitude, latitude){
     const vitesses = {
@@ -9,7 +8,8 @@ async function all_positions(list_criteres, persona, longitude, latitude){
         family: 5,
         old: 3
     };
-    let a = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
+
+    let polygon = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
     {
         method: 'POST',
         headers: {
@@ -26,26 +26,26 @@ async function all_positions(list_criteres, persona, longitude, latitude){
             "range": [vitesses[persona] / 4 * 1000],
             "range_type": "distance",
             "options": {
-                avoid_features: ["ferries", "fords"] 
+                avoid_features: ["ferries", "fords"]
             }
         })
     });
 
-    a = await a.json();
-    a = a.features[0].geometry.coordinates[0];
+    polygon = await polygon.json();
+    polygon = polygon.features[0].geometry.coordinates[0];
     let minLon = 100;
     let minLat = 100;
     let maxLon = -100;
     let maxLat = -100;
-    for(let i = 0; i < a.length; i++) {
-        if(a[i][0] < minLon)
-            minLon = a[i][0];
-        if(a[i][1] < minLat)
-            minLat = a[i][1];
-        if(a[i][0] > maxLon)
-            maxLon = a[i][0];
-        if(a[i][1] > maxLat)
-            maxLat = a[i][1];
+    for(let i = 0; i < polygon.length; i++) {
+        if(polygon[i][0] < minLon)
+            minLon = polygon[i][0];
+        if(polygon[i][1] < minLat)
+            minLat = polygon[i][1];
+        if(polygon[i][0] > maxLon)
+            maxLon = polygon[i][0];
+        if(polygon[i][1] > maxLat)
+            maxLat = polygon[i][1];
     }
     
     let HttpProxyAgent = require( 'http-proxy-agent' );
@@ -69,7 +69,7 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     
     let response = request;
     console.log("nb elements dans le carré : ", response.elements.length);
-    let elements = response.elements.filter(el => inside([el.lon, el.lat], a));
+    let elements = response.elements.filter(el => inside([el.lon, el.lat], polygon));
     console.log("nb elements dans le polygone : ", elements.length);
 
     // Mention honorable : AMNITY bar 	cafe fast_food restaurant
@@ -133,35 +133,32 @@ async function all_positions(list_criteres, persona, longitude, latitude){
         },
     }
 
-    // FILTRES
-    // TYPE = NODE
-
-    // PROBLEMES A GERER
-    // WAY POUR LES SPORTS CENTRE
-
-    // FONCTION QUI RETRIEVE TOUT
+    // On classe tout dans les catégories
     let res = [];
-    list_criteres.forEach(crit => {
-        config[crit] !== undefined && res.push(
+    list_criteres.forEach(critere => {
+        config[critere] !== undefined && res.push(
         {
-            'categorie': crit,
+            'categorie': critere,
             'data': elements.filter(el => {
                     return el.type === 'node' 
-                    && config[crit].attributes.includes(el.tags[config[crit].type]);
+                    && config[critere].attributes.includes(el.tags[config[critere].type]);
                 })
         });
     });
+
     // Ajout des parcs
-    if(list_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(a)});
-    if(list_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(a)});
+    if(list_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
+    // Ajout des arrets de bus
+    if(list_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
     
-    // calculer les distances
+    // Calculer les distances
     for(let cat_obj of res) {
         for(let poi of cat_obj.data) {
             poi.temps = await temps_de_trajet(poi.lon, poi.lat, longitude, latitude, vitesses[persona]);
         }
     }
 
+    // Refactor le résultat pour correspondre avec l'entrée attendue par les calculs futurs
     res = res.map(cat_obj => {
         return {
             categorie: cat_obj.categorie,
