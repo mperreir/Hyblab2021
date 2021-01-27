@@ -95,17 +95,17 @@ app.get(`/departements`, async (req, res) => {
 
 // Route to reach the personnages page
 
-app.get(`/personnages`, async (req, res) => {
+app.get(`/personnages/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
 
 // Route to reach the departement page
-app.get(`/departement`, async (req, res) => {
+app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
 });
 
 // Route to reach the legende page
-app.get(`/legende`, async (req, res) => {
+app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
     res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
     /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
       if(err) {
