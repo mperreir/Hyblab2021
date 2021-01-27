@@ -11,7 +11,7 @@ let myCriteria = {
         duration: null
     },
     "Gardien": null,
-    "Jeux pour enfants": null,
+    "Jeux pour enfants": true,
     "Pataugeoire": null,
     "Sanitaires": null,
     "Sanitaires pour handicapés": null,
@@ -27,11 +27,11 @@ let myCriteria = {
     "Présence d'animaux": null,
     "Herbe (un minimum) / Sable": null,
     "Verdure / Plante Espace Vert": null,
-    "CRAPA": null,
-    "Terrains de sport": null,
-    "Activités organisées": null,
-    "Élément de culture": null,
-    "Horaires d'ouverture": null,
+    "CRAPA": true,
+    "Terrains de sport": true,
+    "Activités organisées": true,
+    "Élément de culture": true,
+    "Horaires d'ouverture": 1,
     "Âge": []
 };
 
@@ -113,7 +113,7 @@ function gardAttribute(event) {
 
 function childGameAttribute(event) {
     const childGame = myCriteria["Jeux pour enfants"];
-    myCriteria["Jeux pour enfants"] = choiceUpdate(event.target.value, childGame);
+    myCriteria["Jeux pour enfants"] = event.target.checked;
 }
 
 function paddlingPoolAttribute(event) {
@@ -191,24 +191,29 @@ function greeneryAttribute(event) {
     myCriteria["Verdure / Plante Espace Vert"] = choiceUpdate(event.target.value, greenery);
 }
 
+function hourAttribute(event) {
+    const hour = myCriteria["Horaires d'ouverture"];
+    myCriteria["Horaires d'ouverture"] = parseInt(event.target.value);
+}
+
 function crapaAttribute(event) {
     const crapa = myCriteria["CRAPA"];
-    myCriteria["CRAPA"] = choiceUpdate(event.target.value, crapa);
+    myCriteria["CRAPA"] = event.target.checked;
 }
 
 function sportAttribute(event) {
     const sport = myCriteria["Terrains de sport"];
-    myCriteria["Terrains de sport"] = choiceUpdate(event.target.value, sport);
+    myCriteria["Terrains de sport"] = event.target.checked;
 }
 
 function activityAttribute(event) {
     const activity = myCriteria["Activités organisées"];
-    myCriteria["Activités organisées"] = choiceUpdate(event.target.value, activity);
+    myCriteria["Activités organisées"] = event.target.checked;
 }
 
 function cultureAttribute(event) {
     const culture = myCriteria["Élément de culture"];
-    myCriteria["Élément de culture"] = choiceUpdate(event.target.value, culture);
+    myCriteria["Élément de culture"] = event.target.checked;
 }
 
 function fetchData() {
@@ -317,6 +322,21 @@ function fetchData() {
                                     }
                                 });
                                 if (add) line["listElemMatch"].push(key);
+                            }
+                            break;
+                        case "Horaires d'ouverture":
+                            const splitHour = value.split('-');
+                            const minHour = parseInt(splitHour[0].split('H')[0]);
+                            const maxHour = parseInt(splitHour[1].split('H')[0]);
+                            if (myCriteria[key] === 1) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 0 && minHour < 9) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 2 && maxHour > 19) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
                             }
                             break;
                         default:
@@ -428,6 +448,10 @@ function main() {
     // TODO 'verdure' sera à remplacer par l'id de l'élément à tester
     const verdure = document.getElementById('verdure');
     verdure.addEventListener('click', greeneryAttribute);
+
+    // TODO 'hour' sera à remplacer par l'id de l'élément à tester
+    const hour = document.getElementById('hour');
+    hour.addEventListener('change', hourAttribute);
 */
     // Crapa
     const crapa = document.getElementById('crapa-input');
