@@ -4,6 +4,8 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
+
+const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -21,7 +23,7 @@ var app = express();
 // open database
 let db = null;
 (async () => {
-  db = await open({filename: config.DB_PATH, driver: sqlite3.Database});
+  db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 })();
 
 
@@ -39,6 +41,18 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   res.status(200).json(rows);
 });
 
+
+// Route to get get one legend by id
+app.get(`${config.API_URL}legende/:id`, async (req, res) => {
+    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
+
+    const row = await db.get(sql, [req.params.id]);
+
+    console.log(row);
+    res.status(200).json(row);
+});
+
 // Add route to get the legends
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
@@ -49,7 +63,7 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     console.log(sql + `\ndep: "${req.params.region}",\ncat: "${req.params.typeHistoire}"`);
 
     // Get the query result
-    const rows = await db.all(sql, [encodeURI(req.params.region), encodeURI(req.params.typeHistoire)]);
+    const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
         var legende = new Legende(
@@ -74,6 +88,34 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
 });
 
 
+// Route to reach the departements page
+app.get(`/departements`, async (req, res) => {
+    res.status(200).sendFile(`public/html/departements.html`, { root : config.ROOT });
+});
+
+// Route to reach the personnages page
+
+app.get(`/personnages/:idDep`, async (req, res) => {
+    res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
+});
+
+// Route to reach the departement page
+app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
+    res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
+});
+
+// Route to reach the legende page
+app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
+    res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
+    /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
+      if(err) {
+        console.error(err);
+        res.status(500).send('Invalid file path.');
+      }
+      else res.status(200).send(data.toString());
+    });*/
+});
+
 // close the database connection
 /*db.close((err) => {
   if (err) {
@@ -94,7 +136,7 @@ app.use(express.static(path.join(__dirname, '../__common-logos__')));
 // or more generally: http(s)://server_name:port/name_of_you_project/
 
 // Pour lancer depuis mer-a (npm start)
-app.listen(8080);
+//app.listen(8080);
 
 //Pour lancer depuis Hyblab2021 / racine (npm start)
-//module.exports = app;
+module.exports = app;

@@ -20,7 +20,8 @@ let db = null;
 
 var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
     id INT PRIMARY KEY,
-    nomCategorie VARCHAR(30) NOT NULL
+    nomCategorie VARCHAR(30) NOT NULL,
+    imageURI VARCHAR(75)
 );`;
 
   // query to create DB if not created
@@ -78,7 +79,8 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
       if(!catList.includes(row.categorie)) {
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
-          '${(encodeURI(row.categorie)).replace(/'/g, "`")}');\n`);
+          '${(encodeURI(row.categorie)).replace(/'/g, "`")}', 
+          'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
         catList.push(row.categorie);
         countIdCat++;
       }

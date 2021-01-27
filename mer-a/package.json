@@ -21,5 +21,6 @@
     "fs": "0.0.1-security",
     "sqlite": "^4.0.19",
     "sqlite3": "^5.0.1"
-  }
+  },
+  "devDependencies": {}
 }
