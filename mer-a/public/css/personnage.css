@@ -75,6 +75,10 @@ body {
 }
 
 .plan#plan3 {
+    z-index: 8;
+}
+
+.plan#plan4 {
     z-index: 1;
 }
 
@@ -89,7 +93,7 @@ body {
 }
 
 .wave#wave1 {
-    animation: waveDown 1.5s ease-in-out infinite;
+    animation: waveDown 1.7s ease-in-out infinite;
     z-index: 8;
 }
 
@@ -116,11 +120,6 @@ body {
 .wave#wave6 {
     animation: waveUp 4s ease-in-out infinite;
     z-index: 3;
-}
-
-.wave#wave7 {
-    animation: waveDown 4.5s ease-in-out infinite;
-    z-index: 2;
 }
 
 
@@ -165,22 +164,16 @@ body {
 .choix-personnages {
     position: absolute;
     width: 50vw;
-    margin: 5vh 10vw 0;
-    padding: 20vh 15vw 0;
+    margin: 24vh 25vw 0;
     z-index: 1;
 }
-
-
+/*<div class="perso" id="marin"></div>*/
 /* Affichage des personnages */
 
 .personnages {
     position: relative;
     display: flex;
     justify-content: center;
-}
-
-.choix {
-    border-width: 0;
     text-decoration: none;
 }
 
@@ -192,20 +185,24 @@ body {
 
 .perso#creature {
     margin-top: 8vh;
-    margin-right: -4vw;
-    background: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png") no-repeat top 32% left 36.5%;
+    margin-right: -5vw;
+    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png.png") no-repeat top 32% left 36.5%;
+    clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
     background-size: 500%;
 }
 
 .perso#marin {
-    background: url("../assets/img/personnages/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
+    background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
+    clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
     background-size: 600%;
 }
 
 .perso#religieux {
     margin-top: 7vh;
     margin-left: -5vw;
-    background: url("../assets/img/personnages/image_Croyances_Religion.png.png") no-repeat top 39% left 63%;
+    background: url("../assets/img/personnage/image_Croyances_Religion.png.png") no-repeat top 39% left 63%;
+    clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%);
+    border-collapse: collapse;
     background-size: 560%;
 }
 
@@ -227,15 +224,15 @@ body {
 }
 
 .perso#creature:hover {
-    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques_hover.png");
+    background-image: url("../assets/img/personnage/image_Créatures_Fantastiques_hover.png");
 }
 
 .perso#marin:hover {
-    background-image: url("../assets/img/personnages/image_Histoires_Maritimes_hover.png");
+    background-image: url("../assets/img/personnage/image_Histoires_Maritimes_hover.png");
 }
 
 .perso#religieux:hover {
-    background-image: url("../assets/img/personnages/image_Croyances_Religion_hover.png");
+    background-image: url("../assets/img/personnage/image_Croyances_Religion_hover.png");
 }
 
 
@@ -250,12 +247,12 @@ body {
 
     /* aspect du texte */
     text-align: center;
-    font-size: 1.5vw;
-    font-family: 'Poppins';
+    font-size: 1.4vw;
+    font-family: 'Poppins', sans-serif;
     color: black;
 
     /* aspect de l'arrière-plan */
-    margin: -8vh;
+    margin: -8vh -8vw;
     padding: 2%;
     background-color: white;
     border-radius: 25px;
@@ -264,27 +261,26 @@ body {
 }
 
 
-/* Affichage du nom de la catégorie survolée */
+/* Placement des catégories et noms des personnages */
 
 .categorie {
     position: relative;
-    width: 20vw;
+    width: 24vw;
     opacity: 0;
 }
 
 .cat-creature {
     top: -2vh;
-    right: 5vw;
+    right: 6vw;
 }
 
 .cat-marin {
     top: -14vh;
-    left: 3vw;
 }
 
 .cat-religieux {
-    top: 5vh;
-    left: 4vw;
+    top: 4vh;
+    left: 5vw;
 }
 
 
@@ -313,3 +309,7 @@ body {
     width: 28vw;
     margin: 5vh auto 0;
 }
+
+/* Marin :
+clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
+*/
