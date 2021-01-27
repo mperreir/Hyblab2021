@@ -58,10 +58,11 @@ let initHour = function(){
         let screenX=document.querySelector("#slidr").clientWidth;
         let screenY=document.querySelector("#slidr").clientHeight;
 
-        let width = document.body.clientWidth;
+        let width = window.innerWidth;
+        let height = window.innerHeight;
 
-        let dX = event.pageX - screenX*0.38 - ((width - screenX)/2 );
-        let dY = event.pageY - screenY*0.52 ;
+        let dX = event.pageX - screenX*0.38 - ((width - screenX)/2);
+        let dY = event.pageY - screenY*0.52 - ((height-screenY)/2);
 
         document.querySelector("#svg-slider").innerHTML = "";
         let bigCircle = s.circle(rayon, rayon, rayon);
