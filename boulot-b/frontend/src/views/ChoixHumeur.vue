@@ -2,8 +2,10 @@
   <Container>
     <template #question >
       <Question  >
-        <ButtonCustom @click="next" text="Grands boulevards" color="yellow"/>
-        <ButtonCustom @click="next"  text="Petites ruelles" color="blue" />
+        <ButtonCustom @click="next" text="Oui, très !" color="yellow"/>
+        <ButtonCustom  @click="next"  text="Plutôt oui !" color="blue" />
+        <ButtonCustom  @click="next" text="Hum bof" color="yellow" />
+        <ButtonCustom  @click="next" text="Pas du tout !" color="blue" />
       </Question>
     </template>
     <template #canari>
@@ -23,13 +25,13 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
 export default {
-  name: "ChoixStyle",
+  name: "ChoixHumeur",
   props: {
     actif: Number
   },
   methods: {
     next() {
-      this.$router.push({name:"choix-theme"})
+      this.$router.push({name:"choix-style"})
     }
   },
   components: {

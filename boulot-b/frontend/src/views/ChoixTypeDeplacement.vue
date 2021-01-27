@@ -5,15 +5,15 @@
   <Container>
     <template #question >
       <Question  question="Tu te déplaces...">
-          <ButtonCustom @click="nextPied" class="pied" text="A pied" color="yellow"/>
-          <ButtonCustom @click="nextVelo" class="velo"  text="A vélo" color="blue" />
+          <ButtonCustom @click="nextPied"  text="A pied" color="yellow"/>
+          <ButtonCustom @click="nextVelo"   text="A vélo" color="blue" />
       </Question>
     </template>
     <template #canari>
       <Oiseau/>
     </template>
     <template #stepper>
-      <Stepper :actif=1 />
+      <Stepper :actif=actif />
     </template>
   </Container>
   </div>
@@ -31,11 +31,14 @@ import lottie from "lottie-web";
 
 export default {
   name: "ChoixTypeDeplacement",
+  props: {
+    actif: Number
+  },
   methods: {
     nextVelo() {
      const velo= document.getElementById("velo-anim");
       velo.addEventListener("animationend", () => {
-        this.$router.push({name:"choix-style" })
+        this.$router.push({name:"choix-destination" })
       });
      velo.classList.add("slide-lr");
       velo.style.display = "block";
@@ -44,7 +47,7 @@ export default {
       this.pied.play()
       this.pied.setSpeed(2)
       this.pied.addEventListener("complete", () => {
-        this.$router.push({name:"choix-style" })
+        this.$router.push({name:"choix-destination" })
       });
     },
   },

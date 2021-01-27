@@ -1,14 +1,20 @@
 <template>
-  <div id="container">
-    <div id="canari">
+  <Container>
+    <template #question >
+      <div id="launcher">
+        <Input class="depart" placeholder="point de départ..." />
+        <Input class="arrive" placeholder="point d'arrivée..." />
+        <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
+      </div>
+    </template>
+    <template #canari>
       <Oiseau/>
-    </div>
-    <div id="launcher">
-      <Input class="depart" placeholder="point de départ..." />
-      <Input class="arrive" placeholder="point d'arrivée..." />
-      <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
-    </div>
-  </div>
+    </template>
+    <template #stepper>
+      <Stepper :actif=actif />
+    </template>
+  </Container>
+
 </template>
 
 <script>
@@ -16,11 +22,18 @@ import Vue from "vue";
 import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
 import Input from "../components/Input.vue";
 import ButtonCustom from "../components/ButtonCustom.vue";
+import Container from "@/views/Container";
+import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
 export default Vue.extend({
-  name: "Home",
+  name: "ChoixDestination",
+  props: {
+   actif: Number
+  },
   components: {
+    Container,
+    Stepper,
     Input,
     ChoixTypeDeplacement,
     ButtonCustom,
@@ -28,7 +41,7 @@ export default Vue.extend({
   },
   methods: {
     launch() {
-      this.$router.push({ name: "type-destination" });
+      this.$router.push({ name: "choix-humeur" });
     },
   },
 });

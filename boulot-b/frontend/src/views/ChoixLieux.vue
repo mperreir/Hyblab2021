@@ -1,10 +1,6 @@
 <template>
   <Container>
     <template #question >
-      <Question  >
-        <ButtonCustom @click="next" text="Grands boulevards" color="yellow"/>
-        <ButtonCustom @click="next"  text="Petites ruelles" color="blue" />
-      </Question>
     </template>
     <template #canari>
       <Oiseau/>
@@ -17,25 +13,16 @@
 
 <script>
 import Container from "@/views/Container"
-import Question from "@/components/Question";
-import ButtonCustom from "@/components/ButtonCustom";
 import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
 export default {
-  name: "ChoixStyle",
+  name: "ChoixLieux",
   props: {
     actif: Number
   },
-  methods: {
-    next() {
-      this.$router.push({name:"choix-theme"})
-    }
-  },
   components: {
-    Question,
     Container,
-    ButtonCustom,
     Stepper,
     Oiseau
   }
