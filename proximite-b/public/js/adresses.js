@@ -8,14 +8,10 @@ async function adresses_autocompletion(adresse, num) {
 
     const response = await fetch(lieu)
     var resultAPI = await response.json();
-    data = [];
-    resultAPI.features.forEach(element => {
-        data.push(element.properties);
-    });
-    data.forEach((element) => {
+    resultAPI.features.forEach((element) => {
         var button = document.createElement("button");
-        button.innerHTML = element.label;
-        button.value = [element.x, element.y];
+        button.innerHTML = element.properties.label;
+        button.value = element.geometry.coordinates;
         button.classList.add("bouton_adresse");
         button.addEventListener("click", () => {
             input.value = button.innerHTML;
@@ -27,14 +23,15 @@ async function adresses_autocompletion(adresse, num) {
 }
 
 function adresses_validation() {
-    console.log(positions);
     if (positions[0] == "" || positions[1] == "") {
         console.log("saisir une adresse qui existe !");
     }
     else {
+        const A1 = positions[0].split(',');
+        const A2 = positions[1].split(',');
         go_to('criteres', {'positions': {
-            adresse1: positions[0].split(','),
-            adresse2: positions[1].split(','),
+            adresse1: {latitude: A1[0], longitude: A1[1]},
+            adresse2: {latitude: A2[0], longitude: A2[1]}
         }});
     }
 }
