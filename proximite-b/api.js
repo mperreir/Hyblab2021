@@ -3,12 +3,13 @@
 const fetch = require('node-fetch');
 
 async function all_positions(list_criteres, persona, longitude, latitude){
-    const distances = {
-        young: 5.5/4*1000,  // average speed / one quarter
-        family: 5/4*1000,
-        old: 3/4*1000
+    const vitesses = {
+        young: 5.5,  // average speed / one quarter
+        family: 5,
+        old: 3
     };
-    let a = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
+
+    let polygon = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
     {
         method: 'POST',
         headers: {
@@ -22,29 +23,29 @@ async function all_positions(list_criteres, persona, longitude, latitude){
                     latitude
                 ]
             ],
-            "range": [distances[persona]],
+            "range": [vitesses[persona] / 4 * 1000],
             "range_type": "distance",
             "options": {
-                avoid_features: ["ferries", "fords"] 
+                avoid_features: ["ferries", "fords"]
             }
         })
     });
 
-    a = await a.json();
-    a = a.features[0].geometry.coordinates[0];
+    polygon = await polygon.json();
+    polygon = polygon.features[0].geometry.coordinates[0];
     let minLon = 100;
     let minLat = 100;
     let maxLon = -100;
     let maxLat = -100;
-    for(let i = 0; i < a.length; i++) {
-        if(a[i][0] < minLon)
-            minLon = a[i][0];
-        if(a[i][1] < minLat)
-            minLat = a[i][1];
-        if(a[i][0] > maxLon)
-            maxLon = a[i][0];
-        if(a[i][1] > maxLat)
-            maxLat = a[i][1];
+    for(let i = 0; i < polygon.length; i++) {
+        if(polygon[i][0] < minLon)
+            minLon = polygon[i][0];
+        if(polygon[i][1] < minLat)
+            minLat = polygon[i][1];
+        if(polygon[i][0] > maxLon)
+            maxLon = polygon[i][0];
+        if(polygon[i][1] > maxLat)
+            maxLat = polygon[i][1];
     }
     
     let HttpProxyAgent = require( 'http-proxy-agent' );
@@ -52,10 +53,8 @@ async function all_positions(list_criteres, persona, longitude, latitude){
         agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
     };
     
-    // let amenity = await fetch("http://overpass-api.de/api/interpreter?data=[out:json];node[amenity]("+minLat+","+minLon+","+maxLat+","+maxLon+");out;");
-    // let shop = await fetch("http://overpass-api.de/api/interpreter?data=[out:json];node[shop]("+minLat+","+minLon+","+maxLat+","+maxLon+");out;");
-    // let leisure = await fetch("http://overpass-api.de/api/interpreter?data=[out:json];node[leisure]("+minLat+","+minLon+","+maxLat+","+maxLon+");out;");
-    // let tourism = await fetch("http://overpass-api.de/api/interpreter?data=[out:json];node[toursm]("+minLat+","+minLon+","+maxLat+","+maxLon+");out;");
+    console.log(longitude, latitude);
+    console.log(minLat, minLon, maxLat, maxLon);
     let request = `[out:json];
     (
     node[shop~"bakery|greengrocer|supermaket|mall|hairdresser"](${minLat},${minLon},${maxLat},${maxLon});
@@ -67,16 +66,12 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     out;`;
     request = await fetch("http://overpass-api.de/api/interpreter?data="+request);
     request = await request.json();
-    // shop = await shop.json();
-    // leisure = await leisure.json();
-    // tourism = await tourism.json();
+    
     let response = request;
-    console.log(longitude, latitude);
-    console.log(minLat, minLon, maxLat, maxLon);
     console.log("nb elements dans le carré : ", response.elements.length);
-    let elements = response.elements.filter(el => inside([el.lon, el.lat], a));
+    let elements = response.elements.filter(el => inside([el.lon, el.lat], polygon));
     console.log("nb elements dans le polygone : ", elements.length);
-    // 47.248951,-1.491051,47.228973,-1.554004
+
     // Mention honorable : AMNITY bar 	cafe fast_food restaurant
 
     // Pharmacie  AMNITY pharmacy
@@ -138,37 +133,75 @@ async function all_positions(list_criteres, persona, longitude, latitude){
         },
     }
 
-    // FILTRES
-    // TYPE = NODE
-
-    // PROBLEMES A GERER
-    // WAY POUR LES SPORTS CENTRE
-
-    // FONCTION QUI RETRIEVE TOUT
-    const res = [];
-    list_criteres.forEach(crit => {
-        config[crit] !== undefined && res.push(
+    // On classe tout dans les catégories
+    let res = [];
+    list_criteres.forEach(critere => {
+        config[critere] !== undefined && res.push(
         {
-            'categorie': crit,
+            'categorie': critere,
             'data': elements.filter(el => {
                     return el.type === 'node' 
-                    && config[crit].attributes.includes(el.tags[config[crit].type]);
+                    && config[critere].attributes.includes(el.tags[config[critere].type]);
                 })
         });
     });
-    // Ajout des parcs
-    if(list_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(a)});
-    if(list_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(a)});
-    
-    // calculer les distances
 
-    // limiter à 10 ?
+    // Ajout des parcs
+    if(list_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
+    // Ajout des arrets de bus
+    if(list_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
+    
+    // Calculer les distances
+    for(let cat_obj of res) {
+        for(let poi of cat_obj.data) {
+            poi.temps = await temps_de_trajet(poi.lon, poi.lat, longitude, latitude, vitesses[persona]);
+        }
+    }
+
+    // Refactor le résultat pour correspondre avec l'entrée attendue par les calculs futurs
+    res = res.map(cat_obj => {
+        return {
+            categorie: cat_obj.categorie,
+            data: cat_obj.data.map(node => {
+                return {
+                    temps: node.temps,
+                    nom: node.tags.name,
+                    adresse: node.tags['addr:street'] ? 
+                        node.tags['addr:housenumber'] + ' ' + node.tags['addr:street'] + ' ' + node.tags['addr:postcode'] + ' ' + node.tags['addr:city'] 
+                    : 
+                        ''
+                }
+            })
+        }
+    });
+
+    // Trier les résultats par temps
+    res.forEach(cat_obj => {
+        cat_obj.data.sort((node1, node2) => {
+            if (node1.temps > node2.temps) return 1;
+            if (node1.temps < node2.temps) return -1;
+            return 0;
+        });
+    });
+
+    // Limiter à 10
+    res = res.map(cat_obj => {
+        return {categorie: cat_obj.categorie, data: cat_obj.data.slice(0, 10)}
+    });
     
     return res;
 };
 
-async function distance(lon1, lat1, lon2, lat2) {
-    
+async function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
+    const rayon_terre = 6378;
+    const distance = rayon_terre * Math.acos(Math.sin(dtr(lat1)) * Math.sin(dtr(lat2)) + Math.cos(dtr(lat1)) * Math.cos(dtr(lat2)) * Math.cos(dtr(lon2)-dtr(lon1)));
+    const temps = Math.round(distance / vitesse * 60);
+    return temps < 0 ? 1 : temps;
+}
+
+// degree to radian
+function dtr(degrees) {
+  return degrees * (Math.PI/180);
 }
 
 async function api_parc(polygon) {
@@ -212,16 +245,14 @@ async function api_bus(polygon) {
     return arrets;
 }
 
-function inside(point, vs) {
-    // ray-casting algorithm based on
-    // https://wrf.ecse.rpi.edu/Research/Short_Notes/pnpoly.html/pnpoly.html
+function inside(point, polygon) {
     
     var x = point[0], y = point[1];
     
     var inside = false;
-    for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-        var xi = vs[i][0], yi = vs[i][1];
-        var xj = vs[j][0], yj = vs[j][1];
+    for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+        var xi = polygon[i][0], yi = polygon[i][1];
+        var xj = polygon[j][0], yj = polygon[j][1];
         
         var intersect = ((yi > y) != (yj > y))
             && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
