@@ -30,8 +30,8 @@ function adresses_validation() {
         const A1 = positions[0].split(',');
         const A2 = positions[1].split(',');
         go_to('criteres', {'positions': {
-            adresse1: {latitude: A1[0], longitude: A1[1]},
-            adresse2: {latitude: A2[0], longitude: A2[1]}
+            adresse1: {longitude: A1[0], latitude: A1[1]},
+            adresse2: {longitude: A2[0], latitude: A2[1]}
         }});
     }
 }
