@@ -14,11 +14,13 @@
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
     <script src="js/config/parameters.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" integrity="sha512-Gk+uNk8NWN235mIkS6B7/424TsDuPDaoAsUekJCKTWLKP6wlaPv+PBGfO7dbvZeibVPGW+mYidz0vL0XaWwz4w==" crossorigin="anonymous"></script>
     <script src="js/resultsPage.js" defer></script>
     <script src="js/searchingResultsPage.js" defer></script>
     <script src="js/activitiesPage.js" defer></script>
     <script src="js/faunaFloraPage.js" defer></script>
     <script src="js/accessPage.js" defer></script>
+    <script src="js/hourPage.js" defer></script>
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
     <!-- For address page -->
@@ -71,6 +73,31 @@
                     <span class="slider-legend-right slider-legend">>15km</span>
                     -->
                 </div>
+            </section>
+
+            <section data-slidr="hour-page">
+              <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
+              <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
+              <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+              <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
+              <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+              <img class="page" src="img/hour_page/background_hour.svg" alt="Page Horaire">
+              <img class="oya-hour" src="img/robot/oya_hour.gif" alt="Robot horaire">
+              <img class="hour-17 violet" src="img/hour_page/17hViolet.svg" alt="17h violet" style="opacity:0">
+              <img class="hour-aprem violet" src="img/hour_page/apremViolet.svg" alt="aprem violet" style="opacity:1">
+              <img class="hour-9 violet" src="img/hour_page/9hViolet.svg" alt="9h violet" style="opacity:0">
+              <input id="changeHour" type="hidden" value="1"/>
+              <img class="hour-17 orange" src="img/hour_page/17hOrange.svg" alt="17h orange">
+              <img class="hour-aprem orange" src="img/hour_page/apremOrange.svg" alt="aprem orange">
+              <img class="hour-9 orange" src="img/hour_page/9hOrange.svg" alt="9h orange">
+              <img class="leaves-hour" src="img/common/leaves.svg" alt="Leaves">
+              <img class="talking-bubble-hour" src="img/hour_page/bubble.svg" alt="Bulles de dialogue">
+              <p class="oya-hour-dialog dark-purple font-m">Quand veux-tu t'y rendre ?</p>
+              <div class="round-slider">
+                  <svg width=100% height=100% id="svg-slider"></svg>
+              </div>
+              <!-- <img class="page" src="img/hour_page/hour_page.svg" alt="Page de renseignement de l'heure"> -->
+              <button class="button-suivant-hour button-suivant font-m dark-purple background-beige">SUIVANT</button>
             </section>
 
             <section data-slidr="age-page">

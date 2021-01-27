@@ -6,13 +6,13 @@ let initAddress = function(){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
             mySlidr.slide('right');
-            initAge();
+            initHour();
         }
     });
 
     d3.select(".button-next-address-from-nevermind").on("click", function (){
         mySlidr.slide('right');
-        initAge();
+        initHour();
     });
 };
 
