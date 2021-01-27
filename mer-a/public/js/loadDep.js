@@ -41,7 +41,7 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 		.data(legendes)
 		.enter()
 		.append("circle")
-			.attr("id", function(d){ return 'legende_' + d.id; })
+			.attr("id", function(d){ return 'dot_legende_' + d.id; })
 			.attr("cx", function(d){ return projection([d.longitude, d.latitude])[0]; })
 			.attr("cy", function(d){ return projection([d.longitude, d.latitude])[1]; })
 			.attr("r", 14)
@@ -54,6 +54,34 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 			})
 			.on('mouseleave', function(d){
 				leave(d, this);
+			});
+
+	svg.selectAll("labels")
+		.data(legendes)
+		.enter()
+		.append("text")
+			.attr("id", function(d){ return 'label_legende_' + d.id; })
+			.attr("lbl-legende-id", function(d){ return d.id; })
+			.attr("x", function(d){ return projection([d.longitude, d.latitude])[0]; })
+			.attr("y", function(d){ return projection([d.longitude, d.latitude])[1] - 14 - 20; })
+			.text(function(d){ return d.nom})
+			.attr("text-anchor", "middle")
+			.attr("alignment-baseline", "central")
+			.style("fill", "white")
+			.style("font-size", 14)
+			.style("font-weight", "bold")
+			.attr("fill-opacity", 1)
+			.on('mouseover', function(d){
+				d3.select(this)
+					.transition().duration(350)
+					.style("font-size", 20);
+				hover(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
+			})
+			.on('mouseleave', function(d){
+				d3.select(this)
+					.transition().duration(350)
+					.style("font-size", 14);
+				leave(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
 			});
 
 }

@@ -12,7 +12,17 @@ function generateMap(mapData, mapFusion){
 		.attr("height", height);
 
 	// Place le centre de la map
-	var center = d3.geoCentroid(mapData);
+	var center = d3.geoCentroid((() => {
+		let useful = JSON.parse(JSON.stringify(mapFusion));
+		for(let i = 0; i < useful.features.length ; i++) {
+			let f = useful.features[i];
+			if(!deps.isValid(f.properties.code)) {
+				useful.features.splice(i,1);
+				i--;
+			}
+		}
+		return {type: "FeatureCollection", features: useful.features};
+	})());
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -83,6 +93,7 @@ function hover(codeDep,t){
 		d3.select(t)
 		.transition().duration(500)
 		.style("fill-opacity", 0.95)
+		.style('stroke-width', '2px')
 		.style("fill", '#73b7ba');
 		d3.select('#text_' + codeDep).style("display", 'initial');
 	}
@@ -95,6 +106,7 @@ function leave(codeDep,t){
 		d3.select(t)
 		.transition().duration(500)
 		.style("fill-opacity", 1)
+		.style('stroke-width', '1px')
 		.style("fill", '#88cbce');
 		d3.select('#text_' + codeDep).style("display", 'none');
 
