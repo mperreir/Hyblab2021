@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img  id="wazo" src="@/assets/wazo.png"/>
+    <img  id="wazo" src="@/assets/wazzo.png"/>
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
