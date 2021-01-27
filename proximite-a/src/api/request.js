@@ -1,5 +1,5 @@
 
-let HttpProxyAgent = require( 'http-proxy-agent' );
+let HttpProxyAgent = require( 'https-proxy-agent' );
 const fetch = require('node-fetch');
 
 
