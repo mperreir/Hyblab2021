@@ -24,4 +24,3 @@ app.use('/api', api(app));
 
 module.exports = app;
 
-app.listen(3000);
