@@ -17,22 +17,35 @@ const api = require('./api');
 //     return res.send(JSON.stringify(results, null, 4));
 // });
 
+
+function reformatCriteres(name){
+    if (name == "pharmacie") return 'Pharmacie';
+    if (name == "boulangerie") return 'Boulangerie';
+    if (name == "supermarche") return 'Supermarchee';
+    if (name == "medecin") return 'Médecin';
+    if (name == "bus") return 'Arrêt de bus';
+    if (name == "ecole") return 'Ecole';
+    if (name == "parc") return 'Parc';
+    if (name == "culte") return 'Lieu de culte';
+}
+
+
 router.post('/api/:longitude/:latitude', async function (req, res) {
     //TODO CHECK IF req.body est du bon type et bon contenu (cd sous ensemble de :
     //['Boulangerie','Médecin','Ecole','Supermarché','Parc',
     //'Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur',
     //'Musee','Bibliotheque','Salle de sport'])
 
+    const paramCriteres = (req.body.criteres.interests.concat(
+        req.body.criteres.disinterests)).map(x => reformatCriteres(x));
 
-    // let results =
-    //     await api.all_positions(
-    //         req.body.criteres.interests.concat(req.body.criteres.disinterests),
-    //         req.body.personas.chosen,
-    //         req.params.longitude, req.params.latitude); 
-    let results = await api.all_positions(['Boulangerie', 'Médecin', 'Ecole', 'Supermarché', 'Parc', 'Pharmacie', 'Lieu de culte', 'Arrêt de bus', 'Coiffeur', 'Musee', 'Bibliotheque', 'Salle de sport'], 'jeune',
-    -1.532116, 47.238194); // -1.554093, 47.228982
+    let results =
+        await api.all_positions(
+            paramCriteres,
+            req.body.personas.chosen,
+            req.params.longitude, req.params.latitude); 
+    console.log('Requete terminee');
     res.header("Content-Type", 'application/json');
-    console.log(JSON.stringify(results));
     return res.send(JSON.stringify(results, null, 4));
 });
 
