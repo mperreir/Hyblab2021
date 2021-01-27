@@ -24,11 +24,6 @@ let sketchCiel = function(p) {
     let imgPhareNuit;
     let imgPhareSoleil;
 
-    let imgFondJour;
-    let imgFondNuit;
-    let imgFondSoleil;
-    let imgFondDebut;
-
     let imgFondCoupeJour;
     let imgFondCoupeNuit;
     let imgFondCoupeSoleil;
@@ -107,11 +102,6 @@ let sketchCiel = function(p) {
       imgFondCoupeNuit = p.loadImage('img/FondsTextures/fondnuitcouper.png');
       imgFondCoupeSoleil = p.loadImage('img/FondsTextures/fondsoleilcouper.png');
 
-      imgFondJour = p.loadImage('img/FondsTextures/fondjour.png');
-      imgFondNuit = p.loadImage('img/FondsTextures/fondnuit.png');
-      imgFondSoleil = p.loadImage('img/FondsTextures/fondsoleil.png');
-      imgFondDebut = p.loadImage('img/FondsTextures/fonddebut.png');
-
       imgPlanteJour = p.loadImage('img/Plante/plantesjour.png');
       imgPlanteNuit = p.loadImage('img/Plante/plantesnuit.png');
       imgPlanteSoleil = p.loadImage('img/Plante/plantessoleil.png');
@@ -123,16 +113,10 @@ let sketchCiel = function(p) {
       xCoord2 = 0;
       yCoord2 = p.windowHeight;
 
-      imgdisplayFond = imgFondDebut;
     }
 
     p.draw = function() {
       affichage = getAffichage();
-      //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
-      //p.background(backgroundColor);
-      /*if(imgdisplayFond){
-        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
-      }*/
       animationCiel();
 
       if (rainingNow == true && cielY == 0) {
@@ -218,7 +202,6 @@ let sketchCiel = function(p) {
       imgdisplayFondCoupe = undefined;
       imgdisplayFond = undefined;
       imgdisplayPlante = undefined;
-      imgdisplayFond = imgFondDebut;
 
       cielY = -1;
       merY = -1;
@@ -245,7 +228,6 @@ let sketchCiel = function(p) {
 
       if(affichage.moment == "day" || affichage.moment == "indifferent"){
         imgdisplayFondCoupe = imgFondCoupeJour;
-        imgdisplayFond = imgFondJour;
         imgdisplayPlante = imgPlanteJour;
 
         if(affichage.ciel || affichage.ciel == "indifferent") {
@@ -299,7 +281,6 @@ let sketchCiel = function(p) {
       }
       else if(affichage.moment == "night"){
         imgdisplayFondCoupe = imgFondCoupeNuit;
-        imgdisplayFond = imgFondNuit;
 
         imgdisplayPlante = imgPlanteNuit;
 
@@ -352,7 +333,6 @@ let sketchCiel = function(p) {
         }
       }
       else if(affichage.moment){
-        imgdisplayFond = imgFondSoleil;
         imgdisplayFondCoupe = imgFondCoupeSoleil;
 
         imgdisplayPlante = imgPlanteSoleil;
