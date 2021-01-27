@@ -1,10 +1,7 @@
 <template>
 
 
-<!-- <lottie-animation
-    path="/assets/animationJson/wazo_culture.json"
-/> -->
-<div style="position:absolute;">
+<div style="position:absolute; left:40% ; width:450px;" >
     <div id="bulle-group" style="position:relative;width: 300px;" >  
      
 
@@ -20,11 +17,11 @@ font-weight: 600;
 line-height: 30px;
 letter-spacing: 0em;
 text-align: left;
-">AAAAAAAAaaAAAAAAAAAAAAAAAAaaAAAAAAAAaaAAAAAAAAAAAAAAAAAAAAAAAAAA
+">{{message}}
           </p>
     </div>
   </div>
-<div id="wazo-anim" style="position:relative; width: 20%; left:30%">
+<div id="wazo-anim" style="position:relative; width: 35%; float:right">
   </div>
 
 
@@ -40,7 +37,14 @@ const animationData = () => import("../assets/animationJson/wazo_culture.json");
 
 export default {
   name: "Oiseau",
-  props :['anim','message'], // on change l'anim en fonction de l'écran/ choix faits / remplace l'import.
+  // props :['anim','messaage'], // on change l'anim en fonction de l'écran/ choix faits / remplace l'import.
+
+  data: function(){
+    return {
+      message:"salut  ",
+      anim:"../assets/animationJson/wazo_culture.json"
+    }
+  },
         mounted () {
         animationData().then(function(data) { // data contient les données du json
         lottie.loadAnimation({
