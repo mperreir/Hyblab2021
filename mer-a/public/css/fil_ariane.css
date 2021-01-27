@@ -1,55 +1,63 @@
-.fil_ariane{
+/* Script commun à toutes les pages du site */
+/* (il faudrait rajouter dans chaque css la surbrillance des cercles et des traits...) */
+
+
+.fil_ariane {
+  position: absolute;
   display: flex;
   align-items: center;
-  position: absolute;
   padding-top: 20px;
   padding-left: 20px;
 }
 
-.trait{
-  border-top: white solid 2px;
-  opacity: 0.4;
-  width: 100px;
+
+.trait {
+
+  /* placement du trait */
+  position: relative;
+  left: -10px;
   display: inline-block;
   align-items: center;
   z-index: 10;
-  left: -10px;
-  position: relative;
+
+  /* apparence du trait */
+  width: 100px;
+  border-top: white solid 2px;
+  opacity: 0.4;
 }
 
-.cercle_outer{
+
+.cercle_outer {
+
+  /* placement du cercle extérieur */
+  display: inline-block;
+  align-items: center;
+  z-index: 10;
+
+
+  /* apparence du cercle extérieur */
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: white solid 2px;
-  opacity: 0.4;
   background-color: #1fe0;
+  opacity: 0.4;
+}
+
+
+.cercle_inner {
+
+  /* placement du cercle intérieur */
+  position: relative;
+  left: -32px;
   display: inline-block;
   align-items: center;
   z-index: 10;
-}
 
-.cercle_inner{
+  /* apparence du cercle intérieur */
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  opacity: 0.4;
   background-color: white;
-  display: inline-block;
-  align-items: center;
-  z-index: 10;
-  position: relative;
-  left: -32px;
-}
-
-#cercle_outer1{
-  opacity: 1;
-}
-
-#cercle_inner1{
-  opacity: 1;
-}
-
-body{
-  background-color: black;
+  opacity: 0.4;
 }
