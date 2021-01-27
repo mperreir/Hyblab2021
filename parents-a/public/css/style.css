@@ -34,6 +34,7 @@ section{
 
 }
 
+/* Slide 1 logo */
 #slidr section[data-slidr="page-1"]{
     background-color: #171EB1;
     height: 100%;
@@ -41,7 +42,13 @@ section{
     text-align: center;
 }
 
-section[data-slidr="page-2"] {
+#slidr section[data-slidr="page-1"] #logo{
+    width: 20%;
+    background-repeat: no-repeat;
+}
+
+
+section[data-slidr="page-1_1"] {
     background:  linear-gradient(90.42deg,
     #1F2BB6 13.84%,
     #4166CF 22.53%,
@@ -52,7 +59,7 @@ section[data-slidr="page-2"] {
 
 
 /* PAGE 2.1 */
-section[data-slidr="page-2.1"] {
+section[data-slidr="page-2"] {
     background: linear-gradient(90.42deg,
     #6FB5EF 13.84%,
     #69ABEB 22.53%,
