@@ -2,22 +2,26 @@
 
 <html lang="fr">
 
-
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../css/personnages.css">
-    <link rel="stylesheet" href="../css/fil-ariane.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fil_ariane.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <title>Média & Sea</title>
+
 </head>
 
 
 <body>
 
-    <div id="container">
+    <div class="container">
 
+        <!-- Copie du fil d'Ariane, car import du fichier html non réussi -->
         <div class="fil_ariane">
             <div class="cercle_outer" id="cercle_outer1"></div>
             <div class="cercle_inner" id="cercle_inner1"></div>
@@ -31,10 +35,9 @@
             <div class="cercle_outer" id="cercle_outer4"></div>
             <div class="cercle_inner" id="cercle_inner4"></div>
         </div>
+    
+        <div class="decor">
 
-        <div class="decor" id="scene">
-
-<!-- (tests de parallax non concluants... mais je laisse ça ici pour le moment)
             <img class="plan" id="plan1" src="../assets/img/background/PLAN_1.png" alt="">
             <img class="plan" id="plan2" src="../assets/img/background/PLAN_2.png" alt="">
             <img class="plan" id="plan3" src="../assets/img/background/PLAN_4.png" alt="">
@@ -46,18 +49,7 @@
             <img class="wave" id="wave5" src="../assets/img/background/VAGUE_5.png" alt="">
             <img class="wave" id="wave6" src="../assets/img/background/VAGUE_6.png" alt="">
             <img class="wave" id="wave7" src="../assets/img/background/VAGUE_7.png" alt="">
--->
 
-            <div data-depth-x="0.1" data-depth-y="0.05"><img src="../assets/img/background/PLAN_4.png" class="plan" id="plan4" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.1"><img src="../assets/img/background/VAGUE_7.png" class="wave" id="wave7" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.13"><img src="../assets/img/background/VAGUE_6.png" class="wave" id="wave6" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.1"><img src="../assets/img/background/VAGUE_5.png" class="wave" id="wave5" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.12"><img src="../assets/img/background/VAGUE_4.png" class="wave" id="wave4" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.09"><img src="../assets/img/background/VAGUE_3.png" class="wave" id="wave3" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.13"><img src="../assets/img/background/VAGUE_2.png" class="wave" id="wave2" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.11"><img src="../assets/img/background/VAGUE_1.png" class="wave" id="wave1" alt=""></div>
-            <div data-depth-x="0.1" data-depth-y="0.2"><img src="../assets/img/background/PLAN_2.png" class="plan" id="plan2" alt=""></div>
-            <div data-pointer-events="false" data-depth-x="0.1" data-depth-y="0.40"><img src="../assets/img/background/PLAN_1.png" class="plan" id="plan1" alt=""></div>
         </div>
 
         <div class="choix-personnages">
@@ -86,11 +78,10 @@
                 </div>
 
             </nav>
-
             
             <div class="texte indication">
                 <p>Pour continuer le voyage,</p>
-                <p>choisissez le thème qui vous inspire !</p>            
+                <p>choisissez un thème de légende !</p>            
             </div>
 
         </div>

@@ -165,7 +165,8 @@ body {
 .choix-personnages {
     position: absolute;
     width: 50vw;
-    margin: 25vh 25vw 0;
+    margin: 5vh 10vw 0;
+    padding: 20vh 15vw 0;
     z-index: 1;
 }
 
@@ -192,30 +193,29 @@ body {
 .perso#creature {
     margin-top: 8vh;
     margin-right: -4vw;
-    background-image: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png");
-    background-repeat: no-repeat;
-    background-position: top 32% left 36.5%; /* placement du personnage dans la box */
+    background: url("../assets/img/personnages/image_Créatures_Fantastiques.png.png") no-repeat top 32% left 36.5%;
     background-size: 500%;
 }
 
 .perso#marin {
-    background-image: url("../assets/img/personnages/image_Histoires_Maritimes.png");
-    background-repeat: no-repeat;
-    background-position: top 31% left 52%; /* placement du personnage dans la box */
+    background: url("../assets/img/personnages/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
     background-size: 600%;
 }
 
 .perso#religieux {
     margin-top: 7vh;
     margin-left: -5vw;
-    background-image: url("../assets/img/personnages/image_Croyances_Religion.png.png");
-    background-repeat: no-repeat;
-    background-position: top 39% left 63%; /* placement du personnage dans la box */
+    background: url("../assets/img/personnages/image_Croyances_Religion.png.png") no-repeat top 39% left 63%;
     background-size: 560%;
 }
 
+.zone-creature {
+    /* créatures placées au-dessus du marin, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    z-index: 2;
+}
+
 .zone-marin {
-    /* on place le marin au-dessus pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    /* marin placé au-dessus du prêtre, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 1;
 }
 
@@ -251,7 +251,7 @@ body {
     /* aspect du texte */
     text-align: center;
     font-size: 1.5vw;
-    font-family: Helvetica;
+    font-family: 'Poppins';
     color: black;
 
     /* aspect de l'arrière-plan */
@@ -268,7 +268,7 @@ body {
 
 .categorie {
     position: relative;
-    width: 18vw;
+    width: 20vw;
     opacity: 0;
 }
 
@@ -310,6 +310,6 @@ body {
 
 .indication {
     position: relative;
-    width: 26vw;
+    width: 28vw;
     margin: 5vh auto 0;
 }
