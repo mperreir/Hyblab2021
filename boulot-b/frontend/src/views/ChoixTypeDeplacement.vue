@@ -41,21 +41,18 @@ export default {
       velo.style.display = "block";
     },
     nextPied() {
-      const pied= document.getElementById("pied-anim");
-      lottie.play("pied-anim");
-      lottie.setSpeed(2,"pied-anim")
-      pied.style.display = "block";
-      pied.addEventListener("complete", () => {
+      this.pied.play()
+      this.pied.setSpeed(2)
+      this.pied.addEventListener("complete", () => {
         this.$router.push({name:"choix-style" })
       });
     },
   },
   mounted() {
-     lottie.loadAnimation({
+     this.pied = lottie.loadAnimation({
       container: document.getElementById("pied-anim"), // the dom element that will contain the animation
       renderer: 'svg',
       loop: false,
-      name: "pied-anim",
       autoplay: false,
       animationData: pied,
     });
@@ -86,12 +83,12 @@ export default {
     transform: translateX(300%);
   }
 }
-#velo-anim, #pied-anim {
-  display: none;
-}
+  #velo-anim  {
+    display: none;
+  }
 
-.slide-lr {
-  width: 30%;
-  animation: slide-lr 1s ease-in both;
-}
+  .slide-lr {
+    width: 30%;
+    animation: slide-lr 1s ease-in both;
+  }
 </style>
