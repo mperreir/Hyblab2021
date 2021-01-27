@@ -4,9 +4,9 @@ const fetch = require('node-fetch');
 
 async function all_positions(list_criteres, persona, longitude, latitude){
     const vitesses = {
-        young: 5.5,  // average speed / one quarter
-        family: 5,
-        old: 3
+        jeune: 5.5,  // average speed / one quarter
+        famille: 5,
+        senior: 3
     };
 
     let polygon = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 

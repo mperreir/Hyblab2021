@@ -29,9 +29,9 @@ function adresses_validation() {
     else {
         const A1 = positions[0].split(',');
         const A2 = positions[1].split(',');
-        go_to('criteres', {'positions': {
+        go_to('criteres', {
             adresse1: {longitude: A1[0], latitude: A1[1]},
             adresse2: {longitude: A2[0], latitude: A2[1]}
-        }});
+        });
     }
 }

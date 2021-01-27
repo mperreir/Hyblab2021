@@ -1,8 +1,43 @@
 
+// console.log(_app_stores)
+
+
+var stor = {
+    "all": { "current_page": "timeline" },
+    "personas": { "chosen": "jeune" },
+    "greeters": {},
+    "adresses": {
+
+        "adresse1": { "longitude": "-1.532116", "latitude": "47.238194" },
+        "adresse2": { "longitude": "-1.532116", "latitude": "47.238194" }
+    },
+    "criteres": {
+        "interests": ["bus", "boulangerie", "medecin"],
+        "disinterests": ["culte", "parc"]
+    },
+    "timeline": {}
+}
 
 
 
-
+fetch(`api/${stor.adresses.adresse1.longitude}/${stor.adresses.adresse1.latitude}`
+    ,
+    {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(stor),
+    }
+)
+    .then((response) => {
+        response.json().then(
+            function (data) {
+                console.log("test");
+                console.log(data);
+            }
+        )
+    });
 
 
 var dataTimeLine1 = [
@@ -101,7 +136,7 @@ var dataTimeLine2 = [
 
 
 
-[dataTimeLine1,dataTimeLine2] = clean_data(dataTimeLine1,dataTimeLine2)
+[dataTimeLine1, dataTimeLine2] = clean_data(dataTimeLine1, dataTimeLine2)
 
 
 
