@@ -1,7 +1,7 @@
 <template>
 
 
-<div style="position:absolute; left:40%" >
+<div style="position:absolute; left:40% ; width:450px;" >
     <div id="bulle-group" style="position:relative;width: 300px;" >  
      
 
@@ -21,7 +21,7 @@ text-align: left;
           </p>
     </div>
   </div>
-<div id="wazo-anim" style="position:relative; width: 20%; left:30%">
+<div id="wazo-anim" style="position:relative; width: 35%; float:right">
   </div>
 
 
