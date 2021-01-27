@@ -1,6 +1,6 @@
 <template>
   <input
-      :value="value" :class="{error: error}" class="input" :placeholder="placeholder"
+      :value="value" :class="{error: error}" class="input"
       @input="$emit('input', $event.target.value)"
   />
 </template>
@@ -9,7 +9,6 @@
 export default {
   name: "Input",
   props: {
-    placeholder: String,
     value: String,
     error: Boolean
   }

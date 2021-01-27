@@ -48,12 +48,11 @@ export default Vue.extend({
   },
   methods: {
     launch() {
-      if (!this.depart)
-        this.error.depart = true
-      if (!this.arrive)
-        this.error.arrive = true
-      if (!this.depart || !this.arrive)
+      if (!this.depart || !this.arrive) {
+        this.error.arrive = !this.arrive;
+        this.error.depart = !this.depart;
         return
+      }
       this.$router.push({ name: "choix-humeur" });
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <button @click="click" :id=color class="button">
+  <button @click="click" :class=color class="button">
     {{ text }}
   </button>
 </template>
@@ -8,7 +8,10 @@
 import Vue from "vue";
 export default Vue.component("buttonCustom", {
   name: "buttonCustom",
-  props: ['color', 'text'],
+  props: {
+    color: String,
+    text: String
+  },
   methods: {
     click() {
       this.$emit("click")
@@ -17,7 +20,9 @@ export default Vue.component("buttonCustom", {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$blue:  #0ec0ec;
+$yellow: yellow;
   .button {
     margin: 10px;
     display: block;
@@ -31,18 +36,18 @@ export default Vue.component("buttonCustom", {
     text-align: center;
   }
 
-  #yellow {
-    background-color: yellow;
+  .yellow {
+    background-color: $yellow;
   }
-  #yellow:hover {
-    background-color: #bbbb00;
+  .yellow:hover {
+    background-color: darken($yellow, 20%);
   }
-  #blue:hover {
-    background-color: #0790a8;
+  .blue:hover {
+    background-color: darken($blue,20%);
   }
 
-  #blue {
-    background-color: #0ec0ec;
+  .blue {
+    background-color: $blue;
   }
 
 </style>
