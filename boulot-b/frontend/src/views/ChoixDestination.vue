@@ -2,8 +2,8 @@
   <Container>
     <template #question >
       <div id="launcher">
-        <Input class="depart" placeholder="point de départ..." />
-        <Input class="arrive" placeholder="point d'arrivée..." />
+        <Input :error="error.depart" v-model="depart" class="depart" placeholder="point de départ..." />
+        <Input :error="error.arrive" v-model="arrive" class="arrive" placeholder="point d'arrivée..." />
         <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
       </div>
     </template>
@@ -28,6 +28,13 @@ import Oiseau from "@/components/Oiseau";
 
 export default Vue.extend({
   name: "ChoixDestination",
+  data() {
+    return {
+      depart: undefined,
+      arrive: undefined,
+      error: {depart: false, arrive: false}
+    }
+  },
   props: {
    actif: Number
   },
@@ -41,6 +48,12 @@ export default Vue.extend({
   },
   methods: {
     launch() {
+      if (!this.depart)
+        this.error.depart = true
+      if (!this.arrive)
+        this.error.arrive = true
+      if (!this.depart || !this.arrive)
+        return
       this.$router.push({ name: "choix-humeur" });
     },
   },
@@ -48,24 +61,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-#container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 0.8fr 1.2fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". canari ."
-    ". canari ."
-    ". launcher .";
-}
-
-#canari {
-  grid-area: canari;
-}
-
-#launcher {
-  grid-area: launcher;
-}
 
 #launcher {
   display: flex;
@@ -76,14 +71,14 @@ export default Vue.extend({
   align-items: center;
 }
 
-.depart:nth-child(1) {
+.depart {
   order: 0;
   margin-bottom: 10px;
   flex: 0 1 auto;
   align-self: auto;
 }
 
-.arrive:nth-child(2) {
+.arrive {
   order: 0;
   margin-bottom: 50px;
   flex: 0 1 auto;

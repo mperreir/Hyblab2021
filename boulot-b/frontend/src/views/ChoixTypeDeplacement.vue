@@ -44,6 +44,7 @@ export default {
       velo.style.display = "block";
     },
     nextPied() {
+      document.getElementById("pied-anim").style.display = "block";
       this.pied.play()
       this.pied.setSpeed(2)
       this.pied.addEventListener("complete", () => {
@@ -86,7 +87,7 @@ export default {
     transform: translateX(300%);
   }
 }
-  #velo-anim  {
+  #velo-anim, #pied-anim  {
     display: none;
   }
 
@@ -94,4 +95,5 @@ export default {
     width: 30%;
     animation: slide-lr 1s ease-in both;
   }
+
 </style>

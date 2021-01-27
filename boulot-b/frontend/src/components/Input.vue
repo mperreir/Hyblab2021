@@ -1,30 +1,39 @@
 <template>
-  <input  id="input" :placeholder="placeholder" />
+  <input
+      :value="value" :class="{error: error}" class="input" :placeholder="placeholder"
+      @input="$emit('input', $event.target.value)"
+  />
 </template>
 
 <script>
 export default {
   name: "Input",
   props: {
-    placeholder: String
+    placeholder: String,
+    value: String,
+    error: Boolean
   }
 }
 </script>
 
 <style scoped>
 
-#input {
+.input {
   border-radius: 5px;
   border: none;
   background-color: #ffdb27;
   padding: 5px 5px 5px 20px;
 }
 
-#input:hover ,#input:focus {
+.error {
+  background-color: rgb(234, 137, 137);
+}
+
+.input:hover ,.input:focus {
   background-color: #fbdc51;
 }
 
-#input::placeholder {
+.input::placeholder {
   color: white;
   font-weight: bolder;
   opacity: 1;
