@@ -11,7 +11,7 @@ let myCriteria = {
         duration: null
     },
     "Gardien": null,
-    "Jeux pour enfants": null,
+    "Jeux pour enfants": true,
     "Pataugeoire": null,
     "Sanitaires": null,
     "Sanitaires pour handicapés": null,
@@ -27,12 +27,12 @@ let myCriteria = {
     "Présence d'animaux": null,
     "Herbe (un minimum) / Sable": null,
     "Verdure / Plante Espace Vert": null,
-    "CRAPA": null,
-    "Terrains de sport": null,
-    "Activités organisées": null,
-    "Élément de culture": null,
-    "Horaires d'ouverture": null,
-    "Âge": null
+    "CRAPA": true,
+    "Terrains de sport": true,
+    "Activités organisées": true,
+    "Élément de culture": true,
+    "Horaires d'ouverture": 1,
+    "Âge": []
 };
 
 let nbElemChoisit = 0;
@@ -57,6 +57,18 @@ function choiceUpdate(string, currentValue) {
             return stringToBoolean(string);
         }
     }
+}
+
+function addAge(newAge) {
+    myCriteria["Âge"].push(newAge);
+    console.log("AGE +");
+    console.log(myCriteria["Âge"]);
+}
+
+function removeAge(rmAge) {
+    myCriteria["Âge"].splice(myCriteria["Âge"].indexOf(rmAge), 1)
+    console.log("AGE -");
+    console.log(myCriteria["Âge"]);
 }
 
 function distAttribute(event) {
@@ -101,7 +113,7 @@ function gardAttribute(event) {
 
 function childGameAttribute(event) {
     const childGame = myCriteria["Jeux pour enfants"];
-    myCriteria["Jeux pour enfants"] = choiceUpdate(event.target.value, childGame);
+    myCriteria["Jeux pour enfants"] = event.target.checked;
 }
 
 function paddlingPoolAttribute(event) {
@@ -179,24 +191,29 @@ function greeneryAttribute(event) {
     myCriteria["Verdure / Plante Espace Vert"] = choiceUpdate(event.target.value, greenery);
 }
 
+function hourAttribute(event) {
+    const hour = myCriteria["Horaires d'ouverture"];
+    myCriteria["Horaires d'ouverture"] = parseInt(event.target.value);
+}
+
 function crapaAttribute(event) {
     const crapa = myCriteria["CRAPA"];
-    myCriteria["CRAPA"] = choiceUpdate(event.target.value, crapa);
+    myCriteria["CRAPA"] = event.target.checked;
 }
 
 function sportAttribute(event) {
     const sport = myCriteria["Terrains de sport"];
-    myCriteria["Terrains de sport"] = choiceUpdate(event.target.value, sport);
+    myCriteria["Terrains de sport"] = event.target.checked;
 }
 
 function activityAttribute(event) {
     const activity = myCriteria["Activités organisées"];
-    myCriteria["Activités organisées"] = choiceUpdate(event.target.value, activity);
+    myCriteria["Activités organisées"] = event.target.checked;
 }
 
 function cultureAttribute(event) {
     const culture = myCriteria["Élément de culture"];
-    myCriteria["Élément de culture"] = choiceUpdate(event.target.value, culture);
+    myCriteria["Élément de culture"] = event.target.checked;
 }
 
 function fetchData() {
@@ -285,6 +302,43 @@ function fetchData() {
                                 line["listElemMatch"].push(key);
                             }
                             break;
+                        case "Âge":
+                            const length = myCriteria["Âge"].length;
+                            if (value && length > 0) {
+                                let add = false;
+                                myCriteria["Âge"].forEach(age => {
+                                    const ages = line["Âge"].split('-');
+                                    const minAge = parseInt(ages[0]);
+                                    const maxAge = parseInt(ages[1]);
+                                    if (minAge <= age && age <= maxAge) {
+                                        line["nbElemCorrect"] = line["nbElemCorrect"] + 1/length;
+                                        add = true;
+                                    } else {
+                                        if (age > maxAge) {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (age-maxAge)/maxAge).toFixed(2)/length;
+                                        } else {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (minAge-age)/minAge).toFixed(2)/length;
+                                        }
+                                    }
+                                });
+                                if (add) line["listElemMatch"].push(key);
+                            }
+                            break;
+                        case "Horaires d'ouverture":
+                            const splitHour = value.split('-');
+                            const minHour = parseInt(splitHour[0].split('H')[0]);
+                            const maxHour = parseInt(splitHour[1].split('H')[0]);
+                            if (myCriteria[key] === 1) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 0 && minHour < 9) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 2 && maxHour > 19) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            }
+                            break;
                         default:
                             if (myCriteria[key]) {
                                 if (myCriteria[key] != null && myCriteria[key] === value) {
@@ -333,9 +387,7 @@ function main() {
     const garde = document.getElementById('garde');
     garde.addEventListener('click', gardAttribute);
 
-    // TODO 'jeuxEnfant' sera à remplacer par l'id de l'élément à tester
-    const jeuxEnfant = document.getElementById('jeuxEnfant');
-    jeuxEnfant.addEventListener('click', childGameAttribute);
+
 
     // TODO 'pataugeoire' sera à remplacer par l'id de l'élément à tester
     const pataugeoire = document.getElementById('pataugeoire');
@@ -397,22 +449,30 @@ function main() {
     const verdure = document.getElementById('verdure');
     verdure.addEventListener('click', greeneryAttribute);
 
-    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
-    const crapa = document.getElementById('crapa');
-    crapa.addEventListener('click', crapaAttribute);
-
-    // TODO 'terrainSport' sera à remplacer par l'id de l'élément à tester
-    const terrainSport = document.getElementById('terrainSport');
-    terrainSport.addEventListener('click', sportAttribute);
-
-    // TODO 'activite' sera à remplacer par l'id de l'élément à tester
-    const activite = document.getElementById('activite');
-    activite.addEventListener('click', activityAttribute);
-
-    // TODO 'elementCulture' sera à remplacer par l'id de l'élément à tester
-    const elementCulture = document.getElementById('elementCulture');
-    elementCulture.addEventListener('click', cultureAttribute);
+    // TODO 'hour' sera à remplacer par l'id de l'élément à tester
+    const hour = document.getElementById('hour');
+    hour.addEventListener('change', hourAttribute);
 */
+    // Crapa
+    const crapa = document.getElementById('crapa-input');
+    crapa.addEventListener('change', crapaAttribute);
+
+    // Games
+    const jeuxEnfant = document.getElementById('games-input');
+    jeuxEnfant.addEventListener('change', childGameAttribute);
+
+    // Sport
+    const terrainSport = document.getElementById('sport-field-input');
+    terrainSport.addEventListener('change', sportAttribute);
+
+    // Activite
+    const activite = document.getElementById('activities-input');
+    activite.addEventListener('change', activityAttribute);
+
+    // element culturels
+    const elementCulture = document.getElementById('statue-input');
+    elementCulture.addEventListener('click', cultureAttribute);
+
     const searchData = document.getElementById('searchData');
     searchData.addEventListener('click', fetchData);
 
