@@ -111,7 +111,7 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
 
  /** %%%%%%%%%%%%%%%% api de test %%%%%%%%%%%%%%%%%%%%% 
   * lancer le test avec cette url :
-  * http://127.0.0.1:8080/trajet/22+rue+francois+mireur+montpellier/gare+saint+roch+montpellier/pedestrian/
+  * http://127.0.0.1:8080/trajet/22+rue+francois+mireur+montpellier/gare+saint+roch+montpellier/pedestrian/true
  */
  app.get('/trajet/:depart/:arrivee/:transport/:boulangerie', async (req, res) => {
     let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
@@ -125,7 +125,7 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
      let arriveeCordinat = await adresse2coord(arrivee)
  
      /** la liste des coordonees des points d'interet interessant */
-     let list_POI = [];
+     let list_POI = {};
 
       /** boulangerie */
     if(boulangerie == "true"){
@@ -133,7 +133,7 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
         let randB = getRandomInt(0, listBoul.length)
 
         let P_boulangerie = listBoul[randB]
-        list_POI.push(P_boulangerie)
+        list_POI["Boulangerie"] = P_boulangerie
     }
     /** la reponse retourner */
     let reponseJSON = {
@@ -168,7 +168,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
     let arriveeCordinat = await adresse2coord(arrivee)
 
     /** la liste des coordonees des points d'interet interessant */
-    let list_POI = [];
+    let list_POI = {};
 
 
     /** definition du style : nature/culture/aleatoire */
@@ -178,14 +178,14 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
             let randN = getRandomInt(0, listNature.length)
 
             let P_nature = listNature[randN]
-            list_POI.push(P_nature)
+            list_POI["Nature"] = P_nature
             break;
         case "culture":
             let listCulture = pointInteret(origin, arrivee, "Monument", transport)
             let randC = getRandomInt(0, listCulture.length)
 
             let P_culture = listNature[randC]
-            list_POI.push(P_culture)
+            list_POI["Culture"] = P_culture
             break;
 
         default :
@@ -195,7 +195,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
             let randH = getRandomInt(0, listHasard.length)
 
             let P_hasard = listHasard[randH]
-            list_POI.push(P_hasard)
+            list_POI["Hasard"] = P_hasard
     }
 
 
@@ -205,7 +205,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let randB = getRandomInt(0, listBoul.length)
 
         let P_boulangerie = listBoul[randB]
-        list_POI.push(P_boulangerie)
+        list_POI["Boulangerie"] = P_boulangerie
     }
 
     /** SALLES SPORT */
@@ -214,7 +214,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let randS = getRandomInt(0, listSalle.length)
 
         let P_salle = listSalle[randS]
-        list_POI.push(P_salle)
+        list_POI["SalleSport"] = P_salle
     }
 
      /** bar */
@@ -223,7 +223,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let randBar = getRandomInt(0, listBar.length)
 
         let P_bar = listBar[randBar]
-        list_POI.push(P_bar)
+        list_POI["Bar"] = P_bar
     }
 
 
@@ -233,7 +233,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let randP = getRandomInt(0, listP.length)
 
         let P_pharmacie = listpharmacie[randP]
-        list_POI.push(P_pharmacie)
+        list_POI["Pharmacie"] = P_pharmacie
     }
 
     /** la reponse retourner */
