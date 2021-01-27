@@ -75,7 +75,7 @@ let sketchCiel = function(p) {
       fade = 0
 
       p.createCanvas(p.windowWidth, p.windowHeight);
-      p.background(250);
+      //p.background(250);
       img = p.loadImage('img/plage.jpg');
       imgCielJour = p.loadImage('img/Ciel/cieljour.png');
       imgCielNuit = p.loadImage('img/Ciel/cielnuit.png');
@@ -129,10 +129,10 @@ let sketchCiel = function(p) {
     p.draw = function() {
       affichage = getAffichage();
       //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
-      p.background(backgroundColor);
-      if(imgdisplayFond){
+      //p.background(backgroundColor);
+      /*if(imgdisplayFond){
         p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
-      }
+      }*/
       animationCiel();
 
       if (rainingNow == true && cielY == 0) {
