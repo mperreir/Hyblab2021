@@ -50,6 +50,17 @@ describe('Test API', () => {
                         })
                     })
                 })
+                describe('Test route /api/' + r + '/Paramètreinvalide/', () => {
+                    it('Doit retourner une erreur', (done) => {
+                        chai.request(app)
+                            .get('/api/' + r + '/invalidparemeter/')
+                            .end((err, response) => {
+                                expect(err).to.be.null;
+                                response.should.have.status(400);
+                                done();
+                            });
+                    })
+                })
             }
         })
     })

@@ -13,6 +13,8 @@ const API_NANTES_ROUTES = {
     places_parking: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parkings-publics-nantes-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut&rows=-1",
 }
 
+const QUARTIERS = ["nord","sud","est","ouest","centre", undefined]
+
 function loadJSONFile(file_name){
     let rawdata = fs.readFileSync(`./velo-b/api/data/${file_name}`);
     let jsondata = JSON.parse(rawdata);
@@ -41,8 +43,17 @@ module.exports = () => {
 
     app.get('/update/', (req,res) => update(req, res));
 
-    function getLocalJSONData(file_name, quartier=null){
-        const data = loadJSONFile(file_name);
+    function getLocalJSONData(file_name, quartier=undefined){
+        if(!QUARTIERS.includes(quartier)){
+            throw {message:"Quartier invalide", code:400};
+        }
+        let data;
+        try {
+            data = loadJSONFile(file_name);
+        }catch (e){
+            // Faire appel à la route update si ce message apparait
+            throw {message:"Données indisponnibles", code:503};
+        }
         return quartier?data[quartier]:(Array.isArray(data)?data:Object.values(data).flat());
     }
 
@@ -53,15 +64,18 @@ module.exports = () => {
                 'Content-Type': 'application/json',
                 'charset': 'utf-8'
             });
-            res.status(200).send(JSON.stringify(await callback(req, res)));
+            try {
+                res.status(200).send(JSON.stringify(await callback(req, res)));
+            }catch (e){
+                res.status(e.code).send(JSON.stringify({error:e}));
+            }
         };
     }
 
     async function update(req, res) {
         const api_routes = loadJSONFile('nantes-api-fetcher.json');
         const quartiers = loadJSONFile('quartiers.json');
-
-        /*for (const o of api_routes) {
+        for (const o of api_routes) {
             let data = {};
             if (o.quartiers) {
                 for (const k of Object.keys(quartiers)) {
@@ -72,7 +86,6 @@ module.exports = () => {
             }
             fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
         }
-         */
         const liste_bicloo = Object.values(loadJSONFile('stations-velo-libre-service.json')).flat();
         const liste_arrets = Object.values(loadJSONFile('arrets-tan.json')).flat();
         liste_arrets.map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
@@ -95,6 +108,9 @@ module.exports = () => {
     async function fetchData(base_url, quartier=undefined){
         let url = base_url;
         if(quartier) {
+            if(!QUARTIERS.includes(quartier)){
+                throw {message:"Quartier invalide", code:400};
+            }
             const quartiers = loadJSONFile('quartiers.json');
             const polygon_api = quartiers[quartier].reduce((acc, val) => acc + `(${val[0]}%2C${val[1]})%2C`, '').slice(0, -3);
             url += '&geofilter.polygon=' + polygon_api;
