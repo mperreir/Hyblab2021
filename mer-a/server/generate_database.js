@@ -11,7 +11,7 @@ const verbose = true;
 let db = null;
 (async () => {
   // open database
-  db = await open({filename: config.DB_PATH, driver: sqlite3.Database});
+  db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
@@ -58,22 +58,22 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
   db.run("DELETE FROM Categorie;");
   db.run("DELETE FROM Legende;");
 
-  var countIdDep = 1;
+  //var countIdDep = 1;
   var countIdCat = 1;
   var countIdLeg = 1;
   var depList = [];
   var catList = [];
   // Fill the DB with the CSV content
-  fs.createReadStream('./server/data.csv')
+  fs.createReadStream(config.ROOT + 'server/data.csv')
     .pipe(csv())
     .on('data', (row) => {
       var sql = '';
       if(!depList.includes(row.departement)) {
         db.run(`INSERT INTO Departement VALUES (            
-          ${countIdDep}, 
+          ${row.numero_dep}, 
           '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
         depList.push(row.departement);
-        countIdDep++;
+        //countIdDep++;
       }
       
       if(!catList.includes(row.categorie)) {
@@ -88,7 +88,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
       sql = `INSERT INTO Legende VALUES (
           ${countIdLeg},
           '${(encodeURI(row.nom)).replace(/'/g, "`")}',
-          ${depList.indexOf(row.departement) + 1},
+          ${row.numero_dep},
           ${catList.indexOf(row.categorie) + 1},
           '${(encodeURI(row.resume)).replace(/'/g, "`")}',
           '${(encodeURI(row.histoire)).replace(/'/g, "`")}',

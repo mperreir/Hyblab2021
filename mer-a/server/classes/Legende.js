@@ -1,6 +1,7 @@
 class Legende {
 
     constructor(
+        id,
         nom, 
         departement, 
         categorie, 
@@ -14,6 +15,7 @@ class Legende {
         restaurant, 
         photo) {
 
+            this.id = id;
             this.nom = nom;
             this.departement = departement;
             this.categorie = categorie;

@@ -30,6 +30,9 @@ let db = null;
 app.get(`${config.API_URL}all/regions`, async (req, res) => {
   let sql = 'SELECT * FROM DEPARTEMENT;'
   const rows = await db.all(sql, []);
+  rows.forEach((row) => {
+    row.nomDepartement = decodeURI(row.nomDepartement);
+  });
   console.log(rows);
   res.status(200).json(rows);
 });
@@ -37,6 +40,9 @@ app.get(`${config.API_URL}all/regions`, async (req, res) => {
 app.get(`${config.API_URL}all/types`, async (req, res) => {
   let sql = 'SELECT * FROM CATEGORIE;'
   const rows = await db.all(sql, []);
+  rows.forEach((row) => {
+    row.nomDepartement = decodeURI(row.nomCategorie);
+  });
   console.log(rows);
   res.status(200).json(rows);
 });
@@ -44,7 +50,10 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
 
 // Route to get get one legend by id
 app.get(`${config.API_URL}legende/:id`, async (req, res) => {
-    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    var sql = `SELECT Legende.id as id, Legende.nom as nom, departementId, categorieId,
+    resume, histoire, latitude, longitude, adresse, baignade, toilettes, restaurant,
+    photo, nomDepartement, nomCategorie, imageURI
+    FROM Legende INNER JOIN Departement ON Departement.id = departementId
     INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
 
     const row = await db.get(sql, [req.params.id]);
@@ -57,7 +66,10 @@ app.get(`${config.API_URL}legende/:id`, async (req, res) => {
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
     var legendes = [];
-    var sql = `SELECT * FROM Legende INNER JOIN Departement ON Departement.id = departementId
+    var sql = `SELECT Legende.id as id, Legende.nom as nom, departementId, categorieId,
+    resume, histoire, latitude, longitude, adresse, baignade, toilettes, restaurant,
+    photo, nomDepartement, nomCategorie, imageURI
+    FROM Legende INNER JOIN Departement ON Departement.id = departementId
                 INNER JOIN Categorie ON Categorie.id = categorieId WHERE departementId = ?
                 AND categorieId = ?;`;
     console.log(sql + `\ndep: "${req.params.region}",\ncat: "${req.params.typeHistoire}"`);
@@ -66,7 +78,9 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
+      console.log(row);
         var legende = new Legende(
+            row.id,
             decodeURI(row.nom), 
             decodeURI(row.nomDepartement), //A modifier
             decodeURI(row.nomCategorie),   //A modifier
