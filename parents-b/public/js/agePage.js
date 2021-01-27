@@ -6,56 +6,56 @@ const GRAND = 10.5;
 
 let initAge = function(){
 
-  //---------------FONCTIONS-----------------
-  //Pour avoir l'image du jeu adéquat avec fleche
-  function setImage(cpt){
-    valeurImage= cpt%4;
-    console.log(valeurImage)
-    if(valeurImage==0 ){
-      x.setAttribute("src", "././img/age/agebb.svg");
+    //---------------FONCTIONS-----------------
+    //Pour avoir l'image du jeu adéquat avec fleche
+    function setImage(cpt){
+        let valeurImage= cpt%4;
+        console.log(valeurImage)
+        if(valeurImage==0 ){
+            x.setAttribute("src", "././img/age/agebb.svg");
+        }
+        if(valeurImage==1 || valeurImage==-1 ){
+            x.setAttribute("src", "././img/age/agenounours.svg");
+        }
+        if(valeurImage==2 || valeurImage==-2 ){
+            x.setAttribute("src", "././img/age/agelego.svg");
+        }
+        if(valeurImage==3 || valeurImage==-3 ){
+            x.setAttribute("src", "././img/age/ageballon.svg");
+        }
     }
-    if(valeurImage==1 || valeurImage==-1 ){
-      x.setAttribute("src", "././img/age/agenounours.svg");
-    }
-    if(valeurImage==2 || valeurImage==-2 ){
-      x.setAttribute("src", "././img/age/agelego.svg");
-    }
-    if(valeurImage==3 || valeurImage==-3 ){
-      x.setAttribute("src", "././img/age/ageballon.svg");
-    }
-  }
 
-  //Pour afficher le logo et les croix de suppression lors d'un choix avec le boutton plus
-  function activeLogoChoix(cpt){
-    valeurImage= cpt%4;
-    console.log(valeurImage)
-    if(valeurImage==0 ){
-      document.getElementById("bb").hidden = false;
-      document.getElementById("supp_bb").hidden = false;
-        addAge(BEBE);
+    //Pour afficher le logo et les croix de suppression lors d'un choix avec le boutton plus
+    function activeLogoChoix(cpt){
+        valeurImage= cpt%4;
+        console.log(valeurImage)
+        if(valeurImage==0 ){
+            document.getElementById("bb").hidden = false;
+            document.getElementById("supp_bb").hidden = false;
+            addAge(BEBE);
+        }
+        if(valeurImage==1 || valeurImage==-1 ){
+            document.getElementById("nounours").hidden = false;
+            document.getElementById("supp_nounours").hidden = false;
+            addAge(PETIT);
+        }
+        if(valeurImage==2 || valeurImage==-2 ){
+            document.getElementById("lego").hidden = false;
+            document.getElementById("supp_lego").hidden = false;
+            addAge(MOYEN);
+        }
+        if(valeurImage==3 || valeurImage==-3 ){
+            document.getElementById("ballon").hidden = false;
+            document.getElementById("supp_ballon").hidden = false;
+            addAge(GRAND);
+        }
     }
-    if(valeurImage==1 || valeurImage==-1 ){
-      document.getElementById("nounours").hidden = false;
-      document.getElementById("supp_nounours").hidden = false;
-        addAge(PETIT);
-    }
-    if(valeurImage==2 || valeurImage==-2 ){
-      document.getElementById("lego").hidden = false;
-      document.getElementById("supp_lego").hidden = false;
-      addAge(MOYEN);
-    }
-    if(valeurImage==3 || valeurImage==-3 ){
-      document.getElementById("ballon").hidden = false;
-      document.getElementById("supp_ballon").hidden = false;
-      addAge(GRAND);
-    }
-  }
 
     let cpt = 0;
 
 
     //---------------DES L'OUVERTURE-----------------
-    var x = document.getElementById("image_age");
+    let x = document.getElementById("image_age");
     x.setAttribute("src", "././img/age/agebb.svg");
 
     //Cache tous les elements de choix d'age au début
@@ -71,7 +71,8 @@ let initAge = function(){
 
     //---------------BOUTTONS-----------------
     //Bouton suivant
-    d3.select('.button-next-age').on('click', function (){
+    d3.select('.button-suivant-age').on('click', function (){
+        tl_suivant_age_over.pause();
         mySlidr.slide('right');
         initAccess();
     });
@@ -79,10 +80,10 @@ let initAge = function(){
     //Gestion des fleches pour changement image
     //Recupere l'image et modifie la source en fonction du resultat de la division euclidienne
     d3.select(".fleche_gauche").on("click", function (){
-      cpt =cpt-1;
-      if (cpt <0) cpt = 3;
-      setImage(cpt);
-      });
+        cpt =cpt-1;
+        if (cpt <0) cpt = 3;
+        setImage(cpt);
+    });
     //Mouse over de fleche gauche
     d3.select(".fleche_gauche").on("mouseover",  function (){
         var x = document.getElementById("fleche_gauche");
@@ -95,8 +96,8 @@ let initAge = function(){
 
 
     d3.select(".fleche_droite").on("click",  function (){
-      cpt =cpt+1;
-      setImage(cpt);
+        cpt =cpt+1;
+        setImage(cpt);
     });
     //Mouse over de fleche droite
     d3.select(".fleche_droite").on("mouseover",  function (){
@@ -110,32 +111,32 @@ let initAge = function(){
 
     //Bouton plus
     d3.select(".boutton_add").on("click",  function (){
-      activeLogoChoix(cpt);
+        activeLogoChoix(cpt);
     });
 
     //Cache les logo si le bouton plus est activé
     d3.select(".supp_bb").on("click",  function (){
-      document.getElementById("bb").hidden = true;
-      document.getElementById("supp_bb").hidden = true;
-      removeAge(BEBE);
+        document.getElementById("bb").hidden = true;
+        document.getElementById("supp_bb").hidden = true;
+        removeAge(BEBE);
     });
 
     d3.select(".supp_nounours").on("click",  function (){
-      document.getElementById("nounours").hidden = true;
-      document.getElementById("supp_nounours").hidden = true;
-      removeAge(PETIT);
+        document.getElementById("nounours").hidden = true;
+        document.getElementById("supp_nounours").hidden = true;
+        removeAge(PETIT);
     });
 
     d3.select(".supp_lego").on("click",  function (){
-      document.getElementById("lego").hidden = true;
-      document.getElementById("supp_lego").hidden = true;
-      removeAge(MOYEN);
+        document.getElementById("lego").hidden = true;
+        document.getElementById("supp_lego").hidden = true;
+        removeAge(MOYEN);
     });
 
     d3.select(".supp_ballon").on("click",  function (){
-      document.getElementById("ballon").hidden = true;
-      document.getElementById("supp_ballon").hidden = true;
-      removeAge(GRAND);
+        document.getElementById("ballon").hidden = true;
+        document.getElementById("supp_ballon").hidden = true;
+        removeAge(GRAND);
     });
 
 
@@ -148,7 +149,7 @@ let initAge = function(){
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false
-      });
+    });
 
     anime({
         targets: '.age_yeux_cache2',
@@ -159,24 +160,58 @@ let initAge = function(){
 
     //Deuxieme robot
     anime({
-      targets: '#age_arrive',
-      translateY: '-500%',
-      delay : 4350,
-      easing: 'easeInOutQuad',
-      direction: 'alternate',
-      loop: false
+        targets: '#age_arrive',
+        translateY: '-500%',
+        delay : 4350,
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+        loop: false
     });
 
     let txt2 = anime.timeline({
         targets: '.txt2'
     });
-        txt2
-            .add({
-                opacity: 0,
-            })
-            .add({
-                delay : 4450,
-                opacity: 1,
-            })
-};
+    txt2
+        .add({
+            opacity: 0,
+        })
+        .add({
+            delay : 4450,
+            opacity: 1,
+        });
 
+//Bouton Suivant
+    let tl_suivant_age_over = anime.timeline({
+        easing: 'linear',
+        loop:true
+    });
+
+    d3.select('.button-suivant-age').on('mouseover', function (){
+        tl_suivant_age_over
+            .add({
+                targets: ".button-suivant-age",
+                scale: 1.1,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-age",
+                scale: 0.9,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-age",
+                scale: 1,
+                duration: 500
+            })
+    });
+
+    d3.select('.button-suivant-age').on('mouseleave' ,function (){
+        anime({
+            targets: ".button-suivant-age",
+            scale: 1,
+            duration: 200,
+            ease: 'linear'
+        });
+        tl_suivant_age_over.pause();
+    });
+};
