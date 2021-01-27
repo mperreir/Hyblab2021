@@ -158,23 +158,6 @@ async function all_positions(list_criteres, persona, longitude, latitude){
         }
     }
 
-    // Refactor le résultat pour correspondre avec l'entrée attendue par les calculs futurs
-    res = res.map(cat_obj => {
-        return {
-            categorie: cat_obj.categorie,
-            data: cat_obj.data.map(node => {
-                return {
-                    temps: node.temps,
-                    nom: node.tags.name,
-                    adresse: node.tags['addr:street'] ? 
-                        node.tags['addr:housenumber'] + ' ' + node.tags['addr:street'] + ' ' + node.tags['addr:postcode'] + ' ' + node.tags['addr:city'] 
-                    : 
-                        ''
-                }
-            })
-        }
-    });
-
     // Trier les résultats par temps
     res.forEach(cat_obj => {
         cat_obj.data.sort((node1, node2) => {
@@ -188,6 +171,27 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     res = res.map(cat_obj => {
         return {categorie: cat_obj.categorie, data: cat_obj.data.slice(0, 10)}
     });
+
+    // Calculer les adresses
+    for(let cat_obj of res) {
+        for(let poi of cat_obj.data) {
+            poi.adresse = await get_adresse(poi.lon, poi.lat);
+        }
+    }
+
+    // Refactor le résultat pour correspondre avec l'entrée attendue par les calculs futurs
+    res = res.map(cat_obj => {
+        return {
+            categorie: cat_obj.categorie,
+            data: cat_obj.data.map(node => {
+                return {
+                    temps: node.temps,
+                    nom: node.tags.name,
+                    adresse: node.adresse
+                }
+            })
+        }
+    });
     
     return res;
 };
@@ -199,7 +203,7 @@ async function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
     return temps < 0 ? 1 : temps;
 }
 
-// degree to radian
+// Degree to radian
 function dtr(degrees) {
   return degrees * (Math.PI/180);
 }
@@ -268,4 +272,11 @@ function retourner(poly) {
     const res = []
     poly.forEach(point => res.push([point[1], point[0]]));
     return res;
+}
+
+async function get_adresse(lon, lat) {
+    var lieu = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
+    const response = await fetch(lieu);
+    var resultAPI = await response.json();
+    return resultAPI.features[0].properties.label;
 }
