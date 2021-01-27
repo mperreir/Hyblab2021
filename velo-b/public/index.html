@@ -21,6 +21,7 @@
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
+    <script src="js/infoChoix.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -123,6 +124,33 @@
             <!--choix transport 4 : transport en commun -->
 
             <section data-slidr="choix-transport-4">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/transportCommun3.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                <footer>
+                </footer>
+
+            </section>
+
+            <!--Infos liés au choix  -->
+
+            <section data-slidr="infos-choix-voiture">
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
