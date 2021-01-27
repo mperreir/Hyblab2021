@@ -2,8 +2,6 @@
 
 
 let initSlideChoixBicloo = function () {
-
-
     d3.select('#fleche-droite-bycl').on('click', function () {
       anime({
         targets: '#fleche-droite-bycl',
@@ -79,13 +77,13 @@ let initSlideChoixBicloo = function () {
       });
     });
     */
-    d3.select('#plus-info').on('click', function () {
+    d3.select('#plus-info-bicloo').on('click', function () {
       anime({
-        targets: '#plus-info',
+        targets: '#plus-info-bicloo',
         scale: 0
       });
-      mySlidr.slide('page-2');
-      initSlide2();
+      mySlidr.slide('info-choix-bicloo');
+      initSlideInfosBicloo();
     });
     /*
     d3.select('#plus-info').on('mouseover', function () {
@@ -108,7 +106,15 @@ let initSlideChoixBicloo = function () {
   
   };
 
+
+
+
+
+  // *******************************
   // SLIDE CHOIX TRANSPORT EN COMMUN
+  // *******************************
+
+
 
 
 let initSlideChoixTransport = function () {
@@ -188,13 +194,13 @@ let initSlideChoixTransport = function () {
       });
     });
     */
-    d3.select('#plus-info').on('click', function () {
+    d3.select('#plus-info-transports').on('click', function () {
       anime({
-        targets: '#plus-info',
+        targets: '#plus-info-transports',
         scale: 0
       });
-      mySlidr.slide('page-2');
-      initSlide2();
+      mySlidr.slide('info-choix-transports');
+      initSlideInfosTransports();
     });
     /*
     d3.select('#plus-info').on('mouseover', function () {
@@ -239,9 +245,9 @@ let initSlideChoixTransport = function () {
 
 
 
-  
+  // *******************************
   // SLIDE CHOIX VELO
-
+  // ******************************* 
 
 
 
@@ -325,12 +331,12 @@ let initSlideChoixVelo = function () {
       });
     });
     */
-    d3.select('#plus-info').on('click', function () {
+    d3.select('#plus-info-velo').on('click', function () {
       anime({
-        targets: '#plus-info',
+        targets: '#plus-info-velo',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('info-choix-velo');
       initSlide2();
     });
     /*
@@ -437,13 +443,13 @@ let initSlideChoixVoiture = function () {
       });
     });
     */
-    d3.select('#plus-info').on('click', function () {
+    d3.select('#plus-info-voiture').on('click', function () {
       anime({
-        targets: '#plus-info',
+        targets: '#plus-info-voiture',
         scale: 0
       });
-      mySlidr.slide('page-2');
-      initSlide2();
+      mySlidr.slide('info-choix-voiture');
+      initSlideInfosVoiture();
     });
     /*
     d3.select('#plus-info').on('mouseover', function () {

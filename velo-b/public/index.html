@@ -21,6 +21,7 @@
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
+    <script src="js/infosChoix.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -42,7 +43,13 @@
                 <img src="assets/logo.svg" />
             </section>
 
+
+
+            
             <!--Sections des choix de transport dénomination : choix-transport-x -->
+
+
+
 
             <!--choix transport 1 : voiture -->
 
@@ -61,7 +68,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-voiture" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -87,7 +94,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-velo" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
@@ -113,7 +120,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-bicloo" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -137,16 +144,66 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
                 </footer>
-
             </section>
 
+
+
+
+            <!-- 
+                **********************************
+                Pages d'informations pour les choix
+                ***********************************
+            -->
+
+
+
+
+            <!-- Pages d'information sur le vélo-->
+            <section data-slidr="info-choix-velo">
+                <div style="display: flex;">
+                    <div class="fancy-title rounded-full">Infos vélos</div>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur le vélo-->
+            <section data-slidr="info-choix-voiture">
+                <div style="display: flex;">
+                    <div class="fancy-title rounded-full">Infos voiture</div>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur le bicloo-->
+            <section data-slidr="info-choix-bicloo">
+                <div style="display: flex;">
+                    <div class="fancy-title rounded-full">Infos bicloo</div>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur les transports en commun -->
+            <section data-slidr="info-choix-transports">
+                <div style="display: flex;">
+                    <div class="fancy-title rounded-full">Infos tramway</div>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
 
             <section data-slidr="page-2">
                 <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
@@ -189,7 +246,6 @@
                     </ul>
                 </footer>
             </section>
-            
             <section data-slidr="page-3">
                 <div style="display: flex;">
                     <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super
