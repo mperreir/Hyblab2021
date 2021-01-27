@@ -23,7 +23,7 @@ var app = express();
 // open database
 let db = null;
 (async () => {
-  db = await open({filename: config.DB_PATH, driver: sqlite3.Database});
+  db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 })();
 
 
@@ -90,46 +90,29 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
 
 // Route to reach the departements page
 app.get(`/departements`, async (req, res) => {
-    await fs.readFile(`./public/html/departements.html`, (err, data) => {
-      if(err) {
-        console.error(err);
-        res.status(500).send('Invalid file path.');
-      }
-      else res.status(200).send(data.toString());
-    });
+    res.status(200).sendFile(`public/html/departements.html`, { root : config.ROOT });
 });
 
 // Route to reach the personnages page
 app.get(`/personnages`, async (req, res) => {
-  await fs.readFile(`./public/html/personnages.html`, (err, data) => {
-    if(err) {
-      console.error(err);
-      res.status(500).send('Invalid file path.');
-    }
-    else res.status(200).send(data.toString());
-  });
+    res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
 
 // Route to reach the departement page
 app.get(`/departement`, async (req, res) => {
-    await fs.readFile(`./public/html/departement.html`, (err, data) => {
-      if(err) {
-        console.error(err);
-        res.status(500).send('Invalid file path.');
-      }
-      else res.status(200).send(data.toString());
-    });
+    res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
 });
 
 // Route to reach the legende page
 app.get(`/legende`, async (req, res) => {
-    await fs.readFile(`./public/html/legende.html`, (err, data) => {
+    res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
+    /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
       if(err) {
         console.error(err);
         res.status(500).send('Invalid file path.');
       }
       else res.status(200).send(data.toString());
-    });
+    });*/
 });
 
 // close the database connection
@@ -152,7 +135,7 @@ app.use(express.static(path.join(__dirname, '../__common-logos__')));
 // or more generally: http(s)://server_name:port/name_of_you_project/
 
 // Pour lancer depuis mer-a (npm start)
-app.listen(8080);
+//app.listen(8080);
 
 //Pour lancer depuis Hyblab2021 / racine (npm start)
-//module.exports = app;
+module.exports = app;
