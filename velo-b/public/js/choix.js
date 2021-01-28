@@ -289,7 +289,7 @@ let infobutton = function (page) {
       targets: '#plus-info',
       scale: 0
     });
-    mySlidr.slide('page-2');
+    mySlidr.slide('page-finale');
     initSlide2();
   });
 }
