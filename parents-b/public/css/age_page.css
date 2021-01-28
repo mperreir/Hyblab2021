@@ -7,6 +7,15 @@
     z-index: 2;
 }
 
+.leaves-age{
+    position: absolute;
+    top: 0;
+    left: 70%;
+    height: auto;
+    width: 100%;
+    z-index: 2;
+}
+
 .yeux_cache{
     position: absolute;
     top: 8%;
@@ -141,10 +150,6 @@
     left : 24.5%;
     width: 3%;
     z-index: 2;
-}
-
-.button-age:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .page2{

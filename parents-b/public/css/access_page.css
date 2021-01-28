@@ -11,12 +11,11 @@
 
 .leaves-access{
     position: absolute;
-    top: 15%;
-    left: 15%;
+    top: 0;
+    left: 0;
+    width: 50%;
     height: auto;
     text-align: center;
-    width: 10%;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
     z-index: 2;
 }
 

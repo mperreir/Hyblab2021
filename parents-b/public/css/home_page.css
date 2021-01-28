@@ -17,11 +17,10 @@
 
 .leaves-home{
     position: absolute;
-    top: 50%;
-    left: 75%;
-    width: 10%;
+    top: 0;
+    left: 50%;
     height: auto;
-    text-align: center;
+    width: 100%;
     z-index: 2;
 }
 
@@ -38,7 +37,7 @@
     top: 15%;
     left: 39%;
     width: 20%;
-    z-index: 2;
+    z-index: 4;
 }
 
 .rocket-hello{

@@ -26,12 +26,11 @@
 
 .leaves-hour{
   position: absolute;
-  top: 65%;
-  left: 5%;
+  top: 0;
+  left: 0;
   height: auto;
   text-align: center;
-  width: 10%;
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+  width: 100%;
   z-index: 2;
 }
 

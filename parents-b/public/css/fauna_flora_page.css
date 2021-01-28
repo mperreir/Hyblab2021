@@ -1,15 +1,21 @@
 /* -------------------------- Fauna Flora -------------------- */
 .leaves-fauna-flora{
     position: absolute;
-    top: 35%;
-    left: 10%;
-    width: 10%;
+    top: 50%;
+    left: 50%;
+    width: 50%;
     height: auto;
     text-align: center;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
     z-index: 2;
 }
 
+.planet-fauna-flora{
+    position: absolute;
+    top: 33%;
+    left: 80%;
+    width: 17%;
+    z-index: 3;
+}
 .oya-fauna-flora{
     position: absolute;
     top: 13%;
