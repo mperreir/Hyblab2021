@@ -27,6 +27,7 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 import velo from "@/assets/animationJson/wazo_velo.json"
 import pied from "@/assets/animationJson/wazo_pas.json"
+import {TypeDeplacement} from "@/store";
 import lottie from "lottie-web";
 
 export default {
@@ -38,6 +39,7 @@ export default {
     nextVelo() {
      const velo= document.getElementById("velo-anim");
       velo.addEventListener("animationend", () => {
+        this.$root.$data.setTypeDeplacement(TypeDeplacement.VELO)
         this.$router.push({name:"choix-destination" })
       });
      velo.classList.add("slide-lr");
@@ -48,6 +50,7 @@ export default {
       this.pied.play()
       this.pied.setSpeed(2)
       this.pied.addEventListener("complete", () => {
+        this.$root.$data.setTypeDeplacement(TypeDeplacement.PIED)
         this.$router.push({name:"choix-destination" })
       });
     },
