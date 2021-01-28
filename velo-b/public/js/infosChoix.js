@@ -7,7 +7,7 @@
  */
 let initSlideInfosVelo = function () {
     d3.select('#close-btn-velo').on('click', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-velo',
             scale: 0
         });
@@ -16,14 +16,14 @@ let initSlideInfosVelo = function () {
     });
 
     d3.select('#close-btn-velo').on('mouseover', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-velo',
             scale: 1.2
         });
     });
 
     d3.select('#close-btn-velo').on('mouseout', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-velo',
             scale: 1
         });
@@ -35,7 +35,7 @@ let initSlideInfosVelo = function () {
  */
 let initSlideInfosVoiture = function () {
     d3.select('#close-btn-voiture').on('click', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-voiture',
             scale: 0
         });
@@ -44,14 +44,14 @@ let initSlideInfosVoiture = function () {
     });
 
     d3.select('#close-btn-voiture').on('mouseover', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-voiture',
             scale: 1.2
         });
     });
 
     d3.select('#close-btn-voiture').on('mouseout', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-voiture',
             scale: 1
         });
@@ -63,7 +63,7 @@ let initSlideInfosVoiture = function () {
 */
 let initSlideInfosBicloo = function () {
     d3.select('#close-btn-bicloo').on('click', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-bicloo',
             scale: 0
         });
@@ -72,14 +72,14 @@ let initSlideInfosBicloo = function () {
     });
 
     d3.select('#close-btn-bicloo').on('mouseover', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-bicloo',
             scale: 1.2
         });
     });
 
     d3.select('#close-btn-bicloo').on('mouseout', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-bicloo',
             scale: 1
         });
@@ -91,7 +91,7 @@ let initSlideInfosBicloo = function () {
  */
 let initSlideInfosTransports = function () {
     d3.select('#close-btn-transports').on('click', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-transports',
             scale: 0
         });
@@ -100,14 +100,14 @@ let initSlideInfosTransports = function () {
     });
 
     d3.select('#close-btn-transports').on('mouseover', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-transports',
             scale: 1.2
         });
     });
 
     d3.select('#close-btn-transports').on('mouseout', function () {
-        anime({
+        overrideAnim({
             targets: '#close-btn-transports',
             scale: 1
         });

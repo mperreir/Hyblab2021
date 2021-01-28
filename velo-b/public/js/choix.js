@@ -14,7 +14,7 @@ let initSlideChoixBicloo = function () {
 
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
-    anime({
+    overrideAnim({
       targets: '#plus-info-bicloo',
       scale: 0
     });
@@ -45,7 +45,7 @@ let initSlideChoixTransport = function () {
 
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-transports').on('click', function () {
-    anime({
+    overrideAnim({
       targets: '#plus-info-transports',
       scale: 0
     });
@@ -158,9 +158,8 @@ let initSlideChoixVelo = function () {
     });
     */
     d3.select('#plus-info-velo').on('click', function () {
-      anime({
-        targets: '#fleche-gauche-velo',
-        targets: '#plus-info-velo',
+      overrideAnim({
+        targets: ['#fleche-gauche-velo', '#plus-info-velo'],
         scale: 0
       });
       mySlidr.slide('choix-transport-1');
@@ -206,7 +205,7 @@ let initSlideChoixVoiture = function () {
    /*====================Bouton du bas ===========================*/
 
    d3.select('#plus-info-voiture').on('click', function () {
-    anime({
+    overrideAnim({
       targets: '#plus-info-voiture',
       scale: 0
     });
@@ -223,7 +222,7 @@ let initSlideChoixVoiture = function () {
 
 let arrowbutton = function (idButton, page) {
   d3.select(idButton).on('click', function () {
-    anime({
+    overrideAnim({
       targets: idButton,
       scale: 0
     });
@@ -243,7 +242,7 @@ let arrowbutton = function (idButton, page) {
   });
 
   d3.select(idButton).on('mouseover', function () {
-    anime({
+    overrideAnim({
       targets: idButton,
       scale: 1.2
     });
@@ -251,7 +250,7 @@ let arrowbutton = function (idButton, page) {
   });
 
   d3.select(idButton).on('mouseout', function () {
-    anime({
+    overrideAnim({
       targets: idButton,
       scale: 1
     });
@@ -262,7 +261,7 @@ let arrowbutton = function (idButton, page) {
 let okbutton = function (page) {
 
   d3.select('#ok-button').on('click', function () {
-    anime({
+    overrideAnim({
       targets: 'ok-button',
       scale: 0
     });
@@ -285,7 +284,7 @@ let okbutton = function (page) {
 
 let infobutton = function (page) {
   d3.select('#plus-info').on('click', function () {
-    anime({
+    overrideAnim({
       targets: '#plus-info',
       scale: 0
     });
