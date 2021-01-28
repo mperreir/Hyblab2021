@@ -9,15 +9,12 @@ import Vue from "vue";
 
 export default Vue.component("finalMap", {
   name: "finalMap",
-  props: ['origin', 'destination', 'stops'],
+  props: ['origin', 'destination', 'stops', 'transportType'],
   mounted: function () {
     var platform = new H.service.Platform({
       apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
     });
     var defaultLayers = platform.createDefaultLayers();
-
-    console.log(this.origin[0] + "," + this.origin[1]);
-    console.log(this.destination[0] + ',' + this.destination[1]);
 
     var map = new H.Map(this.$refs.mapCont,
     defaultLayers.vector.normal.map,{
@@ -36,23 +33,23 @@ export default Vue.component("finalMap", {
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     const ui = H.ui.UI.createDefault(map, defaultLayers);
 
+    let transportType = 'pedestrian';
+    if (this.transportType == 'bicycle') { transportType = 'bicycle' }
   
     const coordStops = this.stops.map(coords => coords[0] + "," + coords[1])
 
-    console.log(coordStops);
-
-    calculateRouteFromAtoB(platform, map, this.origin, this.destination, coordStops);
+    calculateRouteFromAtoB(platform, map, this.origin, this.destination, coordStops, transportType);
   }
 });
 
-function calculateRouteFromAtoB (platform, map, origin, destination, coordStops) {
+function calculateRouteFromAtoB (platform, map, origin, destination, coordStops, transportType) {
   const coordOrigin = origin[0] + ',' + origin[1];
   const coordDestination = destination[0] + ',' + destination[1];
   
   var router = platform.getRoutingService(null, 8),
       routeRequestParams = {
         routingMode: 'fast',
-        transportMode: 'pedestrian',
+        transportMode: transportType,
         origin: coordOrigin, 
         destination: coordDestination,  
         via: new H.service.Url.MultiValueQueryParameter(coordStops),
