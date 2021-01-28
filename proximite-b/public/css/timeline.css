@@ -1,87 +1,75 @@
-.bar-T1{
+.bar-T1 {
     background-color: #2a315b !important;
-}  
-.bar-T2{
-  background-color: #eead1c !important;
 }
 
+.bar-T2 {
+    background-color: #eead1c !important;
+}
 
-#timeline_background{
+#timeline_background {
     width: 100vw;
     height: 100vh;
     position: absolute;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     z-index: -10;
-    
 }
 
-#waitingSpinner{
-  
+#waitingSpinner {
     width: 20em;
     height: 20em;
-
     position: relative;
 }
 
-
-
-
-
-
-
-
-
-
-
+#timeline ul {
+    list-style-type: none;
+}
 
 /* MODAL  */
 
-
-#timeline #singleModal .modal-content{
-    border-radius: 5em !important; 
+#timeline #singleModal .modal-content {
+    border-radius: 5em !important;
     border-bottom: 0 none;
-
 }
+
 #timeline #singleModal .modal-header {
     border-bottom: 0 none;
 }
 
 #timeline #otherItemsSingleModal {
-    border-radius: 5em !important; 
-    color:white;
+    border-radius: 5em !important;
+    color: white;
     border-bottom: 0 none;
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: 70%;
     background-position-x: center;
-    
 }
-.interestsColorModal{
+
+.interestsColorModal {
     background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
-    background-color:#2a325a !important;
-
+    background-color: #2a325a !important;
 }
-.disinterestsColorModal{
+
+.disinterestsColorModal {
     background-image: url('/proximite-b/img/timeline/modal/disinterests/nuagerouge.svg') !important;
-    background-color:#b95803 !important;
-
+    background-color: #b95803 !important;
 }
 
-#timeline #singleModal .headerAddTemps{
+#timeline #singleModal .headerAddTemps {
     font-size: 0.8em;
 }
 
-#timeline #singleModal .iconModal{
+#timeline #singleModal .iconModal {
     width: 1.5em;
 }
-#singleModal #firstItemSingleModal{
-    color:#2a325a;
-    font-family: ArchitectDaughter;
 
+#singleModal #firstItemSingleModal {
+    color: #2a325a;
+    font-family: ArchitectDaughter;
 }
 
-#singleModal #firstItemSingleModal #imgCat{
+#singleModal #firstItemSingleModal #imgCat {
     top: 5em;
     left: -4em;
     z-index: 1;
@@ -90,10 +78,9 @@
     position: absolute;
 }
 
-
-
-#singleModal #closeModal{
-    background-image: url('/proximite-b/img/timeline/modal/croix.svg');
+#singleModal #closeModal {
+    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg');
+    /*TODO change interests desin*/
     width: 3em;
     height: 3em;
     background-repeat: no-repeat;
@@ -103,6 +90,7 @@
     right: -1em;
     z-index: 1;
 }
-#singleModal #closeModal:hover{
+
+#singleModal #closeModal:hover {
     cursor: pointer;
 }

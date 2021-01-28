@@ -20,42 +20,61 @@ var TimeKnots = {
         var firstAdress = d.data[0]
         var otherAdress = d.data.slice(1);
         var disinterests = _app_stores['criteres']['disinterests'];
-    
+
         var preference = 'interests';
-        if(disinterests.includes(d.categorie)){var preference = 'disinterests'};
+        if (disinterests.includes(d.categorie)) { var preference = 'disinterests' };
 
 
 
         $("#firstItemSingleModal")
-        .html(
-            '<div class="px-5" style="width: 100vw;">'+
-                '<img id="imgCat" src='+d.img+'>'+
+            .html(
+                '<div class="px-5" style="width: 100vw;">' +
+                '<img id="imgCat" src=' + d.img + '>' +
 
-                '<div class="row"><h3>'+
-                firstAdress.nom+
-                '</h3></div>'+
-                '<div class="row headerAddTemps">'+
-                    '<div class="col-6 text-left">'+
-                    '<img class="iconModal" src="/proximite-b/img/timeline/modal/'+preference+'/point.svg">'+
-                    firstAdress.adresse+
-                    '</div>'+
-                    '<div class="col-6 text-left">'+
-                    '<img class="iconModal" src="/proximite-b/img/timeline/modal/'+preference+'/personnage.svg">'+
+                '<div class="row"><h3>' +
+                firstAdress.nom +
+                '</h3></div>' +
+                '<div class="row headerAddTemps">' +
+                '<div class="col-6 text-left">' +
+                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
+                firstAdress.adresse +
+                '</div>' +
+                '<div class="col-6 text-left">' +
+                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/personnage.svg">' +
 
-                    'Temps à pied : '+
-                    firstAdress.temps+
-                    ' minutes</div>'+
-                '</div>'+
-            '</div>');
-                
-            $("#otherItemsSingleModal").attr('class','modal-body '+preference+'ColorModal');
-         $("#otherItemsSingleModal").html("")
-         var divContent = $('<div>');
-         divContent.css('padding-bottom', "4em")
+                'Temps à pied : ' +
+                firstAdress.temps +
+                ' minutes</div>' +
+                '</div>' +
+                '</div>');
+
+        $("#otherItemsSingleModal").attr('class', 'modal-body ' + preference + 'ColorModal');
+        $("#otherItemsSingleModal").html("")
+        //  = $('<div>').css('padding-bottom', "4em");
+         var divContent = $('<div>').css('padding-bottom', "4em").attr('class','row');
+        
+        
         if (otherAdress.length >= 1) {
+            var i=0;
+            var col1 = $('<div>').attr('class','col');
+            var ul1 = $('<ul>');
+            col1.append(ul1);
+            var col2 = $('<div>').attr('class','col');
+            var ul2 = $('<ul>');
+            col2.append(ul2);
+
+
             otherAdress.forEach(element => {
-                divContent.append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+                if (i>=5){
+                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                }
+                else{
+                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                }
+                i++;
             });
+            divContent.append(col1);
+            if (i>=5) divContent.append(col2);
             $("#otherItemsSingleModal").append(divContent)
 
         }
