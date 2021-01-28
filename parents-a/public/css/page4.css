@@ -1,4 +1,104 @@
 section[data-sildr='page-4'] {
     background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
     transform: rotate(-180deg);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#logo-p4 {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#oui-p4 {
+    position: absolute;
+    width: 5%;
+    bottom: 25%;
+    right: 60%;
+}
+
+#non-p4 {
+    position: absolute;
+    width: 5%;
+    bottom: 25%;
+    right: 33%;
+}
+
+#bouton_pleinLaVue-p4 {
+    position: absolute;
+    width: 22%;
+    bottom: 32%;
+    right: 51%;
+}
+
+#bouton_non_pleinLaVue-p4 {
+    position: absolute;
+    width: 18%;
+    bottom: 32%;
+    right: 28%;
+}
+
+#question-p4 {
+    position: absolute;
+    width: 45%;
+    bottom: 68%;
+    right: 28%;
+}
+
+#fleurs-p4 {
+    position: absolute;
+    width: 15%;
+    bottom: 5%;
+    left: 12%;
+}
+
+#feuille_verte-p4 {
+    position: absolute;
+    width: 28%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#petit_nuage-p4 {
+    position: absolute;
+    width: 30%;
+    top: 0%;
+    right: 70%;
+}
+
+#dune-p4 {
+    position: absolute;
+    width: 100%;
+    bottom: 0.2%;
+}
+
+#pelouse_gauche-p4 {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse_droite-p4 {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#arbuste_rose-p4 {
+    position: absolute;
+    width: 25%;
+    bottom: -3%;
+    right: 0%;
+}
+
+#arbuste_petales-p4 {
+    position: absolute;
+    width: 18%;
+    bottom: 2%;
+    right: 11%;
 }
