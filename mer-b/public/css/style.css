@@ -188,13 +188,10 @@ div#displayCanvas {
     width: 200px;
 }
 
-#boutonSon{
-	position: absolute;
-	left: 10px;
+#boutonSon {
     z-index: 99;
-	top: 26%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-bottom: 10px;
+    margin-left: -10px;
 }
 	
 h1 {
@@ -321,6 +318,8 @@ h1 {
     height: 100%;
     left: 20px;
     z-index: 99;
+    width: 50px;
+    flex-wrap: wrap;
 }
 
 .chemin img {
@@ -328,11 +327,7 @@ h1 {
 }
 
 .chemin {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    position: relative;
   }
 
 .breadcrumbs {
