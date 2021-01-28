@@ -6,45 +6,88 @@ import ChoixHumeur from "@/views/ChoixHumeur";
 import ChoixLieux from "@/views/ChoixLieux";
 import ChoixTheme from "@/views/ChoixTheme";
 import ChoixDestination from "@/views/ChoixDestination";
+import {store} from "@/store";
 
 Vue.use(VueRouter)
+
+const steps  = [
+  {component: ChoixTypeDeplacement, choice: "typeDeplacement"},
+  {component: ChoixDestination, choice: "path" },
+  {component: ChoixHumeur, choice: "huemur" },
+  {component: ChoixStyle, choice: "style" },
+  {component: ChoixTheme, choice: "theme" },
+  {component: ChoixLieux, choice: "lieux" },
+]
+
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: ChoixTypeDeplacement,
-    props: {actif: 1 }
+    component: steps[0].component,
+    props: {actif: 1 },
   },
   {
     path: '/choix-destination',
     name: 'choix-destination',
-    component: ChoixDestination,
-    props: {actif: 2 }
+    component: steps[1].component,
+    test: "test",
+    props: {actif: 2 },
+    beforeEnter: (to, from, next) => {
+      console.log(to)
+        for(let i=steps.length -1; i>=1; i--) {
+          store.clearChoice(steps[i].choice)
+        }
+      next()
+    }
   },
   {
     path: "/choix-humeur",
     name: "choix-humeur",
-    component: ChoixHumeur,
-    props: {actif: 3 }
+    component: steps[2].component,
+    props: {actif: 3 },
+    beforeEnter: (to, from, next) => {
+      for(let i=steps.length -1; i>=2; i--) {
+        store.clearChoice(steps[i].choice)
+      }
+      next()
+    }
   },
   {
     path: "/choix-style",
     name: "choix-style",
-    component: ChoixStyle,
-    props: {actif: 4 }
+    component: steps[3].component,
+    props: {actif: 4 },
+    beforeEnter: (to, from, next) => {
+      for(let i=steps.length -1; i>=3; i--) {
+        store.clearChoice(steps[i].choice)
+      }
+      next()
+    }
   },
   {
     path: "/choix-theme",
     name: "choix-theme",
-    component: ChoixTheme,
-    props: {actif: 5 }
+    component: steps[4].component,
+    props: {actif: 5 },
+    beforeEnter: (to, from, next) => {
+      for(let i=steps.length -1; i>=4; i--) {
+        store.clearChoice(steps[i].choice)
+      }
+      next()
+    }
   },
   {
     path: "/choix-lieux",
     name: "choix-lieux",
-    component: ChoixLieux,
-    props: {actif: 6 }
+    component: steps[5].component,
+    props: {actif: 6 },
+    beforeEnter: (to, from, next) => {
+      for(let i=steps.length -1; i>=5; i--) {
+        store.clearChoice(steps[i].choice)
+      }
+      next()
+    }
   },
 ]
 

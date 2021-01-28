@@ -44,9 +44,6 @@ export default {
         this.$root.$data.setStyle(Styles.BOULEVARDS);
         this.$router.push({name:"choix-theme" });
       });
-      yellow.style.display = "inline";
-      white.style.display = "inline";
-      blue.style.display = "inline";
       },
     nextRuelles() {
       const yellow = document.getElementById("yellow_house");
@@ -55,7 +52,6 @@ export default {
         this.$root.$data.setStyle(Styles.RUELLES);
         this.$router.push({name:"choix-theme"});
       });
-      yellow.style.display = "inline";
     }
   },
   components: {

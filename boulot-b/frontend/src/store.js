@@ -34,10 +34,8 @@ const store = {
         if (this.debug) console.log('set path', path);
         this.state.choice.path = path;
     },
-    clearChoice(...listChoice) {
-        listChoice.forEach((choice) => {
-            this.state.choice[choice] = undefined
-        })
+    clearChoice(choiceName) {
+        this.state.choice[choiceName] = undefined
     }
 }
 

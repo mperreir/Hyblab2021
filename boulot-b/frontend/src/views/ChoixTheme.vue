@@ -43,9 +43,6 @@ export default {
         this.$root.$data.setTheme(Themes.ALEA);
         this.$router.push({name:"choix-lieux" })
       });
-      tower.style.display = "inline";
-      arbre2.style.display = "inline";
-
     },
     nextNature() {
       const arbre1= document.getElementById("first_tree");
@@ -56,8 +53,6 @@ export default {
         this.$root.$data.setTheme(Themes.NATURE);
         this.$router.push({name:"choix-lieux" })
       });
-      arbre1.style.display = "inline";
-      arbre2.style.display = "inline";
     },
     nextCulture() {
       const tower= document.getElementById("tower");
@@ -66,7 +61,6 @@ export default {
         this.$root.$data.setTheme(Themes.CULTURE);
         this.$router.push({name:"choix-lieux" })
       });
-      tower.style.display = "inline";
     },
   },
   components: {

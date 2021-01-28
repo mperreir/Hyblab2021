@@ -1,11 +1,11 @@
 <template>
     <div id="img_container">
-        <img id="tower" src="@/assets/tower.png" alt="tower">
-        <img id="first_tree" src="@/assets/tree2.png" alt="tree">
-        <img id="yellow_house" src="@/assets/yellow_house.png" alt="yellow house">
-        <img id="white_house" src="@/assets/white_house.png" alt="white house">
-        <img id="blue_house" src="@/assets/blue_house.png" alt="blue house">
-        <img id="second_tree" src="@/assets/tree.png" alt="tree">
+        <img class="hide" id="tower" src="@/assets/tower.png" alt="tower">
+        <img class="hide" id="first_tree" src="@/assets/tree2.png" alt="tree">
+        <img class="hide" id="yellow_house" src="@/assets/yellow_house.png" alt="yellow house">
+        <img class="hide" id="white_house" src="@/assets/white_house.png" alt="white house">
+        <img class="hide" id="blue_house" src="@/assets/blue_house.png" alt="blue house">
+        <img class="hide" id="second_tree" src="@/assets/tree.png" alt="tree">
     </div>
 </template>
 
@@ -61,7 +61,7 @@
 </script>
 
 <style scoped>
-    #tower, #first_tree, #yellow_house, #white_house, #blue_house, #second_tree {
+  .hide {
         display: none;
     }
     #first_tree {
@@ -87,6 +87,7 @@
         left: -5%;
     }
     .bounceInDown {
+        display: inline;
         animation-name: bounceInDown;
         animation-duration: 2s;
         animation-fill-mode: both;
