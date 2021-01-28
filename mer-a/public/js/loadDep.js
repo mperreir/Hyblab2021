@@ -1,6 +1,6 @@
 'use strict'
 
-function generateDep(depData, mapData, codeDep, codeLegende){
+function generateDep(depData, mapData, codeDep, codeType){
 
 	var width = window.innerWidth;
 	var height = window.innerHeight;
@@ -54,7 +54,8 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 			})
 			.on('mouseleave', function(d){
 				leave(d, this);
-			});
+			})
+			.on('click', d => selectLegende(d.id));
 
 	svg.selectAll("labels")
 		.data(legendes)
@@ -82,7 +83,8 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 					.transition().duration(350)
 					.style("font-size", 14);
 				leave(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-			});
+			})
+			.on('click', d => selectLegende(d.id));
 
 }
 
@@ -118,7 +120,7 @@ function getCodeDepartement(url){
 	return url.split('/')[5];
 }
 
-function getCodeLegende(url){
+function getCodeType(url){
 	return url.split('/')[6];
 }
 
@@ -134,20 +136,24 @@ function getMapDepartement(code){
 	return f;
 }
 
+function selectLegende(idLegende){
+	if(idLegende > 0) document.location.href= `${ROOT}legende/${codeDep}/${codeType}/${idLegende}`; 
+}
+
 let url = window.location.href;
 
 var codeDep = getCodeDepartement(url);
-var codeLegende = getCodeLegende(url);
+var codeType = getCodeType(url);
 var map = getMapDepartement(codeDep);
 
 let legendes = null;
 (async () => {
-	await getLegendes(codeDep, codeLegende, r => legendes = r);
+	await getLegendes(codeDep, codeType, r => legendes = r);
 	console.log(legendes);
-	generateDep(map,mapFusion,codeDep,codeLegende);
+	generateDep(map,mapFusion,codeDep,codeType);
 })();
 
 window.addEventListener("resize", function(e) {
-	generateDep(map,mapFusion,codeDep,codeLegende);
+	generateDep(map,mapFusion,codeDep,codeType);
 });
 

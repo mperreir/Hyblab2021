@@ -67,15 +67,15 @@ body {
 }
 
 .plan#plan1{
-    z-index: 10;
+    z-index: 11;
 }
 
 .plan#plan2 {
-    z-index: 9;
+    z-index:10;
 }
 
 .plan#plan3 {
-    z-index: 8;
+    z-index: 9;
 }
 
 .plan#plan4 {
@@ -186,7 +186,7 @@ body {
 .perso#creature {
     margin-top: 8vh;
     margin-right: -5vw;
-    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png.png") no-repeat top 32% left 36.5%;
+    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
     clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
     background-size: 500%;
 }
@@ -200,7 +200,7 @@ body {
 .perso#religieux {
     margin-top: 7vh;
     margin-left: -5vw;
-    background: url("../assets/img/personnage/image_Croyances_Religion.png.png") no-repeat top 39% left 63%;
+    background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
     clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%);
     border-collapse: collapse;
     background-size: 560%;

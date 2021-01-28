@@ -51,14 +51,21 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
 
 // Route to get get one legend by id
 app.get(`${config.API_URL}legende/:id`, async (req, res) => {
-    var sql = `SELECT Legende.id as id, Legende.nom as nom, departementId, categorieId,
+    var sql = `SELECT Legende.id as idLegende, Departement.id as idDepartement, Categorie.id as idCategorie, Legende.nom as nom, departementId, categorieId,
     resume, histoire, latitude, longitude, adresse, baignade, toilettes, restaurant,
     photo, nomDepartement, nomCategorie, imageURI
     FROM Legende INNER JOIN Departement ON Departement.id = departementId
     INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
 
     const row = await db.get(sql, [req.params.id]);
-
+    row.nom = decodeURI(row.nom);
+    row.resume = decodeURI(row.resume);
+    row.histoire = decodeURI(row.histoire);
+    row.adresse = decodeURI(row.adresse);
+    row.photo = decodeURI(row.photo);
+    row.nomDepartement = decodeURI(row.nomDepartement);
+    row.nomCategorie = decodeURI(row.nomCategorie);
+    row.imageURI = decodeURI(row.imageURI);
     console.log(row);
     res.status(200).json(row);
 });
@@ -120,7 +127,7 @@ app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
 });
 
 // Route to reach the legende page
-app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
+app.get(`/legende/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
     /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
       if(err) {
