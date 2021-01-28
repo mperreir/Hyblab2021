@@ -41,7 +41,8 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   let sql = 'SELECT * FROM CATEGORIE;'
   const rows = await db.all(sql, []);
   rows.forEach((row) => {
-    row.nomDepartement = decodeURI(row.nomCategorie);
+    row.nomCategorie = decodeURI(row.nomCategorie);
+    row.imageURI = decodeURI(row.imageURI);
   });
   console.log(rows);
   res.status(200).json(rows);
