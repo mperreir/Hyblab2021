@@ -1,11 +1,5 @@
 import request from './request';
 
-function getZone(position, transportation) {
-    let polygon = null;
-    // TODO
-    return polygon;
-}
-
 const culture = [
     "tourism=museum",
     "amenity=cinema",
@@ -47,48 +41,44 @@ const famille = [
 ];
 
 const tous = [
-    "\"restaurant\"",
+    "amenity=restaurant",
     "amenity=give_box",
     "amenity=marketplace",
     "amenity=toilets",
     "amenity=hospital",
 ];
 
-export const POINT_TYPES = [
+export const POINT_TYPES = {
     culture,
     fetard,
     tourisme,
     sportif,
     famille,
     tous
-];
+};
 
-/**
- *
- * @param {*} zone
- * @param {Array} types
- */
+export async function getPointsInZoneForProfil(zone, profil) {
+    return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
+}
+
 export async function getPointsInZone(zone, types) {
     const query = buildQuery(types, zone);
     let res = await request.request(query, null);
-    console.log(res);
-
-    return res;
+    let json = await res.json();
+    return json;
 }
 
 export const buildQuery = (types, zone) => {
     let query = "https://overpass-api.de/api/interpreter?data=[out:json];";
-    let area = "name=Nantes";
-    query += "area[" + area + "];("
+    let area = getBoxFromZone(zone);
+    query += "area(" + area + ");("
  
-    // ajout des filtres par type de lieu
-    types.forEach(categorie => {
-        categorie.forEach(element => {
-            if(element && element !== "") {
-                let filtre = "node(area)[" + element + "];";
-                query += filtre;
-            }
-        });
+    // ajout des filtres de type de lieu
+    types.forEach(element => {
+        if(element && element !== "") {
+            let filtre = "node(area)[" + element + "];";
+            query += filtre;
+        }
     });
 
     query += ");out;";
@@ -109,7 +99,9 @@ export let zone = [
         [-1.573835,47.264487]
     ]
 ];
-export const getBoxFromZone = (zone) => {
+
+//https://overpass-api.de/api/interpreter?data=[out:json];area(47.264113,%20-1.573835,%2047.264492,%20-1.573586);node[tourism];out;
+const getBoxFromZone = (zone) => {
     let west=180, east=-180, south=-90, north=90;
     zone = zone[0];
     zone.forEach(point => {
