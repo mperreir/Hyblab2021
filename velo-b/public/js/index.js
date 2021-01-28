@@ -14,4 +14,4 @@ let mySlidr = slidr.create('slidr', {
 }).start();
 
 initButtons();
-initSlide1();
+initSplashscreen();

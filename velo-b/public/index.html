@@ -12,11 +12,13 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script
         src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
 
     <script src="js/globals.js" defer></script>
+    <script src="js/splashscreen.js" defer></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
@@ -31,8 +33,12 @@
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-            <!-- Page d'accueil-->
-            <section data-slidr="page-accueil">
+            <section data-slidr="splash-screen" class="grid justify-center content-center">
+                <div id="logo-anim" class="mx-auto w-1/2"></div>
+            </section>
+
+            <!-- Page d'acceuil-->
+            <section data-slidr="page-accueil" hidden>
                 <img class="w-screen" src="assets/homepage.svg" />
                 <img class="h-2/6" id="startButton" src="assets/startButton.svg" />
             </section>
@@ -46,7 +52,7 @@
 
 
 
-            
+
             <!--Sections des choix de transport dénomination : choix-transport-x -->
 
 
@@ -194,7 +200,7 @@
 
 
 
-            <!-- 
+            <!--
                 **********************************
                 Pages d'informations pour les choix
                 ***********************************
