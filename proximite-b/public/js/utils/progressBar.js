@@ -17,14 +17,16 @@ var ProgressBar = {
      * @param {*} d 
      */
     evaluate: function (data, critere) {
+        var interests = _app_stores['criteres']['interests'];
+        var disinterests = _app_stores['criteres']['disinterests'];
         if (data.length >=1){
-            interests = ["Supermarche","Boulangerie","Bus"];
-            desinterests = ["Ecole","Pharmacie","Docteur","Parc"];
+            var time = data[0].temps; //TODO : au cas ou l'arrondi 0 marche pas : c'est le cas pour l'instant
+            if (time ==0) {time=1}
             if (interests.includes(critere)){
-                return (interests.length - interests.indexOf(critere)+1)/(data[0].temps);
+               return (interests.length - interests.indexOf(critere)+1)/time;
             }
-            if (desinterests.includes(critere)){
-                return (-1)*(desinterests.length - desinterests.indexOf(critere)+1)/data[0].temps;
+            if (disinterests.includes(critere)){
+               return (-1)*(disinterests.length - disinterests.indexOf(critere)+1)/time;
             }
         }
         else{
@@ -32,7 +34,7 @@ var ProgressBar = {
                 return 0;
             }
 
-            if (desinterests.includes(critere)){
+            if (disinterests.includes(critere)){
                 return 1;
             }
         }
@@ -44,7 +46,7 @@ var ProgressBar = {
      * Function used to generate and draw the progress bar
      * @param {*} id id of the div where 2 bar will be added
      */
-    draw: async function (id) {
+    draw: async function (id,dataTimeLine1,dataTimeLine2) {
 
         var S1 = 1;
         var S2 = 1;
@@ -76,7 +78,6 @@ var ProgressBar = {
             var dataT2 = dataTimeLine2[index].data;
             var catT1 = dataTimeLine1[index].categorie;
             var catT2 = dataTimeLine2[index].categorie;
-            //TODO gestion cas dataT1 ou dataT2 == null - si null alors que desinterets (points ++)
             if ((dataTimeLine1[index].categorie != null)) {
                 value = ProgressBar.evaluate(dataT1, catT1);
                 if (value < 0) S2 += (-1)*value;
@@ -87,7 +88,6 @@ var ProgressBar = {
                 if (value < 0) S1 += (-1)*value;
                 else S2 += value 
             }
-            console.log(S1);
             Somme = S1 + S2;
             if (dataTimeLine1[index].categorie != null) {
                 await ProgressBar.sleep(1000);

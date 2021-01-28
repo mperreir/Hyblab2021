@@ -64,7 +64,7 @@ const css_dyn_loader = (filename) => {
 }
 
 const go_to = (page, data, callback) => {
-    console.log('store before:'+ JSON.stringify(_app_stores));
+    console.log('store before:' + JSON.stringify(_app_stores));
 
     if (page === "index")
         set_stores();
@@ -76,42 +76,71 @@ const go_to = (page, data, callback) => {
     make_page_from_template(page)
         .then(() => {
             if (page === 'timeline') {
+                //todo remplacer stor a la fin des tests par _app_stores
+                var stor = {
+                    "all": { "current_page": "timeline" },
+                    "personas": { "chosen": "jeune" },
+                    "greeters": {},
+                    "adresses": {
+                         
+                        "adresse1": { "nomtemp": "Adresse1", "longitude": "-1.5102976051912753", "latitude": "47.26001511505152" },
+                        "adresse2": { "nomtemp": "Adresse2", "longitude": "-1.532116", "latitude": "47.238194" }
+                    },
+                    "criteres": {
+                        "interests": [ "parc","pharmacie","bus", "boulangerie", "medecin"],
+                        "disinterests": []
+                    },
+                    "timeline": {}
+                }
+                
+
+                stor['criteres']['interests']=stor['criteres']['interests'].map(x => reformatCriteres(x));
+                stor['criteres']['disinterests']=stor['criteres']['disinterests'].map(x => reformatCriteres(x));
+
+
+                _app_stores['criteres']= stor.criteres; //todo remove a la fin
+                var a1 = stor.adresses.adresse1;
+                var a2 = stor.adresses.adresse2;
+                _app_stores["timeline"]["done"] = 0;
+                _app_stores["timeline"]['data'] = {}
+                getData("adresse1", a1, stor);
+                getData("adresse2", a2, stor);
                 window.addEventListener("resize", timeline_progressbar_draw);
-                timeline_progressbar_draw();
+                console.log(_app_stores);
             }
             else if (page === 'criteres') {
                 div_content = document.getElementById("critere_page");
-                if(read_store('personas').chosen == "famille"){
+                if (read_store('personas').chosen == "famille") {
                     div_content.style.backgroundImage = "url('/proximite-b/img/criteres/background_criteres_famille.svg')";
                     console.log("test");
-                }else if(read_store('personas').chosen == "jeune"){
+                } else if (read_store('personas').chosen == "jeune") {
                     div_content.style.backgroundImage = "url('/proximite-b/img/criteres/background_criteres_etu.svg')";
                     console.log("test2");
-                }else if(read_store('personas').chosen == "senior"){
+                } else if (read_store('personas').chosen == "senior") {
                     console.log("test3");
                 }
-                $(function() {
-                    $( "#sortable1, #sortable2, #sortable3" ).sortable({
+                $(function () {
+                    $("#sortable1, #sortable2, #sortable3").sortable({
                         connectWith: ".connectedSortable"
                     }).disableSelection();
                 });
 
-                $(function() {
-                    $( "#sortable2" ).on( "sortreceive", function(event, ui) {
+                $(function () {
+                    $("#sortable2").on("sortreceive", function (event, ui) {
                         if ($("#sortable2 li").length > 5)
                             $(ui.sender).sortable('cancel');
                     });
 
                 });
 
-                $(function() {
-                    $( "#sortable3" ).on( "sortreceive", function(event, ui) {
-                        if($("#sortable3 li").length > 3)
+                $(function () {
+                    $("#sortable3").on("sortreceive", function (event, ui) {
+                        if ($("#sortable3 li").length > 3)
                             $(ui.sender).sortable('cancel');
                     });
                 });
             }
-            else if (page === 'greeters'){
+            else if (page === 'greeters') {
                 greeter_background();
             }
             if (data && !callback && typeof data === 'function')
@@ -119,6 +148,6 @@ const go_to = (page, data, callback) => {
             else if (data && callback && typeof callback === 'function')
                 callback();
 
-            console.log('store after:'+ JSON.stringify(_app_stores));
+            console.log('store after:' + JSON.stringify(_app_stores));
         });
 }

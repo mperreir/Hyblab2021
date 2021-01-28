@@ -18,16 +18,6 @@ const api = require('./api');
 // });
 
 
-function reformatCriteres(name){
-    if (name == "pharmacie") return 'Pharmacie';
-    if (name == "boulangerie") return 'Boulangerie';
-    if (name == "supermarche") return 'Supermarchee';
-    if (name == "medecin") return 'Médecin';
-    if (name == "bus") return 'Arrêt de bus';
-    if (name == "ecole") return 'Ecole';
-    if (name == "parc") return 'Parc';
-    if (name == "culte") return 'Lieu de culte';
-}
 
 
 router.post('/api/:longitude/:latitude', async function (req, res) {
@@ -37,7 +27,7 @@ router.post('/api/:longitude/:latitude', async function (req, res) {
     //'Musee','Bibliotheque','Salle de sport'])
 
     const paramCriteres = (req.body.criteres.interests.concat(
-        req.body.criteres.disinterests)).map(x => reformatCriteres(x));
+        req.body.criteres.disinterests));
 
     let results =
         await api.all_positions(
