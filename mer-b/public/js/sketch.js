@@ -3,6 +3,10 @@ let sketchCiel = function(p) {
     let imgCielNuit;
     let imgCielSoleil;
 
+    let imgNuagesJour;
+    let imgNuagesNuit;
+    let imgNuagesSoleil;
+
     let imgMerAgiteeJour;
     let imgMerAgiteeNuit;
     let imgMerAgiteeSoleil;
@@ -35,6 +39,8 @@ let sketchCiel = function(p) {
     /**affichee**/
     let imgdisplayCiel;
     let cielY = -1;
+    let imgdisplayNuages;
+    let nuagesY = -1;
     let imgdisplayMer;
     let merY = -1;
     let imgdisplaySol;
@@ -75,6 +81,10 @@ let sketchCiel = function(p) {
       imgCielJour = p.loadImage('img/Ciel/cieljour.png');
       imgCielNuit = p.loadImage('img/Ciel/cielnuit.png');
       imgCielSoleil = p.loadImage('img/Ciel/cielsoleil.png');
+
+      imgNuagesJour = p.loadImage('img/Nuages/nuagesjour.png');
+      imgNuagesNuit = p.loadImage('img/Nuages/nuagesnuit.png');
+      imgNuagesSoleil = p.loadImage('img/Nuages/nuagesoleil.png');
 
       imgMerAgiteeJour = p.loadImage('img/Mer/MerAgitee/meragiteejour.png');
       imgMerAgiteeNuit = p.loadImage('img/Mer/MerAgitee/meragiteenuit.png');
@@ -148,6 +158,12 @@ let sketchCiel = function(p) {
           cielY -= 2;
         }
         p.image(imgdisplayCiel, 0, cielY, p.windowWidth, p.windowHeight);
+      }
+      if(imgdisplayNuages){
+        if(nuagesY > 0){
+          nuagesY -= 2;
+        }
+        p.image(imgdisplayNuages, 0, nuagesY, p.windowWidth, p.windowHeight);
       }
       if(orage && cielY == 0){
         for (var i = 0; i < 20; i++) {
@@ -233,8 +249,14 @@ let sketchCiel = function(p) {
         if(affichage.ciel || affichage.ciel == "indifferent") {
           if(cielY == -1){
             cielY = 200;
-          } 
+          }
 
+          if(affichage.ciel == "cloudy" || affichage.ciel == "bad" || affichage.ciel == "stormy"){
+            imgdisplayNuages = imgNuagesJour;
+            if(nuagesY == -1){
+              nuagesY = 200;
+            }
+          }
           imgdisplayCiel = imgCielJour;
         }
 
@@ -288,6 +310,12 @@ let sketchCiel = function(p) {
           if(cielY == -1){
             cielY = 200;
           } 
+          if(affichage.ciel == "cloudy" || affichage.ciel == "bad" || affichage.ciel == "stormy"){
+            imgdisplayNuages = imgNuagesNuit;
+            if(nuagesY == -1){
+              nuagesY = 200;
+            }
+          }
           imgdisplayCiel = imgCielNuit;
         }
 
@@ -341,6 +369,12 @@ let sketchCiel = function(p) {
           if(cielY == -1){
             cielY = 200;
           } 
+          if(affichage.ciel == "cloudy" || affichage.ciel == "bad" || affichage.ciel == "stormy"){
+            imgdisplayNuages = imgNuagesSoleil;
+            if(nuagesY == -1){
+              nuagesY = 200;
+            }
+          }
           imgdisplayCiel = imgCielSoleil;
         }
         
