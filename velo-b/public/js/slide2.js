@@ -1,5 +1,5 @@
 let initSlide2 = function () {
-    anime({
+    overrideAnim({
         targets: '#img-fini',
         scale: 1.2,
         easing: 'easeInOutQuad',
