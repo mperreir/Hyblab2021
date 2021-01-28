@@ -9,6 +9,9 @@
         <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" />
       </Question>
     </template>
+    <template #buildings>
+      <Buildings/>
+    </template>
     <template #canari>
       <Oiseau/>
     </template>
@@ -25,6 +28,7 @@ import Question from "@/components/Question";
 import Checkbox from "@/components/Checkbox";
 import ButtonCustom from "@/components/ButtonCustom";
 import Oiseau from "@/components/Oiseau";
+import Buildings from "@/components/Buildings";
 
 export default {
   name: "ChoixLieux",
@@ -49,7 +53,8 @@ export default {
     Checkbox,
     Container,
     Stepper,
-    Oiseau
+    Oiseau,
+    Buildings
   }
 }
 </script>

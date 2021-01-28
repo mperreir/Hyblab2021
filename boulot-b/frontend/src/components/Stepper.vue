@@ -52,7 +52,7 @@ export default Vue.extend({
     }
     #home {
         cursor: pointer;
-        margin: 10px;
+        margin-left: 25px;
     }
     .progressbar {
         width: 80%;

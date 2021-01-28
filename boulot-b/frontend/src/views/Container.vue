@@ -3,6 +3,9 @@
     <div id="question">
       <slot name="question" ></slot>
     </div>
+    <div id="buildings">
+      <slot name="buildings"></slot>
+    </div>
     <div id="canari">
       <slot name="canari" ></slot>
     </div>
@@ -49,5 +52,11 @@ export default {
 
 #stepper { grid-area: stepper; }
 
+#buildings {
+  grid-row: 2;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+}
 
 </style>

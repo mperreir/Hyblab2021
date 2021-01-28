@@ -46,4 +46,14 @@ const TypeDeplacement = Object.freeze({
     PIED: "pied"
 })
 
-export {store, TypeDeplacement}
+const Styles = Object.freeze({
+    BOULEVARDS: "boulevards",
+    RUELLES: "ruelles"
+})
+const Themes = Object.freeze({
+    ALEA: "alea",
+    NATURE: "nature",
+    CULTURE: "culture"
+})
+
+export {store, TypeDeplacement, Styles, Themes}
