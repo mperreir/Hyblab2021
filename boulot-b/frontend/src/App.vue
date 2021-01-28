@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+    <div id="app">
     <img  id="wazo" src="@/assets/wazzo.png"/>
       <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+        <router-view />
+      </transition>
   </div>
 </template>
 

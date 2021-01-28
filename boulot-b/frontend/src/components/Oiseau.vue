@@ -1,10 +1,10 @@
 <template>
   <div >
-      <div class="bubble">
-        <transition name="fade" mode="out-in">
-          <p class="text" :key="message" >{{message}} </p>
-        </transition>
+    <transition name="fade" mode="out-in">
+      <div class="bubble" :key="message">
+          <p class="text" >{{message}} </p>
       </div>
+    </transition>
     <div id="wazo-anim" > </div>
   </div>
 </template>
@@ -50,7 +50,7 @@ export default {
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0;
-    text-align: left;
+    text-align: center;
   }
   #wazo-anim {
     width: 200px;
@@ -60,7 +60,7 @@ export default {
     background: $bulle;
     color:#fff;
     padding:5px 15px;
-    border-radius:3px;
+    border-radius: 50px;
     width:350px;
   }
 
@@ -69,6 +69,7 @@ export default {
     border-left:20px solid transparent;
     border-right:20px solid transparent;
     border-top: 20px solid $bulle;
+    margin-left: 100px;
     position: absolute;
   }
 
