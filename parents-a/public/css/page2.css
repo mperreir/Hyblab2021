@@ -95,9 +95,25 @@ section[data-slidr="page-2"] {
 }
 
 
+#texte2-p2-1 {
+    position: absolute;
+    width: 20%;
+    left: 23%;
+    top: 42%;
+    opacity: 0 ;
+}
+
 
 
 #button-p2-1 {
+    position: absolute;
+    /*width: 4%;*/
+    left: 47%;
+    top: 45%;
+}
+
+#button-p2-2{
+    opacity: 0 ;
     position: absolute;
     /*width: 4%;*/
     left: 47%;
@@ -109,7 +125,6 @@ section[data-slidr="page-2"] {
     position: absolute;
     left: 44%;
     top: 44%;
-
     /* Design */
     border: 2px solid #fff;
     background-color: transparent;
@@ -120,7 +135,7 @@ section[data-slidr="page-2"] {
     outline: none;
 }
 
-#button-p2-1:hover {
+#button-p2-1:hover{
     /* Only design change */
     border: 3px solid #fff;
     background-color: #fff;
