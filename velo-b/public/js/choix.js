@@ -13,6 +13,16 @@ let initSlideChoixBicloo = function () {
   arrowbutton(idFlecheG, nextG);
 
   /*====================Bouton du bas ===========================*/
+  d3.select('#plus-info-bicloo').on('click', function () {
+    anime({
+      targets: '#plus-info-bicloo',
+      scale: 0
+    });
+    mySlidr.slide('info-choix-bicloo');
+    initSlideInfosBicloo();
+  });
+
+
   let infoChoix = 'infos-choix-bicloo';
   okbutton(infoChoix);
   infobutton();
@@ -34,6 +44,15 @@ let initSlideChoixTransport = function () {
 
 
   /*====================Bouton du bas ===========================*/
+  d3.select('#plus-info-transports').on('click', function () {
+    anime({
+      targets: '#plus-info-transports',
+      scale: 0
+    });
+    mySlidr.slide('info-choix-transports');
+    initSlideInfosTransports();
+  });
+
   let infoChoix = 'infos-choix-transport';
 
   okbutton(infoChoix);
@@ -162,14 +181,10 @@ let initSlideChoixVelo = function () {
       });
     });
     */
-   
   
-  
-  };
-
+  const infoChoix = 'infos-choix-velo';
   okbutton(infoChoix);
   infobutton();
-
 };
 
 // SLIDE CHOIX VOITURE
@@ -186,6 +201,16 @@ let initSlideChoixVoiture = function () {
    arrowbutton(idFlecheG, nextG);
  
    /*====================Bouton du bas ===========================*/
+
+   d3.select('#plus-info-voiture').on('click', function () {
+    anime({
+      targets: '#plus-info-voiture',
+      scale: 0
+    });
+    mySlidr.slide('info-choix-voiture');
+    initSlideInfosVoiture();
+  });
+
    let infoChoix = 'infos-choix-voiture'
 
   okbutton(infoChoix);

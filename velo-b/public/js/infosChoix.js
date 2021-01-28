@@ -14,25 +14,103 @@ let initSlideInfosVelo = function () {
         mySlidr.slide('choix-transport-2');
         initSlideChoixVelo();
     });
+
+    d3.select('#close-btn-velo').on('mouseover', function () {
+        anime({
+          targets: '#close-btn-velo',
+          scale: 1.2
+        });
+      });
+
+    d3.select('#close-btn-velo').on('mouseout', function () {
+        anime({
+          targets: '#close-btn-velo',
+          scale: 1
+        });
+      });
 }
 
 /**
  * Cette fonction gère la slide avec les infos sur la voiture
  */
 let initSlideInfosVoiture = function () {
+    d3.select('#close-btn-voiture').on('click', function () {
+        anime({
+            targets: '#close-btn-voiture',
+            scale: 0
+        });
+        mySlidr.slide('choix-transport-1');
+        initSlideChoixVoiture();
+    });
 
+    d3.select('#close-btn-voiture').on('mouseover', function () {
+        anime({
+          targets: '#close-btn-voiture',
+          scale: 1.2
+        });
+      });
+
+    d3.select('#close-btn-voiture').on('mouseout', function () {
+        anime({
+          targets: '#close-btn-voiture',
+          scale: 1
+        });
+      });
 }
 
 /**
 * Cette fonction gère la slide avec les infos sur le vélo
 */
 let initSlideInfosBicloo = function () {
+    d3.select('#close-btn-bicloo').on('click', function () {
+        anime({
+            targets: '#close-btn-bicloo',
+            scale: 0
+        });
+        mySlidr.slide('choix-transport-3');
+        initSlideChoixBicloo();
+    });
 
+    d3.select('#close-btn-bicloo').on('mouseover', function () {
+        anime({
+          targets: '#close-btn-bicloo',
+          scale: 1.2
+        });
+      });
+
+    d3.select('#close-btn-bicloo').on('mouseout', function () {
+        anime({
+          targets: '#close-btn-bicloo',
+          scale: 1
+        });
+      });
 }
 
 /**
  * Cette fonction gère la slide avec les infos sur le vélo
  */
 let initSlideInfosTransports = function () {
+    d3.select('#close-btn-transports').on('click', function () {
+        anime({
+            targets: '#close-btn-transports',
+            scale: 0
+        });
+        mySlidr.slide('choix-transport-4');
+        initSlideChoixTransport();
+    });
 
+    d3.select('#close-btn-transports').on('mouseover', function () {
+        anime({
+          targets: '#close-btn-transports',
+          scale: 1.2
+        });
+      });
+
+    d3.select('#close-btn-transports').on('mouseout', function () {
+        anime({
+          targets: '#close-btn-transports',
+          scale: 1
+        });
+      });
+}
 }
