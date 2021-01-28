@@ -104,6 +104,30 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
 
 };
 
+
+function extractUtilsValue(P_boulangerie1){
+
+    let P_boulangerie = {
+        titre : P_boulangerie1.title,
+        adresse : P_boulangerie1.address.label,
+        coordonnees : P_boulangerie1.position
+    }
+
+    try{
+        P_boulangerie["contact"] = P_boulangerie1.contacts[0].phone[0].value
+    }
+    catch(e){
+
+    }
+    try{
+        P_boulangerie["lien"] = P_boulangerie1.contacts[0].www[0].value        }
+    catch(e){
+
+    }
+    return P_boulangerie
+}
+
+
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     /** pour lancer le serveur :
      * installer : npm avec npm install/ node-fetch
@@ -187,14 +211,16 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
             let listNature = await pointInteret(origin, arrivee, "jardin", transport)
             let randN = getRandomInt(0, listNature.length)
 
-            let P_nature = listNature[randN]
+            let P_nature1 = listNature[randN]
+            let P_nature = extractUtilsValue(P_nature1)
             list_POI["Nature"] = P_nature
             break;
         case "culture":
             let listCulture = await pointInteret(origin, arrivee, "natural-geographical", transport)
             let randC = getRandomInt(0, listCulture.length)
 
-            let P_culture = listCulture[randC]
+            let P_culture1 = listCulture[randC]
+            let P_culture = extractUtilsValue(P_culture1)
             list_POI["Culture"] = P_culture
             break;
 
@@ -204,7 +230,8 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let listHasard = await pointInteret(origin, arrivee, themes[randomHasard], transport)
             let randH = getRandomInt(0, listHasard.length)
 
-            let P_hasard = listHasard[randH]
+            let P_hasard1 = listHasard[randH]
+            let P_hasard = extractUtilsValue(P_hasard1)
             list_POI["Hasard"] = P_hasard
     }
 
@@ -214,7 +241,8 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let listBoul = await pointInteret(origin, arrivee, "bakery", transport)
         let randB = getRandomInt(0, listBoul.length)
 
-        let P_boulangerie = listBoul[randB]
+        let P_boulangerie1 = listBoul[randB]
+        let P_boulangerie = extractUtilsValue(P_boulangerie1)
         list_POI["Boulangerie"] = P_boulangerie
     }
 
@@ -223,7 +251,8 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let listSalle = await pointInteret(origin, arrivee, "fitness-health-club", transport)
         let randS = getRandomInt(0, listSalle.length)
 
-        let P_salle = listSalle[randS]
+        let P_salle1 = listSalle[randS]
+        let P_salle = extractUtilsValue(P_salle1)
         list_POI["SalleSport"] = P_salle
     }
 
@@ -232,7 +261,8 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let listBar = await pointInteret(origin, arrivee, "bar", transport)
         let randBar = getRandomInt(0, listBar.length)
 
-        let P_bar = listBar[randBar]
+        let P_bar1 = listBar[randBar]
+        let P_bar = extractUtilsValue(P_bar1)
         list_POI["Bar"] = P_bar
     }
 
@@ -242,7 +272,8 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
         let listpharmacie = await pointInteret(origin, arrivee, "pharmacie", transport)
         let randP = getRandomInt(0, listpharmacie.length)
 
-        let P_pharmacie = listpharmacie[randP]
+        let P_pharmacie1 = listpharmacie[randP]
+        let P_pharmacie = extractUtilsValue(P_pharmacie1)
         list_POI["Pharmacie"] = P_pharmacie
     }
 
