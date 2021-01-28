@@ -6,7 +6,14 @@
  * Cette fonction gère la slide avec les infos sur le vélo
  */
 let initSlideInfosVelo = function () {
-
+    d3.select('#close-btn-velo').on('click', function () {
+        anime({
+            targets: '#close-btn-velo',
+            scale: 0
+        });
+        mySlidr.slide('choix-transport-2');
+        initSlideChoixVelo();
+    });
 }
 
 /**

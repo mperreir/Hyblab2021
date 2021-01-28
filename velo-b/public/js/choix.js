@@ -337,7 +337,7 @@ let initSlideChoixVelo = function () {
         scale: 0
       });
       mySlidr.slide('info-choix-velo');
-      initSlide2();
+      initSlideInfosVelo();
     });
     /*
     d3.select('#plus-info').on('mouseover', function () {
