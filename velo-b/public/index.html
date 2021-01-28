@@ -34,7 +34,7 @@
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-            <section data-slidr="splash-screen" class="grid justify-center content-center">
+            <section data-slidr="splash-screen" class="grid justify-center content-center" hidden>
                 <div id="logo-anim" class="mx-auto w-1/2"></div>
             </section>
 
@@ -45,7 +45,7 @@
             </section>
 
             <!-- Page carte -->
-            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around">
+            <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around" hidden>
                 <img src="assets/carte-title.svg" />
                 <div id="carte" class="w-11/12"></div>
                 <img src="assets/logo.svg" />
@@ -61,7 +61,7 @@
 
             <!--choix transport 1 : voiture -->
 
-            <section data-slidr="choix-transport-1">
+            <section data-slidr="choix-transport-1" hidden>
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
@@ -87,7 +87,7 @@
 
             <!--choix transport 2 : velo -->
 
-            <section data-slidr="choix-transport-2">
+            <section data-slidr="choix-transport-2" hidden>
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
@@ -113,7 +113,7 @@
 
             <!--choix transport 3 : bicloo -->
 
-            <section data-slidr="choix-transport-3">
+            <section data-slidr="choix-transport-3" hidden>
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
@@ -137,7 +137,7 @@
             </section>
             <!--choix transport 4 : transport en commun -->
 
-            <section data-slidr="choix-transport-4">
+            <section data-slidr="choix-transport-4" hidden>
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
@@ -174,7 +174,7 @@
 
 
             <!--
-            <section data-slidr="infos-choix-voiture">
+            <section data-slidr="infos-choix-voiture" hidden>
                 <header>
                     <div class="flex justify-center my-5">
                         <img src="assets/choix/indicationchoix.svg" id="indication-choix"
@@ -211,7 +211,7 @@
 
 
             <!-- Pages d'information sur le vélo-->
-            <section data-slidr="info-choix-velo">
+            <section data-slidr="info-choix-velo" hidden>
                 <div>
                     <div class="flex justify-center">
                         <div class="fancy-title rounded-full">Infos vélos</div>
@@ -233,7 +233,7 @@
             </section>
 
             <!-- Pages d'information sur la voiture-->
-            <section class="relative" data-slidr="info-choix-voiture">
+            <section class="relative" data-slidr="info-choix-voiture" hidden>
                 <div>
                     <div class="flex justify-center">
                         <div class="fancy-title rounded-full">Infos voiture</div>
@@ -252,7 +252,7 @@
             </section>
 
             <!-- Pages d'information sur le bicloo-->
-            <section data-slidr="info-choix-bicloo">
+            <section data-slidr="info-choix-bicloo" hidden>
                 <div>
                     <div class="flex justify-center">
                         <div class="fancy-title rounded-full">Infos bicloo</div>
@@ -276,7 +276,7 @@
             </section>
 
             <!-- Pages d'information sur les transports en commun -->
-            <section data-slidr="info-choix-transports">
+            <section data-slidr="info-choix-transports" hidden>
                 <div>
 
                     <div class="flex justify-center">
@@ -335,7 +335,7 @@
                     </ul>
                 </footer>
             </section>
-            <section data-slidr="page-3">
+            <section data-slidr="page-3" hidden>
                 <div style="display: flex;">
                     <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super
                         long</div>
