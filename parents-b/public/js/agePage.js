@@ -10,41 +10,40 @@ let initAge = function(){
     //Pour avoir l'image du jeu adéquat avec fleche
     function setImage(cpt){
         let valeurImage= cpt%4;
-        console.log(valeurImage)
-        if(valeurImage==0 ){
+        if(valeurImage===0 ){
             x.setAttribute("src", "./img/age_page/agebb.svg");
         }
-        if(valeurImage==1 || valeurImage==-1 ){
+        if(valeurImage===1 || valeurImage===-1 ){
             x.setAttribute("src", "./img/age_page/agenounours.svg");
         }
-        if(valeurImage==2 || valeurImage==-2 ){
+        if(valeurImage===2 || valeurImage===-2 ){
             x.setAttribute("src", "./img/age_page/agelego.svg");
         }
-        if(valeurImage==3 || valeurImage==-3 ){
+        if(valeurImage===3 || valeurImage===-3 ){
             x.setAttribute("src", "./img/age_page/ageballon.svg");
         }
     }
 
-    //Pour afficher le logo et les croix de suppression lors d'un choix avec le boutton plus
+    //Pour afficher le logo et les croix de suppression lors d'un choix avec le bouton plus
     function activeLogoChoix(cpt){
         valeurImage= cpt%4;
         console.log(valeurImage)
-        if(valeurImage==0 ){
+        if(valeurImage===0 ){
             document.getElementById("bb").hidden = false;
             document.getElementById("supp_bb").hidden = false;
             addAge(BEBE);
         }
-        if(valeurImage==1 || valeurImage==-1 ){
+        if(valeurImage===1 || valeurImage===-1 ){
             document.getElementById("nounours").hidden = false;
             document.getElementById("supp_nounours").hidden = false;
             addAge(PETIT);
         }
-        if(valeurImage==2 || valeurImage==-2 ){
+        if(valeurImage===2 || valeurImage===-2 ){
             document.getElementById("lego").hidden = false;
             document.getElementById("supp_lego").hidden = false;
             addAge(MOYEN);
         }
-        if(valeurImage==3 || valeurImage==-3 ){
+        if(valeurImage===3 || valeurImage===-3 ){
             document.getElementById("ballon").hidden = false;
             document.getElementById("supp_ballon").hidden = false;
             addAge(GRAND);
@@ -110,7 +109,7 @@ let initAge = function(){
     });
 
     //Bouton plus
-    d3.select(".boutton_add").on("click",  function (){
+    d3.select(".button_add").on("click",  function (){
         activeLogoChoix(cpt);
     });
 
@@ -175,7 +174,7 @@ let initAge = function(){
     //Deuxieme robot
     anime({
         targets: '#age_arrive',
-        translateY: '-500%',
+        translateY: '-350%',
         delay : 2500,
         duration: 6000,
         easing: 'easeInOutQuad',
