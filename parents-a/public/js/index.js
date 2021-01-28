@@ -8,7 +8,7 @@ let mySlidr = slidr.create('slidr',{
     overflow: true,
     pause: false,
     theme: '#222',
-    timing: { 'fade': '0.5s ease-in' },
+    timing: { 'fade': '0.7s ease-in' },
     touch: true,
     transition: 'fade'
   }).start();
@@ -55,5 +55,5 @@ let initSlide3= function() {
 }
 
 
-//Initialisation du diaporama 
+//Initialisation du diaporama
 initSlide1();

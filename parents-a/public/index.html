@@ -11,34 +11,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="https://kit.fontawesome.com/65cff0531a.js" crossorigin="anonymous"></script>
     <script src="js/index.js" defer></script>
-    <script src="js/slide2.1.js" defer></script>
-    <script src="js/slide3.js" defer></script>
 </head>
 
 <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
+    <main id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
+            <!-- Page one -->
             <section data-slidr="page-1" >
-                <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
-                    <header class="masthead mb-auto"></header>
+            <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
+                <header class="masthead mb-auto"></header>
 
                     <main role="main" class="inner cover">
                         <img  src="img/logo.gif" class="img-fluid " id="logo">
                     </main>
 
-                    <footer class="mastfoot mt-auto"></footer>
-                </div>
+                <footer class="mastfoot mt-auto"></footer>
+            </div>
             </section>
 
-            <section data-slidr="page-1_1" id="t">
-               
-            </section>
-          
+            <!-- Page one bis -->
+            <section data-slidr="page-1_1" id="t"></section>
 
+            <!-- Page two -->
             <section data-slidr="page-2">
+                <div class="blue-gradient"></div>
+            </section>
+
+            <!-- Page two after timer -->
+            <section data-slidr="page-2.1">
                 <img src="img/page2/arbre_bleu.svg" alt="arbre-bleu" id="arbre-bleu-p2-1">
                 <img src="img/page2/nuage.svg" alt="nuage" id="nuage-p2-1">
                 <img src="img/page2/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p2-1">
@@ -52,12 +56,11 @@
                 <img src="img/page2/pelouse.svg" alt="pelouse" id="pelouse-p2-1">
                 <img src="img/page2/vector.svg" alt="vector" id="vector-p2-1">
                 <img src="img/page2/texte.svg" alt="texte" id="texte-p2-1">
-                <img src="img/page2/button.svg" alt="button" id="button-p2-1">
                 <img src="img/logo.png" alt="logo" id="logo-p2-1">
+                <button id="button-p2-1"><i class="fas fa-arrow-right"></i></button>
             </section>
 
-          
-
+            <!-- Page 3 : first question -->
             <section data-slidr="page-3">
                 <img src="img/logo.png" alt="logo" id="logo-p3">
                 <img src="img/page3/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p3">
@@ -77,21 +80,21 @@
                 <img src="img/page3/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p3">
             </section>
 
-            
+            <!-- Page 4 :  -->
             <section data-slidr="page-4">
-                <img src="img/logo.png" alt="logo" id="logo-p3">
-                <img src="img/page3/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p3">
-                <img src="img/page3/arbre_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p3">
-                <img src="img/page3/dune.svg" alt="dune" id="dune-p3">
-                <img src="img/page3/oui.svg" alt="oui" id="oui-p3">
-                <img src="img/page3/non.svg" alt="non" id="non-p3">
-                <img src="img/page3/aventurier.svg" alt="aventurier" id="aventurier-p3">
-                <img src="img/page3/feuille_rouge.svg" alt="feuille_rouge" id="feuille_rouge-p3">
-                <img src="img/page3/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p3">
-                <img src="img/page3/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p3">
-                <img src="img/page3/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p3">
+                <img src="img/logo.png" alt="logo" id="logo-p4">
+                <img src="img/page3/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p4">
+                <img src="img/page3/arbre_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p4">
+                <img src="img/page3/dune.svg" alt="dune" id="dune-p4">
+                <img src="img/page3/oui.svg" alt="oui" id="oui-p4">
+                <img src="img/page3/non.svg" alt="non" id="non-p4">
+                <img src="img/page3/aventurier.svg" alt="aventurier" id="aventurier-p.4">
+                <img src="img/page3/feuille_rouge.svg" alt="feuille_rouge" id="feuille_rouge-p4">
+                <img src="img/page3/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p4">
+                <img src="img/page3/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p4">
+                <img src="img/page3/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p4">
             </section>
         </main>
-    </div>
+    </main>
 </body>
 </html>
