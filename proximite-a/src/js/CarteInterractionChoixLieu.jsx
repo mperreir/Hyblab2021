@@ -8,7 +8,7 @@ class CarteInterractionChoixLieu extends  React.Component {
     render() {
         const {onNextPhase} = this.props;
         return (
-            <div id="containerInterraction" class="container">
+            <div id="containerInterraction" class="container containersInterraction">
                 <div class="row">
                     <div id="containerInterractionLeftSection" class="col-xl-4">
                         <div id="containerInterractionLeftUpperSection">
@@ -46,12 +46,18 @@ class CarteInterractionChoixLieu extends  React.Component {
                                 </div>
                                 <div class="col containerChoice">
                                     <h3 className="h3Purple">Le troisième...</h3>
+
                                     <div className="card">
-                                        <img className="card-img-top" class="imgChoice" src="//placekitten.com/148/148" alt="Card image cap"/>
+                                        <img className="card-img-top" className="imgChoice"
+                                             src="//placekitten.com/148/148" alt="Card image cap"/>
                                         <div className="card-body">
                                             <h5 className="card-title">TITRE LIEUX</h5>
                                             <p className="card-text">adresse</p>
-                                            <p className="card-text">Some quick example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and make up the bulk of the card's content.</p>
+                                            <p className="card-text">Some quick example text to build on the TITRE LIEUX
+                                                and example text to build on the TITRE LIEUX and example text to build
+                                                on the TITRE LIEUX and example text to build on the TITRE LIEUX and
+                                                example text to build on the TITRE LIEUX and make up the bulk of the
+                                                card's content.</p>
                                         </div>
                                     </div>
                                     <input type="checkbox" class="mt-3" name="choixLieux"/>

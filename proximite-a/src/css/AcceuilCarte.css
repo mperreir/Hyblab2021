@@ -1,7 +1,8 @@
 .leaflet-container {
+    position: absolute;
     width: 100%;
     height: 100vh;
-    z-index: 0;
+    z-index: 1;
 }
 
 
@@ -10,18 +11,6 @@
     visibility: hidden;
 }
 
-
-#containerInterraction{
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    background-color: white;
-    padding: 20px;
-    z-index: 2;
-    border-radius: 30px;
-    max-width: 100%;
-    width: 80%;
-}
 #containerInterractionLeftSection{
     display: flex;
     align-items: center;
@@ -29,7 +18,7 @@
 }
 #textInterractionIntro{
     width: 70%;
-    background-color: mediumpurple;
+    background-color: #756EFF;
     padding: 10px;
     border-radius: 10px;
     margin-top: 20px;
@@ -41,7 +30,23 @@
 
 .titlePhase2Section{
     font-weight: bold;
-    color: #8356db;
+    color: #756EFF;
+}
+
+
+.containersInterraction{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#containerInterraction{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    background-color: white;
+    padding: 20px;
+    z-index: 3;
+    border-radius: 30px;
+    max-width: 100%;
+    width: 80%;
 }
 
 #containerInterractionLogoP1{
@@ -54,10 +59,20 @@
 #containerInterractionLogoP2{
     width: 130px;
     position: relative;
-    bottom: 50px;
+    bottom: 20px;
     right: 20px;
 }
 
+.horizontalAlign{
+    display: flex;
+    flex-direction: column;
+}
+
+#textContainerTopLeft{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 #containerInterractionLogoPersonnage{
     width: 130px;
 }
@@ -79,21 +94,27 @@
     max-height: 150px;
     object-fit: cover;
 }
+
 h5{
     font-weight: bold
 }
 .h3Purple{
-    color: mediumpurple;
+    color: #756EFF;
     font-weight: bold;
     text-transform: uppercase;
 }
 .btnPurple{
-    background-color: mediumpurple;
+    color: #756EFF;
 }
 
 .btnPurple:hover{
-    background-color: #8356db;
+    background-color: #756EFF;
+
 }
+
+
+
+
 
 /*Phase 2*/
 #containerInterraction2{
@@ -102,18 +123,30 @@ h5{
     left: 3%;
     background-color: white;
     padding: 20px;
-    z-index: 2;
     border-radius: 30px;
 }
+
 
 .phase2Top{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    font-size: 14px;
+    line-height: 19px;
+    color: #756EFF;
 }
 
+#helloText{
+    width: 290px;
+    height: 33px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    color: #756EFF;
+    line-height: 33px
+}
 hr{
-    background-color: mediumpurple;
+    background-color: #756EFF;
 }
 .phase2TopLeft{
     display: flex;
@@ -135,12 +168,12 @@ hr{
 #containerPictograms{
     height: 200px;
     overflow-y: scroll;
-    scrollbar-color: #8356db rgba(131, 86, 219, 0.09);
+    scrollbar-color: #756EFF rgba(131, 86, 219, 0.09);
     scrollbar-width: thin;
 }
 
 input[type=radio]:checked + label>img {
-    box-shadow: 0 0 3px 3px #8356db;
+    box-shadow: 0 0 3px 3px #756EFF;
 }
 input[type=radio] + label>img {
     width: 150px;
@@ -158,7 +191,7 @@ input[type=radio] + label>img {
 .leaflet-control-zoom-in, .leaflet-control-zoom-out{
     background-color: whitesmoke !important;
     border: none;
-    color: #8356db !important;
+    color: #756EFF !important;
     height: 50px !important;
     width: 50px !important;
     display: flex !important;
@@ -167,6 +200,146 @@ input[type=radio] + label>img {
 }
 
 .form-check-input:checked{
-    background-color: #8356db;
-    border-color: #8356db;
+    background-color: #756EFF;
+    border-color: #756EFF;
+}
+
+#containerInterraction2{
+    position: absolute;
+    top: 4%;
+    left: 3%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    z-index: 3;
+}
+
+#containerInterractionEtiquette{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border-radius: 30px;
+    max-width: 100%;
+    width: 300px;
+    max-height: 100%;
+    z-index: 2;
+}
+
+.imgChoiceEtiquette{
+    border-radius: 30px;
+    border: 3px solid #5CFF9E;
+}
+
+
+#boutEtiquette{
+    width: 100px;
+    height: 100px;
+    background-color: #5CFF9E;
+    position: absolute;
+    z-index: -1;
+    right: -30px;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 26px;
+}
+
+
+
+#containerButtonsMapNavigation{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    z-index: 1;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.buttonMapNavigation{
+    background-color: white;
+    margin-top: 10px;
+    border: #756EFF 3px solid;
+    color: #756EFF;
+    padding: 2px 30px 2px 30px;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: .3s;
+}
+.buttonMapNavigation:hover{
+    background-color: #756EFF;
+    color: white;
+    transition: .3s;
+}
+
+
+
+
+
+
+
+
+/*popup*/
+.modal-dialog{
+    z-index: 2;
+}
+
+#btnPopupOui{
+    background-color: #756EFF;
+    width: 80px;
+    margin-right: 30px;
+    box-sizing: border-box !important;
+}
+#btnPopupNon{
+    background-color: white;
+    border: 2px solid #756EFF;
+    box-sizing: border-box !important;
+    color: #756EFF;
+    width: 80px;
+}
+#containerPopup{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#leftSidePopup{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#textPopup{
+    text-align: center;
+}
+#rightSidePopup{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#croixPopup{
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    color: #756EFF;
+}
+.modal-dialog{
+    background: #FFFFFF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 41px;
+}
+
+.modal-content{
+    background-color: transparent;
+    border: none;
 }

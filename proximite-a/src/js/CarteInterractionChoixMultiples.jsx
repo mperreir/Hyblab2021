@@ -1,5 +1,7 @@
 import React from 'react';
 import '../css/AcceuilCarte.css'
+import Etiquette from './Etiquette'
+import iconAdresse from '../img/position-icon.svg'
 import logo from '../img/LOGO OK_logo principal.png'
 import personnage from '../img/Perso-hyblab-03.png'
 import pied from '../img/picto moyen de transport-pied.png'
@@ -13,16 +15,24 @@ class CarteInterractionChoixMultiples extends  React.Component {
     render() {
         const {onNextPhase} = this.props;
         return (
-            <div id="containerInterraction2">
+            <div id="containerInterraction2" class="containersInterraction">
+
                 <div class="phase2Top">
                     <div class="phase2TopLeft">
                         <img src={logo} id="containerInterractionLogoP2"/>
-                        <span><b>Hello</b> Julie</span>
-                        <span>4 Rue Sainte Catherine</span>
-                        <span>44000 Nantes</span>
+                        <div id="textContainerTopLeft">
+                            <span id="helloText"><b>Hello</b> Julie</span>
+                            <div class="d-flex align-items-center">
+                                <img src={iconAdresse} width={17} height={50} class="m-1"/>
+                                <div class="horizontalAlign">
+                                    <span>4 Rue Sainte Catherine</span>
+                                    <span>44000 Nantes</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="phase2TopRight">
-                        <img src={personnage}/>
+                        <img src={personnage} width={190}/>
                     </div>
                 </div>
                 <hr/>
@@ -221,6 +231,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
                 <div class="sectionReduire">
                     <input class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                 </div>
+                <Etiquette/>
             </div>
         );
     }
