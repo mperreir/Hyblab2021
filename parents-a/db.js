@@ -41,15 +41,15 @@ module.exports = {
     },
 
     getParcPleinLaVue(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 1 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
     },
 
     getParcNonPleinLaVue(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Nb plantes'] !== null)
     },
 
     getParcBeauDecor(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture')))
+        return data.filter(p => p['Nb arbre formidable'] > 40 || p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null && (p['Elements atypiques'] !== null && (p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture')))))
     },
 
     getParcBeauPaysage(data) {
@@ -62,10 +62,47 @@ module.exports = {
 
     getEcouterDesAnimaux(d) {
         data.forEach(p => {
-            if (p['Animaux'] !== null && d.indexOf(p) > 0) {
+            if (p['Animaux'] !== null && d.indexOf(p) < 0) {
                 d.push(p);
             }
         });
         return d;
-    }
+    },
+
+
+    getEcouterNature(d) {
+        data.forEach(p => {
+            if (p['Elements atypiques'] !== null && d.indexOf(p) < 0) {
+                d.push(p);
+            }
+        });
+        return d;
+    },
+
+
+    getDecouvrirArbre(d) {
+        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 )
+    },
+
+
+    getDecouvrirParfum(d) {
+        return d.filter(p => p['Nb arbre formidable'] > 30 || p['Indice de Shanon plantes'] > 2 || p['Indice de Shanon arbres'] > 2)
+    },
+
+
+    getCentre(d) {
+        return d.filter(p => p['Code postal'] === 44000 )
+    },
+
+    getOuest(d) {
+        return d.filter(p => p['Code postal'] === 44200 )
+    },
+    getNord(d) {
+        return d.filter(p => p['Code postal'] === 44300 )
+    },
+    getSud(d) {
+        return d.filter(p => p['Code postal'] === 44100 )
+    },
+    
+
 }
