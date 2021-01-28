@@ -23,13 +23,19 @@ class Moyen extends  React.Component {
                     </div>
                     <img src={logo} width={100} class="mt-2 ml-5 mb-auto position-absolute"></img> 
                     <div id="Moyen" class="container d-flex flex-row align-items-center">
-                        <div><input type='button' id="changepage" value='←' onClick={onPreviousPage} /></div>
-                        <div class="m-5 d-flex flex-column justify-content-center align-items-center">
+                        <div id="changepage" class="d-flex justify-content-center align-items-center flex-column">
+                            <p>Retour</p>
+                            <input type='button' value='←' onClick={onPreviousPage} />
+                        </div>
+                        <div class="m-5 d-flex flex-column justify-content-center align-items-center ">
                             <h3>Choisis ton moyen de déplacement</h3>
                             <MoyenSelector />
                             <input type='button' class="btn btn-primary mb-3" value='Valider' onClick={onNextPage} />
                         </div>
-                        <div><input type='button' id="changepage" value='→' onClick={onNextPage} /></div>
+                        <div id="changepage" class="d-flex justify-content-center align-items-center flex-column" >
+                            <p>Suivant</p>
+                            <input type='button' value='→' onClick={onNextPage} />
+                        </div>
                     
                     </div>
                 </div>

@@ -37,8 +37,18 @@
     position: absolute;
     left: -9999px;
 }
+#changepage p{
+    margin: 0;
+    opacity: 0;
+    transition: 500ms all;
+}
+#changepage:hover p{
+    margin: 0;
+    opacity: 1;
+    transition: 400ms all;
+}
 
-#changepage{
+#changepage input{
     background-color: Transparent;
     background-repeat:no-repeat;
     border: 2px solid #756EFF;
@@ -59,7 +69,25 @@ input[type=radio] + label>img {
     width: 120px;
     height: 120px;
     transition: 500ms all;
-    border-radius: 50%;
-    opacity: 0.3;
+    padding: 10%;
+    background-size:0%;
+    background-position: center;
+    background-repeat : no-repeat;
+    opacity: 0.5;
+    
 }
 
+input[type=radio] + label>img:hover{
+     /*background-image : url('../img/HOVER-moyen de transport-tache-01.png');
+     width : 10%; 
+     height : auto;
+     background-repeat : no-repeat;
+     background-position: center;*/
+     background-repeat : no-repeat;
+     background-repeat : no-repeat;
+     transform: scale(1.1);
+     background-size: 100%;
+     opacity: 1;
+     transition: 400ms all;
+
+}
