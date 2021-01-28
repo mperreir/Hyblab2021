@@ -60,7 +60,7 @@ let initSlideChoixBicloo = function () {
         targets: 'ok-button',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -84,7 +84,7 @@ let initSlideChoixBicloo = function () {
         targets: '#plus-info',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -169,7 +169,7 @@ let initSlideChoixTransport = function () {
         targets: 'ok-button',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -193,7 +193,7 @@ let initSlideChoixTransport = function () {
         targets: '#plus-info',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -306,7 +306,7 @@ let initSlideChoixVelo = function () {
         targets: 'ok-button',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -330,7 +330,7 @@ let initSlideChoixVelo = function () {
         targets: '#plus-info',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -418,7 +418,7 @@ let initSlideChoixVoiture = function () {
         targets: 'ok-button',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*
@@ -442,7 +442,7 @@ let initSlideChoixVoiture = function () {
         targets: '#plus-info',
         scale: 0
       });
-      mySlidr.slide('page-2');
+      mySlidr.slide('page-finale');
       initSlide2();
     });
     /*

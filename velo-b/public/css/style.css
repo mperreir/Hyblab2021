@@ -84,7 +84,7 @@ body {
 
 /* dernier slide sur fond blanc */
 
-section[data-slidr="page-2"] {
+section[data-slidr="page-finale"] {
     background-color: white;
 }
 

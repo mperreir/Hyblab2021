@@ -30,11 +30,4 @@ let initSlide1 = function () {
       direction: 'alternate',
       loop: true
   });
-
-  d3.json('data/dummy.json')
-      .then(function (data) {
-          d3.select('footer')
-              .html('p')
-              .text(data.message);
-      });
 };
