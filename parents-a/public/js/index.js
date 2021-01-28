@@ -13,7 +13,8 @@ let mySlidr = slidr.create('slidr',{
     transition: 'fade'
   }).start();
 
-// on s'occupe de la 1ère slide
+
+//Transition quand appuie sur logo page 1
 let initSlide1 = function() {
   d3.select('#logo').on('click', function(){
       mySlidr.slide('page-1_1');
@@ -21,10 +22,11 @@ let initSlide1 = function() {
     });
 }
 
+//Transi 1.2 vers 2(Camille) 
 let initSlide1_1= function() {
     d3.select('#t').on('click', function(){
         mySlidr.slide('page-2');
-        initSlide2_1();
+        initSlide2();
     });
 }
 /*
@@ -37,21 +39,48 @@ let initSlide2 = function() {
     }
 }*/
 
-let initSlide2_1 = function() {
-    d3.select('#button-p2-1').on('click', function(){
-        mySlidr.slide('page-3');
-        initSlide3();
-    });
+function diparaitre(id){
+    d3.select(id)
+    .transition()
+    .delay(20)
+    .duration(700)
+    .style("opacity", 0)
+    .style("cursor","classic")
+}
 
+//Transi Camille to Pret a démarrer 
+let initSlide2 = function() {
+    d3.select('#button-p2-1').on('click', function(){
+        console.log("C'est okay")
+        console.log( d3.select('#texte-p2-1'))
+        
+        //Disparition de la 1 bulle 
+        diparaitre('#texte-p2-1')
+        diparaitre('#vector-p2-1')
+        diparaitre('#button-p2-1')
+           
+
+        //mySlidr.slide('page-3');
+        //initSlide3();
+        
+    });
 }
 
 
+//Pret -> Aventurier
 let initSlide3= function() {
-    d3.select('#button-p2-1').on('click', function(){
+    d3.select('#bouton-non-aventurier').on('click', function(){
         mySlidr.slide('page-4');
         initSlide4();
     });
+}
 
+//Aventurier -> Plein la vue
+let initSlide4= function() {
+    d3.select('h1').on('click', function(){
+        mySlidr.slide('page-5');
+        initSlide5();
+    });
 }
 
 
