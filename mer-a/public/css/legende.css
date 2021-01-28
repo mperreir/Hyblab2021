@@ -10,7 +10,7 @@ div#content {
   gap: 0px 0px;
   grid-template-areas:
 		". . title title ."
-    ". personnage legende legende ."
+    ". . legende legende ."
     ". . credits info .";
 }
 
@@ -29,13 +29,10 @@ div#title h2 {
 /*==============
 	= Personnage =
 	==============*/
-div#personnage {
-	grid-area: personnage;
-}
-
-div#personnage img {
-	display: block;
-	height: 115%;
+#personnage {
+	margin-top: 5%;
+	margin-left: 20%;
+	height: 65%;
 	width: auto;
 }
 
