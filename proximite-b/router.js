@@ -12,7 +12,7 @@ const api = require('./api');
 // });
 
 router.get('/api', async function (req, res){
-    let results = await api.all_positions(['Boulangerie','Médecin','Ecole','Supermarché','Parc','Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur','Musee','Bibliotheque','Salle de sport'], 'young', -1.547090210478156, 47.2191999412145); // -1.554093, 47.228982
+    let results = await api.all_positions(['Boulangerie','Supermarché','Parc','Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur','Musee','Bibliotheque','Salle de sport'], 'young', -1.531870, 47.238050); // -1.554093, 47.228982
     res.header("Content-Type",'application/json');
     return res.send(JSON.stringify(results, null, 4));
 });
