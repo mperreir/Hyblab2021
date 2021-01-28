@@ -35,6 +35,7 @@ section{
     text-align: center;
 }
 
+
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 #slidr, #slidr section{
     width: 100%;
