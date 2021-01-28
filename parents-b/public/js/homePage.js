@@ -74,7 +74,7 @@ let initHome = function(){
             .add({
                 targets: ".talking-bubble-home",
                 opacity: 1,
-                duration: 750,
+                duration: 500,
                 easing: "linear"
             })
             .add({

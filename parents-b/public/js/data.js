@@ -6,9 +6,7 @@ let myCriteria = {
         lng: null
     },
     "Distances" : {
-        max: 10,
-        reel: null,
-        duration: null
+        max: 10
     },
     "Gardien": null,
     "Jeux pour enfants": true,
@@ -35,7 +33,8 @@ let myCriteria = {
     "Âge": []
 };
 
-let nbElemChoisit = 0;
+// L'heure + les 5 checkbox qui sont initialisé à true de base
+let nbElemChoisit = 6;
 
 function stringToBoolean(string) {
     return string === "true";
@@ -59,21 +58,22 @@ function choiceUpdate(string, currentValue) {
     }
 }
 
+function updateHour(newHour) {
+    myCriteria["Horaires d'ouverture"] = newHour;
+}
+
 function addAge(newAge) {
+    if (myCriteria["Âge"].length === 0) nbElemChoisit++;
     myCriteria["Âge"].push(newAge);
-    console.log("AGE +");
-    console.log(myCriteria["Âge"]);
 }
 
 function removeAge(rmAge) {
-    myCriteria["Âge"].splice(myCriteria["Âge"].indexOf(rmAge), 1)
-    console.log("AGE -");
-    console.log(myCriteria["Âge"]);
+    if (myCriteria["Âge"].length === 1) nbElemChoisit--;
+    myCriteria["Âge"].splice(myCriteria["Âge"].indexOf(rmAge), 1);
 }
 
 function distAttribute(event) {
     myCriteria["Distances"].max = parseInt(event.target.value);
-    console.log(myCriteria["Distances"]);
 }
 
 function geoAttribute(latitude, longitude) {
@@ -107,12 +107,12 @@ function lngAttribute(event) {
 }
 
 function gardAttribute(event) {
+    event.preventDefault();
     const gard = myCriteria["Gardien"];
     myCriteria["Gardien"] = choiceUpdate(event.target.value, gard);
 }
 
 function childGameAttribute(event) {
-    const childGame = myCriteria["Jeux pour enfants"];
     myCriteria["Jeux pour enfants"] = event.target.checked;
 }
 
@@ -191,28 +191,19 @@ function greeneryAttribute(event) {
     myCriteria["Verdure / Plante Espace Vert"] = choiceUpdate(event.target.value, greenery);
 }
 
-function hourAttribute(event) {
-    const hour = myCriteria["Horaires d'ouverture"];
-    myCriteria["Horaires d'ouverture"] = parseInt(event.target.value);
-}
-
 function crapaAttribute(event) {
-    const crapa = myCriteria["CRAPA"];
     myCriteria["CRAPA"] = event.target.checked;
 }
 
 function sportAttribute(event) {
-    const sport = myCriteria["Terrains de sport"];
     myCriteria["Terrains de sport"] = event.target.checked;
 }
 
 function activityAttribute(event) {
-    const activity = myCriteria["Activités organisées"];
     myCriteria["Activités organisées"] = event.target.checked;
 }
 
 function cultureAttribute(event) {
-    const culture = myCriteria["Élément de culture"];
     myCriteria["Élément de culture"] = event.target.checked;
 }
 
@@ -280,7 +271,12 @@ function fetchData() {
                                     console.log(json[25*i + j]["Distances"]["duration"] = duration);
                                     console.log((myCriteria["Distances"].max >= distance));
                                      */
-                                    json[25*i + j]["Distances"]["valid"] = (myCriteria["Distances"].max >= distance);
+                                    const validDistance = (myCriteria["Distances"].max >= distance);
+                                    json[25*i + j]["Distances"]["valid"] = validDistance;
+                                    if (validDistance) {
+                                        json[25*i + j]["nbElemCorrect"]++;
+                                        json[25*i + j]["listElemMatch"].push("Distances");
+                                    }
                                 }
                             }
                         }
@@ -290,17 +286,12 @@ function fetchData() {
             return json;
         })
         .then(json => {
-            const nbCritere = Object.keys(myCriteria).length;
             for (const line of json) {
                 for (const [key, value] of Object.entries(line)) {
                     switch (key) {
                         case "Géolocalisation":
                             break;
                         case "Distances":
-                            if (value.valid) {
-                                line["nbElemCorrect"]++;
-                                line["listElemMatch"].push(key);
-                            }
                             break;
                         case "Âge":
                             const length = myCriteria["Âge"].length;
@@ -340,17 +331,17 @@ function fetchData() {
                             }
                             break;
                         default:
-                            if (myCriteria[key]) {
-                                if (myCriteria[key] != null && myCriteria[key] === value) {
-                                    line["nbElemCorrect"]++;
-                                    line["listElemMatch"].push(key);
-                                }
+                            if (myCriteria[key] != null && myCriteria[key] === value) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
                             }
                             break;
                     }
                 }
-                line.affinity = line["nbElemCorrect"] * 100 / nbCritere;
+                line.affinity = (line["nbElemCorrect"] * 100) / nbElemChoisit;
             }
+            console.log(myCriteria);
+            console.log(json);
             //console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);

@@ -7,11 +7,20 @@
     z-index: 2;
 }
 
+.leaves-age{
+    position: absolute;
+    top: 0;
+    left: 70%;
+    height: auto;
+    width: 100%;
+    z-index: 2;
+}
+
 .yeux_cache{
     position: absolute;
     top: 8%;
-    left : 2.5%;
-    width: 19%;
+    left : 0;
+    width: 30%;
     font-size: 23% ;
     z-index: 1;
 }
@@ -19,7 +28,7 @@
 .vague_age{
     position: absolute;
     top: 14%;
-    left : 22%;
+    left : 23%;
     width: 5%;
     transform: rotate(16deg);
     z-index: 1;
@@ -28,7 +37,7 @@
 .text_rbt_age{
     position: absolute;
     top: 10%;
-    left : 28%;
+    left : 29%;
     font-size: 30% ;
     z-index: 1;
 }
@@ -36,23 +45,23 @@
 .arrive_age{
     position: absolute;
     top: 235%;
-    left : 14%;
-    width: 19%;
+    left : 10%;
+    width: 30%;
     z-index: 1;
 }
 
 .vague_chut{
     position: absolute;
     top: 74%;
-    left : 31%;
+    left : 33%;
     width: 4%;
     z-index: 1;
 }
 
 .age_chut{
     position: absolute;
-    top: 74%;
-    left : 35.5%;
+    top: 72%;
+    left : 38%;
     width: 20%;
     z-index: 1;
 }
@@ -73,7 +82,7 @@
     z-index: 2;
 }
 
-.boutton_add{
+.button_add{
     position: absolute;
     top: 62%;
     left : 50%;
@@ -143,8 +152,9 @@
     z-index: 2;
 }
 
-.button-age:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+.button-suivant-age{
+    top: 87%;
+    left: 44%;
 }
 
 .page2{
@@ -157,4 +167,3 @@
     -ms-transform: translate(-50%, -50%);
     z-index: 2;
 }
-
