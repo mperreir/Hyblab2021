@@ -102,3 +102,24 @@ section[data-sildr='page-4'] {
     bottom: 2%;
     right: 11%;
 }
+
+#button-p4-1 {
+    position: absolute;
+    left: 3%;
+    top: 4%;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px 13px 10px 13px;
+    outline: none;
+}
+
+#button-p4-1:hover {
+    border: 3px solid #fff;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+}
