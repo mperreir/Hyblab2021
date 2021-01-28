@@ -19,79 +19,80 @@ export default Vue.component("finalMap", {
 
     var map = new H.Map(this.$refs.mapCont,
     defaultLayers.vector.normal.map,{
-    center: {lat:52.5160, lng:13.3779},
+    center: {lat:47.218371, lng:-1.553621},
     zoom: 13,
     pixelRatio: window.devicePixelRatio || 1
     });
     window.addEventListener('resize', () => map.getViewPort().resize());
 
-    //Step 3: make the map interactive
-    // MapEvents enables the event system
-    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    
+    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    const ui = H.ui.UI.createDefault(map, defaultLayers);
 
-    // Create the default UI components
-    var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-    // Hold a reference to any infobubble opened
-    var bubble;
+    calculateRouteFromAtoB(platform, map);
   }
 });
 
-// function calculateRouteFromAtoB (platform) {
-//   var router = platform.getRoutingService(null, 8),
-//       routeRequestParams = {
-//         routingMode: 'fast',
-//         transportMode: 'pedestrian',
-//         origin: '51.51326,-0.0968752', // St Paul's Cathedral
-//         destination: '51.5081,-0.0985',  // Tate Modern
-//         via:'51.51148,-0.09627', // point intermédiaire random
-//         return: 'polyline,travelSummary'
-//       };
+function calculateRouteFromAtoB (platform, map) {
+  var router = platform.getRoutingService(null, 8),
+      routeRequestParams = {
+        routingMode: 'fast',
+        transportMode: 'pedestrian',
+        origin: '51.51326,-0.0968752', // St Paul's Cathedral
+        destination: '51.5081,-0.0985',  // Tate Modern
+        via:'51.51148,-0.09627', // point intermédiaire random
+        return: 'polyline,travelSummary'
+      };
 
 
-//   router.calculateRoute(
-//     routeRequestParams,
-//     onSuccess,
-//     onError
-//   );
-// }
+  router.calculateRoute(
+    routeRequestParams,
+    (result) => onSuccess(result, map),
+    onError
+  );
+}
 
-// function onSuccess(result) {
-//   var route = result.routes[0];
-//  /*
-//   * The styling of the route response on the map is entirely under the developer's control.
-//   * A representitive styling can be found the full JS + HTML code of this example
-//   * in the functions below:
-//   */
-//   //addRouteShapeToMap(route);
-//   //addManueversToMap(route);
-//   //addManueversToPanel(route);
-//   //addSummaryToPanel(route);
-//   // ... etc.
-// }
+function onSuccess(result, map) {
+  console.log(result)
+  var route = result.routes[0];
+ /*
+  * The styling of the route response on the map is entirely under the developer's control.
+  * A representitive styling can be found the full JS + HTML code of this example
+  * in the functions below:
+  */
+  addRouteShapeToMap(route, map);
+  //addManueversToMap(route);
+  //addManueversToPanel(route);
+  //addSummaryToPanel(route);
+  // ... etc.
+}
 
-   
-// fetch('https://js.api.here.com/v3/3.1/mapsjs-core.js')
-// fetch('https://js.api.here.com/v3/3.1/mapsjs-service.js')
-// fetch('https://js.api.here.com/v3/3.1/mapsjs-ui.js')
-// fetch('https://js.api.here.com/v3/3.1/mapsjs-mapevents.js')
+function onError(error) {
+  alert('Can\'t reach the remote server');
+}
 
-// var platform = new H.service.Platform({
-//   apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
-// });
-// var defaultLayers = platform.createDefaultLayers();
+function addRouteShapeToMap(route, map){
+  route.sections.forEach((section) => {
+    // decode LineString from the flexible polyline
+    let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
 
-// function onError(error) {
-//   alert('Can\'t reach the remote server');
-// }
+    // Create a polyline to display the route:
+    let polyline = new H.map.Polyline(linestring, {
+      style: {
+        lineWidth: 4,
+        strokeColor: 'rgba(0, 128, 255, 0.7)'
+      }
+    });
 
-// var map = new H.Map(domMap,
-//   defaultLayers.vector.normal.map,{
-//   center: {lat:52.5160, lng:13.3779},
-//   zoom: 13,
-//   pixelRatio: window.devicePixelRatio || 1
-// });
+    // Add the polyline to the map
+    map.addObject(polyline);
+    // And zoom to its bounding rectangle
+    map.getViewModel().setLookAtData({
+      bounds: polyline.getBoundingBox()
+    });
+  });
+}
+
 </script>
 
 <style scoped>
