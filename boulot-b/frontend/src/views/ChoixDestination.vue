@@ -57,10 +57,14 @@ export default {
       if (!this.depart || !this.arrive) {
         this.error.arrive = !this.arrive;
         this.error.depart = !this.depart;
+        this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami"
         return
       }
-      const listRoutes = this.$router.getRoutes();
-      this.$router.push({name: listRoutes[this.actif + 1].name});
+      this.message = "Allons-y !"
+      setTimeout(() => {
+        const listRoutes = this.$router.getRoutes();
+        this.$router.push({name: listRoutes[this.actif + 1].name});
+      }, 1500)
     },
   },
 };

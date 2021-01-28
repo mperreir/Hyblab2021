@@ -41,7 +41,7 @@ export default {
       setTimeout(() => {
         const listRoutes = this.$router.getRoutes();
         this.$router.push({name: listRoutes[this.actif + 1].name});
-      }, 1000)
+      }, 1500)
     }
     ,oui() {
       this.$root.$data.setHumeur(Humeur.OUI)
