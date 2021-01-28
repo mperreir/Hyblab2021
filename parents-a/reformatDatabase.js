@@ -27,7 +27,8 @@
   'Nb Genre plantes',
   'Nb Espece plantes',
   'Indice de Shanon plantes',
-  'Indice de Shanon arbres'
+  'Indice de Shanon arbres',
+  'Elements atypiques'
 ]
 
  */

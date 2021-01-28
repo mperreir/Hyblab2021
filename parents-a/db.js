@@ -33,15 +33,15 @@ module.exports = {
     // }
 
     getParcAventurier() {
-        return data.filter(p => p['Nb arbre'] > 30 || p['Nb plantes'] !== null || p['Animaux'] !== null)
+        return data.filter(p => p['Nb arbre'] > 30 || p['Nb plantes'] !== null || p['Animaux'] !== null || p['Elements atypiques'] !== null)
     },
 
     getParcNonAventurier() {
-        return data.filter(p => p['Nb plantes'] !== null || p['Indice de Shanon arbres'] > 1)
+        return data.filter(p => p['Nb plantes'] !== null || p['Indice de Shanon arbres'] > 1 || p['Elements atypiques'] !== null)
     },
 
     getParcPleinLaVue(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
     },
 
     getParcNonPleinLaVue(data) {
@@ -49,14 +49,18 @@ module.exports = {
     },
 
     getParcBeauDecor(data) {
-        return data.filter(p => p['Element visuel atypique'])
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null ||p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture') ))
     }, 
 
     getParcBeauPaysage(data) {
-        return data.filter(p => p['Indice de Shanon arbres'] > 2)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null ||p['Elements atypiques'].split(',').find(m => m === 'Charme naturel') )
     },
 
     getParcAvecAnimaux(data) {
         return data.filter(p => p['Animaux'] !== null)
     },
+
+    getEcouterDesAnimaux(data) {
+        return data.filter(p => p['Animaux'] !== null)
+    }
 }
