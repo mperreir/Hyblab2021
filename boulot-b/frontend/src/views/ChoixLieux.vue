@@ -2,7 +2,7 @@
   <Container>
     <template #question >
       <Question>
-        <Checkbox v-model="resto"  color="yellow" >Restaurent</Checkbox>
+        <Checkbox v-model="resto"  color="yellow" >Restaurant</Checkbox>
         <Checkbox v-model="bar" color="blue" >Bar</Checkbox>
         <Checkbox v-model="boulangerie" color="yellow" >Boulangerie</Checkbox>
         <Checkbox v-model="cinema" color="blue" >Cinéma</Checkbox>

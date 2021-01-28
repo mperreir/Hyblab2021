@@ -4,7 +4,7 @@
       <div id="launcher">
         <Input :error="error.depart" v-model="depart" class="depart" placeholder="point de départ..." />
         <Input :error="error.arrive" v-model="arrive" class="arrive" placeholder="point d'arrivée..." />
-        <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
+        <ButtonCustom @click="launch" text="C'est parti !" color="blue" />
       </div>
     </template>
     <template #canari>

@@ -10,29 +10,30 @@
 </template>
 
 <script>
+    import {Themes,Styles} from "@/store.js";
     export default {
         name: "buildings",
         methods: {
             checkTowerActive() {
-                if (this.$root.$data.state.choice.theme === "culture" || this.$root.$data.state.choice.theme === "alea") {
+                if (this.$root.$data.state.choice.theme === Themes.CULTURE || this.$root.$data.state.choice.theme === Themes.ALEA) {
                     let tower = document.getElementById('tower');
                     tower.style.display='inline';
                 }
             },
             checkFirstTreeActive() {
-                if (this.$root.$data.state.choice.theme === "nature") {
+                if (this.$root.$data.state.choice.theme === Themes.NATURE) {
                     let tree = document.getElementById('first_tree');
                     tree.style.display='inline';
                 }
             },
             checkYellowActive() {
-                if (this.$root.$data.state.choice.style === "boulevards" || this.$root.$data.state.choice.style === "ruelles") {
+                if (this.$root.$data.state.choice.style === Styles.BOULEVARDS || this.$root.$data.state.choice.style === Styles.RUELLES) {
                     let yellow_house = document.getElementById('yellow_house');
                     yellow_house.style.display='inline';
                 }
             },            
             checkWhiteAndBlueActive() {
-                if (this.$root.$data.state.choice.style === "boulevards") {
+                if (this.$root.$data.state.choice.style === Styles.BOULEVARDS) {
                     let white_house = document.getElementById('white_house');
                     white_house.style.display='inline';
                     let blue_house = document.getElementById('blue_house');
@@ -40,7 +41,7 @@
                 }
             },
             checkSecondTreeActive() {
-                if (this.$root.$data.state.choice.theme === "nature" || this.$root.$data.state.choice.theme === "alea") {
+                if (this.$root.$data.state.choice.theme === Themes.NATURE || this.$root.$data.state.choice.theme === Themes.ALEA) {
                     let tree = document.getElementById('second_tree');
                     tree.style.display='inline';
                 }
