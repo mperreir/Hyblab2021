@@ -49,18 +49,23 @@ module.exports = {
     },
 
     getParcBeauDecor(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null ||p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture') ))
-    }, 
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture')))
+    },
 
     getParcBeauPaysage(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null ||p['Elements atypiques'].split(',').find(m => m === 'Charme naturel') )
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
     },
 
     getParcAvecAnimaux(data) {
         return data.filter(p => p['Animaux'] !== null)
     },
 
-    getEcouterDesAnimaux(data) {
-        return data.filter(p => p['Animaux'] !== null)
+    getEcouterDesAnimaux(d) {
+        data.forEach(p => {
+            if (p['Animaux'] !== null && d.indexOf(p) > 0) {
+                d.push(p);
+            }
+        });
+        return d;
     }
 }

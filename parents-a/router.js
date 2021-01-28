@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./db');
-const body_parser = require('body_parser');
+const body_parser = require('body-parser');
 
 router.get('/parc/all', (req, res) => {
     res.json(db.getAllParc());
@@ -27,7 +27,7 @@ router.get('/parc/all', (req, res) => {
 //     res.json(db.getParcCalme());
 // });
 
-router.get('/parc/aventurier', (req,res) => {
+router.get('/parc/aventurier', (req, res) => {
     res.json(db.getParcAventurier());
 });
 
@@ -54,5 +54,15 @@ router.get('/parc/beau-paysage', body_parser.json(), (req, res) => {
 router.get('/parc/avec-animaux', body_parser.json(), (req, res) => {
     res.json(db.getParcAvecAnimaux(req.body.data))
 });
+
+router.post('/parc/aventurier/animaux', body_parser.json(), (req, res) => {
+    const data = req.body.data;
+    res.json(db.getEcouterDesAnimaux(data));
+});
+
+router.post('/test', body_parser.json(), (req, res) => {
+    const name = req.body.name;
+    res.json(name);
+})
 
 module.exports = router;
