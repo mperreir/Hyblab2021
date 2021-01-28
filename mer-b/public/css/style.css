@@ -471,7 +471,6 @@ input#adresse:focus {
 
 
 .citation {
-    /* citation */
     font-family: Abril Fatface;
     font-style: normal;
     font-weight: normal;
@@ -479,13 +478,17 @@ input#adresse:focus {
     line-height: 20px;
     text-align: center;
     opacity: 0;
-    color:  var(--citation-color, #203443);
+    color: var(--citation-color, #203443);
     transition: all 0.5s ease;
-
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 div#containerReponses {
-    max-width: 750px;
+    max-width: 850px;
+    margin-left: 20px;
 }
 
 .containerReponse .bouton:hover + .citation {
@@ -497,7 +500,8 @@ div#containerReponses {
     text-align: center;
     vertical-align: top;
     padding-bottom: 10px;
-    width: 250px;
+    position: relative;
+    margin-left: 30px;
 }
 
 .stepper {

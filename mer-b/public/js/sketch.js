@@ -28,6 +28,14 @@ let sketchCiel = function(p) {
     let imgPhareNuit;
     let imgPhareSoleil;
 
+    let imgPortJour;
+    let imgPortNuit;
+    let imgPortSoleil;
+
+    let imgParkingJour;
+    let imgParkingNuit;
+    let imgParkingSoleil;
+
     let imgFondCoupeJour;
     let imgFondCoupeNuit;
     let imgFondCoupeSoleil;
@@ -47,12 +55,9 @@ let sketchCiel = function(p) {
     let solY = -1;
     let imgdisplayPhare;
     let phareY = -1;
-    let imgdisplayFond;
+    let imgdisplayPort;
+    let imgdisplayParking;
     let imgdisplayFondCoupe;
-    let imgdisplayPlante;
-
-    /*sons*/
-    let sonMer;
 
     /*pluie*/
     var rain = [];
@@ -107,6 +112,14 @@ let sketchCiel = function(p) {
       imgPhareJour = p.loadImage('img/Phare/pharejour.png');
       imgPhareNuit = p.loadImage('img/Phare/pharenuit.png');
       imgPhareSoleil = p.loadImage('img/Phare/pharesoleil.png');
+
+      imgPortJour = p.loadImage('img/Port/portjour.png');
+      imgPortNuit = p.loadImage('img/Port/portnuit.png');
+      imgPortSoleil = p.loadImage('img/Port/portsoleil.png');
+
+      imgParkingJour = p.loadImage('img/Parking/parkingjour.png');
+      imgParkingNuit = p.loadImage('img/Parking/parkingnuit.png');
+      imgParkingSoleil = p.loadImage('img/Parking/parkingsoleil.png');
 
       imgFondCoupeJour = p.loadImage('img/FondsTextures/fondjourcouper.png');
       imgFondCoupeNuit = p.loadImage('img/FondsTextures/fondnuitcouper.png');
@@ -193,6 +206,7 @@ let sketchCiel = function(p) {
         p.image(imgdisplayPhare, 0, phareY, p.windowWidth, p.windowHeight);
       }
 
+
       if(imgdisplaySol){
         if(solY > 0){
           solY -= 2;
@@ -207,6 +221,14 @@ let sketchCiel = function(p) {
         p.image(imgdisplayMer, 0, merY, p.windowWidth, p.windowHeight);
       }
 
+      if(imgdisplayPort){
+        p.image(imgdisplayPort, 0, 0, p.windowWidth, p.windowHeight);
+      }
+
+      if(imgdisplayParking){
+        p.image(imgdisplayParking, 0, 0, p.windowWidth, p.windowHeight);
+      }
+
     }
 
     sketchCiel.resetSketchCiel = function(){
@@ -214,6 +236,8 @@ let sketchCiel = function(p) {
       imgdisplayMer = undefined;
       imgdisplaySol = undefined;
       imgdisplayPhare = undefined;
+      imgdisplayPort = undefined;
+      imgdisplayNuages = undefined;
       backgroundColor = "#B6F6FC";
       imgdisplayFondCoupe = undefined;
       imgdisplayFond = undefined;
@@ -300,6 +324,20 @@ let sketchCiel = function(p) {
           phareY = -1;
         }
 
+        if(affichage.amenagement.includes("harbor")){
+          imgdisplayPort = imgPortJour;
+        }
+        else {
+          imgdisplayPort = undefined;
+        }
+
+        if(affichage.amenagement.includes("parking")){
+          imgdisplayParking = imgParkingJour;
+        }
+        else {
+          imgdisplayParking = undefined;
+        }
+
       }
       else if(affichage.moment == "night"){
         imgdisplayFondCoupe = imgFondCoupeNuit;
@@ -359,6 +397,20 @@ let sketchCiel = function(p) {
           imgdisplayPhare = undefined;
           phareY = -1;
         }
+
+        if(affichage.amenagement.includes("harbor")){
+          imgdisplayPort = imgPortNuit;
+        }
+        else {
+          imgdisplayPort = undefined;
+        }
+
+        if(affichage.amenagement.includes("parking")){
+          imgdisplayParking = imgParkingNuit;
+        }
+        else {
+          imgdisplayParking = undefined;
+        }
       }
       else if(affichage.moment){
         imgdisplayFondCoupe = imgFondCoupeSoleil;
@@ -417,6 +469,20 @@ let sketchCiel = function(p) {
         else {
           imgdisplayPhare = undefined;
           phareY = -1;
+        }
+
+        if(affichage.amenagement.includes("harbor")){
+          imgdisplayPort = imgPortSoleil;
+        }
+        else {
+          imgdisplayPort = undefined;
+        }
+
+        if(affichage.amenagement.includes("parking")){
+          imgdisplayParking = imgParkingSoleil;
+        }
+        else {
+          imgdisplayParking = undefined;
         }
       }
     }
