@@ -7,6 +7,7 @@ let addresstocoordinates = async function(adresse){
     const url = `http://api-adresse.data.gouv.fr/search/?q=${adresse2}`;
     let response =await request.request(url);
     let data = await response.json();
+    console.log(data);
     let coordinates = {latitude: data.features[0].geometry.coordinates[1], longitude: data.features[0].geometry.coordinates[0]}
     return coordinates;
 }

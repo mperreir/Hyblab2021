@@ -1,10 +1,12 @@
 'use strict';
 
 const express = require('express');
+const { lazy } = require('react');
 const { response } = require('../../server');
 
 const addresstocoordinates = require('./adresstocoordinates');
 const get15minzone = require('./get15mnZone');
+const getzone = require('./getZone');
 
 module.exports = function () {
 
@@ -23,13 +25,32 @@ module.exports = function () {
         const path = decodeURI(req.url).split('/');
         let coordinates = path[2].split('_');
         coordinates= coordinates.map(x => parseFloat(x));
-        console.log(coordinates);
-        console.log(path[3])
         get15minzone.get15mnZone(coordinates, path[3])
             .then(data => {res.json(data)});
     })
 
+    app.get('/getlocationsfromprofile/*/*/*', async function(req, res){
+        res.header('Access-Control-Allow-Origin', '*');
+        const path = decodeURI(req.url).split('/');
+        let coordinates = await addresstocoordinates.addresstocoordinates(path[2]);
+        coordinates = [coordinates.longitude, coordinates.latitude];
+        let polygon = await get15minzone.get15mnZone(coordinates, path[3]);
+        let points = await getzone.getPointsInZoneFromProfile(polygon, path[4]);
+        res.json(points);
+    })
 
-    return app
+    app.get('/getlocations/*/*/*', async function(req, res){
+        res.header('Access-Control-Allow-Origin', '*');
+        const path = decodeURI(req.url).split('/');
+        let coordinates = await addresstocoordinates.addresstocoordinates(path[2]);
+        coordinates = [coordinates.longitude, coordinates.latitude];
+        let polygon = await get15minzone.get15mnZone(coordinates, path[3]);
+        let typeslieux = path[4].split('-');
+        let points = await getzone.getPointsInZone(polygon, typeslieux);
+        res.json(points);
+    })
+
+
+    return app;
 
 };

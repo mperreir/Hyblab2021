@@ -53,7 +53,7 @@ const tous = [
     "amenity=hospital",
 ];
 
-export const POINT_TYPES = [
+ const POINT_TYPES = [
     culture,
     fetard,
     tourisme,
@@ -67,11 +67,11 @@ export const POINT_TYPES = [
  * @param {*} zone
  * @param {Array} types
  */
-export const getPointsInZone = (zone, types) => {
+const getPointsInZone = (zone, types) => {
     const query = buildQuery(types, zone);
 }
 
-export const buildQuery = (types, zone) => {
+    const buildQuery = (types, zone) => {
     let query = "http://overpass-api.de/api/interpreter?data=[out:json];";
     let area = "name=Nantes";
     query += "area[" + area + "];("
@@ -90,3 +90,5 @@ export const buildQuery = (types, zone) => {
 
     return query
 }
+
+module.exports= getPointsInZone;

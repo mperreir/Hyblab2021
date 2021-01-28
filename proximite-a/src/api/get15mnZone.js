@@ -24,9 +24,7 @@ let get15mnZone = async function(position, modeTransport = 'foot-walking') {
                 'Content-Type': 'application/json'
             }});
         //data = require('./test_ors.json');
-        console.log(data);
         const response = await data.json();
-        console.log(response);
         let polygon = response.features[0].geometry.coordinates;
         return polygon;
     } catch (e) {
@@ -34,5 +32,6 @@ let get15mnZone = async function(position, modeTransport = 'foot-walking') {
     }
 }
 
+//get15mnZone([1, 47], 'foot-walking');
 module.exports = {get15mnZone};
 
