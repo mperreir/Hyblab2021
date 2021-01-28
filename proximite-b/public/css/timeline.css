@@ -52,7 +52,7 @@
 }
 
 .disinterestsColorModal {
-    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuagerouge.svg') !important;
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
     background-color: #b95803 !important;
 }
 
@@ -79,8 +79,6 @@
 }
 
 #singleModal #closeModal {
-    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg');
-    /*TODO change interests desin*/
     width: 3em;
     height: 3em;
     background-repeat: no-repeat;

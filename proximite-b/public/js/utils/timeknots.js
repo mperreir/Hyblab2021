@@ -23,8 +23,8 @@ var TimeKnots = {
 
         var preference = 'interests';
         if (disinterests.includes(d.categorie)) { var preference = 'disinterests' };
-
-
+        $('#closeModal').css("background-image", "url(" + '/proximite-b/img/timeline/modal/'+preference+'/croix.svg'+")");
+        
 
         $("#firstItemSingleModal")
             .html(
