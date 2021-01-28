@@ -10,7 +10,7 @@
       </Question>
     </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau :message="message" />
     </template>
     <template #stepper>
       <Stepper :actif=actif />
@@ -33,11 +33,17 @@ import lottie from "lottie-web";
 export default {
   choice: "typeDeplacement",
   name: "ChoixTypeDeplacement",
+  data() {
+    return {
+      message: "Tout d’abord, quel moyen de transport souhaites-tu emprunter ? "
+    }
+  },
   props: {
     actif: Number
   },
   methods: {
     nextVelo() {
+      this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
      const velo= document.getElementById("velo-anim");
       velo.addEventListener("animationend", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.VELO)
@@ -46,6 +52,7 @@ export default {
      velo.classList.add("slide-lr");
     },
     nextPied() {
+      this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
       document.getElementById("pied-anim").style.display = "block";
       this.pied.play()
       this.pied.setSpeed(2)

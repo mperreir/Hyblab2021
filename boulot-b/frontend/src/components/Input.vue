@@ -1,6 +1,7 @@
 <template>
   <input
       :value="value" :class="{error: error}" class="input"
+      @blur="$emit('blur', $event.target.value)"
       @input="$emit('input', $event.target.value)"
   />
 </template>

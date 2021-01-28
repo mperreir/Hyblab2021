@@ -56,9 +56,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    const routeIndex = routes.findIndex((route) => {
-        return to.name === route.name
-    })
+    const routeIndex = routes.findIndex((route) =>  to.name === route.name )
   for(let i=routes.length -1; i>=routeIndex; i--) {
     store.clearChoice(routes[i].component.choice)
   }

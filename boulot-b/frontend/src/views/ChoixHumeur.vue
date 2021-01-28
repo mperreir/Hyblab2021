@@ -9,7 +9,7 @@
       </Question>
     </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau :message="message"/>
     </template>
     <template #stepper>
       <Stepper :actif=actif />
@@ -27,6 +27,11 @@ import Oiseau from "@/components/Oiseau";
 export default {
   choice: "humeur",
   name: "ChoixHumeur",
+  data() {
+    return {
+      message: "C’est noté ! Es-tu d’humeur sportive aujourd’hui ?"
+    }
+  },
   props: {
     actif: Number
   },
