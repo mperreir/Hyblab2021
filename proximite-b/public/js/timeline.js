@@ -41,7 +41,8 @@ function getData(nameadd, adresse, storage) {
 function timeline_progressbar_draw() {
     var widthCard = ($("#timelineholder").width());
     var heightCard = 300;
-    TimeKnots.draw("#timeline1", _app_stores["timeline"]['data']['adresse1'], { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
-    TimeKnots.draw("#timeline2", _app_stores["timeline"]['data']['adresse2'], { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true });
-    ProgressBar.draw("#progressDiv",_app_stores["timeline"]['data']['adresse1'],_app_stores["timeline"]['data']['adresse2']);
+    var waiting_time = 1500;
+    TimeKnots.draw("#timeline1", _app_stores["timeline"]['data']['adresse1'], { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, waiting_time: waiting_time });
+    TimeKnots.draw("#timeline2", _app_stores["timeline"]['data']['adresse2'], { color: ["#2a315b", "#eead1c"], width: widthCard, height: heightCard, showLabels: true, waiting_time: waiting_time });
+    ProgressBar.draw("#progressDiv",_app_stores["timeline"]['data']['adresse1'],_app_stores["timeline"]['data']['adresse2'], waiting_time);
 };

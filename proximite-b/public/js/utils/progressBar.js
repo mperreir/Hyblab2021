@@ -46,7 +46,7 @@ var ProgressBar = {
      * Function used to generate and draw the progress bar
      * @param {*} id id of the div where 2 bar will be added
      */
-    draw: async function (id,dataTimeLine1,dataTimeLine2) {
+    draw: async function (id,dataTimeLine1,dataTimeLine2,waiting_time) {
 
         var S1 = 1;
         var S2 = 1;
@@ -90,7 +90,7 @@ var ProgressBar = {
             }
             Somme = S1 + S2;
             if (dataTimeLine1[index].categorie != null) {
-                await ProgressBar.sleep(1000);
+                await ProgressBar.sleep(waiting_time);
             }
             b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
             b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
