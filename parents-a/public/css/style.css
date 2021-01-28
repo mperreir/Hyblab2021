@@ -58,6 +58,13 @@ section[data-slidr="page-4"] {
     position: relative;
 }
 
+#logo-questionnaire {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 

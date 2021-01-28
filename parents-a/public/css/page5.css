@@ -1,0 +1,102 @@
+/* Stylesheet page 5 */
+section[data-slidr="page-5"] {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg,
+    #0574CF,
+    #0574CF);
+}
+
+#dune-p5 {
+    position: absolute;
+    bottom: 0%;
+    left: 15%;
+    width: 85%;
+}
+
+#pelouse-droite-p5 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}
+
+#pelouse-gauche-p5 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 30%;
+}
+
+#gros-nuage-p5 {
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    width: 25%;
+}
+
+#arbuste-vert-p5 {
+    position: absolute;
+    bottom: 9%;
+    right: 12%;
+    width: 25%;
+    transform: rotate(352deg);
+}
+
+#arbre_rouge-p5 {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 25%;
+}
+
+#arbuste_bleu-p5 {
+    position: absolute;
+    width: 18%;
+    bottom: 3%;
+    left: 10%;
+    transform: rotate(15deg);
+}
+
+#feuille-p5 {
+    position: absolute;
+    width: 15%;
+    bottom: 8%;
+    left: 5%;
+}
+
+#question-p5 {
+    position: absolute;
+    top: 22%;
+    left: 35%;
+    width: 25%;
+}
+
+#button_oui-p5 {
+    position: absolute;
+    width: 20%;
+    top: 30%;
+    left: 25%;
+}
+
+#text_oui-p5 {
+    position: absolute;
+    width: 20%;
+    bottom: 22%;
+    left: 23%;
+}
+
+#button_non-p5 {
+    position: absolute;
+    width: 20%;
+    top: 30%;
+    right: 30%;
+}
+
+#text_non-p5 {
+    position: absolute;
+    width: 20%;
+    bottom: 22%;
+    right: 30%;
+}
+
+
