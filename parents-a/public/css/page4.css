@@ -15,14 +15,14 @@ section[data-sildr='page-4'] {
 
 #oui-p4 {
     position: absolute;
-    width: 5%;
+    width: 15%;
     bottom: 25%;
-    right: 60%;
+    right: 56%;
 }
 
 #non-p4 {
     position: absolute;
-    width: 5%;
+    width: 15%;
     bottom: 25%;
     right: 33%;
 }
@@ -36,7 +36,7 @@ section[data-sildr='page-4'] {
 
 #bouton_non_pleinLaVue-p4 {
     position: absolute;
-    width: 18%;
+    width: 22%;
     bottom: 32%;
     right: 28%;
 }
