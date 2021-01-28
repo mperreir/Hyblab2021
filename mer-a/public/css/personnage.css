@@ -26,23 +26,7 @@ body {
 /* Illumination des deux 1ers cercles et du 1er trait */
 /* (le placement des éléments est décrit dans 'fil-ariane.css') */
 
-#cercle_outer1 {
-    opacity: 1;
-}
-
-#cercle_inner1 {
-    opacity: 1;
-}
-
-#cercle_outer2 {
-    opacity: 1;
-}
-
-#cercle_inner2 {
-    opacity: 1;
-}
-
-#trait1 {
+#cercle_outer1, #cercle_inner1, #cercle_inner2, #trait1 {
     opacity: 1;
 }
 
@@ -67,19 +51,19 @@ body {
 }
 
 .plan#plan1{
-    z-index: 10;
-}
-
-.plan#plan2 {
     z-index: 9;
 }
 
-.plan#plan3 {
+.plan#plan2 {
     z-index: 8;
 }
 
-.plan#plan4 {
-    z-index: 1;
+.plan#plan3 {
+    z-index: 7;
+}
+
+.plan#plan5 {
+    z-index: 0;
 }
 
 
@@ -94,32 +78,32 @@ body {
 
 .wave#wave1 {
     animation: waveDown 1.7s ease-in-out infinite;
-    z-index: 8;
+    z-index: 6;
 }
 
 .wave#wave2 {
     animation: waveUp 2s ease-in-out infinite;
-    z-index: 7;
+    z-index: 5;
 }
 
 .wave#wave3 {
     animation: waveDown 2.5s ease-in-out infinite;
-    z-index: 6;
+    z-index: 4;
 }
 
 .wave#wave4 {
     animation: waveUp 3s ease-in-out infinite;
-    z-index: 5;
+    z-index: 3;
 }
 
 .wave#wave5 {
     animation: waveDown 3.5s ease-in-out infinite;
-    z-index: 4;
+    z-index: 2;
 }
 
 .wave#wave6 {
     animation: waveUp 4s ease-in-out infinite;
-    z-index: 3;
+    z-index: 1;
 }
 
 
@@ -164,10 +148,11 @@ body {
 .choix-personnages {
     position: absolute;
     width: 50vw;
-    margin: 24vh 25vw 0;
+    margin: 23vh 25vw 0;
     z-index: 1;
 }
-/*<div class="perso" id="marin"></div>*/
+
+
 /* Affichage des personnages */
 
 .personnages {
@@ -186,7 +171,7 @@ body {
 .perso#creature {
     margin-top: 8vh;
     margin-right: -5vw;
-    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png.png") no-repeat top 32% left 36.5%;
+    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
     clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
     background-size: 500%;
 }
@@ -194,15 +179,14 @@ body {
 .perso#marin {
     background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
     clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
-    background-size: 600%;
+    background-size: 580%;
 }
 
 .perso#religieux {
     margin-top: 7vh;
     margin-left: -5vw;
-    background: url("../assets/img/personnage/image_Croyances_Religion.png.png") no-repeat top 39% left 63%;
+    background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
     clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%);
-    border-collapse: collapse;
     background-size: 560%;
 }
 
@@ -217,10 +201,10 @@ body {
 }
 
 
- /* Gestion des effets sur les personnages */
+/* Gestion des effets sur les personnages */
 
 .perso:hover {
-    transform: scale(1.1); /* zoom */
+    transform: scale(1.1); /* zoom lors du survol */
 }
 
 .perso#creature:hover {
@@ -247,12 +231,11 @@ body {
 
     /* aspect du texte */
     text-align: center;
-    font-size: 1.4vw;
     font-family: 'Poppins', sans-serif;
     color: black;
 
     /* aspect de l'arrière-plan */
-    margin: -8vh -8vw;
+    margin: -8vh -6vw -10vh;
     padding: 2%;
     background-color: white;
     border-radius: 25px;
@@ -266,21 +249,23 @@ body {
 .categorie {
     position: relative;
     width: 24vw;
+    font-size: 1.2vw;
     opacity: 0;
 }
 
 .cat-creature {
-    top: -2vh;
+    top: -4vh;
     right: 6vw;
 }
 
 .cat-marin {
     top: -14vh;
+    left: 1.5vw;
 }
 
 .cat-religieux {
     top: 4vh;
-    left: 5vw;
+    left: 6vw;
 }
 
 
@@ -307,9 +292,6 @@ body {
 .indication {
     position: relative;
     width: 28vw;
-    margin: 5vh auto 0;
+    margin: 4vh auto 0;
+    font-size: 1.5vw;
 }
-
-/* Marin :
-clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
-*/
