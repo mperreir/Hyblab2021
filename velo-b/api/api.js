@@ -75,6 +75,8 @@ module.exports = () => {
     async function update(req, res) {
         const api_routes = loadJSONFile('nantes-api-fetcher.json');
         const quartiers = loadJSONFile('quartiers.json');
+        let liste_arrets;
+        let liste_bicloo;
         for (const o of api_routes) {
             let data = {};
             if (o.quartiers) {
@@ -84,11 +86,22 @@ module.exports = () => {
             } else {
                 data = await fetchData(o.route);
             }
+            // save temporaire
+            if(o.fileName === 'arrets-tan.json'){
+                liste_arrets = data;
+                // skip to next for value
+                continue;
+            }
+            // save temporaire
+            else if(o.fileName === 'stations-velo-libre-service.json'){
+                liste_bicloo = Object.values(data).flat();
+            }
             fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
         }
-        const liste_bicloo = Object.values(loadJSONFile('stations-velo-libre-service.json')).flat();
-        const liste_arrets = Object.values(loadJSONFile('arrets-tan.json')).flat();
-        liste_arrets.map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
+        // for each key get the value and map it to add bicloo_near
+        Object.keys(liste_arrets).forEach(k => {
+            liste_arrets[k].map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
+        })
         fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
         res.status(200).send('Done');
     }
