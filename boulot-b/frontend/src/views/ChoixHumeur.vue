@@ -25,6 +25,7 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
 export default {
+  choice: "humeur",
   name: "ChoixHumeur",
   props: {
     actif: Number

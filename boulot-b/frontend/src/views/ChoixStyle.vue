@@ -28,6 +28,7 @@ import Buildings from "@/components/Buildings";
 import {Styles} from "@/store";
 
 export default {
+  choice: "style",
   name: "ChoixStyle",
   props: {
     actif: Number

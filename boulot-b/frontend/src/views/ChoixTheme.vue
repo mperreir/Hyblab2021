@@ -29,6 +29,7 @@ import Buildings from "@/components/Buildings";
 import {Themes} from "@/store";
 
 export default {
+  choice: "theme",
   name: "ChoixTheme",
   props: {
     actif: Number

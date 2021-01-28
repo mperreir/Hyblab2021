@@ -10,84 +10,42 @@ import {store} from "@/store";
 
 Vue.use(VueRouter)
 
-const steps  = [
-  {component: ChoixTypeDeplacement, choice: "typeDeplacement"},
-  {component: ChoixDestination, choice: "path" },
-  {component: ChoixHumeur, choice: "huemur" },
-  {component: ChoixStyle, choice: "style" },
-  {component: ChoixTheme, choice: "theme" },
-  {component: ChoixLieux, choice: "lieux" },
-]
-
-
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: steps[0].component,
-    props: {actif: 1 },
+    component: ChoixTypeDeplacement,
+    props: {actif: 1},
   },
   {
     path: '/choix-destination',
     name: 'choix-destination',
-    component: steps[1].component,
-    test: "test",
-    props: {actif: 2 },
-    beforeEnter: (to, from, next) => {
-      console.log(to)
-        for(let i=steps.length -1; i>=1; i--) {
-          store.clearChoice(steps[i].choice)
-        }
-      next()
-    }
+    component: ChoixDestination,
+    props: {actif: 2},
   },
   {
     path: "/choix-humeur",
     name: "choix-humeur",
-    component: steps[2].component,
+    component: ChoixHumeur,
     props: {actif: 3 },
-    beforeEnter: (to, from, next) => {
-      for(let i=steps.length -1; i>=2; i--) {
-        store.clearChoice(steps[i].choice)
-      }
-      next()
-    }
   },
   {
     path: "/choix-style",
     name: "choix-style",
-    component: steps[3].component,
+    component: ChoixStyle,
     props: {actif: 4 },
-    beforeEnter: (to, from, next) => {
-      for(let i=steps.length -1; i>=3; i--) {
-        store.clearChoice(steps[i].choice)
-      }
-      next()
-    }
   },
   {
     path: "/choix-theme",
     name: "choix-theme",
-    component: steps[4].component,
+    component: ChoixTheme,
     props: {actif: 5 },
-    beforeEnter: (to, from, next) => {
-      for(let i=steps.length -1; i>=4; i--) {
-        store.clearChoice(steps[i].choice)
-      }
-      next()
-    }
   },
   {
     path: "/choix-lieux",
     name: "choix-lieux",
-    component: steps[5].component,
+    component: ChoixLieux,
     props: {actif: 6 },
-    beforeEnter: (to, from, next) => {
-      for(let i=steps.length -1; i>=5; i--) {
-        store.clearChoice(steps[i].choice)
-      }
-      next()
-    }
   },
 ]
 
@@ -97,4 +55,15 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+    const routeIndex = routes.findIndex((route) => {
+        return to.name === route.name
+    })
+  for(let i=routes.length -1; i>=routeIndex; i--) {
+    store.clearChoice(routes[i].component.choice)
+  }
+  next()
+})
+
 export default router
+export {routes}

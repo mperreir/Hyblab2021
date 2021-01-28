@@ -31,6 +31,7 @@ import {TypeDeplacement} from "@/store";
 import lottie from "lottie-web";
 
 export default {
+  choice: "typeDeplacement",
   name: "ChoixTypeDeplacement",
   props: {
     actif: Number

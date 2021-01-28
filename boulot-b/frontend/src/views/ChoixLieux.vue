@@ -31,6 +31,7 @@ import Oiseau from "@/components/Oiseau";
 import Buildings from "@/components/Buildings";
 
 export default {
+  choice: "lieux",
   name: "ChoixLieux",
   props: {
     actif: Number

@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <img  id="wazo" src="@/assets/wazzo.png"/>
-      <!-- <template>
-        <Buildings first-tree-is-active yellow-is-active second-tree-is-active/>
-      </template> -->
       <transition name="fade" mode="out-in">
-
       <router-view />
     </transition>
   </div>

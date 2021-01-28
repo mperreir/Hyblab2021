@@ -35,6 +35,7 @@ const store = {
         this.state.choice.path = path;
     },
     clearChoice(choiceName) {
+        console.log("clear de ",choiceName)
         this.state.choice[choiceName] = undefined
     }
 }

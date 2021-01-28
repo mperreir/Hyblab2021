@@ -26,7 +26,8 @@ import Container from "@/views/Container";
 import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 
-export default Vue.extend({
+export default {
+  choice: "path",
   name: "ChoixDestination",
   data() {
     return {
@@ -56,7 +57,7 @@ export default Vue.extend({
       this.$router.push({ name: "choix-humeur" });
     },
   },
-});
+};
 </script>
 
 <style scoped>
