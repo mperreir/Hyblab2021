@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="velo-anim"/>
-    <div id="pied-anim"/>
+    <div class="hide" id="velo-anim"/>
+    <div class="hide" id="pied-anim"/>
   <Container>
     <template #question >
       <Question  question="Tu te déplaces...">
@@ -43,7 +43,6 @@ export default {
         this.$router.push({name:"choix-destination" })
       });
      velo.classList.add("slide-lr");
-      velo.style.display = "block";
     },
     nextPied() {
       document.getElementById("pied-anim").style.display = "block";
@@ -90,11 +89,12 @@ export default {
     transform: translateX(300%);
   }
 }
-  #velo-anim, #pied-anim  {
+  .hide {
     display: none;
   }
 
   .slide-lr {
+    display: block;
     width: 30%;
     animation: slide-lr 1s ease-in both;
   }

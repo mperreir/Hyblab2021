@@ -34,7 +34,7 @@ const store = {
         if (this.debug) console.log('set path', path);
         this.state.choice.path = path;
     },
-    clearChoice(listChoice) {
+    clearChoice(...listChoice) {
         listChoice.forEach((choice) => {
             this.state.choice[choice] = undefined
         })
@@ -50,6 +50,7 @@ const Styles = Object.freeze({
     BOULEVARDS: "boulevards",
     RUELLES: "ruelles"
 })
+
 const Themes = Object.freeze({
     ALEA: "alea",
     NATURE: "nature",

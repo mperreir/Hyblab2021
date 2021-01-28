@@ -34,7 +34,7 @@ export default {
   grid-template-rows: 0.7fr 2fr 0.3fr;
   gap: 0px 0px;
   grid-template-areas:
-    "wazo . canari"
+    ". . canari"
     ". question canari"
     "stepper stepper stepper";
 
