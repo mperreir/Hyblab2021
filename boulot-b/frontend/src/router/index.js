@@ -6,6 +6,7 @@ import ChoixHumeur from "@/views/ChoixHumeur";
 import ChoixLieux from "@/views/ChoixLieux";
 import ChoixTheme from "@/views/ChoixTheme";
 import ChoixDestination from "@/views/ChoixDestination";
+import Home from "@/views/Home";
 import {store} from "@/store";
 
 Vue.use(VueRouter)
@@ -14,6 +15,11 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/choix-type',
+    name: 'choix-type',
     component: ChoixTypeDeplacement,
     props: {actif: 1},
   },
