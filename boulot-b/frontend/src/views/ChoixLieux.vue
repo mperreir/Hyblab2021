@@ -13,7 +13,7 @@
       <Buildings/>
     </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau :message="message" />
     </template>
     <template #stepper>
       <Stepper :actif=actif />
@@ -38,6 +38,7 @@ export default {
   },
   data() {
     return {
+      message: "J’ai trouvé plusieurs lieux qui pourraient t’intéresser, ça te dit d’y passer ?",
       resto: undefined,
       bar: undefined,
       boulangerie: undefined,
@@ -46,6 +47,7 @@ export default {
   },
   methods : {
     next() {
+      this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
     }
   },
   components: {

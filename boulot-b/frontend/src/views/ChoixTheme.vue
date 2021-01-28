@@ -11,7 +11,7 @@
       <Buildings/>
     </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau message="Je te propose plusieurs thèmes pour ton trajet, lequel préfères-tu ?"/>
     </template>
     <template #stepper>
       <Stepper :actif=actif />

@@ -40,6 +40,13 @@ const store = {
     }
 }
 
+const Humeur = Object.freeze({
+    OUI: "oui",
+    PLUTOT:"plutot",
+    BOF: "bof",
+    PAS_DU_TOUT: "pas du tout"
+})
+
 const TypeDeplacement = Object.freeze({
     VELO: "velo",
     PIED: "pied"
@@ -56,4 +63,4 @@ const Themes = Object.freeze({
     CULTURE: "culture"
 })
 
-export {store, TypeDeplacement, Styles, Themes}
+export {store, TypeDeplacement, Styles, Themes, Humeur}

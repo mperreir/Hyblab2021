@@ -2,10 +2,10 @@
   <Container>
     <template #question >
       <Question  >
-        <ButtonCustom @click="next" text="Oui, très !" color="yellow"/>
-        <ButtonCustom  @click="next"  text="Plutôt oui !" color="blue" />
-        <ButtonCustom  @click="next" text="Hum bof" color="yellow" />
-        <ButtonCustom  @click="next" text="Pas du tout !" color="blue" />
+        <ButtonCustom  @click="oui" text="Oui, très !" color="yellow"/>
+        <ButtonCustom  @click="plutot"  text="Plutôt oui !" color="blue" />
+        <ButtonCustom  @click="bof" text="Hum bof" color="yellow" />
+        <ButtonCustom  @click="pasDuTout" text="Pas du tout !" color="blue" />
       </Question>
     </template>
     <template #canari>
@@ -23,6 +23,7 @@ import Question from "@/components/Question";
 import ButtonCustom from "@/components/ButtonCustom";
 import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
+import {Humeur, TypeDeplacement} from "@/store";
 
 export default {
   choice: "humeur",
@@ -37,7 +38,29 @@ export default {
   },
   methods: {
     next() {
-      this.$router.push({name:"choix-style"})
+      setTimeout(() => {
+        this.$router.push({name: "choix-style"})
+      }, 1000)
+    }
+    ,oui() {
+      this.$root.$data.setHumeur(Humeur.OUI)
+      this.message = "J’ai remarqué que tu avais l’âme d’un sportif !"
+      this.next();
+    },
+    plutot() {
+      this.$root.$data.setHumeur(Humeur.PLUTOT)
+      this.message = "Super, on est partit !";
+      this.next();
+    },
+    bof() {
+      this.$root.$data.setHumeur(Humeur.BOF)
+      this.message = "Moi aussi je suis un peu fatigué"
+      this.next();
+    },
+    pasDuTout() {
+      this.$root.$data.setHumeur(Humeur.PAS_DU_TOUT)
+      this.message = "Après ta journée, je te comprends"
+      this.next();
     }
   },
   components: {

@@ -10,7 +10,7 @@
       <Buildings/>
     </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau message="Tu es plutôt .."/>
     </template>
     <template #stepper>
       <Stepper :actif=actif />
