@@ -187,23 +187,23 @@ body {
     margin-top: 8vh;
     margin-right: -5vw;
     background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
-    clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
-    background-size: 500%;
+    /* clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%); */
+    background-size: 100%;
 }
 
 .perso#marin {
     background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
-    clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
-    background-size: 600%;
+    /* clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%); */
+    background-size: 100%;
 }
 
 .perso#religieux {
     margin-top: 7vh;
     margin-left: -5vw;
     background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
-    clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%);
+    /* clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%); */
     border-collapse: collapse;
-    background-size: 560%;
+    background-size: 100%;
 }
 
 .zone-creature {
