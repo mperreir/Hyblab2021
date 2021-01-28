@@ -17,7 +17,10 @@ import canariAnimation from "../assets/animationJson/wazo_vanilla_gauche.json";
 export default {
   name: "Oiseau",
   props: {
-    message: String
+    message: String,
+    anim: {
+      default: () => canariAnimation
+    }
   },
     mounted () {
     lottie.loadAnimation({
@@ -25,7 +28,7 @@ export default {
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    animationData: canariAnimation
+    animationData: this.anim
       })
     }
 };
@@ -50,13 +53,13 @@ export default {
     text-align: left;
   }
   #wazo-anim {
-    width: 100px;
+    width: 200px;
   }
 
   .bubble{
     background: $bulle;
     color:#fff;
-    padding:7px 15px;
+    padding:5px 15px;
     border-radius:3px;
     width:350px;
   }

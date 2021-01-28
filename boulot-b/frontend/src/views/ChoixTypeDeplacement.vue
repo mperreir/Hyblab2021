@@ -10,7 +10,7 @@
       </Question>
     </template>
     <template #canari>
-      <Oiseau :message="message" />
+      <Oiseau :message="message"  />
     </template>
     <template #stepper>
       <Stepper :actif=actif />
@@ -55,7 +55,6 @@ export default {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
       document.getElementById("pied-anim").style.display = "block";
       this.pied.play()
-      this.pied.setSpeed(2)
       this.pied.addEventListener("complete", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.PIED)
         this.$router.push({name:"choix-destination" })
