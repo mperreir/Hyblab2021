@@ -12,16 +12,16 @@ let initAge = function(){
         let valeurImage= cpt%4;
         console.log(valeurImage)
         if(valeurImage==0 ){
-            x.setAttribute("src", "././img/age/agebb.svg");
+            x.setAttribute("src", "./img/age_page/agebb.svg");
         }
         if(valeurImage==1 || valeurImage==-1 ){
-            x.setAttribute("src", "././img/age/agenounours.svg");
+            x.setAttribute("src", "./img/age_page/agenounours.svg");
         }
         if(valeurImage==2 || valeurImage==-2 ){
-            x.setAttribute("src", "././img/age/agelego.svg");
+            x.setAttribute("src", "./img/age_page/agelego.svg");
         }
         if(valeurImage==3 || valeurImage==-3 ){
-            x.setAttribute("src", "././img/age/ageballon.svg");
+            x.setAttribute("src", "./img/age_page/ageballon.svg");
         }
     }
 
@@ -56,7 +56,7 @@ let initAge = function(){
 
     //---------------DES L'OUVERTURE-----------------
     let x = document.getElementById("image_age");
-    x.setAttribute("src", "././img/age/agebb.svg");
+    x.setAttribute("src", "./img/age_page/agebb.svg");
 
     //Cache tous les elements de choix d'age au début
     document.getElementById("bb").hidden = true;
@@ -87,11 +87,11 @@ let initAge = function(){
     //Mouse over de fleche gauche
     d3.select(".fleche_gauche").on("mouseover",  function (){
         var x = document.getElementById("fleche_gauche");
-        x.setAttribute("src", "././img/age/fleche_gauche.svg");
+        x.setAttribute("src", "./img/age_page/fleche_gauche.svg");
     });
     d3.select(".fleche_gauche").on("mouseleave",  function (){
         var x = document.getElementById("fleche_gauche");
-        x.setAttribute("src", "././img/age/flecheG.svg");
+        x.setAttribute("src", "./img/age_page/flecheG.svg");
     });
 
 
@@ -102,11 +102,11 @@ let initAge = function(){
     //Mouse over de fleche droite
     d3.select(".fleche_droite").on("mouseover",  function (){
         var x = document.getElementById("fleche_droite");
-        x.setAttribute("src", "././img/age/fleche_droite.svg");
+        x.setAttribute("src", "./img/age_page/fleche_droite.svg");
     });
     d3.select(".fleche_droite").on("mouseleave",  function (){
         var x = document.getElementById("fleche_droite");
-        x.setAttribute("src", "././img/age/flecheD.svg");
+        x.setAttribute("src", "./img/age_page/flecheD.svg");
     });
 
     //Bouton plus
@@ -144,25 +144,40 @@ let initAge = function(){
     //Premier robot
     anime({
         targets: '.age_yeux_cache',
-        translateY: '3000%',
-        delay : 4300,
+        translateY: '170%',
         easing: 'easeInOutQuad',
         direction: 'alternate',
+        delay : 4500,
+        duration: 1500,
+        loop: false
+    });
+
+    anime({
+        targets: '.age_yeux_cache',
+        opacity: 0,
+        delay : 5750,
         loop: false
     });
 
     anime({
         targets: '.age_yeux_cache2',
-        translateY: '3000%',
-        delay : 4280,
+        delay : 3750,
         opacity: 0,
+        duration: 1000
+    });
+
+    anime({
+        targets: '.age_yeux_cache2',
+        translateY: '1000%',
+        delay : 4500
     });
 
     //Deuxieme robot
     anime({
         targets: '#age_arrive',
         translateY: '-500%',
-        delay : 4350,
+        delay : 2500,
+        duration: 6000,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false
@@ -176,8 +191,9 @@ let initAge = function(){
             opacity: 0,
         })
         .add({
-            delay : 4450,
+            delay : 7500,
             opacity: 1,
+            duration: 1000
         });
 
 //Bouton Suivant

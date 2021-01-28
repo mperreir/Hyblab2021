@@ -152,6 +152,11 @@
     z-index: 2;
 }
 
+.button-suivant-age{
+    top: 87%;
+    left: 44%;
+}
+
 .page2{
     position: absolute;
     top: 50%;
