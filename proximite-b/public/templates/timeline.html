@@ -1,42 +1,42 @@
+<img id="timeline_background" src="/proximite-b/img/timeline/decor-frise.svg#svgView(preserveAspectRatio(none))" />
 
-    <img id = "timeline_background" src="/proximite-b/img/timeline/decor-frise.svg#svgView(preserveAspectRatio(none))" />
-
-<div class="container text-center">
+<div id="timeline" class="container text-center">
 
 
     <!-- Trigger the modal with a button -->
     <!-- Modal SingleItem -->
     <div class="modal fade" id="singleModal" role="dialog">
-        <div class="modal-dialog">
-
+        <div class="modal-dialog  modal-lg">
+            
             <!-- Modal content-->
             <div class="modal-content">
+                <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+       
+                </button>
                 <div id="firstItemSingleModal" class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <!-- <h4 class="modal-title">Modal Header</h4> -->
                 </div>
                 <div id="otherItemsSingleModal" class="modal-body">
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+
             </div>
         </div>
     </div>
 
+
+
+
     <!-- Modal MultiplesItem(Plus) -->
     <div class="modal fade" id="multipleModal" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div id="headerMultipleModal" class="modal-body">
                     <!-- <h4 class="modal-title">Modal Header</h4> -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -46,11 +46,11 @@
     <div id='waitingSpinner' class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-    
+
 
     <div class="container-fluid" id="timelineholder">
-        
-        
+
+
         <div id="timeline1"></div>
         <div id="timeline2"></div>
 

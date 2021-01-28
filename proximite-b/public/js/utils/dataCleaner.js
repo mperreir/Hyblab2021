@@ -6,7 +6,7 @@ function data_add_img(data, tab) {
     for (const [key, value] of Object.entries(data)) {
         var preference = 'interests'
 
-        if(disinterests.includes(value.categorie)){var preference = 'disinterests'};
+        if(disinterests.includes(value.categorie)){preference = 'disinterests'};
         if (value.data.length >= 1) tab.push((value.data)[0].temps);
         if (value.categorie == "Arrêt de bus") value["img"] = "./img/timeline/icons/"+preference+"/bus.svg";
         if (value.categorie == "Boulangerie") value["img"] = "./img/timeline/icons/"+preference+"/boulangerie.svg";

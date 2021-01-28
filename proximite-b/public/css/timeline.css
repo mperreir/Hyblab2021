@@ -23,3 +23,86 @@
 
     position: relative;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL  */
+
+
+#timeline #singleModal .modal-content{
+    border-radius: 5em !important; 
+    border-bottom: 0 none;
+
+}
+#timeline #singleModal .modal-header {
+    border-bottom: 0 none;
+}
+
+#timeline #otherItemsSingleModal {
+    border-radius: 5em !important; 
+    color:white;
+    border-bottom: 0 none;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: 70%;
+    background-position-x: center;
+    
+}
+.interestsColorModal{
+    background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
+    background-color:#2a325a !important;
+
+}
+.disinterestsColorModal{
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuagerouge.svg') !important;
+    background-color:#b95803 !important;
+
+}
+
+#timeline #singleModal .headerAddTemps{
+    font-size: 0.8em;
+}
+
+#timeline #singleModal .iconModal{
+    width: 1.5em;
+}
+#singleModal #firstItemSingleModal{
+    color:#2a325a;
+    font-family: ArchitectDaughter;
+
+}
+
+#singleModal #firstItemSingleModal #imgCat{
+    top: 5em;
+    left: -4em;
+    z-index: 1;
+    float: left;
+    width: 10em;
+    position: absolute;
+}
+
+
+
+#singleModal #closeModal{
+    background-image: url('/proximite-b/img/timeline/modal/croix.svg');
+    width: 3em;
+    height: 3em;
+    background-repeat: no-repeat;
+    opacity: 1;
+    position: absolute;
+    top: 0em;
+    right: -1em;
+    z-index: 1;
+}
+#singleModal #closeModal:hover{
+    cursor: pointer;
+}
