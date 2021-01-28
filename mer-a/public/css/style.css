@@ -1,5 +1,4 @@
 div#content {
-  position: absolute;
   width: 43.75%;
   top: 50%;
   left: 50%;
@@ -23,7 +22,7 @@ div#content img#logo {
 }
 
 div#content p {
-  color: #FFF; 
+  color: #FFF;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -47,4 +46,13 @@ div#content div#button:hover {
 
 img.bg {
   filter: brightness(50%);
+}
+
+div#button a,
+div#button a:link,
+div#button a:hover,
+div#button a:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
 }

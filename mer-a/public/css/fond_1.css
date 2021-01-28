@@ -1,0 +1,24 @@
+
+img#vague1 {
+  animation: waveDown 4s ease-in-out infinite;
+}
+
+img#vague2 {
+  animation: waveUp 6s ease-in-out infinite;
+}
+
+img#vague3 {
+  animation: waveDown 7s ease-in-out infinite;
+}
+
+img#vague4 {
+  animation: waveUp 5s ease-in-out infinite;
+}
+
+img#vague5 {
+  animation: waveDown 4s ease-in-out infinite;
+}
+
+img#vague6 {
+  animation: waveUp 3s ease-in-out infinite;
+}
