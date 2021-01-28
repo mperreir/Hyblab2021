@@ -95,24 +95,44 @@
     transition: .4s;
 }
 
-.crapa-picto span.slider:before{
+.crapa-picto input[type=checkbox]:checked + span.slider:before{
     background-image: url("../img/common/pictograms/crapa_picto.svg");
 }
 
-.games-picto span.slider:before{
+.crapa-picto input[type=checkbox] + span.slider:before{
+    background-image: url("../img/common/pictograms/no_crapa_picto.svg");
+}
+
+.games-picto input[type=checkbox]:checked + span.slider:before{
     background-image: url("../img/common/pictograms/games_picto.svg");
 }
 
-.sport-field-picto span.slider:before{
+.games-picto input[type=checkbox] + span.slider:before{
+    background-image: url("../img/common/pictograms/no_games_picto.svg");
+}
+
+.sport-field-picto input[type=checkbox]:checked + span.slider:before{
     background-image: url("../img/common/pictograms/sport_field_picto.svg");
 }
 
-.activities-picto span.slider:before{
+.sport-field-picto input[type=checkbox] + span.slider:before{
+    background-image: url("../img/common/pictograms/no_sport_field_picto.svg");
+}
+
+.activities-picto input[type=checkbox]:checked + span.slider:before{
     background-image: url("../img/common/pictograms/activities_picto.svg");
 }
 
-.statue-picto span.slider:before{
+.activities-picto input[type=checkbox] + span.slider:before{
+    background-image: url("../img/common/pictograms/no_activities_picto.svg");
+}
+
+.statue-picto input[type=checkbox]:checked + span.slider:before{
     background-image: url("../img/common/pictograms/statue_picto.svg");
+}
+
+.statue-picto input[type=checkbox] + span.slider:before{
+    background-image: url("../img/common/pictograms/no_statue_picto.svg");
 }
 
 input:checked + .slider {
