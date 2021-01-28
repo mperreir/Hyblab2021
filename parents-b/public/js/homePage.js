@@ -1,5 +1,5 @@
 let initHome = function(){
-    let tl_shooting_stars = anime.timeline({
+    /*let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
     });
@@ -52,10 +52,10 @@ let initHome = function(){
             ease: 'linear'
         });
         tl_begin_over.pause();
-    });
+    });*/
 
     d3.select('.button-begin').on('click', function (){
-        let tl_begin = anime.timeline({
+        /*let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
         });
 
@@ -143,9 +143,9 @@ let initHome = function(){
                 translateY: "-150%",
                 duration: 1000,
             })
-            .finished.then(() => {
+            .finished.then(() => {*/
             mySlidr.slide('down');
             initAddress();
-        });
+        //});
     });
 };

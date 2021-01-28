@@ -351,12 +351,17 @@ function fetchData() {
                 }
                 line.affinity = line["nbElemCorrect"] * 100 / nbCritere;
             }
-            console.log(json);
+            //console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);
 
             // Récupération des 3 meilleurs
             const top = json.slice(0, 3);
+
+            console.log(top);
+
+            const div = document.getElementById('result-one-percentage');
+            div.innerHTML += '<div>' + top[0]['affinity'] + '</div>';
 
             // Affichage de la page finale
             for (const line of top) {
