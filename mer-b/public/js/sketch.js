@@ -232,11 +232,13 @@ let sketchCiel = function(p) {
     }
 
     sketchCiel.resetSketchCiel = function(){
+      console.log("reset");
       imgdisplayCiel = undefined;
       imgdisplayMer = undefined;
       imgdisplaySol = undefined;
       imgdisplayPhare = undefined;
       imgdisplayPort = undefined;
+      imgdisplayParking = undefined;
       imgdisplayNuages = undefined;
       backgroundColor = "#B6F6FC";
       imgdisplayFondCoupe = undefined;
@@ -247,6 +249,10 @@ let sketchCiel = function(p) {
       merY = -1;
       solY = -1;
       phareY = -1;
+      nuagesY = -1;
+
+      
+      p.clear();
      }
 
     sketchCiel.updateSketchCiel = function(){
