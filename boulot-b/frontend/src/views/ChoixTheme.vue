@@ -4,7 +4,7 @@
       <Question  >
         <ButtonCustom @click="nextCulture" text="Culture!" color="yellow"/>
         <ButtonCustom  @click="nextNature"  text="Nature" color="blue" />
-        <ButtonCustom  @click="next" text="Je te laisse choisir pour moi" color="yellow" />
+        <ButtonCustom @click="nextAlea" text="Je te laisse choisir pour moi" color="yellow" />
       </Question>
     </template>
     <template #buildings>
@@ -36,13 +36,17 @@ export default {
   },
   methods: {
     next() {
+      const listRoutes = this.$router.getRoutes();
+      this.$router.push({name: listRoutes[this.actif + 1].name});
+    },
+    nextAlea() {
       const tower= document.getElementById("tower");
       const arbre2= document.getElementById("second_tree");
       tower.classList.add("bounceInDown");
       arbre2.classList.add("bounceInDown");
       arbre2.addEventListener("animationend", () => {
         this.$root.$data.setTheme(Themes.ALEA);
-        this.$router.push({name:"choix-lieux" })
+        this.next()
       });
     },
     nextNature() {
@@ -52,7 +56,7 @@ export default {
       arbre2.classList.add("bounceInDown");
       arbre2.addEventListener("animationend", () => {
         this.$root.$data.setTheme(Themes.NATURE);
-        this.$router.push({name:"choix-lieux" })
+        this.next()
       });
     },
     nextCulture() {

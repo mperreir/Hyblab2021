@@ -42,14 +42,18 @@ export default {
     actif: Number
   },
   methods: {
+    next() {
+      const listRoutes = this.$router.getRoutes();
+      this.$router.push({name: listRoutes[this.actif + 1].name});
+    },
     nextVelo() {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
      const velo= document.getElementById("velo-anim");
+      velo.classList.add("slide-lr");
       velo.addEventListener("animationend", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.VELO)
-        this.$router.push({name:"choix-destination" })
+        this.next();
       });
-     velo.classList.add("slide-lr");
     },
     nextPied() {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
@@ -57,7 +61,7 @@ export default {
       this.pied.play()
       this.pied.addEventListener("complete", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.PIED)
-        this.$router.push({name:"choix-destination" })
+        this.next();
       });
     },
   },

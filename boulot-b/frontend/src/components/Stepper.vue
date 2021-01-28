@@ -29,12 +29,12 @@ export default Vue.extend({
       this.$router.push({name: "Home"})
     },
     setClassActive() {
-        let elem = document.getElementById(this.actif);
+        const elem = document.getElementById(this.actif);
         elem.className = 'active';
     },
     clickMethod(n) {
-        let listRoutes = this.$router.options.routes; 
-        this.$router.push({name: listRoutes[n-1].name});
+        const listRoutes = this.$router.getRoutes();
+        this.$router.push({name: listRoutes[n].name});
     },
   },
   mounted: function() {

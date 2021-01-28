@@ -34,6 +34,10 @@ export default {
     actif: Number
   },
   methods: {
+    next() {
+      const listRoutes = this.$router.getRoutes();
+      this.$router.push({name: listRoutes[this.actif + 1].name});
+    },
     nextBvd() {
       const yellow= document.getElementById("yellow_house");
       const white= document.getElementById("white_house");
@@ -43,7 +47,7 @@ export default {
       blue.classList.add("bounceInDown");
       yellow.addEventListener("animationend", () => {
         this.$root.$data.setStyle(Styles.BOULEVARDS);
-        this.$router.push({name:"choix-theme" });
+        this.next()
       });
       },
     nextRuelles() {
@@ -51,7 +55,7 @@ export default {
       yellow.classList.add("bounceInDown");
       yellow.addEventListener("animationend", () => {
         this.$root.$data.setStyle(Styles.RUELLES);
-        this.$router.push({name:"choix-theme"});
+        this.next();
       });
     }
   },

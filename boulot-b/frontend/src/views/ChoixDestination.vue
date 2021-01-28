@@ -59,7 +59,8 @@ export default {
         this.error.depart = !this.depart;
         return
       }
-      this.$router.push({ name: "choix-humeur" });
+      const listRoutes = this.$router.getRoutes();
+      this.$router.push({name: listRoutes[this.actif + 1].name});
     },
   },
 };

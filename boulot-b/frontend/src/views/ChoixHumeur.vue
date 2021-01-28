@@ -39,7 +39,8 @@ export default {
   methods: {
     next() {
       setTimeout(() => {
-        this.$router.push({name: "choix-style"})
+        const listRoutes = this.$router.getRoutes();
+        this.$router.push({name: listRoutes[this.actif + 1].name});
       }, 1000)
     }
     ,oui() {
