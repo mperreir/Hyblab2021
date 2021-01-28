@@ -1,21 +1,26 @@
-function data_add_img(data,tab){
-    console.log(data)
+function data_add_img(data, tab) {
+    var interests = _app_stores['criteres']['interests'];
+    var disinterests = _app_stores['criteres']['disinterests'];
+
+    console.log("addimesdsq")
     for (const [key, value] of Object.entries(data)) {
-        console.log(value)
-        if (value.data.length >=1) tab.push((value.data)[0].temps);
-        if (value.categorie == "Arrêt de bus") value["img"] = "./img/timeline/bus.svg";
-        if (value.categorie == "Boulangerie") value["img"] = "./img/timeline/boulangerie.svg" ;
-        if (value.categorie == "Pharmacie") value["img"] = "./img/timeline/pharmacie.svg";
-        if (value.categorie == "Ecole") value["img"] = "./img/timeline/ecole.svg";
-        if (value.categorie == "Supermarché") value["img"] = "./img/timeline/market.svg";
-        if (value.categorie == "Médecin") value["img"] = "./img/timeline/doctor.svg";
-        if (value.categorie == "Parc") value["img"] = "./img/timeline/park.svg";
-        if (value.categorie == "Lieu de culte") value["img"] = "";
+        var preference = 'interests'
+
+        if(disinterests.includes(value.categorie)){var preference = 'disinterests'};
+        if (value.data.length >= 1) tab.push((value.data)[0].temps);
+        if (value.categorie == "Arrêt de bus") value["img"] = "./img/timeline/icons/"+preference+"/bus.svg";
+        if (value.categorie == "Boulangerie") value["img"] = "./img/timeline/icons/"+preference+"/boulangerie.svg";
+        if (value.categorie == "Pharmacie") value["img"] = "./img/timeline/icons/"+preference+"/pharmacie.svg";
+        if (value.categorie == "Ecole") value["img"] = "./img/timeline/icons/"+preference+"/ecole.svg";
+        if (value.categorie == "Supermarché") value["img"] = "./img/timeline/icons/"+preference+"/supermarche.svg";
+        if (value.categorie == "Médecin") value["img"] = "./img/timeline/icons/"+preference+"/medecin.svg";
+        if (value.categorie == "Parc") value["img"] = "./img/timeline/icons/"+preference+"/parc.svg";
+        if (value.categorie == "Lieu de culte") value["img"]= "./img/timeline/icons/"+preference+"/culte.svg";
 
     }
 }
 
-function add_min_max(data){
+function add_min_max(data) {
     return [{
         "categorie": null,
         "data": [
@@ -29,10 +34,10 @@ function add_min_max(data){
     }].concat(data)
 }
 
-function clean_data(d1,d2){
+function clean_data(d1, d2) {
     var tab = []
-    data_add_img(d1,tab);
-    data_add_img(d2,tab);
+    data_add_img(d1, tab);
+    data_add_img(d2, tab);
     console.log("max")
     console.log(tab);
     max = Math.max(...tab)

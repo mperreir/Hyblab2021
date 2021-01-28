@@ -82,23 +82,25 @@ const go_to = (page, data, callback) => {
                     "personas": { "chosen": "jeune" },
                     "greeters": {},
                     "adresses": {
-                         
+
                         "adresse1": { "nomtemp": "Adresse1", "longitude": "-1.5102976051912753", "latitude": "47.26001511505152" },
                         "adresse2": { "nomtemp": "Adresse2", "longitude": "-1.532116", "latitude": "47.238194" }
                     },
                     "criteres": {
-                        "interests": [ "parc","pharmacie","bus", "boulangerie", "medecin"],
-                        "disinterests": []
+                        "interests": [ "culte","pharmacie", "bus", "boulangerie", "medecin"],
+                        "disinterests": ["parc","supermarche","ecole"]
                     },
                     "timeline": {}
                 }
-                
 
-                stor['criteres']['interests']=stor['criteres']['interests'].map(x => reformatCriteres(x));
-                stor['criteres']['disinterests']=stor['criteres']['disinterests'].map(x => reformatCriteres(x));
+                //['Boulangerie','Médecin','Ecole','Supermarché','Parc',
+                //'Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur',
+                //'Musee','Bibliotheque','Salle de sport'])
+                stor['criteres']['interests'] = stor['criteres']['interests'].map(x => reformatCriteres(x));
+                stor['criteres']['disinterests'] = stor['criteres']['disinterests'].map(x => reformatCriteres(x));
 
 
-                _app_stores['criteres']= stor.criteres; //todo remove a la fin
+                _app_stores['criteres'] = stor.criteres; //todo remove a la fin
                 var a1 = stor.adresses.adresse1;
                 var a2 = stor.adresses.adresse2;
                 _app_stores["timeline"]["done"] = 0;
