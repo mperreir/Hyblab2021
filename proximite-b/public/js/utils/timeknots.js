@@ -19,12 +19,45 @@ var TimeKnots = {
     createSingleModal: function (d) {
         var firstAdress = d.data[0]
         var otherAdress = d.data.slice(1);
-        $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
-        $("#otherItemsSingleModal").html("");
+        var disinterests = _app_stores['criteres']['disinterests'];
+    
+        var preference = 'interests';
+        if(disinterests.includes(d.categorie)){var preference = 'disinterests'};
+
+
+
+        $("#firstItemSingleModal")
+        .html(
+            '<div class="px-5" style="width: 100vw;">'+
+                '<img id="imgCat" src='+d.img+'>'+
+
+                '<div class="row"><h3>'+
+                firstAdress.nom+
+                '</h3></div>'+
+                '<div class="row headerAddTemps">'+
+                    '<div class="col-6 text-left">'+
+                    '<img class="iconModal" src="/proximite-b/img/timeline/modal/'+preference+'/point.svg">'+
+                    firstAdress.adresse+
+                    '</div>'+
+                    '<div class="col-6 text-left">'+
+                    '<img class="iconModal" src="/proximite-b/img/timeline/modal/'+preference+'/personnage.svg">'+
+
+                    'Temps à pied : '+
+                    firstAdress.temps+
+                    ' minutes</div>'+
+                '</div>'+
+            '</div>');
+                
+            $("#otherItemsSingleModal").attr('class','modal-body '+preference+'ColorModal');
+         $("#otherItemsSingleModal").html("")
+         var divContent = $('<div>');
+         divContent.css('padding-bottom', "4em")
         if (otherAdress.length >= 1) {
             otherAdress.forEach(element => {
-                $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+                divContent.append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
             });
+            $("#otherItemsSingleModal").append(divContent)
+
         }
         else {
             $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
@@ -80,7 +113,7 @@ var TimeKnots = {
             color: ["#999", "#999"],
             background: "#FFF",
             showLabels: false,
-            waiting_time:1000
+            waiting_time: 1000
         };
 
 
@@ -314,7 +347,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .style("opacity", 1)
-            .duration(0.4*cfg.waiting_time)
+            .duration(0.4 * cfg.waiting_time)
 
             .transition()
             .attr("y", function (d) {
@@ -329,7 +362,7 @@ var TimeKnots = {
                 }
                 else { return null }
             })
-            
+
             .transition()
             .delay((events.length - 1) * cfg.waiting_time)
             .attr("pointer-events", "all");
