@@ -17,17 +17,17 @@ let initSlideInfosVelo = function () {
 
     d3.select('#close-btn-velo').on('mouseover', function () {
         anime({
-          targets: '#close-btn-velo',
-          scale: 1.2
+            targets: '#close-btn-velo',
+            scale: 1.2
         });
-      });
+    });
 
     d3.select('#close-btn-velo').on('mouseout', function () {
         anime({
-          targets: '#close-btn-velo',
-          scale: 1
+            targets: '#close-btn-velo',
+            scale: 1
         });
-      });
+    });
 }
 
 /**
@@ -45,17 +45,17 @@ let initSlideInfosVoiture = function () {
 
     d3.select('#close-btn-voiture').on('mouseover', function () {
         anime({
-          targets: '#close-btn-voiture',
-          scale: 1.2
+            targets: '#close-btn-voiture',
+            scale: 1.2
         });
-      });
+    });
 
     d3.select('#close-btn-voiture').on('mouseout', function () {
         anime({
-          targets: '#close-btn-voiture',
-          scale: 1
+            targets: '#close-btn-voiture',
+            scale: 1
         });
-      });
+    });
 }
 
 /**
@@ -73,17 +73,17 @@ let initSlideInfosBicloo = function () {
 
     d3.select('#close-btn-bicloo').on('mouseover', function () {
         anime({
-          targets: '#close-btn-bicloo',
-          scale: 1.2
+            targets: '#close-btn-bicloo',
+            scale: 1.2
         });
-      });
+    });
 
     d3.select('#close-btn-bicloo').on('mouseout', function () {
         anime({
-          targets: '#close-btn-bicloo',
-          scale: 1
+            targets: '#close-btn-bicloo',
+            scale: 1
         });
-      });
+    });
 }
 
 /**
@@ -101,16 +101,15 @@ let initSlideInfosTransports = function () {
 
     d3.select('#close-btn-transports').on('mouseover', function () {
         anime({
-          targets: '#close-btn-transports',
-          scale: 1.2
+            targets: '#close-btn-transports',
+            scale: 1.2
         });
-      });
+    });
 
     d3.select('#close-btn-transports').on('mouseout', function () {
         anime({
-          targets: '#close-btn-transports',
-          scale: 1
+            targets: '#close-btn-transports',
+            scale: 1
         });
-      });
-}
+    });
 }
