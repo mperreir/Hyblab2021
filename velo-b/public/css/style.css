@@ -187,6 +187,11 @@ section[data-slidr="page-finale"] {
     flex-wrap: wrap;
 }
 
+/* -------------- Mettre des éléments en background --------------*/
+.background-index {
+    z-index: -10;
+}
+
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
