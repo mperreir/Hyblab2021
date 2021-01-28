@@ -21,6 +21,9 @@
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
+    <script src="js/infosChoix.js" defer></script>
+    <script src="js/infoChoix.js" defer></script>
+    <script src="js/infosChoix.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -42,7 +45,13 @@
                 <img src="assets/logo.svg" />
             </section>
 
+
+
+            
             <!--Sections des choix de transport dénomination : choix-transport-x -->
+
+
+
 
             <!--choix transport 1 : voiture -->
 
@@ -61,7 +70,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-voiture" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -87,7 +96,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-velo" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
@@ -113,7 +122,7 @@
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-bicloo" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -132,12 +141,12 @@
 
                 <div class="flex flex-row justify-between items-center my-20">
                     <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/transportCommun1.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/transportCommun3.svg" class="h-80" id="transport" alt="Bateau"></img>
                     <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
@@ -148,7 +157,99 @@
             </section>
 
 
-            <section data-slidr="page-finale" hidden>
+
+
+            <!--
+                ***********************************
+                Infos liés au choix d'un véhicule
+                ***********************************
+            -->
+
+
+
+<!--
+            <section data-slidr="infos-choix-voiture">
+                <header>
+                    <div class="flex justify-center my-5">
+                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
+
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
+                    <img src="assets/choix/transportCommun1.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
+                </div>
+
+                <div class="flex items-end justify-center">
+                    <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                </div>
+
+                <footer>
+                </footer>
+            </section>
+        -->
+
+
+
+
+            <!-- 
+                **********************************
+                Pages d'informations pour les choix
+                ***********************************
+            -->
+
+
+
+
+            <!-- Pages d'information sur le vélo-->
+            <section data-slidr="info-choix-velo">
+                <div class="flex justify-center">
+                    <div class="fancy-title rounded-full">Infos vélos</div>
+                    <img id="close-btn-velo" class="place-self-end" src="assets\closeBtn.svg"></img>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur la voiture-->
+            <section data-slidr="info-choix-voiture">
+                <div class="flex justify-center">
+                    <div class="fancy-title rounded-full">Infos voiture</div>
+                    <img id="close-btn-voiture" class="place-self-end" src="assets\closeBtn.svg"></img>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur le bicloo-->
+            <section data-slidr="info-choix-bicloo">
+                <div class="flex justify-center">
+                    <div class="fancy-title rounded-full">Infos bicloo</div>
+                    <img id="close-btn-bicloo" class="place-self-end" src="assets\closeBtn.svg"></img>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <!-- Pages d'information sur les transports en commun -->
+            <section data-slidr="info-choix-transports">
+                <div class="flex justify-center">
+                    <div class="fancy-title rounded-full">Infos tramway</div>
+                    <img id="close-btn-transports" class="place-self-end" src="assets\closeBtn.svg"></img>
+                </div>
+                <div style="display: flex;">
+
+                </div>
+            </section>
+
+            <section data-slidr="page-2">
+                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
                 <footer id="bandeau">
                     <!-- Logo Hyblab -->
                     <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
@@ -188,7 +289,6 @@
                     </ul>
                 </footer>
             </section>
-            
             <section data-slidr="page-3">
                 <div style="display: flex;">
                     <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super
