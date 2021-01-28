@@ -25,7 +25,11 @@ function getData(nameadd, adresse, storage) {
                     if (_app_stores["timeline"]["done"] == 2) {
                         [_app_stores["timeline"]['data']['adresse1'], _app_stores["timeline"]['data']['adresse2']] = clean_data(
                             _app_stores["timeline"]['data']['adresse1'], _app_stores["timeline"]['data']['adresse2'])
-                        timeline_progressbar_draw();
+                            $('#waitingSpinner').remove();
+                           
+                            $('#progressDiv').css('visibility', 'visible')
+
+                            timeline_progressbar_draw();
                     }
 
                 }

@@ -4,3 +4,22 @@
 .bar-T2{
   background-color: #eead1c !important;
 }
+
+
+#timeline_background{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    z-index: -10;
+    
+}
+
+#waitingSpinner{
+  
+    width: 20em;
+    height: 20em;
+
+    position: relative;
+}

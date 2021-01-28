@@ -1,13 +1,8 @@
-<div class="container">
-    <h2>Timeline Comparaison</h2>
-    <ul>
-        <li><a onclick="go_to('index')">Home</a></li>
 
-        <li><a onclick="go_to('adresses')">adresses</a></li>
-        <li><a onclick="go_to('personas')">personas</a></li>
-        <li><a onclick="go_to('timeline')">timeline</a></li>
-        <li><a onclick="go_to('conclu')">conclu</a></li>
-    </ul>
+    <img id = "timeline_background" src="/proximite-b/img/timeline/decor-frise.svg#svgView(preserveAspectRatio(none))" />
+
+<div class="container text-center">
+
 
     <!-- Trigger the modal with a button -->
     <!-- Modal SingleItem -->
@@ -47,15 +42,19 @@
     </div>
 
 
-    <div class="spinner-grow" role="status">
+    <h2>Comparaison des 2 adresses</h2>
+    <div id='waitingSpinner' class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
     </div>
+    
 
-    <div class="card" id="timelineholder">
+    <div class="container-fluid" id="timelineholder">
+        
+        
         <div id="timeline1"></div>
         <div id="timeline2"></div>
 
-        <div id="progressDiv" class="progress">
+        <div id="progressDiv" class="progress" style="visibility: hidden;">
         </div>
     </div>
 </div>
