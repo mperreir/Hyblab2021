@@ -1,4 +1,4 @@
-var positions = ["",""]
+var positions = ["", ""]
 
 async function adresses_autocompletion(adresse, num) {
     var lieu = 'https://api-adresse.data.gouv.fr/search/?q=' + adresse + '&limit=5&autocomplete=1';
@@ -11,7 +11,7 @@ async function adresses_autocompletion(adresse, num) {
     resultAPI.features.forEach((element) => {
         var button = document.createElement("button");
         button.innerHTML = element.properties.label;
-        button.value = element.geometry.coordinates;
+        button.value = [element.geometry.coordinates, element.properties.label];
         button.classList.add("bouton_adresse");
         button.addEventListener("click", () => {
             input.value = button.innerHTML;
@@ -30,8 +30,8 @@ function adresses_validation() {
         const A1 = positions[0].split(',');
         const A2 = positions[1].split(',');
         go_to('criteres', {
-            adresse1: {longitude: A1[0], latitude: A1[1]},
-            adresse2: {longitude: A2[0], latitude: A2[1]}
+            adresse1: { longitude: A1[0], latitude: A1[1], label: A1[2] },
+            adresse2: { longitude: A2[0], latitude: A2[1], label: A2[2] }
         });
     }
 }
