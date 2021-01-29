@@ -45,6 +45,8 @@ registerSlide("slides", () => {
     const slideNames = Object.keys(window.slides);
     const list = document.getElementById("slide-list");
 
+    list.innerHTML = '';
+
     slideNames.forEach(name => {
         const item = document.createElement("li");
         const link = document.createElement("a");
