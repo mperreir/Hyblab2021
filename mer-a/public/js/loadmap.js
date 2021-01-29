@@ -13,7 +13,14 @@ const invalidDepColor = '#224255';
 const hoveredValidDepColor = '#73b7ba';
 const strokeColor = 'black';
 const fontColor = 'white';
+
+//Opacities
+const validDepOpacity = '1';
+const invalidDepOpacity = '0.9';
+
+//Fonts
 const fontSize = 24;
+
 //Strokes
 const strokeWidth = '1px';
 const hoveredStrokeWidth = '2px';
@@ -129,14 +136,17 @@ function setColor(d){
  * @param {object} d the data object from the map.
  */
 function setOpacity(d){
-	let codeDep = d.properties.code;	
-	return (deps.isValid(codeDep)) ? 1 : 0.9;
+	let codeDep = d.properties.code;
+	return (deps.isValid(codeDep)) ? validDepOpacity : invalidDepOpacity;
 }
 
+/**
+ * Function that handle the hover event of the regions.
+ * @param {number} codeDep	the department code.
+ * @param {object} t		the hovered element.
+ */
 function hover(codeDep,t){
-
 	if(deps.isValid(codeDep)){
-
 		d3.select(t)
 		.transition().duration(500)
 		.style('fill-opacity', 0.95)
@@ -147,36 +157,52 @@ function hover(codeDep,t){
 	}
 }
 
+/**
+ * Function that handle the leave event of the regions.
+ * @param {number} codeDep	the department code.
+ * @param {object} t		the leaved element.
+ */
 function leave(codeDep,t){
-	
 	if(deps.isValid(codeDep)){
-
 		d3.select(t)
 		.transition().duration(500)
 		.style('fill-opacity', 1)
 		.style('stroke-width', strokeWidth)
-		.style('fill', validDepColor)
+		.style("fill", validDepColor);
   		.style('cursor','initial');
-		d3.select('#text_' + codeDep).style('display', 'none');
+		d3.select('#text_' + codeDep).style("display", 'none');
 	}
 }
 
+/**
+ * Function that handle the selection of a region
+ * @param {number} codeDep	the department code.
+ */
 function selectDepartment(codeDep){
 	let id = getID(codeDep);
 	if(id > 0) document.location.href= ROOT + 'personnages/' + id; 
 }
 
+/**
+ * Function that return the ID of a region from it's code.
+ * @param {number} code 	the department code.
+ */
 function getID(code){
-	if(deps.isValid(code)) return code;
-	else return -1;
+	return deps.isValid(code) ? code : -1;
 }
 
+/**
+ * The main function in ASYNC.
+ */
 (async () => {
 	await getRegionsId(r => deps.data = r);
 	generateMap(mapFusion);
 })();
 
-window.addEventListener('resize', function(e) { 
-	generateMap(labs,mapFusion);
+/**
+ * When the window is resized, we reload the map.
+ */
+window.addEventListener("resize", function(e) {
+	generateMap(mapFusion);
 });
 

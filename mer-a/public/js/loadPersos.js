@@ -34,7 +34,7 @@ function formatCategorie(categorie) {
 function formatText(text) {
     let textParts = text.split('\n');
     let textHTML = '';
-    for(p of textParts) {
+    for(let p of textParts) {
         textHTML += `<p>${p}</p>\n`;
     }
     return textHTML;
@@ -47,7 +47,7 @@ function formatText(text) {
 function sortCategories() {
     if(ordreCategories == null || ordreCategories == undefined || ordreCategories.length !== categories.length) return null;
     let orderedCats = new Array(categories.length);
-    for(c of categories) {
+    for(let c of categories) {
         console.log(c);
         orderedCats[ordreCategories.indexOf(c.id)] = c;
     }
@@ -65,9 +65,9 @@ function sortCategories() {
     // Sort the data
     categories = sortCategories();
     // For each category we create the HTML component
-    for(c of categories) {
+    for(let c of categories) {
         console.log(c);
-        formatC = formatCategorie(c.nomCategorie);
+        let formatC = formatCategorie(c.nomCategorie);
         let zone = document.createElement('div');
         zone.classList.add('zone', `zone-${formatC}`);
         let textZone = document.createElement('div');
