@@ -1,6 +1,6 @@
 //Mon objet stockant mes données 
 let data = []
-// init du slider (qui peut aussi faire des fondus enchainé)
+    // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: true,
     controls: 'none',
@@ -15,28 +15,32 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
-function nextSlide(page){
-    string = 'page-'+page
+function nextSlide(page,data) {
+    string = 'page-' + page
     console.log("Trig")
     mySlidr.slide(string);
     choixSlide(page);
 }
 
-function choixSlide(num){
+function choixSlide(num,data) {
+
+    if (num == '1_1') { initSlide1_1(data) };
+  
+    if (num == '2') { initSlide2(data) };
+
+    if (num =='3'){ initSlide3(data)};
     
-    if (num =='1_1'){ initSlide1_1()};
+    if (num =='4'){ initSlide4(data)};
 
-    if (num =='2') {initSlide2()};
+    if (num == '5') { initSlide5(data) };
 
-    if (num =='3'){ initSlide3()};
-    
-    if (num =='4'){ initSlide4()};
+    if (num == '6') { initSlide6(data) };
 
-    if (num =='5'){ initSlide5()};
+    if (num == '7') { initSlide7(data) };
 
-    if (num =='6'){ initSlide6()};
-
-    if (num =='7'){ initSlide7()}
+    if (num =='8'){ initSlide7(data)};
+  
+    if (num =='9'){ initSlide7(data)};
 
 }
 
@@ -44,17 +48,18 @@ function choixSlide(num){
 let initSlide1 = function() {
 
     d3.select('#logo').on('click', function() {
-       nextSlide('1_1');
+        nextSlide('1_1');
     });
 }
 
 //Slide de transi 
 let initSlide1_1 = function() {
-    //Transi 1.2 vers 2(Camille) 
-    d3.select('#t').on('click', function() {
-        nextSlide('2')
-    });
-}
+
+        //Transi 1.2 vers 2(Camille) 
+        d3.select('#t').on('click', function() {
+            nextSlide('2')
+        });
+    }
     /*
     let initSlide2 = function() {
         setTimeout(suiteTraitement, 1000)
@@ -98,7 +103,7 @@ let initSlide2 = function() {
 
     //transi next slide
     d3.select('#button2-p2-2').on('click', function() {
-       nextSlide('3')
+        nextSlide('3')
     });
     //Retour arriere
     d3.select('.button_retour').on('click', function() {
@@ -111,10 +116,11 @@ let initSlide2 = function() {
 //Premiere question : aventurier ? 
 let initSlide3 = function() {
     //Aventurier -> Plein la vue
-    d3.select('#bouton_non_aventurier-p3').on('click', async function(){
-        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier").then(response => response.json()).then(d => {return d});
-        nextSlide('4')
-        console.log(data);
+
+
+    d3.select('#bouton_non_aventurier-p3').on('click', async function() {
+        data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
+         nextSlide('4',data);
 
     });
      //Retour arriere
@@ -124,11 +130,11 @@ let initSlide3 = function() {
 }
 
 //Plein la vue 
-let initSlide4 = function() {
+let initSlide4 = function(db) {
     //Plein la vue -> avec quoi 
     d3.select("#oh_oui_anime-p4").on('click', async function() {
-        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier/plein-la-vue",{body: data, method :"POST"}).then(response => response.json()).then(d => {return d});
-        nextSlide('5')
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        nextSlide('5',data);
     });
      //Retour arriere
      d3.selectAll('.button_retour').on('click', function() {
