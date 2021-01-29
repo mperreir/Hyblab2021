@@ -117,10 +117,10 @@ getPerso: (cat) => {
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
-          '${encodeURI(catPerso.nom)}',
           '${encodeURI(catPerso.phrasePerso)}',
           '${encodeURI(catPerso.phraseDep)}',
           '${encodeURI('assets/img/personnage/' + row.categorie + '.png')}');\n`);
+        // '${encodeURI(catPerso.nom)}',
         catList.push(row.categorie);
         countIdCat++;
       }
