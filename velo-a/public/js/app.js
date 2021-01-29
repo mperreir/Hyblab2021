@@ -81,9 +81,9 @@ async function bootstrap() {
 
 bootstrap();
 
-document.getElementById("button-question").onclick = () => {
-	document.location.href = "question.html?page=météo";
-}
+// document.getElementById("button-question").onclick = () => {
+// 	document.location.href = "question.html?page=météo";
+// }
 
 document.getElementById("input-meteo").onclick = () => {
 	document.location.href = "question.html?page=météo";
@@ -99,4 +99,17 @@ document.getElementById("input-activite").onclick = () => {
 
 document.getElementById("input-vae").onclick = () => {
 	document.location.href = "question.html?page=VAE";
+};
+
+document.getElementById("btn-menu-nav").onclick = () => {
+	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"),null).getPropertyValue('visibility');
+	if(nav_visible === "hidden"){
+		document.getElementById("left-nav").setAttribute("style", "visibility: visible");
+		document.getElementById("btn-menu-nav").classList.remove("button-menu");
+		document.getElementById("btn-menu-nav").classList.add("button-cross");
+	}else{
+		document.getElementById("left-nav").setAttribute("style", "visibility: hidden");
+		document.getElementById("btn-menu-nav").classList.add("button-menu");
+		document.getElementById("btn-menu-nav").classList.remove("button-cross");
+	}
 };
