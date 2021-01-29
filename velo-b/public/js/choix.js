@@ -109,7 +109,7 @@ let initSlideChoixVelo = function () {
     d3.select('#fleche-gauche-velo').on('click', function () {
         overrideAnim({
             targets: '#fleche-gauche-velo',
-            scale: 0
+            scale: 1
         });
         mySlidr.slide('choix-transport-1');
         initSlideChoixVoiture();
