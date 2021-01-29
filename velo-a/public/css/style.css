@@ -170,10 +170,10 @@ dessus de l'apect ratio 16/9 */
 header{
     width: 100%;
     position: absolute;
-    z-index: 999;
     top: 0;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 header .logo{
@@ -211,8 +211,51 @@ header .logo{
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    height: 150px;
+    height: 100px;
 
 }
 
+#btn-menu-nav{
+    position: absolute;
+    z-index: 3;
+    top: 25px;
+    left: 35px;
+}
 
+#btn-recalculer{
+    width: 341px;
+    height: 47px;
+    margin-bottom: 18px;
+}
+
+/*Redéfinition controles MapBox*/
+
+.mapboxgl-ctrl-geocoder input[type='text']{
+    width: 341px;
+    height: 47px;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    box-sizing: border-box;
+    border-radius: 34px;
+    margin-bottom:18px;
+}
+
+.mapbox-directions-origin .mapbox-form-label, .mapbox-form-label, .mapbox-directions-inputs button{
+    display: none;
+}
+
+.mapbox-directions-component-keyline {
+    box-shadow: none;
+}
+
+.mapboxgl-ctrl-geocoder{
+    margin-left: 0;
+}
+/*Fin de redéfinition controles MapBox*/
+
+#btn-veli-fin{
+    width: 209px;
+}
+#form-veli-fin{
+    text-align: center;
+}

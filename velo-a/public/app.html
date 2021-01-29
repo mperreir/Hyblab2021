@@ -19,6 +19,10 @@
     <link href="css/app.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
 
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
 <body>
 <header>
@@ -26,16 +30,18 @@
     <h1 id="h1-veligood">Véli Good</h1>
     <h2 id="h2-veligood">Pour un trajet Véli Bien</h2>
 </header>
+
+<input type="button" id="btn-menu-nav" class="button-slide button-menu">
+
 <div id="left-nav">
-    <input type="button" class="button-slide button-return">
 
     <form id="mapbox-controllers">
 
     </form>
 
-<!--    <form>-->
-<!--        <details>-->
-<!--            <summary>Filtres</summary>-->
+    <form action="starterPack.html">
+        <input type="submit" id="btn-recalculer" class="button-slide" value="Recalculer">
+    </form>
 
 
     <input type='checkbox' name='abris_velo' value='valuable' id="abris_velo"/><label for="abris_velo"></label>
@@ -50,10 +56,6 @@
     <input type='checkbox' name='station_bicloo' value='valuable' id="station_bicloo"/><label for="station_bicloo"></label>
     station bicloo
 
-
-<!--        </details>-->
-<!--    </form>-->
-
     <form>
         <h2>Voyons voir ce que tu sais !</h2>
         <input id="input-meteo" type="button" value="Météo">
@@ -65,16 +67,18 @@
     <div id="previsualisation-meteo">
         <!-- TODO: prévisualisation météo-->
     </div>
-
-    <input type="button" value="Retour">
-
 </div>
 
 <div id="map"></div>
-<input type="button" class="button-slide button-return bottom-left-nav">
+
+<form action="information.html">
+    <input type="submit" class="button-slide button-return bottom-left-nav" value="">
+</form>
 
 <div class="bottom-right-nav-container">
-    <input type="button" class="button-slide" value="C'est la Véli Fin">
+    <form id="form-veli-fin" action="this-is-the-end.html">
+        <input type="submit" id="btn-veli-fin" class="button-slide" value="C'est la Véli Fin">
+    </form>
 </div>
 
 </body>
