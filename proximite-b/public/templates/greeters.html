@@ -1,13 +1,28 @@
 <div id="greeter_content">
     <div id="greeter_text">
-        <div class="bulle bulle_persona">
-            <p id="persona_text" class="text_bulle">
-            </p>
-        </div>
-        <div class="bulle bulle_greeter">
-            <p id="greeter_second" class="text_bulle">
-            </p>
-        </div>
+        <img id = "greeter_background" src="/proximite-b/img/greeter/illustration_fond.svg#svgView(preserveAspectRatio(none))" />
+        <div class="container">
+            <div class="row">
+                <div class="col-4" id="bulle_persona">
+                  <img class="bulle" src="/proximite-b/img/greeter/Bulle_droite.svg" />                    
+                </div>
+                <div class="col-4 text-center">              
+                    <img class="center" id="nantes_panel" src="/proximite-b/img/greeter/panneau_nantes.svg" />
+                </div>
+                <div class="col-4" id="div_bulle_greeter">   
+                  <img class="bulle" id="bulle_greeter"src="/proximite-b/img/greeter/Bulle_gauche.svg" />
+                </div>
+            </div>
+            <div class="row" >
+              <div class="col-6 text-center"id="div_persona_img">
+                
+              </div>
+              <div class="col-6 text-center">
+                <img id = "greeter_img" src="/proximite-b/img/greeter/papi.svg#svgView(preserveAspectRatio(none))" />
+
+              </div>
+            </div>
+          </div>
     </div>
     <button class="figma_button figma_bg_blue" id="greeter_suivant_button" onclick="greeter_action(1)">Suivant</button>
 

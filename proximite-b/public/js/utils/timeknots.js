@@ -19,15 +19,69 @@ var TimeKnots = {
     createSingleModal: function (d) {
         var firstAdress = d.data[0]
         var otherAdress = d.data.slice(1);
-        $("#firstItemSingleModal").html('<img src=' + d.img + ' height="87px"width="100px">' + '<h1>' + d.categorie + ' - ' + firstAdress.nom + '</h1><h3>' + firstAdress.adresse + '</h3>' + '<p>' + firstAdress.temps + ' minutes à pieds</p>');
-        $("#otherItemsSingleModal").html("");
+        var disinterests = _app_stores['criteres']['disinterests'];
+
+        var preference = 'interests';
+        if (disinterests.includes(d.categorie)) { var preference = 'disinterests' };
+        $('#closeModal').css("background-image", "url(" + '/proximite-b/img/timeline/modal/' + preference + '/croix.svg' + ")");
+
+
+        $("#firstItemSingleModal")
+            .html(
+                '<div class="px-5 row" style="width: 100vw;">' +
+                '<div class="col">' +
+                '<img id="imgCat" src=' + d.img + '>' +
+                '</div>' +
+                '<div class="col-11">' +
+
+                '<div class="row"><h3>' +
+                firstAdress.nom +
+                '</h3></div>' +
+                '<div class="row headerAddTemps">' +
+                '<div class="col-6 text-left">' +
+                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
+                firstAdress.adresse +
+                '</div>' +
+                '<div class="col-6 text-left">' +
+                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/personnage.svg">' +
+
+                'Temps à pied : ' +
+                firstAdress.temps +
+                ' minutes</div>' +
+                '</div>' +
+                '</div></div>');
+
+        $("#otherItemsSingleModal").attr('class', 'modal-body ' + preference + 'ColorModal');
+        $("#otherItemsSingleModal").html("")
+        var divContent = $('<div>').css('padding-bottom', "4em").attr('class', 'row');
+
+
         if (otherAdress.length >= 1) {
+            var i = 0;
+            var col1 = $('<div>').attr('class', 'col');
+            var ul1 = $('<ul>');
+            col1.append(ul1);
+            var col2 = $('<div>').attr('class', 'col');
+            var ul2 = $('<ul>');
+            col2.append(ul2);
+
+
             otherAdress.forEach(element => {
-                $("#otherItemsSingleModal").append('<p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p>');
+                if (i >= 5) {
+                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                }
+                else {
+                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                }
+                i++;
             });
+            divContent.append(col1);
+            if (i >= 5) divContent.append(col2);
+            $("#otherItemsSingleModal").append(divContent)
+
         }
         else {
-            $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+            $("#otherItemsSingleModal").html("<p class='pb-5'>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
         }
         $("#singleModal").modal('show');
     },
@@ -47,9 +101,15 @@ var TimeKnots = {
      *    }
      */
     createMultipleModal: function (d) {
-        console.log(d)
-        $("#headerMultipleModal").html("");
+        $("#bodyMultipleModal").html("");
+
+        var col1 = $('<div>').attr('class', 'col');
+        var ul1 = $('<ul>');
+        col1.append(ul1);
+
         d.forEach(element => {
+
+            var li = $('<li>');
             var p = $('<p>');
             var img = $('<img>'); //Equivalent: $(document.createElement('img'))
             img.attr("width", 75);
@@ -61,8 +121,10 @@ var TimeKnots = {
             img.attr('src', element.img);
             p.append(img)
             p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
-            $("#headerMultipleModal").append(p)
+            li.append(p)
+            ul1.append(li)
         })
+        $("#bodyMultipleModal").append(col1)
         $("#multipleModal").modal('show');
     },
     /**
@@ -80,6 +142,7 @@ var TimeKnots = {
             color: ["#999", "#999"],
             background: "#FFF",
             showLabels: false,
+            waiting_time: 1000
         };
 
 
@@ -112,7 +175,7 @@ var TimeKnots = {
 
 
         //Calculate times in terms of timestamps
-        var timestamps = events.map(function (d) { if (d.data.length >=1) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
+        var timestamps = events.map(function (d) { if (d.data.length >= 1) { return d.data[0].temps } else { return 0 } });//new Date(d.date).getTime()});
         var maxValue = d3.max(timestamps);
         var minValue = d3.min(timestamps);
 
@@ -135,7 +198,7 @@ var TimeKnots = {
             .attr("class", "timeline-line")
 
             .attr("x1", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     var ret;
                     var time = d.data[0].temps;
                     ret = Math.floor(step * (time - minValue) + margin)
@@ -147,7 +210,7 @@ var TimeKnots = {
                 }
             })
             .attr("x2", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if (linePrevious.x1 != null) {
                         return linePrevious.x1
                     }
@@ -158,7 +221,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y1", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     var ret;
                     ret = Math.floor(cfg.height / 2)
                     linePrevious.y1 = ret
@@ -167,7 +230,7 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y2", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if (linePrevious.y1 != null) {
                         return linePrevious.y1
                     }
@@ -197,7 +260,7 @@ var TimeKnots = {
         //cercel/images
         node.append("image")
             .each(function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if ((d.categorie != null)) {
                         if (cpt["min" + d.data[0].temps]) {
                             cpt["min" + d.data[0].temps].push(d);
@@ -215,7 +278,7 @@ var TimeKnots = {
             })
             .style("opacity", 0)
             .attr("xlink:href", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     return d.img;
                 }
             })
@@ -228,7 +291,7 @@ var TimeKnots = {
             .attr("height", 50)
             .attr("pointer-events", "none")
             .on('click', function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         TimeKnots.createMultipleModal(cpt["min" + d.data[0].temps]);
                     }
@@ -273,7 +336,7 @@ var TimeKnots = {
                         return Math.floor(cfg.height / 2) - 75
                     })
                     .attr("x", function (d) {
-                        if (d.data.length >=1) {
+                        if (d.data.length >= 1) {
                             var time = d.data[0].temps;
                             var x = Math.floor(step * (time - minValue) + margin);
                             return x - 25;
@@ -284,17 +347,19 @@ var TimeKnots = {
             })
 
             .transition()
+            // .duration(cfg.waiting_time-1)
+
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i - 1) * 1000;
+                else return (i - 1) * cfg.waiting_time;
             })
             .attr("xlink:href", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     return d.img
                 }
             })
             .attr("x", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 25;
@@ -302,19 +367,23 @@ var TimeKnots = {
                 else { return 0 }
             })
             .attr("y", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
-                        return Math.floor(cfg.height / 2) - 150
+                        return Math.floor(cfg.height / 2) - 125
                     }
                     else { return Math.floor(cfg.height / 2) - 75 }
                 }
                 else { return 0 }
             })
             .style("opacity", 1)
+            .duration(0.4 * cfg.waiting_time)
 
             .transition()
+            .attr("y", function (d) {
+                return Math.floor(cfg.height / 2) - 75
+            })
             .attr("xlink:href", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     if (cpt["min" + d.data[0].temps].length > 1) {
                         return "./img/timeline/plus.svg"
                     }
@@ -322,11 +391,9 @@ var TimeKnots = {
                 }
                 else { return null }
             })
-            .attr("y", function (d) {
-                return Math.floor(cfg.height / 2) - 75
-            })
+
             .transition()
-            .delay((events.length - 1) * 1000)
+            .delay((events.length - 1) * cfg.waiting_time)
             .attr("pointer-events", "all");
 
 
@@ -350,7 +417,7 @@ var TimeKnots = {
             .style("stroke-width", cfg.lineWidth / 2)
             .transition()
             .attr("cx", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x;
@@ -359,9 +426,9 @@ var TimeKnots = {
             })
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i - 1) * 1000;
+                else return (i - 1) * cfg.waiting_time;
             })
-            .style("opacity", function (d) { if (d.data.length >=1) { return 1 } else { return 0 } });
+            .style("opacity", function (d) { if (d.data.length >= 1) { return 1 } else { return 0 } });
 
 
 
@@ -371,14 +438,14 @@ var TimeKnots = {
             .data(events)
             .enter()
             .append("text")
-            .text(function (d) { if (d.data.length >=1) { return d.data[0].temps + " min" } else { return null } })
+            .text(function (d) { if (d.data.length >= 1) { return d.data[0].temps + " min" } else { return null } })
             .attr("y", function (d) {
                 return Math.floor(cfg.height / 2) + 30
 
             })
             //-5 pour centrer le texte
             .attr("x", function (d) {
-                if (d.data.length >=1) {
+                if (d.data.length >= 1) {
                     var time = d.data[0].temps;
                     var x = Math.floor(step * (time - minValue) + margin);
                     return x - 20;
@@ -390,7 +457,7 @@ var TimeKnots = {
             .transition()
             .delay(function (_, i) {
                 if (i <= 1) return 0;
-                else return (i - 1) * 1000;
+                else return (i - 1) * cfg.waiting_time;
             })
             .style("opacity", 1);
     }
