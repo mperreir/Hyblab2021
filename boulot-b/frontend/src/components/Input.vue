@@ -19,10 +19,12 @@ export default {
 <style scoped>
 
 .input {
-  border-radius: 5px;
+  width: 50%;
+  font-size: 1.2em;
+  border-radius: 7px;
   border: none;
   background-color: #ffdb27;
-  padding: 5px 5px 5px 20px;
+  padding: 10px 10px 10px 20px;
 }
 
 .error {

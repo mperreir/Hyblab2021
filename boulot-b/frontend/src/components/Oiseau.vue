@@ -46,7 +46,7 @@ export default {
 
   .text {
     font-family: Poppins,serif;
-    font-size: 15px;
+    font-size: 1.2em;
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0;

@@ -47,7 +47,8 @@ export default {
       const canariCome = document.getElementById("canari-come")
       canariCome.classList.add("fade")
       canariCome.addEventListener("transitionend", () => {
-        this.$router.push({name: "questionnaire" })
+        this.$router.push({name: "questionnaire" });
+        wazzo.style.display = 'block';
       })
     });
   }
