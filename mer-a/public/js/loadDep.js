@@ -178,10 +178,11 @@ function getCategorie(type) {
 	await getTypesId(r => categories = r);
 	categorie = getCategorie(codeType);
 	narration = categorie.phraseDep;
+	narrationBox.style.height = narrationBox.offsetWidth/narrationBox.style.fontSize
 	generateDep(map,mapFusion,codeDep,codeType);
 	loadCharacter();
 	perso = document.getElementById('character_image');
-	narrationInterval = setInterval(loadNarration, 60);
+	narrationInterval = setInterval(loadNarration, 45);
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
 })();
 

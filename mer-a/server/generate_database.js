@@ -120,7 +120,7 @@ getPerso: (cat) => {
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
           '${encodeURI(catPerso.phrasePerso)}',
           '${encodeURI(catPerso.phraseDep)}',
-          '${encodeURI('assets/img/personnage/' + row.categorie + '.png')}');\n`);
+          '${encodeURI('assets/img/personnage/' + row.categorie.replace(' ', '_') + '.png')}');\n`);
         // '${encodeURI(catPerso.nom)}',
         catList.push(row.categorie);
         countIdCat++;
