@@ -13,7 +13,7 @@ const invalidDepColor = '#224255';
 const hoveredValidDepColor = '#73b7ba';
 const strokeColor = 'black';
 const fontColor = 'white';
-
+const fontSize = 24;
 //Strokes
 const strokeWidth = '1px';
 const hoveredStrokeWidth = '2px';
@@ -38,7 +38,7 @@ function generateMap(mapFusion){
 
 
 	//Creation of the SVG element
-	var svg = d3.select("#bretagne")
+	var svg = d3.select('#bretagne')
 		.html('')
 		.append('svg')
 		.attr('width', width)
@@ -108,9 +108,10 @@ function generateMap(mapFusion){
 			.on('click', function(d){
 				let codeDep = d.properties.code;
 				selectDepartment(codeDep);})
-			.style("font-size", 28)
-			.style("fill", fontColor)
-			.style("display",'none');
+			.style('cursor','pointer')
+			.style('font-size', fontSize)
+			.style('fill', fontColor)
+			.style('display','none');
 
 }
 
@@ -120,7 +121,7 @@ function generateMap(mapFusion){
  */
 function setColor(d){
 	let codeDep = d.properties.code;	
-	return (deps.isValid(codeDep)) ? '#88cbce' : '#224255';
+	return (deps.isValid(codeDep)) ? validDepColor : invalidDepColor;
 }
 
 /**
@@ -138,9 +139,9 @@ function hover(codeDep,t){
 
 		d3.select(t)
 		.transition().duration(500)
-		.style("fill-opacity", 0.95)
+		.style('fill-opacity', 0.95)
 		.style('stroke-width', hoveredStrokeWidth)
-		.style("fill", hoveredValidDepColor)
+		.style('fill', hoveredValidDepColor)
 		.style('cursor','pointer');
 		d3.select('#text_' + codeDep).style("display", 'initial');
 	}
@@ -152,11 +153,11 @@ function leave(codeDep,t){
 
 		d3.select(t)
 		.transition().duration(500)
-		.style("fill-opacity", 1)
+		.style('fill-opacity', 1)
 		.style('stroke-width', strokeWidth)
-		.style("fill", validDepColor)
+		.style('fill', validDepColor)
   		.style('cursor','initial');
-		d3.select('#text_' + codeDep).style("display", 'none');
+		d3.select('#text_' + codeDep).style('display', 'none');
 	}
 }
 
