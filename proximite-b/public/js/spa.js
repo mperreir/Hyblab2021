@@ -123,6 +123,11 @@ const go_to = (page, data, callback) => {
                     });
                 });
             }
+            else if (page === 'animation') {
+                animation_background();
+                setTimeout(function() {go_to('greeters');}, 8000);
+                
+            }
             else if (page === 'greeters') {
                 greeter_background();
             }
