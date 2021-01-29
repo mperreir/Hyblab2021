@@ -1,10 +1,10 @@
 async function getLegendes(region, type, callback) {
     //Récupération des données
-    let result = (await (await fetchAsync(API_URL + encodeURI(region) + '/' + encodeURI(type), 'GET')).json());
+    let result = (await (await fetchAsync(ROOT + API_URL + encodeURI(region) + '/' + encodeURI(type), 'GET')).json());
     //transformation des données
     let legendes = [];
     for(let l of result.data) {
-        legendes.push(new Legende(l.nom, l.departement, l.categorie, l.resume, l.histoire, l.latitude, l.longitude, l.adresse, l.baignade, l.toilettes, l.restaurant, l.photo));
+        legendes.push(new Legende(l.id, l.nom, l.departement, l.categorie, l.resume, l.histoire, l.latitude, l.longitude, l.adresse, l.baignade, l.toilettes, l.restaurant, l.photo));
     }
     //Transmission des données
     callback(legendes);
@@ -13,7 +13,7 @@ async function getLegendes(region, type, callback) {
 
 async function getRegionsId(callback) {
     //Récupération des données
-    let result = (await (await fetchAsync(API_URL + API_REGIONS_ID, 'GET')).json());
+    let result = (await (await fetchAsync(ROOT + API_URL + API_REGIONS_ID, 'GET')).json());
     //Transmission des données
     callback(result);
     return result;
@@ -21,7 +21,7 @@ async function getRegionsId(callback) {
 
 async function getTypesId(callback) {
     //Récupération des données
-    let result = (await (await fetchAsync(API_URL + API_TYPES_ID, 'GET')).json());
+    let result = (await (await fetchAsync(ROOT + API_URL + API_TYPES_ID, 'GET')).json());
     //Transmission des données
     callback(result);
     return result;
@@ -29,7 +29,7 @@ async function getTypesId(callback) {
 
 async function getLegendeById(id, callback) {
     //Récupération des données
-    let result = (await (await fetchAsync(API_URL + API_LEGENDE + id, 'GET')).json());
+    let result = (await (await fetchAsync(ROOT + API_URL + API_LEGENDE + id, 'GET')).json());
     //Transmission des données
     callback(result);
     return result;

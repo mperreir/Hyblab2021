@@ -11,7 +11,7 @@ const verbose = true;
 let db = null;
 (async () => {
   // open database
-  db = await open({filename: config.DB_PATH, driver: sqlite3.Database});
+  db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
@@ -21,7 +21,10 @@ let db = null;
 var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
     id INT PRIMARY KEY,
     nomCategorie VARCHAR(30) NOT NULL,
-    imageURI VARCHAR(75)
+    nomPersonnage VARCHAR(50) NOT NULL,
+    phrasePerso VARCHAR(250) NOT NULL,
+    phraseDep VARCHAR(250) NOT NULL,
+    imageURI VARCHAR(10)
 );`;
 
   // query to create DB if not created
@@ -45,7 +48,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
 
   // If necessary
   // db.run('DROP TABLE IF EXISTS Departement;');
-  // db.run('DROP TABLE IF EXISTS Categorie;');
+  db.run('DROP TABLE IF EXISTS Categorie;');
   // db.run('DROP TABLE IF EXISTS Legende;');
 
   // Execute query
@@ -58,28 +61,49 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
   db.run("DELETE FROM Categorie;");
   db.run("DELETE FROM Legende;");
 
-  var countIdDep = 1;
+  //var countIdDep = 1;
   var countIdCat = 1;
   var countIdLeg = 1;
   var depList = [];
   var catList = [];
+  var personnages = { data: [{cat: 'Créatures Fantastiques',
+                              nom: 'Armelle',
+                              phrasePerso: 'La fée Armelle\net ses contes fantastiques',
+                              phraseDep: 'Bonjour à vous cher voyageur, cliquez sur l’un des points pour découvrir la légende qui y est associée.'},
+                            {cat: 'Croyances Religion',
+                              nom: 'Saint-Paul',
+                              phrasePerso: 'Le moine Saint-Paul\net ses légendes religieuses',
+                              phraseDep: 'Chaque lieu renferme une légende, clique sur l’un des points pour faire ton choix mon enfant.'},
+                            {cat: 'Histoires Maritimes',
+                              nom: 'Gwenaël',
+                              phrasePerso: 'Le marin Gwenaël\net ses histoires maritimes',
+                              phraseDep: 'Place ton curseur sur un des points pour découvrir sa légende matelot !'}],
+  getPerso: (cat) => {
+    for(perso of personnages.data) {
+      if(perso.cat === cat) return perso;
+    }
+  }};
   // Fill the DB with the CSV content
-  fs.createReadStream('./server/data.csv')
+  fs.createReadStream(config.ROOT + 'server/data.csv')
     .pipe(csv())
     .on('data', (row) => {
       var sql = '';
       if(!depList.includes(row.departement)) {
         db.run(`INSERT INTO Departement VALUES (            
-          ${countIdDep}, 
+          ${row.numero_dep}, 
           '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
         depList.push(row.departement);
-        countIdDep++;
+        //countIdDep++;
       }
       
       if(!catList.includes(row.categorie)) {
+        let catPerso = personnages.getPerso(row.categorie);
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
-          '${(encodeURI(row.categorie)).replace(/'/g, "`")}', 
+          '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
+          '${encodeURI(catPerso.nom)}',
+          '${encodeURI(catPerso.phrasePerso)}',
+          '${encodeURI(catPerso.phraseDep)}',
           'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
         catList.push(row.categorie);
         countIdCat++;
@@ -88,7 +112,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
       sql = `INSERT INTO Legende VALUES (
           ${countIdLeg},
           '${(encodeURI(row.nom)).replace(/'/g, "`")}',
-          ${depList.indexOf(row.departement) + 1},
+          ${row.numero_dep},
           ${catList.indexOf(row.categorie) + 1},
           '${(encodeURI(row.resume)).replace(/'/g, "`")}',
           '${(encodeURI(row.histoire)).replace(/'/g, "`")}',
