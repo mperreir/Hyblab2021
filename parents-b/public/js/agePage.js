@@ -50,8 +50,8 @@ let initAge = function(){
         }
     }
 
-    let cpt = 0;
-
+    let cpt = 0;  
+    
 
     //---------------DES L'OUVERTURE-----------------
     let x = document.getElementById("image_age");
@@ -94,6 +94,22 @@ let initAge = function(){
     });
 
 
+    d3.select(".fleche_gauche").on("click", function (){
+      cpt =cpt-1;
+      if (cpt <0) cpt = 3;
+      setImage(cpt);
+    });
+    //Mouse over de fleche gauche
+    d3.select(".fleche_gauche").on("mouseover",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/fleche_gauche.svg");
+    });
+    d3.select(".fleche_gauche").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_gauche");
+        x.setAttribute("src", "././img/age/flecheG.svg");
+    });
+      
+
     d3.select(".fleche_droite").on("click",  function (){
         cpt =cpt+1;
         setImage(cpt);
@@ -106,6 +122,15 @@ let initAge = function(){
     d3.select(".fleche_droite").on("mouseleave",  function (){
         var x = document.getElementById("fleche_droite");
         x.setAttribute("src", "./img/age_page/flecheD.svg");
+    });
+    //Mouse over de fleche droite
+    d3.select(".fleche_droite").on("mouseover",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/fleche_droite.svg");
+    });
+    d3.select(".fleche_droite").on("mouseleave",  function (){
+        var x = document.getElementById("fleche_droite");
+        x.setAttribute("src", "././img/age/flecheD.svg");
     });
 
     //Bouton plus
@@ -140,7 +165,7 @@ let initAge = function(){
 
 
     //----------ANIMATIONS---------------
-    //Premier robot
+    //Premier robot 
     anime({
         targets: '.age_yeux_cache',
         translateY: '170%',
@@ -219,6 +244,7 @@ let initAge = function(){
                 duration: 500
             })
     });
+};
 
     d3.select('.button-suivant-age').on('mouseleave' ,function (){
         anime({
@@ -229,4 +255,4 @@ let initAge = function(){
         });
         tl_suivant_age_over.pause();
     });
-};
+;
