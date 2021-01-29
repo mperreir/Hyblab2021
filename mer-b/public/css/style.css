@@ -212,7 +212,7 @@ h1 {
     margin-right: 10px;
     padding-left: 12px;
     padding-right: 12px;
-
+    margin-left: 10px;
     
     font-weight: bold;
     font-size: 18px;
@@ -458,13 +458,14 @@ div#boutonGoSlide2 {
 input#adresse {
     height: 45px;
     width: 360px;
-    font-size: 25px;
+    font-size: 18px;
     border: 0px;
     border-radius: 50px;
     padding-left: 10px;
     margin-right: 15px;
     padding-right: 10px;
     box-sizing: border-box;
+    color: #203443;
 }
 
 input#adresse:focus {
@@ -535,10 +536,17 @@ div#containerReponses {
 .containerReponse {
     display: inline-block;
     text-align: center;
-    vertical-align: top;
+    vertical-align: bottom;
     padding-bottom: 10px;
     position: relative;
     margin-left: 30px;
+}
+
+.containerReponse img {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stepper {

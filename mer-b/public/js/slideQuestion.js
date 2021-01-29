@@ -183,9 +183,22 @@ function setTexte(id){
     }
     else {
       for(let reponse of question.reponses){
+
         let containerReponse = document.createElement("div");
         containerReponse.setAttribute("class", "containerReponse");
   
+        if(reponse.img){
+          let containerReponseImg = document.createElement("div");
+          containerReponseImg.setAttribute("class", "containerImgReponse");
+  
+          let newReponseImg = document.createElement("img");
+          newReponseImg.src = reponse.img;
+          containerReponseImg.appendChild(newReponseImg);
+          containerReponse.appendChild(containerReponseImg);
+          if(reponse.json == "ecriture"){
+            newReponseImg.style.marginBottom = "-5px";
+          }
+        }
         let newReponse = document.createElement("div");
         newReponse.innerHTML = reponse.texte;
         newReponse.setAttribute("class", "bouton");

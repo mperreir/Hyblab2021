@@ -44,16 +44,18 @@ function affichageReset(){
                         "citations" : ['"La photographie est une brève complicité entre la prévoyance et le hasard." - John Stuart Mill',
                         '"L\'appareil photographique, c\'est l\'œil au bout des doigts" - Claude Batho',
                         '"La photographie peut fixer l\'éternité dans un instant" - Robert Bresson'
-                        ]
+                        ],
+                        "img" : "img/Metiers/photographefinal.png"
                     },
                     {
-                        "texte" : "Réalisation",
+                        "texte" : "Vidéo",
                         "json": "realisation",
                         "citations" : [
                             '"Le cinéma, c\'est un stylo, du papier et des heures à observer le monde et les gens" - Jacques Tati',
                             'Le cinéma est fait pour tous ceux dont la curiosité est le plus grand défaut" - Claude Lelouch',
                             'Le cinéma, c\'est l\'écriture moderne dont l\'encre est la lumière" - Jean Cocteau'
-                        ]
+                        ],
+                        "img" : "img/Metiers/cinemafinal.png"
                     },
                     {
                         "texte" : "Écriture",
@@ -62,7 +64,8 @@ function affichageReset(){
                             '"Les paroles vont comme le vent ; les écrits restent."',
                             '"L\'écriture est un scalpel pour voir comment la nature humaine fonctionne" - Phillipe Claudel',
                             '"L\'écriture est un luxe, l\'écriture est un bonheur, l\'écriture est une liberté" - André Compte-Sponville'
-                        ]
+                        ],
+                        "img" : "img/Metiers/livrefinal.png"
                     },
                     {
                       "texte" : "Peinture",
@@ -71,11 +74,13 @@ function affichageReset(){
                           '"La peinture, c\'est la face visible de l\'iceberg de ma pensée" - Salvador Dali',
                           '"La peinture vient de l\'endroit où les mots ne peuvent plus s\'exprimer" - Gao Xingjian',
                           '"L\'art de peindre n\'est que l\'art d\'exprimer l\'invisible par le visible" - Eugène Fromentin'
-                      ]
+                      ],
+                      "img" : "img/Metiers/peinturefinal.png"
                     },
                     {
                       "texte" : "Autres",
-                      "json" : "autres"
+                      "json" : "autres",
+                      "img" : "img/Metiers/autresfinal.png"
                     }
                 ]
             },
