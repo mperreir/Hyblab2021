@@ -102,22 +102,32 @@ p#narration {
     color: black;
 
     /* aspect de l'arrière-plan */
-    padding: 0.5vh;
+    padding: 0.8vh 1.2vh;
     background-color: white;
     border-radius: 25px;
-    border: solid;
-    border-width: 1px;
 }
 
 div#character > p#narration {
-	top: -8vh;
-	width: 100%;
+  top: -8vh;
+  left: 15%;
+	width: 70%;
 }
 
 div#instructions > p#narration {
-    font-size: 2vh;
+  font-size: 2vh;
 	bottom: 4vh;
 	left: 4vh;
 	padding: 15px 20px;
 	width: auto;
+}
+
+button#pass_narration {
+  position: absolute;
+  width: 40%;
+  font-size: 13px;
+  height: 26px;
+  bottom: -20px;
+  right: 0;
+  border-radius: 12px;
+  background-color: rgb(100,240,200);
 }

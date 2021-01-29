@@ -12,6 +12,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 const config = require('./config.js');
+const CONFIG = require('./config.js');
 
 const verbose = true;
 
@@ -119,7 +120,7 @@ getPerso: (cat) => {
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
           '${encodeURI(catPerso.phrasePerso)}',
           '${encodeURI(catPerso.phraseDep)}',
-          '${encodeURI('assets/img/personnage/' + row.categorie + '.png')}');\n`);
+          '${encodeURI('assets/img/personnage/' + row.categorie.replace(' ', '_') + '.png')}');\n`);
         // '${encodeURI(catPerso.nom)}',
         catList.push(row.categorie);
         countIdCat++;
