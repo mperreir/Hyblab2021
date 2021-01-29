@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-    <img  id="wazo" src="@/assets/wazzo.png"/>
+    <img  id="wazzo" src="@/assets/wazzo.svg"/>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -24,8 +24,8 @@ export default {
   opacity: 0;
 }
 
-#wazo {
-  margin: 10px;
+#wazzo {
+  margin: 40px;
   width: 10%;
 }
 

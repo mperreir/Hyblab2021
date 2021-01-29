@@ -66,6 +66,8 @@ export default {
     },
   },
   mounted() {
+     const wazzo = document.getElementById('wazzo');
+     wazzo.style.display = 'block';
      this.pied = lottie.loadAnimation({
       container: document.getElementById("pied-anim"), // the dom element that will contain the animation
       renderer: 'svg',

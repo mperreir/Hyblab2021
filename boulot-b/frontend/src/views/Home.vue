@@ -21,6 +21,8 @@ export default {
     }
   },
   mounted () {
+    const wazzo = document.getElementById('wazzo');
+    wazzo.style.display = 'none';
     const logo = lottie.loadAnimation({
       container : document.getElementById('wazo-anim'),
       renderer: 'svg',
@@ -36,6 +38,7 @@ export default {
       animationData: canariCome
     })
     logo.addEventListener("complete", () => {
+      
       this.showAnim.logo = false;
       this.showAnim.canari = true;
       canari.play()
