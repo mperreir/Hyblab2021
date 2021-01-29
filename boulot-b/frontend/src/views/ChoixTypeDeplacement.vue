@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="hide" id="velo-anim"/>
-    <div class="hide" id="pied-anim"/>
+    
+    
   <Container>
+    
     <template #question >
       <Question  question="Tu te déplaces...">
           <ButtonCustom @click="nextPied"  text="A pied" color="yellow"/>
@@ -12,6 +13,12 @@
     <template #canari>
       <Oiseau :message="message"  />
     </template>
+    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage">
+    <img id="nuage2" src="@/assets/nuages_svg/nuage2.svg" alt="nuage" />
+    <img id="nuage3" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
+    <img id="nuage4" src="@/assets/nuages_svg/nuage1.svg" alt="nuage" />
+    <div id="velo-anim"/>
+    <div id="pied-anim"/>
     <template #stepper>
       <Stepper  :actif=actif />
     </template>
@@ -29,7 +36,7 @@ import velo from "@/assets/animationJson/wazo_velo.json"
 import pied from "@/assets/animationJson/wazo_pas.json"
 import {TypeDeplacement} from "@/store";
 import lottie from "lottie-web";
-
+import sonVelo from "@/assets/son/sonnette_velo.mp3"
 export default {
   choice: "typeDeplacement",
   name: "ChoixTypeDeplacement",
@@ -48,6 +55,8 @@ export default {
     nextVelo() {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
      const velo= document.getElementById("velo-anim");
+     const audio = new Audio(sonVelo);
+     audio.play();
       velo.classList.add("slide-lr");
       velo.addEventListener("animationend", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.VELO)
@@ -102,11 +111,48 @@ export default {
   .hide {
     display: none;
   }
-
+  #velo-anim {
+    position: absolute;
+    width: 30%;
+    bottom: -19%;
+    left: -8%;
+    z-index: -1;
+  }
+   #pied-anim {
+    position: absolute;
+    width: 55%;
+    rotate: 13deg;
+    bottom: -45%;
+    right: -10%;
+    z-index: -1;
+  }
   .slide-lr {
     display: block;
     width: 30%;
     animation: slide-lr 1s ease-in both;
   }
-
+  #nuage1 {
+    position: absolute;
+    top: 25%;
+    left: -6%;
+    width: 25%;
+  }
+  #nuage2 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 8%;
+  }
+  #nuage3 {
+    position: absolute;
+    bottom: 52%;
+    right: -12%;
+    width: 50%;
+  }
+  #nuage4 {
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    width: 10%;
+  }
 </style>
