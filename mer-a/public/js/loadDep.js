@@ -143,7 +143,7 @@ function setColor(d, codeDep){
 
 }
 
-function hover(d,t){
+function hoverDot(t){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", 20)
