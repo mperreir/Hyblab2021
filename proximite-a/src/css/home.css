@@ -1,6 +1,7 @@
 #homeContainer{
     height: 100%;
     background-image: none;
+    display: flex;
 }
 #logo{
     margin-top: 5%;
@@ -11,9 +12,7 @@
 }
 
 #paragraphe{
-    padding-top: 3%;
-    padding-bottom: 2%;
-    width: 40%;
+    max-width: 600px;
 }
 
 h4{
@@ -22,9 +21,9 @@ h4{
 
 
 #homeContainer input[type=text]{
-    width: 20%;
     height: 70px;
     background: #FFFFFF;
+    font-size: 25px;
     border: 2px solid #756EFF;
     box-sizing: border-box;
     border-radius: 30px;
@@ -41,8 +40,8 @@ h4{
 }
 
 #homeContainer input[type=button]{
-    margin: 2%;
-    width: 15%;
+
+    padding: 0 35px 0 35px;
     height: 50px;
     background: #756EFF;
     box-sizing: border-box;
@@ -52,6 +51,14 @@ h4{
     color: #FFFFFF;
 }
 
+
 #homeContainer input[type=button]:disabled{
     opacity: 0.5;
+}
+#credits{
+    position: absolute;
+    bottom: 55px;
+    right: 85px;
+    background-color: white !important;
+    color: #756EFF !important;
 }
