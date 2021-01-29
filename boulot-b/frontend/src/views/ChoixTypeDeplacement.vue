@@ -13,7 +13,7 @@
     <template #canari>
       <Oiseau :message="message"  />
     </template>
-    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage">
+    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage"/>
     <img id="nuage2" src="@/assets/nuages_svg/nuage2.svg" alt="nuage" />
     <img id="nuage3" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
     <img id="nuage4" src="@/assets/nuages_svg/nuage1.svg" alt="nuage" />

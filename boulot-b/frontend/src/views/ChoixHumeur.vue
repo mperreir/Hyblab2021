@@ -11,6 +11,9 @@
     <template #canari>
       <Oiseau :message="message"/>
     </template>
+    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage"/>
+    <img id="nuage2" src="@/assets/nuages_svg/nuage2.svg" alt="nuage" />
+    <img id="nuage3" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
     <template #stepper>
       <Stepper :actif=actif />
     </template>
@@ -75,5 +78,22 @@ export default {
 
 <style scoped>
 
-
+  #nuage1 {
+    position: absolute;
+    top: 40%;
+    left: -6%;
+    width: 25%;
+  }
+  #nuage2 {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    width: 8%;
+  }
+  #nuage3 {
+    position: absolute;
+    bottom: 15%;
+    right: -12%;
+    width: 35%;
+  }
 </style>

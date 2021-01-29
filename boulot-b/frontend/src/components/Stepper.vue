@@ -55,11 +55,13 @@ export default Vue.extend({
         cursor: pointer;
         width: 8%;
         margin-right: 20px;
+        z-index: 1;
     }
     .progressbar {
         width: 60%;
         margin: 20px;
         padding-left: 0;
+        z-index: 1;
     }
     .progressbar li {
         list-style-type: none;
