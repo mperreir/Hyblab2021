@@ -1,5 +1,6 @@
 'use strict';
 
+const {performance} = require('perf_hooks');
 const fetch = require('node-fetch');
 
 const config = {
@@ -48,35 +49,41 @@ const config = {
 }
 
 async function all_positions(liste_criteres, persona, longitude, latitude){
+    let t0 = performance.now();
     const vitesses = {
         jeune: 5.5,  // average speed / one quarter
         famille: 5,
         senior: 3
     };
 
-    let polygon = await fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
-    {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': process.env.OPENROUTE_SERVICE_KEY
-        },
-        body: JSON.stringify({
-            "locations": [
-                [
-                    longitude,
-                    latitude
-                ]
-            ],
-            "range": [vitesses[persona] / 4 * 1000],
-            "range_type": "distance",
-            "options": {
-                avoid_features: ["ferries", "fords"]
-            }
-        })
-    });
-
-    polygon = await polygon.json();
+    let polygon;
+    do {
+        polygon = await timeout(500, fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': process.env.OPENROUTE_SERVICE_KEY
+            },
+            body: JSON.stringify({
+                "locations": [
+                    [
+                        longitude,
+                        latitude
+                    ]
+                ],
+                "range": [vitesses[persona] / 4 * 1000],
+                "range_type": "distance",
+                "options": {
+                    avoid_features: ["ferries", "fords"]
+                }
+            })
+        }));
+        polygon = await polygon.json();
+    } while(!polygon.features[0]);
+    
+    let t1 = performance.now();
+    console.log("POLYGON CALL : " + Math.round(t1 - t0) + " ms");
     polygon = polygon.features[0].geometry.coordinates[0];
     let minLon = 100;
     let minLat = 100;
@@ -98,16 +105,16 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
         agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
     };
     
-    console.log(longitude, latitude);
-    console.log(minLat, minLon, maxLat, maxLon);
+    // console.log("centre :", longitude, latitude);
+    // console.log("carré :",minLat, minLon, maxLat, maxLon);
     let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
     request = await fetch("http://overpass-api.de/api/interpreter?data=" + request);
     request = await request.json();
+    let t2 = performance.now();
+    console.log("OVERPASS CALL : " + Math.round(t2 - t0) + " ms");
     
     let response = request;
-    console.log("nb elements dans le carré : ", response.elements.length);
     let elements = response.elements.filter(el => inside([el.lon, el.lat], polygon));
-    console.log("nb elements dans le polygone : ", elements.length);
 
     // Mention honorable : AMNITY bar 	cafe fast_food restaurant
 
@@ -142,11 +149,13 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     if(liste_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
     // Ajout des arrets de bus
     if(liste_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
+    let t3 = performance.now();
+    console.log("PARCS ET ARRETS DE BUS : " + Math.round(t3 - t0) + " ms");
     
     // Calculer les distances
     for(let cat_obj of res) {
         for(let poi of cat_obj.data) {
-            poi.temps = await temps_de_trajet(poi.lon, poi.lat, longitude, latitude, vitesses[persona]);
+            poi.temps = temps_de_trajet(poi.lon, poi.lat, longitude, latitude, vitesses[persona]);
         }
     }
 
@@ -170,6 +179,8 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
             poi.adresse = await get_adresse(poi.lon, poi.lat);
         }
     }
+    let t4 = performance.now();
+    console.log("ADDRESSES CALL : " + Math.round(t4 - t0) + " ms");
 
     // Refactor le résultat pour correspondre avec l'entrée attendue par les calculs futurs
     res = res.map(cat_obj => {
@@ -178,7 +189,7 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
             data: cat_obj.data.map(node => {
                 return {
                     temps: node.temps,
-                    nom: node.tags.name,
+                    nom: (!node.tags.name ? cat_obj.categorie : node.tags.name),
                     adresse: node.adresse
                 }
             })
@@ -188,16 +199,21 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     return res;
 };
 
-async function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
+function timeout(ms, promise) {
+    return new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        reject(new Error("timeout"))
+      }, ms)
+      promise.then(resolve, reject)
+    })
+  }
+
+function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
     const rayon_terre = 6378;
     const distance = rayon_terre * Math.acos(Math.sin(dtr(lat1)) * Math.sin(dtr(lat2)) + Math.cos(dtr(lat1)) * Math.cos(dtr(lat2)) * Math.cos(dtr(lon2)-dtr(lon1)));
     const temps = Math.round(distance / vitesse * 60);
-    if (temps == 0) {
-        return 1;
-    }
-    if (temps > 15) {
-        return 15;
-    }
+    if (temps == 0) return 1;
+    if (temps > 15) return 15;
     return temps;
 }
 
