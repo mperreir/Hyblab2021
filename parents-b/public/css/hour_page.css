@@ -3,6 +3,12 @@
     z-index: 3;
 }
 
+.page{
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+}
+
 .buisson-hour{
     z-index: 4;
 }
@@ -53,38 +59,88 @@
     z-index: 6;
 }
 
+.oya-hour-dialog-bas{
+  position: absolute;
+  left: 33%;
+  top: 20.5%;
+}
+
 #svg-slider{
-    position: absolute;
-    top : 52%;
-    left : 38%;
-    width: 24%;
-    z-index: 5;
+  position: absolute;
+  top : 52%;
+  top : 56%;
+  left : 36%;
+  width: 28%;
+  z-index: 2;
 }
 
 .hour-9{
     position: absolute;
     width: 4.5%;
-    top:61%;
-    left:31%;
+    top:60%;
+    left:30%;
     z-index: 3;
+    transform: rotate(10deg);
 }
 
 .hour-17{
     position: absolute;
     width: 4.5%;
     top:61%;
-    left:63%;
+    left:66%;
     z-index: 3;
+    transform: rotate(-6deg);
 }
 
 .hour-aprem{
     position: absolute;
     width: 18%;
-    top:41%;
-    left:40%;
+    top:46%;
+    left:41%;
     z-index: 3;
+    transform: rotate(2deg);
 }
 
 .violet{
     z-index: 4;
+}
+
+.sol{
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  z-index: 3;
+}
+
+.buisson1{
+  position: absolute;
+  bottom: 3%;
+  left: 0%;
+  width: 12%;
+  z-index: 4;
+}
+
+.buisson2{
+  position: absolute;
+  bottom: 3.2%;
+  left: 10%;
+  width: 7%;
+  z-index: 4;
+}
+
+.buisson3{
+  position: absolute;
+  bottom: 2%;
+  left: 72%;
+  width: 7%;
+  z-index: 4;
+}
+
+.buisson4{
+  position: absolute;
+  bottom: 1%;
+  left: 78%;
+  width: 12%;
+  z-index: 4;
 }
