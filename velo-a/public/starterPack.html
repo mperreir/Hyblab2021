@@ -17,26 +17,37 @@
 
     <!-- Styles-->
     <link href="css/app.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/starterPack.css" rel="stylesheet"/>
 
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<h1 id="h1-veligood">Véli Good</h1>
-<h2 id="h2-veligood">L'appli avec qui tout roule !</h2>
-<div id="left-nav">
+<header>
+    <img class="logo" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
+    <h1 id="h1-veligood">Véli Good</h1>
+    <h2 id="h2-veligood">Pour un trajet Véli Bien</h2>
+</header>
 
-    <p> - Un t-shirt; des lunettes de soleil; de la crème solaire; une casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) - Un vêtement de pluie (en + avec la pluie) N’oublie surtout pas ton casque et pense à un antivol pour protéger ton vélo.</p>
+<div class="container_map">
 
-    <p>Traffic - La route est dégagée, à fond les pédales - Bouchons sur ton trajet, gardes-en sous la pédale</p>
-    <p>Qualité de l’air - Retiens ta respiration, attention à la pollution - Respire à fond, l’air est sain Si soleil : “Fais attention aux coups de soleil !” Si pluie : “Bon courage, tu vas en avoir besoin !” Si verglas : “Attention, ça va glisser !” Si froid : “Garde la tête froide !” Conditions “standard” : “Sur ce, bonne route !”</p>
-    <input type="button" value="Changer les paramètres">
+    <p> Pour ton trajet, je te recommande... <br><br><br> - Un t-shirt; des lunettes de soleil; de la crème solaire; une casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un vêtement de pluie (en + avec la pluie) <br><br> N’oublie surtout pas ton casque et pense à un antivol pour protéger ton vélo.</p>
+    <p> <br> Traffic <br>- La route est dégagée, à fond les pédales - Bouchons sur ton trajet, gardes-en sous la pédale <br><br></p>
+    <p> Qualité de l’air <br> - Retiens ta respiration, attention à la pollution <br>- Respire à fond, l’air est sain <br><br>Si soleil : “Fais attention aux coups de soleil !” <br>Si pluie : “Bon courage, tu vas en avoir besoin !” <br>Si verglas : “Attention, ça va glisser !” <br>Si froid : “Garde la tête froide !” Conditions “standard” : “Sur ce, bonne route !”</p>
+    <input type="button" class="button-slide" value="Changer les paramètres">
 
 </div>
 <div id="map"></div>
 
-<input type="button" value="<-">
+<input type="button" class="button-slide button-return bottom-left-nav">
 
-<input type="button" value="Testons ton vélosavoir!">
-<input type="button" value="C'est la Véli Fin">
+<div class="bottom-right-nav-container">
+    <input type="button" class="button-slide" value="Testons ton vélosavoir!">
+    <input type="button" class="button-slide" value="C'est la Véli Fin">
+
+</div>
 
 </body>
 </html>
