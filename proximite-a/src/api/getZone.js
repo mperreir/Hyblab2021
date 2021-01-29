@@ -60,14 +60,19 @@ export async function getPointsInZoneForProfile(zone, profil) {
     return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
 }
 
-export async function getPointsInZone(zone, types) {
+/**
+ *
+ * @param {*} zone
+ * @param {Array} types
+ */
+const getPointsInZone =  async function(zone, types) {
     const query = buildQuery(types, zone);
     let res = await request.request(query, null);
     let json = await res.json();
     return json;
 }
 
-export const buildQuery = (types, zone) => {
+ const buildQuery = (types, zone) => {
     let query = "https://overpass-api.de/api/interpreter?data=[out:json];";
     let bbox = getBoxFromZone(zone);
     query += "node(" + bbox + ")->.all;(";
@@ -100,3 +105,5 @@ const getBoxFromZone = (zone) => {
 
     return [north, west, south, east];
 }
+module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfil };
+
