@@ -36,8 +36,6 @@ exports.format = (plages, adress) => {
 
     for (let i =0; i<plages.length; i++) {
 
-        console.log(adress);
-
         plages[i].adresse = {
             rue: (adress[i].reversegeocode.addressparts.hasOwnProperty("road")? adress[i].reversegeocode.addressparts.road._text : ""),
             code_postale: (adress[i].reversegeocode.addressparts.hasOwnProperty("postcode")? adress[i].reversegeocode.addressparts.postcode._text : ""),
