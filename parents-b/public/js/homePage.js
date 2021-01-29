@@ -1,4 +1,9 @@
 let initHome = function(){
+
+    d3.select('.more-info').on('click', function (){
+        //Doit ouvrir la page qui sommes nous
+    });
+
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
@@ -64,20 +69,14 @@ let initHome = function(){
             easing: 'easeOutCubic'
         });
 
+        document.getElementById("button-histoire").hidden = true;
+
         tl_begin
-            .add({
-                targets: ".button-histoire",
-                duration: 50
-            })
             .add({
                 targets: ".button-begin",
                 opacity: 0,
                 duration: 300
             })
-            .add({
-                targets: ".button-begin",
-            })
-
             .add({
                 targets: ".catch-phrase",
                 opacity: 0,
@@ -156,6 +155,7 @@ let initHome = function(){
                 translateY: "-150%",
                 duration: 1000,
             })
+
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
