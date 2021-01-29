@@ -1,10 +1,42 @@
 'use strict'
 
-function generateMap(mapData, mapFusion){
+/**
+ * The file used to load the map with all the regions.
+ */
 
-	var width = window.innerWidth-5;
-	var height = window.innerHeight-5;
+/**
+ * Constants definition
+ */
+//Colors
+const validDepColor = '#88cbce';
+const invalidDepColor = '#224255';
+const hoveredValidDepColor = '#73b7ba';
+const strokeColor = 'black';
+const fontColor = 'white';
 
+//Strokes
+const strokeWidth = '1px';
+const hoveredStrokeWidth = '2px';
+
+/**
+ * Variables definition
+ */
+let deps = {data: null, isValid: (code) => {
+	for(let d of deps.data) if(d.id === code) return true;
+	return false;
+}};
+
+/**
+ * The function that loads the map.
+ * @param {object} mapFusion the JSON object that contains the paths and data of the map.
+ */
+function generateMap(mapFusion){
+
+	//Definition of the SVG dimensions
+	const width = window.innerWidth-5;
+	const height = window.innerHeight-5;
+
+	//Creation of the SVG element
 	var svg = d3.select("#bretagne")
 		.html('')
 		.append('svg')
@@ -41,12 +73,13 @@ function generateMap(mapData, mapFusion){
 		.append("path")
 			.attr('id',function(d) { return 'path_' + d.properties.code})
 			.attr("fill", function(d){return color(d);})
+			.attr("fill-opacity", function(d){return opacity(d);})
 			.attr("d", path)
 			.on('mouseover', function(d){ hover(d.properties.code,this);})
 			.on('mouseleave', function(d){ leave(d.properties.code,this);})
 			.on('click', function(d){ selectDepartment(d.properties.code);})
-			.style('stroke','black')
-			.style('stroke-width', '1px');
+			.style('stroke',strokeColor)
+			.style('stroke-width', strokeWidth);
 
 	// Place les noms des departements
 	svg.append("g")
@@ -75,15 +108,29 @@ function generateMap(mapData, mapFusion){
 				let codeDep = d.properties.code;
 				selectDepartment(codeDep);})
 			.style("font-size", 28)
-			.style("fill", "white")
+			.style("fill", fontColor)
 			.style("display",'none');
 
 }
 
+/**
+ * Function that returns a color
+ * @param {object} d the data object from the map.
+ */
 function color(d){
 	let codeDep = d.properties.code;	
-	if(deps.isValid(codeDep)) return '#88cbce';
-	else return 'white';
+	if(deps.isValid(codeDep)) return validDepColor;
+	else return invalidDepColor;
+}
+
+/**
+ * Function that returns the opacity value
+ * @param {object} d the data object from the map.
+ */
+function opacity(d){
+	let codeDep = d.properties.code;	
+	if(deps.isValid(codeDep)) return '1';
+	else return '0.9';
 }
 
 function hover(codeDep,t){
@@ -93,8 +140,8 @@ function hover(codeDep,t){
 		d3.select(t)
 		.transition().duration(500)
 		.style("fill-opacity", 0.95)
-		.style('stroke-width', '2px')
-		.style("fill", '#73b7ba');
+		.style('stroke-width', hoveredStrokeWidth)
+		.style("fill", hoveredValidDepColor);
 		d3.select('#text_' + codeDep).style("display", 'initial');
 	}
 }
@@ -106,8 +153,8 @@ function leave(codeDep,t){
 		d3.select(t)
 		.transition().duration(500)
 		.style("fill-opacity", 1)
-		.style('stroke-width', '1px')
-		.style("fill", '#88cbce');
+		.style('stroke-width', strokeWidth)
+		.style("fill", validDepColor);
 		d3.select('#text_' + codeDep).style("display", 'none');
 
 	}
@@ -129,16 +176,13 @@ function getID(code){
 	else return -1;
 }
 
-let deps = {data: null, isValid: (code) => {
-	for(let d of deps.data) if(d.id === code) return true;
-	return false;
-}};
 (async () => {
 	await getRegionsId(r => deps.data = r);
-	generateMap(labs,mapFusion);
+	generateMap(mapFusion);
 })();
 
-window.addEventListener("resize", function(e) { 
-	generateMap(labs,mapFusion);
+window.addEventListener("resize", function(e) {
+	console.log('test');
+	generateMap(mapFusion);
 });
 
