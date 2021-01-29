@@ -33,6 +33,7 @@ module.exports = () => {
     const app = express();
 
     // routes depuis les fichiers json
+    app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
     app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier'])));
     app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
     app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier'])));
@@ -47,6 +48,10 @@ module.exports = () => {
     app.get('/disponibilites-bicloo/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.disponibilites_bicloo, req.params['quartier'])));
 
     app.get('/update/', (req,res) => update(req, res));
+
+    app.get('*', (req, res) => {
+        res.status(404).send(JSON.stringify({error:{message:'Point d\'entrée inexistant.', code:404}}))
+    });
 
     function getLocalJSONData(file_name, quartier=undefined){
         if(!QUARTIERS.includes(quartier)){

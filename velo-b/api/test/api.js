@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 chai.should();
 
 const routes = [
+    "quartiers",
     "amenagements-cyclables",
     "abris-velo",
     "gonfleurs-libre-service",
@@ -23,19 +24,20 @@ const quartiers = ['nord','sud','est','ouest','centre']
 describe('Test API', () => {
     routes.forEach(r => {
         describe('Test endpoint ' + r, () => {
-            describe('Test route /api/' + r + '/', () => {
-                it('Doit retourner les données de la route pour l\'ensemble de Nantes', (done) => {
-                    chai.request(app)
-                        .get('/api/' + r + '/')
-                        .end((err, response) => {
-                            expect(err).to.be.null;
-                            response.should.have.status(200);
-                            response.body.should.be.a('array');
-                            done();
-                        });
+            if (r !== 'quartiers')
+                describe('Test route /api/' + r + '/', () => {
+                    it('Doit retourner les données de la route pour l\'ensemble de Nantes', (done) => {
+                        chai.request(app)
+                            .get('/api/' + r + '/')
+                            .end((err, response) => {
+                                expect(err).to.be.null;
+                                response.should.have.status(200);
+                                response.body.should.be.a('array');
+                                done();
+                            });
+                    })
                 })
-            })
-            if (r !== "services-velos-bicloo"){
+            if (r !== "services-velos-bicloo") {
                 quartiers.forEach(q => {
                     describe('Test route /api/' + r + '/' + q + '/', () => {
                         it('Doit retourner les données de la route liées à ce quartier', (done) => {
@@ -62,6 +64,17 @@ describe('Test API', () => {
                     })
                 })
             }
+        })
+    })
+    describe('Test route inexistante /api/route/inexistante/', () => {
+        it('Doit retourner une erreur', (done) => {
+            chai.request(app)
+                .get('/api/route/inexistante/')
+                .end((err, response) => {
+                    expect(err).to.be.null;
+                    response.should.have.status(404);
+                    done();
+                });
         })
     })
 })
