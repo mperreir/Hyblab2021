@@ -41,7 +41,7 @@
 
             <!-- Page d'acceuil-->
             <section data-slidr="page-accueil" hidden>
-                <img class="w-screen" src="assets/homepage.svg" />
+                <img class="w-screen h-screen" src="assets/homepage.svg" />
                 <img class="h-2/6" id="startButton" src="assets/startButton.svg" />
             </section>
 
@@ -63,6 +63,7 @@
             <!--choix transport 1 : voiture -->
 
             <section data-slidr="choix-transport-1" hidden>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVoiture.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -88,6 +89,7 @@
             <!--choix transport 2 : velo -->
 
             <section data-slidr="choix-transport-2" hidden>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVelo.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -112,18 +114,14 @@
 
             <!--choix transport 3 : bicloo -->
 
-                <section data-slidr="choix-transport-3" hidden>
-                    <header>
-
-                        <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
-                            <p> Choisis ton moyen de transport</p>
-                            <!--
-                            <img src="assets/choix/indicationchoix.svg"
-                                 alt="Indication choix transport"></img> -->
-                        </div>
-
-
-                    </header>
+            <section data-slidr="choix-transport-3" hidden>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundBicloo.svg"></img>
+                <header>
+                    <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
+                        <img src="assets/choix/indicationchoix.svg"
+                            alt="Indication choix transport"></img>
+                    </div>
+                </header>
 
                     <div class="flex flex-row justify-between items-center my-20">
                         <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
@@ -143,6 +141,7 @@
             <!--choix transport 4 : transport en commun -->
 
             <section data-slidr="choix-transport-4" hidden>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundTransport.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -248,14 +247,16 @@
                         </div>
                     </div>
 
-                    <div class="infoVehicule">
-                        <p><span class="orange-highlight">BiclooPark</span> c’est quoi ? C’est un service de
-                            stationnement
-                            pour ton vélo.</p>
-                        <p>Plus de <span class="orange-highlight">2400 places</span> sont disponibles sur tout le
-                            territoire
-                            nantais</p>
-                    </div>
+              <div class="flex justify-center infoVehicule">
+                        <div>
+                            <p><span class="orange-highlight">BiclooPark c’est quoi ?</span> C’est un service de
+                                stationnement
+                                pour ton vélo.</p>
+    
+                            <p><span class="orange-highlight">Plus de 2400 places</span> sont disponibles sur tout le
+                                territoire
+                                nantais</p>
+                        </div>
                 </div>
                 <div class="info-illu">
                 <img class="background-index absolute "
@@ -275,11 +276,13 @@
                             <img id="close-btn-voiture" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
-                    <div class="infoVehicule">
-                        <p><span class="orange-highlight">9461</span> places de stationnement disponibles pour les
-                            véhicules</p>
-                        <p><span class="orange-highlight">17</span> parkings en ouvrage et 14 parcs en enclos
-                            disponibles en centre-ville et gare de Nantes</p>
+                    <div class="flex justify-center infoVehicule">
+                        <div>
+                            <p><span class="orange-highlight">9461</span> places de stationnement disponibles pour les
+                                véhicules</p>
+                            <p><span class="orange-highlight">17</span> parkings en ouvrage et 14 parcs en enclos
+                                disponibles en centre-ville et gare de Nantes</p>
+                        </div>
                     </div>
                 </div>
                 <div class="info-illu">
@@ -299,18 +302,21 @@
                             <img id="close-btn-bicloo" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
+                    <div class="flex justify-center infoVehicule">
+                        <div>
 
-                    <div class="infoVehicule">
-                        <p class="orange-highlight">Bicloo propose 3 services :</p>
-                        <p><span class="orange-highlight">BiclooPlus :</span> 1000 vélos en libre-service répartis sur
-                            123
-                            stations dans Nantes et Rezé</p>
-                        <p><span class="orange-highlight">Monbicloo :</span> c’est un service de location de vélos
-                            moyenne
-                            ou longue durée</p>
-                        <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux entreprises
-                            et
-                            institutions, pour promouvoir l’utilisation du vélo auprès des collaboateurs</p>
+                            <p class="orange-highlight">Bicloo propose 3 services :</p>
+                            <p><span class="orange-highlight">BiclooPlus :</span> 1000 vélos en libre-service répartis sur
+                                123
+                                stations dans Nantes et Rezé</p>
+                            <p><span class="orange-highlight">Monbicloo :</span> c’est un service de location de vélos
+                                moyenne
+                                ou longue durée</p>
+                            <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux entreprises
+                                et
+                                institutions, pour promouvoir l’utilisation du vélo auprès des collaboateurs</p>
+                        </div>
+
                     </div>
                 </div>
                 <div  class="info-illu">
@@ -331,13 +337,15 @@
                             <img id="close-btn-transports" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
+                    <div class="flex justify-center infoVehicule">
+                        <div>
+                            <p>Environ <span class="orange-highlight">60 lignes de bus</span> classiques</p>
+                            <p><span class="orange-highlight">9 lignes de Chronobus</span> assurant des liaisons plus
+                                fréquentes, L'arrêt Commerce est le pôle d’échanges central.</p>
+                            <p><span class="orange-highlight">3 lignes de tramway</span> déservent Nantes et son
+                                agglomération et se croisent en plein cœur du centre-ville</p>
+                        </div>
 
-                    <div class="infoVehicule">
-                        <p>Environ <span class="orange-highlight">60 lignes de bus</span> classiques</p>
-                        <p><span class="orange-highlight">9 lignes de Chronobus</span> assurant des liaisons plus
-                            fréquentes, L'arrêt Commerce est le pôle d’échanges central.</p>
-                        <p><span class="orange-highlight">3 lignes de tramway</span> déservent Nantes et son
-                            agglomération et se croisent en plein cœur du centre-ville</p>
                     </div>
                 </div>
                 <div class="info-illu">
