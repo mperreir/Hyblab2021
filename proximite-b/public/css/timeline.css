@@ -53,7 +53,7 @@ Style global des modals
 
 #timeline .disinterestsColorModal {
     background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
-    background-color: #b95803 !important;
+    background-color: #F19143 !important;
 }
 
 /* Modal Plus */
@@ -75,7 +75,7 @@ Style global des modals
 #timeline #bodyMultipleModal {
     background-color: white;
     border-radius: 5em !important;
-    border: 0 none;
+    border: none;
 }
 
 #timeline #closeMultipleModal {
