@@ -188,7 +188,7 @@ let okbutton = function (idbutton,page) {
       initSlideSelectionVelo();
     }
     else if (page == 'infos-selection-bycloo') {
-      initSlideSelectionBycloo();
+      initSlideSelectionBicloo();
     }
     else if (page == 'infos-selection-transport') {
       initSlideSelectionTransport();
