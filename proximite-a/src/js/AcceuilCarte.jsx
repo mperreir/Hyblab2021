@@ -24,13 +24,7 @@ class AcceuilCarte extends  React.Component {
         currentPosition: [47.2819, -1.5158]
     };
 
-    /*componentDidMount() {
-        navigator.geolocation.getCurrentPosition(function(position) {   //une fois la position récupérée
-            this.setState( {
-                currentPosition: [position.coords.latitude,position.coords.longitude]
-            })
-        }.bind(this));
-    }*/
+
 
 
     getPhase(nom){

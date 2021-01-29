@@ -25,3 +25,20 @@ html, body {
 .fondEtiquetteFamilial{
     background-color: #ff66ff;
 }
+
+
+.textPurple{
+    color: #756EFF;
+}
+.btnWhiteBgpurpleText{
+    background-color: white;
+    border: 2px solid #756EFF;
+    padding: 10px 25px 10px 25px;
+    color: #756EFF;
+    border-radius: 10px;
+    transition: .1s;
+}
+.btnWhiteBgpurpleText:hover{
+    background-color: #e6e1e5;
+    transition: .2s;
+}

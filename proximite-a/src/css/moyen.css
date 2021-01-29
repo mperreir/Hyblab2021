@@ -15,7 +15,7 @@
     width: 40%;
     background-color: #ffffff;
     left:0;
-    
+
 }
 
 #Theme span{
@@ -32,7 +32,7 @@
 #Localisation img{
     width: 40px;
     height: 50px;
-    
+
 }
 #Moyen{
     color: #756EFF;
@@ -59,12 +59,14 @@
 
 #changepage input{
     background-color: Transparent;
-    background-repeat:no-repeat;
     border: 2px solid #756EFF;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
     cursor:pointer;
-    overflow: hidden;
-    outline:none;
     color: #756EFF;
 }
 
@@ -82,7 +84,7 @@
     background-position: center;
     background-repeat : no-repeat;
     opacity: 0.5;
-    
+
 }
 
 #MoyenContainer input[type=radio] + label>img:hover{
