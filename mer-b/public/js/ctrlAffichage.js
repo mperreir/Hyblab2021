@@ -1,3 +1,5 @@
+var audioPort = new Audio('sound/sonSirene.wav');
+
 function updateElement(element, reponse){
     let valeur = reponse.json;
     let affichage = getAffichage();
@@ -29,8 +31,9 @@ function updateElement(element, reponse){
       }
       else {
         if(valeur == "harbor"){
-          var audio = new Audio('sound/sonSirene.wav');
-          audio.play();
+          
+		  audioPort.volume = volumeGeneral;
+          audioPort.play();
         }
         affichage[element] += valeur + ',';
       }
@@ -38,11 +41,6 @@ function updateElement(element, reponse){
     else {
       affichage[element] = valeur;
     }
-
-    /*if(element == "distance"){
-      affichage["distancePort"] = affichage[]
-      affichage["amenagement"] = affichage["amenagement"].replaceAll(/\((.+?)\)/g, "(" + reponse.json + ")");
-    }*/
 
     sketchCiel.updateSketchCiel(element, reponse);
     console.log(getAffichage());
@@ -90,4 +88,5 @@ function resetDisplay(){
   root.style.setProperty('--citation-color', "#203443");
   root.style.setProperty('--bouton-bg-color', '#203443');
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
+  document.getElementsByClassName('stepperBouton')[0].style.left = 0;
 }
