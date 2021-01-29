@@ -14,7 +14,7 @@ registerSlide("infos-selection-bicloo", function () {
     const idNoBut = 'ic-non-bicloo';
 });
 
-registerSlide("infos-selection-bicloo", function () {
+registerSlide("infos-selection-transport", function () {
 
 });
 
