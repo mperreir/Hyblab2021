@@ -22,7 +22,7 @@ async function adresses_autocompletion(adresse, num) {
                 positions[num - 1] = button.value;
             }
             else {
-                alert("L'adresse choisie est en dehors de l'agglomération nantaise veuillez en sélectionner une autre");
+                alert("L'adresse choisie est en dehors de l'agglomÃ©ration nantaise veuillez en sÃ©lectionner une autre.");
                 document.getElementById("adresse" + num).value = "";
             }
             list.innerHTML = "";
