@@ -139,7 +139,7 @@ let arrowbutton = function (idButton, page) {
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
-      scale: 0
+      scale: 1
     });
     mySlidr.slide(page);
     if (page == 'choix-transport-1') { //on va sur la page voiture
