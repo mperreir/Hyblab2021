@@ -1,0 +1,107 @@
+#MoyenContainer{
+    height: 100%;
+    width: auto;
+    background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
+    background-size: 50%;
+    background-position: top 140% right 20%;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+#Theme{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 74px 74px 0px;
+    height: 100%;
+    width: 40%;
+    background-color: #ffffff;
+    left:0;
+    
+}
+
+#Theme span{
+    width: 50%;
+}
+#Localisation{
+    height: 100%;
+    width: 50%;
+    background-color: #756EFF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 74px;
+    z-index: 0;
+}
+#Localisation img{
+    width: 40px;
+    height: 50px;
+    
+}
+#Moyen{
+    color: #756EFF;
+}
+
+.btnNavigation{
+    width: 50px;
+}
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+#changepage p{
+    margin: 0;
+    opacity: 0;
+    transition: 500ms all;
+}
+#changepage:hover p{
+    margin: 0;
+    opacity: 1;
+    transition: 400ms all;
+}
+
+#changepage input{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 2px solid #756EFF;
+    border-radius: 50%;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #756EFF;
+}
+
+#MoyenContainer input[type=radio]:checked + label>img {
+    background-size: 100%;
+    opacity: 1;
+}
+
+#MoyenContainer input[type=radio] + label>img {
+    width: 120px;
+    height: 120px;
+    transition: 500ms all;
+    padding: 10%;
+    background-size:0%;
+    background-position: center;
+    background-repeat : no-repeat;
+    opacity: 0.5;
+    
+}
+
+#MoyenContainer input[type=radio] + label>img:hover{
+     background-repeat : no-repeat;
+     transform: scale(1.1);
+     background-size: 100%;
+     opacity: 1;
+     transition: 400ms all;
+
+}
+
+#changepage input[type=button]:disabled{
+    opacity: 0.5;
+}
+
+#changepage:hover input[type=button]:disabled + p{
+    opacity: 0.5;
+}
+
+#valide:disabled{
+    opacity: 0.5;
+}

@@ -8,27 +8,28 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        nomPers: "Stépanie",
-        pageId:1,
-        themeId:1,
-        moyenId:2,
+        nomPers: null,
+        pageId:0,
+        themeId:0,
+        moyenId:0,
         coords:[0,0]
     };
 
     getPage = () => {
         switch (this.state.pageId) {
             case 0:
-                return <Home onNextPage={this.nextPage}/>;
+                return <Home onNextPage={this.nextPage} updateNom={this.updateName}/>;
             case 1:
-                return <Theme onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+                return <Theme onNextPage={this.nextPage} onSetTheme={this.updateTheme} onPreviousPage={this.previousPage}/>;
             case 2:
-                return <Attributs onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+                return <Attributs onNextPage={this.nextPage} onSetAttributs={this.updateAttributs} onPreviousPage={this.previousPage}/>;
             case 3:
-                return <Moyen onNextPage={this.nextPage} onPreviousPage={this.previousPage} />;
+                return <Moyen onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
                 return <AcceuilCarte nomPers={this.state.nomPers}/>;
         }
     };
+
 
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
@@ -37,6 +38,22 @@ class App extends  React.Component {
     previousPage = () =>{
         const newPageId = this.state.pageId-1;
         this.setState({pageId:newPageId })
+    };
+
+    updateName=(e)=>{
+        this.setState({nomPers:e})
+    };
+
+    updateTheme = (e) => {
+        this.setState({ themeId: e })
+    };
+
+    updateAttributs = (e) => {
+        this.setState({ coords: e })
+    };
+
+    updateMoyen=(e)=>{
+        this.setState({moyenId:e})
     };
 
     render() {

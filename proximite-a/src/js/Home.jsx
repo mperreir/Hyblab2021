@@ -2,15 +2,37 @@ import React from 'react';
 import logo from '../img/LOGO OK_logo principal.png'
 import '../css/home.css'
 class Home extends  React.Component {
+    
+    state = {
+        nomPers:"",
+        buttonActivate: false
+    }
+
+    updateName= (e)=>{
+        this.setState({nomPers:e.target.value,
+            buttonActivate:true})
+    }
+
+    submitName = (updateNom,NextPage)=>{
+        updateNom(this.state.nomPers);
+        NextPage();
+    }
     render() {
-        const {onNextPage} = this.props;
+        const { updateNom,onNextPage} = this.props;
         return (
-            <div id="homeContainer" class="container d-flex justify-content-center align-items-center flex-column">
-                <img src={logo} width='200'></img>
-                <span class="text-center">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
-                <h2>Comment t’appelles-tu ?</h2>
-                <input type='text' placeholder='entrez votre prénom'/>
-                <input type='button' value='Explorer' onClick={onNextPage}/>
+            <div id="homeContainer" class="container">
+                <div class="container d-flex justify-content-center align-items-center flex-column">
+                    <img src={logo} id='logo'></img>
+                    <span id="paragraphe" class="text-center m-5">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
+                    <h4>Comment t’appelles-tu ?</h4>
+                    <input type='text' placeholder='entrez votre prénom' onChange={this.updateName}/>
+                    <input type='button' value='EXPLORER' onClick={() => { this.submitName(updateNom, onNextPage) }}disabled={!this.state.buttonActivate}/>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <input id="credits" type='button' value='Crédits' />
+                    <input type='button' value='EXPLORER' class="mt-3" onClick={(e) => { this.props.getName(this.state.nomPers) }, onNextPage}/>
+                </div>
+                <input id="credits" type='button' value='Crédits' />
             </div>
         );
     }
