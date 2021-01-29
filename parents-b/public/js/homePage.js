@@ -65,7 +65,6 @@ let initHome = function(){
                 opacity: 0,
                 duration: 300
             })
-            /*
             .add({
                 targets: ".catch-phrase",
                 opacity: 0,
@@ -144,8 +143,6 @@ let initHome = function(){
                 translateY: "-150%",
                 duration: 1000,
             })
-            */
-
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
