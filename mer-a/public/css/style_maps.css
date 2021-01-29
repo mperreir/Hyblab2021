@@ -15,7 +15,7 @@ div#department{
 	height: 100vh;
 }
 
-text, .text{
+text, .texte{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -25,7 +25,6 @@ text, .text{
     font-family: 'Poppins', sans-serif;
 
 }
-
 
 div#character{
 	width: 20vw;
@@ -90,7 +89,7 @@ p#narration {
     text-align: center;
     font-size: 1.7vh;
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: #7D7FBC;
 
     /* aspect de l'arrière-plan */
     padding: 0.8vh 1.2vh;
