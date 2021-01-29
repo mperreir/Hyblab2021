@@ -312,6 +312,7 @@ function affichageReset(){
         response.json().then(function(object) {
             if(object.status == 200){
                 addPhotos(object.output, object.criterion_not_met);
+				console.log(object);
             }
             else {
                 updateSlideFinNotFound();

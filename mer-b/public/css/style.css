@@ -511,6 +511,8 @@ input#distance {
     text-align: left;
     margin-bottom: 30px;
     margin-left: 20px;
+    position: relative;
+    top:-110px;
 }
 
 section#page-1 h1{ 
