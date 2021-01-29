@@ -13,36 +13,42 @@ div#critere_page {
     margin-top: 4em;
 }
 
-#persona{
-    margin-left: -10em;
-    margin-top: 2.7em;
-}
-
-#greeters_div{
-    padding-top: 2.8em;
-    margin-left: 20em;
+#container_persos .row{
+    margin: 0;
 }
 
 #greeters{
     width: 16vw;
     height: auto;
+    bottom: 0;
+    position: fixed;
+    right: 15em;
+
 }
 
 #jeune{
     width: 19vw;
     height: auto;
+    bottom: 0;
+    position: fixed;
+    left: 10em;
 }
 
 #famille{
     width: 30vw;
     height: auto;
-    padding-top: 2em;
+    bottom: 0;
+    position: fixed;
+    left:10em;
+
 }
 
 #senior{
     width: 15vw;
     height: auto;
-    padding-top: 1em;
+    bottom: 0;
+    position: fixed;
+    left:10em;
 }
 
 #sortable1, #sortable2, #sortable3{
@@ -53,9 +59,9 @@ div#critere_page {
 }
 
 #sortable1{
+    height: 5em;
     min-height: 70%;
     padding-top: 2em;
-
 }
 #sortable2 {
     background-color: #0C7AA0;
@@ -140,22 +146,13 @@ li{
 ul{
     padding: 0;
 }
-#container_persos .row{
-    margin: 0;
-}
 
 #critere_page #valider{
     width: 200px;
-    margin: 0;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    position: relative;
     height: 50px;
     font-size: 20px;
 }
-
 
 .criteres:before {
     content: "";
