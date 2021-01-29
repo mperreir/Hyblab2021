@@ -52,7 +52,7 @@ const legendNarration = {
 
 const persoBox = document.getElementById('character');
 
-const fontSize = window.innerHeight*0.023;
+/*const*/ fontSize = window.innerHeight*0.023;
 const padding = window.innerHeight*0.008;
 
 const narrationSpeed = 45; // 0 : instant ; 1000 : every second.
@@ -61,7 +61,7 @@ const narrationSpeed = 45; // 0 : instant ; 1000 : every second.
  * Variables definition
  */
 let perso = null;
-let categories = null;
+//let categories = null;
 let categorie = null;
 let legendes = null;
 
@@ -193,8 +193,8 @@ function leaveDot(t){
  * @param {string} url		the url of the current page.
  */
 function getCodeDepartement(url){
-	return parseInt(url.split('/')[5]);
-	//return document.querySelector('#content').dataset.department;
+	//return parseInt(url.split('/')[5]);
+	return parseInt(document.querySelector('#content').dataset.department);
 }
 
 /**
@@ -202,8 +202,8 @@ function getCodeDepartement(url){
  * @param {string} url		the url of the current page.
  */
 function getCodeType(url){
-	return parseInt(url.split('/')[6]);
-	//return document.querySelector('#content').dataset.personnage;
+	//return parseInt(url.split('/')[6]);
+	return parseInt(document.querySelector('#content').dataset.personnage);
 }
 
 /**
@@ -337,7 +337,7 @@ function stopNarration(narrator) {
  */
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
-	await getTypesId(r => categories = r);
+	//await getTypesId(r => categories = r);
 	categorie = getCategorie(codeType);
 	baseNarration.animation.text = categorie.phraseDep;
 	setNarrationBoxes();

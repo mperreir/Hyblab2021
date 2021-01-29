@@ -23,7 +23,7 @@ const validStrokeOpacity = '1';
 const invalidStrokeOpacity = '0.1';
 
 //Fonts
-const fontSize = 24;
+/*const*/ let fontSize = 24;
 
 //Strokes
 const validStrokeWidth = '2px';
@@ -45,8 +45,8 @@ let deps = {data: null, isValid: (code) => {
 function generateMap(mapFusion){
 
 	//Definition of the SVG dimensions
-	const width = window.innerWidth-5;
-	const height = window.innerHeight-5;
+	const width = window.innerWidth/*-5*/;
+	const height = window.innerHeight/*-5*/;
 
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
