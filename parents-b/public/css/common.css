@@ -12,7 +12,7 @@
 /* ---------------------- Font -------------------------- */
 .font-s{font-size: 0.2em;}
 .font-m{font-size: 0.3em;}
-.font-big-button{font-size: calc(1vh + 1vw);}
+.font-big-button{font-size: 0.15em;}
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
@@ -34,6 +34,7 @@
 /* ----------------------------------------------------------------------- */
 /* button default style */
 button{
+    outline: none;
     text-align: center;
     cursor: pointer;
     border: 0;
