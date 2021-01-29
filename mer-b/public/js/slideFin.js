@@ -23,6 +23,9 @@ let initSlideFin = function(){
 
 function getPlagesSlideFin(){
   getPlages();
+  let loading = document.getElementById("loading");
+  loading.innerHTML = '<img src="img/chargementecran.gif" /> <h2>Un instant, nous cherchons la plage de vos rêves...</h2>';
+  loading.style.display = "block";
 }
 
 var cards = document.getElementsByClassName("cartePostale");
@@ -114,4 +117,9 @@ function updateSlideFin(plages, criteres){
     let itineraire = cartePostale.querySelector(".itineraire");
     itineraire.setAttribute("href", "https://www.google.com/maps/dir/" + getAffichage().latitude + ",+" + getAffichage().longitude + " /" + element.latitude + "," + element.longitude + "/")
   });
+}
+
+function updateSlideFinNotFound(){
+  let loading = document.getElementById("loading");
+  loading.innerHTML = "<h2>Désolé, nous n'avons pas trouvé de plage correspondant à vos critères ! <br /> Essayez avec une nouvelle adresse ou d'autres critères.</h2>";
 }

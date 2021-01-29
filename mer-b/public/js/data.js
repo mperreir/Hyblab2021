@@ -248,7 +248,7 @@ function affichageReset(){
             ]
           },
           {
-            question : "A quel distance de la plage souhaitez-vous trouver ces aménagements ?",
+            question : "A quelle distance de la plage souhaitez-vous trouver ces aménagements ?",
             element: "distanceAmenagement",
             reponses : [
                 {
@@ -314,7 +314,7 @@ function affichageReset(){
                 addPhotos(object.output, object.criterion_not_met);
             }
             else {
-                console.log(object);
+                updateSlideFinNotFound();
             }
         });
       });

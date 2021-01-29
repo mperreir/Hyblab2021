@@ -83,7 +83,12 @@ function setTexte(id){
       
       stepperDiv.addEventListener('mousedown', function(e){
         isDown = true;
-        stepperBouton.style.left = (e.offsetX - 65) + "px";
+        if((e.offsetX - 65) > 0){
+          stepperBouton.style.left = (e.offsetX - 65) + "px";
+        }
+        else {
+          stepperBoutonImg.style.left = 0;
+        }
       });
 
       stepperBouton.addEventListener('mousedown', function(e) {
