@@ -48,11 +48,12 @@ export default Vue.extend({
         width: 40%;
         display: flex;
         align-items: center;
+        padding-left: 8%;
+        padding-bottom: 2%;
     }
     #home {
         cursor: pointer;
         width: 8%;
-        margin-left: 80px;
         margin-right: 20px;
     }
     .progressbar {

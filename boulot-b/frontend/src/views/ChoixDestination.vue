@@ -55,9 +55,9 @@
     <img id="nuage4" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
     <img id="nuage5" src="@/assets/nuages_svg/nuage1.svg" alt="nuage" />
 
-    <template #stepper>
+    <!-- <template #stepper>
       <Stepper :actif="actif" />
-    </template>
+    </template> -->
   </Container>
 </template>
 

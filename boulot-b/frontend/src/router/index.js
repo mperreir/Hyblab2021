@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/views/Home";
+import Test from "@/views/Test.vue"
 import QuestionnaireContainer from "@/views/QuestionSwitcher";
 
 Vue.use(VueRouter)
@@ -15,6 +16,11 @@ const routes = [
     path:"/questionnaire",
     name:"questionnaire",
     component: QuestionnaireContainer
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: Test
   },
 ]
 
