@@ -89,7 +89,7 @@ let initSlideChoixVelo = function () {
 
   d3.select('#plus-info-velo').on('click', function () {
     overrideAnim({
-      targets: ['#fleche-gauche-velo', '#plus-info-velo'],
+      targets: ['#plus-info-velo'],
       scale: 0
     });
     mySlidr.slide('info-choix-velo');
