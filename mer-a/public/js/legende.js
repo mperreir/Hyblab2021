@@ -4,9 +4,8 @@
 	const scene = document.querySelector('#scene');
 	const parallaxInstance = new Parallax(scene);
 	const path = '/mer-a/assets/img/logo/';
-	await getLegendeById(3, data => {
-		console.log(data);
-		console.log(2);
+	await getLegendeById(window.location.href.split('/')[5], data => {
+		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
 		document.querySelector('#modal-content').style.backgroundSize = 'cover';
@@ -26,8 +25,5 @@
 			logo.src = (boolean) ? `${path}logo_${id}.png` : `${path}logo_${id}_crossed.png`;
 			logo.title = (boolean) ? alt : `pas de ${alt}`;
 		}
-		$('#myModal').on('shown.bs.modal', function () {
-		  $('#myInput').trigger('focus')
-		})
 	});
 })();

@@ -165,6 +165,11 @@ app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
 });
 
+// Route to reach the departements page
+app.get(`/credits`, async (req, res) => {
+    res.status(200).sendFile(`public/html/credits.html`, { root : config.ROOT });
+});
+
 // Route to reach the legende page
 app.get(`/legende/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });

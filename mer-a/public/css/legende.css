@@ -23,7 +23,7 @@ div#title {
 
 div#title h2 {
 	color: white;
-	text-decoration: underline;
+	text-transform: uppercase;
 }
 
 /*==============
