@@ -199,7 +199,7 @@ h1 {
     line-height: 61px;
     /* identical to box height */
     color:var(--question-color, #203443);
-    max-width: 760px;
+    max-width: 761px;
 }
 
 .bouton {
@@ -551,6 +551,7 @@ div#containerReponses {
     position: relative;
     height: 100%;
     text-align: center;
+    background-color: rgb(255 255 255 / 80%);
 }
 
 h2 {
