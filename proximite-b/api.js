@@ -2,7 +2,52 @@
 
 const fetch = require('node-fetch');
 
-async function all_positions(list_criteres, persona, longitude, latitude){
+const config = {
+    // LES PRINCIPAUX
+    'Pharmacie': {
+        type: 'amenity',
+        attributes: ['pharmacy']
+    },
+    'Boulangerie': {
+        type: 'shop',
+        attributes: ['bakery']
+    },
+    'Supermarché': {
+        type: 'shop',
+        attributes: ['greengrocer', 'supermarket', 'mall']
+    },
+    'Médecin': {
+        type: 'amenity',
+        attributes: ['clinic', 'doctors', 'hospital']
+    },
+    'Ecole': {
+        type: 'amenity',
+        attributes: ['kindergarten', 'college', 'school', 'university']
+    },
+    'Lieu de culte': {
+        type: 'amenity',
+        attributes: ['place_of_worship']
+    },
+    // LES SECONDAIRES
+    'Coiffeur':{
+        type: 'shop',
+        attributes: ['hairdresser']
+    },
+    'Musee':{
+        type: 'tourism',
+        attributes: ['museum']
+    },
+    'Bibliotheque':{
+        type: 'amenity',
+        attributes: ['library']
+    },
+    'Salle de sport':{
+        type: 'leisure',
+        attributes: ['fitness_centre', 'sports_centre', 'fitness_station']
+    },
+}
+
+async function all_positions(liste_criteres, persona, longitude, latitude){
     const vitesses = {
         jeune: 5.5,  // average speed / one quarter
         famille: 5,
@@ -55,16 +100,8 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     
     console.log(longitude, latitude);
     console.log(minLat, minLon, maxLat, maxLon);
-    let request = `[out:json];
-    (
-    node[shop~"bakery|greengrocer|supermaket|mall|hairdresser"](${minLat},${minLon},${maxLat},${maxLon});
-    node[amenity~"pharmacy|clinic|doctors|hospital|bus_station|kindergarten college|school|university|library|place_of_worship"](${minLat},${minLon},${maxLat},${maxLon});
-    node[leisure~"fitness_centre|sports_centre|fitness_station"](${minLat},${minLon},${maxLat},${maxLon});
-    node[tourism~"museum"](${minLat},${minLon},${maxLat},${maxLon});
-    node[highway~"bus_stop"](${minLat},${minLon},${maxLat},${maxLon});
-    );
-    out;`;
-    request = await fetch("http://overpass-api.de/api/interpreter?data="+request);
+    let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
+    request = await fetch("http://overpass-api.de/api/interpreter?data=" + request);
     request = await request.json();
     
     let response = request;
@@ -88,54 +125,9 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     // Biblio  	amenity=library
     // Salle de sport   LEISURE fitness_centre sports_centre fitness_station
 
-    const config = {
-        // LES PRINCIPAUX
-        'Pharmacie': {
-            type: 'amenity',
-            attributes: ['pharmacy']
-        },
-        'Boulangerie': {
-            type: 'shop',
-            attributes: ['bakery']
-        },
-        'Supermarché': {
-            type: 'shop',
-            attributes: ['greengrocer', 'supermaket', 'mall']
-        },
-        'Médecin': {
-            type: 'amenity',
-            attributes: ['clinic', 'doctors', 'hospital']
-        },
-        'Ecole': {
-            type: 'amenity',
-            attributes: ['kindergarten', 'college', 'school', 'university']
-        },
-        'Lieu de culte': {
-            type: 'amenity',
-            attributes: ['place_of_worship']
-        },
-        // LES SECONDAIRES
-        'Coiffeur':{
-            type: 'shop',
-            attributes: ['hairdresser']
-        },
-        'Musee':{
-            type: 'tourism',
-            attributes: ['museum']
-        },
-        'Bibliotheque':{
-            type: 'amenity',
-            attributes: ['library']
-        },
-        'Salle de sport':{
-            type: 'leisure',
-            attributes: ['fitness_centre', 'sports_centre', 'fitness_station']
-        },
-    }
-
     // On classe tout dans les catégories
     let res = [];
-    list_criteres.forEach(critere => {
+    liste_criteres.forEach(critere => {
         config[critere] !== undefined && res.push(
         {
             'categorie': critere,
@@ -147,9 +139,9 @@ async function all_positions(list_criteres, persona, longitude, latitude){
     });
 
     // Ajout des parcs
-    if(list_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
+    if(liste_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
     // Ajout des arrets de bus
-    if(list_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
+    if(liste_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
     
     // Calculer les distances
     for(let cat_obj of res) {
@@ -279,4 +271,33 @@ async function get_adresse(lon, lat) {
     const response = await fetch(lieu);
     var resultAPI = await response.json();
     return resultAPI.features[0].properties.label;
+}
+
+function buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat) {
+    let query = `[out:json];
+    (`;
+    let subqueries = {};
+    liste_criteres.forEach(critere => {
+        if(config[critere]) {
+            if(!subqueries[config[critere].type])
+                subqueries[config[critere].type] = [];
+            config[critere].attributes.forEach(attr => subqueries[config[critere].type].push(attr));
+        }
+    });
+    for(const [key, value] of Object.entries(subqueries)) {
+        let attributes = "";
+        for(let i = 0; i < value.length - 1; i++) {
+            attributes += value[i] + '|';
+        }
+        attributes += value[value.length - 1];
+        query += `node[${key}~"${attributes}"](${minLat},${minLon},${maxLat},${maxLon});\n`;
+    }    
+    query += `);
+    out;`;
+    return query;
+    // node[shop~"bakery|greengrocer|supermarket|mall|hairdresser"](${minLat},${minLon},${maxLat},${maxLon});
+    // node[amenity~"pharmacy|clinic|doctors|hospital|bus_station|kindergarten college|school|university|library|place_of_worship"](${minLat},${minLon},${maxLat},${maxLon});
+    // node[leisure~"fitness_centre|sports_centre|fitness_station"](${minLat},${minLon},${maxLat},${maxLon});
+    // node[tourism~"museum"](${minLat},${minLon},${maxLat},${maxLon});
+    // node[highway~"bus_stop"](${minLat},${minLon},${maxLat},${maxLon});
 }
