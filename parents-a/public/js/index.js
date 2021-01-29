@@ -15,27 +15,32 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
-function nextSlide(page) {
+function nextSlide(page,data) {
     string = 'page-' + page
     console.log("Trig")
     mySlidr.slide(string);
     choixSlide(page);
 }
 
-function choixSlide(num) {
+function choixSlide(num,data) {
 
-    if (num == '1_1') { initSlide1_1() };
+    if (num == '1_1') { initSlide1_1(data) };
+  
+    if (num == '2') { initSlide2(data) };
 
-    if (num == '2') { initSlide2() };
+    if (num =='3'){ initSlide3(data)};
+    
+    if (num =='4'){ initSlide4(data)};
 
-    if (num == '3') { initSlide3() };
-    if (num == '4') { initSlide4() };
+    if (num == '5') { initSlide5(data) };
 
-    if (num == '5') { initSlide5() };
+    if (num == '6') { initSlide6(data) };
 
-    if (num == '6') { initSlide6() };
+    if (num == '7') { initSlide7(data) };
 
-    if (num == '7') { initSlide7() };
+    if (num =='8'){ initSlide7(data)};
+  
+    if (num =='9'){ initSlide7(data)};
 
 }
 
@@ -49,6 +54,7 @@ let initSlide1 = function() {
 
 //Slide de transi 
 let initSlide1_1 = function() {
+
         //Transi 1.2 vers 2(Camille) 
         d3.select('#t').on('click', function() {
             nextSlide('2')
@@ -99,6 +105,10 @@ let initSlide2 = function() {
     d3.select('#button2-p2-2').on('click', function() {
         nextSlide('3')
     });
+    //Retour arriere
+    d3.select('.button_retour').on('click', function() {
+        nextSlide('1')
+     });
 
 }
 
@@ -107,13 +117,16 @@ let initSlide2 = function() {
 let initSlide3 = function() {
     //Aventurier -> Plein la vue
 
+
     d3.select('#bouton_non_aventurier-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
-        mySlidr.slide('page-4');
-        initSlide4(data);
-        console.log(data);
+         nextSlide('4',data);
 
     });
+     //Retour arriere
+     d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('2')
+     });
 }
 
 //Plein la vue 
@@ -121,28 +134,35 @@ let initSlide4 = function(db) {
     //Plein la vue -> avec quoi 
     d3.select("#oh_oui_anime-p4").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        mySlidr.slide('page-5');
-        initSlide4();
-        console.log(data);
-
+        nextSlide('5',data);
     });
+     //Retour arriere
+     d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('3')
+     });
 }
 
 
 let initSlide5 = function() {
     //Plein la vue -> avec quoi 
     d3.select("#button_oui-p5").on('click', function() {
-        mySlidr.slide('page-6');
-        initSlide6();
+        nextSlide('6')
     });
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('4')
+     });
 }
 
 let initSlide6 = function() {
     //Plein la vue -> avec quoi 
     d3.select("#bouton_oh_oui-p6").on('click', function() {
-        mySlidr.slide('page-7');
-        initSlide7();
+        nextSlide('7')
     });
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('5')
+     });
 }
 
 let initSlide7 = function() {

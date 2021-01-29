@@ -1,0 +1,144 @@
+/* PAGE 10 */
+section[data-slidr="page-10"] {
+    /* fond */
+    position: absolute;
+    background: #171EB1;
+}
+
+#logo-p10 {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#dune-p10 {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse_droite-p10 {
+    position: absolute;
+    width: 30%;
+    right: 0%;
+    bottom: 0%;
+}
+
+#pelouse_gauche-p10 {
+    position: absolute;
+    width: 30%;
+    left: 0%;
+    bottom: 0%;
+}
+
+#arbre_jaune-p10 {
+    position: absolute;
+    width: 20%;
+    bottom: 8%;
+    left: 0%;
+}
+
+#arbuste_rouge-p10 {
+    position: absolute;
+    width: 18%;
+    right: 0%;
+    bottom: 5%;
+}
+
+#double_feuille_verte-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 9%;
+    right: 2%;
+}
+
+#feuille_bleue-p10 {
+    position: absolute;
+    width: 8%;
+    right: 1%;
+    bottom: 8%;
+}
+
+#question-p10 {
+    position: absolute;
+    width: 25%;
+    top: 25%;
+    left: 25%;
+}
+
+#centre-p10 {
+    position: absolute;
+    width: 11%;
+    right: 25%;
+    top: 44%;
+    filter: brightness(80%);
+    -webkit-filter: brightness(80%);
+}
+
+#centre-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+#nord-est-p10 {
+    position: absolute;
+    width: 20.5%;
+    right: 17.8%;
+    top: 15.2%;
+    transform: rotate(1deg);
+    filter: brightness(80%);
+    -webkit-filter: brightness(80%);
+}
+
+#nord-est-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+#ouest-p10 {
+    position: absolute;
+    width: 13.8%;
+    right: 33.7%;
+    top: 42.3%;
+    transform: rotate(362deg);
+    filter: brightness(80%);
+    -webkit-filter: brightness(80%);
+}
+
+#ouest-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+#sud-p10 {
+    position: absolute;
+    width: 15%;
+    right: 23.5%;
+    top: 50.5%;
+    transform: rotate(362deg);
+    filter: brightness(80%);
+    -webkit-filter: brightness(80%);
+    rotate: revert;
+}
+
+#sud-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+#bouton_peu_importe-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 50%;
+    left: 30%;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+}
+
+#bouton_peu_importe-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
