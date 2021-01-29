@@ -44,7 +44,7 @@ div#critere_page {
     left: 50.5%;
 }
 
-li{
+#critere_page li{
     width: 180px !important;
 }
 
@@ -60,7 +60,7 @@ li{
     display:inline-block;
 }
 
-button{
+#critere_page button{
     position: absolute;
     width: 200px;
     left: 45%;
