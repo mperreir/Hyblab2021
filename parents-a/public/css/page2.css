@@ -15,6 +15,13 @@ section[data-slidr="page-2"] {
     bottom: 15%;
     right: 10%;
     width: 40%;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-bleu-p2-1:hover {
+    transform: scale(1.1);
 }
 
 #mascotte-p2-1 {
@@ -69,14 +76,14 @@ section[data-slidr="page-2"] {
     position: absolute;
     bottom: 9%;
     right: 12%;
-    transform: rotate(355deg);
+    transform: rotate(353deg);
     width: 45%;
 }
 
 #double_feuille_verte-p2-1 {
     position: absolute;
-    bottom: 13%;
-    right: 36%;
+    bottom: 11%;
+    right: 35%;
     width: 15%;
     transform: rotate(350deg);
 }
@@ -85,12 +92,12 @@ section[data-slidr="page-2"] {
     position: absolute;
     bottom: 10%;
     right: 11%;
-    width: 35%;
+    width: 32%;
 }
 
 #arbre_jaune-p2-1 {
     position: absolute;
-    bottom: 10%;
+    bottom: 12%;
     right: 0%;
     width: 25%;
 }
@@ -125,8 +132,9 @@ section[data-slidr="page-2"] {
 
 #dune-p2-1 {
     position: absolute;
-    width: 130%;
-    bottom: 0%;
+    width: 100%;
+    bottom: -1%;
+    height: 17%;
 }
 
 /* Element qui disparaisse */
