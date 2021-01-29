@@ -8,9 +8,9 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        nomPers: "Stépanie",
+        nomPers: null,
         pageId:0,
-        themeId:1,
+        themeId:0,
         moyenId:0,
         coords:[0,0]
     };
@@ -20,9 +20,9 @@ class App extends  React.Component {
             case 0:
                 return <Home onNextPage={this.nextPage} updateNom={this.updateName}/>;
             case 1:
-                return <Theme onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+                return <Theme onNextPage={this.nextPage} onSetTheme={this.updateTheme} onPreviousPage={this.previousPage}/>;
             case 2:
-                return <Attributs onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+                return <Attributs onNextPage={this.nextPage} onSetAttributs={this.updateAttributs} onPreviousPage={this.previousPage}/>;
             case 3:
                 return <Moyen onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
@@ -42,8 +42,16 @@ class App extends  React.Component {
     updateName=(e)=>{
         this.setState({nomPers:e})
     };
+
+    updateTheme = (e) => {
+        this.setState({ themeId: e })
+    };
+
+    updateAttributs = (e) => {
+        this.setState({ coords: e })
+    };
+
     updateMoyen=(e)=>{
-        console.log("nouveau moyen "+e)
         this.setState({moyenId:e})
     };
 

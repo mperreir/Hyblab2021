@@ -14,11 +14,15 @@ class Moyen extends  React.Component {
         this.setState({
             vehicule: e,
             buttonActivate:true});
-        console.log(e);
+    }
+    submitMoyen = (update, NextPage) => {
+        update(this.state.moyenId);
+        NextPage();
     }
 
     render() {
-        const {onNextPage, onPreviousPage} = this.props;
+        const { onNextPage, onPreviousPage, onSetMoyen} = this.props;
+        
         return (
             <div id="MoyenContainer" class="container-fluid d-flex flex-row">
                 <div class="container align-items-center" >
@@ -41,10 +45,10 @@ class Moyen extends  React.Component {
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <h3>Choisis ton moyen de déplacement</h3>
                         <MoyenSelector updateSelect={this.handleChange}/>
-                        <input type='button' class="btn btn-primary mb-3" value='Valider' onClick={onNextPage} />
+                        <input type='button' class="btn btn-primary mb-3" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                     </div>
                     <div id="changepage" class="d-flex justify-content-center align-items-center flex-column">
-                        <input type='button' value='→' onClick={onNextPage} disabled={!this.state.buttonActivate}/>
+                        <input type='button' value='→' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                         <p id='suiv'>Suivant</p>
                     </div>
                 </div>

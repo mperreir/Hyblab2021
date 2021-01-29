@@ -101,3 +101,7 @@
 #changepage:hover input[type=button]:disabled + p{
     opacity: 0.5;
 }
+
+#valide:disabled{
+    opacity: 0.5;
+}

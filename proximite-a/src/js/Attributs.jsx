@@ -8,9 +8,20 @@ class Attributs extends React.Component{
     state = {
             coords: ""
         }
+    /**TODO: mettre le handleChange dans le render*/
+    handleChange = (e) => {
+        this.setState({
+            coords: e,
+            buttonActivate: true
+        });
+    }
 
+    submitAttributs = (update, NextPage) => {
+        update(this.state.coords);
+        NextPage();
+    }
     render(){
-        const {onNextPage, onPreviousPage} = this.props;
+        const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
         return(
             <div id="attribuscontainer" class="container">
                 <div class="row" no-gutters>
@@ -45,7 +56,7 @@ class Attributs extends React.Component{
                             
                             <input id="addressetextposition"type='text' placeholder=''/>
 
-                            <input id="validerposition" type='button' value='VALIDER' onClick={onNextPage}/>  
+                            <input id="validerposition" type='button' value='VALIDER' onClick={() => { this.submitMoyen(onSetAttributs, onNextPage) }}/>  
                        
                             <input id="boutonleft" type='button' value='←' onClick={onPreviousPage}/>
 
