@@ -1,5 +1,7 @@
 window.slides = {};
 
+let zoneChoisie = null, vehiculeChoisi = null;
+
 function registerSlide(name, init) {
     window.slides[name] = init;
 }

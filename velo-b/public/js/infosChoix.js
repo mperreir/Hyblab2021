@@ -32,6 +32,10 @@ registerSlide("info-choix-velo", function () {
         const sum = abris.reduce((result,a)=> result+a.capacite, 0);
         document.getElementById("velo-parking-places").innerText = sum;
     });
+    fetchJsonData("api/abris-velo/"+zoneChoisie, (abris) => {
+        const sum = abris.reduce((result,a)=> result+a.capacite, 0);
+        document.getElementById("velo-parking-places-zone").innerText = sum;
+    });
 });
 
 /**
@@ -96,18 +100,22 @@ registerSlide("info-choix-bicloo", function () {
 
     fetchJsonData("api/stations-velo-libre-service", (stations) => {
         document.getElementById("bicloo-stations").innerText = stations.length;
-        const sum = stations.reduce((result,a)=> result+a.capacite_num, 0);
-        //document.getElementById("bicloo-velos").innerText = sum;
     });
-
     fetchJsonData("api/disponibilites-bicloo", (dispos) => {
         const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
         document.getElementById("bicloo-velos").innerText = sum;
     });
+    fetchJsonData("api/stations-velo-libre-service/" + zoneChoisie, (stations) => {
+        document.getElementById("bicloo-stations-zone").innerText = stations.length;
+    });
+    fetchJsonData("api/disponibilites-bicloo/" + zoneChoisie, (dispos) => {
+        const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
+        document.getElementById("bicloo-velos-zone").innerText = sum;
+    });
 });
 
 /**
- * Cette fonction gère la slide avec les infos sur le vélo
+ * Cette fonction gère la slide avec les infos sur les transports en commun
  */
 registerSlide("info-choix-transports", function () {
     d3.select('#close-btn-transports').on('click', function () {
@@ -135,5 +143,9 @@ registerSlide("info-choix-transports", function () {
     fetchJsonData("api/arrets-tan", (arrets) => {
         console.log(arrets.filter(a => a.parent_station == undefined));
         document.getElementById("commun-arrets").innerText = arrets.filter(a => a.parent_station == undefined).length;
+    });
+    fetchJsonData("api/arrets-tan/" + zoneChoisie, (arrets) => {
+        console.log(arrets.filter(a => a.parent_station == undefined));
+        document.getElementById("commun-arrets-zone").innerText = arrets.filter(a => a.parent_station == undefined).length;
     });
 });
