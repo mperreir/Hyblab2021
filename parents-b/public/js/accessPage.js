@@ -40,3 +40,38 @@ let initAccess = function(){
         tl_suivant_access_over.pause();
     });
 };
+
+$(document).ready(function(){
+
+    $(".dropableCell").on('drop',function(event){
+        //gestion de l'ajout / remove de l'image
+    })
+
+    $( ".image-drop" ).draggable({
+         tolerance: 'fit',
+         revert: "invalid"
+    });
+
+    $(".dropableCell").droppable({
+        accept: ".image-drop",
+        hoverClass: "ui-state-active",
+            drop: function( event, ui ) {
+               var droppable = $(this);
+               var draggable = ui.draggable;
+               // Move draggable into droppable
+               draggable.appendTo(droppable);
+               draggable.css({top: '0px', left: '0px'});
+            }
+    })
+
+    $(".images-base").droppable({
+        accept: ".image-drop",
+        drop: function( event, ui ) {
+           var droppable = $(this);
+           var draggable = ui.draggable;
+           // Move draggable into droppable
+           draggable.css({top: '0px', left: '0px'});
+           draggable.appendTo(droppable);
+        }
+    })
+})

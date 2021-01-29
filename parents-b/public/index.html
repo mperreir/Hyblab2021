@@ -28,6 +28,11 @@
         document.getElementById('google_maps').src = 'https://maps.googleapis.com/maps/api/js?key='+GOOGLE_API_KEY+'&libraries=places';
     </script>
     <script src="js/google-address-autocomplete.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
 </head>
 <body class="background-black">
 <!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
@@ -139,52 +144,79 @@
         </section>
 
         <section data-slidr="access-page">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
-            <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
-            <img class="tree-access" src="./img/access_page/tree.svg" alt="Arbre">
-            <img class="leaves-access" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
-            <img class="oya-access" src="img/robot/oya_home.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
-            <img class="talking-bubble-access" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
-            <p class="oya-access-dialog dark-purple font-m">Glisse les icônes dans les bulles en fonction de tes préférences</p>
-            <img class="picto-access disabled-picto" src="img/common/pictograms/disabled_picto.svg" title="Accès Handicapé" alt="Handicapé Pictogramme">
-            <img class="picto-access table-picto" src="img/common/pictograms/table_picto.svg" title="Table de pique-nique" alt="Pique-Nique Pictogramme">
-            <img class="picto-access wc-picto" src="img/common/pictograms/wc_picto.svg" title="Toilettes" alt="Toilettes Pictogramme">
-            <img class="picto-access parking-picto" src="img/common/pictograms/parking_picto.svg" title="Accès Parking" alt="Parking Pictogramme">
-            <img class="picto-access restaurant-picto" src="img/common/pictograms/restaurant_picto.svg" title="Restauration proche" alt="Restaurant Pictogramme">
-            <img class="picto-access bench-picto" src="img/common/pictograms/bench_picto.svg" title="Banc pour s'asseoir" alt="Banc Pictogramme">
-            <img class="picto-access tram-picto" src="img/common/pictograms/tram_picto.svg" title="Accès Transports en commun" alt="Tram Pictogramme">
-            <img class="picto-access bin-picto" src="img/common/pictograms/bin_picto.svg" title="Poubelles" alt="Poubelle Pictogramme">
-            <img class="picto-access fence-picto" src="img/common/pictograms/fence_picto.svg" title="Parc clôturé" alt="Clôture Pictogramme">
-            <button class="button-non button-non-access font-m white background-dark-purple">NON</button>
-            <button class="button-oui button-oui-access font-m white background-dark-purple">OUI</button>
-            <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
-        </section>
+                <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
+                <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
+                <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+                <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
+                <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+                <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
+                <img class="tree-access" src="./img/access_page/tree.svg" alt="Arbre">
+                <img class="leaves-access" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
+                <img class="oya-access" src="img/robot/oya_home.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+                <img class="talking-bubble-access" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+                <p class="oya-access-dialog dark-purple font-m">Glisse les icônes dans les bulles en fonction de tes préférences</p>
 
-        <section data-slidr="fauna-flora-page">
-            <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
-            <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
-            <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
-            <img class="oya-fauna-flora" src="img/robot/oya_hour.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
-            <img class="talking-bubble-fauna-flora" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
-            <p class="oya-fauna-flora-dialog dark-purple font-m">Parlons faune et flore maintenant</p>
-            <img class="picto-fauna-flora dog-picto" src="img/common/pictograms/dog_picto.svg" title="Chiens autorisés" alt="Chien Pictogramme">
-            <img class="picto-fauna-flora animals-picto" src="img/common/pictograms/animals_picto.svg" title="Animaux dans le parc" alt="Animaux Pictogramme">
-            <img class="picto-fauna-flora pond-picto" src="img/common/pictograms/pond_picto.svg" title="Point d'eau" alt="Etang Pictogramme">
-            <img class="picto-fauna-flora grass-picto" src="img/common/pictograms/grass_picto.svg" title="Herbe" alt="Herbe Pictogramme">
-            <img class="picto-fauna-flora tree-picto" src="img/common/pictograms/tree_picto.svg" title="Arbres" alt="Arbre Pictogramme">
-            <button class="button-non button-non-fauna-flora font-m white background-dark-purple">NON</button>
-            <button class="button-oui button-oui-fauna-flora font-m white background-dark-purple">OUI</button>
-            <button class="button-suivant-fauna-flora button-suivant font-s dark-purple background-beige">SUIVANT</button>
-        </section>
+
+
+                <div class="images-base">
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/disabled_picto.svg" title="Accès Handicapé" alt="Handicapé Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/table_picto.svg" title="Table de pique-nique" alt="Pique-Nique Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/wc_picto.svg" title="Toilettes" alt="Toilettes Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/parking_picto.svg" title="Accès Parking" alt="Parking Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/restaurant_picto.svg" title="Restauration proche" alt="Restaurant Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/bench_picto.svg" title="Banc pour s'asseoir" alt="Banc Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/tram_picto.svg" title="Accès Transports en commun" alt="Tram Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/bin_picto.svg" title="Poubelles" alt="Poubelle Pictogramme"></div>
+                    <div class="column image-drop"><img class="picto-access" src="img/common/pictograms/fence_picto.svg" title="Parc clôturé" alt="Clôture Pictogramme"></div>
+                </div>
+
+                <div class="div-information">
+                    <p class="information-critere-text">Pour les critères n’ayant pas d’importance pour toi, laisse les à leur emplacement initial</p>
+                </div>
+
+
+
+                <div class="dropableCell button-non button-non-access font-m white background-dark-purple">
+                    <p class="titre-button">Non, je souhaite un lieu sans cet élément !</p>
+                </div>
+
+                <div class="dropableCell button-oui button-oui-access font-m white background-dark-purple">
+                    <p class="titre-button">Oui, il me le faut absolument !</p>
+                </div>
+
+                <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
+            </section>
+
+            <section data-slidr="fauna-flora-page">
+                <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
+        <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
+        <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
+        <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+        <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
+        <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+        <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
+        <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
+        <img class="oya-fauna-flora" src="img/robot/oya_hour.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+        <img class="talking-bubble-fauna-flora" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+                    <p class="oya-fauna-flora-dialog dark-purple font-m">Parlons faune et flore maintenant.</p>
+                    <p class="oya-fauna-flora-dialog-indication dark-purple font-m">De la même manière que précédemment, place les icônes en fonction de tes préférences !</p>
+                    <div class="images-base-fauna">
+                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/dog_picto.svg" title="Chiens autorisés" alt="Chien Pictogramme"></div>
+                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/animals_picto.svg" title="Animaux dans le parc" alt="Animaux Pictogramme"></div>
+                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/pond_picto.svg" title="Point d'eau" alt="Etang Pictogramme"></div>
+                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/grass_picto.svg" title="Herbe" alt="Herbe Pictogramme"></div>
+                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/tree_picto.svg" title="Arbres" alt="Arbre Pictogramme"></div>
+                    </div>
+
+                    <div class="dropableCell-fauna button-non button-non-fauna-flora font-m white background-dark-purple">
+                        <p class="titre-button-fauna">Non, je souhaite un lieu sans cet élément !</p>
+                    </div>
+
+                    <div class="dropableCell-fauna button-oui button-oui-fauna-flora font-m white background-dark-purple">
+                        <p class="titre-button-fauna">Oui, il me le faut absolument !</p>
+                    </div>
+                    <button class="button-suivant-fauna-flora button-suivant font-s dark-purple background-beige">SUIVANT</button>
+                </section>
 
         <section data-slidr="activities-page">
             <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
