@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="Resolution conflits">
+    <list default="true" id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/css/main.933bca92.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/css/main.933bca92.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/js/2.f92c754e.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/js/2.f92c754e.chunk.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/js/2.f92c754e.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/js/main.e35cbf5b.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/js/main.e35cbf5b.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/build/static/media/logo_hyblab.c37f2fb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proximite-a/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,14 +15,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.33184144">
+    <splitter split-orientation="horizontal" split-proportion="0.3861186">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
+                <state relative-caret-position="260">
+                  <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -45,8 +34,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+                <state relative-caret-position="180">
+                  <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -54,17 +43,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/proximite-a/server.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/proximite-a/build/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="2736" selection-start-column="2736" selection-end-column="2736" />
+                <state relative-caret-position="48">
+                  <caret line="10" column="50" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="50" />
                 </state>
               </provider>
             </entry>
@@ -83,7 +63,13 @@
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/proximite-a/src/js/App.js">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
@@ -150,7 +136,6 @@
         <option value="$PROJECT_DIR$/proximite-a/Main.js" />
         <option value="$PROJECT_DIR$/proximite-a/App.js" />
         <option value="$PROJECT_DIR$/proximite-a/public/index.css" />
-        <option value="$PROJECT_DIR$/proximite-a/package.json" />
         <option value="$PROJECT_DIR$/proximite-a/src/index.css" />
         <option value="$PROJECT_DIR$/proximite-a/src/App.js" />
         <option value="$PROJECT_DIR$/proximite-a/README.md" />
@@ -178,8 +163,9 @@
         <option value="$PROJECT_DIR$/proximite-a/src/js/App.js" />
         <option value="$PROJECT_DIR$/proximite-a/.env" />
         <option value="$PROJECT_DIR$/proximite-a/build/index.html" />
-        <option value="$PROJECT_DIR$/proximite-a/public/index.html" />
         <option value="$PROJECT_DIR$/proximite-a/server.js" />
+        <option value="$PROJECT_DIR$/proximite-a/public/index.html" />
+        <option value="$PROJECT_DIR$/proximite-a/package.json" />
       </list>
     </option>
   </component>
@@ -223,13 +209,6 @@
               <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
               <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
-              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -275,7 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="js.build_tools.npm">
       <command value="start" />
       <node-interpreter value="project" />
@@ -330,7 +309,7 @@
       <workItem from="1611782538564" duration="1591000" />
       <workItem from="1611844781647" duration="3379000" />
       <workItem from="1611851349337" duration="50586000" />
-      <workItem from="1611937928023" duration="2315000" />
+      <workItem from="1611937928023" duration="3972000" />
     </task>
     <task id="LOCAL-00001" summary="create branch dev">
       <created>1610728293834</created>
@@ -486,11 +465,25 @@
       <option name="project" value="LOCAL" />
       <updated>1611932864415</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="merging conflits dev build">
+      <created>1611940294949</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611940294949</updated>
+    </task>
+    <task id="LOCAL-00024" summary="merging conflits dev build">
+      <created>1611940343789</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1611940343789</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127940000" />
+    <option name="totallyTimeSpent" value="129597000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -504,7 +497,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1933" height="1096" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17467019" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13878629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" weight="0.16649048" />
@@ -514,13 +507,13 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.43271768" weight="0.511206" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.43060687" weight="0.38313767" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.48986125" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.7129288" weight="0.48986125" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49604222" visible="true" weight="0.27534685" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5039578" side_tool="true" visible="true" weight="0.27534685" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.492876" visible="true" weight="0.17929563" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.507124" side_tool="true" visible="true" weight="0.17929563" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.21024546" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -615,7 +608,8 @@
     <MESSAGE value="Fixation de merge avec branch3" />
     <MESSAGE value="Merge branch 'Frontpage3' into Feature/FrontPages1&#10;&#10;# Conflicts:&#10;#&#9;proximite-a/src/js/App.js" />
     <MESSAGE value="Resolution conflits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolution conflits" />
+    <MESSAGE value="merging conflits dev build" />
+    <option name="LAST_COMMIT_MESSAGE" value="merging conflits dev build" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/.gitignore" />
@@ -748,9 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/App.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/proximite-a/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -779,27 +770,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proximite-a/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+        <state relative-caret-position="48">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        <state relative-caret-position="180">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="33" />
         </state>
       </provider>
     </entry>
