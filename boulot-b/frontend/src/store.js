@@ -15,15 +15,15 @@ const store = {
     subscribe(state,callback) {
         this.subscribers.push({[state]: callback})
     },
-    notify(state) {
-        this.subscribers.forEach((subscribe) => {
-            subscribe[state](this.state[state])
+    notify(state, value) {
+        this.subscribers.forEach((subscriber) => {
+            subscriber[state](value)
         })
     },
     setActif(newActif) {
         if (this.debug) console.log('set actif', newActif)
         this.state.actif = newActif
-        this.notify("actif")
+        this.notify("actif", newActif)
     },
     setTypeDeplacement(type) {
         if (this.debug) console.log('set type déplacement', type)
