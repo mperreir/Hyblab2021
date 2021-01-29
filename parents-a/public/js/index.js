@@ -45,7 +45,8 @@ function disappear(id){
     .transition()
     .duration(700)
     .style("opacity", 0)
-    .style("cursor","classic")
+
+
 }
 
 function appear(id){
@@ -60,23 +61,23 @@ function appear(id){
 let initSlide2 = function() {
     //Transi Camille to Pret a démarrer 
     d3.select('#button-p2-1').on('click', function(){
-        console.log("C'est okay")
-        console.log( d3.select('#texte-p2-1'))
         
         //Disparition de la 1 bulle 
-        disappear('#texte-p2-1')
+        disappear('#disappear')
         disappear('#vector-p2-1')
-        disappear('#button-p2-1')
 
-        appear('#texte2-p2-1')
+        appear('#appear')
         appear('#vector-p2-1')
-        appear('#button-p2-2')
 
     });
-    d3.select('#button-p2-2').on('click', function(){
+
+      //transi next slide
+    d3.select('#button2-p2-2').on('click', function(){
         mySlidr.slide('page-3')
         initSlide3()
     });
+        
+   
 }
 
 
