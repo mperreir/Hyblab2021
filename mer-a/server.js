@@ -43,7 +43,8 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   rows.forEach((row) => {
     row.nomCategorie = decodeURI(row.nomCategorie);
     row.nomPersonnage = decodeURI(row.nomPersonnage);
-    row.phraseCat = decodeURI(row.phraseCat);
+    row.phrasePerso = decodeURI(row.phrasePerso);
+    row.phraseDep = decodeURI(row.phraseDep);
     row.imageURI = decodeURI(row.imageURI);
   });
   console.log(rows);

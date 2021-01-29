@@ -1,3 +1,9 @@
+'use strict';
+
+/**
+ * Configuration file that stores all useful global variables.
+ */
+
 const ROOT = '/mer-a/';
 const API_URL = 'api/';
 const API_REGIONS_ID = 'all/regions';

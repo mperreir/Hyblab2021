@@ -165,8 +165,9 @@ var narrationBox = document.getElementById('narration');
 let narration = narrationBox.innerHTML;
 narrationBox.innerHTML = "";
 let narrationInterval = setInterval(loadNarration, 60);
-
+let categories = null;
 let legendes = null;
+
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
 	//console.log(legendes);
@@ -176,13 +177,8 @@ let legendes = null;
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
 })();
 
-window.onload = () => {
-	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
-}
-
 window.addEventListener("resize", function(e) {
 	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
 	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
 	generateDep(map,mapFusion,codeDep,codeType);
 });
-
