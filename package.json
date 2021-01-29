@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha ./velo-b/api/test/ --timeout 60000 --exit"
+    "test-velo-b": "mocha ./velo-b/api/test/ --timeout 60000 --exit"
   },
   "dependencies": {
     "express": "^4.17.1",
