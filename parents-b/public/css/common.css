@@ -70,7 +70,7 @@ button{
     width: 14%;
     height: 8%;
     left: 43%;
-    top: 82%;
+    top: 87%;
     z-index: 2;
     border: 0.3em solid #ffe9de;
     font-weight: bold;
@@ -191,3 +191,4 @@ dessus de l'apect ratio 16/9 */
         font-size: 12vh;
     }
 }
+

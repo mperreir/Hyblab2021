@@ -22,6 +22,7 @@
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
     <script src="js/histoirePage.js" defer></script>
+    <script src="js/header.js" defer></script>
     <!-- For address page -->
     <script id="google_maps"></script>
     <script>
@@ -40,12 +41,17 @@
     <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
     <main id="slidr">
 
-
-
         <section data-slidr="home-page">
             <img class="page" src="img/home_page/background.svg" alt="Page d'accueil">
             <img class="trees-planet-home" src="img/home_page/arbres_homes_cropped.gif" alt="Arbres en mouvement et Planète">
             <img class="planet-home" src="img/home_page/planet.svg" alt="Planete">
+
+
+            <input type="image" class="logo-name" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+
+
             <img class="shooting-stars" src="img/home_page/shooting_stars.svg" alt="Étoiles filantes">
             <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
 
@@ -59,14 +65,19 @@
             <button class="button-begin font-m dark-purple background-beige">Go</button>
             <img class="talking-bubble-home" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
 
-            <button class="button-histoire font-m dark-purple background-beige"> Sequ’oya, c’est quoi ? </button>
+            </br></br>
+            <button id ="button-histoire" class="button-histoire font-m dark-purple background-beige"> Sequ’oya, c’est quoi ? </button>
 
-            <p class="oya-home-go dark-purple font-m">C'est parti !</p>
-            <p class="catch-phrase font-s dark-purple">Trop de choix ? Bonjour ! Je m'appelle Oya Je vais t'aider à trouver le parc idéal pour ta sortie!</p>
+            <p class="catch-phrase font-s dark-purple">Envie de prendre l’air avec tes enfants et de découvrir de nouveaux parcs dans la région ? Sequ’oya est là pour t’aider à faire le meilleur choix en fonction de tes envies du moment !</p>
+            <p class="oya-home-go dark-purple font-xs">Bonjour ! Je m’appelle Oya Je vais t’aider à trouver le parc idéal pour ta sortie !</p>
         </section>
 
         <section data-slidr="histoire-page">
             <img class="page" src="img/histoire/histoire_page.svg" alt="Page de renseignement sur Sequ'Oya">
+
+            <input type="image" class="logo-name logoAccueil" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+
             <img class="robot_histoire" id="robot_histoire" src="./img/robot/Robot_histoire.gif" alt="Oya">
             <p id="dialog" class="oya-histoire-dialog dark-purple font-s">
                 Bonjour petit humain et bienvenu dans mon univers… galactique !
@@ -77,7 +88,7 @@
             </br></br>
                 Après plusieurs années d'observation, je me suis surtout intéressé à la ville de Nantes, cette fourmilière géante regroupant 309 346 êtres humains protégés par le majestueux Grand Eléphant des Machines de l'île. </p>
             <p id="dialog2" class="oya-histoire-dialog dark-purple font-s">
-                Je me suis principalement attaché aux jeunes parents 
+                Je me suis principalement attaché aux jeunes parents
                 et j’ai remarqué qu’ils découvraient l’intérêt des parcs lorsqu’ils commençaient à avoir des enfants. Ils ne connaissaient peut-être pas si bien Nantes lorsqu’il s’agit de trouver des lieux ludiques et intéressants et se sentent surtout un peu perdus face aux 92 parcs et jardins que comporte la ville...
             </br></br>
                 C’est à ce moment-là que j'interviens !
@@ -87,11 +98,15 @@
                 Tu es prêt ? Alors… C’est parti !
 
             </p>
-            <button id="suivant_histoire" class="button-histoire suivant_histoire font-m button-histoire-font dark-purple background-beige"> La suite de mon histoire </button>
+            <button id="suivant_histoire" class=" suivant_histoire font-m button-histoire-font dark-purple background-beige"> La suite de mon histoire </button>
             <button id="accueil" class="accueil font-s white background-beige">Vers la page d'accueil</button>
         </section>
 
         <section data-slidr="address-page">
+
+            <input type="image" id="logoAccueil1"class="logo-name logoAccueil1" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+
             <img class="page" src="img/address_page/address_page.svg" alt="Page de renseignement de votre location">
             <img class="address-robot" id="address-robot" src="./img/address_page/Robot_09.gif" alt="Oya">
             <div class="fil-arianne">
@@ -129,11 +144,9 @@
         </section>
 
         <section data-slidr="hour-page">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+
+            <input type="image" id="logoAccueil2" class="logo-name logoAccueil2" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/hour_page/fil_arianne.svg" alt="Fil d'Arianne">
@@ -143,13 +156,14 @@
                 <button class="button-fil-arianne arianne-5-hour"></button>
                 <button class="button-fil-arianne arianne-6-hour"></button>
             </div>
+
             <img class="page" src="img/hour_page/background_hour.svg" alt="Page Horaire">
             <img class="leaves-hour" src="img/common/leaves/leaves_top_right.gif" alt="Feuilles">
             <img class="sol" src="img/hour_page/sol.svg" alt="sol">
-            <img class="buisson1" src="img/hour_page/buisson.gif" alt="sol1">
-            <img class="buisson2" src="img/hour_page/buisson.gif" alt="sol2">
-            <img class="buisson3" src="img/hour_page/buisson.gif" alt="sol3">
-            <img class="buisson4" src="img/hour_page/buisson.gif" alt="sol4">
+            <img class="buissonGrandGauche" src="img/hour_page/buissonGrand.svg" alt="buisson1">
+            <img class="buissonPetitGauche" src="img/hour_page/buissonPetit.svg" alt="buisson2">
+            <img class="buissonPetitDroit" src="img/hour_page/buissonPetit.svg" alt="buisson3">
+            <img class="buissonGrandDroit" src="img/hour_page/buissonGrand.svg" alt="buisson4">
 
             <img class="oya-hour" src="img/robot/oya_hour.gif" alt="Robot horaire">
             <img class="talking-bubble-hour" src="img/hour_page/bubble.svg" alt="Bulles de dialogue">
@@ -171,10 +185,8 @@
         </section>
 
         <section data-slidr="age-page">
-            <img class="logo-name" src="img/common/logo_name.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="img/common/volume_off.svg" alt="Volume Off">
+            <input type="image" id="logoAccueil3" class="logo-name logoAccueil3" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/age_page/fil_arianne.svg" alt="Fil d'Arianne">
@@ -217,11 +229,8 @@
         </section>
 
         <section data-slidr="access-page">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+            <input type="image" id="logoAccueil4" class="logo-name logoAccueil4" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/access_page/fil_arianne.svg" alt="Fil d'Arianne">
@@ -231,6 +240,7 @@
                 <button class="button-fil-arianne arianne-5-access"></button>
                 <button class="button-fil-arianne arianne-6-access"></button>
             </div>
+
             <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
             <img class="tree-access" src="./img/access_page/tree.svg" alt="Arbre">
             <img class="leaves-access" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
@@ -267,12 +277,12 @@
         </section>
 
         <section data-slidr="fauna-flora-page">
-            <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+
+            <img class="planet-fauna-flora" src="img/fauna_flora_page/planete.gif" alt="Planete">
+            <input type="image" id="logoAccueil5" class="logo-name logoAccueil5" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
+
+            <img class="planeteBeige" src="img/fauna_flora_page/planeteBeige.svg" alt="PlaneteBeige">
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/fauna_flora_page/fil_arianne.svg" alt="Fil d'Arianne">
@@ -283,7 +293,6 @@
                 <button class="button-fil-arianne arianne-6-fauna-flora"></button>
             </div>
             <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
-            <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
             <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
 
             <img class="oya-fauna-flora" src="img/robot/oya_hour.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
@@ -310,11 +319,8 @@
         </section>
 
         <section data-slidr="activities-page">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+            <input type="image" id="logoAccueil6" class="logo-name logoAccueil6" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/activities_page/fil_arianne.svg" alt="Fil d'Arianne">
@@ -324,6 +330,7 @@
                 <button class="button-fil-arianne arianne-4-activities"></button>
                 <button class="button-fil-arianne arianne-5-activities"></button>
             </div>
+
             <img class="page" src="img/activities_page/background.svg" alt="Page de renseignement de la faune et la flore">
             <img class="leaves-activities" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
 
@@ -351,21 +358,18 @@
                 <input type="checkbox" id="statue-input" checked>
                 <span class="slider round" title="Éléments culturels" ></span>
             </label>
-
+            <p class="text-dialog-activite dark-purple font-s">  Si cela est important pour toi, glisse le bouton vers la droite. Sinon, laisse le bouton à son emplacement initial !</p>
             <button id="searchData" class="button-suivant-activities button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
         <section data-slidr="searching-results-page">
-            <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-            <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-            <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-            <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
             <img class="page" src="img/searching_results_page/searching_results_page.svg" alt="Page d'animation de recherche des résultats">
             <img id="oya-searching-results" src="img/searching_results_page/robot_searching_results.gif" alt="Robot qui recherche les résultats">
         </section>
 
         <section data-slidr="results-page">
+            <input type="image" id="logoAccueil7" class="logo-name logoAccueil7" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
             <img class="page" src="img/results_page.svg" alt="Page d'animation de recherche des résultats">
             <button class="button-next button-next-results font-s white background-beige">Vers la page d'accueil</button>
         </section>
