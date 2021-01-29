@@ -17,7 +17,7 @@ let get15mnZone = async function(position, modeTransport = 'foot-walking') {
     try {
         const data = await request(`https://api.openrouteservice.org/v2/isochrones/${modeTransport}`, {
             method: 'POST',
-            body: `{"locations":[[${position}]],"range":[900,1]}`,
+            body: `{"locations":[[${position}]],"range":[900]}`,
             headers: {
                 'Authorization': '5b3ce3597851110001cf624829bf42551469445aa00ca476f174c648',
                 'Content-Type': 'application/json'
