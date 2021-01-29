@@ -4,14 +4,14 @@
       <div id="launcher">
         <div class="inputliste">
           <Input
-            @blur="onBlur"
+            @blur="onBlurDepart"
             @input="getAddressDepart"
             :error="error.depart"
             v-model="departlabel"
             class="depart"
             placeholder="Point de départ..."
           />
-          <ul class="depart-result-list">
+          <ul class="depart-result-list" >
             <li
               class="depart-result-item"
               v-for="item in suggestionsdepart"
@@ -22,8 +22,9 @@
             </li>
           </ul>
         </div>
-        <div class="inputliste">
+        <div class="inputliste" >
           <Input
+            @blur="onBlurArrive"
             :error="error.arrive"
             @input="getAddressArrive"
             v-model="arriveelabel"
@@ -55,9 +56,6 @@
     <img id="nuage4" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
     <img id="nuage5" src="@/assets/nuages_svg/nuage1.svg" alt="nuage" />
 
-    <!-- <template #stepper>
-      <Stepper :actif="actif" />
-    </template> -->
   </Container>
 </template>
 
@@ -96,9 +94,14 @@ export default {
     Oiseau,
   },
   methods: {
-    onBlur(value) {
+    onBlurDepart(value) {
       if (value) {
         this.message = "Okay, et quelle est ta destination ?";
+      }
+    },
+    onBlurArrive(value) {
+      if (value) {
+        this.message = "Parfait, j'attend ton signal"
       }
     },
     launch() {
@@ -108,7 +111,7 @@ export default {
         this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
         return;
       }
-      const path = [this.depart, this.arrive];
+      const path = [this.departlabel, this.arriveelabel];
       this.$root.$data.setPath(path);
       this.message = "Allons-y !";
       setTimeout(() => {
@@ -220,16 +223,17 @@ export default {
     background-color: #ffdb27;
     font-size: 20px;
     width: 37%;
-    z-index: 100;
   }
 
   .depart-result-list {
     @extend .result-list;
     top: 50px;
+    z-index: 101;
   }
   .arrivee-result-list {
     @extend .result-list;
     top: 160px;
+    z-index: 100;
   }
 
   .depart-result-item:hover, .arrive-result-item:hover {

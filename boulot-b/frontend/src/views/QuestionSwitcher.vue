@@ -16,19 +16,19 @@ import ChoixLieux from "@/views/ChoixLieux";
 import {routes} from "@/router";
 
 const Views = [
-  {actif: 1, component: ChoixDestination},
-  {actif: 2, component: ChoixTypeDeplacement},
-  {actif: 3, component: ChoixHumeur},
-  {actif: 4, component: ChoixStyle},
-  {actif: 5, component: ChoixTheme},
-  {actif: 6, component: ChoixLieux},
+  {actif: 0, component: ChoixDestination},
+  {actif: 1, component: ChoixTypeDeplacement},
+  {actif: 2, component: ChoixHumeur},
+  {actif: 3, component: ChoixStyle},
+  {actif: 4, component: ChoixTheme},
+  {actif: 5, component: ChoixLieux},
 ]
 
 export default {
   name: "QuestionnaireContainer",
   data() {
     return {
-      actif: 1,
+      actif: 0,
       view: ChoixDestination
     }
   },

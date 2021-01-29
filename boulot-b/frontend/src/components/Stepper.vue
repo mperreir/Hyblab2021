@@ -26,7 +26,7 @@ export default Vue.extend({
   },
   methods: {
     backHome() {
-      this.$router.push({name: "Home"})
+      this.$root.$data.setActif(0)
     },
     setClassActive() {
         const elem = document.getElementById(this.actif);
