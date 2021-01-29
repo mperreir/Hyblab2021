@@ -43,6 +43,8 @@ function choixSlide(num,data) {
     if (num =='9'){ initSlide9(data)};
 
     if (num =='10'){ initSlide10(data)};
+
+    if (num =='resultats'){ initSlideResultat(data)};
 }
 
 //Transition quand appuie sur logo page 1
@@ -241,26 +243,42 @@ let initSlide10 = function() {
 
     d3.select("#sud-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        nextSlide('6',data);
+        nextSlide('resultats',data);
         console.log(data);
     });
     d3.select("#ouest-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        nextSlide('6',data);
+        nextSlide('resultats',data);
         console.log(data);
     });
     d3.select("#nord-est-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        nextSlide('6',data);
+        nextSlide('resultats',data);
         console.log(data);
     });
     d3.select("#centre-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        nextSlide('10',data);
+        nextSlide('resultats',data);
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('5')
+     });
+}
+//
+let initSlideResultat = function() {
+
+    d3.select("#animaux-heureux-p9").on('click', async function() {
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        nextSlide('10',data);
+        console.log(data);
+    });
+    d3.select("#BOUTON_NON_ANIMAUX-sourcils-p9").on('click', async function() {
+        nextSlide('10',data);
+        console.log(data);
+    });
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('10')
      });
 }
 //Voir des animaux
