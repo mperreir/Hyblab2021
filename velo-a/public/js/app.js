@@ -100,7 +100,6 @@ document.getElementById("input-activite").onclick = () => {
 document.getElementById("input-vae").onclick = () => {
 	document.location.href = "question.html?page=VAE";
 };
-document.getElementById("left-nav").setAttribute("style", "visibility: visible");
 
 document.getElementById("btn-menu-nav").onclick = () => {
 	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"),null).getPropertyValue('visibility');
