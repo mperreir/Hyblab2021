@@ -127,17 +127,17 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
       console.log(row);
         var legende = new Legende(
             row.id,
-            decodeURI(row.nom), 
+            decodeURI(row.nom),
             decodeURI(row.nomDepartement), //A modifier
             decodeURI(row.nomCategorie),   //A modifier
-            decodeURI(row.resume), 
-            decodeURI(row.histoire), 
-            row.latitude, 
-            row.longitude, 
+            decodeURI(row.resume),
+            decodeURI(row.histoire),
+            row.latitude,
+            row.longitude,
             decodeURI(row.adresse),
-            (row.baignade === 1 ? true : false), 
-            (row.toilettes === 1 ? true : false), 
-            (row.restaurant === 1 ? true : false), 
+            (row.baignade === 1 ? true : false),
+            (row.toilettes === 1 ? true : false),
+            (row.restaurant === 1 ? true : false),
             decodeURI(row.photo));
         legendes.push(legende);
     });
@@ -154,7 +154,6 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-
 app.get(`/personnages/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
@@ -162,6 +161,11 @@ app.get(`/personnages/:idDep`, async (req, res) => {
 // Route to reach the departement page
 app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
+});
+
+// Route to reach the departements page
+app.get(`/credits`, async (req, res) => {
+    res.status(200).sendFile(`public/html/credits.html`, { root : config.ROOT });
 });
 
 // Route to reach the legende page

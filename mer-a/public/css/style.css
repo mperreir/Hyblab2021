@@ -11,6 +11,7 @@ div#content h4 {
   color: #FFF;
   font-family: "Helvetica";
   font-size: 1rem;
+  text-transform: uppercase;
 }
 
 div#content img#logo {

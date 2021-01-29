@@ -109,7 +109,7 @@ function generateMap(mapFusion){
 			})
 			.on('mouseleave', function(d){
 				let codeDep = d.properties.code;
-				let path = document.getElementById('path_' + codeDep); 
+				let path = document.getElementById('path_' + codeDep);
 				leave(codeDep,path);
 			})
 			.on('click', function(d){
@@ -127,7 +127,7 @@ function generateMap(mapFusion){
  * @param {object} d the data object from the map.
  */
 function setColor(d){
-	let codeDep = d.properties.code;	
+	let codeDep = d.properties.code;
 	return (deps.isValid(codeDep)) ? validDepColor : invalidDepColor;
 }
 
@@ -168,7 +168,7 @@ function leave(codeDep,t){
 		.transition().duration(500)
 		.style('fill-opacity', 1)
 		.style('stroke-width', strokeWidth)
-		.style("fill", validDepColor);
+		.style("fill", validDepColor)
   		.style('cursor','initial');
 		d3.select('#text_' + codeDep).style("display", 'none');
 	}
@@ -180,7 +180,7 @@ function leave(codeDep,t){
  */
 function selectDepartment(codeDep){
 	let id = getID(codeDep);
-	if(id > 0) document.location.href= ROOT + 'personnages/' + id; 
+	if(id > 0) document.location.href= ROOT + 'personnages/' + id;
 }
 
 /**
@@ -205,4 +205,3 @@ function getID(code){
 window.addEventListener("resize", function(e) {
 	generateMap(mapFusion);
 });
-
