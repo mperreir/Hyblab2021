@@ -1,4 +1,4 @@
-import { abrisVeloDisplayData } from "./abrisVelo.js";
+import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import {getMeteoByTime, getMeteoNow} from "./modules/meteo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 
