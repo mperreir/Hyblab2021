@@ -244,14 +244,6 @@ let initAge = function(){
                 duration: 500
             })
     });
-        txt2
-            .add({
-                opacity: 0,
-            })
-            .add({
-                delay : 4450,
-                opacity: 1,
-            })
 };
 
     d3.select('.button-suivant-age').on('mouseleave' ,function (){
