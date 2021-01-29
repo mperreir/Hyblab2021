@@ -1,6 +1,7 @@
 'use strict';
 
 (() => {
+	const path = '/mer-a/assets/img/logo/';
 	const scene = document.querySelector('#scene');
 	const parallaxInstance = new Parallax(scene);
 	const data = {
@@ -21,11 +22,10 @@
 	};
 
 	document.querySelector('#nom').innerHTML = data.nom;
-	document.querySelector('#department').innerHTML = data.departement;
-	document.querySelector('div#bubble').innerHTML = data.histoire;
-	document.querySelector('#categorie').innerHTML = data.categorie;
+	document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
+	document.querySelector('#modal-content').style.backgroundSize = 'cover';
+	document.querySelector('#title-legende h2').innerHTML = data.nom;
 	document.querySelector('#adresse').innerHTML = data.adresse;
-	document.querySelector('#photo').src = data.photo;
 	document.querySelector('#googlemaps').addEventListener('click', (event) => {
 		const url = `https://maps.google.com/?q=${data.latitude},${data.longitude}`;
 		window.open(url, '_blank');
@@ -37,7 +37,7 @@
 	function initLogo(id, alt, boolean) {
 		const logo = document.querySelector(`#${id}`);
 		logo.alt = (boolean) ? alt : `pas de ${alt}`;
-		logo.src = (boolean) ? `../assets/img/logo/logo_${id}.png` : `../assets/img/logo/logo_${id}_crossed.png`;
+		logo.src = (boolean) ? `${path}logo_${id}.png` : `${path}logo_${id}_crossed.png`;
 		logo.title = (boolean) ? alt : `pas de ${alt}`;
 	}
 	$('#myModal').on('shown.bs.modal', function () {
