@@ -1,34 +1,66 @@
 'use strict'
 
+/**
+ * The file used to load the map of the region with the character.
+ */
 
+/**
+ * Constants definition
+ */
 const url = window.location.href;
 const codeDep = getCodeDepartement(url);
 const codeType = getCodeType(url);
+
 const map = getMapDepartement(codeDep);
+
+const baseNarration = {
+	html: {
+		box: document.getElementById('narration'),
+		text: document.querySelector('#narration > span'),
+		pass: document.querySelector('#narration > button.pass_narration')
+	},
+	animation: {
+		text: null,
+		index: 0,
+		intervals: {
+			narration: null
+		}
+	},
+	properties: {
+		boxHeight: 0
+	}
+};
+const legendNarration = {
+	html: {
+		box: document.querySelector('#narration_legende'),
+		title: document.querySelector('#narration_legende > span.title'),
+		text: document.querySelector('#narration_legende > span.resume'),
+		pass: document.querySelector('#narration_legende > button.pass_narration')
+	},
+	animation: {
+		text: null,
+		index: 0,
+		intervals: {
+			narration: null,
+			timeout: null
+		}
+	},
+	properties: {
+		legendId: null
+	}
+};
+
 const persoBox = document.getElementById('character');
-const narrationBox = document.getElementById('narration');
-const narrationTextBox = document.querySelector('#narration > span');
-const narrationPass = document.querySelector('#narration > button.pass_narration');
-const legendNarrationBox = document.querySelector('#narration_legende');
-const legendNarrationTextBox = document.querySelector('#narration_legende > span.resume');
-const legendNarrationTitleBox = document.querySelector('#narration_legende > span.title');
-const legendNarrationPass = document.querySelector('#narration_legende > button.pass_narration');
+
 const fontSize = window.innerHeight*0.023;
 const padding = window.innerHeight*0.008;
+
 let perso = null;
-let narration = null;
-let narrationIndex = 0;
-let legendIndex = 0;
-let narrationInterval = null;
-let legendInterval = null;
-let legendTimeout = null;
-let legendNarrationId = null;
 let categories = null;
 let categorie = null;
 let legendes = null;
-let narrationBoxHeight = 0;
 
-function generateDep(depData, mapData, codeDep, codeType){
+function generateDep(mapData){
 
 	var width = window.innerWidth;
 	var height = window.innerHeight;
@@ -40,8 +72,8 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.attr("height", height);
 
 	// Place le centre de la map
-	var center = d3.geoCentroid(depData);
-	//console.log(depData);
+	var center = d3.geoCentroid(map);
+	//console.log(map);
 	//console.log(center);
 
 	// Projection des longitudes et latitudes
@@ -80,16 +112,15 @@ function generateDep(depData, mapData, codeDep, codeType){
 			.attr("fill-opacity", .5)
 			.on('mouseover', function(d){
 				hoverDot(this);
-				hoverLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
 			})
 			.on('mouseleave', function(d){
 				leaveDot(this);
-				leaveLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
 			.on('click', d => selectLegende(d.id));
 
 	for(let l of legendes) {
-		let lButtonLarge = document.createElement('div');
 		let lButton = document.createElement('a');
 		lButton.id = 'label_legende_' + l.id;
 		lButton.setAttribute('lbl-legende-id', l.id);
@@ -98,42 +129,15 @@ function generateDep(depData, mapData, codeDep, codeType){
 		lButton.style.top = (projection([l.longitude, l.latitude])[1]-100) + 'px';
 		lButton.innerHTML = l.nom;
 		lButton.onmouseover = (e) => {
-			hoverLabel(e.target);
+			e.target.style.display = 'block';
 			hoverDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
 		}
 		lButton.onmouseleave = (e) => {
-			leaveLabel(e.target);
+			e.target.style.display = 'none';
 			leaveDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
 		}
 		document.getElementById('department').appendChild(lButton);
 	}
-
-	// svg.selectAll("labels")
-	// 	.data(legendes)
-	// 	.enter()
-	// 	.append("text").append("tspan")
-	// 		.attr("id", function(d){ return 'label_legende_' + d.id; })
-	// 		.attr("lbl-legende-id", function(d){ return d.id; })
-	// 		.attr("class", "legend_button")
-	// 		.attr("x", function(d){ return projection([d.longitude, d.latitude])[0]; })
-	// 		.attr("y", function(d){ return projection([d.longitude, d.latitude])[1] - 14 - 20; })
-	// 		.text(function(d){ return d.nom})
-	// 		.attr("text-anchor", "middle")
-	// 		.attr("alignment-baseline", "central")
-	// 		.style("fill", "white")
-	// 		.style("display", "none")
-	// 		.style("font-size", 14)
-	// 		.style("font-weight", "bold")
-	// 		.attr("fill-opacity", 1)
-	// 		.on('mouseover', function(d){
-	// 			hoverLabel(this);
-	// 			hoverDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-	// 		})
-	// 		.on('mouseleave', function(d){
-	// 			leaveLabel(this);
-	// 			leaveDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-	// 		})
-	// 		.on('click', d => selectLegende(d.id));
 
 }
 
@@ -150,11 +154,6 @@ function hoverDot(t){
 		.style('cursor','pointer')
 		.style("fill-opacity", 0.6);
 	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
-	// TODO : faire apparaitre explication perso
-}
-function hoverLabel(t){
-	t.style.display = 'block';
-	// TODO : faire apparaitre explication perso
 }
 
 function leaveDot(t){
@@ -163,12 +162,7 @@ function leaveDot(t){
 		.attr("r", 14)
 		.style('cursor','initial')
 		.style("fill-opacity", 0.5);
-	legendTimeout = setInterval(hideLegendNarration, 3000);
-	// TODO : faire disparaitre explication perso
-}
-function leaveLabel(t){
-	t.style.display = 'none';
-	// TODO : faire disparaitre explication perso
+	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
 }
 
 function getCodeDepartement(url){
@@ -202,16 +196,10 @@ function loadCharacter() {
 	persoBox.appendChild(imgChar);
 }
 
-function loadNarration() {
-	narrationTextBox.innerHTML += narration[narrationIndex];
-	narrationIndex++;
-	if(narration.length === narrationIndex) stopNarration();
-}
-
-function legendNarrate(legend) {
-	legendNarrationTextBox.innerHTML += legend[legendIndex];
-	legendIndex++;
-	if(legend.length === legendIndex) stopLegendNarration(legend);
+function narrate(narrator) {
+	narrator.html.text.innerHTML += narrator.animation.text[narrator.animation.index];
+	narrator.animation.index++;
+	if(narrator.animation.text.length === narrator.animation.index) stopNarration(narrator);
 }
 
 function getCategorie(type) {
@@ -226,69 +214,64 @@ function getLegende(id) {
 	}
 }
 
-function setNarrationBox() {
-	let nbRows = narration.length / (narrationBox.offsetWidth / (fontSize*0.6667)) + 1;
-	narrationBoxHeight = fontSize * nbRows + padding * 2;
-	narrationBox.style.height = `${narrationBoxHeight}px`;
-	narrationBox.style.top = `-${narrationBoxHeight}px`;
-	narrationPass.onclick = stopNarration;
-	legendNarrationPass.onclick = stopLegendNarration;
-	legendNarrationBox.style.display = 'none';
+function setNarrationBoxes() {
+	let nbRows = baseNarration.animation.text.length / (baseNarration.html.box.offsetWidth / (fontSize*0.6667)) + 1;
+	baseNarration.properties.boxHeight = fontSize * nbRows + padding * 2;
+	baseNarration.html.box.style.height = `${baseNarration.properties.boxHeight}px`;
+	baseNarration.html.box.style.top = `-${baseNarration.properties.boxHeight}px`;
+	baseNarration.html.pass.onclick = () => stopNarration(baseNarration);
+	legendNarration.html.pass.onclick = () => stopNarration(legendNarration);
+	legendNarration.html.box.style.display = 'none';
 }
 
 function loadLegendNarration(id) {
 	resetLegendNarration();
-	legendNarrationId = id;
+	legendNarration.properties.legendId = id;
 	let legende = getLegende(id);
-	legendNarrationBox.style.display = 'block';
-	legendNarrationPass.style.display = 'block';
-	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarrationBox.offsetWidth / (fontSize*0.6667)) + 2;
-	legendNarrationBox.style.height = `${fontSize * nbRows + padding * 2}px`;
-	legendNarrationBox.style.top = `-${fontSize * nbRows + padding * 2 + narrationBoxHeight + window.innerHeight*0.07}px`;
-	legendNarrationTitleBox.innerHTML = legende.nom;
-	legendInterval = setInterval(legendNarrate, 45, legende.resume);
+	legendNarration.html.box.style.display = 'block';
+	legendNarration.html.pass.style.display = 'block';
+	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarration.html.box.offsetWidth / (fontSize*0.6667)) + 2;
+	legendNarration.html.box.style.height = `${fontSize * nbRows + padding * 2}px`;
+	legendNarration.html.box.style.top = `-${fontSize * nbRows + padding * 2 + baseNarration.properties.boxHeight + window.innerHeight*0.07}px`;
+	legendNarration.html.title.innerHTML = legende.nom;
+	legendNarration.animation.text = legende.resume;
+	legendNarration.animation.intervals.narration = setInterval(narrate, 45, legendNarration);
 }
 
 function resetLegendNarration() {
-	clearInterval(legendInterval);
-	clearInterval(legendTimeout);
-	legendNarrationTextBox.innerHTML = '';
-	legendIndex = 0;
+	clearInterval(legendNarration.animation.intervals.narration);
+	clearInterval(legendNarration.animation.intervals.timeout);
+	legendNarration.html.text.innerHTML = '';
+	legendNarration.animation.index = 0;
 }
 
 function hideLegendNarration() {
-	clearInterval(legendTimeout);
-	legendNarrationBox.style.display = 'none';
-	legendIndex = 0;
+	clearInterval(legendNarration.animation.intervals.timeout);
+	legendNarration.html.box.style.display = 'none';
+	legendNarration.animation.index = 0;
 }
 
-function stopNarration() {
-	clearInterval(narrationInterval);
-	narrationTextBox.innerHTML = narration;
-	narrationPass.remove();
-}
-function stopLegendNarration(legend) {
-	if(typeof(legend) !== "string") legend = getLegende(legendNarrationId).resume;
-	clearInterval(legendInterval);
-	legendNarrationTextBox.innerHTML = legend;
-	legendNarrationPass.style.display = 'none';
+function stopNarration(narrator) {
+	clearInterval(narrator.animation.intervals.narration);
+	narrator.html.text.innerHTML = narrator.animation.text;
+	narrator.html.pass.style.display = 'none';
 }
 
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
 	await getTypesId(r => categories = r);
 	categorie = getCategorie(codeType);
-	narration = categorie.phraseDep;
-	setNarrationBox();
-	generateDep(map,mapFusion,codeDep,codeType);
+	baseNarration.animation.text = categorie.phraseDep;
+	setNarrationBoxes();
+	generateDep(mapFusion);
 	loadCharacter();
 	perso = document.getElementById('character_image');
-	narrationInterval = setInterval(loadNarration, 45);
+	baseNarration.animation.intervals.narration = setInterval(narrate, 45, baseNarration);
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,500);
 })();
 
 window.addEventListener("resize", function(e) {
 	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
-	setNarrationBox();
-	generateDep(map,mapFusion,codeDep,codeType);
+	setNarrationBoxes();
+	generateDep(mapFusion);
 });
