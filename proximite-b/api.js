@@ -192,7 +192,13 @@ async function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
     const rayon_terre = 6378;
     const distance = rayon_terre * Math.acos(Math.sin(dtr(lat1)) * Math.sin(dtr(lat2)) + Math.cos(dtr(lat1)) * Math.cos(dtr(lat2)) * Math.cos(dtr(lon2)-dtr(lon1)));
     const temps = Math.round(distance / vitesse * 60);
-    return temps < 0 ? 1 : temps;
+    if (temps == 0) {
+        return 1;
+    }
+    if (temps > 15) {
+        return 15;
+    }
+    return temps;
 }
 
 // Degree to radian
@@ -227,7 +233,7 @@ async function api_bus(polygon) {
         geo_polygon += "(" + point[1] + "," + point[0] + "),";
     })
     geo_polygon = geo_polygon.slice(0, -1);
-    const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=&rows=1000&location_type=1&geofilter.polygon=" + geo_polygon;
+    const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=location_type=1&rows=1000&geofilter.polygon=" + geo_polygon;
     const response = await fetch(lien);
     const resultAPI = await response.json();
     const arrets = [];
