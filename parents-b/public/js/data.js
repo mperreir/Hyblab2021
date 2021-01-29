@@ -86,9 +86,11 @@ function geoAttribute(latitude, longitude) {
 }
 
 function noGeoAttribute(event) {
-    myCriteria["Géolocalisation"].lat = null;
-    myCriteria["Géolocalisation"].lng = null;
-    nbElemChoisit--;
+    if (myCriteria["Géolocalisation"].lat) {
+        myCriteria["Géolocalisation"].lat = null;
+        myCriteria["Géolocalisation"].lng = null;
+        nbElemChoisit--;
+    }
 }
 
 function latAttribute(event) {
@@ -397,7 +399,7 @@ function fetchData() {
             console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);
-
+            console.log(nbElemChoisit);
             // Récupération des 3 meilleurs
             const top = json.slice(0, 3);
             console.log(top);
