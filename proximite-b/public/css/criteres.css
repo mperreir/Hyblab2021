@@ -1,70 +1,172 @@
 div#critere_page {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    background-image: url('/proximite-b/img/criteres/fond.svg#svgView(preserveAspectRatio(none))');
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
+}
+
+#container_custom{
+    margin-left: 20em;
+    margin-right: 20em;
+    margin-top: 4em;
+}
+
+#container_persos .row{
+    margin: 0;
+}
+
+#greeters{
+    width: 16vw;
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    right: 15em;
+}
+
+#jeune{
+    width: 19vw;
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    left: 10em;
+}
+
+#famille{
+    width: 30vw;
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    left:10em;
+}
+
+#senior{
+    width: 15vw;
+    height: auto;
+    bottom: 0;
+    position: fixed;
+    left:10em;
+}
+
+#sortable1, #sortable2, #sortable3{
+    position: relative;
+    border-radius: 10%;
+    list-style-type: none;
+    width: 100%;
 }
 
 #sortable1{
-    position: absolute;
-    left: 10%;
-    /*border: 1px solid #000;*/
-    width: 1600px;
-    min-height: 40px;
-    list-style-type: none;
-    margin: 0;
-    float: left;
-    margin-right: 10px;
-    top : 6%;
+    height: 5em;
+    min-height: 70%;
+    padding-top: 2em;
 }
 #sortable2 {
-    /*border: 1px solid #000;*/
-    width: 440px;
-    min-height: 300px;
-    list-style-type: none;
-    margin: 0;
+    background-color: #0C7AA0;
+    height: 100%;
+    min-height: 15em;
     padding: 15px 10px 15px 30px;
-    margin-right: 10px;
-    position: absolute;;
-    top:20%;
-    left: 26%;
+
 }
 
 #sortable3 {
-    /*border: 1px solid #000;*/
-    width: 440px;
-    min-height: 300px;
-    list-style-type: none;
-    margin: 0;
+    background-color: #ffd044;
+    min-height: 15em;
     padding: 15px 10px 15px 30px;
-    margin-right: 10px;
-    position: absolute;;
-    top:20%;
-    left: 50.5%;
 }
 
-#critere_page li{
-    width: 180px !important;
+#sort2, #sort3{
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px 0px 0px 0px;
+    position: relative;
+    position: relative;
+    border-radius: 10%;
+    margin-right: 10px;
+    margin-top: 4em;
+}
+
+#sort2 {
+    background-color: #bde1ed;
+    height: 23em;
+    max-height: 85%;
+    margin-right: 10px;
+    margin-top: 4em;
+}
+
+#sort3{
+    background-color: #ffdf8f;
+    height: 60%;
+}
+
+.criteres{
+    width: 200px !important;
 }
 
 #sortable1 li,#sortable2 li, #sortable3 li{
     text-align: center;
-    margin: 5px;
+    margin: 5px 0px 5px 0px;
     padding: 10px;
     font-size: 1.2em;
-
 }
 
 #sortable1 li{
     display:inline-block;
 }
 
-#critere_page button{
-    position: absolute;
+#consigne{
+    color: #E5E5E4;
+    padding: 20px 5px 20px 5px;
+    background-color: #E3572C;
+    width: 100%;
+    height: 10em;
+    border-radius: 30px;
+}
+
+
+#proche, #loin{
+    padding-bottom: 0;
+}
+
+#loin{
+    width:100%;
+}
+
+.critere_button {
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-family: ArchitectDaughter;
+}
+
+ul#sortable1{
+    padding: 0;
+}
+
+#critere_page #valider{
     width: 200px;
-    left: 45%;
-    top: 60%;
+    position: relative;
     height: 50px;
     font-size: 20px;
+}
+
+.criteres:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+}
+
+.div_sort2{
+    background-color: #2a325a;
+    border-radius: 15px;
+    z-index: 100;
+    position: relative;
+    list-style-type: none;
 }

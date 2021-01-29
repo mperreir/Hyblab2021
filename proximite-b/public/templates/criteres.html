@@ -1,26 +1,47 @@
 <div id="critere_page">
+    <div id="container_custom">
+        <div id="sort" class="row">
+            <div class="col text-center">
+                <div id="sort2">
+                    <p id="proche"class="figma_input_txt">Je veux être proche de :</p>
+                    <ul id="sortable2" class="connectedSortable"></ul>
+                </div>
+            </div>
+            <div class="col-4 text-center">
+                <p id="consigne" class="figma_input_txt">Parmi cette liste, quels sont les services de proximité dont vous voulez être proche et quels sont les lieux que vous souhaitez éviter ? Faites glisser dans chacune des cases.</p>
 
-<ul id="sortable1" class="connectedSortable">
-    <li class="figma_button figma_bg_yellow" id="pharmacie">Pharmacie</li>
-    <li class="figma_button figma_bg_orange" id="boulangerie">Boulangerie</li>
-    <li class="figma_button figma_bg_blue" id="supermarche">Supermarche</li>
-    <li class="figma_button figma_bg_blue" id="medecin">Médecin</li>
-    <li class="figma_button figma_bg_blue" id="bus">Arret bus</li>
-    <li class="figma_button figma_bg_blue" id="ecole">Ecole</li>
-    <li class="figma_button figma_bg_blue" id="parc">Parc</li>
-    <li class="figma_button figma_bg_blue" id="culte">Lieu de culte</li>
-</ul>
+                <ul id="sortable1" class="connectedSortable">
+                    <li class="criteres" id="pharmacie">Pharmacie</li>
+                    <li class="criteres" id="boulangerie">Boulangerie</li>
+                    <li class="criteres" id="supermarche">Supermarche</li>
+                    <li class="criteres" id="medecin">Médecin</li>
+                    <li class="criteres" id="bus">Arret bus</li>
+                    <li class="criteres" id="ecole">Ecole</li>
+                    <li class="criteres" id="parc">Parc</li>
+                    <li class="criteres" id="culte">Lieu de culte</li>
+                </ul>
 
-<ul id="sortable2" class="connectedSortable">
+                <button id="valider" onclick="criteres_submitInterest()" class="figma_button figma_bg_orange" >Valider</button>
 
-</ul>
+            </div>
+            <div class="col text-center">
+                <div id="sort3">
+                    <p id="loin" class="figma_input_txt">Je souhaite éviter :</p>
+                    <ul id="sortable3" class="connectedSortable"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<ul id="sortable3" class="connectedSortable">
+    <div id="container_persos">
+        <div class="row">
 
-</ul>
+            <div id="persona" class="col text-center"></div>
+            <div class="col text-center">
+                <img id="greeters" src="/proximite-b/img/criteres/greeters.svg">
+            </div>
 
-<div>
-    <button onclick="criteres_submitInterest()" class="figma_button figma_bg_orange" >Valider</button>
-</div>
+        </div>
+    </div>
 </div>
 
