@@ -13,5 +13,6 @@ let initHistoire = function(){
     d3.select('.suivant_histoire').on('click', function (){
         document.getElementById("dialog").hidden = true;
         document.getElementById("dialog2").hidden = false;
+        document.getElementById("suivant_histoire").hidden = true;
     });
 };

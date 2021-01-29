@@ -1,7 +1,7 @@
 .robot_histoire{
     position: absolute;
     top: 21%;
-    left: 0%;
+    left: -1%;
     width: 30%;
     z-index: 2;
 }
