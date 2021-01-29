@@ -1,5 +1,3 @@
-// TODO: ajouter splash screen au graphe, choice = timeout
-
 registerSlide("splash-screen", function () {
     const anim = bodymovin.loadAnimation({
         container: document.getElementById('logo-anim'),
@@ -11,8 +9,6 @@ registerSlide("splash-screen", function () {
     anim.setSpeed(2.5);
 
     anim.addEventListener("data_ready", () => {
-        setTimeout(() => {
-            goToSlide('page-accueil');
-        }, 2000);
+        setTimeout(() => goToNextSlide('timeout'), 2000);
     });
 });

@@ -1,4 +1,9 @@
 {
+  "splash-screen": {
+    "next": {
+      "timeout": "page-accueil"
+    }
+  },
   "page-accueil": {
     "next": {
       "ok": "page-carte"
