@@ -22,6 +22,9 @@ app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangeri
 let port = 8080;
 //let api = require('./api');
 
+
+app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
+
 app.listen(port);
 
 // This module is exported and served by the main server.js located
