@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * File that provides functions to request data from the API.
  */
