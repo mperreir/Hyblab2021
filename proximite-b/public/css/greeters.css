@@ -11,7 +11,7 @@
     position: relative;
 }
 #greeter_img{
-    width: 12vw;
+    width: auto;
     height: 65vh;
 }
 #etu_img{
