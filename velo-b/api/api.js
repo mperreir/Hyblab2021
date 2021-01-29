@@ -4,8 +4,13 @@
 const express = require('express');
 const fs = require('fs');
 const fetch = require('node-fetch');
-const HttpProxyAgent = require('http-proxy-agent');
+const HttpsProxyAgent = require('https-proxy-agent');
 const config = require('../config');
+
+
+let proxy = {
+    agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128'),
+};
 
 const API_NANTES_ROUTES = {
     parcs_relais: "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-relais-nantes-metropole-disponibilites&q=&lang=fr&facet=grp_nom&facet=grp_statut&rows=-1",
@@ -52,7 +57,7 @@ module.exports = () => {
             data = loadJSONFile(file_name);
         }catch (e){
             // Faire appel à la route update si ce message apparait
-            throw {message:"Données indisponnibles", code:503};
+            throw {message:"Données indisponnibles", code:503, error_content:e};
         }
         return quartier?data[quartier]:(Array.isArray(data)?data:Object.values(data).flat());
     }
@@ -67,7 +72,11 @@ module.exports = () => {
             try {
                 res.status(200).send(JSON.stringify(await callback(req, res)));
             }catch (e){
-                res.status(e.code).send(JSON.stringify({error:e}));
+                const err = e
+                if(err.code){
+                    err.code = err.code?err.code:500
+                }
+                res.status(err.code).send(JSON.stringify({error:err}));
             }
         };
     }
@@ -128,11 +137,12 @@ module.exports = () => {
             const polygon_api = quartiers[quartier].reduce((acc, val) => acc + `(${val[0]}%2C${val[1]})%2C`, '').slice(0, -3);
             url += '&geofilter.polygon=' + polygon_api;
         }
-
-        let options = {
-            agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128'),
-        };
-        const response = await fetch(url, config.env==='prod'?options:undefined);
+        let response;
+        try{
+            response = await fetch(url, config.env==='prod'?proxy:undefined);
+        } catch (e) {
+            throw {message:"Une erreur inconnue est survenue.", code:500, error_content:e};
+        }
         return (await response.json()).records.map(r => r.fields);
     }
 
