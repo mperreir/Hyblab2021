@@ -126,7 +126,7 @@ div#instructions > p.narration {
     opacity: 1;
 }
 
-button#pass_narration {
+button.pass_narration {
   position: absolute;
   font-family: 'Poppins', sans-serif;
   width: 40%;
