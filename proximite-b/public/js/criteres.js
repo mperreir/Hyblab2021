@@ -4,25 +4,15 @@ function criteres_background() {
     var img = document.createElement('img');
     img.src =  '/proximite-b/img/criteres/'+perso+'.svg#svgView(preserveAspectRatio(none))';
     img.id = perso;
-// div_content = document.getElementById("critere_page");
-//
-// if (perso == "famille") {
-//     img.id = perso;
-// } else if (perso == "jeune") {
-//     console.log("test2");
-// } else if (perso == "senior") {
-//     console.log("test3");
-// }
     document.getElementById('persona').appendChild(img);
 
+    var sort = document.getElementById('sortable1');
+    for (let child of sort.children) {
+        console.log(child.id);
+        child.style.backgroundImage = "url(/proximite-b/img/criteres/icons/"+child.id+".svg)";
+        child.style.backgroundRepeat = "no-repeat";
+    }
 }
-
-
-
-
-
-
-
 
 function criteres_submitInterest() {
     var ul2 = document.getElementById("sortable2");

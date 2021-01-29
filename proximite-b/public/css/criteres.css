@@ -1,97 +1,103 @@
 div#critere_page {
-    /*background-image: url('/proximite-b/img/criteres/fond.svg#svgView(preserveAspectRatio(none))');*/
+    background-image: url('/proximite-b/img/criteres/fond.svg#svgView(preserveAspectRatio(none))');
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+}
+
+#container_custom{
+    margin-left: 20em;
+    margin-right: 20em;
+    margin-top: 4em;
+}
+
+#persona{
+    margin-left: -10em;
+    margin-top: 2.7em;
+}
+
+#greeters_div{
+    padding-top: 2.8em;
+    margin-left: 20em;
 }
 
 #greeters{
     width: 16vw;
     height: auto;
-    position: relative;
 }
 
 #jeune{
     width: 19vw;
     height: auto;
-    position: relative;
 }
 
 #famille{
-    width: 30%;
+    width: 30vw;
     height: auto;
-    position: absolute;
-    bottom: 0%;
-    left: 9%;
+    padding-top: 2em;
 }
 
 #senior{
-    width: 15%;
+    width: 15vw;
     height: auto;
-    position: absolute;
-    bottom: 0%;
-    left: 9%;
+    padding-top: 1em;
+}
+
+#sortable1, #sortable2, #sortable3{
+    position: relative;
+    border-radius: 10%;
+    list-style-type: none;
+    width: 100%;
 }
 
 #sortable1{
-    position: relative;
-    width: 100%;
-    min-height: 40px;
-    list-style-type: none;
-    border-radius: 10%;
+    min-height: 70%;
+    padding-top: 2em;
 
 }
 #sortable2 {
     background-color: #0C7AA0;
-    width: 100%;
-    min-height: 300px;
-    list-style-type: none;
+    height: 100%;
+    min-height: 15em;
     padding: 15px 10px 15px 30px;
-    position: relative;
-    border-radius: 10%;
 
 }
 
 #sortable3 {
     background-color: #ffd044;
-    width: 100%;
-    min-height: 300px;
-    list-style-type: none;
+    min-height: 15em;
     padding: 15px 10px 15px 30px;
+}
+
+#sort2, #sort3{
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px 0px 0px 0px;
     position: relative;
-    /*top:20%;*/
-    /*left: 63%;*/
+    position: relative;
     border-radius: 10%;
+    margin-right: 10px;
+    margin-top: 4em;
 }
 
 #sort2 {
     background-color: #bde1ed;
-    width: 100%;
-    min-height: 300px;
-    list-style-type: none;
-    margin: 0;
-    padding: 50px 0px 0px 0px;
+    height: 23em;
+    max-height: 85%;
     margin-right: 10px;
-    position: relative;
-    border-radius: 10%;
+    margin-top: 4em;
 }
 
 #sort3{
     background-color: #ffdf8f;
-    width: 100%;
-    min-height: 300px;
-    list-style-type: none;
-    margin: 0;
-    padding: 50px 0px 0px 0px;
-    margin-right: 10px;
-    position: relative;
-    border-radius: 10%;
+    height: 60%;
 }
 
 li{
-    width: 180px !important;
+    width: 200px !important;
 }
 
 #sortable1 li,#sortable2 li, #sortable3 li{
@@ -105,12 +111,40 @@ li{
     display:inline-block;
 }
 
-/*#sort{*/
-/*    width: 75vw;*/
-/*}*/
+#consigne{
+    color: #E5E5E4;
+    padding: 20px 5px 20px 5px;
+    background-color: #E3572C;
+    width: 100%;
+    height: 10em;
+    border-radius: 30px;
+    /*max-height: 40%;*/
+}
 
-button{
-    /*position: center;*/
+
+#proche, #loin{
+    padding-bottom: 0;
+}
+
+#loin{
+    width:100%;
+}
+
+.critere_button {
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-family: ArchitectDaughter;
+}
+
+ul{
+    padding: 0;
+}
+#container_persos .row{
+    margin: 0;
+}
+
+#critere_page #valider{
     width: 200px;
     margin: 0;
     position: absolute;
@@ -123,138 +157,23 @@ button{
 }
 
 
+.criteres:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: text-top;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+}
 
+.div_sort2{
+    background-color: #2a325a;
+    border-radius: 15px;
+    z-index: 100;
+    position: relative;
+    list-style-type: none;
 
-/*div#critere_page {*/
-/*    background-image: url('/proximite-b/img/criteres/fond.svg#svgView(preserveAspectRatio(none))');*/
-/*    width: 100vw;*/
-/*    height: 100vh;*/
-/*    position: absolute;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: 100vw 100vh;*/
-/*}*/
-
-/*#greeters{*/
-/*    width: 16vw;*/
-/*    height: auto;*/
-/*    position: relative;*/
-/*    !*top: 142%;*!*/
-/*    !*left: 59%;*!*/
-/*}*/
-
-/*#famille{*/
-/*    width: 30%;*/
-/*    height: auto;*/
-/*    position: absolute;*/
-/*    bottom: 0%;*/
-/*    left: 9%;*/
-/*}*/
-
-/*#jeune{*/
-/*    width: 19vw;*/
-/*    height: auto;*/
-/*    position: relative;*/
-/*    !*top: 141%;*!*/
-/*    !*right: 50%;*!*/
-/*}*/
-
-/*#senior{*/
-/*    width: 15%;*/
-/*    height: auto;*/
-/*    position: absolute;*/
-/*    bottom: 0%;*/
-/*    left: 9%;*/
-/*}*/
-
-/*#sortable1{*/
-/*    position: relative;*/
-/*    !*left: 36%;*!*/
-/*    !*top: 24%;*!*/
-/*    width: 100%;*/
-/*    min-height: 40px;*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    border-radius: 10%;*/
-
-/*}*/
-/*#sortable2 {*/
-/*    background-color: #0C7AA0;*/
-/*    width: 100%;*/
-/*    min-height: 300px;*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 15px 10px 15px 30px;*/
-/*    margin-right: 10px;*/
-/*    position: relative;*/
-/*    !*top:20%;*!*/
-/*    !*left: 12%;*!*/
-/*    border-radius: 10%;*/
-
-/*}*/
-
-/*#sortable3 {*/
-/*    background-color: #ffd044;*/
-/*    width: 100%;*/
-/*    min-height: 300px;*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 15px 10px 15px 30px;*/
-/*    margin-right: 10px;*/
-/*    position: relative;*/
-/*    !*top:20%;*!*/
-/*    !*left: 63%;*!*/
-/*    border-radius: 10%;*/
-/*}*/
-
-/*#sort2 {*/
-/*    background-color: #bde1ed;*/
-/*    width: 100%;*/
-/*    min-height: 300px;*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 50px 0px 0px 0px;*/
-/*    margin-right: 10px;*/
-/*    position: relative;*/
-/*    border-radius: 10%;*/
-/*}*/
-
-/*#sort3{*/
-/*    background-color: #ffdf8f;*/
-/*    width: 100%;*/
-/*    min-height: 300px;*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 50px 0px 0px 0px;*/
-/*    margin-right: 10px;*/
-/*    position: relative;*/
-/*    border-radius: 10%;*/
-/*}*/
-
-/*li{*/
-/*    width: 180px !important;*/
-/*}*/
-
-/*#sortable1 li,#sortable2 li, #sortable3 li{*/
-/*    text-align: center;*/
-/*    margin: 5px;*/
-/*    padding: 10px;*/
-/*    font-size: 1.2em;*/
-
-/*}*/
-
-/*#sortable1 li{*/
-/*    display:inline-block;*/
-/*}*/
-
-/*!*#sort{*!*/
-/*!*    width: 75vw;*!*/
-/*!*}*!*/
-
-/*button{*/
-/*    position: absolute;*/
-/*    width: 200px;*/
-/*    left: 42%;*/
-/*    top: 60%;*/
-/*    height: 50px;*/
-/*    font-size: 20px;*/
-/*}*/
+}
