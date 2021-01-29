@@ -16,6 +16,10 @@ function goToSlide(name) {
     }
 }
 
+window.onhashchange = () => {
+    goToSlide(window.location.hash || "splash-screen");
+};
+
 function overrideAnim(data) {
     anime.remove(data.targets);
     anime(data);
@@ -36,3 +40,19 @@ const initButtons = function () {
         });
     });
 };
+
+registerSlide("slides", () => {
+    const slideNames = Object.keys(window.slides);
+    const list = document.getElementById("slide-list");
+
+    slideNames.forEach(name => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+
+        link.href = `#${name}`;
+        link.text = name;
+
+        item.append(link);
+        list.append(item);
+    });
+});
