@@ -39,8 +39,7 @@ export default {
   methods: {
     next() {
       setTimeout(() => {
-        const listRoutes = this.$router.getRoutes();
-        this.$router.push({name: listRoutes[this.actif + 1].name});
+        this.$root.$data.setActif(this.actif +1)
       }, 1500)
     }
     ,oui() {

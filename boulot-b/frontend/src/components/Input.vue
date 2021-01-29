@@ -4,6 +4,8 @@
       @blur="$emit('blur', $event.target.value)"
       @input="$emit('input', $event.target.value)"
   />
+
+
 </template>
 
 <script>
@@ -11,18 +13,19 @@ export default {
   name: "Input",
   props: {
     value: String,
-    error: Boolean
+    error: Boolean,
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$yellow: #ffdb27;
 
 .input {
-  border-radius: 5px;
-  border: none;
-  background-color: #ffdb27;
-  padding: 5px 5px 5px 20px;
+  border-radius: 20px;
+  background-color: $yellow;
+  padding: 20px 20px;
+  width:40%;
 }
 
 .error {
@@ -30,7 +33,7 @@ export default {
 }
 
 .input:hover ,.input:focus {
-  background-color: #fbdc51;
+  background-color: darken($yellow,10%)
 }
 
 .input::placeholder {
