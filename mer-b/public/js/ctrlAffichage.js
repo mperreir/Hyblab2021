@@ -89,4 +89,5 @@ function resetDisplay(){
   root.style.setProperty('--bouton-bg-color', '#203443');
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
   document.getElementsByClassName('stepperBouton')[0].style.left = 0;
+  document.getElementById("topLeftLogo").style.display='none';
 }
