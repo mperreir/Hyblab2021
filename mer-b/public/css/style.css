@@ -483,7 +483,28 @@ input#adresse:focus {
 
 input#distance {
     width: 360px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    border-radius: 12px;
+    opacity: 0.7;
+    height: 6px;
 }
+
+input#distance:hover {
+    opacity: 1;
+}
+
+input#distance::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #203443;
+    cursor: pointer;
+}
+
 
 .distanceContainer {
     margin-top: 30px;
