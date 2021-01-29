@@ -1,3 +1,5 @@
+const disabledZone = "centre";
+
 const initCarte = function () {
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
@@ -18,6 +20,9 @@ const initCarte = function () {
                 });
             })
             .on("click", function () {
+                if (this.id === disabledZone)
+                    return;
+
                 console.log(this.id); // selectionné
                 mySlidr.slide('choix-transport-2');
                 initSlideChoixVelo();
@@ -28,6 +33,9 @@ const initCarte = function () {
 let lastId, lastEvent, lastFn, lastThis;
 
 function debounce(id, event, fn) {
+    if (this.id === disabledZone)
+        return;
+
     if (event === "enter" && lastId !== id) {
         lastFn && lastFn.call(lastThis);
         fn.call(this);
