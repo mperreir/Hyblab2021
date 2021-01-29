@@ -8,13 +8,13 @@ const initCarte = function () {
             .on("mouseenter", function () {
                 debounce.call(this, this.id, "enter", function () {
                     console.log("[enter] " + this.id);
-                    d3.select(this).style("opacity", 1);
+                    d3.select(this).transition().duration(200).style("opacity", 1);
                 });
             })
             .on("mouseleave", function () {
                 debounce.call(this, this.id, "leave", function () {
                     console.log("[leave] " + this.id);
-                    d3.select(this).style("opacity", .5);
+                    d3.select(this).transition().duration(200).style("opacity", .5);
                 });
             })
             .on("click", function () {
