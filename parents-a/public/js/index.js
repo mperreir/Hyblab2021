@@ -117,10 +117,11 @@ let initSlide2 = function() {
 //Age ? 
 let initSlide2_1 = function() { 
 
-    //Aventurier -> Plein la vue
-    d3.select('#bouton_non_aventurier-p3').on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
-         nextSlide('3',data);
+    //Age -> Aventurier
+    //recupérer l'age 
+
+    d3.select('#trois_eleph-p2_1').on('click', async function() {
+        nextSlide('3')
 
     });
      //Retour arriere

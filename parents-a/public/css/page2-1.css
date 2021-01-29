@@ -28,8 +28,8 @@ section[data-slidr="page-2_1"] {
 #feuille_bleue-p2_1 {
     position: absolute;
     width: 8%;
-    bottom: 4%;
-    left: 12%;
+    bottom: 5%;
+    left: 0%;
 }
 
 #arbuste_rose-p2_1 {
@@ -39,4 +39,52 @@ section[data-slidr="page-2_1"] {
     right: 0%;
 }
 
+.age{
+    position: absolute;
+    width: 10%;
+    bottom: 17%;
+}
 
+#zero_ans-p2_1{
+    left :25%
+}
+#quatre_ans-p2_1{
+    left :45%
+}
+#neuf_ans-p2_1{
+    width: 12%;
+    right :23%
+}
+
+.eleph{
+    position: absolute;
+    bottom: 25% ;
+    opacity: 0.3;
+}
+
+.eleph:hover{
+    opacity : 1;
+}
+#trois_eleph-p2_1{
+    left :23%;
+    width:17%   
+}
+
+#six_eleph-p2_1{
+    left :39%;
+    width: 22%;
+
+}
+
+#neuf_eleph-p2_1{
+    width: 30% ;
+    right :12%
+}
+
+#quelageastu-p2_1{
+    position: absolute;
+    width: 26%;
+    top: 12%;
+    left: 38% ;
+
+}
