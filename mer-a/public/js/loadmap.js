@@ -153,8 +153,8 @@ function leave(codeDep,t){
 		.transition().duration(500)
 		.style("fill-opacity", 1)
 		.style('stroke-width', strokeWidth)
-		.style("fill", validDepColor);
-    .style('cursor','initial');
+		.style("fill", validDepColor)
+  		.style('cursor','initial');
 		d3.select('#text_' + codeDep).style("display", 'none');
 	}
 }
