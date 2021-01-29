@@ -156,3 +156,4 @@ let initHome = function(){
         });
     });
 };
+
