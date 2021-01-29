@@ -35,8 +35,7 @@ div#character{
 	height: 50vh;
 	position: fixed;
 	right: 2vw;
-	top: 25vh;
-	animation: waveUp 2s ease-in-out infinite;
+	top: 50vh;
 }
 /* Animation des vagues */
 
@@ -44,12 +43,12 @@ div#character{
 
 	/* position basse */
     0%, 100% {
-		top: 52vh;
+		bottom: -1vh;
 	}
   
 	/* position haute */
 	50% {
-		top: 53vh;
+		bottom: -2vh;
 	}
 
     /* position basse */
@@ -81,15 +80,10 @@ div#character{
 }
 div#character > img#character_image {
 	max-width: 100%; 
-	max-height: 100%;
+	max-height: 80%;
 	position: absolute;
 	bottom: 0;
-}
-div#character > img#cloud {
-	position: absolute;
-	bottom: -150px; /* set via JS */
-	left: 5%;
-    max-width: 100%;
+	animation: waveUp 2s ease-in-out infinite;
 }
 
 p#narration {
@@ -108,12 +102,13 @@ p#narration {
 }
 
 div#character > p#narration {
-  top: -8vh;
-  left: 15%;
-	width: 70%;
+  top: 0vh;
+  left: 10%;
+	width: 80%;
 }
 
 div#instructions > p#narration {
+  
   font-size: 2vh;
 	bottom: 4vh;
 	left: 4vh;
@@ -123,6 +118,7 @@ div#instructions > p#narration {
 
 button#pass_narration {
   position: absolute;
+  font-family: 'Poppins', sans-serif;
   width: 40%;
   font-size: 13px;
   height: 26px;
@@ -130,4 +126,5 @@ button#pass_narration {
   right: 0;
   border-radius: 12px;
   background-color: rgb(100,240,200);
+  border: none;
 }
