@@ -22,7 +22,7 @@ export default Vue.component("buttonCustom", {
 
 <style scoped lang="scss">
 $blue:  #0ec0ec;
-$yellow: yellow;
+$yellow: #ffdb27;
   .button {
     margin: 10px;
     display: block;
