@@ -2,17 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ChoixTypeDeplacement from "@/views/ChoixTypeDeplacement";
 import ChoixStyle from "@/views/ChoixStyle";
-<<<<<<< HEAD
-import Home from '../views/Home.vue'
-import Test from '../views/Test.vue'
-=======
 import ChoixHumeur from "@/views/ChoixHumeur";
 import ChoixLieux from "@/views/ChoixLieux";
 import ChoixTheme from "@/views/ChoixTheme";
 import ChoixDestination from "@/views/ChoixDestination";
 import Home from "@/views/Home";
 import {store} from "@/store";
->>>>>>> boulot-b
+import Test from "@/views/Test.vue"
 
 Vue.use(VueRouter)
 
@@ -43,17 +39,13 @@ const routes = [
   {
     path: "/choix-style",
     name: "choix-style",
-<<<<<<< HEAD
-    component: ChoixStyle
+    component: ChoixStyle,
+    props: {actif: 4 },
   },
   {
     path: "/test",
     name: "test",
     component: Test
-  }
-=======
-    component: ChoixStyle,
-    props: {actif: 4 },
   },
   {
     path: "/choix-theme",
@@ -67,7 +59,6 @@ const routes = [
     component: ChoixLieux,
     props: {actif: 6 },
   },
->>>>>>> boulot-b
 ]
 
 const router = new VueRouter({

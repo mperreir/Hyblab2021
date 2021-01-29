@@ -66,16 +66,10 @@ function calculateRouteFromAtoB (platform, map, origin, destination, coordStops,
 
 function onSuccess(result, map, origin, destination) {
   var route = result.routes[0];
- /*
-  * The styling of the route response on the map is entirely under the developer's control.
-  * A representitive styling can be found the full JS + HTML code of this example
-  * in the functions below:
-  */
   addRouteShapeToMap(route, map, origin, destination);
   //addManueversToMap(route);
   //addManueversToPanel(route);
   //addSummaryToPanel(route);
-  // ... etc.
 }
 
 function onError(error) {
@@ -91,10 +85,18 @@ function addRouteShapeToMap(route, map, origin, destination){
     let polyline = new H.map.Polyline(linestring, {
       style: {
         lineWidth: 4,
-        //strokeColor: 'rgba(231, 240, 13, 0.7)'
-        strokeColor: 'rgba(0, 0, 0, 1)'
+        strokeColor: 'rgba(255, 219, 39, 1)'
       }
     });
+
+    console.log()
+
+    const pointSvg = document.createElement('img');
+    pointSvg.src = '';
+    const iconPoint = new H.map.DomIcon(pointSvg);
+    const coords = {lat: 47.218371, lng: -1.553621};
+    const marker = new H.map.DomMarker(coords, {icon: iconPoint});
+    map.addObject(marker);
 
     // Add the polyline to the map
     map.addObject(polyline);
