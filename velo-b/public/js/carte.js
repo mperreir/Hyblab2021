@@ -42,5 +42,6 @@ function debounce(id, event, fn) {
         fn.call(this);
     }
 
-    [lastId, lastEvent, lastFn, lastThis] = [id, event, fn, this];
+    // On reset tout si on est sorti de la slide.
+    [lastId, lastEvent, lastFn, lastThis] = window.currentSlide === 'page-carte' ? [id, event, fn, this] : [];
 }

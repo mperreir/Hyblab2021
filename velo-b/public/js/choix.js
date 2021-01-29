@@ -6,11 +6,7 @@ registerSlide("choix-transport-bicloo", function () {
   /*==================== Fleches ===========================*/
   arrowbutton('#fleche-gauche-bicl', 'gauche');
   arrowbutton('#fleche-droite-bicl', 'droite');
-
-  //retour
-  const idFlecheRetour = '#fleche-retour-bicl';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  retourbutton('#fleche-retour-bicl');
 
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
@@ -36,11 +32,7 @@ registerSlide("choix-transport-transports", function () {
   /*==================== Fleches ===========================*/
   arrowbutton('#fleche-gauche-trans', 'gauche');
   arrowbutton('#fleche-droite-trans', 'droite');
-
-  //retour
-  const idFlecheRetour = '#fleche-retour-trans';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  retourbutton('#fleche-retour-trans');
 
 
   /*====================Bouton du bas ===========================*/
@@ -78,11 +70,7 @@ registerSlide("choix-transport-velo",function () {
   /*==================== Fleches ===========================*/
   arrowbutton('#fleche-gauche-velo', 'gauche');
   arrowbutton('#fleche-droite-velo', 'droite');
-  
-  //retour
-  const idFlecheRetour = '#fleche-retour-velo';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  retourbutton('#fleche-retour-velo');
 
   /*====================Bouton du bas ===========================*/
 
@@ -110,12 +98,7 @@ registerSlide("choix-transport-voiture", function () {
   /*==================== Fleches ===========================*/
   arrowbutton('#fleche-gauche-voit', 'gauche');
   arrowbutton('#fleche-droite-voit', 'droite');
-
-   
-  //retour
-  const idFlecheRetour = '#fleche-retour-voit';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  retourbutton('#fleche-retour-voit');
  
    /*====================Bouton du bas ===========================*/
 
@@ -203,8 +186,7 @@ let retourbutton = function (idButton, page) {
       targets: idButton,
       scale: 1
     });
-    // TODO: ajouter retour dans graphe
-    goToSlide(page);
+    goToNextSlide('retour');
   });
 
   d3.select(idButton).on('mouseover', function () {
