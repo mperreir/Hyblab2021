@@ -29,8 +29,6 @@ let initHome = function(){
         initHistoire();
     });
 
-    
-
     d3.select('.button-begin').on('mouseover', function (){
 
         tl_begin_over
@@ -68,10 +66,18 @@ let initHome = function(){
 
         tl_begin
             .add({
+                targets: ".button-histoire",
+                duration: 50
+            })
+            .add({
                 targets: ".button-begin",
                 opacity: 0,
                 duration: 300
             })
+            .add({
+                targets: ".button-begin",
+            })
+
             .add({
                 targets: ".catch-phrase",
                 opacity: 0,
@@ -87,12 +93,12 @@ let initHome = function(){
             .add({
                 targets: ".oya-home-go",
                 opacity: 1,
-                duration: 1000,
-                offset: "-=1000",
+                duration: 500,
+                offset: "-=800",
                 easing: "linear"
             })
             .add({
-                delay: 1000
+                delay: 500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -156,3 +162,20 @@ let initHome = function(){
         });
     });
 };
+
+let resetHome = function(){
+    d3.select('.oya-hello')
+        .style("transform", "");
+
+    d3.select('.rocket-hello')
+        .style("transform", "")
+        .style("opacity", 0);
+
+    d3.select('.button-begin')
+        .style("transform", "")
+        .style("opacity", 1);
+
+    d3.select('.catch-phrase')
+        .style("transform", "")
+        .style("opacity", 1);
+}
