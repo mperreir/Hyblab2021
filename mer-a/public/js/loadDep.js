@@ -193,7 +193,8 @@ function leaveDot(t){
  * @param {string} url		the url of the current page.
  */
 function getCodeDepartement(url){
-	return parseInt(url.split('/')[5]);
+	//return parseInt(url.split('/')[5]);
+	return document.querySelector('#content').dataset.department;
 }
 
 /**
@@ -201,7 +202,7 @@ function getCodeDepartement(url){
  * @param {string} url		the url of the current page.
  */
 function getCodeType(url){
-	return parseInt(url.split('/')[6]);
+	return document.querySelector('#content').dataset.personnage;
 }
 
 /**
@@ -225,7 +226,9 @@ function getMapDepartement(code){
  * @param {number} idLegende the id of the selected legend.
  */
 function selectLegende(idLegende){
-	if(idLegende > 0) document.location.href= `${ROOT}legende/${idLegende}`; 
+	if(idLegende > 0) loadRessources('legende', {
+		legende: idLegende
+	}, 1);
 }
 
 /**
@@ -254,7 +257,7 @@ function narrate(narrator) {
  */
 function getCategorie(type) {
 	for(let c of categories) {
-		if(c.id === type) return c;
+		if(c.id === parseInt(type, 10)) return c;
 	}
 }
 

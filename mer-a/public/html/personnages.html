@@ -1,104 +1,44 @@
-<!DOCTYPE html>
+<link rel="stylesheet" href="/mer-a/css/personnage.css">
+<div id="container">
+    <div class="choix-personnages">
 
-<html lang="fr">
+        <nav class="personnages">
+        <!--
+            <div class="zone zone-creature">
+                <div class="texte categorie cat-creature">
+                    <p>La fée Armelle</p>
+                    <p>et ses contes fantastiques</p>
 
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/mer-a/css/personnage.css">
-    <link rel="stylesheet" href="/mer-a/css/fil_ariane.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
-    <link rel="icon" href="/mer-a/assets/img/logo/favicon.ico"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <script src="/mer-a/js/config.js"></script>
-    <script src="/mer-a/js/dbConnection.js"></script>
-    <title>Média & Sea</title>
-
-</head>
-
-
-<body>
-
-    <div class="container">
-
-        <!-- Copie du fil d'Ariane, car import du fichier html non réussi -->
-        <div class="fil_ariane">
-            <div class="cercle_outer" id="cercle_outer1"></div>
-            <div class="cercle_inner" id="cercle_inner1"></div>
-            <div class="trait" id="trait1"></div>
-            <div class="cercle_outer" id="cercle_outer2"></div>
-            <div class="cercle_inner" id="cercle_inner2"></div>
-            <div class="trait" id="trait2"></div>
-            <div class="cercle_outer" id="cercle_outer3"></div>
-            <div class="cercle_inner" id="cercle_inner3"></div>
-            <div class="trait" id="trait3"></div>
-            <div class="cercle_outer" id="cercle_outer4"></div>
-            <div class="cercle_inner" id="cercle_inner4"></div>
-        </div>
-
-        <div class="decor">
-
-            <img class="plan" id="plan1" src="/mer-a/assets/img/decor1/PLAN_1.png" alt="">
-            <img class="plan" id="plan2" src="/mer-a/assets/img/decor1/PLAN_2.png" alt="">
-            <img class="plan" id="plan3" src="/mer-a/assets/img/decor1/PLAN_3.png" alt="">
-            <img class="plan" id="plan4" src="/mer-a/assets/img/decor1/PLAN_4.png" alt="">
-
-            <img class="wave" id="wave1" src="/mer-a/assets/img/decor1/VAGUE_1.png" alt="">
-            <img class="wave" id="wave2" src="/mer-a/assets/img/decor1/VAGUE_2.png" alt="">
-            <img class="wave" id="wave3" src="/mer-a/assets/img/decor1/VAGUE_3.png" alt="">
-            <img class="wave" id="wave4" src="/mer-a/assets/img/decor1/VAGUE_4.png" alt="">
-            <img class="wave" id="wave5" src="/mer-a/assets/img/decor1/VAGUE_5.png" alt="">
-            <img class="wave" id="wave6" src="/mer-a/assets/img/decor1/VAGUE_6.png" alt="">
-
-        </div>
-
-        <div class="choix-personnages">
-
-            <nav class="personnages">
-<!--
-                <div class="zone zone-creature">
-                    <div class="texte categorie cat-creature">
-                        <p>La fée Armelle</p>
-                        <p>et ses contes fantastiques</p>
-                    </div>
-                    <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-creature">
-                        <div class="perso" id="creature"></div>
-                    </a>        
                 </div>
+                <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-creature">
+                    <div class="perso" id="creature"></div>
+                </a>
+            </div>
 
-                <div class="zone zone-marin">
-                    <div class="texte categorie cat-marin">
-                        <p>Le marin Gwenaël</p>
-                        <p>et ses histoires maritimes</p>
-                    </div>
-                    <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-marin">
-                        <div class="perso" id="marin"></div>
-                    </a>
+            <div class="zone zone-marin">
+                <div class="texte categorie cat-marin">
+                    <p>Le marin Gwenaël</p>
+                    <p>et ses histoires maritimes</p>
                 </div>
+                <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-marin">
+                    <div class="perso" id="marin"></div>
+                </a>
+            </div>
 
-                <div class="zone zone-religieux">
-                    <div class="texte categorie cat-religieux">
-                        <p>Le moine Saint-Paul</p>
-                        <p>et ses légendes religieuses</p>
-                    </div>
-                    <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-religieux">
-                        <div class="perso" id="religieux"></div>
-                    </a>
+            <div class="zone zone-religieux">
+                <div class="texte categorie cat-religieux">
+                    <p>Le moine Saint-Paul</p>
+                    <p>et ses légendes religieuses</p>
                 </div>
--->
-            </nav>
-
-        </div>
-
-        <div class="texte indication">
-            <p>Choisissez le guide qui vous fera découvrir une légende de son univers !</p>            
-        </div>
-
+                <a href="https://hyblab.polytech.univ-nantes.fr/mer-a/departement/" class="choix choix-religieux">
+                    <div class="perso" id="religieux"></div>
+                </a>
+            </div>
+        -->
+        </nav>
     </div>
-    <script src="/mer-a/js/loadPersos.js"></script>
-    
-</body>
-
-</html>
+    <div class="texte indication">
+        <p>Choisissez le guide qui vous fera découvrir une légende de son univers !</p>
+    </div>
+</div>
+<script src="/mer-a/js/loadPersos.js"></script>

@@ -6,16 +6,13 @@
 body{
 	background-color: black;
 	margin: 0px;
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 }
 
 div#department{
-	width: 100vw; 
+	width: 100vw;
 	height: 100vh;
-}
-svg{
-	background-image: url("../assets/img/mer.png");
 }
 
 text, .texte{
@@ -30,7 +27,7 @@ text, .texte{
 }
 
 div#character{
-	width: 20vw; 
+	width: 20vw;
 	height: 50vh;
 	position: fixed;
 	right: 2vw;
@@ -44,7 +41,7 @@ div#character{
     0%, 100% {
 		bottom: -1vh;
 	}
-  
+
 	/* position haute */
 	50% {
 		bottom: -2vh;
@@ -78,7 +75,7 @@ div#character{
     } */
 }
 div#character > img#character_image {
-	max-width: 100%; 
+	max-width: 100%;
 	max-height: 80%;
 	position: absolute;
 	bottom: 0;
@@ -104,6 +101,7 @@ div#character > p.narration {
   top: 0vh;
 	width: 100%;
 }
+
 
 div#instructions > p.narration {
   font-size: 2vh;
