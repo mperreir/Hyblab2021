@@ -66,11 +66,26 @@ function setTexte(id){
       
       let stepperBouton = document.createElement("div");
       stepperBouton.setAttribute("class", "stepperBouton");
+      let stepperBoutonImg = document.createElement("img");
+      stepperBoutonImg.setAttribute("class", "stepperBoutonImg");
+      if(question.reponses[0].img){
+        stepperBoutonImg.src = question.reponses[0].img;
+        stepperBoutonImg.addEventListener("mousedown", function(e){
+          e.preventDefault()
+        });
+      }
+
+      stepperBouton.appendChild(stepperBoutonImg);
 
       let isDown = false;
       let mousePosition;
       let offsetX = 0;
       
+      stepperDiv.addEventListener('mousedown', function(e){
+        isDown = true;
+        stepperBouton.style.left = (e.offsetX - 65) + "px";
+      });
+
       stepperBouton.addEventListener('mousedown', function(e) {
         isDown = true;
         offsetX = stepperBouton.offsetLeft - e.clientX;
@@ -84,18 +99,22 @@ function setTexte(id){
           if(x < 83){
             stepperBouton.style.left = 0;
             updateElement(question.element, question.reponses[0]);
+            stepperBoutonImg.src = question.reponses[0].img;
           }
           else if(x > 83 && x < 249){
             stepperBouton.style.left = 146 + "px";
             updateElement(question.element, question.reponses[1]);
+            stepperBoutonImg.src = question.reponses[1].img;
           }
           else if(x > 249 && x < 415){
             stepperBouton.style.left = 313 + "px";
             updateElement(question.element, question.reponses[2]);
+            stepperBoutonImg.src = question.reponses[2].img;
           }
           else {
             stepperBouton.style.left = 468 + "px";
             updateElement(question.element, question.reponses[3]);
+            stepperBoutonImg.src = question.reponses[3].img;
           }
         }
       }, true);
@@ -116,15 +135,19 @@ function setTexte(id){
             let x = stepperBouton.style.left.replace("px", "");
             if(x < 83){
               updateElement(question.element, question.reponses[0]);
+              stepperBoutonImg.src = question.reponses[0].img;
             }
             else if(x > 83 && x < 249){
               updateElement(question.element, question.reponses[1]);
+              stepperBoutonImg.src = question.reponses[1].img;
             }
             else if(x > 249 && x < 415){
               updateElement(question.element, question.reponses[2]);
+              stepperBoutonImg.src = question.reponses[2].img;
             }
             else {
               updateElement(question.element, question.reponses[3]);
+              stepperBoutonImg.src = question.reponses[3].img;
             }
         }
       }, true);
@@ -133,12 +156,11 @@ function setTexte(id){
       stepperDiv.appendChild(stepperSpaceDiv);
       containerReponses.appendChild(stepperDiv);
 
-      
-
       /* pour passer */
       let containerReponse = document.createElement("div");
       containerReponse.setAttribute("class", "containerReponse");
-      
+      containerReponse.style.paddingBottom = "0px";
+
       let newReponse = document.createElement("div");
       newReponse.innerHTML = "Indifférent";
 
@@ -179,7 +201,6 @@ function setTexte(id){
         }
       }
       containerReponses.appendChild(reponsesStepper);
-
     }
     else {
       for(let reponse of question.reponses){

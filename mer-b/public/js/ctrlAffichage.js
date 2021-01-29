@@ -59,7 +59,7 @@ function updateElement(element, reponse){
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
       root.style.setProperty('--bouton-texte-color', "#203443");
       root.style.setProperty('--citation-color', "#203443");
-      root.style.setProperty('--bouton-bg-color', '#203443');
+      root.style.setProperty('--bouton-bg-color', '#00C0D2');
       document.body.style.backgroundImage = "url('img/FondsTextures/fondjour.png')";
     }
     else if(element == "moment"){
