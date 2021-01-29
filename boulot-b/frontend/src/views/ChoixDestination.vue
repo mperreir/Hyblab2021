@@ -10,6 +10,12 @@
     <template #canari>
       <Oiseau :message="message"/>
     </template>
+    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage">
+    <img id="nuage2" src="@/assets/nuages_svg/nuage2.svg" alt="nuage">
+    <img id="nuage3" src="@/assets/nuages_svg/nuage1.svg" alt="nuage">
+    <img id="nuage4" src="@/assets/nuages_svg/nuage3.svg" alt="nuage">
+    <img id="nuage5" src="@/assets/nuages_svg/nuage1.svg" alt="nuage">
+
     <template #stepper>
       <Stepper :actif=actif />
     </template>
@@ -92,5 +98,35 @@ export default {
   margin-bottom: 50px;
   flex: 0 1 auto;
   align-self: auto;
+}
+#nuage1 {
+  position: absolute;
+  top: 60%;
+  left: -6%;
+  width: 25%;
+}
+#nuage2 {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  width: 8%;
+}
+#nuage3 {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 15%;
+}
+#nuage4 {
+  position: absolute;
+  bottom: 8%;
+  right: -12%;
+  width: 50%;
+}
+#nuage5 {
+  position: absolute;
+  bottom: -6%;
+  left: 25%;
+  width: 15%;
 }
 </style>
