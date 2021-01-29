@@ -9,12 +9,12 @@ registerSlide("infos-selection-velo", function () {
     const idNoBut = 'ic-non-velo';
 });
 
-registerSlide("infos-selection-bycloo", function () {
+registerSlide("infos-selection-bicloo", function () {
     const idYesBut = 'ic-oui-bicloo';
     const idNoBut = 'ic-non-bicloo';
 });
 
-registerSlide("infos-selection-bycloo", function () {
+registerSlide("infos-selection-bicloo", function () {
 
 });
 
