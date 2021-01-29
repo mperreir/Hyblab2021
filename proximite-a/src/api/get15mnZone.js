@@ -1,6 +1,6 @@
 'use strict';
 
-const fetch = require('node-fetch');
+const request = require('./request');
 
 /**
  * Renvoie un polygone définissant ce qui peut être atteint
@@ -15,15 +15,14 @@ const fetch = require('node-fetch');
  */
 let get15mnZone = async function(position, modeTransport = 'foot-walking') {
     try {
-        const data = await fetch(`https://api.openrouteservice.org/v2/isochrones/${modeTransport}`, {
+        const data = await request(`https://api.openrouteservice.org/v2/isochrones/${modeTransport}`, {
             method: 'POST',
             body: `{"locations":[[${position}]],"range":[900,1]}`,
             headers: {
-                //'Accept': 'application/json',
                 'Authorization': '5b3ce3597851110001cf624829bf42551469445aa00ca476f174c648',
                 'Content-Type': 'application/json'
             }});
-        //data = require('./test_ors.json');
+
         const response = await data.json();
         let polygon = response.features[0].geometry.coordinates;
         return polygon;

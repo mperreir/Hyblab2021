@@ -17,11 +17,6 @@ const fetard = [
     "amenity=pub",
 ];
 
-const tourisme = [
-    "tourism",
-    "historic",
-];
-
 const sportif = [
     "sport",
     "leisure=swimming_pool",
@@ -41,24 +36,28 @@ const famille = [
 ];
 
 const tous = [
-    "amenity=restaurant",
     "amenity=give_box",
     "amenity=marketplace",
     "amenity=toilets",
     "amenity=hospital",
 ];
 
- const POINT_TYPES = {
+const gourmet = [
+    "shop=pastry",
+    "amenity=restaurant",
+]
+
+export const POINT_TYPES = {
     culture,
     fetard,
-    tourisme,
+    gourmet,
     sportif,
     famille,
     tous
 };
 
-const getPointsInZoneForProfil =  async function(zone, profil) {
-    
+
+const getPointsInZoneForProfile =async function(zone, profil) {
     return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
 }
 
@@ -76,13 +75,13 @@ const getPointsInZone =  async function(zone, types) {
 
  const buildQuery = (types, zone) => {
     let query = "https://overpass-api.de/api/interpreter?data=[out:json];";
-    let area = getBoxFromZone(zone);
-    query += "area(" + area + ");("
+    let bbox = getBoxFromZone(zone);
+    query += "node(" + bbox + ")->.all;(";
  
     // ajout des filtres de type de lieu
     types.forEach(element => {
         if(element && element !== "") {
-            let filtre = "node(area)[" + element + "];";
+            let filtre = "node.all[" + element + "];";
             query += filtre;
         }
     });
@@ -91,7 +90,6 @@ const getPointsInZone =  async function(zone, types) {
 
     return query
 }
-
 
 //https://overpass-api.de/api/interpreter?data=[out:json];area(47.264113,%20-1.573835,%2047.264492,%20-1.573586);node[tourism];out;
 const getBoxFromZone = (zone) => {
