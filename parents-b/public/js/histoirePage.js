@@ -8,6 +8,7 @@ let initHistoire = function(){
     d3.select('.logoAccueil').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     document.getElementById("dialog2").hidden = true;

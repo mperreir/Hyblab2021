@@ -2,6 +2,7 @@ let initFaunaFlora = function(){
     d3.select('.logoAccueil5').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     d3.select('.button-suivant-fauna-flora').on('click', function (){

@@ -3,6 +3,7 @@ let initHour = function(){
     d3.select('.logoAccueil2').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     d3.select(".button-suivant-hour").on("click", function (){
