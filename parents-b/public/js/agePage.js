@@ -9,6 +9,7 @@ let initAge = function(){
     d3.select('.logoAccueil3').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
+        resetHome();
     });
 
     //---------------FONCTIONS-----------------
@@ -284,4 +285,5 @@ let initAge = function(){
         }, 3000);
         initActivities();
     });
+
 };

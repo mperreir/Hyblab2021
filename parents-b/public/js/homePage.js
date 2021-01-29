@@ -69,8 +69,6 @@ let initHome = function(){
             easing: 'easeOutCubic'
         });
 
-        document.getElementById("button-histoire").hidden = true;
-
         tl_begin
             .add({
                 targets: ".button-begin",
@@ -116,7 +114,7 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: '80%',
                 scale: 0.6,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
@@ -131,12 +129,12 @@ let initHome = function(){
             .add({
                 targets: ".rocket-hello",
                 scale: 1,
-                duration: 1000,
+                duration: 500,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: '40%',
-                duration: 500,
+                duration: 750,
                 easing:"easeOutCirc"
             })
             .add({
@@ -148,12 +146,12 @@ let initHome = function(){
                 targets: ".oya-hello",
                 translateX: "10%",
                 scale: 0,
-                duration: 1000,
+                duration: 750,
             })
             .add({
                 targets: ".rocket-hello",
                 translateY: "-150%",
-                duration: 1000,
+                duration: 500,
             })
 
             .finished.then(() => {
