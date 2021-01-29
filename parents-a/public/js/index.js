@@ -15,6 +15,7 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
+
 function nextSlide(page, data) {
     string = 'page-' + page
     console.log("Trig")
@@ -24,25 +25,26 @@ function nextSlide(page, data) {
 
 function choixSlide(num, data) {
 
-    if (num == '1_1') { initSlide1_1() }
+    if (num == '1_1') { initSlide1_1(data) };
 
-    if (num == '2') { initSlide2() }
+    if (num == '2') { initSlide2(data) };
 
-    if (num == '3') { initSlide3() }
+    if (num == '3') { initSlide3(data) };
 
-    if (num == '4') { initSlide4() }
+    if (num == '4') { initSlide4(data) };
 
-    if (num == '5') { initSlide5() }
+    if (num == '5') { initSlide5(data) };
 
-    if (num == '6') { initSlide6() }
+    if (num == '6') { initSlide6(data) };
 
-    if (num == '7') { initSlide7() }
+    if (num == '7') { initSlide7(data) };
 
-    if (num == '8') { initSlide8() }
+    if (num == '8') { initSlide8(data) };
 
-    if (num == '9') { initSlide9() }
+    if (num == '9') { initSlide9(data) };
 
-    if (num == '10') { initSlide10() }
+    if (num == '10') { initSlide10(data) };
+
 }
 
 //Transition quand appuie sur logo page 1
@@ -188,6 +190,7 @@ let initSlide6 = function() {
     }
     //Preference entre animaux et bruits nature 
 let initSlide7 = function() {
+
         d3.select("#bouton_oui_p7").on('click', async function() {
             data = await fetch("/parents-a/parc/non-aventurier/animaux/decouvrir-arbres", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
             nextSlide('8', data);
@@ -243,31 +246,26 @@ let initSlide10 = function() {
             nextSlide('6', data);
             console.log(data);
         });
-
         d3.select("#ouest-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
             nextSlide('6', data);
             console.log(data);
         });
-
         d3.select("#nord-est-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
             nextSlide('6', data);
             console.log(data);
         });
-
         d3.select("#centre-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
             nextSlide('10', data);
             console.log(data);
         });
-
         d3.selectAll('.button_retour').on('click', function() {
             nextSlide('5')
         });
     }
     //Voir des animaux
-
 
 //Initialisation du diaporama
 initSlide1();

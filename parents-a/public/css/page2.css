@@ -18,9 +18,9 @@ section[data-slidr="page-2"] {
 
 #mascotte-p2-1 {
     position: absolute;
-    bottom: 4%;
-    left: 10%;
-    width: 25%;
+    bottom: -12%;
+    left: -2%;
+    width: 35%;
 }
 
 #nuage-p2-1 {
@@ -50,6 +50,12 @@ section[data-slidr="page-2"] {
     transform: rotate(355deg);
     width: 45%;
 }
+#arbuste_bleu-p2-1:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
 
 #double_feuille_verte-p2-1 {
     position: absolute;
@@ -58,12 +64,24 @@ section[data-slidr="page-2"] {
     width: 15%;
     transform: rotate(350deg);
 }
+#double_feuille_verte-p2-1:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
 
 #arbuste_vert-p2-1 {
     position: absolute;
     bottom: 10%;
     right: 11%;
     width: 35%;
+}
+#arbuste_vert-p2-1:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 #arbre_jaune-p2-1 {
@@ -78,6 +96,12 @@ section[data-slidr="page-2"] {
     bottom: 3%;
     left: 42%;
     width: 15%;
+}
+#chaise-p2-1:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 #vector-p2-1 {
@@ -118,20 +142,10 @@ section[data-slidr="page-2"] {
     left: 52%;
     top: 46%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
     border-radius: 50%;
-    padding: 10px 13px 10px 13px;
     outline: none;
 }
 
-#button-p2-1:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-}
 
 /* elements qui apparaisse */
 #appear {
@@ -151,18 +165,26 @@ section[data-slidr="page-2"] {
     left: 34%;
     top: 63%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
     border-radius: 5%;
-    padding: 10px 13px 10px 13px;
     outline: none;
-
 }
 
-#button2-p2-2:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
+
+

@@ -1,0 +1,60 @@
+/* Slide 1_1 transition */
+
+section[data-slidr="page-1_1"] {
+    background:  linear-gradient(90.42deg,
+    #1F2BB6 13.84%,
+    #4166CF 22.53%,
+    #5A91E0 37.19%,
+    #69ABEB 56.01%,
+    #6FB5EF 78.06%);
+}
+
+/* Décor */
+#arbre_jaune-p1_1 {
+    position: absolute;
+    bottom: 8%;
+    right: 18%;
+    width: 26%;
+}
+#arbuste_rouge-p1_1 {
+    position: absolute;
+    bottom: -7%;
+    right: 35%;
+    width: 21%;
+}
+#feuille_rouge-p1_1 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 30%;
+}
+#feuille_rouge-p1_1 {
+    position: absolute;
+    bottom: 9%;
+    right: 8%;
+    width: 11%;
+}
+#feuille_verte-p1_1 {
+    position: absolute;
+    bottom: 9%;
+    right: -1%;
+    width: 16%;
+}
+#gros_nuage-p1_1 {
+    position: absolute;
+    bottom: 55%;
+    right: 34%;
+    width: 30%;
+}
+#petit_nuage-p1_1 {
+    position: absolute;
+    bottom: 59%;
+    right: 0%;
+    width: 30%;
+}
+#pelouse-p1_1 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 45%;
+}

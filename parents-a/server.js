@@ -5,6 +5,7 @@
 var express = require('express');
 var path = require('path');
 
+
 var app = express();
 
 // Minimum routing: serve static content from the html directory
@@ -12,6 +13,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
 // You can then add whatever routing code you need
+//app.use('/parents-a/api',require('./router'));
+app.use(require('./router'));
+
 
 // This module is exported and served by the main server.js located
 // at the root of this set of projects. You can access it by lanching the main
