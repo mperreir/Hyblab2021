@@ -22,16 +22,93 @@
     right: 0vw;
 }
 
-button#conclu_adresse_button {
+#conclu_adresse_button {
     position: absolute;
+    right: 70px;
+    top: 20px;
+    height: 25px;
 }
+
+#conclu_adresse_text {
+    position: relative;
+    display: inline-block;
+    color:  #BFE3EE;
+    top: 0;
+}
+
+#conclu_adresse_cercle {
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background-color:  #BFE3EE;
+}
+
+#conclu_adresse_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+
+#conclu_persona_button {
+    position: absolute;
+    right: 88px;
+    top: 80px;
+    height: 25px;
+}
+
+#conclu_persona_text {
+    display: inline-block;
+    color:  #BFE3EE;
+}
+
+#conclu_persona_cercle {
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background-color:  #BFE3EE;
+}
+
+#conclu_persona_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+
+#conclu_criteres_button {
+    position: absolute;
+    right: 83px;
+    top: 50px;
+    height: 25px;
+}
+
+#conclu_criteres_text {
+    display: inline-block;
+    color:  #BFE3EE;
+}
+
+#conclu_criteres_cercle {
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background-color:  #BFE3EE;
+}
+
+#conclu_criteres_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
 
 p#conclu_text {
     position: absolute;
     bottom: 350px;
     left: 31%;
-    width: 13.5em;
+    width: 220px;
     height: 150px;
+    font-size: 14px;
 }
 
 .font-montserrat {
