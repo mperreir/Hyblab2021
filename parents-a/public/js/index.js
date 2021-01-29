@@ -1,3 +1,5 @@
+//Mon objet stockant mes données 
+let data = []
 // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr',{
     breadcrumbs: true,
@@ -85,8 +87,10 @@ let initSlide2 = function() {
 let initSlide3= function() {
     //Aventurier -> Plein la vue
     d3.select('#bouton_non_aventurier-p3').on('click', function(){
+        fetch("http://127.0.0.1:8080/parc/aventurier").then(response => {data = response.json()});
         mySlidr.slide('page-4');
         initSlide4();
+        console.log(data);
     });
 }
 
