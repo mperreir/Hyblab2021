@@ -123,3 +123,18 @@ section[data-sildr='page-4'] {
     cursor: pointer;
     border-radius: 50%;
 }
+
+
+#oh_oui_anime-p4 {
+    position: absolute;
+    width: 22%;
+    bottom: 33.4%;
+    right: 50.6%;
+}
+
+#mais_non_anime-p4 {
+    position: absolute;
+    width: 22%;
+    bottom: 31.9%;
+    right: 28%;
+}

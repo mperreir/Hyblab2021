@@ -66,6 +66,66 @@ section[data-slidr="page-4"] {
 }
 
 
+/* Bouttons */
+
+.button {
+    position: absolute;
+    border-radius: 50%;
+    padding: 0.3% 0.55%;
+    border: 2px solid #fff;
+    background-color: transparent;
+}
+
+/* Bouton question precédente */
+#button_retour {
+    /* Position */
+    left: 4%;
+    top: 5%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+#button_retour:hover {
+    /* Only design change */
+    border: 3px solid #fff;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+}
+#texte_question_precedente {
+    position: absolute;
+    width: 14%;
+    bottom: 91%;
+    left: 9%;
+}
+
+/* Bouton retour acceuil*/
+#button_acceuil {
+    /* Position */
+    left: 37%;
+    bottom: 10%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+#button_accueil:hover {
+    /* Only design change */
+    left: 37%;
+    bottom: 10%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+#texte_retour_accueil {
+    position: absolute;
+    width: 13%;
+    bottom: 11%;
+    right: 45%;
+}
+
+
+
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
 
