@@ -83,8 +83,8 @@ const go_to = (page, data, callback) => {
                     "greeters": {},
                     "adresses": {
 
-                        "adresse1": { "nomtemp": "Adresse1", "longitude": "-1.5102976051912753", "latitude": "47.26001511505152" },
-                        "adresse2": { "nomtemp": "Adresse2", "longitude": "-1.532116", "latitude": "47.238194" }
+                        "adresse1": { "label": "58 boulevard jules verne 44300 nantes", "longitude": "-1.5102976051912753", "latitude": "47.26001511505152" },
+                        "adresse2": { "label": "841 boulevard jules verne 44300 nantes", "longitude": "-1.532116", "latitude": "47.238194" }
                     },
                     "criteres": {
                         "interests": [ "culte","pharmacie", "bus", "boulangerie", "medecin"],
@@ -100,7 +100,8 @@ const go_to = (page, data, callback) => {
                 stor['criteres']['disinterests'] = stor['criteres']['disinterests'].map(x => reformatCriteres(x));
 
 
-                _app_stores['criteres'] = stor.criteres; //todo remove a la fin
+                _app_stores = stor; //todo remove a la fin
+                
                 var a1 = stor.adresses.adresse1;
                 var a2 = stor.adresses.adresse2;
                 _app_stores["timeline"]["done"] = 0;

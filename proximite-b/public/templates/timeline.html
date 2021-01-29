@@ -1,6 +1,6 @@
 <img id="timeline_background" src="/proximite-b/img/timeline/decor-frise.svg#svgView(preserveAspectRatio(none))" />
 
-<div id="timeline" class="container text-center">
+<div id="timeline" class="container text-center pt-5">
 
 
     <!-- Trigger the modal with a button -->
@@ -34,7 +34,6 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div id="headerMultipleModal" class="modal-header">
-                    <!-- <h4 class="modal-title">Modal Header</h4> -->
                 </div>
                 <div id="bodyMultipleModal" class="modal-body">
                     <!-- <h4 class="modal-title">Modal Header</h4> -->
@@ -45,12 +44,11 @@
     </div>
 
 
-    <h2>Comparaison des 2 adresses</h2>
-    <button class="figma_button figma_bg_orange" id="start_button" onclick="go_to('conclu')">Conclusion</button>
+    <h2 id="titleTimeline" style="visibility: hidden;" class="pb-5">Comparaison des deux adresses</h2>
 
     <div id='waitingSpinner' class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
     </div>
+    <div id="compEnCours" class='pt-3'>Comparaison en cours...</div>
 
 
     <div class="container-fluid" id="timelineholder">
@@ -61,5 +59,7 @@
 
         <div id="progressDiv" class="progress" style="visibility: hidden;">
         </div>
+        <button id="goToConclusion" style="visibility: hidden;" class="my-5 figma_button figma_bg_orange" id="start_button" onclick="go_to('conclu')">Conclusion</button>
+
     </div>
 </div>

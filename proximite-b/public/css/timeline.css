@@ -6,6 +6,7 @@
     background-color: #eead1c !important;
 }
 
+
 #timeline_background {
     width: 100vw;
     height: 100vh;
@@ -15,10 +16,20 @@
     z-index: -10;
 }
 
+
+
+
+#timeline h2{
+    font-family: ArchitectDaughter;
+
+}
+
+
 #waitingSpinner {
     width: 20em;
     height: 20em;
     position: relative;
+    margin-top: 10em;
 }
 
 #timeline ul {
@@ -26,17 +37,31 @@
 }
 
 #timeline #multipleModal .modal-content {
-    border-radius: 5em !important;
-    border-bottom: 0 none;
+    background-color: transparent;
+    border:  none;
 }
 
 #timeline #multipleModal .modal-header {
-    border-bottom: 0 none;
-    height: 5em;
+    border:  none;
+    height: 10em;
+}
+
+#headerMultipleModal{
+    background-image: url('/proximite-b/img/timeline/modal/buissons.svg') !important;
+    background-repeat: no-repeat;
+    border-radius: 0 none;
+    background-position-x: center;
+
 }
 
 
+#bodyMultipleModal{
+    background-color: white;
+    border-radius: 5em !important;
+    border: 0 none;
+    background-image: url('/proximite-b/img/timeline/modal/feuillegauche.svg') !important;
 
+}
 
 
 
@@ -44,17 +69,17 @@
 
 #timeline #singleModal .modal-content {
     border-radius: 5em !important;
-    border-bottom: 0 none;
+    border-bottom:  none;
 }
 
 #timeline #singleModal .modal-header {
-    border-bottom: 0 none;
+    border-bottom:  none;
 }
 
 #timeline #otherItemsSingleModal {
     border-radius: 5em !important;
     color: white;
-    border-bottom: 0 none;
+    border-bottom: none;
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: 70%;
