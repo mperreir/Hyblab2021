@@ -121,6 +121,14 @@ div#instructions > p#narration {
 	width: auto;
 }
 
+#cercle_outer1 {
+    opacity: 1;
+}
+
+#cercle_inner1 {
+    opacity: 1;
+}
+
 button#pass_narration {
   position: absolute;
   width: 40%;
