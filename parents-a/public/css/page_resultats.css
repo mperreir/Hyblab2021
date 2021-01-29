@@ -1,0 +1,55 @@
+/* PAGE 6 */
+section[data-slidr="ppage-resultats"] {
+    /* fond */
+    position: absolute;
+}
+
+#logo-pr {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#contour-pr {
+    height: 100%;
+    width: 100%;
+}
+
+/* Vegétation gauche */
+#fleurs-pr {
+    position: absolute;
+    width: 18%;
+    bottom: 8%;
+    right: 82%;
+}
+#feuille-pr {
+    position: absolute;
+    width: 15%;
+    bottom: 2%;
+    right: 78%;
+}
+
+/* Sols */
+#pelouse_gauche-pr {
+    /* pelouse gauche */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+#pelouse_droite-pr {
+    /* pelouse droite */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+#dune-pr {
+    /* dune 1 */
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    right: 0%;
+}
