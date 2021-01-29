@@ -12,7 +12,7 @@ let initSlide1 = function () {
     d3.select('#startButton').on('mouseover', function () {
         overrideAnim({
             targets: '#startButton',
-            scale: 1.2
+            scale: 1.08
         });
     });
 
