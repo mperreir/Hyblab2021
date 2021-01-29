@@ -40,7 +40,8 @@ function generateMap(mapData, mapFusion){
 		.enter()
 		.append('path')
 			.attr('id',function(d) { return 'path_' + d.properties.code})
-			.attr('fill', function(d){return color(d);})
+			.attr('fill', function(d){return setColor(d);})
+			.attr('fill-opacity', function(d){return setOpacity(d);})
 			.attr('d', path)
 			.on('mouseover', function(d){ hover(d.properties.code,this);})
 			.on('mouseleave', function(d){ leave(d.properties.code,this);})
@@ -80,12 +81,16 @@ function generateMap(mapData, mapFusion){
 
 }
 
-function color(d){
+function setColor(d){
 	let codeDep = d.properties.code;	
-	if(deps.isValid(codeDep)) return '#88cbce';
-	else return 'white';
+	return (deps.isValid(codeDep)) ? '#88cbce' : '#224255';
 }
 
+function setOpacity(d){
+	let codeDep = d.properties.code;	
+	return (deps.isValid(codeDep)) ? 1 : 0.9;
+
+}
 function hover(codeDep,t){
 
 	if(deps.isValid(codeDep)){

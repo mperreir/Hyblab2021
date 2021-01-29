@@ -31,7 +31,8 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.enter()
 		.append("path")
 			.attr('id',function(d) { return 'path_' + d.properties.code})
-			.attr("fill", function(d){return color(d, codeDep);})
+			.attr("fill", function(d){return setColor(d, codeDep);})
+			.attr("fill-opacity", function(d){return setOpacity(d, codeDep);})
 			.attr("d", path)
 			.style('stroke','black')
 			.style('stroke-width', '1px');
@@ -88,18 +89,16 @@ function generateDep(depData, mapData, codeDep, codeType){
 
 }
 
-function color(d, codeDep){
-	let color = '';
+function setColor(d, codeDep){
 	let code = d.properties.code;
-	if(code == codeDep){
-		color = '#88cbce';
-	}
-	else{
-		color = 'white';
-	}
-	return color;
+	return (code == codeDep) ? '#88cbce' : '#224255';
+
 }
 
+function setOpacity(d, codeDep){
+	let code = d.properties.code;	
+	return (code == codeDep) ? 1 : 0.9;
+}
 function hover(d,t){
 	d3.select(t)
 		.transition().duration(350)
