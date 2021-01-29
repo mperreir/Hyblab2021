@@ -81,16 +81,15 @@ export default {
         this.error.depart = !this.depart;
         this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami"
         return
-      } 
+      }
       let path=[this.depart,this.arrive]
       this.$root.$data.setPath(path)
       this.message = "Allons-y !"
       setTimeout(() => {
-        const listRoutes = this.$router.getRoutes();
-        this.$router.push({name: listRoutes[this.actif + 1].name});
+        this.$root.$data.setActif(this.actif +1)
       }, 1500)
     },
-    
+
     setDepart(item){
       this.depart=item;
       this.departlabel=item.properties.label;
@@ -103,7 +102,7 @@ export default {
 
     },
 
-    async getAdress(task) {     
+    async getAdress(task) {
       if(task=='depart'){
         this.suggestionsdepart=undefined;
         this.depart=undefined;
@@ -115,11 +114,11 @@ export default {
           await response.json()
           .then(res => res.features)
           .then(suggestions => {
-            this.suggestionsdepart=suggestions    
+            this.suggestionsdepart=suggestions
           })
         }
       }
-      
+
       else if(task=='arrivee'){
         this.suggestionarrivee=undefined;
         this.arrive=undefined;
@@ -130,7 +129,7 @@ export default {
        await response.json()
         .then(res => res.features)
         .then(suggestions => {
-          this.suggestionarrivee=suggestions    
+          this.suggestionarrivee=suggestions
         })
       }
       }

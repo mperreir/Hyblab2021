@@ -33,8 +33,7 @@ export default Vue.extend({
         elem.className = 'active';
     },
     clickMethod(n) {
-        const listRoutes = this.$router.getRoutes();
-        this.$router.push({name: listRoutes[n].name});
+      this.$root.$data.setActif(n)
     },
   },
   mounted: function() {
@@ -46,31 +45,33 @@ export default Vue.extend({
 
 <style scoped>
     #nav {
-        width: 30%;
+        width: 40%;
         display: flex;
-        align-content: center;
+        align-items: center;
     }
     #home {
         cursor: pointer;
-        margin-left: 25px;
+        width: 8%;
+        margin-left: 80px;
+        margin-right: 20px;
     }
     .progressbar {
-        width: 80%;
+        width: 60%;
         margin: 20px;
         padding-left: 0;
     }
     .progressbar li {
         list-style-type: none;
         float: left;
-        width: 15%;
+        width: 13%;
         position: relative;
         text-align: center;
     }
     .progressbar li:before {
         content: '';
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
+        width: 17px;
+        height: 17px;
+        line-height: 17px;
         border: 1px solid #FFDB27;
         border-radius: 50%;
         display: block;
@@ -82,9 +83,9 @@ export default Vue.extend({
         content: '';
         position: absolute;
         width: 100%;
-        height: 5px;
+        height: 4px;
         background-color: #FFDB27;
-        top: 10px;
+        top: 7.5px;
         left: -50%;
         z-index: -1;
     }

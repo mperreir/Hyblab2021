@@ -21,6 +21,8 @@ export default {
     }
   },
   mounted () {
+    const wazzo = document.getElementById('wazzo');
+    wazzo.style.display = 'none';
     const logo = lottie.loadAnimation({
       container : document.getElementById('wazo-anim'),
       renderer: 'svg',
@@ -36,18 +38,32 @@ export default {
       animationData: canariCome
     })
     logo.addEventListener("complete", () => {
+      
       this.showAnim.logo = false;
       this.showAnim.canari = true;
       canari.play()
     });
     canari.addEventListener("complete", () => {
-      this.$router.push({name: "choix-type" })
+      const canariCome = document.getElementById("canari-come")
+      canariCome.classList.add("fade")
+      canariCome.addEventListener("transitionend", () => {
+        this.$router.push({name: "questionnaire" });
+        wazzo.style.display = 'block';
+      })
     });
   }
 }
 </script>
 
 <style scoped>
+
+.fade {
+  transition: opacity .3s;
+}
+
+.fade {
+  opacity: 0;
+}
 
 #wazo-anim, #canari-come {
   margin-left: auto;

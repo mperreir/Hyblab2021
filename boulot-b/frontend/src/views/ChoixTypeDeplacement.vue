@@ -13,7 +13,7 @@
       <Oiseau :message="message"  />
     </template>
     <template #stepper>
-      <Stepper :actif=actif />
+      <Stepper  :actif=actif />
     </template>
   </Container>
   </div>
@@ -43,8 +43,7 @@ export default {
   },
   methods: {
     next() {
-      const listRoutes = this.$router.getRoutes();
-      this.$router.push({name: listRoutes[this.actif + 1].name});
+      this.$root.$data.setActif(this.actif +1)
     },
     nextVelo() {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
