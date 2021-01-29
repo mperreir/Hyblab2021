@@ -119,25 +119,26 @@ function extractUtilsValue(P_boulangerie1){
 
 
 /** la vrai api à tester
- * http://127.0.0.1:8080/trajet/3+rue+christian+pauc+nantes/7+rue+george+berthome+nantes/pedestrian/true/nature/false/false/true/false
- *                      /trajet/:depart                   /:arrivee                    /:transport/:detour/:sty  /:sal /:bar /:blg/:pharmacie
+ * http://127.0.0.1:8080/trajet/3+rue+christian+pauc+nantes/7+rue+george+berthome+nantes/pedestrian/nature/false/false/true/false
+ *                      /trajet/:depart                   /:arrivee                    /:transport/:sty  /:sal /:bar /:blg/:pharmacie
  
  */
 
+//https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=47.22106,-1.55243
+
+function getStreetViewUrl(latitude,longitude){
+    return `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${latitude},${longitude}`
+}
 
 async function getAll(req,res){
     let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
     let arrivee = req.params.arrivee;//"7 rue george berthome nantes"
     let transport = req.params.transport;//"pedestrian"
-    let detour = req.params.detour;
     let style = req.params.style; // a voir comment le définir (parc/jardin)
     let sallesport = req.params.sallesport;
     let bar = req.params.bar;
     let boulangerie = req.params.boulangerie;
     let pharmacie = req.params.pharmacie;
-
-
-
 
     /** tableau de coordonnee */ 
     let originCordinat = await adresse2coord(origin)
@@ -156,6 +157,7 @@ async function getAll(req,res){
 
             let P_nature1 = listNature[randN]
             let P_nature = extractUtilsValue(P_nature1)
+            P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
             list_POI["Nature"] = P_nature
             break;
         case "culture":
@@ -164,6 +166,7 @@ async function getAll(req,res){
 
             let P_culture1 = listCulture[randC]
             let P_culture = extractUtilsValue(P_culture1)
+            P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
             list_POI["Culture"] = P_culture
             break;
 
@@ -187,6 +190,7 @@ async function getAll(req,res){
         let P_boulangerie1 = listBoul[randB]
         let P_boulangerie = extractUtilsValue(P_boulangerie1)
         P_boulangerie["description"] = "Hmm on dirait qu’une boulangerie se trouve sur ton trajet retour. Plutôt baguette, viennoiserie ou pâtisserie ?"
+        P_boulangerie["streetView"] = getStreetViewUrl(P_boulangerie.coordonnees.lat,P_boulangerie.coordonnees.lng);
         list_POI["Boulangerie"] = P_boulangerie
 
     }
@@ -199,6 +203,7 @@ async function getAll(req,res){
         let P_salle1 = listSalle[randS]
         let P_salle = extractUtilsValue(P_salle1)
         P_salle["description"] = "La salle de sport Basic Fit est sur ton chemin ! Une belle occasion de te défouler après ta journée."
+        P_salle["streetView"] = getStreetViewUrl(P_salle.coordonnees.lat,P_salle.coordonnees.lng);
         list_POI["SalleSport"] = P_salle
     }
 
@@ -210,6 +215,7 @@ async function getAll(req,res){
         let P_bar1 = listBar[randBar]
         let P_bar = extractUtilsValue(P_bar1)
         P_bar["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
+        P_bar["streetView"] = getStreetViewUrl(P_bar.coordonnees.lat,P_bar.coordonnees.lng);
         list_POI["Bar"] = P_bar
     }
 
@@ -221,7 +227,8 @@ async function getAll(req,res){
 
         let P_pharmacie1 = listpharmacie[randP]
         let P_pharmacie = extractUtilsValue(P_pharmacie1)
-        P_pharmacie["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
+        P_pharmacie["description"] = "Tiens, au cas où tu en aurais besoin, une pharmacie se situe entre ton lieu de travail et ton domicile."
+        P_pharmacie["streetView"] = getStreetViewUrl(P_pharmacie.coordonnees.lat,P_pharmacie.coordonnees.lng);
         list_POI["Pharmacie"] = P_pharmacie
     }
 
@@ -239,6 +246,8 @@ async function getAll(req,res){
 // ************* fin ************************
 
 module.exports = getAll;
+
+
 
 
 

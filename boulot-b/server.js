@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
 app.use(express.static('public'));
 
-app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
 
 let port = 8080;
 //let api = require('./api');
