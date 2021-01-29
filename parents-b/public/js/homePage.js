@@ -1,4 +1,9 @@
 let initHome = function(){
+    
+    d3.select('.more-info').on('click', function (){
+        //Doit ouvrir la page qui sommes nous
+    });
+
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
@@ -65,6 +70,8 @@ let initHome = function(){
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
         });
+
+        document.getElementById("button-histoire").hidden = true;
 
         tl_begin
             .add({
@@ -150,6 +157,7 @@ let initHome = function(){
                 translateY: "-150%",
                 duration: 1000,
             })
+
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
