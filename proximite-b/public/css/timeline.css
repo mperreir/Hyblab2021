@@ -58,6 +58,13 @@ Style global des modals
 
 /* Modal Plus */
 
+#timeline #multipleModal .clickablepMultiple:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
 #timeline #multipleModal .modal-content {
     background-color: transparent;
     border: none;
