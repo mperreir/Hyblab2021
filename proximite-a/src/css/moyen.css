@@ -1,23 +1,36 @@
+#mainContainer{
+    width: 100%;
+    background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
+    background-size: 50%;
+    background-position: top 140% right 20%;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
 #MoyenContainer{
     height: 100%;
-    
+    width: auto;
 }
+
 #Theme{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 0px 74px 74px 0px;
     height: 100%;
-    width: 35%;
+    width: 40%;
     background-color: #ffffff;
+    left:0;
     
 }
+
+#Theme span{
+    width: 50%;
+}
 #Localisation{
-    margin-top: 10%;
-    margin-bottom: 10%;
-    height: 80%;
-    width: 85%;
+    height: 100%;
+    width: 50%;
     background-color: #756EFF;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 26px;
+    border-radius: 74px;
+    z-index: 0;
 }
 #Localisation img{
     width: 40px;
@@ -25,7 +38,6 @@
     
 }
 #Moyen{
-    margin-top: 10%;
     color: #756EFF;
 }
 
@@ -60,11 +72,10 @@
 }
 
 input[type=radio]:checked + label>img {
-    box-shadow: 0 0 3px 3px #756EFF;
+    background-size: 100%;
     opacity: 1;
 }
 
-/* Stuff after this is only to make things more pretty */
 input[type=radio] + label>img {
     width: 120px;
     height: 120px;
@@ -78,16 +89,18 @@ input[type=radio] + label>img {
 }
 
 input[type=radio] + label>img:hover{
-     /*background-image : url('../img/HOVER-moyen de transport-tache-01.png');
-     width : 10%; 
-     height : auto;
-     background-repeat : no-repeat;
-     background-position: center;*/
-     background-repeat : no-repeat;
      background-repeat : no-repeat;
      transform: scale(1.1);
      background-size: 100%;
      opacity: 1;
      transition: 400ms all;
 
+}
+
+#changepage input[type=button]:disabled{
+    opacity: 0.5;
+}
+
+#changepage:hover input[type=button]:disabled + p{
+    opacity: 0.5;
 }
