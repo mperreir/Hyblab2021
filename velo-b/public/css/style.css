@@ -163,6 +163,9 @@ section[data-slidr="page-finale"] {
     color: white;
     background-color: #f98e12;
     font-family: lemon-juice;
+
+    cursor: pointer;
+    user-select: none;
 }
 
 
