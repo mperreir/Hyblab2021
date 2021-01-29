@@ -71,13 +71,15 @@ let initHome = function(){
             easing: 'easeOutCubic'
         });
 
+        document.getElementById("button-histoire").hidden = true;
+
         tl_begin
             .add({
                 targets: ".button-begin",
                 opacity: 0,
                 duration: 300
             })
-            /*.add({
+            .add({
                 targets: ".catch-phrase",
                 opacity: 0,
                 offset: "-=300",
@@ -154,7 +156,8 @@ let initHome = function(){
                 targets: ".rocket-hello",
                 translateY: "-150%",
                 duration: 1000,
-            })*/
+            })
+
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
