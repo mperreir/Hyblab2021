@@ -55,3 +55,14 @@
     margin-right: auto;
 }
 
+.transport-column{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.illu-vehicule{
+    height: 20rem;
+}
+
