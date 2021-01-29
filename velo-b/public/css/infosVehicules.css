@@ -1,10 +1,22 @@
 .infoVehicule {
     color: black;
     font-family: lemon-juice;
-    font-size: 25%;
     background-color: rgba(255, 255, 255, 0.5);
+    font-size: 28%;
 }
 
 .orange-highlight {
     color: #F98E12;
 }
+
+.orange-test {
+    color: #FFC03E;
+}
+
+.choisis_ton_moyen_de_transport
+{
+    font-family: lemon-juice;
+    color: #F98E12;
+    font-size: 50%;
+}
+

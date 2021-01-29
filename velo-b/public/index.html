@@ -4,7 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Hyblab 2020</title>
+    <title>Nantavelo</title>
+    <link rel="shortcut icon" type="image/png" href="img/Nantavelo_icon.png"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/infosVehicules.css">
@@ -25,7 +26,7 @@
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
     <script src="js/infosChoix.js" defer></script>
-    <script src="js/infoChoix.js" defer></script>
+    <script src="js/selectionChoix.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -64,9 +65,8 @@
             <section data-slidr="choix-transport-1" hidden>
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVoiture.svg"></img>
                 <header>
-                    <div class="flex justify-center my-5">
-                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
-                            alt="Indication choix transport"></img>
+                    <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
+                        <p> Choisis ton moyen de transport</p>
                     </div>
                 </header>
 
@@ -78,7 +78,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-voiture" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-voiture" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
@@ -91,9 +91,8 @@
             <section data-slidr="choix-transport-2" hidden>
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVelo.svg"></img>
                 <header>
-                    <div class="flex justify-center my-5">
-                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
-                            alt="Indication choix transport"></img>
+                    <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
+                        <p> Choisis ton moyen de transport</p>
                     </div>
                 </header>
 
@@ -105,7 +104,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-velo" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-velo" alt="Bouton ok">ok</div>
                 </div>
 
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -118,34 +117,34 @@
             <section data-slidr="choix-transport-3" hidden>
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundBicloo.svg"></img>
                 <header>
-                    <div class="flex justify-center my-5">
-                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
+                    <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
+                        <img src="assets/choix/indicationchoix.svg"
                             alt="Indication choix transport"></img>
                     </div>
                 </header>
 
-                <div class="flex flex-row justify-between items-center my-20">
-                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/bicloo.svg" class="h-80" id="bicloo" alt="bicloo"></img>
-                    <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
-                </div>
+                    <div class="flex flex-row justify-between items-center my-20">
+                        <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
+                        <img src="assets/choix/bicloo.svg" class="h-80" id="bicloo" alt="bicloo"></img>
+                        <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
+                    </div>
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-bicloo" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-bicloo" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
                 </footer>
             </section>
+            
             <!--choix transport 4 : transport en commun -->
 
             <section data-slidr="choix-transport-4" hidden>
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundTransport.svg"></img>
                 <header>
-                    <div class="flex justify-center my-5">
-                        <img src="assets/choix/indicationchoix.svg" id="indication-choix"
-                            alt="Indication choix transport"></img>
+                    <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
+                        <p> Choisis ton moyen de transport</p>
                     </div>
                 </header>
 
@@ -157,7 +156,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-transport" alt="Bouton ok">ok</div>
                 </div>
 
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -171,7 +170,7 @@
 
             <!--
                 ***********************************
-                Infos liés au choix d'un véhicule
+                Infos liés a selection d'un véhicule
                 ***********************************
             -->
 
@@ -188,19 +187,41 @@
 
                 <div class="flex flex-row justify-between items-center my-20">
                     <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/transportCommun1.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <img src="assets/choix/transportCommun3.svg" class="h-80" id="transport" alt="Bateau"></img>
                     <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
                 </div>
 
                 <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
+                    <div class="fancy-button rounded-full" id="plus-info" alt="Bouton +infos">+infos</div>
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
+                
                 <footer>
                 </footer>
+
             </section>
-        -->
+            -->
+
+            <!--Infos liés a selection véhicule  -->
+
+            <section data-slidr="infos-selection-voiture" hidden>
+                <img src="assets/infoschoix/fondvoiture.svg" class="bottom-0 left-0 w-screen place-self-start absolute"
+                    id="ic-fond"></img>
+
+                <img src="assets/infoschoix/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
+                id="ic-bulle-info-lg" alt="Bulle info"></img>
+              
+                   
+                <div class="relative inset-y-1/3 flex justify-center content-center">
+                    <img src="assets/infoschoix/oui.svg" class="w-2/12 mx-10" id="ic-oui" alt="Bouton oui"></img>
+                    <img src="assets/infoschoix/non.svg" class="w-2/12 mx-10" id="ic-non" alt="Bouton non"></img>
+                </div>
+
+                <img src="assets/infoschoix/voiture.svg" class="bottom-5 left-0 w-2/5  absolute" id="ic-voiture"></img>
+
+
+            </section>
 
 
 
@@ -348,6 +369,7 @@
                     </ul>
                 </footer>
             </section>
+            
             <section data-slidr="page-3" hidden>
                 <div style="display: flex;">
                     <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super

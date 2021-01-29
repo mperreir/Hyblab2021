@@ -5,10 +5,10 @@ let initSlideChoixBicloo = function () {
   
   /*==================== Fleches ===========================*/
 
-  let idFlecheD = '#fleche-droite-bycl';
-  let idFlecheG = '#fleche-gauche-bycl';
-  let nextD = 'choix-transport-4';
-  let nextG = 'choix-transport-2';
+  const idFlecheD = '#fleche-droite-bycl';
+  const idFlecheG = '#fleche-gauche-bycl';
+  const nextD = 'choix-transport-4';
+  const nextG = 'choix-transport-2';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
@@ -22,9 +22,9 @@ let initSlideChoixBicloo = function () {
     initSlideInfosBicloo();
   });
 
-
-  let infoChoix = 'infos-choix-bicloo';
-  okbutton(infoChoix);
+  const infoSelection = 'infos-selection-bicloo';
+  const idOkButton = '#ok-bicloo';
+  okbutton(idOkButton,infoSelection);
   infobutton();
 
 };
@@ -34,10 +34,10 @@ let initSlideChoixBicloo = function () {
 
 let initSlideChoixTransport = function () {
 
-  let idFlecheD = '#fleche-droite-trans';
-  let idFlecheG = '#fleche-gauche-trans';
-  let nextD = 'choix-transport-1';
-  let nextG = 'choix-transport-3';
+  const idFlecheD = '#fleche-droite-trans';
+  const idFlecheG = '#fleche-gauche-trans';
+  const nextD = 'choix-transport-1';
+  const nextG = 'choix-transport-3';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
@@ -53,9 +53,10 @@ let initSlideChoixTransport = function () {
     initSlideInfosTransports();
   });
 
-  let infoChoix = 'infos-choix-transport';
 
-  okbutton(infoChoix);
+  const infoSelection = 'infos-selection-transport';
+  const idOkButton = '#ok-transport';
+  okbutton(idOkButton,infoSelection);
   infobutton();
 
   /*======================= Changer de Image Transport ===========================*/
@@ -64,8 +65,10 @@ let initSlideChoixTransport = function () {
     changeImage(this);
   });
 
+  d3.select('#transport').on('click', function () {
+    changeImage(this);
+  });
 
-// SLIDE CHOIX VELO
 
 };
 
@@ -75,118 +78,29 @@ let initSlideChoixVelo = function () {
 
   /*==================== Fleches ===========================*/
 
-  let idFlecheD = '#fleche-droite-velo';
-  let idFlecheG = '#fleche-gauche-velo';
-  let nextD = 'choix-transport-3';
-  let nextG = 'choix-transport-1';
+  const idFlecheD = '#fleche-droite-velo';
+  const idFlecheG = '#fleche-gauche-velo';
+  const nextD = 'choix-transport-3';
+  const nextG = 'choix-transport-1';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
-    d3.select('#fleche-droite-velo').on('click', function () {
-        overrideAnim({
-            targets: '#fleche-droite-velo',
-            scale: 0
-        });
-        mySlidr.slide('choix-transport-3');
-        initSlideChoixBicloo();
-    });
+  /*====================Bouton du bas ===========================*/
 
-    d3.select('#fleche-droite-velo').on('mouseover', function () {
-        overrideAnim({
-            targets: '#fleche-droite-velo',
-            scale: 1.2
-        });
+  d3.select('#plus-info-velo').on('click', function () {
+    overrideAnim({
+      targets: ['#plus-info-velo'],
+      scale: 0
     });
+    mySlidr.slide('info-choix-velo');
+    initSlideInfosVelo();
+  });
 
-    d3.select('#fleche-droite-velo').on('mouseout', function () {
-        overrideAnim({
-            targets: '#fleche-droite-velo',
-            scale: 1
-        });
-
-    });
-
-    d3.select('#fleche-gauche-velo').on('click', function () {
-        overrideAnim({
-            targets: '#fleche-gauche-velo',
-            scale: 0
-        });
-        mySlidr.slide('choix-transport-1');
-        initSlideChoixVoiture();
-    });
-
-    d3.select('#fleche-gauche-velo').on('mouseover', function () {
-        overrideAnim({
-            targets: '#fleche-gauche-velo',
-            scale: 1.2
-        });
-
-    });
-
-    d3.select('#fleche-gauche-velo').on('mouseout', function () {
-        overrideAnim({
-            targets: '#fleche-gauche-velo',
-            scale: 1
-        });
-    });
-
-    /*====================Bouton du bas ===========================*/
-
-    d3.select('#ok-button').on('click', function () {
-        overrideAnim({
-            targets: 'ok-button',
-            scale: 0
-        });
-        mySlidr.slide('page-finale');
-        initSlide2();
-    });
-
-    /*
-    d3.select('#ok-button').on('mouseover', function () {
-      overrideAnim({
-        targets: '#ok-button',
-        scale: 1.2
-      });
-  
-    });
-  
-    d3.select('#ok-button').on('mouseout', function () {
-      overrideAnim({
-        targets: '#ok-button',
-        scale: 1
-      });
-    });
-    */
-    d3.select('#plus-info-velo').on('click', function () {
-      overrideAnim({
-        targets: ['#fleche-gauche-velo', '#plus-info-velo'],
-        scale: 0
-      });
-      mySlidr.slide('choix-transport-1');
-      initSlideChoixVoiture();
-      mySlidr.slide('info-choix-velo');
-      initSlideInfosVelo();
-    });
-    /*
-    d3.select('#plus-info').on('mouseover', function () {
-      overrideAnim({
-        targets: '#plus-info',
-        scale: 1.2
-      });
-  
-    });
-  
-    d3.select('#plus-info').on('mouseout', function () {
-      overrideAnim({
-        targets: '#plus-info',
-        scale: 1
-      });
-    });
-    */
-  
-  const infoChoix = 'infos-choix-velo';
-  okbutton(infoChoix);
+  const infoSelection = 'infos-selection-velo';
+  const idOkButton = '#ok-velo';
+  okbutton(idOkButton,infoSelection);
   infobutton();
+
 };
 
 // SLIDE CHOIX VOITURE
@@ -195,15 +109,16 @@ let initSlideChoixVoiture = function () {
   
    /*==================== Fleches ===========================*/
 
-   let idFlecheD = '#fleche-droite-voit';
-   let idFlecheG = '#fleche-gauche-voit';
-   let nextD = 'choix-transport-2';
-   let nextG = 'choix-transport-4';
+   const idFlecheD = '#fleche-droite-voit';
+   const idFlecheG = '#fleche-gauche-voit';
+   const nextD = 'choix-transport-2';
+   const nextG = 'choix-transport-4';
    arrowbutton(idFlecheD, nextD);
    arrowbutton(idFlecheG, nextG);
  
    /*====================Bouton du bas ===========================*/
 
+  
    d3.select('#plus-info-voiture').on('click', function () {
     overrideAnim({
       targets: '#plus-info-voiture',
@@ -213,18 +128,18 @@ let initSlideChoixVoiture = function () {
     initSlideInfosVoiture();
   });
 
-   let infoChoix = 'infos-choix-voiture'
-
-  okbutton(infoChoix);
+  const infoSelection = 'infos-selection-voiture';
+  const idOkButton = '#ok-voiture';
+  okbutton(idOkButton,infoSelection);
   infobutton();
-};
+}
 
 
 let arrowbutton = function (idButton, page) {
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
-      scale: 0
+      scale: 1
     });
     mySlidr.slide(page);
     if (page == 'choix-transport-1') { //on va sur la page voiture
@@ -258,25 +173,25 @@ let arrowbutton = function (idButton, page) {
 
 }
 
-let okbutton = function (page) {
+let okbutton = function (idbutton,page) {
 
-  d3.select('#ok-button').on('click', function () {
+  d3.select(idbutton).on('click', function () {
     overrideAnim({
-      targets: 'ok-button',
+      targets: idbutton,
       scale: 0
     });
     mySlidr.slide(page);
-    if (page == 'infos-choix-voiture') {
-      initSlideInfoChoixVoiture();
+    if (page == 'infos-selection-voiture') {
+      initSlideSelectionVoiture();
     }
-    else if (page == 'infos-choix-velo') {
-      initSlideInfoChoixVelo();
+    else if (page == 'infos-selection-velo') {
+      initSlideSelectionVelo();
     }
-    else if (page == 'infos-choix-bycloo') {
-      initSlideInfoChoixBycloo();
+    else if (page == 'infos-selection-bycloo') {
+      initSlideSelectionBycloo();
     }
-    else if (page == 'infos-choix-transport') {
-      initSlideInfoChoixTransport();
+    else if (page == 'infos-selection-transport') {
+      initSlideSelectionTransport();
     }
   });
 
