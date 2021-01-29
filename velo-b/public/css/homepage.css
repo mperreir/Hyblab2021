@@ -1,8 +1,8 @@
 #startButton {
     text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
+    width: 35%;
+    left: 60%;
+    top: 44%;
     margin-left: -25%;
     margin-top: calc(4.5% * 9 / 16);
     /* les marges sont exprimées en % de la largeur... :-( */
