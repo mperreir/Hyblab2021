@@ -1,4 +1,5 @@
 import { abrisVeloDisplayData } from "./abrisVelo.js";
+import {getMeteoByTime, getMeteoNow} from "./modules/meteo.js";
 
 async function bootstrap() {
 
@@ -38,6 +39,9 @@ async function bootstrap() {
 
     // add abris velo to the map
     abrisVeloDisplayData(mapboxgl, map);
+
+    getMeteoNow();
+    getMeteoByTime(Date.now());
 }
 
 bootstrap();
