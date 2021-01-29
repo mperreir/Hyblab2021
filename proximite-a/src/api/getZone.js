@@ -1,4 +1,4 @@
-import request from './request';
+const request = require('./request');
 
 const culture = [
     "tourism=museum",
@@ -58,6 +58,7 @@ const tous = [
 };
 
 const getPointsInZoneForProfil =  async function(zone, profil) {
+    
     return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
 }
 

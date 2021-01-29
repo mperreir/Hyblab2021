@@ -29,13 +29,13 @@ module.exports = function () {
             .then(data => {res.json(data)});
     })
 
-    app.get('/getlocationsfromprofile/*/*/*', async function(req, res){
+    app.get('/getlocationsforprofile/*/*/*', async function(req, res){
         res.header('Access-Control-Allow-Origin', '*');
         const path = decodeURI(req.url).split('/');
         let coordinates = await addresstocoordinates.addresstocoordinates(path[2]);
         coordinates = [coordinates.longitude, coordinates.latitude];
         let polygon = await get15minzone.get15mnZone(coordinates, path[3]);
-        let points = await getzone.getPointsInZoneFromProfile(polygon, path[4]);
+        let points = await getzone.getPointsInZoneForProfile(polygon, path[4]);
         res.json(points);
     })
 
