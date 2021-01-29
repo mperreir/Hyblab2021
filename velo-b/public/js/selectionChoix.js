@@ -1,20 +1,15 @@
-let initSlideSelectionVoiture = function (){
-console.log('bite');
+registerSlide("infos-selection-voiture", function () {
 
-}
+});
 
-let initSlideSelectionVelo = function (){
+registerSlide("infos-selection-velo", function () {
 
-    
-}
+});
 
-let initSlideSelectionBycloo = function (){
+registerSlide("infos-selection-bycloo", function () {
 
-    
-}
+});
 
-let initSlideSelectionTransport = function (){
+registerSlide("infos-selection-bycloo", function () {
 
-    
-}
-
+});

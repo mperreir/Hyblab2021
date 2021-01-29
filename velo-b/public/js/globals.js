@@ -1,3 +1,21 @@
+window.slides = {};
+
+function registerSlide(name, init) {
+    window.slides[name] = init;
+}
+
+function goToSlide(name) {
+    name = name.match(/#?(.*)/)[1]; // Remove hashtag.
+
+    mySlidr.slide(name);
+
+    try {
+        window.slides[name]();
+    } catch {
+        alert(`La page "${name}" n'est pas registered avec registerSlide() !`);
+    }
+}
+
 function overrideAnim(data) {
     anime.remove(data.targets);
     anime(data);

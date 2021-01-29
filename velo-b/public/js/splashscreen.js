@@ -1,4 +1,4 @@
-const initSplashscreen = function () {
+registerSlide("splash-screen", function () {
     const anim = bodymovin.loadAnimation({
         container: document.getElementById('logo-anim'),
         path: 'assets/logo-anim.json',
@@ -10,8 +10,7 @@ const initSplashscreen = function () {
 
     anim.addEventListener("data_ready", () => {
         setTimeout(() => {
-            mySlidr.slide('page-accueil');
-            initSlide1();
+            goToSlide('page-accueil');
         }, 2000);
     });
-};
+});
