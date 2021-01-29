@@ -60,7 +60,7 @@ var ProgressBar = {
             .attr('aria-valuemin', '0')
             .attr('aria-valuenow', S1)
             .attr('aria-valuemax', Somme)
-            .text("adresse1");
+            .text(_app_stores['adresses']['adresse1']['label']);
 
         var b2 = $('<div>');
         b2.attr('class', 'progress-bar bar-T2')
@@ -69,7 +69,7 @@ var ProgressBar = {
             .attr('aria-valuemin', '0')
             .attr('aria-valuenow', S2)
             .attr('aria-valuemax', Somme)
-            .text("adresse2");;
+            .text(_app_stores['adresses']['adresse2']['label']);;
 
         $(id).append(b1);
         $(id).append(b2);

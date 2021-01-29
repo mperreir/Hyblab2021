@@ -1,60 +1,42 @@
 <img id="timeline_background" src="/proximite-b/img/timeline/decor-frise.svg#svgView(preserveAspectRatio(none))" />
 
-<div id="timeline" class="container text-center">
+<div id="timeline" class="container text-center pt-5">
 
 
-    <!-- Trigger the modal with a button -->
     <!-- Modal SingleItem -->
     <div class="modal fade" id="singleModal" role="dialog">
         <div class="modal-dialog  modal-lg">
-            
-            <!-- Modal content-->
             <div class="modal-content">
-                <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
-       
-                </button>
-                <div id="firstItemSingleModal" class="modal-header">
-                    <!-- <h4 class="modal-title">Modal Header</h4> -->
-                </div>
-                <div id="otherItemsSingleModal" class="modal-body">
-
-                </div>
-
+                <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <div id="firstItemSingleModal" class="modal-header"></div>
+                <div id="otherItemsSingleModal" class="modal-body"></div>
             </div>
         </div>
     </div>
-
-
-
 
     <!-- Modal MultiplesItem(Plus) -->
     <div class="modal fade" id="multipleModal" role="dialog">
         <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
             <div class="modal-content">
-                <div id="headerMultipleModal" class="modal-body">
-                    <!-- <h4 class="modal-title">Modal Header</h4> -->
-                </div>
-
+                <button id="closeMultipleModal" type="button" class="close" data-dismiss="modal"
+                    aria-label="Close"></button>
+                <div id="headerMultipleModal" class="modal-header"></div>
+                <div id="bodyMultipleModal" class="modal-body"></div>
             </div>
         </div>
     </div>
 
 
-    <h2>Comparaison des 2 adresses</h2>
-    <div id='waitingSpinner' class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-
+    <h2 id="titleTimeline" style="visibility: hidden;" class="pb-5">Comparaison des deux adresses</h2>
+    <div id='waitingSpinner' class="spinner-border" role="status"></div>
+    <div id="compEnCours" class='pt-3'>Comparaison en cours...</div>
 
     <div class="container-fluid" id="timelineholder">
-
-
         <div id="timeline1"></div>
         <div id="timeline2"></div>
+        <div id="progressDiv" class="progress" style="visibility: hidden;"></div>
 
-        <div id="progressDiv" class="progress" style="visibility: hidden;">
-        </div>
+        <button id="goToConclusion" style="visibility: hidden;" class="my-5 figma_button figma_bg_orange"
+            id="start_button" onclick="go_to('conclu')">Conclusion</button>
     </div>
 </div>
