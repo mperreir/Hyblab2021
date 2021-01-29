@@ -5,14 +5,14 @@ let mySlidr = slidr.create('slidr', {
     breadcrumbs: true,
     controls: 'none',
     direction: 'horizontal',
-    fade: true,
+    fade: false,
     keyboard: true,
     overflow: true,
     pause: false,
     theme: '#222',
-    timing: { 'fade': '0.7s ease-in' },
+    timing: { 'linear': '1.5s ease-in' },
     touch: true,
-    transition: 'fade'
+    transition: 'linear'
 }).start();
 
 function nextSlide(page,data) {
@@ -206,12 +206,12 @@ let initSlide7 = function() {
 // /Decouverte d'arbres différents 
 let initSlide8 = function() {
 
-    d3.select("#bouton_oui_p7").on('click', async function() {
+    d3.select("#BOUTON_ARBRES_v2-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6',data);
         console.log(data);
     });
-    d3.select("#button_non_p7").on('click', async function() {
+    d3.select("#BOUTON_BOUDE-ARBRES_v2-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10',data);//final slide
         console.log(data);
@@ -223,12 +223,12 @@ let initSlide8 = function() {
 
 let initSlide9 = function() {
 
-    d3.select("#texte_oui-p9").on('click', async function() {
+    d3.select("#animaux-heureux-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10',data);
         console.log(data);
     });
-    d3.select("#texte_non-p9").on('click', async function() {
+    d3.select("#BOUTON_NON_ANIMAUX-sourcils-p9").on('click', async function() {
         nextSlide('10',data);
         console.log(data);
     });

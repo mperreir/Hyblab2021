@@ -103,21 +103,37 @@ section[data-slidr="page-9"] {
 
 #question_animaux-p9{
     position: absolute;
-    width: 40%;
+    width: 36%;
     bottom: 68%;
     right: 32%;
 }
 
 #texte_non-p9{
     position: absolute;
-    width: 4%;
-    right: 27.5%;
-    top: 73.375%;
+    width: 3%;
+    right: 33.5%;
+    top: 70.375%;
 }
 
 #texte_oui-p9{
     position: absolute;
-    width: 4%;
-    left: 27.5%;
-    top: 73.375%;
+    width: 3%;
+    left: 33%;
+    top: 70%;
+}
+
+#animaux-heureux-p9 {
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    right: 54%;
+    z-index: 8;
+}
+
+#BOUTON_NON_ANIMAUX-sourcils-p9{
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    left: 54%;
+    z-index: 8;
 }
