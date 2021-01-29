@@ -1,7 +1,7 @@
 #animation_background{
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     z-index: -3;
