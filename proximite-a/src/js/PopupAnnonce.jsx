@@ -7,7 +7,7 @@ import personnage from '../img/Perso-hyblab-03.png'
 class PopupAnnonce extends  React.Component {
 
     state={
-        show: true
+        show: false
     };
     closeModal(){
         this.setState({show: false})
@@ -16,7 +16,6 @@ class PopupAnnonce extends  React.Component {
         this.setState({show: true})
     };
     render() {
-
         return (<Modal show={this.state.show}>
             <Modal.Body>
                 <div id="containerPopup">

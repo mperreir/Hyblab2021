@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './Home'
+import Home from './Home';
 import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
@@ -8,10 +8,14 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        pageId:4
+        nomPers: "Stépanie",
+        pageId:4,
+        themeId:1,
+        moyenId:2,
+        coords:[0,0]
     };
 
-    getPage = () =>{
+    getPage = () => {
         switch (this.state.pageId) {
             case 0:
                 return <Home onNextPage={this.nextPage}/>;
@@ -20,9 +24,9 @@ class App extends  React.Component {
             case 2:
                 return <Attributs onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
             case 3:
-                return <Moyen onNextPage={this.nextPage} onPreviousPage={this.previousPage}/>;
+                return <Moyen onNextPage={this.nextPage} onPreviousPage={this.previousPage} />;
             case 4:
-                return <AcceuilCarte/>;
+                return <AcceuilCarte nomPers={this.state.nomPers}/>;
         }
     };
 
