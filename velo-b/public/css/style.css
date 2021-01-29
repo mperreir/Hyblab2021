@@ -162,6 +162,13 @@ section[data-slidr="page-finale"] {
 
 /* ------------ Style des boutons ------------ */
 
+/* Boutons avec image */
+.image-button {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Boutons avec texte */
 .fancy-button {
     border: solid 5px white;
 

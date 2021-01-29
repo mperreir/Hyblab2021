@@ -28,19 +28,19 @@ function overrideAnim(data) {
 }
 
 const initButtons = function () {
-    d3.selectAll('.fancy-button').on('mouseover', function () {
-        overrideAnim({
-            targets: this,
-            scale: 0.95
+    d3.selectAll('.fancy-button, .image-button')
+        .on('mouseover', function () {
+            overrideAnim({
+                targets: this,
+                scale: 0.95
+            });
+        })
+        .on('mouseout', function () {
+            overrideAnim({
+                targets: this,
+                scale: 1
+            });
         });
-    });
-
-    d3.selectAll('.fancy-button').on('mouseout', function () {
-        overrideAnim({
-            targets: this,
-            scale: 1
-        });
-    });
 };
 
 const fetchJsonData = function(addr, callback) {
