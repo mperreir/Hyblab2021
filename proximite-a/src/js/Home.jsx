@@ -5,12 +5,17 @@ class Home extends  React.Component {
     render() {
         const {onNextPage} = this.props;
         return (
-            <div id="homeContainer" class="container d-flex justify-content-center align-items-center flex-column">
-                <img src={logo} width='200'></img>
-                <span class="text-center">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
-                <h2>Comment t’appelles-tu ?</h2>
-                <input type='text' placeholder='entrez votre prénom'/>
-                <input type='button' value='Explorer' onClick={onNextPage}/>
+            <div id="homeContainer" class="container">
+                <div class="container d-flex justify-content-center align-items-center flex-column">
+                    <img src={logo} id='logo'></img>
+                    <span id="paragraphe" class="text-center">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
+                    <h4>Comment t’appelles-tu ?</h4>
+                    <input type='text' placeholder='entrez votre prénom'/>
+                    <input type='button' value='EXPLORER' onClick={onNextPage}/>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <input id="credits" type='button' value='Crédits' />
+                </div>
             </div>
         );
     }
