@@ -18,6 +18,9 @@ const fontColor = 'white';
 const validDepOpacity = '1';
 const invalidDepOpacity = '0.9';
 
+//Fonts
+const fontSize = 24;
+
 //Strokes
 const strokeWidth = '1px';
 const hoveredStrokeWidth = '2px';
@@ -40,12 +43,13 @@ function generateMap(mapFusion){
 	const width = window.innerWidth-5;
 	const height = window.innerHeight-5;
 
+
 	//Creation of the SVG element
-	var svg = d3.select("#bretagne")
+	var svg = d3.select('#bretagne')
 		.html('')
 		.append('svg')
-		.attr("width", width)
-		.attr("height", height);
+		.attr('width', width)
+		.attr('height', height);
 
 	// Place le centre de la map
 	var center = d3.geoCentroid((() => {
@@ -57,28 +61,28 @@ function generateMap(mapFusion){
 				i--;
 			}
 		}
-		return {type: "FeatureCollection", features: useful.features};
+		return {type: 'FeatureCollection', features: useful.features};
 	})());
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
 		.center(center)
-		.scale(width*13)
+		.scale(width*11)
 		.translate([ width /2, height/2 ])
 
 	var path = d3.geoPath().projection(projection);
 
 
 	// Dessine la map
-	svg.append("g")
-		.selectAll("path")
+	svg.append('g')
+		.selectAll('path')
 		.data(mapFusion.features)
 		.enter()
-		.append("path")
+		.append('path')
 			.attr('id',function(d) { return 'path_' + d.properties.code})
-			.attr("fill", function(d){return color(d);})
-			.attr("fill-opacity", function(d){return opacity(d);})
-			.attr("d", path)
+			.attr('fill', function(d){return setColor(d);})
+			.attr('fill-opacity', function(d){return setOpacity(d);})
+			.attr('d', path)
 			.on('mouseover', function(d){ hover(d.properties.code,this);})
 			.on('mouseleave', function(d){ leave(d.properties.code,this);})
 			.on('click', function(d){ selectDepartment(d.properties.code);})
@@ -86,17 +90,17 @@ function generateMap(mapFusion){
 			.style('stroke-width', strokeWidth);
 
 	// Place les noms des departements
-	svg.append("g")
-		.selectAll("labels")
+	svg.append('g')
+		.selectAll('labels')
 		.data(mapFusion.features)
 		.enter()
-		.append("text")
+		.append('text')
 			.attr('id', function(d) { return 'text_' + d.properties.code})
-			.attr("x", function(d){return path.centroid(d)[0]})
-			.attr("y", function(d){return path.centroid(d)[1]})
+			.attr('x', function(d){return path.centroid(d)[0]})
+			.attr('y', function(d){return path.centroid(d)[1]})
 			.text(function(d){ return d.properties.nom})
-			.attr("text-anchor", "middle")
-			.attr("alignment-baseline", "central")
+			.attr('text-anchor', 'middle')
+			.attr('alignment-baseline', 'central')
 			.on('mouseover', function(d){
 				let codeDep = d.properties.code;
 				console.log(codeDep);
@@ -111,9 +115,10 @@ function generateMap(mapFusion){
 			.on('click', function(d){
 				let codeDep = d.properties.code;
 				selectDepartment(codeDep);})
-			.style("font-size", 28)
-			.style("fill", fontColor)
-			.style("display",'none');
+			.style('cursor','pointer')
+			.style('font-size', fontSize)
+			.style('fill', fontColor)
+			.style('display','none');
 
 }
 
@@ -121,20 +126,18 @@ function generateMap(mapFusion){
  * Function that returns a color
  * @param {object} d the data object from the map.
  */
-function color(d){
+function setColor(d){
 	let codeDep = d.properties.code;	
-	if(deps.isValid(codeDep)) return validDepColor;
-	else return invalidDepColor;
+	return (deps.isValid(codeDep)) ? validDepColor : invalidDepColor;
 }
 
 /**
  * Function that returns the opacity value
  * @param {object} d the data object from the map.
  */
-function opacity(d){
-	let codeDep = d.properties.code;	
-	if(deps.isValid(codeDep)) return validDepOpacity;
-	else return invalidDepOpacity;
+function setOpacity(d){
+	let codeDep = d.properties.code;
+	return (deps.isValid(codeDep)) ? validDepOpacity : invalidDepOpacity;
 }
 
 /**
@@ -146,9 +149,10 @@ function hover(codeDep,t){
 	if(deps.isValid(codeDep)){
 		d3.select(t)
 		.transition().duration(500)
-		.style("fill-opacity", 0.95)
+		.style('fill-opacity', 0.95)
 		.style('stroke-width', hoveredStrokeWidth)
-		.style("fill", hoveredValidDepColor);
+		.style('fill', hoveredValidDepColor)
+		.style('cursor','pointer');
 		d3.select('#text_' + codeDep).style("display", 'initial');
 	}
 }
@@ -162,9 +166,10 @@ function leave(codeDep,t){
 	if(deps.isValid(codeDep)){
 		d3.select(t)
 		.transition().duration(500)
-		.style("fill-opacity", 1)
+		.style('fill-opacity', 1)
 		.style('stroke-width', strokeWidth)
 		.style("fill", validDepColor);
+  		.style('cursor','initial');
 		d3.select('#text_' + codeDep).style("display", 'none');
 	}
 }
@@ -175,7 +180,7 @@ function leave(codeDep,t){
  */
 function selectDepartment(codeDep){
 	let id = getID(codeDep);
-	if(id > 0) document.location.href= ROOT + "personnages/" + id; 
+	if(id > 0) document.location.href= ROOT + 'personnages/' + id; 
 }
 
 /**
