@@ -1,0 +1,65 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+.content>h3 {
+    text-align: center;
+    font-weight: 700;
+    font-size:11px;
+    font-style: normal;
+}
+.content>span {
+    text-align: center;
+}
+.schools{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.schools .center {
+}
+.schools div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+h2 {
+    font-weight: 600;
+    font-size:15px;
+    font-style: normal;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style-type: none;
+
+}
+li {
+    font-weight: 400;
+    font-size:13px;
+    font-style: normal;
+}
+
+.citation {
+    display: flex;
+    flex-direction: row;
+}
+.citation>p {
+    font-weight: 400;
+    font-size:15px;
+    font-style: italic;
+    padding:0;
+    margin: 0 10px 0 auto;
+}
+.citation>span {
+    font-weight: 500;
+    font-size:14px;
+    font-style: normal;
+    margin-right: auto;
+}
