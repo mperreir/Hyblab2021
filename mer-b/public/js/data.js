@@ -97,7 +97,8 @@ function affichageReset(){
                             '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
                             '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
                             '"A l\'aube d\'un nouvel amour, que l\'amour d\'hier semble un mauvais rêve" - Paul-Jean Toulet'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/aube.png"
                     },
                     {
                         "texte" : "Journée",
@@ -105,7 +106,8 @@ function affichageReset(){
                         "citations": [
                             '"Attachons-nous à reconnaître le caractère précieux de chaque journée" - Dalai Lama',
                             '"Ce qu\'on pense être difficile prend une journée, ce qu\'on pense être impossible prend une semaine" - Jay-Z'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/journee.png"
                     },
                     {
                         "texte" : "Crépuscule",
@@ -113,7 +115,8 @@ function affichageReset(){
                         "citations": [
                             '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
                             '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/crepuscule.png"
                     },
                     {
                       "texte" : "Nuit",
@@ -122,7 +125,8 @@ function affichageReset(){
                           '“La nuit la plus sombre a toujours une fin lumineuse.”',
                           '"Il faut toujours viser la lune, car même en cas d\'échec, on atterrit dans les étoiles" - Oscar Wilde',
                           '"La nuit, on pense mieux, la tête est moins pleine de bruits" - Victor Hugo'
-                      ]
+                      ],
+                      "img": "img/PictoMeteo/nuit.png"
                     },
                     {
                       "texte" : "Indifférent",

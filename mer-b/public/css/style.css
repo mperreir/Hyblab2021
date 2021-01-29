@@ -492,6 +492,7 @@ input#distance {
 .distanceDisplay {
     display: flex;
     justify-content: space-between;
+    width: 360px;
 }
 
 /***slide questions***/
@@ -573,6 +574,13 @@ div#containerReponses {
     position: absolute;
 }
 
+img.stepperBoutonImg {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
 
 .containerStepperReponse {
     display: flex;
