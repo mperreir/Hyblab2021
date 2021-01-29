@@ -14,8 +14,8 @@ registerSlide("choix-transport-3", function () {
 
   //retour
   const idFlecheRetour = '#fleche-retour-bicl';
-  const retour = 'carte';
-  arrowbutton(idFlecheRetour, retour);
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
 
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
@@ -47,8 +47,8 @@ registerSlide("choix-transport-4", function () {
 
   //retour
   const idFlecheRetour = '#fleche-retour-trans';
-  const retour = 'carte';
-  arrowbutton(idFlecheRetour, retour);
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
 
 
   /*====================Bouton du bas ===========================*/
@@ -94,8 +94,8 @@ registerSlide("choix-transport-2",function () {
   
   //retour
   const idFlecheRetour = '#fleche-retour-velo';
-  const retour = 'carte';
-  arrowbutton(idFlecheRetour, retour);
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
 
   /*====================Bouton du bas ===========================*/
 
@@ -130,8 +130,8 @@ registerSlide("choix-transport-1", function () {
    
   //retour
   const idFlecheRetour = '#fleche-retour-voit';
-  const retour = 'carte';
-  arrowbutton(idFlecheRetour, retour);
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
  
    /*====================Bouton du bas ===========================*/
 
@@ -215,4 +215,29 @@ function changeImage(element) {
 
 
 
+let retourbutton = function (idButton, page) {
+  
+  d3.select(idButton).on('click', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1
+    });
+    goToSlide(page);
+  });
 
+  d3.select(idButton).on('mouseover', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1.2
+    });
+
+  });
+
+  d3.select(idButton).on('mouseout', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1
+    });
+  });
+
+}
