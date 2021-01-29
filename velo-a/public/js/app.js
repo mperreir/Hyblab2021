@@ -68,11 +68,11 @@ async function bootstrap() {
 	}
 
 	abrisVeloDisplayData().then(data => {
-		points(data, "https://svgshare.com/i/T_i.svg");
+		points(data, "img/abris.svg");
 	});
 
 	getStationsVelos().then(data => {
-		points(data, "https://svgshare.com/i/T_M.svg");
+		points(data, "img/station.svg");
 	});
 
 	getMeteoNow();
@@ -80,6 +80,10 @@ async function bootstrap() {
 }
 
 bootstrap();
+
+document.getElementById("button-question").onclick = () => {
+	document.location.href = "question.html?page=météo";
+}
 
 document.getElementById("input-meteo").onclick = () => {
 	document.location.href = "question.html?page=météo";
