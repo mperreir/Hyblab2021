@@ -211,7 +211,7 @@ header .logo{
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    height: 150px;
+    height: 100px;
 
 }
 
@@ -252,3 +252,10 @@ header .logo{
     margin-left: 0;
 }
 /*Fin de redéfinition controles MapBox*/
+
+#btn-veli-fin{
+    width: 209px;
+}
+#form-veli-fin{
+    text-align: center;
+}
