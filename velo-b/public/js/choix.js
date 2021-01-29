@@ -12,7 +12,7 @@ registerSlide("choix-transport-3", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
-    //retour
+  //retour
   const idFlecheRetour = '#fleche-retour';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
@@ -45,10 +45,10 @@ registerSlide("choix-transport-4", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
-    //retour
-    const idFlecheRetour = '#fleche-retour';
-    const retour = 'carte';
-    arrowbutton(idFlecheRetour, retour);
+  //retour
+  const idFlecheRetour = '#fleche-retour';
+  const retour = 'carte';
+  arrowbutton(idFlecheRetour, retour);
 
 
   /*====================Bouton du bas ===========================*/
@@ -92,10 +92,10 @@ registerSlide("choix-transport-2",function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
   
-    //retour
-    const idFlecheRetour = '#fleche-retour';
-    const retour = 'carte';
-    arrowbutton(idFlecheRetour, retour);
+  //retour
+  const idFlecheRetour = '#fleche-retour';
+  const retour = 'carte';
+  arrowbutton(idFlecheRetour, retour);
 
   /*====================Bouton du bas ===========================*/
 
@@ -128,7 +128,7 @@ registerSlide("choix-transport-1", function () {
    arrowbutton(idFlecheG, nextG);
 
    
-    //retour
+  //retour
   const idFlecheRetour = '#fleche-retour';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
