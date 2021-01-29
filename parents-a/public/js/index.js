@@ -40,31 +40,44 @@ let initSlide2 = function() {
     }
 }*/
 
-function diparaitre(id){
+function disappear(id){
     d3.select(id)
     .transition()
-    .delay(20)
     .duration(700)
     .style("opacity", 0)
-    .style("cursor","classic")
+
+
+}
+
+function appear(id){
+    d3.select(id)
+    .transition()
+    .delay(600)
+    .duration(700)
+    .style("opacity", 1)
 }
 
 //Camille se présente
 let initSlide2 = function() {
     //Transi Camille to Pret a démarrer 
     d3.select('#button-p2-1').on('click', function(){
-        console.log("C'est okay")
-        console.log( d3.select('#texte-p2-1'))
         
         //Disparition de la 1 bulle 
-        diparaitre('#texte-p2-1')
-        diparaitre('#vector-p2-1')
-        diparaitre('#button-p2-1')
-           
-        mySlidr.slide('page-3')
-        initSlide3()
+        disappear('#disappear')
+        disappear('#vector-p2-1')
+
+        appear('#appear')
+        appear('#vector-p2-1')
 
     });
+
+      //transi next slide
+    d3.select('#button2-p2-2').on('click', function(){
+        mySlidr.slide('page-3')
+        initSlide3()
+    });
+        
+   
 }
 
 
