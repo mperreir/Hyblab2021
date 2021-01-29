@@ -28,8 +28,11 @@ var TimeKnots = {
 
         $("#firstItemSingleModal")
             .html(
-                '<div class="px-5" style="width: 100vw;">' +
+                '<div class="px-5 row" style="width: 100vw;">' +
+                '<div class="col">'+
                 '<img id="imgCat" src=' + d.img + '>' +
+                '</div>'+
+                '<div class="col-11">'+
 
                 '<div class="row"><h3>' +
                 firstAdress.nom +
@@ -46,7 +49,7 @@ var TimeKnots = {
                 firstAdress.temps +
                 ' minutes</div>' +
                 '</div>' +
-                '</div>');
+                '</div></div>');
 
         $("#otherItemsSingleModal").attr('class', 'modal-body ' + preference + 'ColorModal');
         $("#otherItemsSingleModal").html("")
@@ -100,7 +103,7 @@ var TimeKnots = {
      */
     createMultipleModal: function (d) {
         console.log(d)
-        $("#headerMultipleModal").html("");
+        $("#bodyMultipleModal").html("");
         d.forEach(element => {
             var p = $('<p>');
             var img = $('<img>'); //Equivalent: $(document.createElement('img'))
@@ -113,7 +116,7 @@ var TimeKnots = {
             img.attr('src', element.img);
             p.append(img)
             p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
-            $("#headerMultipleModal").append(p)
+            $("#bodyMultipleModal").append(p)
         })
         $("#multipleModal").modal('show');
     },

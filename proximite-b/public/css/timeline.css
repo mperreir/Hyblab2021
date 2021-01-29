@@ -25,7 +25,22 @@
     list-style-type: none;
 }
 
-/* MODAL  */
+#timeline #multipleModal .modal-content {
+    border-radius: 5em !important;
+    border-bottom: 0 none;
+}
+
+#timeline #multipleModal .modal-header {
+    border-bottom: 0 none;
+    height: 5em;
+}
+
+
+
+
+
+
+/* Single MODAL  */
 
 #timeline #singleModal .modal-content {
     border-radius: 5em !important;
@@ -70,12 +85,10 @@
 }
 
 #singleModal #firstItemSingleModal #imgCat {
-    top: 5em;
-    left: -4em;
+    left: -9em;
     z-index: 1;
-    float: left;
     width: 10em;
-    position: absolute;
+        position: absolute;
 }
 
 #singleModal #closeModal {
