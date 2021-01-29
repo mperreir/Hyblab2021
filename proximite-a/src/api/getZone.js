@@ -92,15 +92,15 @@ const getPointsInZone =  async function(zone, types) {
 
 //https://overpass-api.de/api/interpreter?data=[out:json];area(47.264113,%20-1.573835,%2047.264492,%20-1.573586);node[tourism];out;
 const getBoxFromZone = (zone) => {
-    let west=180, east=-180, south=-90, north=90;
+    let west=180, east=-180, north=-90, south=90;
     zone = zone[0];
     zone.forEach(point => {
         let longCoor = point[0];
         west = longCoor < west ? longCoor : west;
         east = longCoor > east ? longCoor : east;
         let latCoor = point[1];
-        south = latCoor > south ? latCoor : south;
-        north = latCoor < north ? latCoor : north;
+        south = latCoor < south ? latCoor : south;
+        north = latCoor > north ? latCoor : north;
     });
 
     return [north, west, south, east];
