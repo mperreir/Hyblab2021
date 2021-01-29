@@ -1,12 +1,11 @@
-div#content {
+div#accueil {
   width: 43.75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 100%;
   flex-direction: column;
 }
 
-div#content h4 {
+div#accueil h4 {
   font-weight: bold;
   color: #FFF;
   font-family: "Helvetica";
@@ -14,13 +13,13 @@ div#content h4 {
   text-transform: uppercase;
 }
 
-div#content img#logo {
+div#accueil img#logo {
   width: 50%;
   height: auto;
   margin-bottom: 2.5%;
 }
 
-div#content p {
+div#accueil p {
   color: #FFF;
   text-align: center;
   font-family: 'Poppins', sans-serif;
