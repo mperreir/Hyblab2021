@@ -4,12 +4,15 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
+const api = require('./src/api/api');
 var app = express();
 
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
+console.log('brie2');
+app.use('/api', api(app));
 
 // You can then add whatever routing code you need
 
@@ -20,3 +23,4 @@ app.use(express.static(path.join(__dirname, '../__common-logos__')));
 // or more generally: http(s)://server_name:port/name_of_you_project/
 
 module.exports = app;
+
