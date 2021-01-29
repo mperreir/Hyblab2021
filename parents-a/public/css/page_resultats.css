@@ -12,8 +12,15 @@ section[data-slidr="ppage-resultats"] {
     right: 5%;
 }
 
+#titre-pr {
+    position: absolute;
+    width: 38%;
+    bottom: 83%;
+    right: 29%;
+}
+
 #contour-pr {
-    height: 100%;
+    position: absolute;
     width: 100%;
 }
 
@@ -52,4 +59,27 @@ section[data-slidr="ppage-resultats"] {
     width: 100%;
     bottom: 0%;
     right: 0%;
+}
+
+/* Top Parcs */
+
+#parc1-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 43%;
+    right: 14%;
+}
+
+#parc2-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 42%;
+    right: 64%;
+}
+
+#parc3-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 41%;
+    right: 39%;
 }
