@@ -1,15 +1,18 @@
 {
-  "name": "HyblabRouting",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "author": "MPDS",
-  "license": "MIT",
-  "devDependencies": {}
+    "name": "HyblabRouting",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "nodemon server.js",
+        "reformatDb": "node parents-a/reformatDatabase.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "nodemon": "2.0.7"
+    },
+    "author": "MPDS",
+    "license": "MIT",
+    "devDependencies": {}
 }
