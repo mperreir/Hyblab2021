@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import ChoixTypeDeplacement from "@/views/ChoixTypeDeplacement";
 import ChoixStyle from "@/views/ChoixStyle";
 import Home from '../views/Home.vue'
+import Test from '../views/Test.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/choix-style",
     name: "choix-style",
     component: ChoixStyle
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: Test
   }
 ]
 

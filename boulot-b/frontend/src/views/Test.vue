@@ -1,23 +1,17 @@
 <template>
   <div>
-    <question v-bind:question="question" v-bind:answers="answers"></question>
+    <finalMap v-bind:origin="['47.218371', '-1.553621']" v-bind:destination="['47.217371', '-1.593621']" v-bind:stops="[['47.217371', '-1.573621']]" v-bind:transportType="'pedestrian'"></finalMap>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Question from "../components/Question.vue";
+import FinalMap from "../components/FinalMap.vue";
 
 export default Vue.extend({
   name: "Home",
   components: {
-    Question
-  },
-  data() {
-    return {
-      question: "Question ?",
-      answers: ['Q1', 'Q2']
-    };
+    FinalMap
   },
 });
 </script>
