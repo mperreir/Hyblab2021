@@ -18,3 +18,15 @@ html, body {
     background-color: white;
     height: 100%;
 }
+
+.marker {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+}
+
+.mapboxgl-ctrl-directions{
+    width: 95%!important;
+    min-width: 0!important;
+
+}

@@ -1,44 +1,77 @@
 import { abrisVeloDisplayData } from "./abrisVelo.js";
 import {getMeteoByTime, getMeteoNow} from "./modules/meteo.js";
+import { getStationsVelos } from "./modules/stationsVelos.mjs";
 
 async function bootstrap() {
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
-    const map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
-        center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
-        zoom: 11 // starting zoom
-    });
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
+	const map = new mapboxgl.Map({
+		container: 'map', // container id
+		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
+		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
+		zoom: 11 // starting zoom
+	});
 
-    // Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
-    map.addControl(
-        new MapboxDirections({
-            accessToken: mapboxgl.accessToken,
-            unit: 'metric',
-            profile: 'mapbox/cycling',
-            language: 'fr',
-            alternatives: true,
-            placeholderOrigin: 'Départ',
-            placeholderDestination: 'Arrivée',
-            controls: {
-                profileSwitcher: false
-            }
-        }),
-        'top-left'
-    );
+	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
+	let control = new MapboxDirections({
+		accessToken: mapboxgl.accessToken,
+		unit: 'metric',
+		profile: 'mapbox/cycling',
+		language: 'fr',
+		alternatives: true,
+		placeholderOrigin: 'Départ',
+		placeholderDestination: 'Arrivée',
+		controls: {
+			profileSwitcher: false,
+			instructions: false
+		}
+	});
 
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: true
-        })
-    )
+	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
 
-    // add abris velo to the map
-    abrisVeloDisplayData(mapboxgl, map);
+	map.addControl(
+		new mapboxgl.GeolocateControl({
+			positionOptions: {
+				enableHighAccuracy: true
+			},
+			trackUserLocation: true
+		})
+	)
+
+	let openMarker = undefined;
+
+	function points(data, url) {
+
+		data.forEach((d) => {
+			const el = document.createElement("div");
+			el.className = "marker";
+			el.style.backgroundImage = `url(${url})`;
+
+			let marker;
+			el.addEventListener("click", function (event) {
+				// close the holde popup (if active)
+				if (openMarker) openMarker._popup.remove();
+				// open the popup
+				marker._popup.addTo(map)
+				openMarker = marker;
+				event.stopPropagation();
+			});
+
+
+			marker = new mapboxgl.Marker(el)
+				.setLngLat([d.longitude, d.latitude])
+				.setPopup(new mapboxgl.Popup().setHTML(d.text))
+				.addTo(map);
+		});
+	}
+
+	abrisVeloDisplayData().then(data => {
+		points(data, "https://svgshare.com/i/TVr.svg");
+	});
+
+	getStationsVelos().then(data => {
+		points(data, "https://svgshare.com/i/TUq.svg");
+	});
 
     getMeteoNow();
     getMeteoByTime(Date.now());
@@ -46,23 +79,18 @@ async function bootstrap() {
 
 bootstrap();
 
-import('./modules/stationsVelos.mjs')
-    .then((module) => {
-        module.getAbrisVelos();
-    });
-
 document.getElementById("input-meteo").onclick = () => {
-    document.location.href = "question.html?page=météo";
+	document.location.href = "question.html?page=météo";
 };
 
 document.getElementById("input-pollution").onclick = () => {
-    document.location.href = "question.html?page=pollution";
+	document.location.href = "question.html?page=pollution";
 };
 
 document.getElementById("input-activite").onclick = () => {
-    document.location.href = "question.html?page=activité";
+	document.location.href = "question.html?page=activité";
 };
 
 document.getElementById("input-vae").onclick = () => {
-    document.location.href = "question.html?page=VAE";
+	document.location.href = "question.html?page=VAE";
 };
