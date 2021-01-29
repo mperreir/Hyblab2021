@@ -8,9 +8,8 @@ import fauteuil_img from '../img/picto moyen de transport-fauteuil.png'
 import imagHover from '../img/HOVER-moyen de transport-tache-02.png'
 import '../css/moyen.css'
 
-
-
 class MoyenSelector extends React.Component {
+    
     render() {
         const hoverStyle = {
             backgroundImage: `url(${imagHover})`

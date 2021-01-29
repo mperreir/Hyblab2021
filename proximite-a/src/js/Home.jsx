@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../img/LOGO OK_logo principal.png'
 import '../css/home.css'
 class Home extends  React.Component {
+    
     state = {
         nomPers:""
     }
