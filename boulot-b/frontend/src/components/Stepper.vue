@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <img @click="back_home" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
+    <img @click="backHome" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
 
     <ul class="progressbar">
         <li id="1" v-on="actif>1 ? {click: () => clickMethod(1)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>1}"></li>
@@ -25,7 +25,7 @@ export default Vue.extend({
       }
   },
   methods: {
-    back_home() {
+    backHome() {
       this.$router.push({name: "Home"})
     },
     setClassActive() {

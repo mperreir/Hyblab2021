@@ -33,7 +33,7 @@ export default {
     }
   },
   mounted() {
-    this.$root.$data.subscribe("actif",(nextActif) => {
+    this.$root.$data.subscribe("actif", (nextActif) => {
       this.actif = nextActif
       const indexView = Views.findIndex((view) => view.actif === this.actif)
       this.view = Views[indexView].component

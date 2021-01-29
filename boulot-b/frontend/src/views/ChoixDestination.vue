@@ -128,14 +128,12 @@ export default {
     },
 
     async getAddress(recherche) {
-      if (recherche.length > 4) {
         const url = `https://api-adresse.data.gouv.fr/search/?q=${recherche}&citycode=44109&limit=5`;
         const response = await fetch(url);
         return response
             .json()
             .then((res) => res.features)
             .then((suggestions) => suggestions);
-      }
     },
 
     async getAddressArrive() {
@@ -213,16 +211,25 @@ export default {
     left: 25%;
     width: 15%;
   }
-  .depart-result-list,
-  .arrivee-result-list {
-    position: relative;
+  .result-list {
+    position: absolute;
     margin-top: 0;
     list-style-type: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #ffdb27;
-    font-size: 10px;
+    font-size: 20px;
     width: 37%;
+    z-index: 100;
+  }
+
+  .depart-result-list {
+    @extend .result-list;
+    top: 50px;
+  }
+  .arrivee-result-list {
+    @extend .result-list;
+    top: 160px;
   }
 
   .depart-result-item:hover, .arrive-result-item:hover {
