@@ -5,14 +5,14 @@ let mySlidr = slidr.create('slidr', {
     breadcrumbs: true,
     controls: 'none',
     direction: 'horizontal',
-    fade: true,
+    fade: false,
     keyboard: true,
     overflow: true,
     pause: false,
     theme: '#222',
-    timing: { 'fade': '0.7s ease-in' },
+    timing: { 'linear': '1.5s ease-in' },
     touch: true,
-    transition: 'fade'
+    transition: 'linear'
 }).start();
 
 function nextSlide(page,data) {
