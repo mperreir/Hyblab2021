@@ -76,40 +76,20 @@ const go_to = (page, data, callback) => {
     make_page_from_template(page)
         .then(() => {
             if (page === 'timeline') {
-                //todo remplacer stor a la fin des tests par _app_stores
-                var stor = {
-                    "all": { "current_page": "timeline" },
-                    "personas": { "chosen": "jeune" },
-                    "greeters": {},
-                    "adresses": {
-
-                        "adresse1": { "label": "58 boulevard jules verne 44300 nantes", "longitude": "-1.5102976051912753", "latitude": "47.26001511505152" },
-                        "adresse2": { "label": "841 boulevard jules verne 44300 nantes", "longitude": "-1.532116", "latitude": "47.238194" }
-                    },
-                    "criteres": {
-                        "interests": [ "culte","pharmacie", "bus", "boulangerie", "medecin"],
-                        "disinterests": ["parc","supermarche","ecole"]
-                    },
-                    "timeline": {}
-                }
-
+               
                 //['Boulangerie','Médecin','Ecole','Supermarché','Parc',
                 //'Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur',
                 //'Musee','Bibliotheque','Salle de sport'])
-                stor['criteres']['interests'] = stor['criteres']['interests'].map(x => reformatCriteres(x));
-                stor['criteres']['disinterests'] = stor['criteres']['disinterests'].map(x => reformatCriteres(x));
-
-
-                _app_stores = stor; //todo remove a la fin
+                _app_stores['criteres']['interests'] = _app_stores['criteres']['interests'].map(x => reformatCriteres(x));
+                _app_stores['criteres']['disinterests'] = _app_stores['criteres']['disinterests'].map(x => reformatCriteres(x));
                 
-                var a1 = stor.adresses.adresse1;
-                var a2 = stor.adresses.adresse2;
+                var a1 = _app_stores.adresses.adresse1;
+                var a2 = _app_stores.adresses.adresse2;
                 _app_stores["timeline"]["done"] = 0;
                 _app_stores["timeline"]['data'] = {}
-                getData("adresse1", a1, stor);
-                getData("adresse2", a2, stor);
+                getData("adresse1", a1, _app_stores);
+                getData("adresse2", a2, _app_stores);
                 window.addEventListener("resize", timeline_progressbar_draw);
-                console.log(_app_stores);
             }
             else if (page === 'criteres') {
                 div_content = document.getElementById("critere_page");
