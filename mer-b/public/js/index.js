@@ -39,11 +39,19 @@ function addEventListenerBreadcrumbs(){
     let page = breadcrumb.id.replace("breadcrumb-", "");
     let id = page.replace("page-", "");
     breadcrumb.addEventListener("click", function(){
-      mySlidr.slide(page);
-      setActif(id);
-      if(id == 4 && getAffichage().moment == ""){
-        let reponse = {json: "dawn"};
-        updateElement("moment", reponse);
+      if(id <= 2 || getAffichage().longitude != ""){
+        if(id == 9 && getAffichage().amenagement == ""){
+          mySlidr.slide("page-fin");
+          setActif("fin");
+        }
+        else {
+          mySlidr.slide(page);
+          setActif(id);
+          if(id == 4 && getAffichage().moment == ""){
+            let reponse = {json: "dawn"};
+            updateElement("moment", reponse);
+          }
+        }
       }
     })
   }
