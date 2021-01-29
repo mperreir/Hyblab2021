@@ -1,0 +1,62 @@
+.button {
+  padding: 10px 28px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #7D7FBC;
+  background-color: #FFF;
+  border: none;
+  margin-top: 2.5%;
+  transition: all 300ms;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #7D7FBC;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.button a,
+.button a:link,
+.button a:hover,
+.button a:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.round-button {
+  text-shadow: inherit !important;
+  display: flex;
+  padding-bottom: 0.5vh;
+  justify-content: center;
+	border-radius: 50%;
+	background-color: #FFF;
+	width: 3vh;
+	height: 3vh;
+}
+
+.round-button:hover {
+  cursor: pointer;
+	background-color: #000;
+	color: #FFF;
+}
+
+.unselectable {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
