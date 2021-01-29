@@ -28,6 +28,8 @@ function choixSlide(num,data) {
   
     if (num == '2') { initSlide2(data) };
 
+    if (num == '2') { initSlide2_1(data) };
+
     if (num =='3'){ initSlide3(data)};
     
     if (num =='4'){ initSlide4(data)};
@@ -103,7 +105,7 @@ let initSlide2 = function() {
 
     //transi next slide
     d3.select('#button2-p2-2').on('click', function() {
-        nextSlide('3')
+        nextSlide('2_1')
     });
     //Retour arriere
     d3.select('.button_retour').on('click', function() {
@@ -112,6 +114,20 @@ let initSlide2 = function() {
 
 }
 
+//Age ? 
+let initSlide2_1 = function() { 
+
+    //Aventurier -> Plein la vue
+    d3.select('#bouton_non_aventurier-p3').on('click', async function() {
+        data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
+         nextSlide('3',data);
+
+    });
+     //Retour arriere
+     d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('2')
+     });
+}
 
 //Premiere question : aventurier ? 
 let initSlide3 = function() {

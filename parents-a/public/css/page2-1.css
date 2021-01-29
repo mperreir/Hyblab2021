@@ -1,0 +1,42 @@
+section[data-slidr="page-2_1"] {
+    background:#6FB5EF
+    
+}
+
+#gros_nuage-p2_1 {
+    position: absolute;
+    width: 30%;
+    bottom: 56%;
+    right: 55%;
+}
+
+#petit_nuage-p2_1 {
+    position: absolute;
+    width: 25%;
+    top: 15%;
+    right: 75%;
+}
+
+#feuille_verte-p2_1 {
+    position: absolute;
+    width: 15%;
+    bottom: 0%;
+    right: 15%;
+}
+
+
+#feuille_bleue-p2_1 {
+    position: absolute;
+    width: 8%;
+    bottom: 4%;
+    left: 12%;
+}
+
+#arbuste_rose-p2_1 {
+    position: absolute;
+    width: 20%;
+    bottom: 0%;
+    right: 0%;
+}
+
+
