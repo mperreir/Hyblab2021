@@ -1,0 +1,92 @@
+/* ----------------- Page credits --------------- */
+
+.logo-credits{
+    position:absolute;
+}
+
+.logo-audencia{
+    width: 20%;
+    top: 27.5%;
+    left: 6.8%;
+}
+
+.logo-polytech{
+    width: 13%;
+    top: 24.9%;
+    left: 31.6%;
+}
+
+.logo-agr{
+    width: 10%;
+    top: 22%;
+    left: 52.7%;
+}
+
+.logo-hyblab{
+    width: 25%;
+    top: 86%;
+    left: 5.2%;
+}
+
+.logo-medialab{
+    width: 16%;
+    top: 84.7%;
+    left: 34%;
+}
+
+.logo-univnantes{
+    width: 10%;
+    top: 85%;
+    left: 54%;
+}
+
+.logo-opensource{
+    width: 5.2%;
+    top: 83.5%;
+    left: 67.6%;
+}
+
+.logo-cc{
+    width: 5.5%;
+    top: 84.5%;
+    left: 77.4%;
+}
+
+.zone-texte{
+    position: absolute;
+    width: 20%;
+    height: 21%;
+    top: 43.1%;
+    font-size: 14.5%;
+    line-height: 1.4em;
+    color:#45396D;
+}
+
+.zone-texte-1{
+    left: 7.55%;
+}
+
+.zone-texte-2{
+    left: 31.45%;
+}
+
+.zone-texte-3{
+    left:53.75%;
+}
+
+.credits-link {
+    text-decoration: none;
+}
+.credits-link:link, .credits-link:visited {
+    color:#45396D;
+}
+.credits-link:hover {
+    color:#45396D;
+}
+
+.credits-robot{
+    position: absolute;
+    width: 21%;
+    right: 1%;
+    top: 17%;
+}

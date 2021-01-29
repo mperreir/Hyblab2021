@@ -284,4 +284,5 @@ let initAge = function(){
         }, 3000);
         initActivities();
     });
+
 };
