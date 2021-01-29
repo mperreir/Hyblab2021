@@ -17,7 +17,7 @@ let mySlidr = slidr.create('slidr',{
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')
     .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
     .add('v', ['searching-results-page', 'results-page', 'searching-results-page'], 'linear')
-    .add('h', ['results-page', 'home-page', 'results-page'], 'fade')
+    .add('h', ['results-page', 'credits-page', 'results-page'], 'linear')
     .start();
 
 // on s'occupe de la 1ère slide

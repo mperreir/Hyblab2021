@@ -244,7 +244,6 @@ let initAge = function(){
                 duration: 500
             })
     });
-};
 
     d3.select('.button-suivant-age').on('mouseleave' ,function (){
         anime({
@@ -255,4 +254,6 @@ let initAge = function(){
         });
         tl_suivant_age_over.pause();
     });
-;
+
+};
+
