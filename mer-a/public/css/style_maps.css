@@ -121,3 +121,11 @@ div#instructions > p#narration {
 	padding: 15px 20px;
 	width: auto;
 }
+
+#cercle_outer1 {
+    opacity: 1;
+}
+
+#cercle_inner1 {
+    opacity: 1;
+}

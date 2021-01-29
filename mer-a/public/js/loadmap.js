@@ -12,18 +12,23 @@ const validDepColor = '#88cbce';
 const invalidDepColor = '#224255';
 const hoveredValidDepColor = '#73b7ba';
 const strokeColor = 'black';
+const invalidStrokeColor = 'none';
 const fontColor = 'white';
 
 //Opacities
 const validDepOpacity = '1';
 const invalidDepOpacity = '0.9';
 
+const validStrokeOpacity = '1';
+const invalidStrokeOpacity = '0.1';
+
 //Fonts
 const fontSize = 24;
 
 //Strokes
-const strokeWidth = '1px';
-const hoveredStrokeWidth = '2px';
+const validStrokeWidth = '2px';
+const invalidStrokeWidth = '10px';
+const hoveredStrokeWidth = '3px';
 
 /**
  * Variables definition
@@ -81,13 +86,13 @@ function generateMap(mapFusion){
 		.append('path')
 			.attr('id',function(d) { return 'path_' + d.properties.code})
 			.attr('fill', function(d){return setColor(d);})
-			.attr('fill-opacity', function(d){return setOpacity(d);})
 			.attr('d', path)
 			.on('mouseover', function(d){ hover(d.properties.code,this);})
 			.on('mouseleave', function(d){ leave(d.properties.code,this);})
 			.on('click', function(d){ selectDepartment(d.properties.code);})
 			.style('stroke',strokeColor)
-			.style('stroke-width', strokeWidth);
+			.style('stroke-opacity',function(d){return setStrokeOpacity(d);})
+			.style('stroke-width', function(d){return setStrokeWidth(d);});
 
 	// Place les noms des departements
 	svg.append('g')
@@ -123,7 +128,7 @@ function generateMap(mapFusion){
 }
 
 /**
- * Function that returns a color
+ * Function that returns the color used to fill the regions
  * @param {object} d the data object from the map.
  */
 function setColor(d){
@@ -132,12 +137,17 @@ function setColor(d){
 }
 
 /**
- * Function that returns the opacity value
+ * Functionthat returns the color used to paint the stroke of the regions
  * @param {object} d the data object from the map.
  */
-function setOpacity(d){
-	let codeDep = d.properties.code;
-	return (deps.isValid(codeDep)) ? validDepOpacity : invalidDepOpacity;
+function setStrokeOpacity(d){
+	let codeDep = d.properties.code;	
+	return (deps.isValid(codeDep)) ? validStrokeOpacity : invalidStrokeOpacity;
+}
+
+function setStrokeWidth(d){
+	let codeDep = d.properties.code;	
+	return (deps.isValid(codeDep)) ? validStrokeWidth : invalidStrokeWidth;
 }
 
 /**
@@ -167,7 +177,7 @@ function leave(codeDep,t){
 		d3.select(t)
 		.transition().duration(500)
 		.style('fill-opacity', 1)
-		.style('stroke-width', strokeWidth)
+		.style('stroke-width', validStrokeWidth)
 		.style("fill", validDepColor)
   		.style('cursor','initial');
 		d3.select('#text_' + codeDep).style("display", 'none');
