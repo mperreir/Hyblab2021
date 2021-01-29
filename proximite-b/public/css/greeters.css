@@ -12,18 +12,18 @@
 }
 #greeter_img{
     width: 12vw;
-    height: 62vh;
+    height: 65vh;
 }
 #etu_img{
-    width: 18vw;
-    height: 62vh;
+    width: auto;
+    height: 65vh;
 }
 #mamie_img{
-    width: 18vw;
-    height: 62vh;
+    width: auto;
+    height: 65vh;
 }
 #family_img{
-    width: 24vw;
+    width: auto;
     height: 65vh;
 }
 #banc_img{

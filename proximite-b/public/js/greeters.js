@@ -3,7 +3,7 @@ function greeter_background(){
 
     if (persona == "jeune"){
         $('#bulle_persona').css("visibility","hidden");
-        $('#div_persona_img').append("<img id = 'etu_img' src='/proximite-b/img/greeter/etudiant.svg#svgView(preserveAspectRatio(none))'/>")
+        $('#div_persona_img').append("<img id = 'etu_img' src='/proximite-b/img/greeter/jeune.svg#svgView(preserveAspectRatio(none))'/>")
     }
     else if (persona == "famille"){
         $('#bulle_persona').css("visibility","hidden");
