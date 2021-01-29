@@ -1,5 +1,19 @@
 'use strict'
 
+
+const url = window.location.href;
+const codeDep = getCodeDepartement(url);
+const codeType = getCodeType(url);
+const map = getMapDepartement(codeDep);
+const persoBox = document.getElementById('character');
+let perso = null;
+const narrationBox = document.getElementById('narration');
+let narration = null;
+let narrationInterval = null;
+let categories = null;
+let categorie = null;
+let legendes = null;
+
 function generateDep(depData, mapData, codeDep, codeType){
 
 	var width = window.innerWidth;
@@ -115,7 +129,7 @@ function getCodeDepartement(url){
 }
 
 function getCodeType(url){
-	return url.split('/')[6];
+	return parseInt(url.split('/')[6]);
 }
 
 function getMapDepartement(code){
@@ -135,45 +149,39 @@ function selectLegende(idLegende){
 }
 
 function loadCharacter() {
-	let nomType = legendes[0].categorie.replace(' ', '_');
 	let imgChar = document.createElement('img');
-	imgChar.src = `/mer-a/assets/img/personnage/image_${nomType}.png`;
+	imgChar.src = ROOT + categorie.imageURI;
 	imgChar.id = 'character_image';
 	persoBox.appendChild(imgChar);
 }
 
 function loadNarration() {
+	console.log(narration);
 	narrationBox.innerHTML += narration[0];
 	narration = narration.substring(1);
 	if(narration.length === 0) clearInterval(narrationInterval);
 }
 
-let url = window.location.href;
-
-var codeDep = getCodeDepartement(url);
-var codeType = getCodeType(url);
-var map = getMapDepartement(codeDep);
-var persoBox = document.getElementById('character');
-var perso = null;
-//var nuage = document.getElementById('cloud');
-var narrationBox = document.getElementById('narration');
-let narration = narrationBox.innerHTML;
-narrationBox.innerHTML = "";
-let narrationInterval = setInterval(loadNarration, 60);
-let categories = null;
-let legendes = null;
+function getCategorie(type) {
+	for(let c of categories) {
+		if(c.id === type) return c;
+	}
+}
 
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
-	//console.log(legendes);
+	await getTypesId(r => categories = r);
+	categorie = getCategorie(codeType);
+	narration = categorie.phraseDep;
+	narrationBox.style.height = narrationBox.offsetWidth/narrationBox.style.fontSize
 	generateDep(map,mapFusion,codeDep,codeType);
 	loadCharacter();
 	perso = document.getElementById('character_image');
+	narrationInterval = setInterval(loadNarration, 45);
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
 })();
 
 window.addEventListener("resize", function(e) {
-	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
 	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
 	generateDep(map,mapFusion,codeDep,codeType);
 });

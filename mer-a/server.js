@@ -29,6 +29,17 @@ let app = express();
 
 let db = null;
 
+/**
+ * Function that decode the strings of of an object with decodeURI().
+ * @param {object} obj object to decode.
+ */
+function decodeURIObject(obj) {
+  for(let attr in obj)
+    if(typeof(obj[attr])==='string')
+      obj[attr] = decodeURI(obj[attr]);
+  return obj;
+}
+
 
 /**
  * Function called on load to open the link with the database.
@@ -47,7 +58,7 @@ app.get(`${config.API_URL}all/regions`, async (req, res) => {
   // Process data
   rows.forEach((row) => {
     // Decode
-    row.nomDepartement = decodeURI(row.nomDepartement);
+    decodeURIObject(row);
   });
   console.log(rows);
   // Send data
@@ -64,11 +75,7 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   // Process data
   rows.forEach((row) => {
     // Decode
-    row.nomCategorie = decodeURI(row.nomCategorie);
-    row.nomPersonnage = decodeURI(row.nomPersonnage);
-    row.phrasePerso = decodeURI(row.phrasePerso);
-    row.phraseDep = decodeURI(row.phraseDep);
-    row.imageURI = decodeURI(row.imageURI);
+    decodeURIObject(row);
   });
   console.log(rows);
   // Send data
@@ -89,16 +96,9 @@ app.get(`${config.API_URL}legende/:id`, async (req, res) => {
 
     const row = await db.get(sql, [req.params.id]);
 
-    //Process data
+    // Process data
     // Decode
-    row.nom = decodeURI(row.nom);
-    row.resume = decodeURI(row.resume);
-    row.histoire = decodeURI(row.histoire);
-    row.adresse = decodeURI(row.adresse);
-    row.photo = decodeURI(row.photo);
-    row.nomDepartement = decodeURI(row.nomDepartement);
-    row.nomCategorie = decodeURI(row.nomCategorie);
-    row.imageURI = decodeURI(row.imageURI);
+    decodeURIObject(row);
     console.log(row);
     //Send data
     res.status(200).json(row);
@@ -124,22 +124,24 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
-      console.log(row);
-        var legende = new Legende(
-            row.id,
-            decodeURI(row.nom), 
-            decodeURI(row.nomDepartement), //A modifier
-            decodeURI(row.nomCategorie),   //A modifier
-            decodeURI(row.resume), 
-            decodeURI(row.histoire), 
-            row.latitude, 
-            row.longitude, 
-            decodeURI(row.adresse),
-            (row.baignade === 1 ? true : false), 
-            (row.toilettes === 1 ? true : false), 
-            (row.restaurant === 1 ? true : false), 
-            decodeURI(row.photo));
-        legendes.push(legende);
+      // Decode
+      decodeURIObject(row);
+      // Cast to Legende
+      var legende = new Legende(
+          row.id,
+          row.nom, 
+          row.nomDepartement,
+          row.nomCategorie,
+          row.resume, 
+          row.histoire, 
+          row.latitude, 
+          row.longitude, 
+          row.adresse,
+          (row.baignade === 1 ? true : false), 
+          (row.toilettes === 1 ? true : false), 
+          (row.restaurant === 1 ? true : false), 
+          row.photo);
+      legendes.push(legende);
     });
     // Show and send processed query result
     console.log(legendes);
@@ -154,7 +156,6 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-
 app.get(`/personnages/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
@@ -164,25 +165,15 @@ app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
     res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
 });
 
+// Route to reach the departements page
+app.get(`/credits`, async (req, res) => {
+    res.status(200).sendFile(`public/html/credits.html`, { root : config.ROOT });
+});
+
 // Route to reach the legende page
 app.get(`/legende/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
-    /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
-      if(err) {
-        console.error(err);
-        res.status(500).send('Invalid file path.');
-      }
-      else res.status(200).send(data.toString());
-    });*/
 });
-
-// close the database connection
-/*db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Close the database connection.');
-});*/
 
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));
