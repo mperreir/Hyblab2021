@@ -20,42 +20,42 @@ class MoyenSelector extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <input type="radio" name="moyen" id="pied" className="input-hidden" onClick={(e)=>this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="pied" className="input-hidden" onClick={(e) => { this.props.updateSelect(e.target.id) }}/>
                             <label htmlFor="pied">
                                 <img src={pied_img} alt="pied" style={hoverStyle}/>
                             </label>
                         </div>
 
                         <div className="col" >
-                            <input type="radio" name="moyen" id="velo" className="input-hidden" onClick={(e) => this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="velo" className="input-hidden" onClick={(e) => { this.props.updateSelect(e.target.id) }}/>
                             <label htmlFor="velo">
                                 <img src={velo_img} alt="velo" style={hoverStyle}/>
                             </label>
                         </div>
 
                         <div className="col">
-                            <input type="radio" name="moyen" id="fauteuil" className="input-hidden" onClick={(e) => this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="fauteuil" className="input-hidden" onClick={(e) => { this.props.updateSelect(e.target.id) }}/>
                             <label htmlFor="fauteuil">
                                 <img src={fauteuil_img} alt="fauteuil" style={hoverStyle}/>
                             </label>
                         </div>
 
                         <div className="col">
-                            <input type="radio" name="moyen" id="trotinette" className="input-hidden" onClick={(e) => this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="trotinette" className="input-hidden" onClick={(e) => { this.props.updateSelect(e.target.id) }}/>
                             <label htmlFor="trotinette">
                                 <img src={trotinette_img} alt="trotinette" style={hoverStyle}/>
                             </label>
                         </div>
 
                         <div className="col">
-                            <input type="radio" name="moyen" id="skate" className="input-hidden" onClick={(e) => this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="skate" className="input-hidden" onClick={(e) => { this.props.updateSelect(e.target.id) }}/>
                             <label htmlFor="skate">
                                 <img src={skate_img} alt="skate" style={hoverStyle}/>
                             </label>
                         </div>
 
                         <div className="col">
-                            <input type="radio" name="moyen" id="roller" className="input-hidden" onClick={(e) => this.props.updateSelect(e.target.id)}/>
+                            <input type="radio" name="moyen" id="roller" className="input-hidden" onClick={(e) => {this.props.updateSelect(e.target.id)}}/>
                             <label htmlFor="roller">
                                 <img src={roller_img} alt="roller" style={hoverStyle}/>
                             </label>
