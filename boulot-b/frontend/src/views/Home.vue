@@ -1,79 +1,58 @@
 <template>
-  <div id="container">
-    <div id="canari">
-      <Oiseau/>
-    </div>
-    <div id="launcher">
-      <Input class="depart" placeholder="point de départ..." />
-      <Input class="arrive" placeholder="point d'arrivée..." />
-      <ButtonCustom @click="launch" text="C'est partie !" color="blue" />
-    </div>
+  <div>
+    <div v-show="showAnim.logo" id="wazo-anim"/>
+    <div v-show="showAnim.canari" id="canari-come"/>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import ChoixTypeDeplacement from "./ChoixTypeDeplacement";
-import Input from "../components/Input.vue";
-import ButtonCustom from "../components/ButtonCustom.vue";
-import Oiseau from "@/components/Oiseau";
+import lottie from "lottie-web"
+import logoWazzo from "@/assets/animationJson/wazo_logo_anim.json"
+import canariCome from "@/assets/animationJson/wazo_intro.json"
 
-export default Vue.extend({
+export default {
   name: "Home",
-  components: {
-    Input,
-    ChoixTypeDeplacement,
-    ButtonCustom,
-    Oiseau
+  data() {
+    return {
+      showAnim: {
+        logo: true,
+        canari: false
+      }
+    }
   },
-  methods: {
-    launch() {
-      this.$router.push({ name: "type-destination" });
-    },
-  },
-});
+  mounted () {
+    const logo = lottie.loadAnimation({
+      container : document.getElementById('wazo-anim'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      animationData: logoWazzo
+    })
+    const canari = lottie.loadAnimation({
+      container : document.getElementById('canari-come'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: canariCome
+    })
+    logo.addEventListener("complete", () => {
+      this.showAnim.logo = false;
+      this.showAnim.canari = true;
+      canari.play()
+    });
+    canari.addEventListener("complete", () => {
+      this.$router.push({name: "choix-type" })
+    });
+  }
+}
 </script>
 
 <style scoped>
-#container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 0.8fr 1.2fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". canari ."
-    ". canari ."
-    ". launcher .";
+
+#wazo-anim, #canari-come {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-#canari {
-  grid-area: canari;
-}
-
-#launcher {
-  grid-area: launcher;
-}
-
-#launcher {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: stretch;
-  align-items: center;
-}
-
-.depart:nth-child(1) {
-  order: 0;
-  margin-bottom: 10px;
-  flex: 0 1 auto;
-  align-self: auto;
-}
-
-.arrive:nth-child(2) {
-  order: 0;
-  margin-bottom: 50px;
-  flex: 0 1 auto;
-  align-self: auto;
-}
 </style>

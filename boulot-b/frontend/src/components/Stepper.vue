@@ -1,13 +1,15 @@
 <template>
   <div id="nav">
-    <img @click="back_home" id="home" src="@/assets/home.svg" alt="home" title="Home"/>
+    <img @click="back_home" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
 
     <ul class="progressbar">
-        <li id="1"></li>
-        <li id="2"></li>
-        <li id="3"></li>
-        <li id="4"></li>
-        <li id="5"></li>
+        <li id="1" v-on="actif>1 ? {click: () => clickMethod(1)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>1}"></li>
+        <li id="2" v-on="actif>2 ? {click: () => clickMethod(2)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>2}"></li>
+        <li id="3" v-on="actif>3 ? {click: () => clickMethod(3)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>3}"></li>
+        <li id="4" v-on="actif>4 ? {click: () => clickMethod(4)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>4}"></li>
+        <li id="5" v-on="actif>5 ? {click: () => clickMethod(5)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>5}"></li>
+        <li id="6" v-on="actif>6 ? {click: () => clickMethod(6)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>6}"></li>
+
     </ul>
   </div>
 </template>
@@ -26,13 +28,17 @@ export default Vue.extend({
     back_home() {
       this.$router.push({name: "Home"})
     },
-    setClass() {
-        let elem = document.getElementById(this.actif);
+    setClassActive() {
+        const elem = document.getElementById(this.actif);
         elem.className = 'active';
+    },
+    clickMethod(n) {
+        const listRoutes = this.$router.getRoutes();
+        this.$router.push({name: listRoutes[n].name});
     },
   },
   mounted: function() {
-      this.setClass()
+      this.setClassActive()
   }
 });
 
@@ -46,7 +52,7 @@ export default Vue.extend({
     }
     #home {
         cursor: pointer;
-        margin: 10px;
+        margin-left: 25px;
     }
     .progressbar {
         width: 80%;
@@ -56,7 +62,7 @@ export default Vue.extend({
     .progressbar li {
         list-style-type: none;
         float: left;
-        width: 20%;
+        width: 15%;
         position: relative;
         text-align: center;
     }
@@ -87,5 +93,8 @@ export default Vue.extend({
     }
     .progressbar li.active:before {
         border: 3px solid #35DBFF;
+    }
+    .clickable:before {
+        cursor: pointer;
     }
 </style>

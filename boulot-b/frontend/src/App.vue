@@ -1,12 +1,20 @@
 <template>
-  <div id="app">
-    <img  id="wazo" src="@/assets/wazo.png"/>
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+    <div id="app">
+    <img  id="wazo" src="@/assets/wazzo.png"/>
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
   </div>
 </template>
 
+<script>
+import Buildings from "@/components/Buildings";
+export default {
+  components: {
+    Buildings
+  }
+}
+</script>
 <style lang="scss">
 
 .fade-enter-active, .fade-leave-active {

@@ -2,15 +2,18 @@
   <Container>
     <template #question >
       <Question  >
-        <ButtonCustom class="pied" text="Grands boulevards" color="yellow"/>
-        <ButtonCustom class="velo"  text="Petites ruelles" color="blue" />
+        <ButtonCustom @click="nextBvd" text="Grands boulevards" color="yellow"/>
+        <ButtonCustom @click="nextRuelles"  text="Petites ruelles" color="blue" />
       </Question>
     </template>
+    <template #buildings>
+      <Buildings/>
+    </template>
     <template #canari>
-      <Oiseau/>
+      <Oiseau message="Tu es plutôt .."/>
     </template>
     <template #stepper>
-      <Stepper :actif=2 />
+      <Stepper :actif=actif />
     </template>
   </Container>
 </template>
@@ -21,12 +24,39 @@ import Question from "@/components/Question";
 import ButtonCustom from "@/components/ButtonCustom";
 import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
+import Buildings from "@/components/Buildings";
+import {Styles} from "@/store";
 
 export default {
+  choice: "style",
   name: "ChoixStyle",
-  data() {
-    return {
-      answers: ["A pied","A vélo"]
+  props: {
+    actif: Number
+  },
+  methods: {
+    next() {
+      const listRoutes = this.$router.getRoutes();
+      this.$router.push({name: listRoutes[this.actif + 1].name});
+    },
+    nextBvd() {
+      const yellow= document.getElementById("yellow_house");
+      const white= document.getElementById("white_house");
+      const blue= document.getElementById("blue_house");
+      yellow.classList.add("bounceInDown");
+      white.classList.add("bounceInDown");
+      blue.classList.add("bounceInDown");
+      yellow.addEventListener("animationend", () => {
+        this.$root.$data.setStyle(Styles.BOULEVARDS);
+        this.next()
+      });
+      },
+    nextRuelles() {
+      const yellow = document.getElementById("yellow_house");
+      yellow.classList.add("bounceInDown");
+      yellow.addEventListener("animationend", () => {
+        this.$root.$data.setStyle(Styles.RUELLES);
+        this.next();
+      });
     }
   },
   components: {
@@ -34,7 +64,8 @@ export default {
     Container,
     ButtonCustom,
     Stepper,
-    Oiseau
+    Oiseau,
+    Buildings
   }
 }
 </script>
