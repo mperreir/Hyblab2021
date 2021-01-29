@@ -9,6 +9,7 @@ body{
 	width: 100%; 
 	height: 100%;
 }
+
 div#department{
 	width: 100vw; 
 	height: 100vh;
@@ -17,7 +18,7 @@ svg{
 	background-image: url("../assets/img/mer.png");
 }
 
-text{
+text, .text{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -27,6 +28,8 @@ text{
     font-family: 'Poppins', sans-serif;
 
 }
+
+
 div#character{
 	width: 20vw; 
 	height: 50vh;
@@ -88,11 +91,10 @@ div#character > img#cloud {
 	left: 5%;
     max-width: 100%;
 }
-div#character > p#narration {
+
+p#narration {
 	z-index: 2;
 	position: absolute;
-	top: -8vh;
-	width: 100%;
     /* aspect du texte */
     text-align: center;
     font-size: 1.7vh;
@@ -105,4 +107,17 @@ div#character > p#narration {
     border-radius: 25px;
     border: solid;
     border-width: 1px;
+}
+
+div#character > p#narration {
+	top: -8vh;
+	width: 100%;
+}
+
+div#instructions > p#narration {
+    font-size: 2vh;
+	bottom: 4vh;
+	left: 4vh;
+	padding: 15px 20px;
+	width: auto;
 }
