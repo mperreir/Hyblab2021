@@ -9,7 +9,8 @@
   "dependencies": {
     "autocomplete-js": "^2.7.1",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "xml-js": "^1.6.11"
   },
   "author": "MPDS",
   "license": "MIT",
