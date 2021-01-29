@@ -15,24 +15,24 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
-function nextSlide(page,data) {
+function nextSlide(page, data) {
     string = 'page-' + page
     console.log("Trig")
     mySlidr.slide(string);
     choixSlide(page);
 }
 
-function choixSlide(num,data) {
+function choixSlide(num, data) {
 
     if (num == '1_1') { initSlide1_1(data) };
-  
+
     if (num == '2') { initSlide2(data) };
 
-    if (num == '2') { initSlide2_1(data) };
+    if (num == '2_1') { initSlide2_1(data) };
 
-    if (num =='3'){ initSlide3(data)};
-    
-    if (num =='4'){ initSlide4(data)};
+    if (num == '3') { initSlide3(data) };
+
+    if (num == '4') { initSlide4(data) };
 
     if (num == '5') { initSlide5(data) };
 
@@ -40,9 +40,9 @@ function choixSlide(num,data) {
 
     if (num == '7') { initSlide7(data) };
 
-    if (num =='8'){ initSlide7(data)};
-  
-    if (num =='9'){ initSlide7(data)};
+    if (num == '8') { initSlide7(data) };
+
+    if (num == '9') { initSlide7(data) };
 
 }
 
@@ -110,24 +110,37 @@ let initSlide2 = function() {
     //Retour arriere
     d3.select('.button_retour').on('click', function() {
         nextSlide('1')
-     });
+    });
 
 }
 
 //Age ? 
-let initSlide2_1 = function() { 
+let initSlide2_1 = function() {
 
     //Age -> Aventurier
     //recupérer l'age 
 
     d3.select('#trois_eleph-p2_1').on('click', async function() {
-        nextSlide('3')
+        console.log(d3.event.target.id);
+    });
+
+    d3.select('#six_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
+    });
+
+    d3.select('#neuf_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
 
     });
-     //Retour arriere
-     d3.selectAll('.button_retour').on('click', function() {
+
+
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function(e) {
+        console.log(d3.event.target.id);
         nextSlide('2')
-     });
+    });
 }
 
 //Premiere question : aventurier ? 
@@ -137,13 +150,13 @@ let initSlide3 = function() {
 
     d3.select('#bouton_non_aventurier-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
-         nextSlide('4',data);
+        nextSlide('4', data);
 
     });
-     //Retour arriere
-     d3.selectAll('.button_retour').on('click', function() {
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function() {
         nextSlide('2')
-     });
+    });
 }
 
 //Plein la vue 
@@ -151,12 +164,12 @@ let initSlide4 = function(db) {
     //Plein la vue -> avec quoi 
     d3.select("#oh_oui_anime-p4").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        nextSlide('5',data);
+        nextSlide('5', data);
     });
-     //Retour arriere
-     d3.selectAll('.button_retour').on('click', function() {
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function() {
         nextSlide('3')
-     });
+    });
 }
 
 
@@ -168,7 +181,7 @@ let initSlide5 = function() {
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('4')
-     });
+    });
 }
 
 let initSlide6 = function() {
@@ -179,7 +192,7 @@ let initSlide6 = function() {
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('5')
-     });
+    });
 }
 
 let initSlide7 = function() {

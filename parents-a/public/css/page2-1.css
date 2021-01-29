@@ -1,6 +1,5 @@
 section[data-slidr="page-2_1"] {
-    background:#6FB5EF
-    
+    background: #6FB5EF
 }
 
 #gros_nuage-p2_1 {
@@ -24,7 +23,6 @@ section[data-slidr="page-2_1"] {
     right: 15%;
 }
 
-
 #feuille_bleue-p2_1 {
     position: absolute;
     width: 8%;
@@ -39,52 +37,53 @@ section[data-slidr="page-2_1"] {
     right: 0%;
 }
 
-.age{
+.age {
     position: absolute;
     width: 10%;
     bottom: 17%;
 }
 
-#zero_ans-p2_1{
-    left :25%
-}
-#quatre_ans-p2_1{
-    left :45%
-}
-#neuf_ans-p2_1{
-    width: 12%;
-    right :23%
+#zero_ans-p2_1 {
+    left: 25%
 }
 
-.eleph{
+#quatre_ans-p2_1 {
+    left: 45%
+}
+
+#neuf_ans-p2_1 {
+    width: 12%;
+    right: 23%
+}
+
+.eleph {
     position: absolute;
-    bottom: 25% ;
+    bottom: 25%;
     opacity: 0.3;
 }
 
-.eleph:hover{
-    opacity : 1;
-}
-#trois_eleph-p2_1{
-    left :23%;
-    width:17%   
+.eleph:hover {
+    opacity: 1;
 }
 
-#six_eleph-p2_1{
-    left :39%;
+#trois_eleph-p2_1 {
+    left: 23%;
+    width: 17%
+}
+
+#six_eleph-p2_1 {
+    left: 39%;
     width: 22%;
-
 }
 
-#neuf_eleph-p2_1{
-    width: 30% ;
-    right :12%
+#neuf_eleph-p2_1 {
+    width: 30%;
+    right: 12%
 }
 
-#quelageastu-p2_1{
+#quelageastu-p2_1 {
     position: absolute;
     width: 26%;
     top: 12%;
-    left: 38% ;
-
+    left: 38%;
 }
