@@ -125,7 +125,7 @@ const go_to = (page, data, callback) => {
             }
             else if (page === 'animation') {
                 animation_background();
-                setTimeout(function() {go_to('greeters');}, 8000);
+                setTimeout(function() {go_to('greeters');}, 5000);
                 
             }
             else if (page === 'greeters') {
