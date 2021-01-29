@@ -27,6 +27,7 @@ function choixSlide(num){
     if (num =='2') {initSlide2()};
 
     if (num =='3'){ initSlide3()};
+    
     if (num =='4'){ initSlide4()};
 
     if (num =='5'){ initSlide5()};
@@ -47,11 +48,11 @@ let initSlide1 = function() {
 
 //Slide de transi 
 let initSlide1_1 = function() {
-        //Transi 1.2 vers 2(Camille) 
-        d3.select('#t').on('click', function() {
-           nextSlide('2')
-        });
-    }
+    //Transi 1.2 vers 2(Camille) 
+    d3.select('#t').on('click', function() {
+        nextSlide('2')
+    });
+}
     /*
     let initSlide2 = function() {
         setTimeout(suiteTraitement, 1000)
@@ -97,6 +98,10 @@ let initSlide2 = function() {
     d3.select('#button2-p2-2').on('click', function() {
        nextSlide('3')
     });
+
+    d3.select('.button_retour').on('click', function() {
+        nextSlide('1')
+     });
 
 }
 

@@ -32,9 +32,10 @@
 <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <main id="container">
+       
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-
+            
             <!-- Page one - Logo gif-->
             <section data-slidr="page-1" >
             <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
@@ -51,6 +52,7 @@
 
             <!-- Page two after timer - Etes vous pret -->
             <section data-slidr="page-2">
+               
                 <img src="img/logo.png" alt="logo" id="logo-p2-1">
 
                 <img src="img/page2/arbre_bleu.svg" alt="arbre-bleu" id="arbre-bleu-p2-1">
@@ -68,12 +70,15 @@
 
                 <div id="disappear">
                     <img src="img/page2/texte.svg" alt="texte" id="texte-p2-1">
-                    <button id="button-p2-1"><i class="fas fa-arrow-right"></i></button>
+                    <button id="button-p2-1" class='button'><i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div id="appear">
                     <img src="img/page2/texte_en_avant.svg" alt="texte" id="texte2-p2-1">
-                    <button id="button2-p2-2" class="nextSlide">Débuter le questionnaire</button>
+                    <button id="button2-p2-2" class='button' >Débuter le questionnaire</button>
                 </div>
+
+                <!-- Bouttons retours arriere -->
+                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
             </section>
 
             <!-- Page 3 : T'es un avanturier ? -->
@@ -96,6 +101,9 @@
                 <img src="img/page3/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p3">
                 <img src="img/page3/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p3">
                 <img src="img/page3/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p3">
+                <!-- Bouttons retours arriere -->
+                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
             </section>
 
             <!-- Page 4 : Plein la vue ? -->
@@ -117,6 +125,9 @@
                 <img src="img/page4/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p4">
                 <img src="img/page4/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p4">
                 <button id="button-p4-1"><i class="fas fa-arrow-left"></i></button>
+                <!-- Bouttons retours arriere -->
+                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
             </section>
 
             <!-- Page 5 : Preference entre beau décor et paysages ? -->
@@ -152,6 +163,9 @@
                  <img src="img/page6/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p6">
                  <img src="img/page6/arbre_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p6">
                  <img src="img/logo.png" alt="logo" id="logo-p6">
+                 <!-- Bouttons retours arriere -->
+                 <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
             </section>
 
             <!-- Page 7 : Preference entre animaux et bruits nature -->
@@ -172,6 +186,9 @@
                 <img src="img/page7/bouton_non.svg" alt="bouton_non" id="bouton_non_p7">
                 <img src="img/page7/text_non.svg" alt="text_non" id="text_non_p7">
                 <img src="img/page7/question.svg" alt="question" id="question_p7">
+                <!-- Bouttons retours arriere -->
+                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
             </section>
 
              <!-- Page 8 : Decouverte d'arbres différents -->
@@ -189,13 +206,10 @@
                  <img src="img/page8/texte_oh_non.svg" alt="texte_oh_non" id="texte_oh_non-p8">
                  <img src="img/logo.png" alt="logo" id="logo-p8">
                  
-                 <!-- Bouttons -->
+                <!-- Bouttons retours arriere -->
+                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
                  <div>
-                     <button id="button_retour" class="button"><i class="fas fa-arrow-left"></i></button>
-                     <img src="img/texte_question_precedente.svg" alt="texte_question_precedente" id="texte_question_precedente">
-                 </div>
-                 <div>
-                     <button id="button_acceuil" class="button"><i class="fas fa-arrow-left"></i></button>
+                     <button id="button_acceuil" class="button button_retour"><i class="fas fa-arrow-left"></i></button>
                      <img src="img/texte_retour_accueil.svg" alt="texte_retour_accueil" id="texte_retour_accueil">
                  </div>
              </section>

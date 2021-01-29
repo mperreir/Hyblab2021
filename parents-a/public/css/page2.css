@@ -118,20 +118,10 @@ section[data-slidr="page-2"] {
     left: 52%;
     top: 46%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
     border-radius: 50%;
-    padding: 10px 13px 10px 13px;
     outline: none;
 }
 
-#button-p2-1:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-}
 
 /* elements qui apparaisse */
 #appear {
@@ -151,18 +141,9 @@ section[data-slidr="page-2"] {
     left: 34%;
     top: 63%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
     border-radius: 5%;
-    padding: 10px 13px 10px 13px;
     outline: none;
 
 }
 
-#button2-p2-2:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-}
+
