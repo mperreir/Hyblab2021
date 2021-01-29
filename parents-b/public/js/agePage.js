@@ -6,6 +6,12 @@ const GRAND = 10.5;
 
 let initAge = function(){
 
+    d3.select('.logoAccueil3').on('click', function (){
+        mySlidr.slide('home-page');
+        initHome();
+        resetHome();
+    });
+
     //---------------FONCTIONS-----------------
     //Pour avoir l'image du jeu adéquat avec fleche
     function setImage(cpt){
@@ -50,25 +56,14 @@ let initAge = function(){
         }
     }
 
-    let cpt = 0;  
-    
+    let cpt = 0;
+
 
     //---------------DES L'OUVERTURE-----------------
     let x = document.getElementById("image_age");
     x.setAttribute("src", "./img/age_page/agebb.svg");
 
-    //Cache tous les elements de choix d'age au début
-    document.getElementById("bb").hidden = true;
-    document.getElementById("supp_bb").hidden = true;
-    document.getElementById("nounours").hidden = true;
-    document.getElementById("supp_nounours").hidden = true;
-    document.getElementById("lego").hidden = true;
-    document.getElementById("supp_lego").hidden = true;
-    document.getElementById("ballon").hidden = true;
-    document.getElementById("supp_ballon").hidden = true;
-
-
-    //---------------BOUTTONS-----------------
+    //---------------BOUTONS-----------------
     //Bouton suivant
     d3.select('.button-suivant-age').on('click', function (){
         tl_suivant_age_over.pause();
@@ -102,13 +97,13 @@ let initAge = function(){
     //Mouse over de fleche gauche
     d3.select(".fleche_gauche").on("mouseover",  function (){
         var x = document.getElementById("fleche_gauche");
-        x.setAttribute("src", "././img/age/fleche_gauche.svg");
+        x.setAttribute("src", "././img/age_page/fleche_gauche.svg");
     });
     d3.select(".fleche_gauche").on("mouseleave",  function (){
         var x = document.getElementById("fleche_gauche");
-        x.setAttribute("src", "././img/age/flecheG.svg");
+        x.setAttribute("src", "././img/age_page/flecheG.svg");
     });
-      
+
 
     d3.select(".fleche_droite").on("click",  function (){
         cpt =cpt+1;
@@ -126,11 +121,11 @@ let initAge = function(){
     //Mouse over de fleche droite
     d3.select(".fleche_droite").on("mouseover",  function (){
         var x = document.getElementById("fleche_droite");
-        x.setAttribute("src", "././img/age/fleche_droite.svg");
+        x.setAttribute("src", "././img/age_page/fleche_droite.svg");
     });
     d3.select(".fleche_droite").on("mouseleave",  function (){
         var x = document.getElementById("fleche_droite");
-        x.setAttribute("src", "././img/age/flecheD.svg");
+        x.setAttribute("src", "././img/age_page/flecheD.svg");
     });
 
     //Bouton plus
@@ -165,7 +160,7 @@ let initAge = function(){
 
 
     //----------ANIMATIONS---------------
-    //Premier robot 
+    //Premier robot
     anime({
         targets: '.age_yeux_cache',
         translateY: '170%',
@@ -244,8 +239,6 @@ let initAge = function(){
                 duration: 500
             })
     });
-};
-
     d3.select('.button-suivant-age').on('mouseleave' ,function (){
         anime({
             targets: ".button-suivant-age",
@@ -255,4 +248,42 @@ let initAge = function(){
         });
         tl_suivant_age_over.pause();
     });
-;
+
+    d3.select(".arianne-1-age").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 1500);
+        initAddress();
+    });
+
+    d3.select(".arianne-2-age").on('click', function (){
+        mySlidr.slide('left');
+        initHour();
+    });
+
+    d3.select(".arianne-4-age").on('click', function (){
+        mySlidr.slide('right');
+        initAccess();
+    });
+
+    d3.select(".arianne-5-age").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 1500);
+        initFaunaFlora();
+    });
+
+    d3.select(".arianne-6-age").on('click', function (){
+        mySlidr.slide('right');
+        setTimeout(function(){
+            mySlidr.slide('up');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 3000);
+        initActivities();
+    });
+
+};

@@ -42,6 +42,7 @@
     left: 35%;
     width: 40%;
     z-index: 2;
+    font-size:25%;
 }
 
 .picto-access{
@@ -189,3 +190,20 @@
     color: #45396D;
 }
 
+
+
+.arianne-1-access{
+    top: 0.5%;
+}
+.arianne-2-access{
+    top: 14.5%;
+}
+.arianne-3-access{
+    top: 30%;
+}
+.arianne-5-access{
+    top: 77.5%;
+}
+.arianne-6-access{
+    top: 93%;
+}

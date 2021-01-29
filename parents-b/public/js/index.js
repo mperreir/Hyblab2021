@@ -1,11 +1,11 @@
 // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr',{
-    breadcrumbs: true,
+    breadcrumbs: false,
     controls: 'none',
     fade: false,
     keyboard: false,
     overflow: true,
-    timing: { 'linear': '1.5s ease-out' }
+    timing: { 'linear': '1.2s ease-out' }
   })
     
     .add('v', ['home-page', 'address-page', 'home-page'], 'linear')
@@ -13,11 +13,14 @@ let mySlidr = slidr.create('slidr',{
     .add('h', ['home-page', 'histoire-page', 'home-page'], 'linear')
     .add('h', ['histoire-page', 'home-page', 'histoire-page'], 'linear')
     
+    .add('h', ['age-page', 'home-page', 'age-page'], 'linear')
+
     .add('h', ['address-page', 'hour-page', 'age-page', 'access-page', 'address-page'], 'linear')
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')
     .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
     .add('v', ['searching-results-page', 'results-page', 'searching-results-page'], 'linear')
-    .add('h', ['results-page', 'home-page', 'results-page'], 'fade')
+    .add('h', ['results-page', 'credits-page', 'results-page'], 'linear')
+    .add('v', ['address-page', 'activities-page', 'address-page'], 'fade')
     .start();
 
 // on s'occupe de la 1ère slide

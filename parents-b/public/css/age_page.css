@@ -180,8 +180,24 @@
 
 .cascade_age{
     position: absolute;
-    top: 27%;
-    left : 64.8%;
-    width: 35%;
+    top: 30.5%;
+    left : 68%;
+    width: 32%;
     z-index: 1;
+}
+
+.arianne-1-age{
+    top: 0.5%;
+}
+.arianne-2-age{
+    top: 14.5%;
+}
+.arianne-4-age{
+    top: 62%;
+}
+.arianne-5-age{
+    top: 77.5%;
+}
+.arianne-6-age{
+    top: 93%;
 }
