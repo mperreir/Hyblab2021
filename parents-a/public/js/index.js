@@ -94,13 +94,13 @@ let initSlide3 = function() {
 //Plein la vue 
 let initSlide4 = function() {
     //Plein la vue -> avec quoi 
-    d3.select("#bouton_pleinLaVue-p4").on('click', function() {
+    d3.select("#oh_oui_anime-p4").on('click', function() {
         mySlidr.slide('page-5');
         //initSlide5();
     });
 }
 
-/*
+
 let initSlide5 = function() {
     //Plein la vue -> avec quoi 
     d3.select("#button_oui-p5").on('click', function() {
@@ -120,8 +120,6 @@ let initSlide6 = function() {
 let initSlide7 = function() {
     console.log('arrived page 7 ');
 };
-
-*/
 
 //Initialisation du diaporama
 initSlide1();
