@@ -12,12 +12,12 @@ const store = {
             path: {depart: undefined, arrive: undefined}
         }
     },
-    subscribe(event,callback) {
-        this.subscribers.push({[event]: callback})
+    subscribe(state,callback) {
+        this.subscribers.push({[state]: callback})
     },
-    notify(event) {
+    notify(state) {
         this.subscribers.forEach((subscribe) => {
-            subscribe[event](this.state.actif)
+            subscribe[state](this.state[state])
         })
     },
     setActif(newActif) {
