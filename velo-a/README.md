@@ -10,17 +10,17 @@ Agence Tandem
 
 ## Participants 
 
-- Sciencescom:
+- **Sciencescom** :
     - Gaëtan Peret
     - Maëva Bossard
     - Constance Pussat
 
-- AGR :
+- **AGR** :
     - Djovanni Fouin Sergiacomi
     - Maxence Lecourt
     - Marine Bouteiller
 
-- Polytech :
+- **Polytech** :
     - Erwan Launay
     - Étienne Lécrivain
     - Maxence Dominici
