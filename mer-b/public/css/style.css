@@ -298,6 +298,7 @@ h1 {
     width: 45px;
     box-sizing: border-box;
     display: inline-block;
+    vertical-align: bottom;
 }
 
 .materialBouton:hover {
@@ -438,8 +439,13 @@ div#breadcrumb-page-fin {
     max-width: 1000px;
 }
 
+.containerAcceuil img {
+    width: 400px;
+    margin-bottom: 40px;
+}
+
 .presentation {
-    width: 750px;
+    width: 850px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -477,8 +483,9 @@ input#adresse:focus {
     text-align: center;
 }
 
-.imgLocalisation img{
-    height: 45px;
+.imgLocalisation img {
+    height: 45px !important;
+    width: auto;
 }
 
 input#distance {
@@ -785,6 +792,45 @@ div#goback {
     margin-top: 11vw;
     text-align: center;
     vertical-align: top;
+}
+
+.credit {
+    position: absolute;
+    z-index: 99;
+    right: 10px;
+    top: 10px;
+}
+
+.credits {
+    position: absolute;
+    z-index: 99;
+    color: black;
+    right: 10px;
+    top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 6px 17px rgb(32 52 67 / 20%);
+    display: none;
+}
+
+div#closeCredit {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+div#closeCredit:hover {
+    cursor: pointer;
+}
+
+table {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    padding-right: 10px;
 }
 
 .logoContainer {

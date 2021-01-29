@@ -62,7 +62,6 @@ function updateSlideFin(plages, criteres){
     cartesPostalesList[index].style.display = "inline-block";
 
     let cartePostale = document.getElementById("cp" + (index + 1));
-    console.log(cartePostale);
 
     let imgPlage = cartePostale.querySelector(".imgCarte");
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
@@ -129,3 +128,15 @@ function updateSlideFinNotFound(){
   let loading = document.getElementById("loading");
   loading.innerHTML = "<h2>Désolé, nous n'avons pas trouvé de plage correspondant à vos critères ! <br /> Essayez avec une nouvelle adresse ou d'autres critères.</h2>";
 }
+
+let boutonCredit = document.getElementById("boutonCredit");
+boutonCredit.addEventListener("click", function(){
+  let credits = document.getElementsByClassName("credits")[0];
+  credits.style.display = "block";
+});
+
+let closeCredit = document.getElementById("closeCredit");
+closeCredit.addEventListener("click", function(){
+  let credits = document.getElementsByClassName("credits")[0];
+  credits.style.display = "none";
+});

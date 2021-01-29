@@ -43,10 +43,7 @@ function updateElement(element, reponse){
     }
 
     sketchCiel.updateSketchCiel(element, reponse);
-    console.log(getAffichage());
-
     let root = document.documentElement;
-
 
     if(element == "moment" && reponse.json == "night"){
       root.style.setProperty('--citation-color', "white");
