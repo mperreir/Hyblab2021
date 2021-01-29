@@ -24,24 +24,23 @@ class AcceuilCarte extends  React.Component {
         currentPosition: [47.2819, -1.5158]
     };
 
-    componentDidMount() {
+    /*componentDidMount() {
         navigator.geolocation.getCurrentPosition(function(position) {   //une fois la position récupérée
             this.setState( {
                 currentPosition: [position.coords.latitude,position.coords.longitude]
             })
         }.bind(this));
-    }
+    }*/
 
 
-    getPhase = () =>{
-        console.log("2");
+    getPhase(nom){
         switch (this.state.popupPhase) {
             case 0:
                 return null;
             case 1:
-                return <CarteInterractionChoixLieu onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixLieu nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
-                return <CarteInterractionChoixMultiples onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixMultiples nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
         }
     };
 
@@ -57,6 +56,7 @@ class AcceuilCarte extends  React.Component {
 
 
     render() {
+        const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
             <div id="map">
@@ -69,7 +69,7 @@ class AcceuilCarte extends  React.Component {
                 </MapContainer>
 
                 <PopupAnnonce/>
-                {this.getPhase()}
+                {this.getPhase({nomPers})}
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <a href="https://www.google.com/" class="buttonMapNavigation">Télécharger la carte en PDF</a>

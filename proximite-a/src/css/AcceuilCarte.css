@@ -116,15 +116,9 @@ h5{
 
 
 
-/*Phase 2*/
-#containerInterraction2{
-    position: absolute;
-    top: 4%;
-    left: 3%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 30px;
-}
+/*Phase 2 todo add */
+
+
 
 
 .phase2Top{
@@ -206,7 +200,7 @@ input[type=radio] + label>img {
 }
 
 #containerInterraction2{
-    position: absolute;
+    position: relative;
     top: 4%;
     left: 3%;
     background-color: white;
@@ -217,15 +211,15 @@ input[type=radio] + label>img {
 
 #containerInterractionEtiquette{
     position: absolute;
+    z-index: 1;
     top: 40px;
     right: 0;
     background-color: white;
     border-radius: 30px;
-    max-width: 100%;
     width: 300px;
-    max-height: 100%;
-    z-index: 2;
+    right: -15px;
 }
+
 
 .imgChoiceEtiquette{
     border-radius: 30px;
@@ -236,32 +230,54 @@ input[type=radio] + label>img {
 #boutEtiquette{
     width: 100px;
     height: 100px;
-    background-color: #5CFF9E;
+
     position: absolute;
     z-index: -1;
-    right: -30px;
+    right: -40px;
     top: 0;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 26px;
+    border: none    ;
+}
+
+.roundedText{
+    color: #FFFFFF;
+    padding: 2px;
+    margin: 8px;
+}
+
+.decaleDroite{
+    transform: translateX(320px);
+    transition: .5s;
+}
+
+.decaleGauche{
+    transform: translateX(-0);
+    transition: .5s;
 }
 
 
 
-#containerButtonsMapNavigation{
+
+#mainContainerInterraction{
     position: absolute;
-    right: 0;
-    top: 0;
-    display: flex;
-    z-index: 1;
-    margin: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: column;
+    top: 4%;
+    left: 3%;
 }
+
+
+#containerInterraction2{
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 30px;
+    z-index: 2;
+}
+
+
 
 .buttonMapNavigation{
     background-color: white;
