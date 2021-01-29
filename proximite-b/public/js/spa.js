@@ -132,6 +132,7 @@ const go_to = (page, data, callback) => {
                 });
             }
             else if (page === 'animation') {
+                lockScroll();
                 animation_background();
                 setTimeout(function () { go_to('greeters'); }, 5000);
             }
