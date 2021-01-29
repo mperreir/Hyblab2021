@@ -44,7 +44,6 @@ body{
     margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
     position: absolute;
     font-size: 50%;
-    cursor: pointer;
 }
 
 #background-video{
@@ -210,7 +209,7 @@ header .logo{
     bottom: 20px;
     right:20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
     height: 150px;
 
