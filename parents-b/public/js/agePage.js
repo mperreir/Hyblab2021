@@ -68,11 +68,16 @@ let initAge = function(){
 
     //Gestion des fleches pour changement image
     //Recupere l'image et modifie la source en fonction du resultat de la division euclidienne
+    d3.select(".fleche_gauche").on("click",  function (){
+      cpt =cpt-1;
+      setImage(cpt);
+    });
+
     d3.select(".fleche_gauche").on("click", function (){
       cpt =cpt-1;
       if (cpt <0) cpt = 3;
       setImage(cpt);
-      });
+    });
     //Mouse over de fleche gauche
     d3.select(".fleche_gauche").on("mouseover",  function (){
         var x = document.getElementById("fleche_gauche");
