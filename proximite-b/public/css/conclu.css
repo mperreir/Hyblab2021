@@ -1,7 +1,7 @@
 #conclu_background {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     z-index: -10;
@@ -104,8 +104,8 @@
 
 #conclu_credits_button {
     position: absolute;
-    right: 81px;
-    top: 150px;
+    right: 48px;
+    top: 200px;
     height: 25px;
 }
 
