@@ -1,8 +1,7 @@
 <template>
     <div id="app">
     <img  id="wazzo" src="@/assets/wazzo.svg"/>
-      <transition name="fade" mode="out-in">
-        <router-view />
+      <router-view />
   </div>
 </template>
 
