@@ -1,9 +1,4 @@
-
-function getZone(position, transportation) {
-    let polygon = null;
-    // TODO
-    return polygon;
-}
+import request from './request';
 
 const culture = [
     "tourism=museum",
@@ -46,44 +41,49 @@ const famille = [
 ];
 
 const tous = [
-    "\"restaurant\"",
+    "amenity=restaurant",
     "amenity=give_box",
     "amenity=marketplace",
     "amenity=toilets",
     "amenity=hospital",
 ];
 
- const POINT_TYPES = [
+ const POINT_TYPES = {
     culture,
     fetard,
     tourisme,
     sportif,
     famille,
     tous
-];
+};
+
+const getPointsInZoneForProfil =  async function(zone, profil) {
+    return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
+}
 
 /**
  *
  * @param {*} zone
  * @param {Array} types
  */
-const getPointsInZone = (zone, types) => {
+const getPointsInZone =  async function(zone, types) {
     const query = buildQuery(types, zone);
+    let res = await request.request(query, null);
+    let json = await res.json();
+    return json;
 }
 
-    const buildQuery = (types, zone) => {
-    let query = "http://overpass-api.de/api/interpreter?data=[out:json];";
-    let area = "name=Nantes";
-    query += "area[" + area + "];("
+ const buildQuery = (types, zone) => {
+    let query = "https://overpass-api.de/api/interpreter?data=[out:json];";
+    let area = getBoxFromZone(zone);
+    query += "area(" + area + ");("
  
-    // ajout des filtres par type de lieu
-    types.forEach(categorie => {
-        categorie.forEach(element => {
-            if(element && element !== "") {
-                let filtre = "node(area)[" + element + "];";
-                query += filtre;
-            }
-        });
+    // ajout des filtres de type de lieu
+    types.forEach(element => {
+        if(element && element !== "") {
+            let filtre = "node(area)[" + element + "];";
+            query += filtre;
+        }
     });
 
     query += ");out;";
@@ -91,4 +91,21 @@ const getPointsInZone = (zone, types) => {
     return query
 }
 
-module.exports= getPointsInZone;
+
+//https://overpass-api.de/api/interpreter?data=[out:json];area(47.264113,%20-1.573835,%2047.264492,%20-1.573586);node[tourism];out;
+const getBoxFromZone = (zone) => {
+    let west=180, east=-180, south=-90, north=90;
+    zone = zone[0];
+    zone.forEach(point => {
+        let longCoor = point[0];
+        west = longCoor < west ? longCoor : west;
+        east = longCoor > east ? longCoor : east;
+        let latCoor = point[1];
+        south = latCoor > south ? latCoor : south;
+        north = latCoor < north ? latCoor : north;
+    });
+
+    return [north, west, south, east];
+}
+module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfil };
+
