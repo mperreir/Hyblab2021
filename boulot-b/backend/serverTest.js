@@ -208,7 +208,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
     /** definition du style : nature/culture/aleatoire */
     switch(style){
         case "nature":
-            let listNature = await pointInteret(origin, arrivee, "jardin", transport)
+            let listNature = await pointInteret(origin, arrivee, "natural-geographical", transport)
             let randN = getRandomInt(0, listNature.length)
 
             let P_nature1 = listNature[randN]
@@ -216,7 +216,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
             list_POI["Nature"] = P_nature
             break;
         case "culture":
-            let listCulture = await pointInteret(origin, arrivee, "natural-geographical", transport)
+            let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
             let randC = getRandomInt(0, listCulture.length)
 
             let P_culture1 = listCulture[randC]
@@ -243,7 +243,9 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
 
         let P_boulangerie1 = listBoul[randB]
         let P_boulangerie = extractUtilsValue(P_boulangerie1)
+        P_boulangerie["description"] = "Hmm on dirait qu’une boulangerie se trouve sur ton trajet retour. Plutôt baguette, viennoiserie ou pâtisserie ?"
         list_POI["Boulangerie"] = P_boulangerie
+
     }
 
     /** SALLES SPORT */
@@ -253,6 +255,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
 
         let P_salle1 = listSalle[randS]
         let P_salle = extractUtilsValue(P_salle1)
+        P_salle["description"] = "La salle de sport Basic Fit est sur ton chemin ! Une belle occasion de te défouler après ta journée."
         list_POI["SalleSport"] = P_salle
     }
 
@@ -263,6 +266,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
 
         let P_bar1 = listBar[randBar]
         let P_bar = extractUtilsValue(P_bar1)
+        P_bar["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
         list_POI["Bar"] = P_bar
     }
 
@@ -274,6 +278,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:detour/:style/:sallesport/:bar/:bo
 
         let P_pharmacie1 = listpharmacie[randP]
         let P_pharmacie = extractUtilsValue(P_pharmacie1)
+        P_pharmacie["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
         list_POI["Pharmacie"] = P_pharmacie
     }
 
