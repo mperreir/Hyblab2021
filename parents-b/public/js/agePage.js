@@ -6,6 +6,11 @@ const GRAND = 10.5;
 
 let initAge = function(){
 
+    d3.select('.logoAccueil3').on('click', function (){
+        mySlidr.slide('home-page');
+        initHome();
+    });
+
     //---------------FONCTIONS-----------------
     //Pour avoir l'image du jeu adéquat avec fleche
     function setImage(cpt){
@@ -244,8 +249,6 @@ let initAge = function(){
                 duration: 500
             })
     });
-};
-
     d3.select('.button-suivant-age').on('mouseleave' ,function (){
         anime({
             targets: ".button-suivant-age",
@@ -255,4 +258,5 @@ let initAge = function(){
         });
         tl_suivant_age_over.pause();
     });
-;
+};
+

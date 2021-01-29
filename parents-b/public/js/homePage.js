@@ -1,4 +1,9 @@
 let initHome = function(){
+    
+    d3.select('.more-info').on('click', function (){
+        //Doit ouvrir la page qui sommes nous
+    });
+
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
@@ -72,7 +77,7 @@ let initHome = function(){
                 opacity: 0,
                 duration: 300
             })
-            .add({
+            /*.add({
                 targets: ".catch-phrase",
                 opacity: 0,
                 offset: "-=300",
@@ -149,7 +154,7 @@ let initHome = function(){
                 targets: ".rocket-hello",
                 translateY: "-150%",
                 duration: 1000,
-            })
+            })*/
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();

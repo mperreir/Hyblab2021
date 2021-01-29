@@ -1,4 +1,10 @@
 let initActivities = function(){
+
+    d3.select('.logoAccueil6').on('click', function (){
+        mySlidr.slide('home-page');
+        initHome();
+    });
+
     d3.select('.button-suivant-activities').on('click', function (){
         tl_suivant_activities_over.pause();
         mySlidr.slide('right');

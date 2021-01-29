@@ -55,7 +55,6 @@
     position: absolute;
     top: 62%;
     left: 47.2%;
-    z-index: 2;
     border-radius: 50%;
     border: 0.2em solid #ffe9de;
 }
@@ -99,9 +98,12 @@
 .button-histoire{
     position: absolute;
     top: 85%;
-    left: 35%;
-    width: 32%;
-    border: 0.2em solid #ffe9de;
+    left: 42%;
+    width: 16%;
+    z-index: 2;
+    padding: 0.5%;
+    border: 0.3em solid #ffe9de;
+    font-size: 20%;
 }
 .button-histoire:hover{
     color: #FFCDB6;

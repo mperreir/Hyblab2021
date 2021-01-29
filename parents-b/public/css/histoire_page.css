@@ -27,3 +27,12 @@
 .button-histoire-font{
     font-size: 23%;
 }
+
+.suivant_histoire{
+    position: absolute;
+    top: 85%;
+    left: 38%;
+    width: 23%;
+    z-index: 2;
+    border: 0.2em solid #ffe9de;
+}
