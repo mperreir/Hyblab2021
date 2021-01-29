@@ -99,7 +99,6 @@ function setTexte(id){
       document.addEventListener('mouseup', function() {
         if(isDown){
           isDown = false;
-          console.log(stepperBouton.style.left);
           let x = stepperBouton.style.left.replace("px", "");
           if(x < 83){
             stepperBouton.style.left = 0;

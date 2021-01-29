@@ -34,7 +34,9 @@ exports.api_fetch = async (plages) => {
 
 exports.format = (plages, adress) => {
 
-    for (let i =0; i<3; i++) {
+    for (let i =0; i<plages.length; i++) {
+
+        console.log(adress);
 
         plages[i].adresse = {
             rue: (adress[i].reversegeocode.addressparts.hasOwnProperty("road")? adress[i].reversegeocode.addressparts.road._text : ""),
