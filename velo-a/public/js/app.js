@@ -29,15 +29,6 @@ async function bootstrap() {
 
 	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
 
-	map.addControl(
-		new mapboxgl.GeolocateControl({
-			positionOptions: {
-				enableHighAccuracy: true
-			},
-			trackUserLocation: true
-		})
-	)
-
 	let openMarker = undefined;
 
 	function points(data, url) {
@@ -66,11 +57,11 @@ async function bootstrap() {
 	}
 
 	abrisVeloDisplayData().then(data => {
-		points(data, "https://svgshare.com/i/TVr.svg");
+		points(data, "https://svgshare.com/i/T_i.svg");
 	});
 
 	getStationsVelos().then(data => {
-		points(data, "https://svgshare.com/i/TUq.svg");
+		points(data, "https://svgshare.com/i/T_M.svg");
 	});
 
     getMeteoNow();
