@@ -25,6 +25,13 @@
     z-index: 2;
 }
 
+.text-dialog-activite {
+  position: absolute;
+  top: 70%;
+  left: 12%;
+  width: 26%;
+}
+
 .oya-activities-dialog{
     position: absolute;
     top: 12%;
@@ -166,3 +173,4 @@ input:checked + .slider:before {
 .arianne-5-activities{
     top: 58.5%;
 }
+

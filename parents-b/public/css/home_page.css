@@ -67,9 +67,11 @@
 
 .catch-phrase{
     position: absolute;
-    top: 78%;
+    top: 80%;
+    margin-bottom: 2.5em;
     left: 50%;
     width: 40%;
+    font-size: 13.5%;
     height: auto;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
