@@ -108,3 +108,4 @@ dist
 ._server.js
 
 workspace.xml
+.idea
