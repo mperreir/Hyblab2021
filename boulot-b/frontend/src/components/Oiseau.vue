@@ -5,32 +5,65 @@
           <p class="text" >{{message}} </p>
       </div>
     </transition>
-    <div id="wazo-anim" > </div>
+    <div id="wazo-anim"  > </div>
   </div>
 </template>
 
 
 <script >
 import lottie from "lottie-web";
-import canariAnimation from "../assets/animationJson/wazo_vanilla_gauche.json";
+import {Humeur, Themes} from "@/store";
+
+import canariVanilla from "../assets/animationJson/wazo_vanilla_gauche.json";
+import canariCulture from "../assets/animationJson/wazo_culture.json";
+import canariSport from "../assets/animationJson/wazo_sport";
+import canariCultureSport from "../assets/animationJson/wazo_culture_sport.json";
+import canariSportNature from "../assets/animationJson/wazo_sport_nature.json";
+import canariNature from "../assets/animationJson/wazo_nature.json";
 
 export default {
   name: "Oiseau",
   props: {
     message: String,
     anim: {
-      default: () => canariAnimation
+      default: () => canariVanilla
     }
+  },  
+  data() {
+    let choixhumeur =this.$root.$data.state.choice.humeur;
+    let choixtheme = this.$root.$data.state.choice.theme;
+          if(choixhumeur === Humeur.OUI || choixhumeur === Humeur.PLUTOT ){
+            if( choixtheme === Themes.NATURE ){
+                return{animm : canariSportNature } 
+            }
+            else if (choixtheme === Themes.CULTURE ){
+                return{animm : canariCultureSport } 
+            }
+          return{animm : canariSport } 
+          }  else{
+              if( choixtheme === Themes.NATURE ){
+                return{animm : canariNature } 
+            }
+            else if (choixtheme === Themes.CULTURE ){
+                return{animm : canariCulture } 
+            }else{
+              return{animm : canariVanilla }
+            }
+          }
   },
+    
+    
     mounted () {
     lottie.loadAnimation({
     container : document.getElementById('wazo-anim'),
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    animationData: this.anim
+    animationData: this.animm, // par défaut
       })
-    }
+
+    },
+
 };
 </script>
 
