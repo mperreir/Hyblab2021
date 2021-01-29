@@ -22,7 +22,8 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
     id INT PRIMARY KEY,
     nomCategorie VARCHAR(30) NOT NULL,
     nomPersonnage VARCHAR(50) NOT NULL,
-    phraseCat VARCHAR(250) NOT NULL,
+    phrasePerso VARCHAR(250) NOT NULL,
+    phraseDep VARCHAR(250) NOT NULL,
     imageURI VARCHAR(10)
 );`;
 
@@ -47,7 +48,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
 
   // If necessary
   // db.run('DROP TABLE IF EXISTS Departement;');
-  // db.run('DROP TABLE IF EXISTS Categorie;');
+  db.run('DROP TABLE IF EXISTS Categorie;');
   // db.run('DROP TABLE IF EXISTS Legende;');
 
   // Execute query
@@ -65,9 +66,18 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
   var countIdLeg = 1;
   var depList = [];
   var catList = [];
-  var personnages = { data: [{cat: 'Créatures Fantastiques', nom: 'La fée Armelle', phrase: 'et ses contes fantastiques'},
-  {cat: 'Croyances Religion', nom: 'Le moine Saint-Paul', phrase: 'et ses légendes religieuses'},
-  {cat: 'Histoires Maritimes', nom: 'Le marin Gwenaël', phrase: 'et ses histoires maritimes'}],
+  var personnages = { data: [{cat: 'Créatures Fantastiques',
+                              nom: 'Armelle',
+                              phrasePerso: 'La fée Armelle\net ses contes fantastiques',
+                              phraseDep: 'Bonjour à vous cher voyageur, cliquez sur l’un des points pour découvrir la légende qui y est associée.'},
+                            {cat: 'Croyances Religion',
+                              nom: 'Saint-Paul',
+                              phrasePerso: 'Le moine Saint-Paul\net ses légendes religieuses',
+                              phraseDep: 'Chaque lieu renferme une légende, clique sur l’un des points pour faire ton choix mon enfant.'},
+                            {cat: 'Histoires Maritimes',
+                              nom: 'Gwenaël',
+                              phrasePerso: 'Le marin Gwenaël\net ses histoires maritimes',
+                              phraseDep: 'Place ton curseur sur un des points pour découvrir sa légende matelot !'}],
   getPerso: (cat) => {
     for(perso of personnages.data) {
       if(perso.cat === cat) return perso;
@@ -92,7 +102,8 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
           '${encodeURI(catPerso.nom)}',
-          '${encodeURI(catPerso.phrase)}',
+          '${encodeURI(catPerso.phrasePerso)}',
+          '${encodeURI(catPerso.phraseDep)}',
           'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
         catList.push(row.categorie);
         countIdCat++;
