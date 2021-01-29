@@ -17,7 +17,6 @@
  	margin-bottom: 5%;
 	text-align: center;
 	width: 80%;
-	background-color: #EDF4F8;
 }
 
 #relativ .gauche{
@@ -42,11 +41,11 @@
 }
 
 #relativ thead{
-	background-color: white;
+	background-color: #CFE0EC;
 }
 
 #relativ tfoot{
-	background-color: white;
+	background-color: #CFE0EC;
 }
 
 #relativ th{
@@ -70,8 +69,8 @@
 }
 
 #relativ tbody{
-	background-color: #EDF4F8;
-	color: #2380C0;
+	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	color: #ABC4D5;
 	font-weight: bold;
 }
 
@@ -82,4 +81,8 @@
 
 #relativ div#content div#relativ {
 	position: relative;
+}
+
+#relativ .button{
+	background-color : #ABC4D5
 }

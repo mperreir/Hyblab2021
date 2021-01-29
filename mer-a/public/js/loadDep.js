@@ -8,14 +8,25 @@ const map = getMapDepartement(codeDep);
 const persoBox = document.getElementById('character');
 const narrationBox = document.getElementById('narration');
 const narrationTextBox = document.querySelector('#narration > span');
-const narrationPass = document.getElementById('pass_narration');
+const narrationPass = document.querySelector('#narration > button.pass_narration');
+const legendNarrationBox = document.querySelector('#narration_legende');
+const legendNarrationTextBox = document.querySelector('#narration_legende > span.resume');
+const legendNarrationTitleBox = document.querySelector('#narration_legende > span.title');
+const legendNarrationPass = document.querySelector('#narration_legende > button.pass_narration');
+const fontSize = window.innerHeight*0.023;
 const padding = window.innerHeight*0.008;
 let perso = null;
 let narration = null;
 let narrationIndex = 0;
+let legendIndex = 0;
 let narrationInterval = null;
+let legendInterval = null;
+let legendTimeout = null;
+let legendNarrationId = null;
+let categories = null;
 let categorie = null;
 let legendes = null;
+let narrationBoxHeight = 0;
 
 function generateDep(depData, mapData, codeDep, codeType){
 
@@ -59,6 +70,7 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.enter()
 		.append("circle")
 			.attr("id", function(d){ return 'dot_legende_' + d.id; })
+			.attr("lbl-legende-id", function(d){ return d.id; })
 			.attr("cx", function(d){ return projection([d.longitude, d.latitude])[0]; })
 			.attr("cy", function(d){ return projection([d.longitude, d.latitude])[1]; })
 			.attr("r", 14)
@@ -67,41 +79,61 @@ function generateDep(depData, mapData, codeDep, codeType){
 			.attr("stroke-width", 3)
 			.attr("fill-opacity", .5)
 			.on('mouseover', function(d){
-				hover(d,this);
+				hoverDot(this);
+				hoverLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
 			})
 			.on('mouseleave', function(d){
-				leave(d, this);
+				leaveDot(this);
+				leaveLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
 			})
 			.on('click', d => selectLegende(d.id));
 
-	svg.selectAll("labels")
-		.data(legendes)
-		.enter()
-		.append("text")
-			.attr("id", function(d){ return 'label_legende_' + d.id; })
-			.attr("lbl-legende-id", function(d){ return d.id; })
-			.attr("x", function(d){ return projection([d.longitude, d.latitude])[0]; })
-			.attr("y", function(d){ return projection([d.longitude, d.latitude])[1] - 14 - 20; })
-			.text(function(d){ return d.nom})
-			.attr("text-anchor", "middle")
-			.attr("alignment-baseline", "central")
-			.style("fill", "white")
-			.style("font-size", 14)
-			.style("font-weight", "bold")
-			.attr("fill-opacity", 1)
-			.on('mouseover', function(d){
-				d3.select(this)
-					.transition().duration(350)
-					.style("font-size", 20);
-				hover(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-			})
-			.on('mouseleave', function(d){
-				d3.select(this)
-					.transition().duration(350)
-					.style("font-size", 14);
-				leave(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-			})
-			.on('click', d => selectLegende(d.id));
+	for(let l of legendes) {
+		let lButtonLarge = document.createElement('div');
+		let lButton = document.createElement('a');
+		lButton.id = 'label_legende_' + l.id;
+		lButton.setAttribute('lbl-legende-id', l.id);
+		lButton.classList.add('legend_button'),
+		lButton.style.left = projection([l.longitude, l.latitude])[0] + 'px';
+		lButton.style.top = (projection([l.longitude, l.latitude])[1]-100) + 'px';
+		lButton.innerHTML = l.nom;
+		lButton.onmouseover = (e) => {
+			hoverLabel(e.target);
+			hoverDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
+		}
+		lButton.onmouseleave = (e) => {
+			leaveLabel(e.target);
+			leaveDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
+		}
+		document.getElementById('department').appendChild(lButton);
+	}
+
+	// svg.selectAll("labels")
+	// 	.data(legendes)
+	// 	.enter()
+	// 	.append("text").append("tspan")
+	// 		.attr("id", function(d){ return 'label_legende_' + d.id; })
+	// 		.attr("lbl-legende-id", function(d){ return d.id; })
+	// 		.attr("class", "legend_button")
+	// 		.attr("x", function(d){ return projection([d.longitude, d.latitude])[0]; })
+	// 		.attr("y", function(d){ return projection([d.longitude, d.latitude])[1] - 14 - 20; })
+	// 		.text(function(d){ return d.nom})
+	// 		.attr("text-anchor", "middle")
+	// 		.attr("alignment-baseline", "central")
+	// 		.style("fill", "white")
+	// 		.style("display", "none")
+	// 		.style("font-size", 14)
+	// 		.style("font-weight", "bold")
+	// 		.attr("fill-opacity", 1)
+	// 		.on('mouseover', function(d){
+	// 			hoverLabel(this);
+	// 			hoverDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
+	// 		})
+	// 		.on('mouseleave', function(d){
+	// 			leaveLabel(this);
+	// 			leaveDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
+	// 		})
+	// 		.on('click', d => selectLegende(d.id));
 
 }
 
@@ -111,19 +143,31 @@ function setColor(d, codeDep){
 
 }
 
-function hover(d,t){
+function hoverDot(t){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", 20)
+		.style('cursor','pointer')
 		.style("fill-opacity", 0.6);
+	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
+	// TODO : faire apparaitre explication perso
+}
+function hoverLabel(t){
+	t.style.display = 'block';
 	// TODO : faire apparaitre explication perso
 }
 
-function leave(d,t){
+function leaveDot(t){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", 14)
+		.style('cursor','initial')
 		.style("fill-opacity", 0.5);
+	legendTimeout = setInterval(hideLegendNarration, 3000);
+	// TODO : faire disparaitre explication perso
+}
+function leaveLabel(t){
+	t.style.display = 'none';
 	// TODO : faire disparaitre explication perso
 }
 
@@ -166,23 +210,70 @@ function loadNarration() {
 	if(narration.length === narrationIndex) stopNarration();
 }
 
+function legendNarrate(legend) {
+	legendNarrationTextBox.innerHTML += legend[legendIndex];
+	legendIndex++;
+	if(legend.length === legendIndex) stopLegendNarration(legend);
+}
+
 function getCategorie(type) {
 	for(let c of categories) {
 		if(c.id === parseInt(type, 10)) return c;
 	}
 }
 
+function getLegende(id) {
+	for(let l of legendes) {
+		if(l.id === id) return l;
+	}
+}
+
 function setNarrationBox() {
 	let nbRows = narration.length / (narrationBox.offsetWidth / (fontSize*0.6667)) + 1;
-	narrationBox.style.height = `${fontSize * nbRows + padding * 2}px`;
+	narrationBoxHeight = fontSize * nbRows + padding * 2;
+	narrationBox.style.height = `${narrationBoxHeight}px`;
+	narrationBox.style.top = `-${narrationBoxHeight}px`;
 	narrationPass.onclick = stopNarration;
+	legendNarrationPass.onclick = stopLegendNarration;
+	legendNarrationBox.style.display = 'none';
+}
+
+function loadLegendNarration(id) {
+	resetLegendNarration();
+	legendNarrationId = id;
+	let legende = getLegende(id);
+	legendNarrationBox.style.display = 'block';
+	legendNarrationPass.style.display = 'block';
+	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarrationBox.offsetWidth / (fontSize*0.6667)) + 2;
+	legendNarrationBox.style.height = `${fontSize * nbRows + padding * 2}px`;
+	legendNarrationBox.style.top = `-${fontSize * nbRows + padding * 2 + narrationBoxHeight + window.innerHeight*0.07}px`;
+	legendNarrationTitleBox.innerHTML = legende.nom;
+	legendInterval = setInterval(legendNarrate, 45, legende.resume);
+}
+
+function resetLegendNarration() {
+	clearInterval(legendInterval);
+	clearInterval(legendTimeout);
+	legendNarrationTextBox.innerHTML = '';
+	legendIndex = 0;
+}
+
+function hideLegendNarration() {
+	clearInterval(legendTimeout);
+	legendNarrationBox.style.display = 'none';
+	legendIndex = 0;
 }
 
 function stopNarration() {
-	console.log('test');
 	clearInterval(narrationInterval);
 	narrationTextBox.innerHTML = narration;
 	narrationPass.remove();
+}
+function stopLegendNarration(legend) {
+	if(typeof(legend) !== "string") legend = getLegende(legendNarrationId).resume;
+	clearInterval(legendInterval);
+	legendNarrationTextBox.innerHTML = legend;
+	legendNarrationPass.style.display = 'none';
 }
 
 (async () => {
@@ -195,7 +286,7 @@ function stopNarration() {
 	loadCharacter();
 	perso = document.getElementById('character_image');
 	narrationInterval = setInterval(loadNarration, 45);
-	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
+	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,500);
 })();
 
 window.addEventListener("resize", function(e) {
