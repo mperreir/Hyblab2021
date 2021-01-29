@@ -82,8 +82,6 @@ function setTexte(id){
       let offsetX = 0;
       
       stepperDiv.addEventListener('mousedown', function(e){
-        console.log(e.offsetX);
-        console.log("click");
         isDown = true;
         stepperBouton.style.left = (e.offsetX - 65) + "px";
       });
