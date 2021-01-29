@@ -1,81 +1,138 @@
-.bar-T1 {
+/* Couleurs pour les progress bars */
+
+#timeline .bar-T1 {
     background-color: #2a315b !important;
 }
 
-.bar-T2 {
+#timeline .bar-T2 {
     background-color: #eead1c !important;
 }
 
+#timeline2{
+    margin-top: -2em;
+}
+#progressDiv{
+    margin-top: -4em;
+
+}
+
+#timeline{
+    overflow: hidden;
+}
+
+/* fond de la page */
+
 #timeline_background {
+    overflow: hidden;
+
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     z-index: -10;
 }
 
+/* Titre de la page */
+
+#timeline h2 {
+    font-family: ArchitectDaughter;
+}
+
+/* Waiting screen */
+
 #waitingSpinner {
     width: 20em;
     height: 20em;
-    position: relative;
+    
 }
+
+/*
+ 
+
+Style global des modals
+ 
+ 
+*/
 
 #timeline ul {
     list-style-type: none;
 }
 
-/* MODAL  */
+#timeline .interestsColorModal {
+    background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
+    background-color: #2a325a !important;
+}
+
+#timeline .disinterestsColorModal {
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
+    background-color: #F19143 !important;
+}
+
+/* Modal Plus */
+
+#timeline #multipleModal .clickablepMultiple:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+#timeline #multipleModal .modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+#timeline #headerMultipleModal {
+    border: none;
+    height: 10em;
+    background-image: url('/proximite-b/img/timeline/modal/buissons.svg') !important;
+    background-repeat: no-repeat;
+    border-radius: 0 none;
+    background-position-x: center;
+}
+
+#timeline #bodyMultipleModal {
+    background-color: white;
+    border-radius: 5em !important;
+    border: none;
+}
+
+#timeline #closeMultipleModal {
+    width: 3em;
+    height: 3em;
+    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg') !important;
+    background-repeat: no-repeat;
+    opacity: 1;
+    position: absolute;
+    top: 6em;
+    right: -1em;
+    z-index: 1;
+}
+
+#timeline #closeMultipleModal:hover {
+    cursor: pointer;
+}
+
+/* Single MODAL  */
 
 #timeline #singleModal .modal-content {
     border-radius: 5em !important;
-    border-bottom: 0 none;
+    border: none;
 }
 
-#timeline #singleModal .modal-header {
-    border-bottom: 0 none;
+#timeline #firstItemSingleModal {
+    border: none;
 }
 
 #timeline #otherItemsSingleModal {
     border-radius: 5em !important;
     color: white;
-    border-bottom: 0 none;
+    border: none;
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: 70%;
     background-position-x: center;
-}
-
-.interestsColorModal {
-    background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
-    background-color: #2a325a !important;
-}
-
-.disinterestsColorModal {
-    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
-    background-color: #b95803 !important;
-}
-
-#timeline #singleModal .headerAddTemps {
-    font-size: 0.8em;
-}
-
-#timeline #singleModal .iconModal {
-    width: 1.5em;
-}
-
-#singleModal #firstItemSingleModal {
-    color: #2a325a;
-    font-family: ArchitectDaughter;
-}
-
-#singleModal #firstItemSingleModal #imgCat {
-    top: 5em;
-    left: -4em;
-    z-index: 1;
-    float: left;
-    width: 10em;
-    position: absolute;
 }
 
 #singleModal #closeModal {
@@ -91,4 +148,26 @@
 
 #singleModal #closeModal:hover {
     cursor: pointer;
+}
+
+/* Css pour texte header modal simple */
+
+#timeline #singleModal .headerAddTemps {
+    font-size: 0.8em;
+}
+
+#timeline #singleModal .iconModal {
+    width: 1.5em;
+}
+
+#singleModal #firstItemSingleModal {
+    color: #2a325a;
+    font-family: ArchitectDaughter;
+}
+
+#singleModal #firstItemSingleModal #imgCat {
+    left: -9em;
+    z-index: 1;
+    width: 10em;
+    position: absolute;
 }

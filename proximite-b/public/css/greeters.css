@@ -11,19 +11,19 @@
     position: relative;
 }
 #greeter_img{
-    width: 12vw;
-    height: 62vh;
+    width: auto;
+    height: 65vh;
 }
 #etu_img{
-    width: 18vw;
-    height: 62vh;
+    width: auto;
+    height: 65vh;
 }
 #mamie_img{
-    width: 18vw;
-    height: 62vh;
+    width: auto;
+    height: 65vh;
 }
 #family_img{
-    width: 22vw;
+    width: auto;
     height: 65vh;
 }
 #banc_img{

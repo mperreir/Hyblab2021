@@ -1,0 +1,60 @@
+#credits_background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    z-index: -10;
+}
+
+#img_agr {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_hyblab {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_sc {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_CC {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_oml {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_opensource {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_polytech {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#img_univ {
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+#credit_line {
+    display: inline-block;
+}
