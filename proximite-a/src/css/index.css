@@ -1,3 +1,27 @@
-body{
-    background-color: lightgrey;
+html, body {
+    margin: 0;
+    height: 100%;
+}
+#mainContainer{
+    height: 100%;
+}
+#root{
+    height: 100%;
+}
+
+
+.fondEtiquetteDefault{
+    background-color: #C3C3FB;
+}
+.fondEtiquetteFetard{
+    background-color: #5cff9e;
+}
+.fondEtiquetteSportif{
+    background-color: #69f9de;
+}
+.fondEtiquetteGourmet{
+    background-color: #ffe400;
+}
+.fondEtiquetteFamilial{
+    background-color: #ff66ff;
 }
