@@ -21,7 +21,9 @@ let db = null;
 var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
     id INT PRIMARY KEY,
     nomCategorie VARCHAR(30) NOT NULL,
-    imageURI VARCHAR(75)
+    nomPersonnage VARCHAR(50) NOT NULL,
+    phraseCat VARCHAR(250) NOT NULL,
+    imageURI VARCHAR(10)
 );`;
 
   // query to create DB if not created
@@ -63,6 +65,14 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
   var countIdLeg = 1;
   var depList = [];
   var catList = [];
+  var personnages = { data: [{cat: 'Créatures Fantastiques', nom: 'La fée Armelle', phrase: 'et ses contes fantastiques'},
+  {cat: 'Croyances Religion', nom: 'Le moine Saint-Paul', phrase: 'et ses légendes religieuses'},
+  {cat: 'Histoires Maritimes', nom: 'Le marin Gwenaël', phrase: 'et ses histoires maritimes'}],
+  getPerso: (cat) => {
+    for(perso of personnages.data) {
+      if(perso.cat === cat) return perso;
+    }
+  }};
   // Fill the DB with the CSV content
   fs.createReadStream(config.ROOT + 'server/data.csv')
     .pipe(csv())
@@ -77,9 +87,12 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
       }
       
       if(!catList.includes(row.categorie)) {
+        let catPerso = personnages.getPerso(row.categorie);
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
-          '${(encodeURI(row.categorie)).replace(/'/g, "`")}', 
+          '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
+          '${encodeURI(catPerso.nom)}',
+          '${encodeURI(catPerso.phrase)}',
           'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
         catList.push(row.categorie);
         countIdCat++;

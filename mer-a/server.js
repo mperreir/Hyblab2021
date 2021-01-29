@@ -42,6 +42,8 @@ app.get(`${config.API_URL}all/types`, async (req, res) => {
   const rows = await db.all(sql, []);
   rows.forEach((row) => {
     row.nomCategorie = decodeURI(row.nomCategorie);
+    row.nomPersonnage = decodeURI(row.nomPersonnage);
+    row.phraseCat = decodeURI(row.phraseCat);
     row.imageURI = decodeURI(row.imageURI);
   });
   console.log(rows);
