@@ -48,7 +48,7 @@ const tous = [
     "amenity=hospital",
 ];
 
-export const POINT_TYPES = {
+ const POINT_TYPES = {
     culture,
     fetard,
     tourisme,
@@ -57,18 +57,23 @@ export const POINT_TYPES = {
     tous
 };
 
-export async function getPointsInZoneForProfil(zone, profil) {
+const getPointsInZoneForProfil =  async function(zone, profil) {
     return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
 }
 
-export async function getPointsInZone(zone, types) {
+/**
+ *
+ * @param {*} zone
+ * @param {Array} types
+ */
+const getPointsInZone =  async function(zone, types) {
     const query = buildQuery(types, zone);
     let res = await request.request(query, null);
     let json = await res.json();
     return json;
 }
 
-export const buildQuery = (types, zone) => {
+ const buildQuery = (types, zone) => {
     let query = "https://overpass-api.de/api/interpreter?data=[out:json];";
     let area = getBoxFromZone(zone);
     query += "area(" + area + ");("
@@ -86,19 +91,6 @@ export const buildQuery = (types, zone) => {
     return query
 }
 
-export let zone = [
-    [
-        [-1.573835,47.264487],
-        [-1.573808,47.264132],
-        [-1.573623,47.264113],
-        [-1.573586,47.264471],
-        [-1.573771,47.26449],
-        [-1.573799,47.264492],
-        [-1.573817,47.264489],
-        [-1.573817,47.264489],
-        [-1.573835,47.264487]
-    ]
-];
 
 //https://overpass-api.de/api/interpreter?data=[out:json];area(47.264113,%20-1.573835,%2047.264492,%20-1.573586);node[tourism];out;
 const getBoxFromZone = (zone) => {
@@ -115,3 +107,5 @@ const getBoxFromZone = (zone) => {
 
     return [north, west, south, east];
 }
+module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfil };
+

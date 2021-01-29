@@ -19,18 +19,19 @@ let get15mnZone = async function(position, modeTransport = 'foot-walking') {
             method: 'POST',
             body: `{"locations":[[${position}]],"range":[900,1]}`,
             headers: {
-                'Accept': 'application/json',
+                //'Accept': 'application/json',
                 'Authorization': '5b3ce3597851110001cf624829bf42551469445aa00ca476f174c648',
                 'Content-Type': 'application/json'
             }});
         //data = require('./test_ors.json');
-        
-        let polygon = data.features[0].geometry.coordinates;
+        const response = await data.json();
+        let polygon = response.features[0].geometry.coordinates;
         return polygon;
     } catch (e) {
         console.error(e);
     }
 }
 
+//get15mnZone([1, 47], 'foot-walking');
 module.exports = {get15mnZone};
 
