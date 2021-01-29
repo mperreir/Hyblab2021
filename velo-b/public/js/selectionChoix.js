@@ -1,7 +1,7 @@
 registerSlide("infos-selection-voiture", function () {
   const idYesBut = 'ic-oui-voit';
   const idNoBut = 'ic-non-voit';
-  button(idYesBut,'');
+  // button(idYesBut,'');
 });
 
 registerSlide("infos-selection-velo", function () {
@@ -33,4 +33,3 @@ registerSlide("infos-selection-bycloo", function () {
 //       goToSlide(page);
 //     });
 // }
-
