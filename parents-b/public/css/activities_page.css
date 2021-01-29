@@ -73,6 +73,13 @@
     height: 0;
 }
 
+.text-dialog-activite {
+  position: absolute;
+  top: 70%;
+  left: 12%;
+  width: 26%;
+}
+
 .slider {
     position: absolute;
     cursor: pointer;
