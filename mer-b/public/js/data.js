@@ -248,7 +248,7 @@ function affichageReset(){
             ]
           },
           {
-            question : "A quel distance de la plage souhaitez-vous trouver ces aménagements ?",
+            question : "A quelle distance de la plage souhaitez-vous trouver ces aménagements ?",
             element: "distanceAmenagement",
             reponses : [
                 {
