@@ -12,6 +12,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 const config = require('./config.js');
+const CONFIG = require('./config.js');
 
 const verbose = true;
 
