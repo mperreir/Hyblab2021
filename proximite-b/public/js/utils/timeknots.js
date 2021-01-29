@@ -55,7 +55,6 @@ var TimeKnots = {
         $("#otherItemsSingleModal").html("")
         var divContent = $('<div>').css('padding-bottom', "4em").attr('class', 'row');
 
-
         if (otherAdress.length >= 1) {
             var i = 0;
             var col1 = $('<div>').attr('class', 'col');
@@ -105,23 +104,27 @@ var TimeKnots = {
 
         var col1 = $('<div>').attr('class', 'col');
         var ul1 = $('<ul>');
+        col1.append("<p>Vous pouvez accéder aux informations des lieux en cliquant dessous :<p>");
         col1.append(ul1);
 
         d.forEach(element => {
 
             var li = $('<li>');
             var p = $('<p>');
+            p.attr('class',"clickablepMultiple")
             var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-            img.attr("width", 75);
-            img.attr("height", 75);
-            img.on('click', function () {
-                $("#multipleModal").modal('hide');
-                TimeKnots.createSingleModal(element)
-            });
+            img.css('margin-right','1em');
+            img.attr("width", 50);
+            img.attr("height", 50);
+            
             img.attr('src', element.img);
             p.append(img)
             p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
             li.append(p)
+            li.on('click', function () {
+                $("#multipleModal").modal('hide');
+                TimeKnots.createSingleModal(element)
+            });
             ul1.append(li)
         })
         $("#bodyMultipleModal").append(col1)
