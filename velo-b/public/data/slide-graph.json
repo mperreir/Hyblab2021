@@ -6,6 +6,12 @@
   },
   "page-carte": {
     "next": {
+      "nord": "choix-transport-velo",
+      "sud": "choix-transport-velo",
+      "est": "choix-transport-velo",
+      "ouest": "choix-transport-velo"
+    },
+    "realNext": {
       "nord": "info-choix-carte",
       "sud": "info-choix-carte",
       "est": "info-choix-carte",

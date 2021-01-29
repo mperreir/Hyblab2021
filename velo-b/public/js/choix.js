@@ -23,7 +23,7 @@ registerSlide("choix-transport-bicloo", function () {
       targets: '#plus-info-bicloo',
       scale: 0
     });
-    goToSlide('info-choix-bicloo');
+    goToNextSlide('info');
   });
 
   const infoSelection = 'question-bicloo-autres-transports';
@@ -57,7 +57,7 @@ registerSlide("choix-transport-transports", function () {
       targets: '#plus-info-transports',
       scale: 0
     });
-    goToSlide('info-choix-transports');
+    goToNextSlide('info');
   });
 
 
@@ -104,7 +104,7 @@ registerSlide("choix-transport-velo",function () {
       targets: ['#plus-info-velo'],
       scale: 0
     });
-    goToSlide('info-choix-velo');
+    goToNextSlide('info');
   });
 
   const infoSelection = 'question-velo-autres-transports';
@@ -141,7 +141,7 @@ registerSlide("choix-transport-voiture", function () {
       targets: '#plus-info-voiture',
       scale: 0
     });
-    goToSlide('info-choix-voiture');
+     goToNextSlide('info');
   });
 
   const infoSelection = 'question-voiture-velo';
@@ -150,7 +150,7 @@ registerSlide("choix-transport-voiture", function () {
   infobutton();
 });
 
-
+// TODO: ajouter les arrows dans le graphe
 let arrowbutton = function (idButton, page) {
   d3.select(idButton).on('click', function () {
     overrideAnim({
@@ -184,9 +184,8 @@ let okbutton = function (idbutton,page) {
       targets: idbutton,
       scale: 0
     });
-    goToSlide(page);
+    goToNextSlide("ok");
   });
-
 }
 
 let infobutton = function (page) {
@@ -195,7 +194,7 @@ let infobutton = function (page) {
       targets: '#plus-info',
       scale: 0
     });
-    goToSlide('page-finale');
+    goToNextSlide('info');
   });
 }
 
@@ -214,14 +213,14 @@ function changeImage(element) {
 }
 
 
-
 let retourbutton = function (idButton, page) {
-  
+
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
       scale: 1
     });
+    // TODO: ajouter retour dans graphe
     goToSlide(page);
   });
 

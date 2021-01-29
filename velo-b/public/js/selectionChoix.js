@@ -1,29 +1,29 @@
 registerSlide("question-voiture-velo", function () {
-    const idYesBut = '#ic-oui-voit';
-    const idNoBut = '#ic-non-voit';
-    button(idYesBut, 'info-choix-velo'); // TODO: changer ça
+    button( '#ic-oui-voit', 'oui');
+    button( '#ic-non-voit', 'non');
 });
 
 registerSlide("question-velo-autres-transports", function () {
-    const idYesBut = '#ic-oui-velo';
-    const idNoBut = '#ic-non-velo';
+    button( '#ic-oui-velo', 'oui');
+    button( '#ic-non-velo', 'non');
 });
 
 registerSlide("question-bicloo-autres-transports", function () {
-    const idYesBut = '#ic-oui-bicloo';
-    const idNoBut = '#ic-non-bicloo';
+    button( '#ic-oui-bicloo', 'oui');
+    button( '#ic-non-bicloo', 'non');
 });
 
 registerSlide("question-transports-velo", function () {
-
+    button( '#ic-oui-transport', 'oui');
+    button( '#ic-non-transport', 'non');
 });
 
-let button = function (idbutton, page) {
+let button = function (idbutton, choice) {
     d3.select(idbutton).on('click', function () {
         overrideAnim({
             targets: idbutton,
             scale: 0
         });
-        goToSlide(page);
+        goToNextSlide(choice);
     });
 };
