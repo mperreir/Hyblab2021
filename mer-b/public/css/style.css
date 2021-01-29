@@ -489,6 +489,10 @@ input#distance {
     width: fit-content;
 }
 
+.distanceContainer h3 {
+    margin-bottom: 10px;
+}
+
 .distanceDisplay {
     display: flex;
     justify-content: space-between;
