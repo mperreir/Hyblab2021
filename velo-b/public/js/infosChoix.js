@@ -27,6 +27,21 @@ registerSlide("info-choix-velo", function () {
             scale: 1
         });
     });
+
+    fetch("api/abris-velo")
+    .then(function(response) {
+        if (response.ok) {
+            response.json()
+            .then(function(abris) {
+                const sum = abris.reduce((result,a)=> result+a.capacite, 0);
+                document.getElementById("velo-parking-places").innerText = sum;
+            })
+            .catch(e => {console.error(e);});
+        } else {
+            console.error(response+" is not valid");
+        }
+    })
+    .catch(e => {console.error(e);});
 });
 
 /**
