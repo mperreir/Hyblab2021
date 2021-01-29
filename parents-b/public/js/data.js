@@ -423,23 +423,23 @@ function fetchData() {
             const address1 = document.getElementById('result-one-address');
             const address2 = document.getElementById('result-two-address');
             const address3 = document.getElementById('result-three-address');
-            address1.innerHTML += '<p>' + top[0]['Adresse'] + '</p>';
-            address2.innerHTML += '<p>' + top[1]['Adresse'] + '</p>';
-            address3.innerHTML += '<p>' + top[2]['Adresse'] + '</p>';
+            address1.innerHTML += ' ' +  top[0]['Adresse'];
+            address2.innerHTML += ' ' + top[1]['Adresse'];
+            address3.innerHTML += ' ' + top[2]['Adresse'];
 
             const access1 = document.getElementById('result-one-access');
             const access2 = document.getElementById('result-two-access');
             const access3 = document.getElementById('result-three-access');
-            access1.innerHTML += '<p>' + top[0]['Accès transports en commun'] + '</p>';
-            access2.innerHTML += '<p>' + top[1]['Accès transports en commun'] + '</p>';
-            access3.innerHTML += '<p>' + top[2]['Accès transports en commun'] + '</p>';
+            access1.innerHTML += ' ' + top[0]['Accès transports en commun'];
+            access2.innerHTML += ' ' + top[1]['Accès transports en commun'];
+            access3.innerHTML += ' ' + top[2]['Accès transports en commun'];
 
             const time1 = document.getElementById('result-one-time');
             const time2 = document.getElementById('result-two-time');
             const time3 = document.getElementById('result-three-time');
-            time1.innerHTML += '<p>' + top[0]['Horaires d\'ouverture'] + '</p>';
-            time2.innerHTML += '<p>' + top[1]['Horaires d\'ouverture'] + '</p>';
-            time3.innerHTML += '<p>' + top[2]['Horaires d\'ouverture'] + '</p>';
+            time1.innerHTML += ' ' + top[0]['Horaires d\'ouverture'];
+            time2.innerHTML += ' ' + top[1]['Horaires d\'ouverture'];
+            time3.innerHTML += ' ' + top[2]['Horaires d\'ouverture'];
 
             const location1 = document.getElementById('result-one-location');
             const location2 = document.getElementById('result-two-location');
