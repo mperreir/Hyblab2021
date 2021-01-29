@@ -36,3 +36,19 @@ const initButtons = function () {
         });
     });
 };
+
+const fetchJsonData = function(addr, callback) {
+    fetch(addr)
+    .then(function(response) {
+        if (response.ok) {
+            response.json()
+            .then(function(data) {
+                callback(data);
+            })
+            .catch(e => {console.error(e);});
+        } else {
+            console.error(response+" is not valid");
+        }
+    })
+    .catch(e => {console.error(e);});
+};
