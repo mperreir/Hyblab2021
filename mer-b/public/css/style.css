@@ -592,6 +592,9 @@ h2 {
     border-radius: 10px;
     width: 100%;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective: 1400px;
+    -webkit-perspective: 1400px;
 }
 
 .imgCarte {
