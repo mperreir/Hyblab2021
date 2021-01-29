@@ -22,8 +22,8 @@ async function bootstrap() {
 		profile: 'mapbox/cycling',
 		language: 'fr',
 		alternatives: true,
-		placeholderOrigin: 'Départ',
-		placeholderDestination: 'Arrivée',
+		placeholderOrigin: 'Adresse de départ à Nantes',
+		placeholderDestination: 'Adresse d\'arrivée à Nantes',
 		controls: {
 			profileSwitcher: false,
 			instructions: false
@@ -100,6 +100,7 @@ document.getElementById("input-activite").onclick = () => {
 document.getElementById("input-vae").onclick = () => {
 	document.location.href = "question.html?page=VAE";
 };
+document.getElementById("left-nav").setAttribute("style", "visibility: visible");
 
 document.getElementById("btn-menu-nav").onclick = () => {
 	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"),null).getPropertyValue('visibility');
