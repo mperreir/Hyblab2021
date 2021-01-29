@@ -26,7 +26,9 @@
   "choix-transport-transports": {
     "next": {
       "ok": "question-transports-velo",
-      "info": "info-choix-transports"
+      "info": "info-choix-transports",
+      "gauche": "choix-transport-bicloo",
+      "droite": "choix-transport-voiture"
     }
   },
   "info-choix-transports": {
@@ -37,7 +39,9 @@
   "choix-transport-velo": {
     "next": {
       "ok": "question-velo-autres-transports",
-      "info": "info-choix-velo"
+      "info": "info-choix-velo",
+      "gauche": "choix-transport-voiture",
+      "droite": "choix-transport-bicloo"
     }
   },
   "info-choix-velo": {
@@ -48,7 +52,9 @@
   "choix-transport-bicloo": {
     "next": {
       "ok": "question-bicloo-autres-transports",
-      "info": "info-choix-bicloo"
+      "info": "info-choix-bicloo",
+      "gauche": "choix-transport-velo",
+      "droite": "choix-transport-transports"
     }
   },
   "info-choix-bicloo": {
@@ -59,7 +65,9 @@
   "choix-transport-voiture": {
     "next": {
       "ok": "question-voiture-velo",
-      "info": "info-choix-voiture"
+      "info": "info-choix-voiture",
+      "gauche": "choix-transport-transports",
+      "droite": "choix-transport-velo"
     }
   },
   "info-choix-voiture": {

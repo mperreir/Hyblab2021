@@ -4,13 +4,8 @@
 registerSlide("choix-transport-bicloo", function () {
   
   /*==================== Fleches ===========================*/
-
-  const idFlecheD = '#fleche-droite-bycl';
-  const idFlecheG = '#fleche-gauche-bycl';
-  const nextD = 'choix-transport-transports';
-  const nextG = 'choix-transport-velo';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
+  arrowbutton('#fleche-gauche-bicl', 'gauche');
+  arrowbutton('#fleche-droite-bicl', 'droite');
 
   //retour
   const idFlecheRetour = '#fleche-retour-bicl';
@@ -38,12 +33,9 @@ registerSlide("choix-transport-bicloo", function () {
 
 registerSlide("choix-transport-transports", function () {
 
-  const idFlecheD = '#fleche-droite-trans';
-  const idFlecheG = '#fleche-gauche-trans';
-  const nextD = 'choix-transport-voiture';
-  const nextG = 'choix-transport-bicloo';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
+  /*==================== Fleches ===========================*/
+  arrowbutton('#fleche-gauche-trans', 'gauche');
+  arrowbutton('#fleche-droite-trans', 'droite');
 
   //retour
   const idFlecheRetour = '#fleche-retour-trans';
@@ -84,13 +76,8 @@ registerSlide("choix-transport-transports", function () {
 registerSlide("choix-transport-velo",function () {
 
   /*==================== Fleches ===========================*/
-
-  const idFlecheD = '#fleche-droite-velo';
-  const idFlecheG = '#fleche-gauche-velo';
-  const nextD = 'choix-transport-bicloo';
-  const nextG = 'choix-transport-voiture';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
+  arrowbutton('#fleche-gauche-velo', 'gauche');
+  arrowbutton('#fleche-droite-velo', 'droite');
   
   //retour
   const idFlecheRetour = '#fleche-retour-velo';
@@ -120,12 +107,9 @@ registerSlide("choix-transport-voiture", function () {
   
    /*==================== Fleches ===========================*/
 
-   const idFlecheD = '#fleche-droite-voit';
-   const idFlecheG = '#fleche-gauche-voit';
-   const nextD = 'choix-transport-velo';
-   const nextG = 'choix-transport-transports';
-   arrowbutton(idFlecheD, nextD);
-   arrowbutton(idFlecheG, nextG);
+  /*==================== Fleches ===========================*/
+  arrowbutton('#fleche-gauche-voit', 'gauche');
+  arrowbutton('#fleche-droite-voit', 'droite');
 
    
   //retour
@@ -150,14 +134,13 @@ registerSlide("choix-transport-voiture", function () {
   infobutton();
 });
 
-// TODO: ajouter les arrows dans le graphe
-let arrowbutton = function (idButton, page) {
+let arrowbutton = function (idButton, choice) {
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
       scale: 1
     });
-    goToSlide(page);
+    goToNextSlide(choice);
   });
 
   d3.select(idButton).on('mouseover', function () {
