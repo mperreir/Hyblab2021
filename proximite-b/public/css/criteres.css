@@ -23,7 +23,6 @@ div#critere_page {
     bottom: 0;
     position: fixed;
     right: 15em;
-
 }
 
 #jeune{
@@ -40,7 +39,6 @@ div#critere_page {
     bottom: 0;
     position: fixed;
     left:10em;
-
 }
 
 #senior{
@@ -102,7 +100,7 @@ div#critere_page {
     height: 60%;
 }
 
-li{
+.criteres{
     width: 200px !important;
 }
 
@@ -124,7 +122,6 @@ li{
     width: 100%;
     height: 10em;
     border-radius: 30px;
-    /*max-height: 40%;*/
 }
 
 
@@ -143,7 +140,7 @@ li{
     font-family: ArchitectDaughter;
 }
 
-ul{
+ul#sortable1{
     padding: 0;
 }
 
@@ -172,5 +169,4 @@ ul{
     z-index: 100;
     position: relative;
     list-style-type: none;
-
 }
