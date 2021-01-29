@@ -1,3 +1,5 @@
+
+
 function updateElement(element, reponse){
     let valeur = reponse.json;
     let affichage = getAffichage();
@@ -30,6 +32,7 @@ function updateElement(element, reponse){
       else {
         if(valeur == "harbor"){
           var audio = new Audio('sound/sonSirene.wav');
+		  audio.volume = volumeGeneral;
           audio.play();
         }
         affichage[element] += valeur + ',';
