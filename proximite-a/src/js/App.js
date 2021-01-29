@@ -12,7 +12,10 @@ class App extends  React.Component {
         pageId:2,
         themeId:0,
         moyenId:0,
-        coords:[0,0]
+        coords:[0,0],
+        sites: [{ id: '1', titre: 'squalala', img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg', adresse: 'nous sommes partis'},
+            { id: '2', titre: 'squelele', img: 'https://image.jeuxvideo.com/medias-sm/145554/1455543880-3365-photo.png', adresse: 'nous sommes repartis' },
+            { id: '3', titre: 'lelele', img:'https://i.redd.it/izua8frednh41.png',adresse:'AAAAAAAAAAAAAHH'}]
     };
 
     getPage = () => {
@@ -20,13 +23,13 @@ class App extends  React.Component {
             case 0:
                 return <Home onNextPage={this.nextPage} updateNom={this.updateName}/>;
             case 1:
-                return <Theme onNextPage={this.nextPage} onSetTheme={this.updateTheme} onPreviousPage={this.previousPage}/>;
+                return <Theme data={this.state} onNextPage={this.nextPage} onSetTheme={this.updateTheme} onPreviousPage={this.previousPage}/>;
             case 2:
-                return <Attributs onNextPage={this.nextPage} onSetAttributs={this.updateAttributs} onPreviousPage={this.previousPage}/>;
+                return <Attributs data={this.state} onNextPage={this.nextPage} onSetAttributs={this.updateAttributs} onPreviousPage={this.previousPage}/>;
             case 3:
-                return <Moyen onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
+                return <Moyen data={this.state} onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
-                return <AcceuilCarte nomPers={this.state.nomPers}/>;
+                return <AcceuilCarte data={this.state} nomPers={this.state.nomPers}/>;
         }
     };
 
