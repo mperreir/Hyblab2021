@@ -27,6 +27,15 @@ registerSlide("info-choix-velo", function () {
             scale: 1
         });
     });
+
+    fetchJsonData("api/abris-velo", (abris) => {
+        const sum = abris.reduce((result,a)=> result+a.capacite, 0);
+        document.getElementById("velo-parking-places").innerText = sum;
+    });
+    fetchJsonData("api/abris-velo/"+zoneChoisie, (abris) => {
+        const sum = abris.reduce((result,a)=> result+a.capacite, 0);
+        document.getElementById("velo-parking-places-zone").innerText = sum;
+    });
 });
 
 /**
@@ -53,6 +62,13 @@ registerSlide("info-choix-voiture", function () {
             targets: '#close-btn-voiture',
             scale: 1
         });
+    });
+
+    fetchJsonData("api/disponibilites-places-parking", (dispos) => {
+        const sum = dispos.reduce((result,d)=> result+d.grp_exploitation, 0);
+        document.getElementById("voiture-parking-places").innerText = sum;
+        document.getElementById("voiture-parking-ouvrage").innerText = dispos.length;
+        document.getElementById("voiture-parking-enclos").innerText = 0;
     });
 });
 
@@ -81,10 +97,25 @@ registerSlide("info-choix-bicloo", function () {
             scale: 1
         });
     });
+
+    fetchJsonData("api/stations-velo-libre-service", (stations) => {
+        document.getElementById("bicloo-stations").innerText = stations.length;
+    });
+    fetchJsonData("api/disponibilites-bicloo", (dispos) => {
+        const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
+        document.getElementById("bicloo-velos").innerText = sum;
+    });
+    fetchJsonData("api/stations-velo-libre-service/" + zoneChoisie, (stations) => {
+        document.getElementById("bicloo-stations-zone").innerText = stations.length;
+    });
+    fetchJsonData("api/disponibilites-bicloo/" + zoneChoisie, (dispos) => {
+        const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
+        document.getElementById("bicloo-velos-zone").innerText = sum;
+    });
 });
 
 /**
- * Cette fonction gère la slide avec les infos sur le vélo
+ * Cette fonction gère la slide avec les infos sur les transports en commun
  */
 registerSlide("info-choix-transports", function () {
     d3.select('#close-btn-transports').on('click', function () {
@@ -107,5 +138,14 @@ registerSlide("info-choix-transports", function () {
             targets: '#close-btn-transports',
             scale: 1
         });
+    });
+
+    fetchJsonData("api/arrets-tan", (arrets) => {
+        console.log(arrets.filter(a => a.parent_station == undefined));
+        document.getElementById("commun-arrets").innerText = arrets.filter(a => a.parent_station == undefined).length;
+    });
+    fetchJsonData("api/arrets-tan/" + zoneChoisie, (arrets) => {
+        console.log(arrets.filter(a => a.parent_station == undefined));
+        document.getElementById("commun-arrets-zone").innerText = arrets.filter(a => a.parent_station == undefined).length;
     });
 });

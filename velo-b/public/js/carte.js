@@ -24,6 +24,7 @@ registerSlide("page-carte", function () {
                     return;
 
                 console.log(this.id); // selectionné
+                zoneChoisie = this.id;
                 goToSlide('choix-transport-2');
             });
     });
