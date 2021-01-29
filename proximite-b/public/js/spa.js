@@ -111,16 +111,8 @@ const go_to = (page, data, callback) => {
                 console.log(_app_stores);
             }
             else if (page === 'criteres') {
-                div_content = document.getElementById("critere_page");
-                if (read_store('personas').chosen == "famille") {
-                    div_content.style.backgroundImage = "url('/proximite-b/img/criteres/background_criteres_famille.svg')";
-                    console.log("test");
-                } else if (read_store('personas').chosen == "jeune") {
-                    div_content.style.backgroundImage = "url('/proximite-b/img/criteres/background_criteres_etu.svg')";
-                    console.log("test2");
-                } else if (read_store('personas').chosen == "senior") {
-                    console.log("test3");
-                }
+                criteres_background();
+
                 $(function () {
                     $("#sortable1, #sortable2, #sortable3").sortable({
                         connectWith: ".connectedSortable"

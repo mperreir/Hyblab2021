@@ -1,3 +1,28 @@
+function criteres_background() {
+    var perso = read_store('personas').chosen;
+
+    var img = document.createElement('img');
+    img.src =  '/proximite-b/img/criteres/'+perso+'.svg#svgView(preserveAspectRatio(none))';
+    img.id = perso;
+// div_content = document.getElementById("critere_page");
+//
+// if (perso == "famille") {
+//     img.id = perso;
+// } else if (perso == "jeune") {
+//     console.log("test2");
+// } else if (perso == "senior") {
+//     console.log("test3");
+// }
+    document.getElementById('persona').appendChild(img);
+
+}
+
+
+
+
+
+
+
 
 function criteres_submitInterest() {
     var ul2 = document.getElementById("sortable2");
