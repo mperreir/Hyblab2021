@@ -1,3 +1,5 @@
+
+// Load usefull expressjs and nodejs objects / modules
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -9,24 +11,27 @@ const config = require('./config.js');
 const verbose = true;
 
 let db = null;
+
 (async () => {
   // open database
   db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 
+  // Query to create the table Departement
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
     nomDepartement VARCHAR(50) NOT NULL
-);`;
+  );`;
 
-var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
-    id INT PRIMARY KEY,
-    nomCategorie VARCHAR(30) NOT NULL,
-    nomPersonnage VARCHAR(50) NOT NULL,
-    phraseCat VARCHAR(250) NOT NULL,
-    imageURI VARCHAR(10)
-);`;
+  // Query to create the table Categorie
+  var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
+      id INT PRIMARY KEY,
+      nomCategorie VARCHAR(30) NOT NULL,
+      nomPersonnage VARCHAR(50) NOT NULL,
+      phraseCat VARCHAR(250) NOT NULL,
+      imageURI VARCHAR(10)
+  );`;
 
-  // query to create DB if not created
+  // Query to create the table Legende
   var sqlLegende = `CREATE TABLE IF NOT EXISTS Legende (
               id INT PRIMARY KEY,
               nom VARCHAR(150) NOT NULL,
@@ -60,7 +65,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
   db.run("DELETE FROM Categorie;");
   db.run("DELETE FROM Legende;");
 
-  //var countIdDep = 1;
+
   var countIdCat = 1;
   var countIdLeg = 1;
   var depList = [];
@@ -73,21 +78,23 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
       if(perso.cat === cat) return perso;
     }
   }};
+
   // Fill the DB with the CSV content
   fs.createReadStream(config.ROOT + 'server/data.csv')
     .pipe(csv())
     .on('data', (row) => {
       var sql = '';
       if(!depList.includes(row.departement)) {
+        // Insertion into Departement
         db.run(`INSERT INTO Departement VALUES (            
           ${row.numero_dep}, 
           '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
         depList.push(row.departement);
-        //countIdDep++;
       }
       
       if(!catList.includes(row.categorie)) {
         let catPerso = personnages.getPerso(row.categorie);
+        // Insersion into Categorie
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
@@ -98,6 +105,7 @@ var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
         countIdCat++;
       }
       
+      // Insertion into Legende
       sql = `INSERT INTO Legende VALUES (
           ${countIdLeg},
           '${(encodeURI(row.nom)).replace(/'/g, "`")}',

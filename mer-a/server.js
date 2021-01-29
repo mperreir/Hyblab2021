@@ -4,8 +4,6 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
-
-const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -26,7 +24,7 @@ let db = null;
   db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 })();
 
-
+// Retrieve all the department in the database
 app.get(`${config.API_URL}all/regions`, async (req, res) => {
   let sql = 'SELECT * FROM DEPARTEMENT;'
   const rows = await db.all(sql, []);
@@ -37,6 +35,7 @@ app.get(`${config.API_URL}all/regions`, async (req, res) => {
   res.status(200).json(rows);
 });
 
+// Retrieve all the types of story in the database
 app.get(`${config.API_URL}all/types`, async (req, res) => {
   let sql = 'SELECT * FROM CATEGORIE;'
   const rows = await db.all(sql, []);
@@ -118,7 +117,6 @@ app.get(`/departements`, async (req, res) => {
 });
 
 // Route to reach the personnages page
-
 app.get(`/personnages/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
 });
@@ -140,7 +138,7 @@ app.get(`/legende/:idDep`, async (req, res) => {
     });*/
 });
 
-// close the database connection
+// Close the database connection
 /*db.close((err) => {
   if (err) {
     return console.error(err.message);
