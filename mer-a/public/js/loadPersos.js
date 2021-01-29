@@ -8,6 +8,15 @@ function formatCategorie(categorie) {
     return categorie.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(' ', '-').toLowerCase();
 }
 
+function formatText(text) {
+    let textParts = text.split('\n');
+    let textHTML = '';
+    for(p of textParts) {
+        textHTML += `<p>${p}</p>\n`;
+    }
+    return textHTML;
+}
+
 function sortCategories() {
     if(ordreCategories == null || ordreCategories == undefined || ordreCategories.length !== categories.length) return null;
     let orderedCats = new Array(categories.length);
@@ -30,18 +39,13 @@ function sortCategories() {
         zone.classList.add('zone', `zone-${formatC}`);
         let textZone = document.createElement('div');
         textZone.classList.add('texte', 'categorie', `cat-${formatC}`);
-        let nomPerso = document.createElement('p');
-        nomPerso.innerHTML = c.nomPersonnage;
-        let phrase = document.createElement('p');
-        phrase.innerHTML = c.phraseCat;
         let linkNext = document.createElement('a');
         linkNext.href = `/mer-a/departement/${departement}/${c.id}`;
         linkNext.classList.add('choix', `choix-${formatC}`);
         let imagePerso = document.createElement('p');
         imagePerso.id = formatC;
         imagePerso.classList.add('perso');
-        textZone.appendChild(nomPerso);
-        textZone.appendChild(phrase);
+        textZone.innerHTML = formatText(c.phrasePerso);
         linkNext.appendChild(imagePerso);
         zone.appendChild(textZone);
         zone.appendChild(linkNext);
