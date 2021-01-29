@@ -94,6 +94,32 @@ button{
     z-index: -1;
 }
 
+.fil-arianne{
+    position: absolute;
+    top: 5%;
+    left: 96%;
+    width: 1.5%;
+    height: 34%;
+    z-index: 7;
+}
+.fil-arianne-img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+
+.button-fil-arianne{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 8;
+}
+
 .hidden{
     display:none;
 }

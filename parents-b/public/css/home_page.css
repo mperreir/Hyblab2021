@@ -102,6 +102,7 @@
     left: 35%;
     width: 32%;
     border: 0.2em solid #ffe9de;
+    z-index: 4;
 }
 .button-histoire:hover{
     color: #FFCDB6;

@@ -1,6 +1,6 @@
 // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr',{
-    breadcrumbs: true,
+    breadcrumbs: false,
     controls: 'none',
     fade: false,
     keyboard: false,
@@ -18,6 +18,7 @@ let mySlidr = slidr.create('slidr',{
     .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
     .add('v', ['searching-results-page', 'results-page', 'searching-results-page'], 'linear')
     .add('h', ['results-page', 'credits-page', 'results-page'], 'linear')
+    .add('v', ['address-page', 'activities-page', 'address-page'], 'fade')
     .start();
 
 // on s'occupe de la 1ère slide
