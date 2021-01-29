@@ -24,6 +24,13 @@ let initHome = function(){
         loop:true
     });
 
+    d3.select(".button-histoire").on("click", function (){
+        mySlidr.slide('histoire-page');
+        initHistoire();
+    });
+
+    
+
     d3.select('.button-begin').on('mouseover', function (){
 
         tl_begin_over
@@ -149,3 +156,4 @@ let initHome = function(){
         });
     });
 };
+
