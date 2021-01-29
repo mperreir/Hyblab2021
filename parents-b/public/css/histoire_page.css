@@ -1,0 +1,15 @@
+.robot_histoire{
+    position: absolute;
+    top: 21%;
+    left: 0%;
+    width: 30%;
+    z-index: 2;
+}
+
+.oya-histoire-dialog{
+    position: absolute;
+    top: 19%;
+    left: 30%;
+    width: 50%;
+
+}
