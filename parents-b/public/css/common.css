@@ -1,4 +1,3 @@
-
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 /* contraindre le format des slides affichés sur la page web */
 
@@ -10,6 +9,7 @@
 }
 
 /* ---------------------- Font -------------------------- */
+.font-xs{font-size: 0.15em;}
 .font-s{font-size: 0.2em;}
 .font-m{font-size: 0.3em;}
 .font-big-button{font-size: calc(1vh + 1vw);}
