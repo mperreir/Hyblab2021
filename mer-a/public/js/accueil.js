@@ -2,8 +2,11 @@
 
 (() => {
   document.querySelector('#next').addEventListener('click', () => {
-    loadRessources("legende", {
-      'legende': 11
-    });
+    loadRessources("departements", {}, 3);
+  });
+  let bool = true;
+  document.querySelector('#pause').addEventListener('click', () => {
+    stopAnim(bool);
+    bool = !bool;
   });
 })();

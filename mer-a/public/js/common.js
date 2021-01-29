@@ -1,7 +1,9 @@
 const scene = document.querySelector('#scene');
-const parallaxInstance = new Parallax(scene);
+const parralax = new Parallax(scene);
 
-async function loadRessources(path, data) {
+// 0 = rien faire | 1 = fond 1 | 2 = fond 2 | 3 = fond mer
+let fond = 1;
+async function loadRessources(path, data, change) {
   if('legende' in data) {
     document.querySelector('#content').dataset.legende = data.legende;
   }
@@ -13,5 +15,33 @@ async function loadRessources(path, data) {
   }
   document.querySelector('#content').dataset.idLegende = data;
   document.querySelector('#personnage').src = "";
+  loadFond(change);
   $('#content').load(`/mer-a/html/${path}.html`);
+}
+
+function stopAnim(bool) {
+  document.querySelectorAll('#scene img.bg').forEach(element => {
+    element.classList.remove((bool) ? 'encours' : 'arret');
+    element.classList.add((bool) ? 'arret' : 'encours');
+  });
+  (bool) ? parralax.disable() : parralax.enable();
+}
+
+// 0 = rien faire | 1 = fond 1 | 2 = fond 2 | 3 = fond mer
+function loadFond(change) {
+  if(change !== 0 && fond !== change) {
+    if(change === 1) {
+      document.querySelector('#scene').style.display = 'block';
+      document.querySelector('#fond-mer').style.display = 'none';
+    }
+    // if(change === 2) {
+    //   document.querySelector('#scene').style.display = 'block';
+    //   document.querySelector('#fond-mer').style.display = 'none';
+    // }
+    if(change === 3) {
+      document.querySelector('#scene').style.display = 'none';
+      document.querySelector('#fond-mer').style.display = 'block';
+    }
+    fond = change;
+  }
 }

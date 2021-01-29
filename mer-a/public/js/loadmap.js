@@ -141,12 +141,12 @@ function setColor(d){
  * @param {object} d the data object from the map.
  */
 function setStrokeOpacity(d){
-	let codeDep = d.properties.code;	
+	let codeDep = d.properties.code;
 	return (deps.isValid(codeDep)) ? validStrokeOpacity : invalidStrokeOpacity;
 }
 
 function setStrokeWidth(d){
-	let codeDep = d.properties.code;	
+	let codeDep = d.properties.code;
 	return (deps.isValid(codeDep)) ? validStrokeWidth : invalidStrokeWidth;
 }
 
@@ -190,7 +190,9 @@ function leave(codeDep,t){
  */
 function selectDepartment(codeDep){
 	let id = getID(codeDep);
-	if(id > 0) document.location.href= ROOT + 'personnages/' + id;
+	if(id > 0) loadRessources('personnages', {
+		department: id
+	}, 1);
 }
 
 /**

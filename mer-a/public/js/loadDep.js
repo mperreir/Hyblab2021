@@ -9,13 +9,11 @@ const persoBox = document.getElementById('character');
 const narrationBox = document.getElementById('narration');
 const narrationTextBox = document.querySelector('#narration > span');
 const narrationPass = document.getElementById('pass_narration');
-const fontSize = window.innerHeight*0.017;
 const padding = window.innerHeight*0.008;
 let perso = null;
 let narration = null;
 let narrationIndex = 0;
 let narrationInterval = null;
-let categories = null;
 let categorie = null;
 let legendes = null;
 
@@ -130,11 +128,11 @@ function leave(d,t){
 }
 
 function getCodeDepartement(url){
-	return url.split('/')[5];
+	return document.querySelector('#content').dataset.department;
 }
 
 function getCodeType(url){
-	return parseInt(url.split('/')[6]);
+	return document.querySelector('#content').dataset.personnage;
 }
 
 function getMapDepartement(code){
@@ -150,7 +148,9 @@ function getMapDepartement(code){
 }
 
 function selectLegende(idLegende){
-	if(idLegende > 0) document.location.href= `${ROOT}legende/${idLegende}`; 
+	if(idLegende > 0) loadRessources('legende', {
+		legende: idLegende
+	}, 1);
 }
 
 function loadCharacter() {
@@ -168,7 +168,7 @@ function loadNarration() {
 
 function getCategorie(type) {
 	for(let c of categories) {
-		if(c.id === type) return c;
+		if(c.id === parseInt(type, 10)) return c;
 	}
 }
 
