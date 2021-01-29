@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="">
+    <list default="true" id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="merging conflits dev build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proximite-a/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proximite-a/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,14 +15,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3861186">
+    <splitter split-orientation="horizontal" split-proportion="0.5392157">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+                <state relative-caret-position="310">
+                  <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/proximite-a/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="174">
+                  <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -34,8 +43,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="33" />
+                <state relative-caret-position="216">
+                  <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -166,6 +175,7 @@
         <option value="$PROJECT_DIR$/proximite-a/server.js" />
         <option value="$PROJECT_DIR$/proximite-a/public/index.html" />
         <option value="$PROJECT_DIR$/proximite-a/package.json" />
+        <option value="$PROJECT_DIR$/proximite-a/.gitignore" />
       </list>
     </option>
   </component>
@@ -309,7 +319,7 @@
       <workItem from="1611782538564" duration="1591000" />
       <workItem from="1611844781647" duration="3379000" />
       <workItem from="1611851349337" duration="50586000" />
-      <workItem from="1611937928023" duration="3972000" />
+      <workItem from="1611937928023" duration="5117000" />
     </task>
     <task id="LOCAL-00001" summary="create branch dev">
       <created>1610728293834</created>
@@ -483,7 +493,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129597000" />
+    <option name="totallyTimeSpent" value="130742000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,6 +506,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1933" height="1096" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13878629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -510,10 +521,10 @@
       <window_info anchor="bottom" id="Run" order="5" sideWeight="0.43060687" weight="0.38313767" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.7129288" weight="0.48986125" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.71240103" weight="0.6392743" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.492876" visible="true" weight="0.17929563" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.507124" side_tool="true" visible="true" weight="0.17929563" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49234828" visible="true" weight="0.36072573" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.28759894" side_tool="true" weight="0.6392743" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.21024546" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -558,6 +569,17 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Feature/FrontPages1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="COLUMN_ORDER">
                 <list>
                   <option value="0" />
@@ -575,7 +597,13 @@
       <map>
         <entry key="Branch">
           <value>
-            <list />
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Feature/FrontPages1" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
         <entry key="User">
@@ -632,13 +660,6 @@
             <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proximite-a/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="53" column="12" selection-start-line="53" selection-end-line="53" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -789,17 +810,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
+    <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        <state relative-caret-position="216">
+          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
+    <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="310">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
         </state>
       </provider>
     </entry>
