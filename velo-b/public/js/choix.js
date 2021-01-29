@@ -5,15 +5,15 @@ let initSlideChoixBicloo = function () {
   
   /*==================== Fleches ===========================*/
 
-  let idFlecheD = '#fleche-droite-bycl';
-  let idFlecheG = '#fleche-gauche-bycl';
-  let nextD = 'choix-transport-4';
-  let nextG = 'choix-transport-2';
+  const idFlecheD = '#fleche-droite-bycl';
+  const idFlecheG = '#fleche-gauche-bycl';
+  const nextD = 'choix-transport-4';
+  const nextG = 'choix-transport-2';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
   /*====================Bouton du bas ===========================*/
-  let infoChoix = 'infos-choix-bicloo';
+  const infoChoix = 'infos-choix-bicloo';
   okbutton(infoChoix);
   infobutton();
 
@@ -24,17 +24,17 @@ let initSlideChoixBicloo = function () {
 
 let initSlideChoixTransport = function () {
 
-  let idFlecheD = '#fleche-droite-trans';
-  let idFlecheG = '#fleche-gauche-trans';
-  let nextD = 'choix-transport-1';
-  let nextG = 'choix-transport-3';
+  const idFlecheD = '#fleche-droite-trans';
+  const idFlecheG = '#fleche-gauche-trans';
+  const nextD = 'choix-transport-1';
+  const nextG = 'choix-transport-3';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
 
 
   /*====================Bouton du bas ===========================*/
-  let infoChoix = 'infos-choix-transport';
+  const infoChoix = 'infos-choix-transport';
 
   okbutton(infoChoix);
   infobutton();
@@ -58,15 +58,15 @@ let initSlideChoixVelo = function () {
 
   /*==================== Fleches ===========================*/
 
-  let idFlecheD = '#fleche-droite-velo';
-  let idFlecheG = '#fleche-gauche-velo';
-  let nextD = 'choix-transport-3';
-  let nextG = 'choix-transport-1';
+  const idFlecheD = '#fleche-droite-velo';
+  const idFlecheG = '#fleche-gauche-velo';
+  const nextD = 'choix-transport-3';
+  const nextG = 'choix-transport-1';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
   /*====================Bouton du bas ===========================*/
-  let infoChoix = 'infos-choix-velo';
+  const infoChoix = 'infos-choix-velo';
 
   okbutton(infoChoix);
   infobutton();
@@ -79,23 +79,15 @@ let initSlideChoixVoiture = function () {
   
    /*==================== Fleches ===========================*/
 
-   let idFlecheD = '#fleche-droite-voit';
-   let idFlecheG = '#fleche-gauche-voit';
-   let nextD = 'choix-transport-2';
-   let nextG = 'choix-transport-4';
+   const idFlecheD = '#fleche-droite-voit';
+   const idFlecheG = '#fleche-gauche-voit';
+   const nextD = 'choix-transport-2';
+   const nextG = 'choix-transport-4';
    arrowbutton(idFlecheD, nextD);
    arrowbutton(idFlecheG, nextG);
  
    /*====================Bouton du bas ===========================*/
-   /*d3.select('#plus-info-voiture').on('click', function () {
-    overrideAnim({
-      targets: '#plus-info-voiture',
-      scale: 0
-    });
-    mySlidr.slide('info-choix-voiture');
-    initSlideInfosVoiture();
-    */
-   let infoChoix = 'infos-choix-voiture'
+   const infoChoix = 'infos-selection-voiture'
 
   okbutton(infoChoix);
   infobutton();
