@@ -11,10 +11,8 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.attr("width", width)
 		.attr("height", height);
 
-	// Place le centre de la map
+	// Define the center of the map
 	var center = d3.geoCentroid(depData);
-	//console.log(depData);
-	//console.log(center);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -24,7 +22,7 @@ function generateDep(depData, mapData, codeDep, codeType){
 
 	var path = d3.geoPath().projection(projection);
 
-	// Dessine la map
+	// Draw the map
 	svg.append("g")
 		.selectAll("path")
 		.data(mapData.features)
@@ -36,7 +34,7 @@ function generateDep(depData, mapData, codeDep, codeType){
 			.style('stroke','black')
 			.style('stroke-width', '1px');
 
-	// Dessine les points des différents lieux à visiter
+	// Draw the points of the places to visit
 	svg.selectAll("myCircles")
 		.data(legendes)
 		.enter()
