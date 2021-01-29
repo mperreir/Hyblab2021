@@ -1,6 +1,6 @@
 body{
 	font-family: 'Poppins', sans-serif;
-	background-color: #77B3E0;
+	background-image: url("/mer-a/assets/img/fonds/FOND_1.png");
 }
 
 table{
@@ -12,7 +12,6 @@ table{
  	margin-bottom: 5%;
 	text-align: center;
 	width: 80%;
-	background-color: #EDF4F8;
 }
 
 .gauche{
@@ -43,11 +42,11 @@ td{
 }
 
 thead{
-	background-color: white;
+	background-color: #CFE0EC;
 }
 
 tfoot{
-	background-color: white;
+	background-color: #CFE0EC;
 }
 
 th{
@@ -71,7 +70,11 @@ th{
 }
 
 tbody{
-	background-color: #EDF4F8;
-	color: #2380C0;
+	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	color: #ABC4D5;
 	font-weight: bold;
+}
+
+.button{
+	background-color : #ABC4D5
 }
