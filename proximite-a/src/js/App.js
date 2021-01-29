@@ -30,6 +30,7 @@ class App extends  React.Component {
         }
     };
 
+
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
         this.setState({pageId:newPageId })
