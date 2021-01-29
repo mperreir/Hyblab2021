@@ -40,13 +40,20 @@ let initSlide2 = function() {
     }
 }*/
 
+function nextSlide(page){
+    pageN = page + 1
+    console.log("Trigger")
+    string = 'page-'+pageN
+    mySlidr.slide(string)
+    initSlide3()
+}
+
+
 function disappear(id){
     d3.select(id)
     .transition()
     .duration(700)
     .style("opacity", 0)
-
-
 }
 
 function appear(id){
@@ -72,9 +79,8 @@ let initSlide2 = function() {
     });
 
       //transi next slide
-    d3.select('#button2-p2-2').on('click', function(){
-        mySlidr.slide('page-3')
-        initSlide3()
+    d3.select('.nextSlide').on('click', function(){
+        nextSlide(2)
     });
         
    
