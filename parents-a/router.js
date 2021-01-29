@@ -39,6 +39,7 @@ router.get('/parc/non-aventurier', (req, res) => {
 
 
 router.post('/parc/aventurier/plein-la-vue', body_parser.json(), (req, res) => {
+    console.log(req.body);
     res.json(db.getParcPleinLaVue(req.body.data))
 });
 

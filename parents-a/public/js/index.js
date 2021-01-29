@@ -1,6 +1,6 @@
 //Mon objet stockant mes données 
 let data = []
-// init du slider (qui peut aussi faire des fondus enchainé)
+    // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: true,
     controls: 'none',
@@ -15,27 +15,27 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
-function nextSlide(page){
-    string = 'page-'+page
+function nextSlide(page) {
+    string = 'page-' + page
     console.log("Trig")
     mySlidr.slide(string);
     choixSlide(page);
 }
 
-function choixSlide(num){
-    
-    if (num =='1_1'){ initSlide1_1()};
+function choixSlide(num) {
 
-    if (num =='2') {initSlide2()};
+    if (num == '1_1') { initSlide1_1() };
 
-    if (num =='3'){ initSlide3()};
-    if (num =='4'){ initSlide4()};
+    if (num == '2') { initSlide2() };
 
-    if (num =='5'){ initSlide5()};
+    if (num == '3') { initSlide3() };
+    if (num == '4') { initSlide4() };
 
-    if (num =='6'){ initSlide6()};
+    if (num == '5') { initSlide5() };
 
-    if (num =='7'){ initSlide7()};
+    if (num == '6') { initSlide6() };
+
+    if (num == '7') { initSlide7() };
 
 }
 
@@ -43,7 +43,7 @@ function choixSlide(num){
 let initSlide1 = function() {
 
     d3.select('#logo').on('click', function() {
-       nextSlide('1_1');
+        nextSlide('1_1');
     });
 }
 
@@ -51,7 +51,7 @@ let initSlide1 = function() {
 let initSlide1_1 = function() {
         //Transi 1.2 vers 2(Camille) 
         d3.select('#t').on('click', function() {
-           nextSlide('2')
+            nextSlide('2')
         });
     }
     /*
@@ -97,7 +97,7 @@ let initSlide2 = function() {
 
     //transi next slide
     d3.select('#button2-p2-2').on('click', function() {
-       nextSlide('3')
+        nextSlide('3')
     });
 
 }
@@ -107,23 +107,24 @@ let initSlide2 = function() {
 let initSlide3 = function() {
     //Aventurier -> Plein la vue
 
-    d3.select('#bouton_non_aventurier-p3').on('click', async function(){
-        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier").then(response => response.json()).then(d => {return d});
+    d3.select('#bouton_non_aventurier-p3').on('click', async function() {
+        data = await fetch("/parents-a/parc/aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
         mySlidr.slide('page-4');
-        initSlide4();
+        initSlide4(data);
         console.log(data);
 
     });
 }
 
 //Plein la vue 
-let initSlide4 = function() {
+let initSlide4 = function(db) {
     //Plein la vue -> avec quoi 
     d3.select("#oh_oui_anime-p4").on('click', async function() {
-        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier/plein-la-vue",{body: data, method :"POST"}).then(response => response.json()).then(d => {return d});
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         mySlidr.slide('page-5');
         initSlide4();
-        
+        console.log(data);
+
     });
 }
 
