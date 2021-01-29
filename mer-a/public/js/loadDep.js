@@ -1,38 +1,81 @@
 'use strict'
 
+/**
+ * The file used to load the map of the region with the character.
+ */
 
+/**
+ * Constants definition
+ */
 const url = window.location.href;
 const codeDep = getCodeDepartement(url);
 const codeType = getCodeType(url);
+
 const map = getMapDepartement(codeDep);
+
+const baseNarration = {
+	html: {
+		box: document.getElementById('narration'),
+		text: document.querySelector('#narration > span'),
+		pass: document.querySelector('#narration > button.pass_narration')
+	},
+	animation: {
+		text: null,
+		index: 0,
+		intervals: {
+			narration: null
+		}
+	},
+	properties: {
+		boxHeight: 0
+	}
+};
+const legendNarration = {
+	html: {
+		box: document.querySelector('#narration_legende'),
+		title: document.querySelector('#narration_legende > span.title'),
+		text: document.querySelector('#narration_legende > span.resume'),
+		pass: document.querySelector('#narration_legende > button.pass_narration')
+	},
+	animation: {
+		text: null,
+		index: 0,
+		intervals: {
+			narration: null,
+			timeout: null
+		}
+	},
+	properties: {
+		legendId: null
+	}
+};
+
 const persoBox = document.getElementById('character');
-const narrationBox = document.getElementById('narration');
-const narrationTextBox = document.querySelector('#narration > span');
-const narrationPass = document.querySelector('#narration > button.pass_narration');
-const legendNarrationBox = document.querySelector('#narration_legende');
-const legendNarrationTextBox = document.querySelector('#narration_legende > span.resume');
-const legendNarrationTitleBox = document.querySelector('#narration_legende > span.title');
-const legendNarrationPass = document.querySelector('#narration_legende > button.pass_narration');
+
 const fontSize = window.innerHeight*0.023;
 const padding = window.innerHeight*0.008;
+
+const narrationSpeed = 45; // 0 : instant ; 1000 : every second.
+
+/**
+ * Variables definition
+ */
 let perso = null;
-let narration = null;
-let narrationIndex = 0;
-let legendIndex = 0;
-let narrationInterval = null;
-let legendInterval = null;
-let legendTimeout = null;
-let legendNarrationId = null;
 let categories = null;
 let categorie = null;
 let legendes = null;
-let narrationBoxHeight = 0;
 
-function generateDep(depData, mapData, codeDep, codeType){
+/**
+ * The function that generate the map and loads the legends.
+ * @param {object} mapData the JSON object that contains the paths and data of the map.
+ */
+function generateDep(mapData){
 
+	//Definition of the SVG dimensions
 	var width = window.innerWidth;
 	var height = window.innerHeight;
 
+	//Creation of the SVG element
 	var svg = d3.select("#department")
 		.html('')
 		.append('svg')
@@ -40,9 +83,7 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.attr("height", height);
 
 	// Place le centre de la map
-	var center = d3.geoCentroid(depData);
-	//console.log(depData);
-	//console.log(center);
+	var center = d3.geoCentroid(map);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -80,16 +121,16 @@ function generateDep(depData, mapData, codeDep, codeType){
 			.attr("fill-opacity", .5)
 			.on('mouseover', function(d){
 				hoverDot(this);
-				hoverLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
 			})
 			.on('mouseleave', function(d){
 				leaveDot(this);
-				leaveLabel(document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')));
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
 			.on('click', d => selectLegende(d.id));
 
+	// Create the legends' title buttons elements
 	for(let l of legendes) {
-		let lButtonLarge = document.createElement('div');
 		let lButton = document.createElement('a');
 		lButton.id = 'label_legende_' + l.id;
 		lButton.setAttribute('lbl-legende-id', l.id);
@@ -98,51 +139,33 @@ function generateDep(depData, mapData, codeDep, codeType){
 		lButton.style.top = (projection([l.longitude, l.latitude])[1]-100) + 'px';
 		lButton.innerHTML = l.nom;
 		lButton.onmouseover = (e) => {
-			hoverLabel(e.target);
+			e.target.style.display = 'block';
 			hoverDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
 		}
 		lButton.onmouseleave = (e) => {
-			leaveLabel(e.target);
+			e.target.style.display = 'none';
 			leaveDot(document.getElementById('dot_legende_' + e.target.getAttribute('lbl-legende-id')));
 		}
+		lButton.onclick = (e) => selectLegende(e.target.getAttribute('lbl-legende-id'));
 		document.getElementById('department').appendChild(lButton);
 	}
 
-	// svg.selectAll("labels")
-	// 	.data(legendes)
-	// 	.enter()
-	// 	.append("text").append("tspan")
-	// 		.attr("id", function(d){ return 'label_legende_' + d.id; })
-	// 		.attr("lbl-legende-id", function(d){ return d.id; })
-	// 		.attr("class", "legend_button")
-	// 		.attr("x", function(d){ return projection([d.longitude, d.latitude])[0]; })
-	// 		.attr("y", function(d){ return projection([d.longitude, d.latitude])[1] - 14 - 20; })
-	// 		.text(function(d){ return d.nom})
-	// 		.attr("text-anchor", "middle")
-	// 		.attr("alignment-baseline", "central")
-	// 		.style("fill", "white")
-	// 		.style("display", "none")
-	// 		.style("font-size", 14)
-	// 		.style("font-weight", "bold")
-	// 		.attr("fill-opacity", 1)
-	// 		.on('mouseover', function(d){
-	// 			hoverLabel(this);
-	// 			hoverDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-	// 		})
-	// 		.on('mouseleave', function(d){
-	// 			leaveLabel(this);
-	// 			leaveDot(document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-	// 		})
-	// 		.on('click', d => selectLegende(d.id));
-
 }
-
+/**
+ * Function that returns the color used to fill the regions
+ * @param {object} d		the data object from the map.
+ * @param {number} codeDep	the department code.
+ */
 function setColor(d, codeDep){
 	let code = d.properties.code;
 	return (code == codeDep) ? '#88cbce' : '#224255';
 
 }
 
+/**
+ * Function that handle the hover event of the circles.
+ * @param {object} t		the hovered element.
+ */
 function hoverDot(t){
 	d3.select(t)
 		.transition().duration(350)
@@ -150,40 +173,47 @@ function hoverDot(t){
 		.style('cursor','pointer')
 		.style("fill-opacity", 0.6);
 	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
-	// TODO : faire apparaitre explication perso
-}
-function hoverLabel(t){
-	t.style.display = 'block';
-	// TODO : faire apparaitre explication perso
 }
 
+/**
+ * Function that handle the leave event of the circles.
+ * @param {object} t		the hovered element.
+ */
 function leaveDot(t){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", 14)
 		.style('cursor','initial')
 		.style("fill-opacity", 0.5);
-	legendTimeout = setInterval(hideLegendNarration, 3000);
-	// TODO : faire disparaitre explication perso
-}
-function leaveLabel(t){
-	t.style.display = 'none';
-	// TODO : faire disparaitre explication perso
+	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
 }
 
+/**
+ * Function that extract the region id from the URL.
+ * @param {string} url		the url of the current page.
+ */
 function getCodeDepartement(url){
+	//return parseInt(url.split('/')[5]);
 	return document.querySelector('#content').dataset.department;
 }
 
+/**
+ * Function that extract the type id from the URL.
+ * @param {string} url		the url of the current page.
+ */
 function getCodeType(url){
 	return document.querySelector('#content').dataset.personnage;
 }
 
+/**
+ * Function that extract the svg paths of the selected region.
+ * @param {number} code 	the id of the selected region.
+ */
 function getMapDepartement(code){
 	let f = null;
 	for(let i in mapFusion.features){
 		let feature = mapFusion.features[i];
-		if(feature.properties.code == code){
+		if(feature.properties.code === code){
 			f = feature;
 			break;
 		}
@@ -191,12 +221,19 @@ function getMapDepartement(code){
 	return f;
 }
 
+/**
+ * Function that handle the selection of a legend.
+ * @param {number} idLegende the id of the selected legend.
+ */
 function selectLegende(idLegende){
 	if(idLegende > 0) loadRessources('legende', {
 		legende: idLegende
 	}, 1);
 }
 
+/**
+ * Function that add the character image to the page.
+ */
 function loadCharacter() {
 	let imgChar = document.createElement('img');
 	imgChar.src = ROOT + categorie.imageURI;
@@ -204,93 +241,117 @@ function loadCharacter() {
 	persoBox.appendChild(imgChar);
 }
 
-function loadNarration() {
-	narrationTextBox.innerHTML += narration[narrationIndex];
-	narrationIndex++;
-	if(narration.length === narrationIndex) stopNarration();
+/**
+ * Fonction that display a text char by char.
+ * @param {object} narrator 	the object that defines a config for narration.
+ */
+function narrate(narrator) {
+	narrator.html.text.innerHTML += narrator.animation.text[narrator.animation.index];
+	narrator.animation.index++;
+	if(narrator.animation.text.length === narrator.animation.index) stopNarration(narrator);
 }
 
-function legendNarrate(legend) {
-	legendNarrationTextBox.innerHTML += legend[legendIndex];
-	legendIndex++;
-	if(legend.length === legendIndex) stopLegendNarration(legend);
-}
-
+/**
+ * Return the category with the id 'type'.
+ * @param {number} type 	the id of the wanted type.
+ */
 function getCategorie(type) {
 	for(let c of categories) {
 		if(c.id === parseInt(type, 10)) return c;
 	}
 }
 
+/**
+ * Return the legend with the id 'id'.
+ * @param {number} id 	the id of the wanted legende.
+ */
 function getLegende(id) {
 	for(let l of legendes) {
 		if(l.id === id) return l;
 	}
 }
 
-function setNarrationBox() {
-	let nbRows = narration.length / (narrationBox.offsetWidth / (fontSize*0.6667)) + 1;
-	narrationBoxHeight = fontSize * nbRows + padding * 2;
-	narrationBox.style.height = `${narrationBoxHeight}px`;
-	narrationBox.style.top = `-${narrationBoxHeight}px`;
-	narrationPass.onclick = stopNarration;
-	legendNarrationPass.onclick = stopLegendNarration;
-	legendNarrationBox.style.display = 'none';
+/**
+ * Initialise the view of the narration
+ */
+function setNarrationBoxes() {
+	let nbRows = baseNarration.animation.text.length / (baseNarration.html.box.offsetWidth / (fontSize*0.6667)) + 1;
+	baseNarration.properties.boxHeight = fontSize * nbRows + padding * 2;
+	baseNarration.html.box.style.height = `${baseNarration.properties.boxHeight}px`;
+	baseNarration.html.box.style.top = `-${baseNarration.properties.boxHeight}px`;
+	baseNarration.html.pass.onclick = () => stopNarration(baseNarration);
+	legendNarration.html.pass.onclick = () => stopNarration(legendNarration);
+	legendNarration.html.box.style.display = 'none';
 }
 
+/**
+ * Function that initialize and load the narration of the legend with the corresponding id.
+ * @param {number} id	the id of the legend to narrate.
+ */
 function loadLegendNarration(id) {
 	resetLegendNarration();
-	legendNarrationId = id;
+	legendNarration.properties.legendId = id;
 	let legende = getLegende(id);
-	legendNarrationBox.style.display = 'block';
-	legendNarrationPass.style.display = 'block';
-	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarrationBox.offsetWidth / (fontSize*0.6667)) + 2;
-	legendNarrationBox.style.height = `${fontSize * nbRows + padding * 2}px`;
-	legendNarrationBox.style.top = `-${fontSize * nbRows + padding * 2 + narrationBoxHeight + window.innerHeight*0.07}px`;
-	legendNarrationTitleBox.innerHTML = legende.nom;
-	legendInterval = setInterval(legendNarrate, 45, legende.resume);
+	legendNarration.html.box.style.display = 'block';
+	legendNarration.html.pass.style.display = 'block';
+	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarration.html.box.offsetWidth / (fontSize*0.6667)) + 2;
+	legendNarration.html.box.style.height = `${fontSize * nbRows + padding * 2}px`;
+	legendNarration.html.box.style.top = `-${fontSize * nbRows + padding * 2 + baseNarration.properties.boxHeight + window.innerHeight*0.07}px`;
+	legendNarration.html.title.innerHTML = legende.nom;
+	legendNarration.animation.text = legende.resume;
+	legendNarration.animation.intervals.narration = setInterval(narrate, narrationSpeed, legendNarration);
 }
 
+/**
+ * Function to reset the narration
+ */
 function resetLegendNarration() {
-	clearInterval(legendInterval);
-	clearInterval(legendTimeout);
-	legendNarrationTextBox.innerHTML = '';
-	legendIndex = 0;
+	clearInterval(legendNarration.animation.intervals.narration);
+	clearInterval(legendNarration.animation.intervals.timeout);
+	legendNarration.html.text.innerHTML = '';
+	legendNarration.animation.index = 0;
 }
 
+/**
+ * Function to hide the box of the legends' narration.
+ */
 function hideLegendNarration() {
-	clearInterval(legendTimeout);
-	legendNarrationBox.style.display = 'none';
-	legendIndex = 0;
+	clearInterval(legendNarration.animation.intervals.timeout);
+	legendNarration.html.box.style.display = 'none';
+	legendNarration.animation.index = 0;
 }
 
-function stopNarration() {
-	clearInterval(narrationInterval);
-	narrationTextBox.innerHTML = narration;
-	narrationPass.remove();
-}
-function stopLegendNarration(legend) {
-	if(typeof(legend) !== "string") legend = getLegende(legendNarrationId).resume;
-	clearInterval(legendInterval);
-	legendNarrationTextBox.innerHTML = legend;
-	legendNarrationPass.style.display = 'none';
+/**
+ * Function to stop the narration of the passed narrator config.
+ * @param {object} narrator 	the object that defines a config for narration.
+ */
+function stopNarration(narrator) {
+	clearInterval(narrator.animation.intervals.narration);
+	narrator.html.text.innerHTML = narrator.animation.text;
+	narrator.html.pass.style.display = 'none';
 }
 
+/**
+ * The main function in ASYNC.
+ */
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
 	await getTypesId(r => categories = r);
 	categorie = getCategorie(codeType);
-	narration = categorie.phraseDep;
-	setNarrationBox();
-	generateDep(map,mapFusion,codeDep,codeType);
+	baseNarration.animation.text = categorie.phraseDep;
+	setNarrationBoxes();
+	generateDep(mapFusion);
 	loadCharacter();
 	perso = document.getElementById('character_image');
-	narrationInterval = setInterval(loadNarration, 45);
+	baseNarration.animation.intervals.narration = setInterval(narrate, narrationSpeed, baseNarration);
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,500);
 })();
 
-window.addEventListener("resize", function(e) {
+/**
+ * When the window is resized, we update the view.
+ */
+window.addEventListener("resize", function() {
 	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
-	setNarrationBox();
-	generateDep(map,mapFusion,codeDep,codeType);
+	setNarrationBoxes();
+	generateDep(mapFusion);
 });

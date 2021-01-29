@@ -48,7 +48,6 @@ function generateMap(mapFusion){
 	const width = window.innerWidth-5;
 	const height = window.innerHeight-5;
 
-
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
 		.html('')
