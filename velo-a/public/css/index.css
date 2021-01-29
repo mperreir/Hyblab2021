@@ -1,0 +1,13 @@
+
+* {
+    overflow: hidden;
+    background-color: #fcd2cf;
+}
+
+img {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

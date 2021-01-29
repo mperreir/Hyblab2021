@@ -17,33 +17,42 @@
 
     <!-- Styles-->
     <link href="css/app.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
 
 </head>
 <body>
-<h1 id="h1-veligood">Véli Good</h1>
-<h2 id="h2-veligood">L'appli avec qui tout roule !</h2>
+<header>
+    <img class="logo" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
+    <h1 id="h1-veligood">Véli Good</h1>
+    <h2 id="h2-veligood">Pour un trajet Véli Bien</h2>
+</header>
 <div id="left-nav">
+    <input type="button" class="button-slide button-return">
+
     <form id="mapbox-controllers">
 
     </form>
 
-    <form>
-        <details>
-            <summary>Filtres</summary>
-            <label for="abris_velo">abris vélo</label>
-            <input type="checkbox" id="abris_velo" name="abris_velo">
+<!--    <form>-->
+<!--        <details>-->
+<!--            <summary>Filtres</summary>-->
 
-            <label for="traffic">traffic</label>
-            <input type="checkbox" id="traffic" name="traffic">
 
-            <label for="veloroute">véloroute</label>
-            <input type="checkbox" id="veloroute" name="veloroute">
+    <input type='checkbox' name='abris_velo' value='valuable' id="abris_velo"/><label for="abris_velo"></label>
+    abris vélo
+    <br>
+    <input type='checkbox' name='traffic' value='valuable' id="traffic"/><label for="traffic"></label>
+    traffic
+    <br>
+    <input type='checkbox' name='veloroute' value='valuable' id="veloroute"/><label for="veloroute"></label>
+    véloroute
+    <br>
+    <input type='checkbox' name='station_bicloo' value='valuable' id="station_bicloo"/><label for="station_bicloo"></label>
+    station bicloo
 
-            <label for="station_bicloo">station bicloo</label>
-            <input type="checkbox" id="station_bicloo" name="station_bicloo">
 
-        </details>
-    </form>
+<!--        </details>-->
+<!--    </form>-->
 
     <form>
         <h2>Voyons voir ce que tu sais !</h2>
@@ -60,7 +69,13 @@
     <input type="button" value="Retour">
 
 </div>
+
 <div id="map"></div>
+<input type="button" class="button-slide button-return bottom-left-nav">
+
+<div class="bottom-right-nav-container">
+    <input type="button" class="button-slide" value="C'est la Véli Fin">
+</div>
 
 </body>
 </html>

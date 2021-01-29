@@ -44,7 +44,6 @@ body{
     margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
     position: absolute;
     font-size: 50%;
-    cursor: pointer;
 }
 
 #background-video{
@@ -167,3 +166,53 @@ dessus de l'apect ratio 16/9 */
         font-size: 16vh;
     }
 }
+
+header{
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header .logo{
+    width: 276px;
+}
+
+.container_map{
+    background-color: white;
+    color: black;
+    position: absolute;
+    width: 356px;
+    height: 668px;
+    z-index: 999;
+    border-radius: 34px;
+    left: 35px;
+    top: 56px;
+}
+
+.container_map p{
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15.85px;
+}
+
+.bottom-left-nav{
+    position: absolute;
+    bottom: 20px;
+    left:20px;
+}
+
+.bottom-right-nav-container{
+    position: absolute;
+    bottom: 20px;
+    right:20px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 150px;
+
+}
+
+
