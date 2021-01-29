@@ -11,7 +11,7 @@ registerSlide("info-choix-velo", function () {
             targets: '#close-btn-velo',
             scale: 0
         });
-        goToSlide('choix-transport-2');
+        goToSlide('choix-transport-velo');
     });
 
     d3.select('#close-btn-velo').on('mouseover', function () {
@@ -47,7 +47,7 @@ registerSlide("info-choix-voiture", function () {
             targets: '#close-btn-voiture',
             scale: 0
         });
-        goToSlide('choix-transport-1');
+        goToSlide('choix-transport-voiture');
     });
 
     d3.select('#close-btn-voiture').on('mouseover', function () {
@@ -81,7 +81,7 @@ registerSlide("info-choix-bicloo", function () {
             targets: '#close-btn-bicloo',
             scale: 0
         });
-        goToSlide('choix-transport-3');
+        goToSlide('choix-transport-bicloo');
     });
 
     d3.select('#close-btn-bicloo').on('mouseover', function () {
@@ -123,7 +123,7 @@ registerSlide("info-choix-transports", function () {
             targets: '#close-btn-transports',
             scale: 0
         });
-        goToSlide('choix-transport-4');
+        goToSlide('choix-transport-transports');
     });
 
     d3.select('#close-btn-transports').on('mouseover', function () {

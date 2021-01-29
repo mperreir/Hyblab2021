@@ -27,7 +27,7 @@ registerSlide("page-carte", function () {
 
                 console.log(this.id); // selectionné
                 zoneChoisie = this.id;
-                goToSlide('choix-transport-2');
+                goToSlide('choix-transport-velo');
             });
     });
 });

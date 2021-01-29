@@ -1,14 +1,14 @@
 // SLIDE CHOIX BICLOO
 
 
-registerSlide("choix-transport-3", function () {
+registerSlide("choix-transport-bicloo", function () {
   
   /*==================== Fleches ===========================*/
 
   const idFlecheD = '#fleche-droite-bycl';
   const idFlecheG = '#fleche-gauche-bycl';
-  const nextD = 'choix-transport-4';
-  const nextG = 'choix-transport-2';
+  const nextD = 'choix-transport-transports';
+  const nextG = 'choix-transport-velo';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
@@ -26,7 +26,7 @@ registerSlide("choix-transport-3", function () {
     goToSlide('info-choix-bicloo');
   });
 
-  const infoSelection = 'infos-selection-bicloo';
+  const infoSelection = 'question-bicloo-autres-transports';
   const idOkButton = '#ok-bicloo';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -36,12 +36,12 @@ registerSlide("choix-transport-3", function () {
 // SLIDE CHOIX TRANSPORT EN COMMUN
 
 
-registerSlide("choix-transport-4", function () {
+registerSlide("choix-transport-transports", function () {
 
   const idFlecheD = '#fleche-droite-trans';
   const idFlecheG = '#fleche-gauche-trans';
-  const nextD = 'choix-transport-1';
-  const nextG = 'choix-transport-3';
+  const nextD = 'choix-transport-voiture';
+  const nextG = 'choix-transport-bicloo';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
@@ -61,7 +61,7 @@ registerSlide("choix-transport-4", function () {
   });
 
 
-  const infoSelection = 'infos-selection-transport';
+  const infoSelection = 'question-transports-velo';
   const idOkButton = '#ok-transport';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -81,14 +81,14 @@ registerSlide("choix-transport-4", function () {
 
 // SLIDE CHOIX VELO
 
-registerSlide("choix-transport-2",function () {
+registerSlide("choix-transport-velo",function () {
 
   /*==================== Fleches ===========================*/
 
   const idFlecheD = '#fleche-droite-velo';
   const idFlecheG = '#fleche-gauche-velo';
-  const nextD = 'choix-transport-3';
-  const nextG = 'choix-transport-1';
+  const nextD = 'choix-transport-bicloo';
+  const nextG = 'choix-transport-voiture';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
   
@@ -107,7 +107,7 @@ registerSlide("choix-transport-2",function () {
     goToSlide('info-choix-velo');
   });
 
-  const infoSelection = 'infos-selection-velo';
+  const infoSelection = 'question-velo-autres-transports';
   const idOkButton = '#ok-velo';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -116,14 +116,14 @@ registerSlide("choix-transport-2",function () {
 
 // SLIDE CHOIX VOITURE
 
-registerSlide("choix-transport-1", function () {
+registerSlide("choix-transport-voiture", function () {
   
    /*==================== Fleches ===========================*/
 
    const idFlecheD = '#fleche-droite-voit';
    const idFlecheG = '#fleche-gauche-voit';
-   const nextD = 'choix-transport-2';
-   const nextG = 'choix-transport-4';
+   const nextD = 'choix-transport-velo';
+   const nextG = 'choix-transport-transports';
    arrowbutton(idFlecheD, nextD);
    arrowbutton(idFlecheG, nextG);
 
@@ -144,7 +144,7 @@ registerSlide("choix-transport-1", function () {
     goToSlide('info-choix-voiture');
   });
 
-  const infoSelection = 'infos-selection-voiture';
+  const infoSelection = 'question-voiture-velo';
   const idOkButton = '#ok-voiture';
   okbutton(idOkButton,infoSelection);
   infobutton();

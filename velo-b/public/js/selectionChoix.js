@@ -1,20 +1,20 @@
-registerSlide("infos-selection-voiture", function () {
+registerSlide("question-voiture-velo", function () {
     const idYesBut = '#ic-oui-voit';
     const idNoBut = '#ic-non-voit';
     button(idYesBut, 'info-choix-velo'); // TODO: changer ça
 });
 
-registerSlide("infos-selection-velo", function () {
+registerSlide("question-velo-autres-transports", function () {
     const idYesBut = '#ic-oui-velo';
     const idNoBut = '#ic-non-velo';
 });
 
-registerSlide("infos-selection-bicloo", function () {
+registerSlide("question-bicloo-autres-transports", function () {
     const idYesBut = '#ic-oui-bicloo';
     const idNoBut = '#ic-non-bicloo';
 });
 
-registerSlide("infos-selection-transport", function () {
+registerSlide("question-transports-velo", function () {
 
 });
 
