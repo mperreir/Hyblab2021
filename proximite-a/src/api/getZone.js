@@ -47,7 +47,7 @@ const gourmet = [
     "amenity=restaurant",
 ]
 
-export const POINT_TYPES = {
+const POINT_TYPES = {
     culture,
     fetard,
     gourmet,
@@ -103,8 +103,8 @@ const getBoxFromZone = (zone) => {
         south = latCoor > south ? latCoor : south;
         north = latCoor < north ? latCoor : north;
     });
-
+    console.log([north, west, south, east]);
     return [north, west, south, east];
 }
-module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfil };
+module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfile };
 

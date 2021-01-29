@@ -15,7 +15,7 @@ const request = require('./request');
  */
 let get15mnZone = async function(position, modeTransport = 'foot-walking') {
     try {
-        const data = await request(`https://api.openrouteservice.org/v2/isochrones/${modeTransport}`, {
+        const data = await request.request(`https://api.openrouteservice.org/v2/isochrones/${modeTransport}`, {
             method: 'POST',
             body: `{"locations":[[${position}]],"range":[900,1]}`,
             headers: {

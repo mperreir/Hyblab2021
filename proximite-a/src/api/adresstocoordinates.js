@@ -11,8 +11,17 @@ let addresstocoordinates = async function(adresse){
     return coordinates;
 }
 
+let coordinatestoaddress = async function(coordinates){
+    const url = `https://api-adresse.data.gouv.fr/reverse/?lon=${coordinates.longitude}&lat=${coordinates.latitude}`;
+    let response = await request.request(url);
+    let data = await response.json();
+    console.log(data.features[0].properties.name);
+    let finalresult = {rue: data.features[0].properties.name, codepostal: data.features[0].properties.postcode, ville: data.features[0].properties.city }
+    return finalresult;
+}
+
 /*
-let result =  addresstocoordinates('41 Boulevard Albert Einstein 44300 Nantes')
+let result =  addresstocoordinates('Paris France')
     .then(data => {console.log(data)});
 */
-exports.addresstocoordinates = addresstocoordinates;
+module.exports = {addresstocoordinates, coordinatestoaddress};

@@ -20,6 +20,16 @@ module.exports = function () {
 
     })
 
+    app.get('/coordinates/*', async function(req, res){
+        res.header('Access-Control-Allow-Origin', '*');
+        const path = decodeURI(req.url).split('/');
+        let coordinates = path[2].split('_');
+        coordinates = {latitude: coordinates[0], longitude: coordinates[1]};
+        let data = await addresstocoordinates.coordinatestoaddress(coordinates);
+        res.json(data);
+
+    })
+
     app.get('/get15minzone/*/*/', function(req, res){
         res.header('Access-Control-Allow-Origin', '*');
         const path = decodeURI(req.url).split('/');
