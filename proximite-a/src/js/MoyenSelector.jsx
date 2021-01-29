@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../img/LOGO OK_logo principal.png'
 import pied_img from '../img/picto moyen de transport-pied.png'
 import roller_img from '../img/picto moyen de transport-roller.png'
 import skate_img from '../img/picto moyen de transport-skate.png'
@@ -13,7 +12,6 @@ import '../css/moyen.css'
 
 class MoyenSelector extends React.Component {
     render() {
-        //const { dataSelected = this.getState() } = this.props;
         const hoverStyle = {
             backgroundImage: `url(${imagHover})`
         };
