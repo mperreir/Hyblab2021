@@ -65,8 +65,8 @@ section[data-slidr="page-10"] {
 #question-p10 {
     position: absolute;
     width: 25%;
-    top: 15%;
-    left: 33%;
+    top: 25%;
+    left: 25%;
 }
 
 #centre-p10 {
@@ -124,6 +124,20 @@ section[data-slidr="page-10"] {
 }
 
 #sud-p10:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+#bouton_peu_importe-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 50%;
+    left: 30%;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+}
+
+#bouton_peu_importe-p10:hover {
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
 }
