@@ -34,6 +34,9 @@ export default {
     actif: Number
   },
   methods: {
+    next() {
+      this.$root.$data.setActif(this.actif +1)
+    },
     nextBvd() {
       const yellow= document.getElementById("yellow_house");
       const white= document.getElementById("white_house");
@@ -43,7 +46,7 @@ export default {
       blue.classList.add("bounceInDown");
       yellow.addEventListener("animationend", () => {
         this.$root.$data.setStyle(Styles.BOULEVARDS);
-        this.$router.push({name:"choix-theme" });
+        this.next()
       });
       },
     nextRuelles() {
@@ -51,7 +54,7 @@ export default {
       yellow.classList.add("bounceInDown");
       yellow.addEventListener("animationend", () => {
         this.$root.$data.setStyle(Styles.RUELLES);
-        this.$router.push({name:"choix-theme"});
+        this.next();
       });
     }
   },

@@ -43,6 +43,7 @@ export default {
       ". question ."
       ". question ."
       "stepper stepper stepper";
+    overflow: hidden;
 
   }
   #canari {

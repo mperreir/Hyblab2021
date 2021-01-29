@@ -39,8 +39,8 @@ export default {
   methods: {
     next() {
       setTimeout(() => {
-        this.$router.push({name: "choix-style"})
-      }, 1000)
+        this.$root.$data.setActif(this.actif +1)
+      }, 1500)
     }
     ,oui() {
       this.$root.$data.setHumeur(Humeur.OUI)

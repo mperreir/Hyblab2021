@@ -22,16 +22,18 @@ export default Vue.component("buttonCustom", {
 
 <style scoped lang="scss">
 $blue:  #0ec0ec;
-$yellow: yellow;
+$yellow: #ffdb27;
   .button {
     margin: 10px;
+    width: 50%;
     display: block;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     position: relative;
     color: white;
     font-weight: bold;
-    padding: 8px 30px;
+    font-size: 1.2em;
+    padding: 20px 30px;
     cursor: pointer;
     text-align: center;
   }
