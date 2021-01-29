@@ -1,6 +1,6 @@
 'use strict'
 
-function generateDep(depData, mapData, codeDep, codeLegende){
+function generateDep(depData, mapData, codeDep, codeType){
 
 	var width = window.innerWidth;
 	var height = window.innerHeight;
@@ -13,8 +13,8 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 
 	// Place le centre de la map
 	var center = d3.geoCentroid(depData);
-	console.log(depData);
-	console.log(center);
+	//console.log(depData);
+	//console.log(center);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -31,7 +31,8 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 		.enter()
 		.append("path")
 			.attr('id',function(d) { return 'path_' + d.properties.code})
-			.attr("fill", function(d){return color(d, codeDep);})
+			.attr("fill", function(d){return setColor(d, codeDep);})
+			.attr("fill-opacity", function(d){return setOpacity(d, codeDep);})
 			.attr("d", path)
 			.style('stroke','black')
 			.style('stroke-width', '1px');
@@ -54,7 +55,8 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 			})
 			.on('mouseleave', function(d){
 				leave(d, this);
-			});
+			})
+			.on('click', d => selectLegende(d.id));
 
 	svg.selectAll("labels")
 		.data(legendes)
@@ -82,22 +84,21 @@ function generateDep(depData, mapData, codeDep, codeLegende){
 					.transition().duration(350)
 					.style("font-size", 14);
 				leave(null,document.getElementById('dot_legende_' + this.getAttribute('lbl-legende-id')));
-			});
+			})
+			.on('click', d => selectLegende(d.id));
 
 }
 
-function color(d, codeDep){
-	let color = '';
+function setColor(d, codeDep){
 	let code = d.properties.code;
-	if(code == codeDep){
-		color = '#88cbce';
-	}
-	else{
-		color = 'white';
-	}
-	return color;
+	return (code == codeDep) ? '#88cbce' : '#224255';
+
 }
 
+function setOpacity(d, codeDep){
+	let code = d.properties.code;	
+	return (code == codeDep) ? 1 : 0.9;
+}
 function hover(d,t){
 	d3.select(t)
 		.transition().duration(350)
@@ -118,7 +119,7 @@ function getCodeDepartement(url){
 	return url.split('/')[5];
 }
 
-function getCodeLegende(url){
+function getCodeType(url){
 	return url.split('/')[6];
 }
 
@@ -134,20 +135,50 @@ function getMapDepartement(code){
 	return f;
 }
 
+function selectLegende(idLegende){
+	if(idLegende > 0) document.location.href= `${ROOT}legende/${idLegende}`; 
+}
+
+function loadCharacter() {
+	let nomType = legendes[0].categorie.replace(' ', '_');
+	let imgChar = document.createElement('img');
+	imgChar.src = `/mer-a/assets/img/personnage/image_${nomType}.png`;
+	imgChar.id = 'character_image';
+	persoBox.appendChild(imgChar);
+}
+
+function loadNarration() {
+	narrationBox.innerHTML += narration[0];
+	narration = narration.substring(1);
+	if(narration.length === 0) clearInterval(narrationInterval);
+}
+
 let url = window.location.href;
 
 var codeDep = getCodeDepartement(url);
-var codeLegende = getCodeLegende(url);
+var codeType = getCodeType(url);
 var map = getMapDepartement(codeDep);
-
+var persoBox = document.getElementById('character');
+var perso = null;
+//var nuage = document.getElementById('cloud');
+var narrationBox = document.getElementById('narration');
+let narration = narrationBox.innerHTML;
+narrationBox.innerHTML = "";
+let narrationInterval = setInterval(loadNarration, 60);
+let categories = null;
 let legendes = null;
+
 (async () => {
-	await getLegendes(codeDep, codeLegende, r => legendes = r);
-	console.log(legendes);
-	generateDep(map,mapFusion,codeDep,codeLegende);
+	await getLegendes(codeDep, codeType, r => legendes = r);
+	//console.log(legendes);
+	generateDep(map,mapFusion,codeDep,codeType);
+	loadCharacter();
+	perso = document.getElementById('character_image');
+	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
 })();
 
 window.addEventListener("resize", function(e) {
-	generateDep(map,mapFusion,codeDep,codeLegende);
+	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
+	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
+	generateDep(map,mapFusion,codeDep,codeType);
 });
-

@@ -9,15 +9,16 @@ body{
 	width: 100%; 
 	height: 100%;
 }
-div{
-	width: 100%; 
-	height: 100%;
+
+div#department{
+	width: 100vw; 
+	height: 100vh;
 }
 svg{
 	background-image: url("../assets/img/mer.png");
 }
 
-text{
+text, .text{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -26,4 +27,97 @@ text{
             user-select: none; /* Non-prefixed version, currently*/
     font-family: 'Poppins', sans-serif;
 
+}
+
+
+div#character{
+	width: 20vw; 
+	height: 50vh;
+	position: fixed;
+	right: 2vw;
+	top: 25vh;
+	animation: waveUp 2s ease-in-out infinite;
+}
+/* Animation des vagues */
+
+@keyframes waveUp {
+
+	/* position basse */
+    0%, 100% {
+		top: 52vh;
+	}
+  
+	/* position haute */
+	50% {
+		top: 53vh;
+	}
+
+    /* position basse */
+    /* 0%, 20%, 80%, 100% {
+      top: 24.5vh;
+    } */
+
+    /* position haute */
+    /* 10%, 30%, 70%, 90% {
+      top: 25.5vh;
+    } */
+
+    /* position haute */
+    /* 30%, 70% {
+		transform: rotate(0deg) translateX(0vw);
+    } */
+
+    /* position haute */
+    /* 40%, 60% {
+      top: 25vh;
+      transform: rotate(-10deg) translateX(-1vw);
+    } */
+
+    /* position haute */
+    /* 50% {
+      top: 25vh;
+      transform: rotate(-5deg) translateX(-1vw);
+    } */
+}
+div#character > img#character_image {
+	max-width: 100%; 
+	max-height: 100%;
+	position: absolute;
+	bottom: 0;
+}
+div#character > img#cloud {
+	position: absolute;
+	bottom: -150px; /* set via JS */
+	left: 5%;
+    max-width: 100%;
+}
+
+p#narration {
+	z-index: 2;
+	position: absolute;
+    /* aspect du texte */
+    text-align: center;
+    font-size: 1.7vh;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+
+    /* aspect de l'arrière-plan */
+    padding: 0.5vh;
+    background-color: white;
+    border-radius: 25px;
+    border: solid;
+    border-width: 1px;
+}
+
+div#character > p#narration {
+	top: -8vh;
+	width: 100%;
+}
+
+div#instructions > p#narration {
+    font-size: 2vh;
+	bottom: 4vh;
+	left: 4vh;
+	padding: 15px 20px;
+	width: auto;
 }

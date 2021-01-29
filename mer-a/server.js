@@ -1,11 +1,16 @@
 // Use strict mode
 'use strict';
 
-// Load usefull expressjs and nodejs objects / modules
-var express = require('express');
-var path = require('path');
+/**
+ * This file contains the server handling.
+ */
 
-const fs = require('fs');
+/**
+ * Imports/Constants definition
+ */
+const express = require('express');
+const path = require('path');
+
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -14,43 +19,69 @@ const config = require('./server/config.js');
 console.log(config);
 
 // Load useful classes
-var Legende = require('./server/classes/Legende.js');
+const Legende = require('./server/classes/Legende.js');
 
+/**
+ * Variables definition
+ */
 // Create the application object
-var app = express();
+let app = express();
 
-
-// open database
 let db = null;
+
+
+/**
+ * Function called on load to open the link with the database.
+ */
 (async () => {
   db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 })();
 
-
+/**
+ * Route API/all/regions that returns all the content of the table Departement.
+ */
 app.get(`${config.API_URL}all/regions`, async (req, res) => {
+  // Query SQL
   let sql = 'SELECT * FROM DEPARTEMENT;'
   const rows = await db.all(sql, []);
+  // Process data
   rows.forEach((row) => {
+    // Decode
     row.nomDepartement = decodeURI(row.nomDepartement);
   });
   console.log(rows);
+  // Send data
   res.status(200).json(rows);
 });
 
+/**
+ * Route API/all/types that returns all the content of the table Categorie.
+ */
 app.get(`${config.API_URL}all/types`, async (req, res) => {
+  // Query SQL
   let sql = 'SELECT * FROM CATEGORIE;'
   const rows = await db.all(sql, []);
+  // Process data
   rows.forEach((row) => {
-    row.nomDepartement = decodeURI(row.nomCategorie);
+    // Decode
+    row.nomCategorie = decodeURI(row.nomCategorie);
+    row.nomPersonnage = decodeURI(row.nomPersonnage);
+    row.phrasePerso = decodeURI(row.phrasePerso);
+    row.phraseDep = decodeURI(row.phraseDep);
+    row.imageURI = decodeURI(row.imageURI);
   });
   console.log(rows);
+  // Send data
   res.status(200).json(rows);
 });
 
-
-// Route to get get one legend by id
+/**
+ * Route API/legende/:id that returns the legend with the corresponding ID.
+ * @param {number} id the id of the legend requested.
+ */
 app.get(`${config.API_URL}legende/:id`, async (req, res) => {
-    var sql = `SELECT Legende.id as id, Legende.nom as nom, departementId, categorieId,
+    // Query SQL
+    var sql = `SELECT Legende.id as idLegende, Departement.id as idDepartement, Categorie.id as idCategorie, Legende.nom as nom, departementId, categorieId,
     resume, histoire, latitude, longitude, adresse, baignade, toilettes, restaurant,
     photo, nomDepartement, nomCategorie, imageURI
     FROM Legende INNER JOIN Departement ON Departement.id = departementId
@@ -58,11 +89,26 @@ app.get(`${config.API_URL}legende/:id`, async (req, res) => {
 
     const row = await db.get(sql, [req.params.id]);
 
+    //Process data
+    // Decode
+    row.nom = decodeURI(row.nom);
+    row.resume = decodeURI(row.resume);
+    row.histoire = decodeURI(row.histoire);
+    row.adresse = decodeURI(row.adresse);
+    row.photo = decodeURI(row.photo);
+    row.nomDepartement = decodeURI(row.nomDepartement);
+    row.nomCategorie = decodeURI(row.nomCategorie);
+    row.imageURI = decodeURI(row.imageURI);
     console.log(row);
+    //Send data
     res.status(200).json(row);
 });
 
-// Add route to get the legends
+/**
+ * Route API/:region_id/:type_id that returns all the legends in the region of region_id and with the type of type_id.
+ * @param {number} region       the id of the region requested.
+ * @param {number} typeHistoire the id of the type requested.
+ */
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
     var legendes = [];
@@ -119,7 +165,7 @@ app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
 });
 
 // Route to reach the legende page
-app.get(`/legende/:idDep/:idPerso/:idLeg`, async (req, res) => {
+app.get(`/legende/:idDep`, async (req, res) => {
     res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
     /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
       if(err) {
