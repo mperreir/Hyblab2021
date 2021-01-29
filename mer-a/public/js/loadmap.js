@@ -140,7 +140,8 @@ function hover(codeDep,t){
 		.transition().duration(500)
 		.style("fill-opacity", 0.95)
 		.style('stroke-width', hoveredStrokeWidth)
-		.style("fill", hoveredValidDepColor);
+		.style("fill", hoveredValidDepColor)
+		.style('cursor','pointer');
 		d3.select('#text_' + codeDep).style("display", 'initial');
 	}
 }
