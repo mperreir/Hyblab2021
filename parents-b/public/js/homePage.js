@@ -65,84 +65,84 @@ let initHome = function(){
                 opacity: 0,
                 duration: 300
             })
-            // .add({
-            //     targets: ".catch-phrase",
-            //     opacity: 0,
-            //     offset: "-=300",
-            //     duration: 300
-            // })
-            // .add({
-            //     targets: ".talking-bubble-home",
-            //     opacity: 1,
-            //     duration: 500,
-            //     easing: "linear"
-            // })
-            // .add({
-            //     targets: ".oya-home-go",
-            //     opacity: 1,
-            //     duration: 1000,
-            //     offset: "-=1000",
-            //     easing: "linear"
-            // })
-            // .add({
-            //     delay: 1000
-            // })
-            // .add({
-            //     targets: ".talking-bubble-home",
-            //     opacity: 0,
-            //     duration: 500,
-            //     easing: "linear"
-            // })
-            // .add({
-            //     targets: ".oya-home-go",
-            //     opacity: 0,
-            //     duration: 500,
-            //     offset: "-=500",
-            //     easing: "linear"
-            // })
-            // .add({
-            //     targets: ".oya-hello",
-            //     translateX: '80%',
-            //     scale: 0.6,
-            //     duration: 1000,
-            // })
-            // .add({
-            //     targets: ".rocket-hello",
-            //     scale: 0.1,
-            //     duration: 50
-            // })
-            // .add({
-            //     targets: ".rocket-hello",
-            //     opacity: 1,
-            //     duration: 300,
-            // })
-            // .add({
-            //     targets: ".rocket-hello",
-            //     scale: 1,
-            //     duration: 1000,
-            // })
-            // .add({
-            //     targets: ".rocket-hello",
-            //     translateY: '40%',
-            //     duration: 500,
-            //     easing:"easeOutCirc"
-            // })
-            // .add({
-            //     targets: ".oya-hello",
-            //     translateX: "60%",
-            //     scale: 0.6,
-            // })
-            // .add({
-            //     targets: ".oya-hello",
-            //     translateX: "10%",
-            //     scale: 0,
-            //     duration: 1000,
-            // })
-            // .add({
-            //     targets: ".rocket-hello",
-            //     translateY: "-150%",
-            //     duration: 1000,
-            // })
+            .add({
+                targets: ".catch-phrase",
+                opacity: 0,
+                offset: "-=300",
+                duration: 300
+            })
+            .add({
+                targets: ".talking-bubble-home",
+                opacity: 1,
+                duration: 500,
+                easing: "linear"
+            })
+            .add({
+                targets: ".oya-home-go",
+                opacity: 1,
+                duration: 1000,
+                offset: "-=1000",
+                easing: "linear"
+            })
+            .add({
+                delay: 1000
+            })
+            .add({
+                targets: ".talking-bubble-home",
+                opacity: 0,
+                duration: 500,
+                easing: "linear"
+            })
+            .add({
+                targets: ".oya-home-go",
+                opacity: 0,
+                duration: 500,
+                offset: "-=500",
+                easing: "linear"
+            })
+            .add({
+                targets: ".oya-hello",
+                translateX: '80%',
+                scale: 0.6,
+                duration: 1000,
+            })
+            .add({
+                targets: ".rocket-hello",
+                scale: 0.1,
+                duration: 50
+            })
+            .add({
+                targets: ".rocket-hello",
+                opacity: 1,
+                duration: 300,
+            })
+            .add({
+                targets: ".rocket-hello",
+                scale: 1,
+                duration: 1000,
+            })
+            .add({
+                targets: ".rocket-hello",
+                translateY: '40%',
+                duration: 500,
+                easing:"easeOutCirc"
+            })
+            .add({
+                targets: ".oya-hello",
+                translateX: "60%",
+                scale: 0.6,
+            })
+            .add({
+                targets: ".oya-hello",
+                translateX: "10%",
+                scale: 0,
+                duration: 1000,
+            })
+            .add({
+                targets: ".rocket-hello",
+                translateY: "-150%",
+                duration: 1000,
+            })
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
