@@ -18,6 +18,10 @@ function goToSlide(name) {
     }
 }
 
+window.onhashchange = () => {
+    goToSlide(window.location.hash || "splash-screen");
+};
+
 function overrideAnim(data) {
     anime.remove(data.targets);
     anime(data);
@@ -54,3 +58,21 @@ const fetchJsonData = function(addr, callback) {
     })
     .catch(e => {console.error(e);});
 };
+
+registerSlide("slides", () => {
+    const slideNames = Object.keys(window.slides);
+    const list = document.getElementById("slide-list");
+
+    list.innerHTML = '';
+
+    slideNames.forEach(name => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+
+        link.href = `#${name}`;
+        link.text = name;
+
+        item.append(link);
+        list.append(item);
+    });
+});
