@@ -66,33 +66,38 @@ section[data-slidr="page-4"] {
 }
 
 
-/* Bouttons */
-
+/* Boutons */
 .button {
     position: absolute;
     border-radius: 50%;
     padding: 0.3% 0.55%;
     border: 2px solid #fff;
-    background-color: transparent;
-}
-
-/* Bouton question precédente */
-#button_retour {
-    /* Position */
-    left: 4%;
-    top: 5%;
     color: #fff;
     cursor: pointer;
     outline: none;
+    background-color: transparent;
 }
-#button_retour:hover {
-    /* Only design change */
-    border: 3px solid #fff;
-    background-color: #fff;
-    color: #333;
+
+.button:hover{
+  /* Only design change */
+  border: 3px solid #fff;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+
+/* Bouton question precédente */
+.button_retour {
+    /* Position */
+    left: 4%;
+    top: 5%;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 5%;
+    outline: none;
 }
+
+
 #texte_question_precedente {
     position: absolute;
     width: 14%;
