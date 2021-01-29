@@ -60,7 +60,6 @@ function generateDep(depData, mapData, codeDep, codeType){
 		.append("path")
 			.attr('id',function(d) { return 'path_' + d.properties.code})
 			.attr("fill", function(d){return setColor(d, codeDep);})
-			.attr("fill-opacity", function(d){return setOpacity(d, codeDep);})
 			.attr("d", path)
 			.style('stroke','black')
 			.style('stroke-width', '1px');
@@ -144,11 +143,7 @@ function setColor(d, codeDep){
 
 }
 
-function setOpacity(d, codeDep){
-	let code = d.properties.code;	
-	return (code == codeDep) ? 1 : 0.9;
-}
-function hoverDot(t){
+function hover(d,t){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", 20)

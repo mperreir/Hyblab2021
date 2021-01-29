@@ -18,7 +18,7 @@ svg{
 	background-image: url("../assets/img/mer.png");
 }
 
-text, .text{
+text, .texte{
 	-webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -28,7 +28,6 @@ text, .text{
     font-family: 'Poppins', sans-serif;
 
 }
-
 
 div#character{
 	width: 20vw; 
@@ -119,7 +118,15 @@ div#instructions > p.narration {
   margin-bottom: 0.5vh;
 }
 
-button.pass_narration {
+#cercle_outer1 {
+    opacity: 1;
+}
+
+#cercle_inner1 {
+    opacity: 1;
+}
+
+button#pass_narration {
   position: absolute;
   font-family: 'Poppins', sans-serif;
   width: 40%;

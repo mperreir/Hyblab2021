@@ -3,9 +3,7 @@ div#content {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 div#content h4 {
@@ -13,6 +11,7 @@ div#content h4 {
   color: #FFF;
   font-family: "Helvetica";
   font-size: 1rem;
+  text-transform: uppercase;
 }
 
 div#content img#logo {
@@ -27,32 +26,6 @@ div#content p {
   font-family: 'Poppins', sans-serif;
 }
 
-div#content div#button {
-  padding: 7px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #95ABE2;
-  background-color: #FFF;
-  border: none;
-  margin-top: 2.5%;
-  transition: all 300ms;
-}
-
-div#content div#button:hover {
-  background-color: #95ABE2;
-  color: #FFF;
-  cursor: pointer;
-}
-
 img.bg {
   filter: brightness(50%);
-}
-
-div#button a,
-div#button a:link,
-div#button a:hover,
-div#button a:active {
-  color: inherit;
-  text-decoration: inherit;
-  font-weight: inherit;
 }
