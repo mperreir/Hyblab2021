@@ -595,12 +595,15 @@ h2 {
     -webkit-transform-style: preserve-3d;
     perspective: 1400px;
     -webkit-perspective: 1400px;
+
 }
 
 .imgCarte {
     background-size: cover;
     border: 5px solid white;
     box-sizing: border-box;
+	filter: sepia(1);
+	-webkit-filter: sepia(1);
 }
 
 .cartePostale.cp1 {
@@ -619,11 +622,6 @@ div#goback {
     bottom: 10px;
 }
 
-
-.imgCarte {
-    background: #2196f3;
-    background-size: cover;
-}
 
 .cartePostale .texte {
     background-image: url('../img/lettrefinal.png');
@@ -644,7 +642,6 @@ div#goback {
 {
     width: 100%;
     height: 100%;
-
     backface-visibility: hidden;
 }
 
