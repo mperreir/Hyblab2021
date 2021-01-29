@@ -25,7 +25,7 @@
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
     <script src="js/infosChoix.js" defer></script>
-    <script src="js/infoChoix.js" defer></script>
+    <script src="js/selectionChoix.js" defer></script>
     <script src="js/index.js" defer></script>
 </head>
 
@@ -76,7 +76,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-voiture" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-voiture" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
@@ -101,7 +101,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-velo" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-velo" alt="Bouton ok">ok</div>
                 </div>
 
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -132,7 +132,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-bicloo" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-bicloo" alt="Bouton ok">ok</div>
                 </div>
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
                 <footer>
@@ -156,7 +156,7 @@
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
+                    <div class="fancy-button rounded-full" id="ok-transport" alt="Bouton ok">ok</div>
                 </div>
 
                 <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
@@ -170,7 +170,7 @@
 
             <!--
                 ***********************************
-                Infos liés au choix d'un véhicule
+                Infos liés a selection d'un véhicule
                 ***********************************
             -->
 
@@ -196,17 +196,18 @@
                     <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
                 </div>
 
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
+                
                 <footer>
                 </footer>
 
             </section>
+            -->
 
-            <!--Infos liés au choix  -->
+            <!--Infos liés a selection véhicule  -->
 
-            <section data-slidr="infos-selection-voiture" id="infos-choix-voiture" hidden>
+            <section data-slidr="infos-selection-voiture" hidden>
                 <img src="assets/infoschoix/fondvoiture.svg" class="bottom-0 left-0 w-screen place-self-start absolute"
-                    id="fond"></img>
+                    id="ic-fond"></img>
 
                 <img src="assets/infoschoix/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
                 id="ic-bulle-info-lg" alt="Bulle info"></img>
@@ -217,15 +218,10 @@
                     <img src="assets/infoschoix/non.svg" class="w-2/12 mx-10" id="ic-non" alt="Bouton non"></img>
                 </div>
 
-                <div class="flex items-end justify-center">
-                    <div class="fancy-button rounded-full" id="plus-info-transports" alt="Bouton +infos">+infos</div>
-                    <div class="fancy-button rounded-full" id="ok-button" alt="Bouton ok">ok</div>
-                </div>
+                <img src="assets/infoschoix/voiture.svg" class="bottom-5 left-0 w-2/5  absolute" id="ic-voiture"></img>
 
-                <footer>
-                </footer>
+
             </section>
-        -->
 
 
 
