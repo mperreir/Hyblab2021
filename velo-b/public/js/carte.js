@@ -1,6 +1,10 @@
 const disabledZone = "centre";
 
+let lastId, lastEvent, lastFn, lastThis;
+
 registerSlide("page-carte", function () {
+    [lastId, lastEvent, lastFn, lastThis] = [];
+
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
         // clear au cas où des cartes sont déjà présentes
@@ -31,8 +35,6 @@ registerSlide("page-carte", function () {
     });
 });
 
-let lastId, lastEvent, lastFn, lastThis;
-
 function debounce(id, event, fn) {
     if (this.id === disabledZone)
         return;
@@ -42,6 +44,5 @@ function debounce(id, event, fn) {
         fn.call(this);
     }
 
-    // On reset tout si on est sorti de la slide.
-    [lastId, lastEvent, lastFn, lastThis] = window.currentSlide === 'page-carte' ? [id, event, fn, this] : [];
+    [lastId, lastEvent, lastFn, lastThis] = [id, event, fn, this];
 }

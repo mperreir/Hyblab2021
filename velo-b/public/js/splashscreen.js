@@ -9,6 +9,9 @@ registerSlide("splash-screen", function () {
     anim.setSpeed(2.5);
 
     anim.addEventListener("data_ready", () => {
-        setTimeout(() => goToNextSlide('timeout'), 2000);
+        setTimeout(() => {
+            anim.destroy();
+            goToNextSlide('timeout');
+        }, 2000);
     });
 });
