@@ -12,6 +12,11 @@ registerSlide("choix-transport-3", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
+    //retour
+  const idFlecheRetour = '#fleche-retour';
+  const retour = 'carte';
+  arrowbutton(idFlecheRetour, retour);
+
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
     overrideAnim({
@@ -40,6 +45,10 @@ registerSlide("choix-transport-4", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
+    //retour
+    const idFlecheRetour = '#fleche-retour';
+    const retour = 'carte';
+    arrowbutton(idFlecheRetour, retour);
 
 
   /*====================Bouton du bas ===========================*/
@@ -82,6 +91,11 @@ registerSlide("choix-transport-2",function () {
   const nextG = 'choix-transport-1';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
+  
+    //retour
+    const idFlecheRetour = '#fleche-retour';
+    const retour = 'carte';
+    arrowbutton(idFlecheRetour, retour);
 
   /*====================Bouton du bas ===========================*/
 
@@ -112,6 +126,12 @@ registerSlide("choix-transport-1", function () {
    const nextG = 'choix-transport-4';
    arrowbutton(idFlecheD, nextD);
    arrowbutton(idFlecheG, nextG);
+
+   
+    //retour
+  const idFlecheRetour = '#fleche-retour';
+  const retour = 'carte';
+  arrowbutton(idFlecheRetour, retour);
  
    /*====================Bouton du bas ===========================*/
 
