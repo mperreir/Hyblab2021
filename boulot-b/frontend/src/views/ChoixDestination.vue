@@ -2,7 +2,7 @@
   <Container>
     <template #question>
       <div id="launcher">
-        <div id="inputliste">
+        <div class="inputliste">
           <Input
             @blur="onBlur"
             @input="getAddressDepart"
@@ -22,7 +22,7 @@
             </li>
           </ul>
         </div>
-        <div id="inputliste">
+        <div class="inputliste">
           <Input
             :error="error.arrive"
             @input="getAddressArrive"
@@ -41,7 +41,7 @@
             </li>
           </ul>
         </div>
-        <div id="inputliste">
+        <div id="button-launch" class="inputliste">
           <ButtonCustom @click="launch" text="C'est parti !" color="blue" />
         </div>
       </div>
@@ -157,7 +157,11 @@ export default {
     position: relative;
   }
 
-  #inputliste {
+  #button-launch {
+    margin-top: 80px;
+  }
+
+  .inputliste {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -178,6 +182,7 @@ export default {
     flex: 0 1 auto;
     align-self: auto;
   }
+
   #nuage1 {
     position: absolute;
     top: 60%;
@@ -211,7 +216,7 @@ export default {
   .depart-result-list,
   .arrivee-result-list {
     position: relative;
-    margin-top: 0px;
+    margin-top: 0;
     list-style-type: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
