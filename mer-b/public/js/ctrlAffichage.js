@@ -43,7 +43,6 @@ function updateElement(element, reponse){
     }
 
     sketchCiel.updateSketchCiel(element, reponse);
-    console.log(getAffichage());
 
     let root = document.documentElement;
 

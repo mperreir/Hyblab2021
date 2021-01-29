@@ -62,7 +62,6 @@ function updateSlideFin(plages, criteres){
     cartesPostalesList[index].style.display = "inline-block";
 
     let cartePostale = document.getElementById("cp" + (index + 1));
-    console.log(cartePostale);
 
     let imgPlage = cartePostale.querySelector(".imgCarte");
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
