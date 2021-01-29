@@ -24,7 +24,7 @@ class App extends  React.Component {
             case 2:
                 return <Attributs onNextPage={this.nextPage} onSetAttributs={this.updateAttributs} onPreviousPage={this.previousPage}/>;
             case 3:
-                return <Moyen onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
+                return <Moyen data={this.state} onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
                 return <AcceuilCarte nomPers={this.state.nomPers}/>;
         }

@@ -5,14 +5,41 @@ import skate_img from '../img/picto moyen de transport-skate.png'
 import trotinette_img from '../img/picto moyen de transport-trotinette.png'
 import velo_img from '../img/picto moyen de transport-vélo.png'
 import fauteuil_img from '../img/picto moyen de transport-fauteuil.png'
-import imagHover from '../img/HOVER-moyen de transport-tache-02.png'
 import '../css/moyen.css'
 
+//images fonds
+import fond0 from '../img/HOVER-moyen de transport-tache-01.png'
+import fond1 from '../img/HOVER-moyen de transport-tache-02.png'
+import fond2 from '../img/HOVER-moyen de transport-tache-03.png'
+import fond3 from '../img/HOVER-moyen de transport-tache-04.png'
+import fond4 from '../img/HOVER-moyen de transport-tache-05.png'
+import fond5 from '../img/HOVER-moyen de transport-tache-06.png'
+
 class MoyenSelector extends React.Component {
-    
+    state = {
+        themeId: this.props.data.themeId
+    };
+    getThemeFond = () => {
+        switch (this.state.themeId) {
+            case 0://défaut(bleu)
+                return { fond0 }.fond0;
+            case 1://fêtard(vert)
+                return { fond1 }.fond1;
+            case 2://sportif(cyan)
+                return { fond2 }.fond2;
+            case 3://gourmet(jaune)
+                return { fond3 }.fond3;
+            case 4://curieux/culture(orange)
+                return { fond4 }.fond4;
+            case 5://famille(rose)
+                return { fond5 }.fond5;
+        }
+    }
     render() {
+        console.log(this.state)
+        const fond =this.getThemeFond() 
         const hoverStyle = {
-            backgroundImage: `url(${imagHover})`
+            backgroundImage: `url(${fond})`
         };
         return (
             <div className=" m-5 d-flex justify-content-center align-items-center flex-column">

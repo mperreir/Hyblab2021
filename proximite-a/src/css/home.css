@@ -55,10 +55,11 @@ h4{
 #homeContainer input[type=button]:disabled{
     opacity: 0.5;
 }
-#credits{
+#homeContainer #credits{
     position: absolute;
     bottom: 55px;
     right: 85px;
+    border-radius: 30px;
     background-color: white !important;
     color: #756EFF !important;
 }
