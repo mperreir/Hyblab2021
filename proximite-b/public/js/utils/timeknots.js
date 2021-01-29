@@ -81,7 +81,7 @@ var TimeKnots = {
 
         }
         else {
-            $("#otherItemsSingleModal").html("<p>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
+            $("#otherItemsSingleModal").html("<p class='pb-5'>Il n'y a pas d'autre " + d.categorie.toLowerCase() + " à proximité.")
         }
         $("#singleModal").modal('show');
     },
