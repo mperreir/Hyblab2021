@@ -1,0 +1,168 @@
+
+/* PAGE 2.1 */
+section[data-slidr="page-2"] {
+    background: linear-gradient(90.42deg,
+    #6FB5EF 13.84%,
+    #69ABEB 22.53%,
+    #5A91E0 37.19%,
+    #4166CF 56.01%,
+    #1F2BB6 78.06%);
+}
+
+#arbre-bleu-p2-1 {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    width: 40%;
+}
+
+#mascotte-p2-1 {
+    position: absolute;
+    bottom: 4%;
+    left: 10%;
+    width: 25%;
+}
+
+#nuage-p2-1 {
+    position: absolute;
+    top: 25%;
+    width: 15%;
+}
+
+#gros_nuage-p2-1 {
+    position: absolute;
+    top: -5%;
+    width: 30%;
+    left: 15%;
+}
+
+#pelouse-p2-1 {
+    position: absolute;
+    width: 30%;
+    right: 0%;
+    bottom: 0%;
+}
+
+#arbuste_bleu-p2-1 {
+    position: absolute;
+    bottom: 9%;
+    right: 12%;
+    transform: rotate(355deg);
+    width: 45%;
+}
+
+#double_feuille_verte-p2-1 {
+    position: absolute;
+    bottom: 13%;
+    right: 36%;
+    width: 15%;
+    transform: rotate(350deg);
+}
+
+#arbuste_vert-p2-1 {
+    position: absolute;
+    bottom: 10%;
+    right: 11%;
+    width: 35%;
+}
+
+#arbre_jaune-p2-1 {
+    position: absolute;
+    bottom: 10%;
+    right: 0%;
+    width: 25%;
+}
+
+#chaise-p2-1 {
+    position: absolute;
+    bottom: 3%;
+    left: 42%;
+    width: 15%;
+}
+
+#vector-p2-1 {
+    position: absolute;
+    width: 25%;
+    bottom: 40%;
+    left: 25%;
+}
+
+
+#logo-p2-1 {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#dune-p2-1 {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+}
+
+
+/* Element qui disparaisse */
+#texte-p2-1 {
+    position: absolute;
+    width: 20%;
+    left: 25%;
+    top: 42%;
+}
+
+
+#button-p2-1 {
+    /* Position */
+    position: absolute;
+    width: 4%;
+    left: 52%;
+    top: 46%;
+    /* Design */
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px 13px 10px 13px;
+    outline: none;
+}
+
+#button-p2-1:hover{
+    /* Only design change */
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+/* elements qui apparaisse */
+#appear {
+    opacity: 0 ;
+}
+#texte2-p2-1 {
+    position: absolute;
+    width: 28%;
+    left: 20%;
+    top: 38%;
+}
+
+#button2-p2-2 {
+    /* Position */
+    position: absolute;
+    width: 18%;
+    left: 34%;
+    top: 63%;
+    /* Design */
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5%;
+    padding: 10px 13px 10px 13px;
+    outline: none;
+
+}
+
+#button2-p2-2:hover{
+    /* Only design change */
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
