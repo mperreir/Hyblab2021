@@ -339,6 +339,7 @@ function fetchData() {
                     }
                 }
                 line.affinity = (line["nbElemCorrect"] * 100) / nbElemChoisit;
+                line.affinity = Math.round(line.affinity);
             }
 
             //console.log(json);
@@ -367,23 +368,23 @@ function fetchData() {
             const address1 = document.getElementById('result-one-address');
             const address2 = document.getElementById('result-two-address');
             const address3 = document.getElementById('result-three-address');
-            address1.innerText += top[0]['Adresse'];
-            address2.innerText += top[1]['Adresse'];
-            address3.innerText += top[2]['Adresse'];
+            address1.innerHTML += '<p>' + top[0]['Adresse'] + '</p>';
+            address2.innerHTML += '<p>' + top[1]['Adresse'] + '</p>';
+            address3.innerHTML += '<p>' + top[2]['Adresse'] + '</p>';
 
             const access1 = document.getElementById('result-one-access');
             const access2 = document.getElementById('result-two-access');
             const access3 = document.getElementById('result-three-access');
-            access1.innerText += top[0]['Accès transports en commun'];
-            access2.innerText += top[1]['Accès transports en commun'];
-            access3.innerText += top[2]['Accès transports en commun'];
+            access1.innerHTML += '<p>' + top[0]['Accès transports en commun'] + '</p>';
+            access2.innerHTML += '<p>' + top[1]['Accès transports en commun'] + '</p>';
+            access3.innerHTML += '<p>' + top[2]['Accès transports en commun'] + '</p>';
 
             const time1 = document.getElementById('result-one-time');
             const time2 = document.getElementById('result-two-time');
             const time3 = document.getElementById('result-three-time');
-            time1.innerText += top[0]['Horaires d\'ouverture'];
-            time2.innerText += top[1]['Horaires d\'ouverture'];
-            time3.innerText += top[2]['Horaires d\'ouverture'];
+            time1.innerHTML += '<p>' + top[0]['Horaires d\'ouverture'] + '</p>';
+            time2.innerHTML += '<p>' + top[1]['Horaires d\'ouverture'] + '</p>';
+            time3.innerHTML += '<p>' + top[2]['Horaires d\'ouverture'] + '</p>';
 
             const location1 = document.getElementById('result-one-location');
             const location2 = document.getElementById('result-two-location');
