@@ -1,7 +1,7 @@
 <template>
     <div id="app">
     <img  id="wazo" src="@/assets/wazzo.png"/>
-      <router-view />
+        <router-view />
   </div>
 </template>
 

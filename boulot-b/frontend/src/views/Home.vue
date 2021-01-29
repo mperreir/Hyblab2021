@@ -41,13 +41,25 @@ export default {
       canari.play()
     });
     canari.addEventListener("complete", () => {
-      this.$router.push({name: "questionnaire" })
+      const canariCome = document.getElementById("canari-come")
+      canariCome.classList.add("fade")
+      canariCome.addEventListener("transitionend", () => {
+        this.$router.push({name: "questionnaire" })
+      })
     });
   }
 }
 </script>
 
 <style scoped>
+
+.fade {
+  transition: opacity .3s;
+}
+
+.fade {
+  opacity: 0;
+}
 
 #wazo-anim, #canari-come {
   margin-left: auto;
