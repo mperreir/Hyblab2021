@@ -41,7 +41,7 @@ export default {
       canari.play()
     });
     canari.addEventListener("complete", () => {
-      this.$router.push({name: "choix-type" })
+      this.$router.push({name: "questionnaire" })
     });
   }
 }

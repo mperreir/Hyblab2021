@@ -27,6 +27,7 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 import Buildings from "@/components/Buildings";
 import {Themes} from "@/store";
+import ChoixLieux from "@/views/ChoixLieux";
 
 export default {
   choice: "theme",
@@ -36,8 +37,7 @@ export default {
   },
   methods: {
     next() {
-      const listRoutes = this.$router.getRoutes();
-      this.$router.push({name: listRoutes[this.actif + 1].name});
+      this.$root.$data.setActif(this.actif +1)
     },
     nextAlea() {
       const tower= document.getElementById("tower");
@@ -64,7 +64,7 @@ export default {
       tower.classList.add("bounceInDown");
       tower.addEventListener("animationend", () => {
         this.$root.$data.setTheme(Themes.CULTURE);
-        this.$router.push({name:"choix-lieux" })
+        this.next()
       });
     },
   },

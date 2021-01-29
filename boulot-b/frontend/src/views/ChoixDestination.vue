@@ -62,8 +62,7 @@ export default {
       }
       this.message = "Allons-y !"
       setTimeout(() => {
-        const listRoutes = this.$router.getRoutes();
-        this.$router.push({name: listRoutes[this.actif + 1].name});
+        this.$root.$data.setActif(this.actif +1)
       }, 1500)
     },
   },

@@ -33,8 +33,7 @@ export default Vue.extend({
         elem.className = 'active';
     },
     clickMethod(n) {
-        const listRoutes = this.$router.getRoutes();
-        this.$router.push({name: listRoutes[n].name});
+      this.$root.$data.setActif(n)
     },
   },
   mounted: function() {

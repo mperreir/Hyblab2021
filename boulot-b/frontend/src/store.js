@@ -1,6 +1,8 @@
 const store = {
     debug: true,
+    subscribers: [],
     state: {
+        actif: 1,
         choice: {
             typeDeplacement: undefined,
             theme: undefined,
@@ -9,6 +11,19 @@ const store = {
             humeur: undefined,
             path: {depart: undefined, arrive: undefined}
         }
+    },
+    subscribe(callback) {
+        this.subscribers.push(callback)
+    },
+    notify() {
+        this.subscribers.forEach((subscribe) => {
+            subscribe(this.state.actif)
+        })
+    },
+    setActif(n) {
+        if (this.debug) console.log('set actif', n)
+        this.state.actif = n
+        this.notify()
     },
     setTypeDeplacement(type) {
         if (this.debug) console.log('set type déplacement', type)
