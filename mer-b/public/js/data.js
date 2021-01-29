@@ -271,17 +271,17 @@ function affichageReset(){
           urlGet += 'latitude=' + affichage.latitude + "&";
       }
 
-      if(affichage.type != 'indifferent'){
+      if(affichage.type != 'indifferent' && affichage.type != ""){
           urlGet += 'type=' + affichage.type + "&"; 
       }
-      if(affichage.moment != 'indifferent'){
+      if(affichage.moment != 'indifferent' && affichage.moment != "" ){
           urlGet += 'time=' + affichage.moment + '&';
       }
 
-      if(affichage.ciel != 'indifferent'){
+      if(affichage.ciel != 'indifferent' && affichage.ciel != ""){
           urlGet += 'weather=' + affichage.ciel + '&';
       }
-      if(affichage.mer != 'indifferent'){
+      if(affichage.mer != 'indifferent' && affichage.mer != ""){
           urlGet += 'sea=' + affichage.mer + '&';
       }
       if(affichage.amenagement != ''){

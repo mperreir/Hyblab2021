@@ -233,7 +233,6 @@ function setTexte(id){
       mySlidr.slide('page-fin');
       setActif("fin");
       getPlagesSlideFin();
-      
     }
   }
 

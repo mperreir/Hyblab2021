@@ -39,15 +39,20 @@ function addEventListenerBreadcrumbs(){
     let page = breadcrumb.id.replace("breadcrumb-", "");
     let id = page.replace("page-", "");
     breadcrumb.addEventListener("click", function(){
-      if(id <= 2 || getAffichage().longitude != ""){
+      if((id <= 2 || getAffichage().longitude != "") && (id <= 4 || getAffichage().moment != "") && (id <= 5 || getAffichage().type != "")
+      && (id <= 5 || getAffichage().mer != "") && (id <= 6 || getAffichage().ciel != "")){
         if(id == 9 && getAffichage().amenagement == ""){
           mySlidr.slide("page-fin");
           setActif("fin");
+          getPlagesSlideFin();
         }
         else {
           mySlidr.slide(page);
           setActif(id);
-          if(id == 4 && getAffichage().moment == ""){
+          if(id == "fin"){
+            getPlagesSlideFin();
+          }
+          else if(id == 4 && getAffichage().moment == ""){
             let reponse = {json: "dawn"};
             updateElement("moment", reponse);
           }
