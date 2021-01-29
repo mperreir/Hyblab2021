@@ -6,12 +6,10 @@ let myCriteria = {
         lng: null
     },
     "Distances" : {
-        max: 10,
-        reel: null,
-        duration: null
+        max: 10
     },
     "Gardien": null,
-    "Jeux pour enfants": null,
+    "Jeux pour enfants": true,
     "Pataugeoire": null,
     "Sanitaires": null,
     "Sanitaires pour handicapés": null,
@@ -27,15 +25,16 @@ let myCriteria = {
     "Présence d'animaux": null,
     "Herbe (un minimum) / Sable": null,
     "Verdure / Plante Espace Vert": null,
-    "CRAPA": null,
-    "Terrains de sport": null,
-    "Activités organisées": null,
-    "Élément de culture": null,
-    "Horaires d'ouverture": null,
-    "Âge": null
+    "CRAPA": true,
+    "Terrains de sport": true,
+    "Activités organisées": true,
+    "Élément de culture": true,
+    "Horaires d'ouverture": 1,
+    "Âge": []
 };
 
-let nbElemChoisit = 0;
+// L'heure + les 5 checkbox qui sont initialisé à true de base
+let nbElemChoisit = 6;
 
 function stringToBoolean(string) {
     return string === "true";
@@ -59,9 +58,22 @@ function choiceUpdate(string, currentValue) {
     }
 }
 
+function updateHour(newHour) {
+    myCriteria["Horaires d'ouverture"] = newHour;
+}
+
+function addAge(newAge) {
+    if (myCriteria["Âge"].length === 0) nbElemChoisit++;
+    myCriteria["Âge"].push(newAge);
+}
+
+function removeAge(rmAge) {
+    if (myCriteria["Âge"].length === 1) nbElemChoisit--;
+    myCriteria["Âge"].splice(myCriteria["Âge"].indexOf(rmAge), 1);
+}
+
 function distAttribute(event) {
     myCriteria["Distances"].max = parseInt(event.target.value);
-    console.log(myCriteria["Distances"]);
 }
 
 function geoAttribute(latitude, longitude) {
@@ -95,13 +107,13 @@ function lngAttribute(event) {
 }
 
 function gardAttribute(event) {
+    event.preventDefault();
     const gard = myCriteria["Gardien"];
     myCriteria["Gardien"] = choiceUpdate(event.target.value, gard);
 }
 
 function childGameAttribute(event) {
-    const childGame = myCriteria["Jeux pour enfants"];
-    myCriteria["Jeux pour enfants"] = choiceUpdate(event.target.value, childGame);
+    myCriteria["Jeux pour enfants"] = event.target.checked;
 }
 
 function paddlingPoolAttribute(event) {
@@ -180,23 +192,19 @@ function greeneryAttribute(event) {
 }
 
 function crapaAttribute(event) {
-    const crapa = myCriteria["CRAPA"];
-    myCriteria["CRAPA"] = choiceUpdate(event.target.value, crapa);
+    myCriteria["CRAPA"] = event.target.checked;
 }
 
 function sportAttribute(event) {
-    const sport = myCriteria["Terrains de sport"];
-    myCriteria["Terrains de sport"] = choiceUpdate(event.target.value, sport);
+    myCriteria["Terrains de sport"] = event.target.checked;
 }
 
 function activityAttribute(event) {
-    const activity = myCriteria["Activités organisées"];
-    myCriteria["Activités organisées"] = choiceUpdate(event.target.value, activity);
+    myCriteria["Activités organisées"] = event.target.checked;
 }
 
 function cultureAttribute(event) {
-    const culture = myCriteria["Élément de culture"];
-    myCriteria["Élément de culture"] = choiceUpdate(event.target.value, culture);
+    myCriteria["Élément de culture"] = event.target.checked;
 }
 
 function fetchData() {
@@ -263,7 +271,12 @@ function fetchData() {
                                     console.log(json[25*i + j]["Distances"]["duration"] = duration);
                                     console.log((myCriteria["Distances"].max >= distance));
                                      */
-                                    json[25*i + j]["Distances"]["valid"] = (myCriteria["Distances"].max >= distance);
+                                    const validDistance = (myCriteria["Distances"].max >= distance);
+                                    json[25*i + j]["Distances"]["valid"] = validDistance;
+                                    if (validDistance) {
+                                        json[25*i + j]["nbElemCorrect"]++;
+                                        json[25*i + j]["listElemMatch"].push("Distances");
+                                    }
                                 }
                             }
                         }
@@ -273,30 +286,61 @@ function fetchData() {
             return json;
         })
         .then(json => {
-            const nbCritere = Object.keys(myCriteria).length;
             for (const line of json) {
                 for (const [key, value] of Object.entries(line)) {
                     switch (key) {
                         case "Géolocalisation":
                             break;
                         case "Distances":
-                            if (value.valid) {
+                            break;
+                        case "Âge":
+                            const length = myCriteria["Âge"].length;
+                            if (value && length > 0) {
+                                let add = false;
+                                myCriteria["Âge"].forEach(age => {
+                                    const ages = line["Âge"].split('-');
+                                    const minAge = parseInt(ages[0]);
+                                    const maxAge = parseInt(ages[1]);
+                                    if (minAge <= age && age <= maxAge) {
+                                        line["nbElemCorrect"] = line["nbElemCorrect"] + 1/length;
+                                        add = true;
+                                    } else {
+                                        if (age > maxAge) {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (age-maxAge)/maxAge).toFixed(2)/length;
+                                        } else {
+                                            line["nbElemCorrect"] = line["nbElemCorrect"] + (1 - (minAge-age)/minAge).toFixed(2)/length;
+                                        }
+                                    }
+                                });
+                                if (add) line["listElemMatch"].push(key);
+                            }
+                            break;
+                        case "Horaires d'ouverture":
+                            const splitHour = value.split('-');
+                            const minHour = parseInt(splitHour[0].split('H')[0]);
+                            const maxHour = parseInt(splitHour[1].split('H')[0]);
+                            if (myCriteria[key] === 1) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 0 && minHour < 9) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            } else if (myCriteria[key] === 2 && maxHour > 19) {
                                 line["nbElemCorrect"]++;
                                 line["listElemMatch"].push(key);
                             }
                             break;
                         default:
-                            if (myCriteria[key]) {
-                                if (myCriteria[key] != null && myCriteria[key] === value) {
-                                    line["nbElemCorrect"]++;
-                                    line["listElemMatch"].push(key);
-                                }
+                            if (myCriteria[key] != null && myCriteria[key] === value) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
                             }
                             break;
                     }
                 }
-                line.affinity = line["nbElemCorrect"] * 100 / nbCritere;
+                line.affinity = (line["nbElemCorrect"] * 100) / nbElemChoisit;
             }
+            console.log(myCriteria);
             console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);
@@ -333,9 +377,7 @@ function main() {
     const garde = document.getElementById('garde');
     garde.addEventListener('click', gardAttribute);
 
-    // TODO 'jeuxEnfant' sera à remplacer par l'id de l'élément à tester
-    const jeuxEnfant = document.getElementById('jeuxEnfant');
-    jeuxEnfant.addEventListener('click', childGameAttribute);
+
 
     // TODO 'pataugeoire' sera à remplacer par l'id de l'élément à tester
     const pataugeoire = document.getElementById('pataugeoire');
@@ -397,22 +439,30 @@ function main() {
     const verdure = document.getElementById('verdure');
     verdure.addEventListener('click', greeneryAttribute);
 
-    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
-    const crapa = document.getElementById('crapa');
-    crapa.addEventListener('click', crapaAttribute);
-
-    // TODO 'terrainSport' sera à remplacer par l'id de l'élément à tester
-    const terrainSport = document.getElementById('terrainSport');
-    terrainSport.addEventListener('click', sportAttribute);
-
-    // TODO 'activite' sera à remplacer par l'id de l'élément à tester
-    const activite = document.getElementById('activite');
-    activite.addEventListener('click', activityAttribute);
-
-    // TODO 'elementCulture' sera à remplacer par l'id de l'élément à tester
-    const elementCulture = document.getElementById('elementCulture');
-    elementCulture.addEventListener('click', cultureAttribute);
+    // TODO 'hour' sera à remplacer par l'id de l'élément à tester
+    const hour = document.getElementById('hour');
+    hour.addEventListener('change', hourAttribute);
 */
+    // Crapa
+    const crapa = document.getElementById('crapa-input');
+    crapa.addEventListener('change', crapaAttribute);
+
+    // Games
+    const jeuxEnfant = document.getElementById('games-input');
+    jeuxEnfant.addEventListener('change', childGameAttribute);
+
+    // Sport
+    const terrainSport = document.getElementById('sport-field-input');
+    terrainSport.addEventListener('change', sportAttribute);
+
+    // Activite
+    const activite = document.getElementById('activities-input');
+    activite.addEventListener('change', activityAttribute);
+
+    // element culturels
+    const elementCulture = document.getElementById('statue-input');
+    elementCulture.addEventListener('click', cultureAttribute);
+
     const searchData = document.getElementById('searchData');
     searchData.addEventListener('click', fetchData);
 

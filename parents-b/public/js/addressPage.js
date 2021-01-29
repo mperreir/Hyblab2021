@@ -6,13 +6,13 @@ let initAddress = function(){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
             mySlidr.slide('right');
-            initAge();
+            initHour();
         }
     });
 
     d3.select(".button-next-address-from-nevermind").on("click", function (){
         mySlidr.slide('right');
-        initAge();
+        initHour();
     });
 };
 
@@ -62,3 +62,24 @@ const geoFindMe = async () => {
 };
 
 document.querySelector('#localization-button').addEventListener('click', geoFindMe);
+
+const
+    range = document.getElementById('localize-range'),
+    rangeValue = document.getElementById('rangeValue'),
+    setValue = ()=>{
+        const
+            newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+            newPosition = 10 - (newValue * 0.2) + (range.value - 10)*1.65 ;
+
+        if(range.value === range.min){
+            rangeValue.innerHTML = `<span class="font-slider"><${range.value} km</span>`;
+        }else if(range.value === range.max){
+            rangeValue.innerHTML = `<span class="font-slider">>${range.value} km</span>`;
+        }else{
+            rangeValue.innerHTML = `<span class="font-slider">${range.value} km</span>`;
+        }
+
+        rangeValue.style.left = `calc(${newValue}% + (${newPosition}vw))`;
+    };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);

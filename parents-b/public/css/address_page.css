@@ -2,42 +2,61 @@
 
 /* Mes variables */
 :root {
-    --space-between-buttons: 1vw;
-    --button-height:5vw;
-    --button-width:22vw;
-    --input-padding:1vw;
-    --input-height:2vw;
-    --label-height:2vw;
-    --border-radius:1vw;
-    --space-below-label:1.05vw;
+    --space-between-buttons: 3%;
+    --button-height:18%;
+    --input-padding:3%;
+    --input-height:10%;
+    --label-height:9%;
+    --border-radius:1.5vw;
+    --space-below-label:0%;
+    --space-below-input: 10%;
+    --vh-vw: calc(1vh + 1vw);
     --label-total-height: calc(var(--label-height) + var(--space-below-label));
-
-    --slider-width: 36vw;
+    --label-input-height: calc(var(--label-total-height) + var(--input-height) + var(--input-padding));
+    --slider-width: 21%;
     --slider-thumb-width: 3.5vw;
 }
 
+/* Width < height Ne pas suppr ça peut servir
+@media screen and (orientation:portrait) {
+    :root {
+        --vertical-calculated-margin: calc((100vh - (100/(16/9))vw)/2);
+        --horizontal-calculated-margin: 0;
+    }
+
+}
+ /* Width > height Ne pas suppr ça peut servir
+@media screen and (orientation:landscape) {
+    :root {
+        --vertical-calculated-margin: 0;
+        --horizontal-calculated-margin: calc((100vw - (100*(16/9))vh)/2);
+    }
+}
+*/
+
 .addresses-main-buttons{
     position: relative;
-    left: calc(62% - var(--button-width));
-    top: calc(24%);
+    left: 39%;
+    top: 25%;
+    width: 23%;
+    height: 51%;
 }
 
 .label-address{
-    font-size:2vw!important;
+    font-size:var(--vh-vw)!important;
     height:var(--label-height);
     position:absolute;
-    width: var(--button-width);
 }
 
 .input-address{
-    font-size: 1.5vw!important;
+    position:absolute;
+    top: var(--label-total-height);
+    font-size: 0.15em!important;
     height: var(--input-height);
     border-radius: var(--border-radius);
     border: 2px solid #ffa584;
     padding: var(--input-padding);
-    width: calc(var(--button-width) - var(--input-padding) * 2);
-    position:absolute;
-    top: var(--label-total-height);
+    width: calc(100% - 2 * var(--input-padding));
 }
 
 .input-address:focus{
@@ -45,17 +64,17 @@
 }
 
 .localize-icon{
-    width: 2vw;
+    width: 9%;
     position: absolute;
-    left: 18vw;
-    top: 1vw;
+    left: 84%;
+    top: 18%;
 }
 
 .loading-icon-white{
-    width: 3vw;
+    width: 15%;
     position: absolute;
-    left: 18vw;
-    top: 1vw;
+    left: 79%;
+    top: 14%;
     animation: rotation 2s infinite linear;
 }
 
@@ -69,22 +88,27 @@
 }
 
 .button-addresses{
-    width: var(--button-width);
+    display: block;
+    width:100%;
     height: var(--button-height);
     border-radius: var(--border-radius);
     position:absolute;
 }
 
 .button-first{
-    top: calc(var(--button-height) + var(--space-between-buttons) + var(--label-total-height));
+    top: calc(var(--space-below-input) + var(--label-input-height) );
 }
 
 .button-second{
-    top: calc((var(--button-height) + var(--space-between-buttons)) * 2 + var(--label-total-height));
+    top: calc(var(--space-below-input) + var(--label-input-height) + (var(--button-height) + var(--space-between-buttons)) );
 }
 
 .button-third{
-    top: calc((var(--button-height) + var(--space-between-buttons)) * 3 + var(--label-total-height));
+    top: calc(var(--space-below-input) + var(--label-input-height) + (var(--button-height) + var(--space-between-buttons)) * 2);
+}
+
+.button-localize-text{
+    margin-right: 3vw;
 }
 
 .pac-item:hover{
@@ -93,21 +117,21 @@
 }
 
 .addresses-slider{
-    position: relative;
-    left: calc(68% - var(--slider-width));
+    position: absolute;
+    left: calc(61% - var(--slider-width));
     top: calc(76%);
-    height: 6vw;
+    height: 10%;
     width: calc(var(--slider-width));
 }
 
 #localize-range{
     position: absolute;
-    width: var(--slider-width);
-    height: 0.3vw;
+    width: 100%;
+    height: 5%;
     -webkit-appearance: none;
     background-color: #FFCDB6;
     border-radius: 8px;
-    top: 1.8vw
+    top: 33%;
 }
 
 #localize-range:focus{
@@ -137,6 +161,7 @@
     cursor: pointer;
 }
 
+/* à garder si on change d'avis...
 .slider-legend{
     font-size:2.1vw;
     position:absolute;
@@ -151,4 +176,44 @@
 .slider-legend-right{
     left:29vw;
 }
+*/
 
+.range-value{
+    position: absolute;
+    top: 80%;
+}
+
+.range-value span{
+    width: 6vw;
+    height: 3vw;
+    line-height: 3vw;
+    text-align: center;
+    background: #45396D;
+    color: #fff;
+    font-size:1.5vw!important;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 1vw;
+}
+.range-value span:before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 1vw solid #45396D;
+    border-left: 0.5vw solid transparent;
+    border-right: 0.5vw solid transparent;
+    top: -23%;
+    left: 50%;
+    margin-left: -0.5vw;
+    margin-top: -0.1vw;
+}
+
+.address-robot{
+    position:absolute;
+    width: 35%;
+    top: 9%;
+    right: 3%;
+}
