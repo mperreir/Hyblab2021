@@ -107,8 +107,8 @@ let initSlide2 = function() {
 let initSlide3 = function() {
     //Aventurier -> Plein la vue
 
-    d3.select('#bouton_non_aventurier-p3').on('click', function(){
-        fetch("http://127.0.0.1:8080/parc/aventurier").then(response => {data = response.json()});
+    d3.select('#bouton_non_aventurier-p3').on('click', async function(){
+        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier").then(response => response.json()).then(d => {return d});
         mySlidr.slide('page-4');
         initSlide4();
         console.log(data);
@@ -119,12 +119,15 @@ let initSlide3 = function() {
 //Plein la vue 
 let initSlide4 = function() {
     //Plein la vue -> avec quoi 
-    d3.select("#bouton_pleinLaVue-p4").on('click', function() {
-        nextSlide('5')
+    d3.select("#oh_oui_anime-p4").on('click', async function() {
+        data = await fetch("http://127.0.0.1:8080/parents-a/parc/aventurier/plein-la-vue",{body: data, method :"POST"}).then(response => response.json()).then(d => {return d});
+        mySlidr.slide('page-5');
+        initSlide4();
+        
     });
 }
 
-/*
+
 let initSlide5 = function() {
     //Plein la vue -> avec quoi 
     d3.select("#button_oui-p5").on('click', function() {
@@ -145,7 +148,7 @@ let initSlide7 = function() {
     console.log('arrived page 7 ');
 };
 
-*/
+
 
 //Initialisation du diaporama
 initSlide1();

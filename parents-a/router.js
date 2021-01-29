@@ -38,27 +38,27 @@ router.get('/parc/non-aventurier', (req, res) => {
 });
 
 
-router.get('/parc/aventurier/plein-la-vue', body_parser.json(), (req, res) => {
+router.post('/parc/aventurier/plein-la-vue', body_parser.json(), (req, res) => {
     res.json(db.getParcPleinLaVue(req.body.data))
 });
 
 
-router.get('/parc/aventurier/non-plein-la-vue', body_parser.json(), (req, res) => {
+router.post('/parc/aventurier/non-plein-la-vue', body_parser.json(), (req, res) => {
     res.json(db.getParcNonPleinLaVue(req.body.data))
 });
 
 
-router.get('/parc/aventurier/plein-la-vue/beau-decor', body_parser.json(), (req, res) => {
+router.post('/parc/aventurier/plein-la-vue/beau-decor', body_parser.json(), (req, res) => {
     res.json(db.getParcBeauDecor(req.body.data))
 });
 
 
-router.get('/parc/aventurier/plein-la-vue/beau-paysage', body_parser.json(), (req, res) => {
+router.post('/parc/aventurier/plein-la-vue/beau-paysage', body_parser.json(), (req, res) => {
     res.json(db.getParcBeauPaysage(req.body.data))
 });
 
 
-router.get('/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux', body_parser.json(), (req, res) => {
+router.post('/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux', body_parser.json(), (req, res) => {
     res.json(db.getParcAvecAnimaux(req.body.data))
 });
 
