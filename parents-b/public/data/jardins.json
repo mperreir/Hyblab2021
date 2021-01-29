@@ -4,7 +4,7 @@
     "Nom": "Jardin des Plantes",
     "Type": "Jardin",
     "Adresse": "Rue Stanislas Baudry",
-    "Géolocalisation": "47.219670206, -1.543081259",
+    "Géolocalisation": "47.219670206,-1.543081259",
     "Distances": {
       "reel": null,
       "valid": null
@@ -45,7 +45,7 @@
     "Nom": "Parc de la Chantrerie",
     "Type": "Parc",
     "Adresse": "95 Route de Gachet",
-    "Géolocalisation": "47.286413177, -1.524379919",
+    "Géolocalisation": "47.286413177,-1.524379919",
     "Distances": {
       "reel": null,
       "valid": null
@@ -86,7 +86,7 @@
     "Nom": "Parc de la Roche (ancien parc Malakoff)",
     "Type": "Parc",
     "Adresse": "Rue de la Révolution des Oeillets",
-    "Géolocalisation": "47.21851405, -1.517565068",
+    "Géolocalisation": "47.21851405,-1.517565068",
     "Distances": {
       "reel": null,
       "valid": null
@@ -127,7 +127,7 @@
     "Nom": "Parc de Procé",
     "Type": "Parc",
     "Adresse": "Boulevard des Anglais",
-    "Géolocalisation": "47.223927005, -1.582527609",
+    "Géolocalisation": "47.223927005,-1.582527609",
     "Distances": {
       "reel": null,
       "valid": null
@@ -168,7 +168,7 @@
     "Nom": "Parc du Grand Blottereau",
     "Type": "Parc",
     "Adresse": "Boulevard Auguste Péneau",
-    "Géolocalisation": "47.228394783, -1.510025785",
+    "Géolocalisation": "47.228394783,-1.510025785",
     "Distances": {
       "reel": null,
       "valid": null
@@ -209,7 +209,7 @@
     "Nom": "Parc de la Gaudinière",
     "Type": "Parc",
     "Adresse": "227 Boulevard Robert Schuman",
-    "Géolocalisation": "47.244330315, -1.578662782",
+    "Géolocalisation": "47.244330315,-1.578662782",
     "Distances": {
       "reel": null,
       "valid": null
@@ -250,7 +250,7 @@
     "Nom": "Parc de la Noé Mitrie",
     "Type": "Parc",
     "Adresse": "Boulevard de Doulon",
-    "Géolocalisation": "47.227481012, -1.526575092",
+    "Géolocalisation": "47.227481012,-1.526575092",
     "Distances": {
       "reel": null,
       "valid": null
@@ -291,7 +291,7 @@
     "Nom": "Square Elisa Mercoeur",
     "Type": "Square",
     "Adresse": "1 Cours Commandant d'Estienne d'Orves",
-    "Géolocalisation": "47.214355669, -1.55106917",
+    "Géolocalisation": "47.214355669,-1.55106917",
     "Distances": {
       "reel": null,
       "valid": null
@@ -332,7 +332,7 @@
     "Nom": "Parc du Plessis Tison",
     "Type": "Parc",
     "Adresse": "1 Boulevard Jules Verne",
-    "Géolocalisation": "47.23506576, -1.536147076",
+    "Géolocalisation": "47.23506576,-1.536147076",
     "Distances": {
       "reel": null,
       "valid": null
@@ -373,7 +373,7 @@
     "Nom": "Parc de la Boucardière",
     "Type": "Parc",
     "Adresse": "54 Rue de l'Abbaye",
-    "Géolocalisation": "47.201152748, -1.597659156",
+    "Géolocalisation": "47.201152748,-1.597659156",
     "Distances": {
       "reel": null,
       "valid": null
@@ -414,7 +414,7 @@
     "Nom": "Parc de Beaulieu",
     "Type": "Parc",
     "Adresse": "Cours de la Prairie d'Amont",
-    "Géolocalisation": "47.212430799, -1.520734077",
+    "Géolocalisation": "47.212430799,-1.520734077",
     "Distances": {
       "reel": null,
       "valid": null
@@ -455,7 +455,7 @@
     "Nom": "Square Jean Le Gigant",
     "Type": "Square",
     "Adresse": "40 Rue Maurice Terrien",
-    "Géolocalisation": "47.204126652, -1.593135984",
+    "Géolocalisation": "47.204126652,-1.593135984",
     "Distances": {
       "reel": null,
       "valid": null
@@ -496,7 +496,7 @@
     "Nom": "Parc des Capucins",
     "Type": "Parc",
     "Adresse": "Rue Noire",
-    "Géolocalisation": "47.225293641, -1.562996681",
+    "Géolocalisation": "47.225293641,-1.562996681",
     "Distances": {
       "reel": null,
       "valid": null
@@ -537,7 +537,7 @@
     "Nom": "Jardin d'Enfants de Procé",
     "Type": "Jardin",
     "Adresse": "Rue des Dervallières",
-    "Géolocalisation": "47.222289579, -1.581562071",
+    "Géolocalisation": "47.222289579,-1.581562071",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -579,7 +579,7 @@
     "Nom": "Square de la Marseillaise",
     "Type": "Square",
     "Adresse": "47 Rue du Bois Hercé",
-    "Géolocalisation": "47.207832925, -1.592349755",
+    "Géolocalisation": "47.207832925,-1.592349755",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -621,7 +621,7 @@
     "Nom": "Square Amiral Halgand",
     "Type": "Square",
     "Adresse": "Place de l'Hôtel de Ville",
-    "Géolocalisation": "47.217388806, -1.554488382",
+    "Géolocalisation": "47.217388806,-1.554488382",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -663,7 +663,7 @@
     "Nom": "Square Augustin Fresnel",
     "Type": "Square",
     "Adresse": "Rue Augustin Fresnel",
-    "Géolocalisation": "47.242997471, -1.522931446",
+    "Géolocalisation": "47.242997471,-1.522931446",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -705,7 +705,7 @@
     "Nom": "Square Bfalsei Goulin",
     "Type": "Square",
     "Adresse": "Rue du Scorff",
-    "Géolocalisation": "47.20215614, -1.551546408",
+    "Géolocalisation": "47.20215614,-1.551546408",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -747,7 +747,7 @@
     "Nom": "Square Commandant Aubin",
     "Type": "Square",
     "Adresse": "Quai du Marquis d'Aiguillon",
-    "Géolocalisation": "47.201897707, -1.576891896",
+    "Géolocalisation": "47.201897707,-1.576891896",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -789,7 +789,7 @@
     "Nom": "Square Commandant Lacroix",
     "Type": "Square",
     "Adresse": "Rue de l'Hermitage",
-    "Géolocalisation": "47.203462372, -1.575919107",
+    "Géolocalisation": "47.203462372,-1.575919107",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -831,7 +831,7 @@
     "Nom": "Square Washington",
     "Type": "Square",
     "Adresse": "Boulevard des Américains",
-    "Géolocalisation": "47.233218794, -1.574376828",
+    "Géolocalisation": "47.233218794,-1.574376828",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -873,7 +873,7 @@
     "Nom": "Square des Combattants d'Afrique du Nord",
     "Type": "Square",
     "Adresse": "Rue de la Brasserie",
-    "Géolocalisation": "47.209235504, -1.570756744",
+    "Géolocalisation": "47.209235504,-1.570756744",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -915,7 +915,7 @@
     "Nom": "Square du Maquis de Saffré",
     "Type": "Square",
     "Adresse": "Rue Sully",
-    "Géolocalisation": "47.222259455, -1.552084829",
+    "Géolocalisation": "47.222259455,-1.552084829",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -957,7 +957,7 @@
     "Nom": "Square Edit de Nantes",
     "Type": "Square",
     "Adresse": "Place de l'Edit de Nantes",
-    "Géolocalisation": "47.214353637, -1.567765124",
+    "Géolocalisation": "47.214353637,-1.567765124",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -999,7 +999,7 @@
     "Nom": "Square Jean-Baptiste Barre",
     "Type": "Square",
     "Adresse": "Rue Jean Baptiste Barré",
-    "Géolocalisation": "47.222746897, -1.52754388",
+    "Géolocalisation": "47.222746897,-1.52754388",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1041,7 +1041,7 @@
     "Nom": "Square Etienne Destranges",
     "Type": "Square",
     "Adresse": "Place Edouard Normand",
-    "Géolocalisation": "47.21919126, -1.563760056",
+    "Géolocalisation": "47.21919126,-1.563760056",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1083,7 +1083,7 @@
     "Nom": "Square Gaston Michel",
     "Type": "Square",
     "Adresse": "Boulevard des Américains",
-    "Géolocalisation": "47.234966359, -1.571503644",
+    "Géolocalisation": "47.234966359,-1.571503644",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1125,7 +1125,7 @@
     "Nom": "Square Jean-Baptiste Daviais",
     "Type": "Square",
     "Adresse": "Place de la Petite Hollande",
-    "Géolocalisation": "47.211902417, -1.557917257",
+    "Géolocalisation": "47.211902417,-1.557917257",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1167,7 +1167,7 @@
     "Nom": "Square Marcel Launay",
     "Type": "Square",
     "Adresse": "Boulevard Général de Gaulle",
-    "Géolocalisation": "47.203698082, -1.535919984",
+    "Géolocalisation": "47.203698082,-1.535919984",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1209,7 +1209,7 @@
     "Nom": "Square Maurice Schwob",
     "Type": "Square",
     "Adresse": "3 Rue des Garennes",
-    "Géolocalisation": "47.201151879, -1.581174398",
+    "Géolocalisation": "47.201151879,-1.581174398",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1251,7 +1251,7 @@
     "Nom": "Square Pascal Lebée",
     "Type": "Square",
     "Adresse": "Rue Dugommier",
-    "Géolocalisation": "47.21610711, -1.563502501",
+    "Géolocalisation": "47.21610711,-1.563502501",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1293,7 +1293,7 @@
     "Nom": "Square Toussaint Louverture",
     "Type": "Square",
     "Adresse": "Rue des Usines",
-    "Géolocalisation": "47.194884884, -1.616115737",
+    "Géolocalisation": "47.194884884,-1.616115737",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1335,7 +1335,7 @@
     "Nom": "Square Vertais",
     "Type": "Square",
     "Adresse": "Rue Petite Biesse",
-    "Géolocalisation": "47.202467919, -1.54658165",
+    "Géolocalisation": "47.202467919,-1.54658165",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1377,7 +1377,7 @@
     "Nom": "Square Villebois Mareuil",
     "Type": "Square",
     "Adresse": "Allée de la Bourse",
-    "Géolocalisation": "47.212417092, -1.558971994",
+    "Géolocalisation": "47.212417092,-1.558971994",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1419,7 +1419,7 @@
     "Nom": "Jardin de l'Ile de Versailles",
     "Type": "Jardin",
     "Adresse": "Quai Henri Barbusse",
-    "Géolocalisation": "47.226122945, -1.554328902",
+    "Géolocalisation": "47.226122945,-1.554328902",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1461,7 +1461,7 @@
     "Nom": "Parc de la Moutonnerie",
     "Type": "Parc",
     "Adresse": "Rue Francisco Ferrer",
-    "Géolocalisation": "47.221160887, -1.533067949",
+    "Géolocalisation": "47.221160887,-1.533067949",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1503,7 +1503,7 @@
     "Nom": "Square des Martyrs Irlandais",
     "Type": "Square",
     "Adresse": "Rue de l'Adour",
-    "Géolocalisation": "47.207947861, -1.610185329",
+    "Géolocalisation": "47.207947861,-1.610185329",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1545,7 +1545,7 @@
     "Nom": "Parc Floral de la Beaujoire",
     "Type": "Parc",
     "Adresse": "Route de Saint Joseph",
-    "Géolocalisation": "47.262171049, -1.533059502",
+    "Géolocalisation": "47.262171049,-1.533059502",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1587,7 +1587,7 @@
     "Nom": "Square des Maraîchés",
     "Type": "Square",
     "Adresse": "Rue de la Haluchère",
-    "Géolocalisation": "47.246274624, -1.516323123",
+    "Géolocalisation": "47.246274624,-1.516323123",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1629,7 +1629,7 @@
     "Nom": "Parc des Dervallières",
     "Type": "Parc",
     "Adresse": "Rue trues Le Nain",
-    "Géolocalisation": "47.224961238, -1.595048712",
+    "Géolocalisation": "47.224961238,-1.595048712",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1671,7 +1671,7 @@
     "Nom": "Square du Prinquiau",
     "Type": "Square",
     "Adresse": "Rue du Prinquiau",
-    "Géolocalisation": "47.212158424, -1.587094454",
+    "Géolocalisation": "47.212158424,-1.587094454",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1713,7 +1713,7 @@
     "Nom": "Square du Bois de la Musse",
     "Type": "Square",
     "Adresse": "Rue Etienne Coutan",
-    "Géolocalisation": "47.204560257, -1.610527809",
+    "Géolocalisation": "47.204560257,-1.610527809",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1755,7 +1755,7 @@
     "Nom": "Square Charles Housset",
     "Type": "Square",
     "Adresse": "Rue Charles Housset",
-    "Géolocalisation": "47.202643938, -1.608377624",
+    "Géolocalisation": "47.202643938,-1.608377624",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1797,7 +1797,7 @@
     "Nom": "Belvédère Sainte Anne",
     "Type": "Parc",
     "Adresse": "Rue de l'Hermitage",
-    "Géolocalisation": "47.201451818, -1.57758802",
+    "Géolocalisation": "47.201451818,-1.57758802",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1839,7 +1839,7 @@
     "Nom": "Square de la Halvêque",
     "Type": "Square",
     "Adresse": "Rue Léon Serpollet",
-    "Géolocalisation": "47.254476774, -1.520812473",
+    "Géolocalisation": "47.254476774,-1.520812473",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1881,7 +1881,7 @@
     "Nom": "Square Faustin Hélie",
     "Type": "Square",
     "Adresse": "Rue Faustin Hélie",
-    "Géolocalisation": "47.218059262, -1.563925558",
+    "Géolocalisation": "47.218059262,-1.563925558",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1923,7 +1923,7 @@
     "Nom": "Square trues Bureau",
     "Type": "Square",
     "Adresse": "Place de la Monnaie",
-    "Géolocalisation": "47.213007594, -1.565112171",
+    "Géolocalisation": "47.213007594,-1.565112171",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -1965,7 +1965,7 @@
     "Nom": "Square Eglise de La Madeleine",
     "Type": "Square",
     "Adresse": "Boulevard Gustave Roch",
-    "Géolocalisation": "47.205152581, -1.548690025",
+    "Géolocalisation": "47.205152581,-1.548690025",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2007,7 +2007,7 @@
     "Nom": "Square Gustave Roch",
     "Type": "Square",
     "Adresse": "22 Boulevard Gustave Roch",
-    "Géolocalisation": "47.205091544, -1.54996601",
+    "Géolocalisation": "47.205091544,-1.54996601",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2049,7 +2049,7 @@
     "Nom": "Parc de Broussais",
     "Type": "Parc",
     "Adresse": "Boulevard trues Millet",
-    "Géolocalisation": "47.22660635, -1.521853047",
+    "Géolocalisation": "47.22660635,-1.521853047",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2091,7 +2091,7 @@
     "Nom": "Square Jules Bréchoir",
     "Type": "Square",
     "Adresse": "Rue Jules Bréchoir",
-    "Géolocalisation": "47.225246573, -1.522567572",
+    "Géolocalisation": "47.225246573,-1.522567572",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2133,7 +2133,7 @@
     "Nom": "Parc Say",
     "Type": "Parc",
     "Adresse": "Rue Désiré Colombe",
-    "Géolocalisation": "47.212500458, -1.568438115",
+    "Géolocalisation": "47.212500458,-1.568438115",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2175,7 +2175,7 @@
     "Nom": "Square du Vieux Parc de Sèvres",
     "Type": "Square",
     "Adresse": "Bas Chemin de Vertou",
-    "Géolocalisation": "47.182975944, -1.519982263",
+    "Géolocalisation": "47.182975944,-1.519982263",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2217,7 +2217,7 @@
     "Nom": "Parc de l'Amande",
     "Type": "Parc",
     "Adresse": "Rue Eugène Thomas",
-    "Géolocalisation": "47.262856242, -1.570989823",
+    "Géolocalisation": "47.262856242,-1.570989823",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2259,7 +2259,7 @@
     "Nom": "Jardin des Fonderies",
     "Type": "Parc",
     "Adresse": "Rue trues Joxe",
-    "Géolocalisation": "47.205629815, -1.544842016",
+    "Géolocalisation": "47.205629815,-1.544842016",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2301,7 +2301,7 @@
     "Nom": "Square de Bollardière Pitre de Lisle",
     "Type": "Square",
     "Adresse": "Rue du Général de Bollardière",
-    "Géolocalisation": "47.209304184, -1.529471963",
+    "Géolocalisation": "47.209304184,-1.529471963",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2343,7 +2343,7 @@
     "Nom": "Jardin Mabon",
     "Type": "Jardin",
     "Adresse": "Quai François Mitterrand",
-    "Géolocalisation": "47.207524454, -1.559628221",
+    "Géolocalisation": "47.207524454,-1.559628221",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2385,7 +2385,7 @@
     "Nom": "Jardin Confluent",
     "Type": "Jardin",
     "Adresse": "Rue Dos d'Ane",
-    "Géolocalisation": "47.196736189, -1.545225657",
+    "Géolocalisation": "47.196736189,-1.545225657",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2427,7 +2427,7 @@
     "Nom": "Square trues Feuillade",
     "Type": "Square",
     "Adresse": "Rue Jacques Feyder",
-    "Géolocalisation": "47.230433767, -1.585486985",
+    "Géolocalisation": "47.230433767,-1.585486985",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2469,7 +2469,7 @@
     "Nom": "Le Parc des Oblates",
     "Type": "Parc",
     "Adresse": "Rue de la Brianderie",
-    "Géolocalisation": "47.200407872, -1.585057154",
+    "Géolocalisation": "47.200407872,-1.585057154",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2511,7 +2511,7 @@
     "Nom": "Cours Cambronne",
     "Type": "Cours",
     "Adresse": "Cours Cambronne",
-    "Géolocalisation": "47.211941697, -1.563188661",
+    "Géolocalisation": "47.211941697,-1.563188661",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2553,7 +2553,7 @@
     "Nom": "Douves du Chateau des Ducs",
     "Type": "Douves",
     "Adresse": "Rue des Etats",
-    "Géolocalisation": "47.215616856, -1.550132735",
+    "Géolocalisation": "47.215616856,-1.550132735",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2595,7 +2595,7 @@
     "Nom": "Square Gabriel Chéreau",
     "Type": "Square",
     "Adresse": "Rue d'Ancin",
-    "Géolocalisation": "47.211108562, -1.562786666",
+    "Géolocalisation": "47.211108562,-1.562786666",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2637,7 +2637,7 @@
     "Nom": "Square Jean Heurtin",
     "Type": "Square",
     "Adresse": "Square Jean Heurtin",
-    "Géolocalisation": "47.214941161, -1.544728149",
+    "Géolocalisation": "47.214941161,-1.544728149",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2679,7 +2679,7 @@
     "Nom": "Square du Lait de Mai",
     "Type": "Square",
     "Adresse": "Passage Berthault",
-    "Géolocalisation": "47.212117288, -1.548363523",
+    "Géolocalisation": "47.212117288,-1.548363523",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2721,7 +2721,7 @@
     "Nom": "Square Psalette",
     "Type": "Square",
     "Adresse": "Impasse Saint Laurent",
-    "Géolocalisation": "47.217791038, -1.549939394",
+    "Géolocalisation": "47.217791038,-1.549939394",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2763,7 +2763,7 @@
     "Nom": "Square des Courtils",
     "Type": "Square",
     "Adresse": "Rue des Courtils",
-    "Géolocalisation": "47.200438175, -1.593339276",
+    "Géolocalisation": "47.200438175,-1.593339276",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2805,7 +2805,7 @@
     "Nom": "Square Marcel Moisan",
     "Type": "Square",
     "Adresse": "Rue de l'Hermitage",
-    "Géolocalisation": "47.20208672, -1.577317523",
+    "Géolocalisation": "47.20208672,-1.577317523",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2847,7 +2847,7 @@
     "Nom": "Square Canclaux",
     "Type": "Square",
     "Adresse": "Place Canclaux",
-    "Géolocalisation": "47.214407035, -1.574481754",
+    "Géolocalisation": "47.214407035,-1.574481754",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2889,7 +2889,7 @@
     "Nom": "Square Zac Pilleux Nord",
     "Type": "Square",
     "Adresse": "Boulevard Benoit Frachon",
-    "Géolocalisation": "47.207636895, -1.580369213",
+    "Géolocalisation": "47.207636895,-1.580369213",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2931,7 +2931,7 @@
     "Nom": "Square Saint Pasquier",
     "Type": "Square",
     "Adresse": "Place Emile Fritsch",
-    "Géolocalisation": "47.228755748, -1.566077293",
+    "Géolocalisation": "47.228755748,-1.566077293",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -2973,7 +2973,7 @@
     "Nom": "Square Félix Thomas",
     "Type": "Square",
     "Adresse": "Rue Toulmouche",
-    "Géolocalisation": "47.230985553, -1.553230918",
+    "Géolocalisation": "47.230985553,-1.553230918",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3015,7 +3015,7 @@
     "Nom": "Jardin des Nectars",
     "Type": "Jardin",
     "Adresse": "Petite Avenue de Longchamp",
-    "Géolocalisation": "47.238068534, -1.58261936",
+    "Géolocalisation": "47.238068534,-1.58261936",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3057,7 +3057,7 @@
     "Nom": "Square de Hongrie",
     "Type": "Square",
     "Adresse": "Rue de Chypre",
-    "Géolocalisation": "47.216227353, -1.52397103",
+    "Géolocalisation": "47.216227353,-1.52397103",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3099,7 +3099,7 @@
     "Nom": "Parc Pablo Picasso",
     "Type": "Parc",
     "Adresse": "Mail Pablo Picasso",
-    "Géolocalisation": "47.215031421, -1.536421603",
+    "Géolocalisation": "47.215031421,-1.536421603",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3141,7 +3141,7 @@
     "Nom": "Square Saint François",
     "Type": "Square",
     "Adresse": "Rue Saint François",
-    "Géolocalisation": "47.218214628, -1.545475581",
+    "Géolocalisation": "47.218214628,-1.545475581",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3183,7 +3183,7 @@
     "Nom": "Square Pilotière",
     "Type": "Square",
     "Adresse": "Boulevard de la Pilotière",
-    "Géolocalisation": "47.244991512, -1.524731903",
+    "Géolocalisation": "47.244991512,-1.524731903",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3225,7 +3225,7 @@
     "Nom": "Square de la Place Basse Mar",
     "Type": "Square",
     "Adresse": "Place de la Basse Mar",
-    "Géolocalisation": "47.208045371, -1.525271329",
+    "Géolocalisation": "47.208045371,-1.525271329",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3267,7 +3267,7 @@
     "Nom": "Square Proust Bergson",
     "Type": "Square",
     "Adresse": "Rue Henri Bergson",
-    "Géolocalisation": "47.254384826, -1.570838214",
+    "Géolocalisation": "47.254384826,-1.570838214",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3309,7 +3309,7 @@
     "Nom": "Parc du Petit Port",
     "Type": "Parc",
     "Adresse": "Boulevard des Tribunes",
-    "Géolocalisation": "47.245503012, -1.558412555",
+    "Géolocalisation": "47.245503012,-1.558412555",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3351,7 +3351,7 @@
     "Nom": "Parc des Chantiers",
     "Type": "Parc",
     "Adresse": "Boulevard Léon Bureau",
-    "Géolocalisation": "47.206784284, -1.566216173",
+    "Géolocalisation": "47.206784284,-1.566216173",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3393,7 +3393,7 @@
     "Nom": "Place Wattignies",
     "Type": "Place",
     "Adresse": "Rue de l'Echappée",
-    "Géolocalisation": "47.203761224, -1.548040303",
+    "Géolocalisation": "47.203761224,-1.548040303",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3435,7 +3435,7 @@
     "Nom": "Place de la Guirouée",
     "Type": "Place",
     "Adresse": "Place de la Guiroué",
-    "Géolocalisation": "47.208472088, -1.527572163",
+    "Géolocalisation": "47.208472088,-1.527572163",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3477,7 +3477,7 @@
     "Nom": "Aire du Stade de la Beaujoire",
     "Type": "Stade",
     "Adresse": "Route de Saint Joseph",
-    "Géolocalisation": "47.257841779, -1.524953085",
+    "Géolocalisation": "47.257841779,-1.524953085",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3519,7 +3519,7 @@
     "Nom": "Espace de jeux de Belle Ile",
     "Type": "Parc",
     "Adresse": "Rue de Coetquelfen",
-    "Géolocalisation": "47.245005506, -1.541810063",
+    "Géolocalisation": "47.245005506,-1.541810063",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3561,7 +3561,7 @@
     "Nom": "Jardin des Farfadets",
     "Type": "Jardin",
     "Adresse": "Allée de Portricq",
-    "Géolocalisation": "47.26691362, -1.521506652",
+    "Géolocalisation": "47.26691362,-1.521506652",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3603,7 +3603,7 @@
     "Nom": "Jardin du Nadir",
     "Type": "Jardin",
     "Adresse": "Rue du Nadir",
-    "Géolocalisation": "47.267014768, -1.518965824",
+    "Géolocalisation": "47.267014768,-1.518965824",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3645,7 +3645,7 @@
     "Nom": "Jardin des Quatre Jeudis",
     "Type": "Jardin",
     "Adresse": "Passage des Tauzins",
-    "Géolocalisation": "47.265744568, -1.520213888",
+    "Géolocalisation": "47.265744568,-1.520213888",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3687,7 +3687,7 @@
     "Nom": "Jardin du Zenith",
     "Type": "Jardin",
     "Adresse": "Rue Tristan Corbière",
-    "Géolocalisation": "47.268808315, -1.516828004",
+    "Géolocalisation": "47.268808315,-1.516828004",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3729,7 +3729,7 @@
     "Nom": "Square Barbara",
     "Type": "Square",
     "Adresse": "Rue de la Grange au Loup",
-    "Géolocalisation": "47.266083044, -1.523076419",
+    "Géolocalisation": "47.266083044,-1.523076419",
     "Distances": {
       "reel": null,
       "valid": null,
@@ -3771,7 +3771,7 @@
     "Nom": "Jardin des 5 sens",
     "Type": "Jardin",
     "Adresse": "Rue Gaëtan Rondeau",
-    "Géolocalisation": "47.207163534, -1.533640326",
+    "Géolocalisation": "47.207163534,-1.533640326",
     "Distances": {
       "reel": null,
       "valid": null,

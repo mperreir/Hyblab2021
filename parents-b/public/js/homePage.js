@@ -146,6 +146,6 @@ let initHome = function(){
             .finished.then(() => {*/
             mySlidr.slide('down');
             initAddress();
-        //});
+        /*});*/
     });
 };

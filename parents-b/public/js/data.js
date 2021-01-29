@@ -340,8 +340,7 @@ function fetchData() {
                 }
                 line.affinity = (line["nbElemCorrect"] * 100) / nbElemChoisit;
             }
-            console.log(myCriteria);
-            console.log(json);
+
             //console.log(json);
             // Tri des jardins par affinité décroissante
             json.sort((a,b)=> b.affinity - a.affinity);
@@ -351,8 +350,47 @@ function fetchData() {
 
             console.log(top);
 
-            const div = document.getElementById('result-one-percentage');
-            div.innerHTML += '<div>' + top[0]['affinity'] + '</div>';
+            const perc1 = document.getElementById('result-one-percentage');
+            const perc2 = document.getElementById('result-two-percentage');
+            const perc3 = document.getElementById('result-three-percentage');
+            perc1.innerText += top[0]['affinity'] + '%';
+            perc2.innerText += top[1]['affinity'] + '%';
+            perc3.innerText += top[2]['affinity'] + '%';
+
+            const name1 = document.getElementById('result-one-name');
+            const name2 = document.getElementById('result-two-name');
+            const name3 = document.getElementById('result-three-name');
+            name1.innerText += top[0]['Nom'];
+            name2.innerText += top[1]['Nom'];
+            name3.innerText += top[2]['Nom'];
+
+            const address1 = document.getElementById('result-one-address');
+            const address2 = document.getElementById('result-two-address');
+            const address3 = document.getElementById('result-three-address');
+            address1.innerText += top[0]['Adresse'];
+            address2.innerText += top[1]['Adresse'];
+            address3.innerText += top[2]['Adresse'];
+
+            const access1 = document.getElementById('result-one-access');
+            const access2 = document.getElementById('result-two-access');
+            const access3 = document.getElementById('result-three-access');
+            access1.innerText += top[0]['Accès transports en commun'];
+            access2.innerText += top[1]['Accès transports en commun'];
+            access3.innerText += top[2]['Accès transports en commun'];
+
+            const time1 = document.getElementById('result-one-time');
+            const time2 = document.getElementById('result-two-time');
+            const time3 = document.getElementById('result-three-time');
+            time1.innerText += top[0]['Horaires d\'ouverture'];
+            time2.innerText += top[1]['Horaires d\'ouverture'];
+            time3.innerText += top[2]['Horaires d\'ouverture'];
+
+            const location1 = document.getElementById('result-one-location');
+            const location2 = document.getElementById('result-two-location');
+            const location3 = document.getElementById('result-three-location');
+            location1.href = 'https://www.google.fr/maps/@' + top[0]['Géolocalisation'] + ',18z';
+            location2.href = 'https://www.google.fr/maps/@' + top[1]['Géolocalisation'] + ',18z';
+            location3.href = 'https://www.google.fr/maps/@' + top[2]['Géolocalisation'] + ',18z';
 
             // Affichage de la page finale
             for (const line of top) {
@@ -366,7 +404,6 @@ function fetchData() {
                 }
                 */
             }
-            // document.getElementById('')
         })
 }
 
