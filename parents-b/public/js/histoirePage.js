@@ -12,6 +12,7 @@ let initHistoire = function(){
 
     document.getElementById("dialog2").hidden = true;
     document.getElementById("dialog").hidden = false;
+    document.getElementById("suivant_histoire").hidden = false;
 
     d3.select('.suivant_histoire').on('click', function (){
         document.getElementById("dialog").hidden = true;
