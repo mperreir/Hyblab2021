@@ -133,7 +133,6 @@
     width: 21%!important;
     height: 31%!important;
     padding: 1%!important;
-    top: 9%!important;
 }
 
 .button-oui-fauna-flora div{
@@ -141,5 +140,13 @@
     width: 21%!important;
     height: 31%!important;
     padding: 1%!important;
-    top: 9%!important;
+}
+
+.titre-button-fauna{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: Comfortaa, serif;
+    padding: 5%;
+    font-size: 80%;
+    margin-bottom: 9%;
 }

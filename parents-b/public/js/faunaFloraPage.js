@@ -43,9 +43,9 @@ let initFaunaFlora = function(){
 
 $(document).ready(function(){
 
-    $(".dropableCell-fauna").on('drop',function(event){
-        //gestion de l'ajout / remove de l'image
-    })
+    // $(".dropableCell-fauna").on('drop',function(event){
+    //     //gestion de l'ajout / remove de l'image
+    // })
 
     $( ".image-drop-fauna" ).draggable({
          tolerance: 'fit',
