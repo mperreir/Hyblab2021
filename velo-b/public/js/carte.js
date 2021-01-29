@@ -1,19 +1,45 @@
+const disabledZone = "centre";
+
 const initCarte = function () {
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
         carte.node().append(data.documentElement);
 
-        const parts = carte.selectAll("g")
-            .on("mouseover", function () {
-                parts.style("opacity", .5);
-                d3.select(this).style("opacity", 1);
+        carte.selectAll("g")
+            .style("opacity", .5)
+            .on("mouseenter", function () {
+                debounce.call(this, this.id, "enter", function () {
+                    console.log("[enter] " + this.id);
+                    d3.select(this).transition().duration(200).style("opacity", 1);
+                });
             })
-            .on("mouseout", () => parts.style("opacity", 1))
+            .on("mouseleave", function () {
+                debounce.call(this, this.id, "leave", function () {
+                    console.log("[leave] " + this.id);
+                    d3.select(this).transition().duration(200).style("opacity", .5);
+                });
+            })
             .on("click", function () {
-                console.log(this.id); // selectionné
+                if (this.id === disabledZone)
+                    return;
 
+                console.log(this.id); // selectionné
                 mySlidr.slide('choix-transport-2');
                 initSlideChoixVelo();
             });
     });
 };
+
+let lastId, lastEvent, lastFn, lastThis;
+
+function debounce(id, event, fn) {
+    if (this.id === disabledZone)
+        return;
+
+    if (event === "enter" && lastId !== id) {
+        lastFn && lastFn.call(lastThis);
+        fn.call(this);
+    }
+
+    [lastId, lastEvent, lastFn, lastThis] = [id, event, fn, this];
+}
