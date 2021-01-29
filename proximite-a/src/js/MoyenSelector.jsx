@@ -36,7 +36,6 @@ class MoyenSelector extends React.Component {
         }
     }
     render() {
-        console.log(this.state)
         const fond =this.getThemeFond() 
         const hoverStyle = {
             backgroundImage: `url(${fond})`

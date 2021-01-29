@@ -4,7 +4,9 @@ import logo from '../img/LOGO OK_logo principal.png'
 import personnage from '../img/Perso-hyblab-03.png'
 
 class CarteInterractionChoixLieu extends  React.Component {
-
+    state={
+        sites:this.props.data.sites
+    }
     render() {
         const {onNextPhase} = this.props;
         return (
@@ -23,10 +25,10 @@ class CarteInterractionChoixLieu extends  React.Component {
                                 <div class="col containerChoice">
                                     <h3 className="h3Purple">Le plus près...</h3>
                                     <div className="card">
-                                        <img className="card-img-top" class="imgChoice" src="//placekitten.com/148/148" alt="Card image cap"/>
+                                        <img className="card-img-top" class="imgChoice" src={this.state.sites[0].img} alt="Card image cap"/>
                                             <div className="card-body">
-                                                <h5 className="card-title">TITRE LIEUX</h5>
-                                                <p className="card-text">adresse</p>
+                                                <h5 className="card-title">{this.state.sites[0].titre}</h5>
+                                                <p className="card-text">{this.state.sites[0].adresse}</p>
                                                 <p className="card-text">Some quick example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and make up the bulk of the card's content.</p>
                                             </div>
                                     </div>
@@ -35,10 +37,10 @@ class CarteInterractionChoixLieu extends  React.Component {
                                 <div class="col containerChoice">
                                     <h3 className="h3Purple">Le hasard...</h3>
                                     <div className="card">
-                                        <img className="card-img-top" class="imgChoice" src="//placekitten.com/148/148" alt="Card image cap"/>
+                                        <img className="card-img-top" class="imgChoice" src={this.state.sites[1].img} alt="Card image cap"/>
                                         <div className="card-body">
-                                            <h5 className="card-title">TITRE LIEUX</h5>
-                                            <p className="card-text">adresse</p>
+                                            <h5 className="card-title">{this.state.sites[1].titre}</h5>
+                                            <p className="card-text">{this.state.sites[1].adresse}</p>
                                             <p className="card-text">Some quick example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and example text to build on the TITRE LIEUX and make up the bulk of the card's content.</p>
                                         </div>
                                     </div>
@@ -49,10 +51,10 @@ class CarteInterractionChoixLieu extends  React.Component {
 
                                     <div className="card">
                                         <img className="card-img-top" className="imgChoice"
-                                             src="//placekitten.com/148/148" alt="Card image cap"/>
+                                            src={this.state.sites[2].img} alt="Card image cap"/>
                                         <div className="card-body">
-                                            <h5 className="card-title">TITRE LIEUX</h5>
-                                            <p className="card-text">adresse</p>
+                                            <h5 className="card-title">{this.state.sites[2].titre}</h5>
+                                            <p className="card-text">{this.state.sites[2].adresse}</p>
                                             <p className="card-text">Some quick example text to build on the TITRE LIEUX
                                                 and example text to build on the TITRE LIEUX and example text to build
                                                 on the TITRE LIEUX and example text to build on the TITRE LIEUX and
