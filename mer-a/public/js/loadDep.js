@@ -193,8 +193,8 @@ function leaveDot(t){
  * @param {string} url		the url of the current page.
  */
 function getCodeDepartement(url){
-	//return parseInt(url.split('/')[5]);
-	return document.querySelector('#content').dataset.department;
+	return parseInt(url.split('/')[5]);
+	//return document.querySelector('#content').dataset.department;
 }
 
 /**
@@ -202,7 +202,8 @@ function getCodeDepartement(url){
  * @param {string} url		the url of the current page.
  */
 function getCodeType(url){
-	return document.querySelector('#content').dataset.personnage;
+	return parseInt(url.split('/')[6]);
+	//return document.querySelector('#content').dataset.personnage;
 }
 
 /**
