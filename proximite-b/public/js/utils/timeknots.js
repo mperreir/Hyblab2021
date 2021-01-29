@@ -53,7 +53,6 @@ var TimeKnots = {
 
         $("#otherItemsSingleModal").attr('class', 'modal-body ' + preference + 'ColorModal');
         $("#otherItemsSingleModal").html("")
-        //  = $('<div>').css('padding-bottom', "4em");
         var divContent = $('<div>').css('padding-bottom', "4em").attr('class', 'row');
 
 
@@ -102,7 +101,6 @@ var TimeKnots = {
      *    }
      */
     createMultipleModal: function (d) {
-        console.log(d)
         $("#bodyMultipleModal").html("");
 
         var col1 = $('<div>').attr('class', 'col');

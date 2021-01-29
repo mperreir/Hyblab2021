@@ -76,19 +76,19 @@ const go_to = (page, data, callback) => {
     make_page_from_template(page)
         .then(() => {
             if (page === 'timeline') {
-               
-                //['Boulangerie','Médecin','Ecole','Supermarché','Parc',
-                //'Pharmacie','Lieu de culte','Arrêt de bus','Coiffeur',
-                //'Musee','Bibliotheque','Salle de sport'])
+                //formatage des criteres pour permettre a l'api de les traiter
                 _app_stores['criteres']['interests'] = _app_stores['criteres']['interests'].map(x => reformatCriteres(x));
                 _app_stores['criteres']['disinterests'] = _app_stores['criteres']['disinterests'].map(x => reformatCriteres(x));
                 
                 var a1 = _app_stores.adresses.adresse1;
                 var a2 = _app_stores.adresses.adresse2;
+
+                //initialisation du stockage de la timeline
                 _app_stores["timeline"]["done"] = 0;
                 _app_stores["timeline"]['data'] = {}
-                getData("adresse1", a1, _app_stores);
-                getData("adresse2", a2, _app_stores);
+
+                getData("adresse1", a1);
+                getData("adresse2", a2);
                 window.addEventListener("resize", timeline_progressbar_draw);
             }
             else if (page === 'criteres') {
