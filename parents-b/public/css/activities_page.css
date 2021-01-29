@@ -25,6 +25,13 @@
     z-index: 2;
 }
 
+.text-dialog-activite {
+  position: absolute;
+  top: 70%;
+  left: 12%;
+  width: 26%;
+}
+
 .oya-activities-dialog{
     position: absolute;
     top: 12%;
@@ -71,13 +78,6 @@
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-.text-dialog-activite {
-  position: absolute;
-  top: 70%;
-  left: 12%;
-  width: 26%;
 }
 
 .slider {
@@ -157,3 +157,20 @@ input:checked + .slider:before {
 .slider.round {
     border-radius: 50px;
 }
+
+.arianne-1-activities{
+    top: 0.5%;
+}
+.arianne-2-activities{
+    top: 14.5%;
+}
+.arianne-3-activities{
+    top: 29%;
+}
+.arianne-4-activities{
+    top: 44%;
+}
+.arianne-5-activities{
+    top: 58.5%;
+}
+

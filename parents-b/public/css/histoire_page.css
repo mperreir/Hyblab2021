@@ -1,0 +1,29 @@
+.robot_histoire{
+    position: absolute;
+    top: 21%;
+    left: -1%;
+    width: 30%;
+    z-index: 2;
+}
+
+.oya-histoire-dialog{
+    position: absolute;
+    top: 21%;
+    left: 30%;
+    width: 50%;
+    text-align: justify;
+    font-size: 16%;
+}
+
+.accueil{
+    position: absolute;
+    top: 92%;
+    left: 40%;
+    width: 20%;
+    border: .3em solid #FFCDB6;
+    font-size: 18%;
+}
+
+.button-histoire-font{
+    font-size: 23%;
+}
