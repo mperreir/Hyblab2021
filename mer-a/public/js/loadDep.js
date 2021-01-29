@@ -172,11 +172,11 @@ function leaveLabel(t){
 }
 
 function getCodeDepartement(url){
-	return url.split('/')[5];
+	return document.querySelector('#content').dataset.department;
 }
 
 function getCodeType(url){
-	return parseInt(url.split('/')[6]);
+	return document.querySelector('#content').dataset.personnage;
 }
 
 function getMapDepartement(code){
@@ -192,7 +192,9 @@ function getMapDepartement(code){
 }
 
 function selectLegende(idLegende){
-	if(idLegende > 0) document.location.href= `${ROOT}legende/${idLegende}`; 
+	if(idLegende > 0) loadRessources('legende', {
+		legende: idLegende
+	}, 1);
 }
 
 function loadCharacter() {
@@ -216,7 +218,7 @@ function legendNarrate(legend) {
 
 function getCategorie(type) {
 	for(let c of categories) {
-		if(c.id === type) return c;
+		if(c.id === parseInt(type, 10)) return c;
 	}
 }
 

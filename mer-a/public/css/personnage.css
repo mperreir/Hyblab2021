@@ -1,19 +1,6 @@
-
-/* Normalisation des marges et padding pour simplifier le positionnement des éléments */
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background-color: black;
-    overflow: hidden; /* pour slidr dans certains navigateurs */
-    height: 100vh;
-    width: 100vw;
-}
-
 #container {
+    width: 100%;
+    height: 100%;
     position: relative; /* pour permettre le positionnement en absolu des autres éléments */
 }
 
@@ -29,116 +16,6 @@ body {
 #cercle_outer1, #cercle_inner1, #cercle_outer2, #cercle_inner2, #trait1 {
     opacity: 1;
 }
-
-
-/*-------------------------------------------------------*/
-/*                     DECOR DE FOND                     */
-/*-------------------------------------------------------*/
-
-
-.decor {
-    position: relative;
-    z-index: 0;
-}
-
-
-/* Affichage des 3 plans */
-
-.plan {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-}
-
-.plan#plan1{
-    z-index: 9;
-}
-
-.plan#plan2 {
-    z-index: 8;
-}
-
-.plan#plan3 {
-    z-index: 7;
-}
-
-.plan#plan5 {
-    z-index: 0;
-}
-
-
-/* Affichage des 7 vagues */
-
-.wave {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    margin-top: 4vh;
-}
-
-.wave#wave1 {
-    animation: waveDown 1.7s ease-in-out infinite;
-    z-index: 6;
-}
-
-.wave#wave2 {
-    animation: waveUp 2s ease-in-out infinite;
-    z-index: 5;
-}
-
-.wave#wave3 {
-    animation: waveDown 2.5s ease-in-out infinite;
-    z-index: 4;
-}
-
-.wave#wave4 {
-    animation: waveUp 3s ease-in-out infinite;
-    z-index: 3;
-}
-
-.wave#wave5 {
-    animation: waveDown 3.5s ease-in-out infinite;
-    z-index: 2;
-}
-
-.wave#wave6 {
-    animation: waveUp 4s ease-in-out infinite;
-    z-index: 1;
-}
-
-
-/* Animation des vagues */
-
-@keyframes waveUp {
-
-    /* position basse */
-    0%, 100% {
-      top: -4vh;
-      scale: 1.0;
-    }
-
-    /* position haute */
-    50% {
-      top: 0;
-      scale: 1.05;
-    }
-}
-
-@keyframes waveDown {
-
-    /* position haute */
-    0%, 100% {
-      top: 0;
-      scale: 1.05;
-    }
-
-    /* position basse */
-    50% {
-      top: -4vh;
-      scale: 1.0;
-    }
-}
-
 
 /*-------------------------------------------------------*/
 /*                      PERSONNAGES                      */

@@ -1,5 +1,7 @@
 'use strict';
 
+// document.querySelector("")
+
 /**
  * The file that loads the characters from the API.
  */
@@ -10,7 +12,7 @@
 const persosBox = document.getElementsByClassName('personnages')[0];
 const ordreCategories = [1,2,3];
 const urlParts = window.location.href.split('/');
-const departement = urlParts[urlParts.length-1] !== '' ? urlParts[urlParts.length-1] : urlParts[urlParts.length-2];
+const departement = document.querySelector('#content').dataset.department;
 
 /**
  *  Variables definition
@@ -72,16 +74,22 @@ function sortCategories() {
         zone.classList.add('zone', `zone-${formatC}`);
         let textZone = document.createElement('div');
         textZone.classList.add('texte', 'categorie', `cat-${formatC}`);
-        let linkNext = document.createElement('a');
-        linkNext.href = `/mer-a/departement/${departement}/${c.id}`;
-        linkNext.classList.add('choix', `choix-${formatC}`);
+        // let linkNext = document.createElement('a');
+        // linkNext.href = `/mer-a/departement/${departement}/${c.id}`;
+        // linkNext.classList.add('choix', `choix-${formatC}`);
         let imagePerso = document.createElement('p');
         imagePerso.id = formatC;
+        imagePerso.addEventListener('click', () => {
+            loadRessources('departement', {
+                department: departement,
+                personnage: c.id
+            }, 3);
+        });
         imagePerso.classList.add('perso');
         textZone.innerHTML = formatText(c.phrasePerso);
-        linkNext.appendChild(imagePerso);
+        // linkNext.appendChild(imagePerso);
         zone.appendChild(textZone);
-        zone.appendChild(linkNext);
+        zone.appendChild(imagePerso);
         persosBox.appendChild(zone);
     }
 })();
