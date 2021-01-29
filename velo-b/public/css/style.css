@@ -41,6 +41,11 @@ body {
 }
 
 
+#carte {
+    width: 40rem;
+}
+
+
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 
 #slidr,
@@ -102,7 +107,7 @@ section[data-slidr="page-finale"] {
 /* comme proportiels à la tailles des slides grace à nos règles plus bas */
 
 
-/* (cf. fondt-size du body) */
+/* (cf. font-size du body) */
 
 #bandeau {
     padding-top: 3%;
