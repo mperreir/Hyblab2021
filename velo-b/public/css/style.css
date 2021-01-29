@@ -40,6 +40,16 @@ body {
     font-family: lemon-juice;
 }
 
+#slide-list {
+    font-size: 1rem;
+    color: red;
+    text-decoration: underline;
+}
+
+#carte {
+    width: 40rem;
+}
+
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 
@@ -102,7 +112,7 @@ section[data-slidr="page-finale"] {
 /* comme proportiels à la tailles des slides grace à nos règles plus bas */
 
 
-/* (cf. fondt-size du body) */
+/* (cf. font-size du body) */
 
 #bandeau {
     padding-top: 3%;

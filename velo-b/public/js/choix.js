@@ -1,7 +1,7 @@
 // SLIDE CHOIX BICLOO
 
 
-let initSlideChoixBicloo = function () {
+registerSlide("choix-transport-3", function () {
   
   /*==================== Fleches ===========================*/
 
@@ -18,8 +18,7 @@ let initSlideChoixBicloo = function () {
       targets: '#plus-info-bicloo',
       scale: 0
     });
-    mySlidr.slide('info-choix-bicloo');
-    initSlideInfosBicloo();
+    goToSlide('info-choix-bicloo');
   });
 
   const infoSelection = 'infos-selection-bicloo';
@@ -27,12 +26,12 @@ let initSlideChoixBicloo = function () {
   okbutton(idOkButton,infoSelection);
   infobutton();
 
-};
+});
 
 // SLIDE CHOIX TRANSPORT EN COMMUN
 
 
-let initSlideChoixTransport = function () {
+registerSlide("choix-transport-4", function () {
 
   const idFlecheD = '#fleche-droite-trans';
   const idFlecheG = '#fleche-gauche-trans';
@@ -49,8 +48,7 @@ let initSlideChoixTransport = function () {
       targets: '#plus-info-transports',
       scale: 0
     });
-    mySlidr.slide('info-choix-transports');
-    initSlideInfosTransports();
+    goToSlide('info-choix-transports');
   });
 
 
@@ -70,11 +68,11 @@ let initSlideChoixTransport = function () {
   });
 
 
-};
+});
 
 // SLIDE CHOIX VELO
 
-let initSlideChoixVelo = function () {
+registerSlide("choix-transport-2",function () {
 
   /*==================== Fleches ===========================*/
 
@@ -92,8 +90,7 @@ let initSlideChoixVelo = function () {
       targets: ['#plus-info-velo'],
       scale: 0
     });
-    mySlidr.slide('info-choix-velo');
-    initSlideInfosVelo();
+    goToSlide('info-choix-velo');
   });
 
   const infoSelection = 'infos-selection-velo';
@@ -101,11 +98,11 @@ let initSlideChoixVelo = function () {
   okbutton(idOkButton,infoSelection);
   infobutton();
 
-};
+});
 
 // SLIDE CHOIX VOITURE
 
-let initSlideChoixVoiture = function () {
+registerSlide("choix-transport-1", function () {
   
    /*==================== Fleches ===========================*/
 
@@ -124,15 +121,14 @@ let initSlideChoixVoiture = function () {
       targets: '#plus-info-voiture',
       scale: 0
     });
-    mySlidr.slide('info-choix-voiture');
-    initSlideInfosVoiture();
+    goToSlide('info-choix-voiture');
   });
 
   const infoSelection = 'infos-selection-voiture';
   const idOkButton = '#ok-voiture';
   okbutton(idOkButton,infoSelection);
   infobutton();
-}
+});
 
 
 let arrowbutton = function (idButton, page) {
@@ -141,19 +137,7 @@ let arrowbutton = function (idButton, page) {
       targets: idButton,
       scale: 1
     });
-    mySlidr.slide(page);
-    if (page == 'choix-transport-1') { //on va sur la page voiture
-      initSlideChoixVoiture();
-    }
-    else if (page == 'choix-transport-2') { //on va sur la page velo
-      initSlideChoixVelo();
-    }
-    else if (page == 'choix-transport-3') { //on va sur la page bicloo
-      initSlideChoixBicloo();
-    }
-    else if (page == 'choix-transport-4') { //on va sur la page transport
-      initSlideChoixTransport();
-    }
+    goToSlide(page);
   });
 
   d3.select(idButton).on('mouseover', function () {
@@ -180,19 +164,7 @@ let okbutton = function (idbutton,page) {
       targets: idbutton,
       scale: 0
     });
-    mySlidr.slide(page);
-    if (page == 'infos-selection-voiture') {
-      initSlideSelectionVoiture();
-    }
-    else if (page == 'infos-selection-velo') {
-      initSlideSelectionVelo();
-    }
-    else if (page == 'infos-selection-bycloo') {
-      initSlideSelectionBicloo();
-    }
-    else if (page == 'infos-selection-transport') {
-      initSlideSelectionTransport();
-    }
+    goToSlide(page);
   });
 
 }
@@ -203,8 +175,7 @@ let infobutton = function (page) {
       targets: '#plus-info',
       scale: 0
     });
-    mySlidr.slide('page-finale');
-    initSlide2();
+    goToSlide('page-finale');
   });
 }
 

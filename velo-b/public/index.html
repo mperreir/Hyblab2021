@@ -41,15 +41,26 @@
 
             <!-- Page d'acceuil-->
             <section data-slidr="page-accueil" hidden>
-                <img class="w-screen h-screen" src="assets/homepage.svg" />
-                <img class="h-2/6" id="startButton" src="assets/startButton.svg" />
+
+                <div class="z-10" id="background">
+                    <img class="w-screen h-screen" src="assets/homepage.svg" />
+                </div>
+
+                <div id="for-the-love-of-god-be-centered" class="z-20">
+                    <img id="startButton" src="assets/startButton.svg" />
+                </div>
             </section>
 
             <!-- Page carte -->
             <section data-slidr="page-carte" class="grid justify-center justify-items-center content-around" hidden>
                 <img src="assets/carte-title.svg" />
-                <div id="carte" class="w-11/12"></div>
-                <img src="assets/logo.svg" />
+                <div id="carte" class="w-96"></div>
+
+                <div class="grid grid-cols-3 justify-items-center">
+                    <img class="col-start-2" src="assets/logo.svg" />
+                    <span class="col-start-3 orange-highlight infoVehicule self-center ml-16">Destination
+                        centre-ville</span>
+                </div>
             </section>
 
 
@@ -63,7 +74,8 @@
             <!--choix transport 1 : voiture -->
 
             <section data-slidr="choix-transport-1" hidden>
-                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVoiture.svg"></img>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
+                    src="assets/backgrounds/backgroundVoiture.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -72,7 +84,10 @@
 
                 <div class="flex flex-row justify-between items-center my-20">
                     <img src="assets/choix/flecheG.svg" id="fleche-gauche-voit" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/voiture.svg" class="h-80" id="voiture" alt="voiture"></img>
+                    <div class="transport-column">
+                        <img src="assets/choix/voiture.svg" class="illu-vehicule" id="voiture" alt="voiture"></img>
+                        <p class="flex justify-center my-5 choisis_ton_moyen_de_transport">Voiture & vélo</p>
+                    </div>
                     <img src="assets/choix/flecheD.svg" id="fleche-droite-voit" alt="Fleche Droite"></img>
                 </div>
 
@@ -89,7 +104,8 @@
             <!--choix transport 2 : velo -->
 
             <section data-slidr="choix-transport-2" hidden>
-                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundVelo.svg"></img>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
+                    src="assets/backgrounds/backgroundVelo.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -98,7 +114,10 @@
 
                 <div class="flex flex-row justify-between items-center my-20">
                     <img src="assets/choix/flecheG.svg" id="fleche-gauche-velo" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/velo.svg" class="h-80" id="velo" alt="Vélo"></img>
+                    <div class="transport-column">
+                        <img src="assets/choix/velo.svg" class="illu-vehicule" id="velo" alt="vélo"></img>
+                        <p class="flex justify-center my-5 choisis_ton_moyen_de_transport">Vélo</p>
+                    </div>
                     <img src="assets/choix/flecheD.svg" id="fleche-droite-velo" alt="Fleche Droite"></img>
                 </div>
 
@@ -115,19 +134,22 @@
             <!--choix transport 3 : bicloo -->
 
             <section data-slidr="choix-transport-3" hidden>
-                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundBicloo.svg"></img>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
+                    src="assets/backgrounds/backgroundBicloo.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
-                        <img src="assets/choix/indicationchoix.svg"
-                            alt="Indication choix transport"></img>
+                        <p> Choisis ton moyen de transport</p>
                     </div>
                 </header>
 
-                    <div class="flex flex-row justify-between items-center my-20">
-                        <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
-                        <img src="assets/choix/bicloo.svg" class="h-80" id="bicloo" alt="bicloo"></img>
-                        <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
+                <div class="flex flex-row justify-between items-center my-20">
+                    <img src="assets/choix/flecheG.svg" id="fleche-gauche-bycl" alt="Fleche Gauche"></img>
+                    <div class="transport-column">
+                        <img src="assets/choix/bicloo.svg" class="illu-vehicule" id="bicloo" alt="bicloo"></img>
+                        <p class="flex justify-center my-5 choisis_ton_moyen_de_transport">Bicloo</p>
                     </div>
+                    <img src="assets/choix/flecheD.svg" id="fleche-droite-bycl" alt="Fleche Droite"></img>
+                </div>
 
                 <div class="flex items-end justify-center">
                     <div class="fancy-button rounded-full" id="plus-info-bicloo" alt="Bouton +infos">+infos</div>
@@ -137,11 +159,12 @@
                 <footer>
                 </footer>
             </section>
-            
+
             <!--choix transport 4 : transport en commun -->
 
             <section data-slidr="choix-transport-4" hidden>
-                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute" src="assets/backgrounds/backgroundTransport.svg"></img>
+                <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
+                    src="assets/backgrounds/backgroundTransport.svg"></img>
                 <header>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
@@ -150,7 +173,11 @@
 
                 <div class="flex flex-row justify-between items-center my-20">
                     <img src="assets/choix/flecheG.svg" id="fleche-gauche-trans" alt="Fleche Gauche"></img>
-                    <img src="assets/choix/transportCommun3.svg" class="h-80" id="transport" alt="Bateau"></img>
+                    <div class="transport-column">
+                        <img src="assets/choix/transportCommun3.svg" class="illu-vehicule" id="transport"
+                            alt="Bateau"></img>
+                        <p class="flex justify-center my-5 choisis_ton_moyen_de_transport">Transports en commun</p>
+                    </div>
                     <img src="assets/choix/flecheD.svg" id="fleche-droite-trans" alt="Fleche Droite"></img>
                 </div>
 
@@ -203,20 +230,29 @@
             </section>
             -->
 
+            <!--Infos liés a selection véhicule  -->
+
             <section data-slidr="infos-selection-voiture" hidden>
-                 
+                <img src="assets/infoschoix/fondvoiture.svg" class="bottom-0 left-0 w-screen place-self-start absolute"
+                    id="ic-fond"></img>
+
+                <img src="assets/infoschoix/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
+                    id="ic-bulle-info-lg" alt="Bulle info"></img>
+
+
+
                 <img src="assets/cheminVoiture/fondvoiture.svg" class="flex justify-center w-screen h-screen background-index"
                     id="ic-fond-voit"></img>
 
                 <img src="assets/cheminVoiture/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
                 id="ic-bulle-info-voit" alt="Bulle info"></img>
-              
+
                 <div class="relative inset-y-1/3 flex justify-center content-center">
                     <img src="assets/cheminVoiture/oui.svg" class="w-2/12 mx-10" id="ic-oui-voit" alt="Bouton oui"></img>
                     <img src="assets/cheminVoiture/non.svg" class="w-2/12 mx-10" id="ic-non-voit" alt="Bouton non"></img>
                 </div>
 
-               
+
             </section>
 
             <section data-slidr="infos-selection-velo" hidden>
@@ -225,8 +261,8 @@
 
                 <img src="assets/cheminVelo/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
                 id="ic-bulle-info-velo" alt="Bulle info"></img>
-              
-                   
+
+
                 <div class="relative inset-y-1/3 flex justify-center content-center">
                     <img src="assets/cheminVelo/oui.svg" class="w-2/12 mx-10" id="ic-oui-velo" alt="Bouton oui"></img>
                     <img src="assets/cheminVelo/non.svg" class="w-2/12 mx-10" id="ic-non-velo" alt="Bouton non"></img>
@@ -240,8 +276,8 @@
 
                 <img src="assets/cheminBicloo/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
                 id="ic-bulle-info-bicloo" alt="Bulle info"></img>
-              
-                   
+
+
                 <div class="relative inset-y-1/3 flex justify-center content-center">
                     <img src="assets/cheminBicloo/oui.svg" class="w-2/12 mx-10" id="ic-oui-bicloo" alt="Bouton oui"></img>
                     <img src="assets/cheminBicloo/non.svg" class="w-2/12 mx-10" id="ic-non-bicloo" alt="Bouton non"></img>
@@ -255,8 +291,8 @@
 
                 <img src="assets/cheminTransport/bulle-info-lg.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
                 id="ic-bulle-info-transport" alt="Bulle info"></img>
-              
-                   
+
+
                 <div class="relative inset-y-1/3 flex justify-center content-center">
                     <img src="assets/cheminTransport/oui.svg" class="w-2/12 mx-10" id="ic-oui-transport" alt="Bouton oui"></img>
                     <img src="assets/cheminTransport/non.svg" class="w-2/12 mx-10" id="ic-non-transport" alt="Bouton non"></img>
@@ -284,37 +320,35 @@
                         <div class="flex justify-center my-5 info_title">
                             <p> Info vélo</p>
                         </div>
-                        <div  class="close-button" >
+                        <div class="close-button">
                             <img id="close-btn-velo" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
 
-              <div class="flex justify-center infoVehicule">
+                    <div class="flex justify-center infoVehicule">
                         <div>
                             <p><span class="orange-highlight">BiclooPark c’est quoi ?</span> C’est un service de
                                 stationnement
                                 pour ton vélo.</p>
-    
+
                             <p><span class="orange-highlight">Plus de 2400 places</span> sont disponibles sur tout le
                                 territoire
                                 nantais</p>
                         </div>
-                </div>
-                <div class="info-illu">
-                <img class="background-index absolute "
-                    src="assets\infosVehicules\infoVelo.svg"></img>
-                </div>
+                    </div>
+                    <div class="info-illu">
+                        <img class="background-index w-screen absolute bottom-0 " src="assets\infosVehicules\infoVelo.svg"></img>
+                    </div>
             </section>
 
             <!-- Pages d'information sur la voiture-->
-            <!-- Pages d'information sur le vélo-->
             <section data-slidr="info-choix-voiture" class="info-page" hidden>
                 <div>
                     <div>
                         <div class="flex justify-center my-5 info_title">
-                            <p> Info vélo</p>
+                            <p> Info voiture</p>
                         </div>
-                        <div  class="close-button" >
+                        <div class="close-button">
                             <img id="close-btn-voiture" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
@@ -328,19 +362,18 @@
                     </div>
                 </div>
                 <div class="info-illu">
-                    <img class="background-index absolute "
-                    src="assets\infosVehicules\infoVoiture.svg"></img>
+                    <img class="background-index absolute w-screen bottom-0" src="assets\infosVehicules\infoVoiture.svg"></img>
                 </div>
             </section>
 
             <!-- Pages d'information sur le bicloo-->
-            <section data-slidr="info-choix-bicloo" class="info-page" hidden>
+            <section data-slidr="info-choix-bicloo" class="info-page relative" hidden>
                 <div>
                     <div>
                         <div class="flex justify-center my-5 info_title">
                             <p> Info Bicloo </p>
                         </div>
-                        <div  class="close-button" >
+                        <div class="close-button">
                             <img id="close-btn-bicloo" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
@@ -348,52 +381,65 @@
                         <div>
 
                             <p class="orange-highlight">Bicloo propose 3 services :</p>
-                            <p><span class="orange-highlight">BiclooPlus :</span> 1000 vélos en libre-service répartis sur
+                            <p><span class="orange-highlight">BiclooPlus :</span> 1000 vélos en libre-service répartis
+                                sur
                                 123
                                 stations dans Nantes et Rezé</p>
                             <p><span class="orange-highlight">Monbicloo :</span> c’est un service de location de vélos
                                 moyenne
                                 ou longue durée</p>
-                            <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux entreprises
+                            <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux
+                                entreprises
                                 et
                                 institutions, pour promouvoir l’utilisation du vélo auprès des collaboateurs</p>
                         </div>
 
                     </div>
                 </div>
-                <div  class="info-illu">
-                    <img class="background-index place-self-start absolute "
-                    src="assets\infosVehicules\infoBicloo.svg"></img>
+                <div class="info-illu">
+                    <img class="background-index place-self-start absolute w-screen bottom-0 "
+                        src="assets\infosVehicules\infoBicloo.svg"></img>
                 </div>
             </section>
 
             <!-- Pages d'information sur les transports en commun -->
             <!-- Pages d'information sur le vélo-->
-            <section data-slidr="info-choix-transports" class="info-page" hidden>
+            <section data-slidr="info-choix-transports" class="info-page relative" hidden>
+
                 <div>
                     <div>
                         <div class="flex justify-center my-5 info_title">
-                            <p> Info vélo</p>
+                            <p> Info transports</p>
                         </div>
-                        <div  class="close-button" >
+                        <div class="close-button">
                             <img id="close-btn-transports" src="assets\closeBtn.svg"></img>
                         </div>
                     </div>
                     <div class="flex justify-center infoVehicule">
+
                         <div>
+                            <p>A Nantes tu as le choix entre <span class="orange-highlight">3</span> types de transports
+                                en commun :</p>
+                            <p class="orange-highlight">BUS</p>
                             <p>Environ <span class="orange-highlight">60 lignes de bus</span> classiques</p>
                             <p><span class="orange-highlight">9 lignes de Chronobus</span> assurant des liaisons plus
-                                fréquentes, L'arrêt Commerce est le pôle d’échanges central.</p>
+                                fréquentes</p>
+                            <p class="orange-highlight">TRAMWAY</p>
                             <p><span class="orange-highlight">3 lignes de tramway</span> déservent Nantes et son
-                                agglomération et se croisent en plein cœur du centre-ville</p>
+                                agglomération </p>
+                            <p>se croisent en plein cœur du centre-ville</p>
+                            <p>L'arrêt Commerce est le pôle d’échanges central.</p>
+                            <p class="orange-highlight">BATEAU</p>
+                            <p>3 lignes régulières : 2 sur la Loire et 1 sur l’Erdre</p>
+                            <p>Pour aller travailler, rejoindre la gare ou profiter d’une balade sur l’eau !</p>
                         </div>
+
 
                     </div>
                 </div>
-                <div class="info-illu">
-                    <img class="background-index absolute "
-                src="assets\infosVehicules\infoTransport.svg"></img>
-                </div>
+
+                <img class="background-index w-screen absolute bottom-0" src="assets\infosVehicules\infoTransport.svg"></img>
+
             </section>
 
             <section data-slidr="page-finale" hidden>
@@ -436,7 +482,7 @@
                     </ul>
                 </footer>
             </section>
-            
+
             <section data-slidr="page-3" hidden>
                 <div style="display: flex;">
                     <div class="fancy-title rounded-full">Choisis ton moyen de transport ceci est un titre super
@@ -446,6 +492,10 @@
                     <div class="fancy-button rounded-full">Bonjour</div>
                     <div class="fancy-button rounded-full">Ceci est un bouton</div>
                 </div>
+            </section>
+
+            <section data-slidr="slides">
+                <ul id="slide-list"></ul>
             </section>
         </main>
     </div>

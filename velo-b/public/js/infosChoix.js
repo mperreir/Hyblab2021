@@ -5,14 +5,13 @@
 /**
  * Cette fonction gère la slide avec les infos sur le vélo
  */
-let initSlideInfosVelo = function () {
+registerSlide("info-choix-velo", function () {
     d3.select('#close-btn-velo').on('click', function () {
         overrideAnim({
             targets: '#close-btn-velo',
             scale: 0
         });
-        mySlidr.slide('choix-transport-2');
-        initSlideChoixVelo();
+        goToSlide('choix-transport-2');
     });
 
     d3.select('#close-btn-velo').on('mouseover', function () {
@@ -28,19 +27,18 @@ let initSlideInfosVelo = function () {
             scale: 1
         });
     });
-}
+});
 
 /**
  * Cette fonction gère la slide avec les infos sur la voiture
  */
-let initSlideInfosVoiture = function () {
+registerSlide("info-choix-voiture", function () {
     d3.select('#close-btn-voiture').on('click', function () {
         overrideAnim({
             targets: '#close-btn-voiture',
             scale: 0
         });
-        mySlidr.slide('choix-transport-1');
-        initSlideChoixVoiture();
+        goToSlide('choix-transport-1');
     });
 
     d3.select('#close-btn-voiture').on('mouseover', function () {
@@ -56,19 +54,18 @@ let initSlideInfosVoiture = function () {
             scale: 1
         });
     });
-}
+});
 
 /**
-* Cette fonction gère la slide avec les infos sur le vélo
-*/
-let initSlideInfosBicloo = function () {
+ * Cette fonction gère la slide avec les infos sur le vélo
+ */
+registerSlide("info-choix-bicloo", function () {
     d3.select('#close-btn-bicloo').on('click', function () {
         overrideAnim({
             targets: '#close-btn-bicloo',
             scale: 0
         });
-        mySlidr.slide('choix-transport-3');
-        initSlideChoixBicloo();
+        goToSlide('choix-transport-3');
     });
 
     d3.select('#close-btn-bicloo').on('mouseover', function () {
@@ -84,19 +81,18 @@ let initSlideInfosBicloo = function () {
             scale: 1
         });
     });
-}
+});
 
 /**
  * Cette fonction gère la slide avec les infos sur le vélo
  */
-let initSlideInfosTransports = function () {
+registerSlide("info-choix-transports", function () {
     d3.select('#close-btn-transports').on('click', function () {
         overrideAnim({
             targets: '#close-btn-transports',
             scale: 0
         });
-        mySlidr.slide('choix-transport-4');
-        initSlideChoixTransport();
+        goToSlide('choix-transport-4');
     });
 
     d3.select('#close-btn-transports').on('mouseover', function () {
@@ -112,4 +108,4 @@ let initSlideInfosTransports = function () {
             scale: 1
         });
     });
-}
+});

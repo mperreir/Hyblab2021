@@ -1,4 +1,4 @@
-let initSlide2 = function () {
+registerSlide("page-finale", function () {
     overrideAnim({
         targets: '#img-fini',
         scale: 1.2,
@@ -6,4 +6,4 @@ let initSlide2 = function () {
         direction: 'alternate',
         loop: true
     });
-};
+});

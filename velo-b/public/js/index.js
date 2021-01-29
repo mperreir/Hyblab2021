@@ -14,4 +14,5 @@ let mySlidr = slidr.create('slidr', {
 }).start();
 
 initButtons();
-initSplashscreen();
+
+goToSlide(window.location.hash || "splash-screen");

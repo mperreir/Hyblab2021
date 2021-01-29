@@ -1,6 +1,6 @@
 const disabledZone = "centre";
 
-const initCarte = function () {
+registerSlide("page-carte", function () {
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
         carte.node().append(data.documentElement);
@@ -24,11 +24,10 @@ const initCarte = function () {
                     return;
 
                 console.log(this.id); // selectionné
-                mySlidr.slide('choix-transport-2');
-                initSlideChoixVelo();
+                goToSlide('choix-transport-2');
             });
     });
-};
+});
 
 let lastId, lastEvent, lastFn, lastThis;
 

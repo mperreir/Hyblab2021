@@ -1,18 +1,17 @@
-let initSlide1 = function () {
+registerSlide("page-accueil", function () {
 
     d3.select('#startButton').on('click', function () {
         overrideAnim({
             targets: '#startButton',
             scale: 0
         });
-        mySlidr.slide('page-carte');
-        initCarte();
+        goToSlide('page-carte');
     });
 
     d3.select('#startButton').on('mouseover', function () {
         overrideAnim({
             targets: '#startButton',
-            scale: 1.2
+            scale: 1.08
         });
     });
 
@@ -22,4 +21,4 @@ let initSlide1 = function () {
             scale: 1
         });
     });
-};
+});
