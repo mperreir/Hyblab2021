@@ -127,6 +127,7 @@ section[data-slidr="page-9"] {
     width: 22%;
     bottom: 28%;
     right: 54%;
+    z-index: 8;
 }
 
 #BOUTON_NON_ANIMAUX-sourcils-p9{
@@ -134,4 +135,5 @@ section[data-slidr="page-9"] {
     width: 22%;
     bottom: 28%;
     left: 54%;
+    z-index: 8;
 }
