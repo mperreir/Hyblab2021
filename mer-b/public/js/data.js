@@ -232,7 +232,7 @@ function affichageReset(){
                 },
                 {
                     "texte" : "Parking",
-                    "json" : "parking",
+                    "json" : "car_park",
                 }
             ]
           },
@@ -286,7 +286,13 @@ function affichageReset(){
       }
       if(affichage.amenagement != ''){
           let planning = affichage.amenagement.slice(0, -1);
-          urlGet += 'planning=' + planning + '&';
+          let amenagements = planning.split(",");
+          urlGet += "planning=";
+          for(let amenagement of amenagements){
+              urlGet+= amenagement + "(" + affichage.distance + ")" + ",";
+          }
+          urlGet = urlGet.slice(0, -1);
+          urlGet += "&";
       }
 
       urlGet += 'radius=' + 100;

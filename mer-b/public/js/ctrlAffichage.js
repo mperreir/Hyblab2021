@@ -24,7 +24,7 @@ function updateElement(element, reponse){
     }
     if(element == "amenagement"){
       if(affichage[element].includes(valeur)){
-        affichage[element] = affichage[element].replace(valeur + '(10000),','');
+        affichage[element] = affichage[element].replace(valeur + ',','');
         sketchCiel.updateSketchCiel();
       }
       else {
@@ -32,16 +32,17 @@ function updateElement(element, reponse){
           var audio = new Audio('sound/sonSirene.wav');
           audio.play();
         }
-        affichage[element] += valeur + '(10000),';
+        affichage[element] += valeur + ',';
       }
     }
     else {
       affichage[element] = valeur;
     }
 
-    if(element == "distance"){
+    /*if(element == "distance"){
+      affichage["distancePort"] = affichage[]
       affichage["amenagement"] = affichage["amenagement"].replaceAll(/\((.+?)\)/g, "(" + reponse.json + ")");
-    }
+    }*/
 
     sketchCiel.updateSketchCiel(element, reponse);
     console.log(getAffichage());
