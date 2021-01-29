@@ -28,20 +28,10 @@ registerSlide("info-choix-velo", function () {
         });
     });
 
-    fetch("api/abris-velo")
-    .then(function(response) {
-        if (response.ok) {
-            response.json()
-            .then(function(abris) {
-                const sum = abris.reduce((result,a)=> result+a.capacite, 0);
-                document.getElementById("velo-parking-places").innerText = sum;
-            })
-            .catch(e => {console.error(e);});
-        } else {
-            console.error(response+" is not valid");
-        }
-    })
-    .catch(e => {console.error(e);});
+    fetchJsonData("api/abris-velo", (abris) => {
+        const sum = abris.reduce((result,a)=> result+a.capacite, 0);
+        document.getElementById("velo-parking-places").innerText = sum;
+    });
 });
 
 /**
@@ -68,6 +58,13 @@ registerSlide("info-choix-voiture", function () {
             targets: '#close-btn-voiture',
             scale: 1
         });
+    });
+
+    fetchJsonData("api/disponibilites-places-parking", (dispos) => {
+        const sum = dispos.reduce((result,d)=> result+d.grp_exploitation, 0);
+        document.getElementById("voiture-parking-places").innerText = sum;
+        document.getElementById("voiture-parking-ouvrage").innerText = dispos.length;
+        document.getElementById("voiture-parking-enclos").innerText = 0;
     });
 });
 
@@ -96,6 +93,17 @@ registerSlide("info-choix-bicloo", function () {
             scale: 1
         });
     });
+
+    fetchJsonData("api/stations-velo-libre-service", (stations) => {
+        document.getElementById("bicloo-stations").innerText = stations.length;
+        const sum = stations.reduce((result,a)=> result+a.capacite_num, 0);
+        //document.getElementById("bicloo-velos").innerText = sum;
+    });
+
+    fetchJsonData("api/disponibilites-bicloo", (dispos) => {
+        const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
+        document.getElementById("bicloo-velos").innerText = sum;
+    });
 });
 
 /**
@@ -122,5 +130,10 @@ registerSlide("info-choix-transports", function () {
             targets: '#close-btn-transports',
             scale: 1
         });
+    });
+
+    fetchJsonData("api/arrets-tan", (arrets) => {
+        console.log(arrets.filter(a => a.parent_station == undefined));
+        document.getElementById("commun-arrets").innerText = arrets.filter(a => a.parent_station == undefined).length;
     });
 });
