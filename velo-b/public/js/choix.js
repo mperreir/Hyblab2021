@@ -13,7 +13,7 @@ registerSlide("choix-transport-3", function () {
   arrowbutton(idFlecheG, nextG);
 
   //retour
-  const idFlecheRetour = '#fleche-retour';
+  const idFlecheRetour = '#fleche-retour-bicl';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
 
@@ -46,7 +46,7 @@ registerSlide("choix-transport-4", function () {
   arrowbutton(idFlecheG, nextG);
 
   //retour
-  const idFlecheRetour = '#fleche-retour';
+  const idFlecheRetour = '#fleche-retour-trans';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
 
@@ -93,7 +93,7 @@ registerSlide("choix-transport-2",function () {
   arrowbutton(idFlecheG, nextG);
   
   //retour
-  const idFlecheRetour = '#fleche-retour';
+  const idFlecheRetour = '#fleche-retour-velo';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
 
@@ -129,7 +129,7 @@ registerSlide("choix-transport-1", function () {
 
    
   //retour
-  const idFlecheRetour = '#fleche-retour';
+  const idFlecheRetour = '#fleche-retour-voit';
   const retour = 'carte';
   arrowbutton(idFlecheRetour, retour);
  
