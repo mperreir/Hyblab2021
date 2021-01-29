@@ -33,13 +33,15 @@ export default {
     }
   },
   mounted() {
-    this.$root.$data.subscribe((currentActif) => {
-      this.actif = currentActif
+    this.$root.$data.subscribe("actif",(nextActif) => {
+      this.actif = nextActif
       const indexView = Views.findIndex((view) => view.actif === this.actif)
       this.view = Views[indexView].component
-      for(let i=Views.length -1; i>=indexView; i--) {
-        this.$root.$data.clearChoice(Views[i].component.choice)
-      }
+      Views.forEach((view) => {
+        if (view.actif >= this.actif){
+          this.$root.$data.clearChoice(view.component.choice)
+        }
+      })
     })
   },
 }

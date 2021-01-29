@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/views/Home";
-import QuestionnaireContainer from "@/views/QuestionnaireContainer";
+import QuestionnaireContainer from "@/views/QuestionSwitcher";
 
 Vue.use(VueRouter)
 

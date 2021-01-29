@@ -12,18 +12,18 @@ const store = {
             path: {depart: undefined, arrive: undefined}
         }
     },
-    subscribe(callback) {
-        this.subscribers.push(callback)
+    subscribe(event,callback) {
+        this.subscribers.push({[event]: callback})
     },
-    notify() {
+    notify(event) {
         this.subscribers.forEach((subscribe) => {
-            subscribe(this.state.actif)
+            subscribe[event](this.state.actif)
         })
     },
-    setActif(n) {
-        if (this.debug) console.log('set actif', n)
-        this.state.actif = n
-        this.notify()
+    setActif(newActif) {
+        if (this.debug) console.log('set actif', newActif)
+        this.state.actif = newActif
+        this.notify("actif")
     },
     setTypeDeplacement(type) {
         if (this.debug) console.log('set type déplacement', type)
