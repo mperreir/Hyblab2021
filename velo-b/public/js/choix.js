@@ -12,6 +12,11 @@ registerSlide("choix-transport-3", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
+  //retour
+  const idFlecheRetour = '#fleche-retour-bicl';
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
+
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
     overrideAnim({
@@ -40,6 +45,10 @@ registerSlide("choix-transport-4", function () {
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
 
+  //retour
+  const idFlecheRetour = '#fleche-retour-trans';
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
 
 
   /*====================Bouton du bas ===========================*/
@@ -82,6 +91,11 @@ registerSlide("choix-transport-2",function () {
   const nextG = 'choix-transport-1';
   arrowbutton(idFlecheD, nextD);
   arrowbutton(idFlecheG, nextG);
+  
+  //retour
+  const idFlecheRetour = '#fleche-retour-velo';
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
 
   /*====================Bouton du bas ===========================*/
 
@@ -112,6 +126,12 @@ registerSlide("choix-transport-1", function () {
    const nextG = 'choix-transport-4';
    arrowbutton(idFlecheD, nextD);
    arrowbutton(idFlecheG, nextG);
+
+   
+  //retour
+  const idFlecheRetour = '#fleche-retour-voit';
+  const retour = 'page-carte';
+  retourbutton(idFlecheRetour, retour);
  
    /*====================Bouton du bas ===========================*/
 
@@ -195,4 +215,29 @@ function changeImage(element) {
 
 
 
+let retourbutton = function (idButton, page) {
+  
+  d3.select(idButton).on('click', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1
+    });
+    goToSlide(page);
+  });
 
+  d3.select(idButton).on('mouseover', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1.2
+    });
+
+  });
+
+  d3.select(idButton).on('mouseout', function () {
+    overrideAnim({
+      targets: idButton,
+      scale: 1
+    });
+  });
+
+}

@@ -3,6 +3,8 @@ const disabledZone = "centre";
 registerSlide("page-carte", function () {
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
+        // clear au cas où des cartes sont déjà présentes
+        carte.html("");
         carte.node().append(data.documentElement);
 
         carte.selectAll("g")
@@ -24,6 +26,7 @@ registerSlide("page-carte", function () {
                     return;
 
                 console.log(this.id); // selectionné
+                zoneChoisie = this.id;
                 goToSlide('choix-transport-2');
             });
     });

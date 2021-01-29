@@ -1,5 +1,7 @@
 window.slides = {};
 
+let zoneChoisie = null, vehiculeChoisi = null;
+
 function registerSlide(name, init) {
     window.slides[name] = init;
 }
@@ -39,6 +41,22 @@ const initButtons = function () {
                 scale: 1
             });
         });
+};
+
+const fetchJsonData = function(addr, callback) {
+    fetch(addr)
+    .then(function(response) {
+        if (response.ok) {
+            response.json()
+            .then(function(data) {
+                callback(data);
+            })
+            .catch(e => {console.error(e);});
+        } else {
+            console.error(response+" is not valid");
+        }
+    })
+    .catch(e => {console.error(e);});
 };
 
 registerSlide("slides", () => {

@@ -43,11 +43,11 @@
             <section data-slidr="page-accueil" hidden>
 
                 <div class="z-10" id="background">
-                    <img class="w-screen h-screen" src="assets/homepage.svg" />
+                    <img class="w-screen h-screen" src="assets/homepage.svg"/>
                 </div>
 
                 <div id="for-the-love-of-god-be-centered" class="z-20">
-                    <img id="startButton" src="assets/startButton.svg" />
+                    <img id="startButton" src="assets/startButton.svg"/>
                 </div>
             </section>
 
@@ -77,6 +77,10 @@
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
                     src="assets/backgrounds/backgroundVoiture.svg"></img>
                 <header>
+                    <div class='left-0 flex-row w-screen place-self-start absolute'>
+                        <img src="assets/choix/retour.svg" id="fleche-retour-voit" alt="retour">
+                        <p class="retour-label">retour</p>
+                    </div>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
                     </div>
@@ -107,6 +111,10 @@
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
                     src="assets/backgrounds/backgroundVelo.svg"></img>
                 <header>
+                    <div class='left-0 w-screen place-self-start absolute'>
+                        <img src="assets/choix/retour.svg" id="fleche-retour-velo" alt="retour">
+                        <p class="retour-label">retour</p>
+                    </div>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
                     </div>
@@ -137,6 +145,10 @@
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
                     src="assets/backgrounds/backgroundBicloo.svg"></img>
                 <header>
+                    <div class='left-0 w-screen place-self-start absolute'>
+                        <img src="assets/choix/retour.svg" id="fleche-retour-bicl" alt="retour">
+                        <p class="retour-label">retour</p>
+                    </div>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
                     </div>
@@ -166,6 +178,10 @@
                 <img class="background-index bottom-0 left-0 w-screen place-self-start absolute"
                     src="assets/backgrounds/backgroundTransport.svg"></img>
                 <header>
+                    <div class='left-0 w-screen place-self-start absolute'>
+                        <img src="assets/choix/retour.svg" id="fleche-retour-trans" alt="retour">
+                        <p class="retour-label">retour</p>
+                    </div>
                     <div class="flex justify-center my-5 choisis_ton_moyen_de_transport">
                         <p> Choisis ton moyen de transport</p>
                     </div>
@@ -307,22 +323,21 @@
                         <div class="close-button">
                             <img id="close-btn-velo" src="assets\closeBtn.svg"></img>
                         </div>
-                    </div>
-
                     <div class="flex justify-center infoVehicule">
                         <div>
                             <p><span class="orange-highlight">BiclooPark c’est quoi ?</span> C’est un service de
-                                stationnement
-                                pour ton vélo.</p>
+                                stationnement pour ton vélo.</p>
 
-                            <p><span class="orange-highlight">Plus de 2400 places</span> sont disponibles sur tout le
-                                territoire
-                                nantais</p>
+                            <p><span class="green-highlight" id="velo-parking-places">2400</span> places sont disponibles sur tout le
+                                territoire nantais</p>
+                            <p><span class="green-highlight" id="velo-parking-places-zone">Err</span> places sont disponibles dans la
+                                zone de départ</p>
                         </div>
                     </div>
                     <div class="info-illu">
                         <img class="background-index w-screen absolute bottom-0 " src="assets\infosVehicules\infoVelo.svg"></img>
                     </div>
+                </div>
             </section>
 
             <!-- Pages d'information sur la voiture-->
@@ -338,10 +353,10 @@
                     </div>
                     <div class="flex justify-center infoVehicule">
                         <div>
-                            <p><span class="orange-highlight">9461</span> places de stationnement disponibles pour les
+                            <p><span class="green-highlight" id="voiture-parking-places">9461</span> places de stationnement disponibles pour les
                                 véhicules</p>
-                            <p><span class="orange-highlight">17</span> parkings en ouvrage et 14 parcs en enclos
-                                disponibles en centre-ville et gare de Nantes</p>
+                            <p><span class="orange-highlight" id="voiture-parking-ouvrage">17</span> parkings en ouvrage et
+                                <span id="voiture-parking-enclos">14</span> parcs en enclos disponibles en centre-ville et gare de Nantes</p>
                         </div>
                     </div>
                 </div>
@@ -363,21 +378,16 @@
                     </div>
                     <div class="flex justify-center infoVehicule">
                         <div>
-
                             <p class="orange-highlight">Bicloo propose 3 services :</p>
-                            <p><span class="orange-highlight">BiclooPlus :</span> 1000 vélos en libre-service répartis
-                                sur
-                                123
-                                stations dans Nantes et Rezé</p>
+                            <p><span class="orange-highlight">BiclooPlus :</span> <span class="green-highlight" id="bicloo-velos">1000</span> vélos en
+                                libre-service répartis sur <span class="green-highlight" id="bicloo-stations">123</span> stations dans Nantes et Rezé</p>
+                            <p>Dans la zone de départ : <span class="green-highlight" id="bicloo-velos-zone">Err</span>
+                                vélos en libre-service répartis sur <span class="green-highlight" id="bicloo-stations-zone">Err</span> stations</p>
                             <p><span class="orange-highlight">Monbicloo :</span> c’est un service de location de vélos
-                                moyenne
-                                ou longue durée</p>
-                            <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux
-                                entreprises
-                                et
-                                institutions, pour promouvoir l’utilisation du vélo auprès des collaboateurs</p>
+                                moyenne ou longue durée</p>
+                            <p><span class="orange-highlight">BiclooPro :</span> Plusieurs offres résèrvées aux entreprises
+                                et institutions, pour promouvoir l’utilisation du vélo auprès des collaboateurs</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="info-illu">
@@ -416,9 +426,9 @@
                             <p class="orange-highlight">BATEAU</p>
                             <p>3 lignes régulières : 2 sur la Loire et 1 sur l’Erdre</p>
                             <p>Pour aller travailler, rejoindre la gare ou profiter d’une balade sur l’eau !</p>
+                            <p><span class="orange-highlight"><span id="commun-arrets">1000</span> arrêts</span> sont desservis par la Tan</p>
+                            <p>Parmis ceux-ci, <span class="green-highlight" id="commun-arrets-zone">Err</span> arrêts font parti de la zone de départ</p>
                         </div>
-
-
                     </div>
                 </div>
 

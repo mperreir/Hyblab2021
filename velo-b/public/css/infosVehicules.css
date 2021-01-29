@@ -6,8 +6,21 @@
     text-align: center;
 }
 
+.retour-label {
+    font-family: lemon-juice;
+    color: #F98E12;
+    font-size: 35%;
+    user-select: none;
+    text-align: left;
+    margin-left: 5px;
+}
+
 .orange-highlight {
     color: #F98E12;
+}
+
+.green-highlight {
+    color: #2c8354;
 }
 
 .orange-test {
