@@ -13,8 +13,8 @@ function generateDep(depData, mapData, codeDep, codeType){
 
 	// Place le centre de la map
 	var center = d3.geoCentroid(depData);
-	console.log(depData);
-	console.log(center);
+	//console.log(depData);
+	//console.log(center);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -137,7 +137,21 @@ function getMapDepartement(code){
 }
 
 function selectLegende(idLegende){
-	if(idLegende > 0) document.location.href= `${ROOT}legende/${codeDep}/${codeType}/${idLegende}`; 
+	if(idLegende > 0) document.location.href= `${ROOT}legende/${idLegende}`; 
+}
+
+function loadCharacter() {
+	let nomType = legendes[0].categorie.replace(' ', '_');
+	let imgChar = document.createElement('img');
+	imgChar.src = `/mer-a/assets/img/personnage/image_${nomType}.png`;
+	imgChar.id = 'character_image';
+	persoBox.appendChild(imgChar);
+}
+
+function loadNarration() {
+	narrationBox.innerHTML += narration[0];
+	narration = narration.substring(1);
+	if(narration.length === 0) clearInterval(narrationInterval);
 }
 
 let url = window.location.href;
@@ -145,15 +159,31 @@ let url = window.location.href;
 var codeDep = getCodeDepartement(url);
 var codeType = getCodeType(url);
 var map = getMapDepartement(codeDep);
+var persoBox = document.getElementById('character');
+var perso = null;
+//var nuage = document.getElementById('cloud');
+var narrationBox = document.getElementById('narration');
+let narration = narrationBox.innerHTML;
+narrationBox.innerHTML = "";
+let narrationInterval = setInterval(loadNarration, 60);
 
 let legendes = null;
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
-	console.log(legendes);
+	//console.log(legendes);
 	generateDep(map,mapFusion,codeDep,codeType);
+	loadCharacter();
+	perso = document.getElementById('character_image');
+	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,100);
 })();
 
+window.onload = () => {
+	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
+}
+
 window.addEventListener("resize", function(e) {
+	//nuage.style.bottom = `-${nuage.offsetHeight/2}px`;
+	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
 	generateDep(map,mapFusion,codeDep,codeType);
 });
 

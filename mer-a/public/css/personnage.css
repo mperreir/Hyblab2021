@@ -167,7 +167,7 @@ body {
     margin: 24vh 25vw 0;
     z-index: 1;
 }
-/*<div class="perso" id="marin"></div>*/
+/*<div class="perso" id="histoires-maritimes"></div>*/
 /* Affichage des personnages */
 
 .personnages {
@@ -183,37 +183,44 @@ body {
     transition: 0.2s ease-in-out;
 }
 
-.perso#creature {
+.perso#creatures-fantastiques {
     margin-top: 8vh;
     margin-right: -5vw;
     background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
     /* clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%); */
-    background-size: 100%;
+    background-size: contain;
 }
 
-.perso#marin {
+.perso#histoires-maritimes {
     background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
     /* clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%); */
-    background-size: 100%;
+    background-size: contain;
 }
 
-.perso#religieux {
-    margin-top: 7vh;
-    margin-left: -5vw;
+.perso#croyances-religion {
+    height: 45vh;
+    width: 10vw;
+    margin-top: 16vh;
+    margin-left: -4vw;
     background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
     /* clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%); */
     border-collapse: collapse;
-    background-size: 100%;
+    background-size: contain;
 }
 
-.zone-creature {
-    /* créatures placées au-dessus du marin, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+.zone-creatures-fantastiques {
+    /* créatures placées au-dessus du histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 2;
 }
 
-.zone-marin {
-    /* marin placé au-dessus du prêtre, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+.zone-histoires-maritimes {
+    /* histoires-maritimes placé au-dessus du prêtre, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 1;
+}
+
+.zone-croyances-religion {
+    /* créatures placées au-dessus du histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    z-index: 2;
 }
 
 
@@ -223,15 +230,15 @@ body {
     transform: scale(1.1); /* zoom */
 }
 
-.perso#creature:hover {
+.perso#creatures-fantastiques:hover {
     background-image: url("../assets/img/personnage/image_Créatures_Fantastiques_hover.png");
 }
 
-.perso#marin:hover {
+.perso#histoires-maritimes:hover {
     background-image: url("../assets/img/personnage/image_Histoires_Maritimes_hover.png");
 }
 
-.perso#religieux:hover {
+.perso#croyances-religion:hover {
     background-image: url("../assets/img/personnage/image_Croyances_Religion_hover.png");
 }
 
@@ -269,34 +276,35 @@ body {
     opacity: 0;
 }
 
-.cat-creature {
+.cat-creatures-fantastiques {
     top: -2vh;
     right: 6vw;
 }
 
-.cat-marin {
+.cat-histoires-maritimes {
     top: -14vh;
+    left: 4vw;
 }
 
-.cat-religieux {
+.cat-croyances-religion {
     top: 4vh;
-    left: 5vw;
+    left: 7vw;
 }
 
 
 /* Affichage du type de légende selon le personnage survolé */
 
-.zone-creature:hover .cat-creature:not(:hover) {
+.zone-creatures-fantastiques:hover .cat-creatures-fantastiques:not(:hover) {
     transition: all 0.3s;
     opacity: 1;
 }
 
-.zone-marin:hover .cat-marin:not(:hover) {
+.zone-histoires-maritimes:hover .cat-histoires-maritimes:not(:hover) {
     transition: all 0.3s;
     opacity: 1;
 }
 
-.zone-religieux:hover .cat-religieux:not(:hover) {
+.zone-croyances-religion:hover .cat-croyances-religion:not(:hover) {
     transition: all 0.3s;
     opacity: 1;
 }
@@ -310,6 +318,6 @@ body {
     margin: 5vh auto 0;
 }
 
-/* Marin :
+/* histoires-maritimes :
 clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
 */
