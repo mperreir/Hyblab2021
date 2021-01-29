@@ -45,4 +45,60 @@ let initActivities = function(){
         });
         tl_suivant_activities_over.pause();
     });
+
+    d3.select(".arianne-1-activities").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('down');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 3000);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 4500);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 6000);
+        initAddress();
+    });
+
+    d3.select(".arianne-2-activities").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('down');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 3000);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 4500);
+        initHour();
+    });
+
+    d3.select(".arianne-3-activities").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('down');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 3000);
+        initAge();
+    });
+
+    d3.select(".arianne-4-activities").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('down');
+        }, 1500);
+        initAccess();
+    });
+
+    d3.select(".arianne-5-activities").on('click', function (){
+        mySlidr.slide('left');
+        initActivities();
+    });
 };
+

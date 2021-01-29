@@ -45,6 +45,43 @@ let initAccess = function(){
         });
         tl_suivant_access_over.pause();
     });
+
+    d3.select(".arianne-1-access").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 1500);
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 3000);
+        initAddress();
+    });
+
+    d3.select(".arianne-2-access").on('click', function (){
+        mySlidr.slide('left');
+        setTimeout(function(){
+            mySlidr.slide('left');
+        }, 1500);
+        initHour();
+    });
+
+    d3.select(".arianne-3-access").on('click', function (){
+        mySlidr.slide('left');
+        initAge();
+    });
+
+    d3.select(".arianne-5-access").on('click', function (){
+        mySlidr.slide('up');
+        initFaunaFlora();
+    });
+
+    d3.select(".arianne-6-access").on('click', function (){
+        mySlidr.slide('up');
+        setTimeout(function(){
+            mySlidr.slide('right');
+        }, 1500);
+        initActivities();
+    });
 };
 
 $(document).ready(function(){
