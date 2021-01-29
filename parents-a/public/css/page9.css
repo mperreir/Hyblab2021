@@ -20,6 +20,7 @@ section[data-slidr="page-9"] {
     width: 30%;
     bottom: 0%;
     left: 0%;
+    z-index: 4;
 }
 
 #dune-p9 {
@@ -28,6 +29,7 @@ section[data-slidr="page-9"] {
     width: 80%;
     bottom: 0%;
     right: 0%;
+    z-index: 6;
 }
 
 #pelouse_droite-p9 {
@@ -36,20 +38,24 @@ section[data-slidr="page-9"] {
     width: 30%;
     bottom: 0%;
     right: 0%;
+    z-index: 7;
 }
 
 #arbustre-bleu-p9{
     position: absolute;
-    width: 80%;
-    bottom: 0%;
-    right: 0%;
+    width: 47.03125%; 
+    left: 64.453125%;
+    top: 63.30%;
+    z-index: 6;
 }
 
 #arbre_rouge-p9{
     position: absolute;
-    width: 22%;
-    bottom: 0%;
-    left: 68%;
+    width: 21.953125%;
+    left: 68.515625%;
+    bottom: -5.5%;
+    z-index: 8;
+    
 }
 
 #double_feuille_verte-p9{
@@ -58,17 +64,25 @@ section[data-slidr="page-9"] {
     bottom: 27.3%;
     left: 1.17%;
     top: 63.12%;
+    z-index: 2;
 }
 
 #feuille_bleue-p9{
-
+    position: absolute;
+    width: 11.015625%;
+    height: 21.0%;
+    left: 8.5%;
+    top: 74.375%;
+    z-index: 3;
 }
 
 #feuille_rouge-p9{
     position: absolute;
-    width: 14.5%;
-    top: 73%;
-    left: 16.6%;
+    width: 14.53125%;
+    height: 23.25%;
+    left: 16.640625%;
+    top: 73.625%; 
+    z-index: 5;
 }
 
 #nuage-p9{
@@ -84,16 +98,26 @@ section[data-slidr="page-9"] {
     height: 45.3%;
     top: 45%;
     left: -4.5%;
+    z-index: 1;
 }
 
-question_animaux -p9{
-
+#question_animaux-p9{
+    position: absolute;
+    width: 40%;
+    bottom: 68%;
+    right: 32%;
 }
 
 #texte_non-p9{
-
+    position: absolute;
+    width: 4%;
+    right: 27.5%;
+    top: 73.375%;
 }
 
 #texte_oui-p9{
-
+    position: absolute;
+    width: 4%;
+    left: 27.5%;
+    top: 73.375%;
 }
