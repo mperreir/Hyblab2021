@@ -19,7 +19,7 @@ input[type=radio]:checked + label>img {
 h3 {
     color:#756EFF;
     font-weight: bold;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 div + span {
@@ -30,7 +30,7 @@ div + span {
     padding-right: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom: 40px;
 }
 
@@ -54,13 +54,17 @@ span + input {
 }
 
 #themeSelector div div div label img[class="img_hte"] {
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 }
 
 #themeSelector div div div label img[class="img_bas"] {
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .col {
     padding: 0;
+}
+
+#themeSelector {
+    margin-bottom: 50px;
 }

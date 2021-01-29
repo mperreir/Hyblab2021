@@ -10,7 +10,7 @@ class ThemeSelector extends React.Component {
     render() {
         const { onNextPage, onPreviousPage } = this.props;
         return (
-            <div id="themeSelector" class="bg-white m-5 d-flex justify-content-center align-items-center flex-column">
+            <div id="themeSelector" class="bg-white d-flex justify-content-center align-items-center flex-column">
                 <h3>Tu te sens plutôt .. ?</h3>
                 <div class="container">
                     <div class="row">
