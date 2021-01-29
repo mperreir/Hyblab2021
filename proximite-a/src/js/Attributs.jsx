@@ -5,18 +5,19 @@ import maison from '../img/pictogrammes_maison.png'
 import '../css/attributs.css'
 
 class Attributs extends React.Component{
+    state = {
+            coords: ""
+        }
+
     render(){
         const {onNextPage, onPreviousPage} = this.props;
         return(
-            <div class="container">
+            <div id="attribuscontainer" class="container">
                 <div class="row" no-gutters>
 
                     <div class="col-ld" no-gutters >
                         <div class="leftside">
-                            <div>
-                                <img id="logoposition" src={logo1} alt="logo"/>
-                            </div>
-
+                            <img id="logoposition" src={logo1} alt="logo"/>
                             <img id="persoposition" src={perso1} alt="perso"/>
                             <p id="textposition">Hello moi c’est Alex !<br /> 
                         Tu aimes rencontrer tes amis dans des bars, déguster des planches apéros et sortir danser ? Alors, suis-moi ! 
