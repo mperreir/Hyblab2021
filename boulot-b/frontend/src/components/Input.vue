@@ -4,6 +4,8 @@
       @blur="$emit('blur', $event.target.value)"
       @input="$emit('input', $event.target.value)"
   />
+
+
 </template>
 
 <script>
@@ -11,7 +13,7 @@ export default {
   name: "Input",
   props: {
     value: String,
-    error: Boolean
+    error: Boolean,
   }
 }
 </script>
@@ -19,10 +21,12 @@ export default {
 <style scoped>
 
 .input {
-  border-radius: 5px;
-  border: none;
+
+  border-top-left-radius: 5px;
+    border-top-right-radius: 5px;  border: none;
   background-color: #ffdb27;
   padding: 5px 5px 5px 20px;
+  width:40%;
 }
 
 .error {

@@ -11,34 +11,34 @@ import lottie from "lottie-web";
 import logoAnim from "@/assets/animationJson/wazo_logo_anim.json";
 import canariAnim from "@/assets/animationJson/wazo_intro.json";
 import sonCanari from "@/assets/son/canari.mp3";
-import videoAnim from '@/assets/animationJson/video_intro.json'
+import videoAnim from "@/assets/animationJson/video_intro.json";
 
 const Anim = {
   VIDEO: "video",
   LOGO: "logo",
-  CANARI: "canari"
-}
+  CANARI: "canari",
+};
 
 export default {
   name: "Home",
   data() {
     return {
       Anim,
-      showAnim: Anim.VIDEO
+      showAnim: Anim.VIDEO,
     };
   },
   mounted: function () {
     const wazzo = document.getElementById("wazzo");
     wazzo.style.display = "none";
     const audio = new Audio(sonCanari);
-    const {logo, canari, video} = this.loadAnim();
+    const { logo, canari, video } = this.loadAnim();
     video.play();
     video.addEventListener("complete", () => {
-      this.showAnim = Anim.LOGO
+      this.showAnim = Anim.LOGO;
       logo.play();
-    })
+    });
     logo.addEventListener("complete", () => {
-      this.showAnim = Anim.CANARI
+      this.showAnim = Anim.CANARI;
       audio.play();
       canari.play();
     });
@@ -75,7 +75,7 @@ export default {
         autoplay: false,
         animationData: canariAnim,
       });
-      return {logo, canari, video};
+      return { logo, canari, video };
     },
   },
 };
@@ -96,5 +96,4 @@ export default {
   margin-right: auto;
   width: 50%;
 }
-
 </style>

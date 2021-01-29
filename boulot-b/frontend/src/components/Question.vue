@@ -21,6 +21,8 @@ export default Vue.component("question", {
 </script>
 
 <style scoped>
+
+
 #answers {
   display: flex;
   flex-direction: column;
@@ -34,6 +36,7 @@ export default Vue.component("question", {
 #question {
   display: block;
   color: white;
+  font-size: 1.2em;
   position: relative;
   text-align: center;
   font-weight: bold;
