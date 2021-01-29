@@ -32,12 +32,26 @@ section[data-slidr="page-3"] {
     right: 51%;
 }
 
+#bouton_aventurier_anime-p3 {
+    position: absolute;
+    width: 22%;
+    bottom: 33.4%;
+    right: 50.6%;
+}
+
 #bouton_non_aventurier-p3 {
     position: absolute;
     width: 18%;
     bottom: 32%;
     right: 28%;
 }
+#bouton_non_aventurier_anime-p3 {
+    position: absolute;
+    width: 18%;
+    bottom: 32%;
+    right: 28%;
+}
+
 
 #aventurier-p3 {
     position: absolute;

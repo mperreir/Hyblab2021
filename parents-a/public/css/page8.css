@@ -1,0 +1,95 @@
+/* PAGE 8 */
+section[data-slidr="page-8"] {
+    /* fond */
+    position: absolute;
+    background: linear-gradient(0deg, #0574CF, #0574CF);
+}
+
+#logo-p8 {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+/* Ciel */
+#nuage-p8 {
+    position: absolute;
+    width: 23%;
+    bottom: 53%;
+    right: 76%;
+}
+
+/* Végétation droite */
+#arbre_carotte-p8 {
+    position: absolute;
+    width: 29%;
+    bottom: 7%;
+    right: 1%;
+}
+#arbuste_bleu-p8 {
+    position: absolute;
+    width: 22%;
+    bottom: -5%;
+    right: 18%;
+}
+
+/* Végétation gauche */
+#feuille_verte-p8 {
+    position: absolute;
+    width: 18%;
+    bottom: 8%;
+    right: 82%;
+}
+#feuille_orange-p8 {
+    position: absolute;
+    width: 15%;
+    bottom: 2%;
+    right: 78%;
+}
+
+/* Sols */
+#pelouse_gauche-p8 {
+    /* pelouse gauche */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+#pelouse_droite-p8 {
+    /* pelouse droite */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+#dune-p8 {
+    /* dune 1 */
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    right: 0%;
+}
+
+/*  Question */
+#question-p8 {
+    position: absolute;
+    width: 45%;
+    bottom: 68%;
+    right: 28%;
+}
+#texte_jadore-p8 {
+    position: absolute;
+    width: 10%;
+    bottom: 25%;
+    right: 60%;
+}
+#texte_oh_non-p8 {
+    position: absolute;
+    width: 12%;
+    bottom: 25%;
+    right: 33%;
+}
+
+
