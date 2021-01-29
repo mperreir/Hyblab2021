@@ -505,8 +505,13 @@ input#distance {
     text-align: left;
     margin-bottom: 30px;
     margin-left: 20px;
+    position: relative;
+    top:-110px;
 }
 
+section:nth-of-type(2) #containerQuestion h1 {
+    background-color:#FF3300;
+}
 
 .citation {
     font-family: Abril Fatface;

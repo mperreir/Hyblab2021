@@ -63,12 +63,18 @@ function updateSlideFin(plages, criteres){
 
     let imgPlage = cartePostale.querySelector(".imgCarte");
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
-
+	
     let nomPlage = cartePostale.querySelector(".nomPlage");
     if(element.nom){
       element.nom = element.nom.replaceAll("_", " ");
     }
     nomPlage.innerHTML = element.nom;
+	
+	let nomVille = cartePostale.querySelector(".nomVille");
+	if(element.adresse.commune){
+		element.adresse.commune = element.adresse.commune.replaceAll("_", " ");
+	}
+	nomVille.innerHTML = element.adresse.commune;
     let temperature = cartePostale.querySelector(".temperatureRelle");
     temperature.innerHTML = element.weather.temperature + '°C';
     let leverSoleil = cartePostale.querySelector(".leverSoleil");
