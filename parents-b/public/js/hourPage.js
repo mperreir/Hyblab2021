@@ -96,8 +96,8 @@ let initHour = function(){
         let width = window.innerWidth;
         let height = window.innerHeight;
 
-        let dX = event.pageX - screenX*0.38 - ((width - screenX)/2);
-        let dY = event.pageY - screenY*0.52 - ((height-screenY)/2);
+        let dX = event.pageX - screenX*0.36 - ((width - screenX)/2);
+        let dY = event.pageY - screenY*0.56 - ((height-screenY)/2);
 
         document.querySelector("#svg-slider").innerHTML = "";
         let bigCircle = s.circle(rayon, rayon, rayon);

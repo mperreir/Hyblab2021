@@ -14,6 +14,41 @@ let initAddress = function(){
         mySlidr.slide('right');
         initHour();
     });
+
+    //Bouton Suivant
+    let tl_suivant_address_over = anime.timeline({
+        easing: 'linear',
+        loop:true
+    });
+
+    d3.select('.button-next-address-from-continue').on('mouseover', function (){
+        tl_suivant_address_over
+            .add({
+                targets: ".button-next-address-from-continue",
+                scale: 1.1,
+                duration: 500
+            })
+            .add({
+                targets: ".button-next-address-from-continue",
+                scale: 0.9,
+                duration: 500
+            })
+            .add({
+                targets: ".button-next-address-from-continue",
+                scale: 1,
+                duration: 500
+            })
+    });
+
+    d3.select('.button-next-address-from-continue').on('mouseleave' ,function (){
+        anime({
+            targets: ".button-next-address-from-continue",
+            scale: 1,
+            duration: 200,
+            ease: 'linear'
+        });
+        tl_suivant_address_over.pause();
+    });
 };
 
 
@@ -69,7 +104,7 @@ const
     setValue = ()=>{
         const
             newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-            newPosition = 10 - (newValue * 0.2) + (range.value - 10)*1.65 ;
+            newPosition = 10 - (newValue * 0.2) + (range.value - 10)*1.7 ;
 
         if(range.value === range.min){
             rangeValue.innerHTML = `<span class="font-slider"><${range.value} km</span>`;
