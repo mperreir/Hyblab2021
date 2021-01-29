@@ -9,6 +9,7 @@
 import lottie from "lottie-web"
 import logoWazzo from "@/assets/animationJson/wazo_logo_anim.json"
 import canariCome from "@/assets/animationJson/wazo_intro.json"
+import sonCanari from '@/assets/son/canari.mp3'
 
 export default {
   name: "Home",
@@ -21,6 +22,7 @@ export default {
     }
   },
   mounted () {
+    const audio = new Audio(sonCanari)
     const logo = lottie.loadAnimation({
       container : document.getElementById('wazo-anim'),
       renderer: 'svg',
@@ -38,9 +40,11 @@ export default {
     logo.addEventListener("complete", () => {
       this.showAnim.logo = false;
       this.showAnim.canari = true;
+      audio.play();
       canari.play()
     });
     canari.addEventListener("complete", () => {
+      audio.pause()
       const canariCome = document.getElementById("canari-come")
       canariCome.classList.add("fade")
       canariCome.addEventListener("transitionend", () => {
