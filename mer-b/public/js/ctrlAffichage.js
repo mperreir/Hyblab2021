@@ -43,9 +43,7 @@ function updateElement(element, reponse){
     }
 
     sketchCiel.updateSketchCiel(element, reponse);
-
     let root = document.documentElement;
-
 
     if(element == "moment" && reponse.json == "night"){
       root.style.setProperty('--citation-color', "white");
@@ -88,4 +86,5 @@ function resetDisplay(){
   root.style.setProperty('--bouton-bg-color', '#203443');
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
   document.getElementsByClassName('stepperBouton')[0].style.left = 0;
+  document.getElementById("topLeftLogo").style.display='none';
 }
