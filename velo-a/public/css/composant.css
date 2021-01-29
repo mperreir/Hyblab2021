@@ -1,0 +1,137 @@
+/* ---------- mise en forme des composants ----------------- */
+/*header*/
+header h1, header h2{
+	display: none;
+}
+header img{
+	width: 380px;
+}
+/*Bicky Question*/
+.bicky-question {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.bicky-question h2 {
+	color: black;
+  position: absolute;
+  left: calc(50% - 80px);
+}
+
+/*Style des boutons*/
+button{
+	border-style: none;
+	outline: none;
+}
+input{
+	border-style: none;
+	outline: none;
+}
+.button-slide{
+	font-family: 'Montserrat';
+	width: 341px;
+	height: 68px;
+	background: #FFFFFF;
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 34px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+}
+.button-slide :nth-child(2){
+	display: none;
+	margin: 0px;
+	font-weight: 500;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 21px;
+	text-align: center;
+}
+.button-slide:hover{
+	background: #24AE70;
+	border: 3px solid #FFFFFF;
+	color: white;
+}
+.button-slide:hover :nth-child(1) {
+	margin: 5px;
+}
+.button-slide:hover :nth-child(2) {
+  display: block;
+}
+.button-return{
+  background: #FFFFFF;
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 34px;
+	height: 56px;
+	width: 100px;
+  text-align: center;
+  background-image: url("../img/return.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.button-return:hover{
+  background: #24AE70;
+	border: 3px solid #FFFFFF;
+  background-image: url("../img/return-white.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.button-panel{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 22px;
+	height: 70px;
+	width: 200px;
+	border-radius: 0;
+	border-color: #b7d5ed;
+	background-color: #b7d5ed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.button-panel-left{
+	background-image: url("../img/panel-left.svg");
+}
+.button-panel-right{
+	background-image: url("../img/panel-right.svg");
+}
+.button-panel :nth-child(2){
+	display: none;
+	margin: 0px;
+	font-weight: 500;
+	font-size: 10px;
+	font-style: italic;
+	line-height: 21px;
+	text-align: center;
+}
+.button-panel:hover :nth-child(1) {
+	margin: 0px;
+	color: white;
+}
+.button-panel:hover :nth-child(2) {
+  display: block;
+	color: white;
+}
+.button-panel-right:hover{
+	background-image: url("../img/panel-right-hover.svg");
+}
+.button-panel-left:hover{
+	background-image: url("../img/panel-left-hover.svg");
+}
+.input-adresse{
+	width: 320px;
+	height: 40px;
+	background: #FFFFFF;
+	border-radius: 34px;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 22px;
+	color: #9E9E9E;
+	padding: 15px;
+}

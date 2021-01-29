@@ -1,6 +1,9 @@
+"use strict";
+
 import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
-import {getMeteoByTime, getMeteoNow} from "./modules/meteo.js";
+import { getMeteoByTime, getMeteoNow } from "./modules/meteo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
+import { getTraficData } from "./modules/trafic.js";
 
 async function bootstrap() {
 
@@ -25,6 +28,14 @@ async function bootstrap() {
 			profileSwitcher: false,
 			instructions: false
 		}
+	});
+
+	control.on("route", async routes => {
+		if (!routes || !routes.route || !routes.route[0]) return;
+		const { steps, distance, duration } = routes.route[0]["legs"][0];
+		const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+
+		getTraficData({ roadNames, distance, duration });
 	});
 
 	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
@@ -64,8 +75,8 @@ async function bootstrap() {
 		points(data, "https://svgshare.com/i/T_M.svg");
 	});
 
-    getMeteoNow();
-    getMeteoByTime(Date.now());
+	getMeteoNow();
+	getMeteoByTime(Date.now());
 }
 
 bootstrap();
