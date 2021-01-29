@@ -6,9 +6,14 @@ const codeDep = getCodeDepartement(url);
 const codeType = getCodeType(url);
 const map = getMapDepartement(codeDep);
 const persoBox = document.getElementById('character');
-let perso = null;
 const narrationBox = document.getElementById('narration');
+const narrationTextBox = document.querySelector('#narration > span');
+const narrationPass = document.getElementById('pass_narration');
+const fontSize = window.innerHeight*0.017;
+const padding = window.innerHeight*0.008;
+let perso = null;
 let narration = null;
+let narrationIndex = 0;
 let narrationInterval = null;
 let categories = null;
 let categorie = null;
@@ -156,10 +161,9 @@ function loadCharacter() {
 }
 
 function loadNarration() {
-	console.log(narration);
-	narrationBox.innerHTML += narration[0];
-	narration = narration.substring(1);
-	if(narration.length === 0) clearInterval(narrationInterval);
+	narrationTextBox.innerHTML += narration[narrationIndex];
+	narrationIndex++;
+	if(narration.length === narrationIndex) stopNarration();
 }
 
 function getCategorie(type) {
@@ -168,12 +172,25 @@ function getCategorie(type) {
 	}
 }
 
+function setNarrationBox() {
+	let nbRows = narration.length / (narrationBox.offsetWidth / (fontSize*0.6667)) + 1;
+	narrationBox.style.height = `${fontSize * nbRows + padding * 2}px`;
+	narrationPass.onclick = stopNarration;
+}
+
+function stopNarration() {
+	console.log('test');
+	clearInterval(narrationInterval);
+	narrationTextBox.innerHTML = narration;
+	narrationPass.remove();
+}
+
 (async () => {
 	await getLegendes(codeDep, codeType, r => legendes = r);
 	await getTypesId(r => categories = r);
 	categorie = getCategorie(codeType);
 	narration = categorie.phraseDep;
-	narrationBox.style.height = narrationBox.offsetWidth/narrationBox.style.fontSize
+	setNarrationBox();
 	generateDep(map,mapFusion,codeDep,codeType);
 	loadCharacter();
 	perso = document.getElementById('character_image');
@@ -183,5 +200,6 @@ function getCategorie(type) {
 
 window.addEventListener("resize", function(e) {
 	perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
+	setNarrationBox();
 	generateDep(map,mapFusion,codeDep,codeType);
 });
