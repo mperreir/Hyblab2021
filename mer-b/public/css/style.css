@@ -199,8 +199,7 @@ h1 {
     line-height: 61px;
     /* identical to box height */
     color:var(--question-color, #203443);
-    margin-bottom: 50px;
-    max-width: 740px;
+    max-width: 760px;
 }
 
 .bouton {
@@ -408,7 +407,7 @@ div#breadcrumb-page-fin {
 
 /***Acceuil***/
 .containerAcceuil {
-    width: 500px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -417,6 +416,14 @@ div#breadcrumb-page-fin {
 
 .containerAcceuil h1 {
     text-align: center;
+    max-width: 1000px;
+}
+
+.presentation {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
 }
 
 #containerBackground {
@@ -547,13 +554,17 @@ div#containerReponses {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 24px;
     margin-bottom: 15px;
     font-weight: 100;
 }
 
 #loading {
     width: 100%;
+}
+
+#loading img {
+    width: 200px;
 }
 
 .loader {
