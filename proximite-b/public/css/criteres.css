@@ -8,8 +8,8 @@ div#critere_page {
 }
 
 #container_custom{
-    margin-left: 20em;
-    margin-right: 20em;
+    margin-left: 4em;
+    margin-right: 4em;
     margin-top: 4em;
 }
 
@@ -102,7 +102,9 @@ div#critere_page {
 
 .criteres{
     width: 200px !important;
+    /* display:inline-block;  2 col parfois */
 }
+
 
 #sortable1 li,#sortable2 li, #sortable3 li{
     text-align: center;
@@ -111,12 +113,20 @@ div#critere_page {
     font-size: 1.2em;
 }
 
+#sortable2 li, #sortable3 li{
+    border-radius: 45px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+
 #sortable1 li{
     display:inline-block;
 }
 
 #consigne{
-    color: #E5E5E4;
+    color: white;
     padding: 20px 5px 20px 5px;
     background-color: #E3572C;
     width: 100%;
@@ -127,6 +137,7 @@ div#critere_page {
 
 #proche, #loin{
     padding-bottom: 0;
+    font-family: ArchitectDaughter;
 }
 
 #loin{
@@ -170,3 +181,4 @@ ul#sortable1{
     position: relative;
     list-style-type: none;
 }
+
