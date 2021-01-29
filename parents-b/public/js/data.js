@@ -8,6 +8,7 @@ let myCriteria = {
     "Distances" : {
         max: 10
     },
+    "Accès transports en commun": null,
     "Gardien": null,
     "Jeux pour enfants": true,
     "Pataugeoire": null,
@@ -29,6 +30,7 @@ let myCriteria = {
     "Terrains de sport": true,
     "Activités organisées": true,
     "Élément de culture": true,
+    "Poubelles": null,
     "Horaires d'ouverture": 1,
     "Âge": []
 };
@@ -84,9 +86,11 @@ function geoAttribute(latitude, longitude) {
 }
 
 function noGeoAttribute(event) {
-    myCriteria["Géolocalisation"].lat = null;
-    myCriteria["Géolocalisation"].lng = null;
-    nbElemChoisit--;
+    if (myCriteria["Géolocalisation"].lat) {
+        myCriteria["Géolocalisation"].lat = null;
+        myCriteria["Géolocalisation"].lng = null;
+        nbElemChoisit--;
+    }
 }
 
 function latAttribute(event) {
@@ -205,6 +209,51 @@ function activityAttribute(event) {
 
 function cultureAttribute(event) {
     myCriteria["Élément de culture"] = event.target.checked;
+}
+
+
+function dropYesAccess(event, ui) {
+    if (ui.draggable[0].id !== "Poubelles") {
+        verifyNbElem(myCriteria[ui.draggable[0].id], true);
+        myCriteria[ui.draggable[0].id] = true;
+    }
+}
+
+function dropNoAccess(event, ui) {
+    if (ui.draggable[0].id !== "Poubelles") {
+        verifyNbElem(myCriteria[ui.draggable[0].id], true);
+        myCriteria[ui.draggable[0].id] = false;
+    }
+}
+
+function dropNullAccess(event, ui) {
+    if (ui.draggable[0].id !== "Poubelles") {
+        verifyNbElem(myCriteria[ui.draggable[0].id], false);
+        myCriteria[ui.draggable[0].id] = null;
+    }
+}
+
+function dropYesFlora(event, ui) {
+    verifyNbElem(myCriteria[ui.draggable[0].id], true);
+    myCriteria[ui.draggable[0].id] = true;
+}
+
+function dropNoFlora(event, ui) {
+    verifyNbElem(myCriteria[ui.draggable[0].id], true);
+    myCriteria[ui.draggable[0].id] = false;
+}
+
+function dropNullFlora(event, ui) {
+    verifyNbElem(myCriteria[ui.draggable[0].id], false);
+    myCriteria[ui.draggable[0].id] = null;
+}
+
+function verifyNbElem(value, nbElemCount) {
+    if (nbElemCount) {
+        if (value === null) nbElemChoisit++;
+    } else {
+        if (value !== null) nbElemChoisit--;
+    }
 }
 
 function fetchData() {
@@ -330,8 +379,14 @@ function fetchData() {
                                 line["listElemMatch"].push(key);
                             }
                             break;
+                        case "Accès transports en commun":
+                            if (myCriteria[key] !== null && ((myCriteria[key] && value) || (!myCriteria[key] && value === null))) {
+                                line["nbElemCorrect"]++;
+                                line["listElemMatch"].push(key);
+                            }
+                            break;
                         default:
-                            if (myCriteria[key] != null && myCriteria[key] === value) {
+                            if (myCriteria[key] !== null && myCriteria[key] === value) {
                                 line["nbElemCorrect"]++;
                                 line["listElemMatch"].push(key);
                             }
@@ -416,77 +471,24 @@ function main() {
     const removeGeo = document.getElementById('removeGeo');
     removeGeo.addEventListener('click', noGeoAttribute);
 
-    /*
-    // TODO 'garde' sera à remplacer par l'id de l'élément à tester
-    const garde = document.getElementById('garde');
-    garde.addEventListener('click', gardAttribute);
+    const yesAccess = document.getElementById('yes-access');
+    yesAccess.ondrop = dropYesAccess;
 
+    const noAccess = document.getElementById('no-access');
+    noAccess.ondrop = dropNoAccess;
 
+    const nullAccess = document.getElementById('null-access');
+    nullAccess.ondrop = dropNullAccess;
 
-    // TODO 'pataugeoire' sera à remplacer par l'id de l'élément à tester
-    const pataugeoire = document.getElementById('pataugeoire');
-    pataugeoire.addEventListener('click', paddlingPoolAttribute);
+    const yesFlora = document.getElementById('yes-flora');
+    yesFlora.ondrop = dropYesFlora;
 
-    // TODO 'toilette' sera à remplacer par l'id de l'élément à tester
-    const toilette = document.getElementById('toilette');
-    toilette.addEventListener('click', toiletAttribute);
+    const noFlora = document.getElementById('no-flora');
+    noFlora.ondrop = dropNoFlora;
 
-    // TODO 'toiletteHandicape' sera à remplacer par l'id de l'élément à tester
-    const toiletteHandicape = document.getElementById('toiletteHandicape');
-    toiletteHandicape.addEventListener('click', handicapToiletAttribute);
+    const nullFlora = document.getElementById('null-flora');
+    nullFlora.ondrop = dropNullFlora;
 
-    // TODO 'chien' sera à remplacer par l'id de l'élément à tester
-    const chien = document.getElementById('chien');
-    chien.addEventListener('click', dogAttribute);
-
-    // TODO 'clos' sera à remplacer par l'id de l'élément à tester
-    const clos = document.getElementById('clos');
-    clos.addEventListener('click', closedAttribute);
-
-    // TODO 'abris' sera à remplacer par l'id de l'élément à tester
-    const abris = document.getElementById('abris');
-    abris.addEventListener('click', shelterAttribute);
-
-    // TODO 'pointDeau' sera à remplacer par l'id de l'élément à tester
-    const pointDeau = document.getElementById('pointDeau');
-    pointDeau.addEventListener('click', waterAttribute);
-
-    // TODO 'piqueNique' sera à remplacer par l'id de l'élément à tester
-    const piqueNique = document.getElementById('piqueNique');
-    piqueNique.addEventListener('click', tableAttribute);
-
-    // TODO 'accesHandicape' sera à remplacer par l'id de l'élément à tester
-    const accesHandicape = document.getElementById('accesHandicape');
-    accesHandicape.addEventListener('click', handicapAccesAttribute);
-
-    // TODO 'banc' sera à remplacer par l'id de l'élément à tester
-    const banc = document.getElementById('banc');
-    banc.addEventListener('click', benchesAttribute);
-
-    // TODO 'accesParking' sera à remplacer par l'id de l'élément à tester
-    const accesParking = document.getElementById('accesParking');
-    accesParking.addEventListener('click', parkingAttribute);
-
-    // TODO 'restauration' sera à remplacer par l'id de l'élément à tester
-    const restauration = document.getElementById('restauration');
-    restauration.addEventListener('click', restaurantAttribute);
-
-    // TODO 'animal' sera à remplacer par l'id de l'élément à tester
-    const animal = document.getElementById('animal');
-    animal.addEventListener('click', animalsAttribute);
-
-    // TODO 'herbe' sera à remplacer par l'id de l'élément à tester
-    const herbe = document.getElementById('herbe');
-    herbe.addEventListener('click', grassAttribute);
-
-    // TODO 'verdure' sera à remplacer par l'id de l'élément à tester
-    const verdure = document.getElementById('verdure');
-    verdure.addEventListener('click', greeneryAttribute);
-
-    // TODO 'hour' sera à remplacer par l'id de l'élément à tester
-    const hour = document.getElementById('hour');
-    hour.addEventListener('change', hourAttribute);
-*/
     // Crapa
     const crapa = document.getElementById('crapa-input');
     crapa.addEventListener('change', crapaAttribute);

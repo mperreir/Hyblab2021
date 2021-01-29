@@ -1,13 +1,18 @@
 // init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr',{
-    breadcrumbs: false,
+    breadcrumbs: true,
     controls: 'none',
     fade: false,
     keyboard: false,
     overflow: true,
     timing: { 'linear': '1.5s ease-out' }
   })
+    
     .add('v', ['home-page', 'address-page', 'home-page'], 'linear')
+
+    .add('h', ['home-page', 'histoire-page', 'home-page'], 'linear')
+    .add('h', ['histoire-page', 'home-page', 'histoire-page'], 'linear')
+    
     .add('h', ['address-page', 'hour-page', 'age-page', 'access-page', 'address-page'], 'linear')
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')
     .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')

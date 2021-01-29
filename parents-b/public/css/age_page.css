@@ -44,26 +44,36 @@
 
 .arrive_age{
     position: absolute;
-    top: 235%;
+    top: 181%;
     left : 10%;
-    width: 30%;
+    width: 20%;
     z-index: 1;
 }
 
 .vague_chut{
     position: absolute;
     top: 74%;
-    left : 33%;
+    left : 31%;
     width: 4%;
     z-index: 1;
+    transform: rotate(16deg);
 }
 
 .age_chut{
     position: absolute;
     top: 72%;
-    left : 38%;
-    width: 20%;
+    left : 37%;
+    width: 26%;
     z-index: 1;
+}
+
+.txt_explication{
+    position: absolute;
+    text-align: center;
+    top: 33.5%;
+    left : 34%;
+    width: 38%;
+    z-index: 2;
 }
 
 .fleche_gauche{
@@ -166,4 +176,12 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: 2;
+}
+
+.cascade_age{
+    position: absolute;
+    top: 27%;
+    left : 64.8%;
+    width: 35%;
+    z-index: 1;
 }
