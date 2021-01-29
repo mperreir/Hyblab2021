@@ -1,27 +1,41 @@
 /* ------------------------- Page Hour ---------------------------- */
+.sol-hour{
+    z-index: 3;
+}
+
+.buisson-hour{
+    z-index: 4;
+}
+
+.pink-planet-hour{
+    z-index: 1;
+}
+.green-planet-hour{
+    z-index: 4;
+}
 
 .oya-hour{
-  position: absolute;
-  top: 15%;
-  left: 5%;
-  width: 20%;
-  z-index: 2;
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    width: 23%;
+    z-index: 2;
 }
 
 .talking-bubble-hour{
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  width: 5%;
-  z-index: 2;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 5%;
+    z-index: 2;
 }
 
 .oya-hour-dialog{
-  position: absolute;
-  top: 15%;
-  left: 33%;
-  width: 40%;
-  z-index: 2;
+    position: absolute;
+    top: 15%;
+    left: 33%;
+    width: 40%;
+    z-index: 2;
 }
 
 .leaves-hour{
@@ -34,91 +48,43 @@
   z-index: 2;
 }
 
-.hour{
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  width: 40%;
-  z-index: 1;
+.button-suivant-hour{
+    top: 87%;
+    z-index: 6;
 }
-
-.button-suivant-hour:hover{
-    box-shadow: 0 16px 20px 0 rgba(0,0,0,0.65),0 24px 75px 0 rgba(0,0,0,0.55);
-}
-
 
 #svg-slider{
-  position: absolute;
-  top : 52%;
-  left : 38%;
-  width: 23.5%;
-  z-index: 2;
+    position: absolute;
+    top : 52%;
+    left : 38%;
+    width: 24%;
+    z-index: 5;
 }
 
 .hour-9{
-  position: absolute;
-  width: 4.5%;
-  top:61%;
-  left:31%;
-  z-index: 3;
+    position: absolute;
+    width: 4.5%;
+    top:61%;
+    left:31%;
+    z-index: 3;
 }
 
 .hour-17{
-  position: absolute;
-  width: 4.5%;
-  top:61%;
-  left:63%;
-  z-index: 2;
+    position: absolute;
+    width: 4.5%;
+    top:61%;
+    left:63%;
+    z-index: 3;
 }
 
 .hour-aprem{
-  position: absolute;
-  width: 18%;
-  top:41%;
-  left:40%;
-  z-index: 3;
+    position: absolute;
+    width: 18%;
+    top:41%;
+    left:40%;
+    z-index: 3;
 }
 
 .violet{
-  z-index: 4;
+    z-index: 4;
 }
-
-
-/* .round-slider {
-	display: grid;
-	justify-self: center;
-	align-self: center;
-	border-radius: 80%;
-	cursor: pointer;
-  position: absolute;
-  background: #45396D;
-  top: 50%;
-  left: 38%;
-  z-index: 2;
-  /* transform: rotate(-125deg); */
-/* }
-
-.round-slider .selection {
-  width: 400px;
-  height: 400px;
-	border-radius: 50%;
-	background: #FFCDB6;
-	box-shadow: 0px 0px 3px 0px white;
-	grid-row: 1;
-	grid-column: 1;
-	justify-self: center;
-	align-self: center;
-	pointer-events: none;
-} */
-/*
-.round-slider .selection:after {
-	display: block;
-	content: "";
-	width: 3px;
-	height: calc(50% - 5px);
-	background-color: red;
-	position: absolute;
-	left: calc(50% - 1px);
-	transform-origin: 1px 100%;
-	transform: rotate(0deg);
-} */

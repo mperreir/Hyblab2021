@@ -4,6 +4,41 @@ let initHour = function(){
         initAge();
     });
 
+    //Bouton Suivant
+    let tl_suivant_hour_over = anime.timeline({
+        easing: 'linear',
+        loop:true
+    });
+
+    d3.select('.button-suivant-hour').on('mouseover', function (){
+        tl_suivant_hour_over
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 1.1,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 0.9,
+                duration: 500
+            })
+            .add({
+                targets: ".button-suivant-hour",
+                scale: 1,
+                duration: 500
+            })
+    });
+
+    d3.select('.button-suivant-hour').on('mouseleave' ,function (){
+        anime({
+            targets: ".button-suivant-hour",
+            scale: 1,
+            duration: 200,
+            ease: 'linear'
+        });
+        tl_suivant_hour_over.pause();
+    });
+
     var s = null;
     var rayon = null;
     var bigCircle = null;
@@ -75,26 +110,24 @@ let initHour = function(){
             v.style.opacity = '0';
         }
 
-        let change = document.querySelector("#changeHour");
-
-        // Ajouter valeur INPUT
+        // Ajouter valeur myCriteria
         if (dY < rayon && dX < rayon && ((dX-dY) >= 0)){
-            change.value = 1;
+            updateHour(1);
             document.querySelector(".hour-aprem.violet").style.opacity = '1';
         }
 
         else if (dY < rayon && dX >= rayon && ((dX+dY) < 2*rayon)){
-            change.value = 1;
+            updateHour(1);
             document.querySelector(".hour-aprem.violet").style.opacity = '1';
         }
 
         else if (dY >= rayon && dX >= rayon || dY < rayon && dX >= rayon && ((dX+dY) >= 2*rayon) ){
-            change.value = 2;
+            updateHour(2);
             document.querySelector(".hour-17.violet").style.opacity = '1';
         }
 
         else if(dY >= rayon && dX < rayon || dY < rayon && dX < rayon && ((dX-dY) < 0) ) {
-            change.value = 0;
+            updateHour(0);
             document.querySelector(".hour-9.violet").style.opacity = '1';
         }
 
