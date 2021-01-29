@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/proximite-a/static/css/main.933bca92.chunk.css",
+    "main.js": "/proximite-a/static/js/main.e35cbf5b.chunk.js",
+    "main.js.map": "/proximite-a/static/js/main.e35cbf5b.chunk.js.map",
+    "runtime-main.js": "/proximite-a/static/js/runtime-main.805f25b1.js",
+    "runtime-main.js.map": "/proximite-a/static/js/runtime-main.805f25b1.js.map",
+    "static/js/2.f92c754e.chunk.js": "/proximite-a/static/js/2.f92c754e.chunk.js",
+    "static/js/2.f92c754e.chunk.js.map": "/proximite-a/static/js/2.f92c754e.chunk.js.map",
+    "index.html": "/proximite-a/index.html",
+    "static/css/main.933bca92.chunk.css.map": "/proximite-a/static/css/main.933bca92.chunk.css.map",
+    "static/js/2.f92c754e.chunk.js.LICENSE.txt": "/proximite-a/static/js/2.f92c754e.chunk.js.LICENSE.txt",
+    "static/media/logo_hyblab.c37f2fb3.png": "/proximite-a/static/media/logo_hyblab.c37f2fb3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.805f25b1.js",
+    "static/js/2.f92c754e.chunk.js",
+    "static/css/main.933bca92.chunk.css",
+    "static/js/main.e35cbf5b.chunk.js"
+  ]
+}
