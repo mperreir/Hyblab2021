@@ -35,7 +35,6 @@ export default Vue.component("question", {
   display: block;
   color: white;
   position: relative;
-
   text-align: center;
   font-weight: bold;
 }

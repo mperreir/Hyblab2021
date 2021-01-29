@@ -71,26 +71,26 @@ export default {
 
 <style scoped>
 
-#launcher {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: stretch;
-  align-items: center;
-}
+  #launcher {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
 
-.depart {
-  order: 0;
-  margin-bottom: 10px;
-  flex: 0 1 auto;
-  align-self: auto;
-}
+  .depart {
+    order: 0;
+    margin-bottom: 10px;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
 
-.arrive {
-  order: 0;
-  margin-bottom: 50px;
-  flex: 0 1 auto;
-  align-self: auto;
-}
+  .arrive {
+    order: 0;
+    margin-bottom: 50px;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
 </style>

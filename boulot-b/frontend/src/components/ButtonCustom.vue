@@ -1,5 +1,5 @@
 <template>
-  <button @click="click" :class=color class="button">
+  <button   @click="click" :class=color class="button">
     {{ text }}
   </button>
 </template>

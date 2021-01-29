@@ -2,7 +2,7 @@
   <Container>
     <template #question >
       <Question  >
-        <ButtonCustom @click="nextCulture" text="Culture!" color="yellow"/>
+        <ButtonCustom @click="nextCulture" text="Culture" color="yellow"/>
         <ButtonCustom  @click="nextNature"  text="Nature" color="blue" />
         <ButtonCustom @click="nextAlea" text="Je te laisse choisir pour moi" color="yellow" />
       </Question>
@@ -27,7 +27,6 @@ import Stepper from "@/components/Stepper";
 import Oiseau from "@/components/Oiseau";
 import Buildings from "@/components/Buildings";
 import {Themes} from "@/store";
-import ChoixLieux from "@/views/ChoixLieux";
 
 export default {
   choice: "theme",
