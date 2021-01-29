@@ -1,14 +1,11 @@
-#mainContainer{
-    width: 100%;
+#MoyenContainer{
+    height: 100%;
+    width: auto;
     background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
     background-size: 50%;
     background-position: top 140% right 20%;
     background-repeat: no-repeat;
     z-index: -2;
-}
-#MoyenContainer{
-    height: 100%;
-    width: auto;
 }
 
 #Theme{
