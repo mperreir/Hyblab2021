@@ -1,4 +1,4 @@
-
+var audioPort = new Audio('sound/sonSirene.wav');
 
 function updateElement(element, reponse){
     let valeur = reponse.json;
@@ -31,9 +31,9 @@ function updateElement(element, reponse){
       }
       else {
         if(valeur == "harbor"){
-          var audio = new Audio('sound/sonSirene.wav');
-		  audio.volume = volumeGeneral;
-          audio.play();
+          
+		  audioPort.volume = volumeGeneral;
+          audioPort.play();
         }
         affichage[element] += valeur + ',';
       }
