@@ -10,48 +10,48 @@ class ThemeSelector extends React.Component {
     render() {
         const { onNextPage, onPreviousPage } = this.props;
         return (
-            <div className="bg-info m-5 d-flex justify-content-center align-items-center flex-column">
-                <h3>Tu est plutot .. ?</h3>
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <input type="radio" name="theme" id="fetard" className="input-hidden" />
+            <div id="themeSelector" class="bg-white m-5 d-flex justify-content-center align-items-center flex-column">
+                <h3>Tu te sens plutôt .. ?</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <input type="radio" name="theme" id="fetard" class="input-hidden" />
                             <label htmlFor="fetard">
-                                <img src={fetard_img} alt="fetard" />
+                                <img src={fetard_img} alt="fetard" class="img_bas"/>
                             </label>
                         </div>
 
-                        <div className="col">
-                            <input type="radio" name="theme" id="sportif" className="input-hidden" />
+                        <div class="col">
+                            <input type="radio" name="theme" id="sportif" class="input-hidden" />
                             <label htmlFor="sportif">
-                                <img src={sportif_img} alt="sportif" />
+                                <img src={sportif_img} alt="sportif" class="img_hte"/>
                             </label>
                         </div>
 
-                        <div className="col">
-                            <input type="radio" name="theme" id="gourmet" className="input-hidden" />
+                        <div class="col">
+                            <input type="radio" name="theme" id="gourmet" class="input-hidden" />
                             <label htmlFor="gourmet">
-                                <img src={gourmet_img} alt="gourmet" />
+                                <img src={gourmet_img} alt="gourmet" class="img_bas"/>
                             </label>
                         </div>
 
-                        <div className="col">
-                            <input type="radio" name="theme" id="curieux" className="input-hidden" />
+                        <div class="col">
+                            <input type="radio" name="theme" id="curieux" class="input-hidden" />
                             <label htmlFor="curieux">
-                                <img src={curieux_img} alt="curieux" />
+                                <img src={curieux_img} alt="curieux" class="img_hte"/>
                             </label>
                         </div>
 
-                        <div className="col">
-                            <input type="radio" name="theme" id="famille" className="input-hidden" />
+                        <div class="col">
+                            <input type="radio" name="theme" id="famille" class="input-hidden" />
                             <label htmlFor="famille">
-                                <img src={famille_img} alt="familley" />
+                                <img src={famille_img} alt="familley" class="img_bas"/>
                             </label>
                         </div>
                     </div>
                 </div>
-                <span className="m-2 bg-warning p-2">fast food - bars - boîtes ....</span>
-                <input type='button' className="btn btn-primary mb-3" value='Valider' onClick={onNextPage} />
+                <span>fast food - bars - boîtes ....</span>
+                <input type='button' class="mb-3" value='VALIDER' onClick={onNextPage} />
             </div>
         );
     }

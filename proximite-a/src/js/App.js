@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './Home'
+import Home from './Home';
 import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
@@ -8,7 +8,7 @@ import AcceuilCarte from './AcceuilCarte';
 class App extends  React.Component {
 
     state = {
-        pageId:4
+        pageId:1
     };
 
     getPage = () =>{
