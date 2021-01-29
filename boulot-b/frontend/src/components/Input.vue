@@ -18,14 +18,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$yellow: #ffdb27;
 
 .input {
-
-  border-top-left-radius: 5px;
-    border-top-right-radius: 5px;  border: none;
-  background-color: #ffdb27;
-  padding: 5px 5px 5px 20px;
+  border-radius: 20px;
+  background-color: $yellow;
+  padding: 20px 20px;
   width:40%;
 }
 
@@ -34,7 +33,7 @@ export default {
 }
 
 .input:hover ,.input:focus {
-  background-color: #fbdc51;
+  background-color: darken($yellow,10%)
 }
 
 .input::placeholder {

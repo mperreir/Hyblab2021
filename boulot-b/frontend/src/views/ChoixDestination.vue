@@ -5,7 +5,7 @@
         <div id="inputliste">
           <Input
             @blur="onBlur"
-            @input="getAdress('depart')"
+            @input="getAddressDepart"
             :error="error.depart"
             v-model="departlabel"
             class="depart"
@@ -13,6 +13,7 @@
           />
           <ul class="depart-result-list">
             <li
+              class="depart-result-item"
               v-for="item in suggestionsdepart"
               :key="item.properties.id"
               @click="setDepart(item)"
@@ -24,13 +25,14 @@
         <div id="inputliste">
           <Input
             :error="error.arrive"
-            @input="getAdress('arrivee')"
+            @input="getAddressArrive"
             v-model="arriveelabel"
             class="arrive"
             placeholder="Point d'arrivée..."
           />
           <ul class="arrivee-result-list">
             <li
+              class="arrive-result-item"
               v-for="item in suggestionarrivee"
               :key="item.properties.id"
               @click="setArrivee(item)"
@@ -103,11 +105,10 @@ export default {
       if (!this.depart || !this.arrive) {
         this.error.arrive = !this.arrive;
         this.error.depart = !this.depart;
-        this.message =
-          "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
+        this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
         return;
       }
-      let path = [this.depart, this.arrive];
+      const path = [this.depart, this.arrive];
       this.$root.$data.setPath(path);
       this.message = "Allons-y !";
       setTimeout(() => {
@@ -126,112 +127,101 @@ export default {
       this.suggestionarrivee = [];
     },
 
-    async getAdress(task) {
-      if (task == "depart") {
-        this.suggestionsdepart = undefined;
-        this.depart = undefined;
-        //citycode 44109 inclut toute la ville de nantes : 44100 ,44200 ...
-        if (this.departlabel.length > 4) {
-          let recherche = this.departlabel.replace(/\s/g, "+");
-          let url =
-            "https://api-adresse.data.gouv.fr/search/?q=" +
-            recherche +
-            "&citycode=44109&limit=5";
-          let response = await fetch(url);
-          await response
+    async getAddress(recherche) {
+      if (recherche.length > 4) {
+        const url = `https://api-adresse.data.gouv.fr/search/?q=${recherche}&citycode=44109&limit=5`;
+        const response = await fetch(url);
+        return response
             .json()
             .then((res) => res.features)
-            .then((suggestions) => {
-              this.suggestionsdepart = suggestions;
-            });
-        }
-      } else if (task == "arrivee") {
-        this.suggestionarrivee = undefined;
-        this.arrive = undefined;
-        if (this.arriveelabel.length > 4) {
-          let recherche = this.arriveelabel.replace(/\s/g, "+");
-          let url =
-            "https://api-adresse.data.gouv.fr/search/?q=" +
-            recherche +
-            "&citycode=44109&limit=5";
-          let response = await fetch(url);
-          await response
-            .json()
-            .then((res) => res.features)
-            .then((suggestions) => {
-              this.suggestionarrivee = suggestions;
-            });
-        }
+            .then((suggestions) => suggestions);
       }
     },
-  },
+
+    async getAddressArrive() {
+      const recherche = this.arriveelabel.replace(/\s/g, "+");
+      this.suggestionarrivee = await this.getAddress(recherche)
+    },
+
+      async getAddressDepart() {
+        const recherche = this.departlabel.replace(/\s/g, "+");
+        this.suggestionsdepart = await this.getAddress(recherche);
+      }
+
+    },
 };
 </script>
 
-<style scoped>
-#launcher {
-  position: relative;
-}
+<style scoped lang="scss">
+  #launcher {
+    position: relative;
+  }
 
-#inputliste {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: stretch;
-  align-items: center;
-}
+  #inputliste {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
 
-.depart {
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
-}
+  .depart {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
 
-.arrive {
-  order: 0;
-  margin-top: 50px;
-  flex: 0 1 auto;
-  align-self: auto;
-}
-#nuage1 {
-  position: absolute;
-  top: 60%;
-  left: -6%;
-  width: 25%;
-}
-#nuage2 {
-  position: absolute;
-  top: 55%;
-  left: 20%;
-  width: 8%;
-}
-#nuage3 {
-  position: absolute;
-  top: 30%;
-  right: 10%;
-  width: 15%;
-}
-#nuage4 {
-  position: absolute;
-  bottom: 8%;
-  right: -12%;
-  width: 50%;
-}
-#nuage5 {
-  position: absolute;
-  bottom: -6%;
-  left: 25%;
-  width: 15%;
-}
-.depart-result-list,
-.arrivee-result-list {
-  margin-top: 0px;
-  list-style-type: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #ffdb27;
-  font-size: 10px;
-  width: 37%;
-}
+  .arrive {
+    order: 0;
+    margin-top: 50px;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+  #nuage1 {
+    position: absolute;
+    top: 60%;
+    left: -6%;
+    width: 25%;
+  }
+  #nuage2 {
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    width: 8%;
+  }
+  #nuage3 {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 15%;
+  }
+  #nuage4 {
+    position: absolute;
+    bottom: 8%;
+    right: -12%;
+    width: 50%;
+  }
+  #nuage5 {
+    position: absolute;
+    bottom: -6%;
+    left: 25%;
+    width: 15%;
+  }
+  .depart-result-list,
+  .arrivee-result-list {
+    position: relative;
+    margin-top: 0px;
+    list-style-type: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #ffdb27;
+    font-size: 10px;
+    width: 37%;
+  }
+
+  .depart-result-item:hover, .arrive-result-item:hover {
+    cursor: pointer;
+    background-color: darken(#ffdb27, 20%);
+  }
 </style>
