@@ -28,6 +28,7 @@ function getPlagesSlideFin(){
 var cards = document.getElementsByClassName("cartePostale");
 var playing = false;
 
+/*
 for(let card of cards){
   card.addEventListener('click',function() {
     if(playing)
@@ -47,6 +48,7 @@ for(let card of cards){
     });
   });
 }
+*/
 
 function updateSlideFin(plages, criteres){
   let loading = document.getElementById("loading");
