@@ -47,7 +47,7 @@ const gourmet = [
     "amenity=restaurant",
 ]
 
-export const POINT_TYPES = {
+const POINT_TYPES = {
     culture,
     fetard,
     gourmet,
@@ -56,7 +56,8 @@ export const POINT_TYPES = {
     tous
 };
 
-export async function getPointsInZoneForProfile(zone, profil) {
+
+const getPointsInZoneForProfile =async function(zone, profil) {
     return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
 }
 
@@ -102,8 +103,8 @@ const getBoxFromZone = (zone) => {
         south = latCoor < south ? latCoor : south;
         north = latCoor > north ? latCoor : north;
     });
-
+    console.log([north, west, south, east]);
     return [north, west, south, east];
 }
-module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfil };
+module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfile };
 
