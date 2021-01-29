@@ -59,8 +59,25 @@
     background-color: white;
     border-radius: 5em !important;
     border: 0 none;
-    background-image: url('/proximite-b/img/timeline/modal/feuillegauche.svg') !important;
 
+}
+
+#closeMultipleModal {
+    width: 3em;
+    height: 3em;
+    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg') !important;
+
+    background-repeat: no-repeat;
+    
+    opacity: 1;
+    position: absolute;
+    top: 6em;
+    right: -1em;
+    z-index: 1;
+}
+
+ #closeMultipleModal:hover {
+    cursor: pointer;
 }
 
 
