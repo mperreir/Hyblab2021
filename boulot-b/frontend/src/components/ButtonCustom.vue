@@ -25,6 +25,7 @@ $blue:  #0ec0ec;
 $yellow: #ffdb27;
   .button {
     margin: 10px;
+    max-width: 400px;
     width: 50%;
     display: block;
     border: none;

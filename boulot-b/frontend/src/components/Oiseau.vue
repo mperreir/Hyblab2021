@@ -85,8 +85,10 @@ export default {
     letter-spacing: 0;
     text-align: center;
   }
+
+
   #wazo-anim {
-    width: 200px;
+    width: 300px;
   }
 
   .bubble{
@@ -99,10 +101,10 @@ export default {
 
   .bubble::after{
     content:"";
-    border-left:20px solid transparent;
-    border-right:20px solid transparent;
-    border-top: 20px solid $bulle;
-    margin-left: 100px;
+    border-left:30px solid transparent;
+    border-right:30px solid transparent;
+    border-top: 30px solid $bulle;
+    margin-left: 150px;
     position: absolute;
   }
 

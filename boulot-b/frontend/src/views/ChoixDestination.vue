@@ -111,7 +111,7 @@ export default {
         this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
         return;
       }
-      const path = [this.departlabel, this.arriveelabel];
+      const path = [this.depart, this.arrive];
       this.$root.$data.setPath(path);
       this.message = "Allons-y !";
       setTimeout(() => {
