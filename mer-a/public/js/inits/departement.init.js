@@ -3,12 +3,12 @@
 /**
  * Specific constants definition
  */
-var codeDep = getCodeDepartement(url);
-var codeType = getCodeType(url);
 
-var map = getMapDepartement(codeDep);
+codeType = getCodeType();
 
-var baseNarration = {
+map = getMapDepartement(codeDep);
+
+baseNarration = {
 	html: {
 		box: document.getElementById('narration'),
 		text: document.querySelector('#narration > span'),
@@ -25,7 +25,8 @@ var baseNarration = {
 		boxHeight: 0
 	}
 };
-var legendNarration = {
+
+legendNarration = {
 	html: {
 		box: document.querySelector('#narration_legende'),
 		title: document.querySelector('#narration_legende > span.title'),
@@ -45,16 +46,17 @@ var legendNarration = {
 	}
 };
 
-var persoBox = document.getElementById('character');
+persoBox = document.getElementById('character');
+
 
 /**
  * The main function in ASYNC.
  */
 (async () => {
-	console.log(map);
+	updateAriane(3, deps.get(codeDep).nomDepartement, getCategorie(codeType).nomCategorie, 'légende');
 	await getLegendes(codeDep, codeType, r => legendes = r);
 	if(!categories) await getTypesId(r => categories = r);
-	if(!deps.data) await getRegionsId(r => deps.data = r);
+	await getRegionsId(r => deps.data = r);
 	deps.data = [deps.get(map.properties.code)];
 	categorie = getCategorie(codeType);
 	baseNarration.animation.text = categorie.phraseDep;
