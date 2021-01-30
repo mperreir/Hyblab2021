@@ -1,41 +1,57 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+
 #MoyenContainer{
     height: 100%;
-    width: auto;
     background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
     background-size: 50%;
-    background-position: top 140% right 20%;
+    background-position: bottom -40% right 30%;
     background-repeat: no-repeat;
     z-index: -2;
+    padding: 0;
 }
 
-#Theme{
+#logoCorner{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 150px;
+}
+#MoyenContainer #Theme{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 0px 74px 74px 0px;
     height: 100%;
     width: 40%;
     background-color: #ffffff;
     left:0;
-    
+    width: 30%;
 }
 
-#Theme span{
+#MoyenContainer#Theme span{
     width: 50%;
 }
-#Localisation{
-    height: 100%;
+#MoyenContainer #containerLocalisation{
     width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#MoyenContainer #Localisation{
+    height: 100%;
+    width: 100%;
     background-color: #756EFF;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 74px;
-    z-index: 0;
+    border-radius: 0 26px 26px 0;
 }
-#Localisation img{
+#MoyenContainer #Localisation img{
     width: 40px;
     height: 50px;
-    
 }
-#Moyen{
+#MoyenContainer #Moyen{
     color: #756EFF;
+    width: 70%;
 }
 
 .btnNavigation{
@@ -46,25 +62,27 @@
     position: absolute;
     left: -9999px;
 }
-#changepage p{
+#MoyenContainer #changepage p{
     margin: 0;
     opacity: 0;
     transition: 500ms all;
 }
-#changepage:hover p{
+#MoyenContainer #changepage:hover p{
     margin: 0;
     opacity: 1;
     transition: 400ms all;
 }
 
-#changepage input{
+#MoyenContainer #changepage input{
     background-color: Transparent;
-    background-repeat:no-repeat;
     border: 2px solid #756EFF;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
     cursor:pointer;
-    overflow: hidden;
-    outline:none;
     color: #756EFF;
 }
 
@@ -82,7 +100,7 @@
     background-position: center;
     background-repeat : no-repeat;
     opacity: 0.5;
-    
+
 }
 
 #MoyenContainer input[type=radio] + label>img:hover{
@@ -94,10 +112,59 @@
 
 }
 
-#changepage input[type=button]:disabled{
+#MoyenContainer #changepage input[type=button]:disabled{
     opacity: 0.5;
 }
 
-#changepage:hover input[type=button]:disabled + p{
+#MoyenContainer #changepage:hover input[type=button]:disabled + p{
     opacity: 0.5;
 }
+
+#MoyenContainer #valide:disabled{
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 900px)
+{
+    #MoyenContainer{
+        flex-direction: column !important;
+    }
+    #MoyenContainer #Theme{
+        width: 100%;
+        border-radius: 0px 0px 74px 74px;
+        padding: 15px;
+    }
+    #MoyenContainer #containerLocalisation{
+       display: none;
+    }
+    #Moyen{
+        width: 100%;
+    }
+}
+
+
+
+.btnNavigationAttributPurple{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid #756EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #756EFF;
+    margin: 0 30px 0 30px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btnNavigationAttributPurple:hover{
+    border: none;
+    color: white;
+    background-color: #756EFF;
+    transition: .5s;
+}
+.selection img{
+    cursor: pointer;
+}
+

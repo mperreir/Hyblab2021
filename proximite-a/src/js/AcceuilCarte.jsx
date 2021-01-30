@@ -21,16 +21,11 @@ function GetIcon(_iconsize){
 class AcceuilCarte extends  React.Component {
     state={
         popupPhase : 2,
-        currentPosition: [47.2819, -1.5158]
+        currentPosition: [47.2819, -1.5158],
+        sites:this.props.data.sites
     };
 
-    /*componentDidMount() {
-        navigator.geolocation.getCurrentPosition(function(position) {   //une fois la position récupérée
-            this.setState( {
-                currentPosition: [position.coords.latitude,position.coords.longitude]
-            })
-        }.bind(this));
-    }*/
+
 
 
     getPhase(nom){
@@ -38,9 +33,9 @@ class AcceuilCarte extends  React.Component {
             case 0:
                 return null;
             case 1:
-                return <CarteInterractionChoixLieu nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
-                return <CarteInterractionChoixMultiples nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
         }
     };
 
