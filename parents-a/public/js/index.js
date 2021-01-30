@@ -281,7 +281,5 @@ let initSlideResultat = function() {
         nextSlide('10')
      });
 }
-//Voir des animaux
 
-//Initialisation du diaporama
 initSlide1();
