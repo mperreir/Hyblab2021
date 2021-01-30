@@ -7,8 +7,8 @@ section[data-slidr="page-2"] {
 #arbre-bleu-p2-1 {
     position: absolute;
     bottom: 15%;
-    right: 10%;
-    width: 40%;
+    right: 14%;
+    width: 29%;
     transform: scale(1);
     transition-property: transform;
     transition-duration: 1000ms;
@@ -61,7 +61,7 @@ section[data-slidr="page-2"] {
 
 #pelouse-p2-1 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     right: 0%;
     bottom: 0%;
 }
@@ -99,8 +99,8 @@ section[data-slidr="page-2"] {
 #arbre-jaune-p2-1 {
     position: absolute;
     bottom: 12%;
-    right: 0%;
-    width: 25%;
+    right: 5%;
+    width: 13%;
     transform: scale(1) translateY(0%);
     transition-property: transform;
     transition-duration: 1000ms;
