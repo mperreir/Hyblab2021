@@ -1,11 +1,6 @@
 /* PAGE 2.1 */
 section[data-slidr="page-2"] {
-    background: linear-gradient(90.42deg,
-    #6FB5EF 13.84%,
-    #69ABEB 22.53%,
-    #5A91E0 37.19%,
-    #4166CF 56.01%,
-    #1F2BB6 78.06%);
+    background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
     overflow: hidden;
 }
 
@@ -71,6 +66,13 @@ section[data-slidr="page-2"] {
     bottom: 0%;
 }
 
+#pelouse_gauche-p2-1 {
+    position: absolute;
+    width: 6.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
 #arbuste_bleu-p2-1 {
     position: absolute;
     bottom: 9%;
@@ -99,6 +101,13 @@ section[data-slidr="page-2"] {
     bottom: 12%;
     right: 0%;
     width: 25%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre_jaune-p2-1:hover {
+    transform: scale(0.9) translateY(5%);
 }
 
 #chaise-p2-1 {
@@ -147,14 +156,13 @@ section[data-slidr="page-2"] {
 #button-p2-1 {
     /* Position */
     position: absolute;
-    width: 4%;
+    width: 3%;
     left: 52%;
     top: 46%;
     /* Design */
-    border-radius: 50%;
+    border-radius: 100%;
     outline: none;
 }
-
 
 /* elements qui apparaissent */
 #appear {
@@ -174,7 +182,7 @@ section[data-slidr="page-2"] {
     left: 34%;
     top: 63%;
     /* Design */
-    border-radius: 5%;
+    border-radius: 10%;
     outline: none;
 }
 
