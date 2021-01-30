@@ -15,27 +15,41 @@ class Attributs extends React.Component{
         choixCoordonnes: false //si l'utilisateur a décidé d'utiliser la géolocalisation
     };
 
-    requestingCoords = () =>{
+        getCoords = () =>{
+        console.log('fetching https://hyblab.polytech.univ-nantes.fr/proximite-a/api/adresse/23+avenue+de+la+concorde+44800+saint-herblain+france')
+        fetch('http://localhost:8080/proximite-a/api/adresse/23+avenue+de+la+concorde+44800+saint-herblain+france')
+            .then((response) => {   //récupération de la réponse
+                if (response.ok) {
+                    console.log(response)
+                    return response.json();
+                }else {
+                    console.log("err")
+                }
+            })
+            .then((donnee) => {  //récupération des données JSON
+                console.log(donnee)
+            })
+    }
+
+    getLocalAdress = () =>{
         navigator.geolocation.getCurrentPosition(function (position) {   //une fois la position récupérée
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch( 'http://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch( 'https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
+                        console.log(response)
                         return response.json();
                     }
-                    else {
-                        throw new Error('un problème sest passé');
-                    }
                 })
-                .then((response) => {  //récupération des données JSON
-                    console.log(response)
+                .then((donnee) => {  //récupération des données JSON
+                    console.log(donnee)
                     this.setState({
                         adresse:{
-                            codepostal:response.codepostal,
-                            rue:response.rue,
-                            ville:response.ville
+                            codepostal:donnee.codepostal,
+                            rue:donnee.rue,
+                            ville:donnee.ville
                         },
                     });
                 })
@@ -77,7 +91,6 @@ class Attributs extends React.Component{
     };
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
-        console.log(this.state.adresse)
         return(
             <div id="attributContainer" class="d-flex justify-content-center align-items-center ">
                 <div id="leftPartAttribut">
@@ -104,7 +117,7 @@ class Attributs extends React.Component{
                         <p id="textChoisi" class="mb-4">Choisi ton point de départ</p>
                         <div className="search">
                             <span className="fa fa-compass"></span>
-                            <input  type="button" className="btnAttribut btn" value="Activer la géolocalisation" onClick={ this.requestingCoords}/>
+                            <input  type="button" className="btnAttribut btn" value="Activer la géolocalisation" onClick={ this.getLocalAdress}/>
                         </div>
                         <p class="text-white m-4"><b>OU</b></p>
                         <div className="search d-flex flex-column">
@@ -115,7 +128,10 @@ class Attributs extends React.Component{
                             <div class="text-white">Code Postal</div>
                             <input class="inputText" placeholder="ex: 44100" value={this.state.adresse.codepostal} onChange={this.handleChangeCP}/>
                         </div>
-                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
+                        <div>
+                            <input type='button' class="border-0 bg-transparent mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
+                            <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
+                        </div>
                     </div>
                     <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
                 </div>

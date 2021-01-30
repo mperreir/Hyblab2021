@@ -152,7 +152,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
                     </div>
                     <hr/>
                     <div class="sectionReduire">
-                        <input class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
+                        <input type="button" class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
                 <Etiquette data={this.state.sites[0]} identifiant={"etiquette1"} numero={1}/>

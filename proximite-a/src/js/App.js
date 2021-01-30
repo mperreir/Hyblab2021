@@ -19,8 +19,8 @@ class App extends  React.Component {
             ville: ''
         },
         sites: [{ id: '1', titre: 'squalala', img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg', adresse: 'nous sommes partis'},
-            { id: '2', titre: 'squelele', img: 'https://image.jeuxvideo.com/medias-sm/145554/1455543880-3365-photo.png', adresse: 'nous sommes repartis' },
-            { id: '3', titre: 'lelele', img:'https://i.redd.it/izua8frednh41.png',adresse:'AAAAAAAAAAAAAHH'}]
+            { id: '2', titre: 'squelele', img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif', adresse: 'nous sommes repartis' },
+            { id: '3', titre: 'Oooo di', img:'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',adresse:'AAAAAAAAAAAAAHH'}]
     };
 
     getPage = () => {

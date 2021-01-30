@@ -27,7 +27,6 @@ module.exports = function () {
         coordinates = {latitude: coordinates[0], longitude: coordinates[1]};
         let data = await addresstocoordinates.coordinatestoaddress(coordinates);
         res.json(data);
-
     })
 
     app.get('/get15minzone/*/*/', function(req, res){

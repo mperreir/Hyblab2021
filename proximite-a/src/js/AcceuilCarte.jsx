@@ -4,6 +4,7 @@ import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
 import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
+import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
 
@@ -37,6 +38,8 @@ class AcceuilCarte extends  React.Component {
                 return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
                 return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onNextPhase={this.nextPhase}/>;
+            case 3:
+                return <CarteInterractionChoixMultiplesReduit data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onPreviousPhase={this.previousPhase}/>;
         }
     };
 
@@ -56,6 +59,7 @@ class AcceuilCarte extends  React.Component {
 
 
     render() {
+        console.log(this.state.popupPhase)
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
@@ -72,7 +76,8 @@ class AcceuilCarte extends  React.Component {
                 {this.getPhase({nomPers})}
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
-                    <a href="https://www.google.com/" class="buttonMapNavigation">Télécharger la carte en PDF</a>
+                    <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
+                    <input type="button" class="buttonMapNavigation" value="Crédits"/>
                 </div>
             </div>
         );
