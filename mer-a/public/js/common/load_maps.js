@@ -118,7 +118,8 @@ function leaveDot(t){
  * Function that extract the svg paths of the selected region.
  * @param {number} code 	the id of the selected region.
  */
-function getMapDepartement(code){
+function getMapDepartement(){
+	const code = router.data.department;
 	let f = null;
 	for(let i in mapFusion.features){
 		let feature = mapFusion.features[i];
@@ -128,6 +129,10 @@ function getMapDepartement(code){
 		}
 	}
 	return f;
+}
+
+function getMapDepartement(){
+	return mapFusion.features.find(element => element.properties.code === router.data.department);
 }
 
 /**

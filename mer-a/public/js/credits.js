@@ -2,6 +2,8 @@
 
 (() => {
   document.querySelector('#back').addEventListener('click', () => {
-    loadRessources("legende", {});
+    router.loadRessources("legende", {
+      legende: router.data.legende
+    });
   });
 })();

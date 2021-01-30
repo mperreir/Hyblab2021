@@ -14,9 +14,11 @@ class Router {
     this.idFond = 1;
     this.stop = false;
     $(`#scene1`).load(`/mer-a/html/fond/parallax1.html`, () => {
-      this.loadParralax(1);
+      this.#loadParralax(1);
+      $(`#scene2`).load(`/mer-a/html/fond/parallax2.html`, () => {
+        this.#initAnim();
+      });
     });
-    $(`#scene2`).load(`/mer-a/html/fond/parallax2.html`);
   }
 
   loadRessources(path, data, change) {
@@ -26,7 +28,7 @@ class Router {
     this.changeFond(change);
   }
 
-  loadParralax(id) {
+  #loadParralax(id) {
     if(id === 1 || id === 2) this.parralax = new Parallax((id === 1) ? this.scene1 : this.scene2);
   }
 
@@ -59,7 +61,13 @@ class Router {
           this.fondMer.style.display = 'block';
           break;
       }
-      this.loadParralax(idChange);
+      this.#loadParralax(idChange);
     }
+  }
+
+  #initAnim() {
+    document.querySelectorAll('.vague').forEach((element, index) => {
+      element.style.animation = `${element.dataset.animTime}s ${(index % 2 == 0) ? 'waveDown' : 'waveUp'} ease-in-out infinite`;
+    });
   }
 }

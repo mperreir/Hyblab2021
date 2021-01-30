@@ -4,7 +4,6 @@
  * Specific constants definition
  */
 const persosBox = document.getElementsByClassName('personnages')[0];
-const departement = document.querySelector('#content').dataset.department;
 
 /**
  * The main function in ASYNC.
@@ -12,12 +11,10 @@ const departement = document.querySelector('#content').dataset.department;
 (async () => {
     // Retrieve data from the API
     await getTypesId(r => categories = r);
-    console.log(categories);
     // Sort the data
     categories = sortCategories();
     // For each category we create the HTML component
     for(let c of categories) {
-        console.log(c);
         let formatC = formatCategorie(c.nomCategorie);
         let zone = document.createElement('div');
         zone.classList.add('zone', `zone-${formatC}`);
@@ -29,8 +26,8 @@ const departement = document.querySelector('#content').dataset.department;
         let imagePerso = document.createElement('p');
         imagePerso.id = formatC;
         imagePerso.addEventListener('click', () => {
-            loadRessources('departement', {
-                department: departement,
+            router.loadRessources('departement', {
+                department: router.data.department,
                 personnage: c.id
             }, 3);
         });

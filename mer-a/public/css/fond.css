@@ -28,14 +28,6 @@ div#change {
 	right: 0;
 }
 
-.arret {
-   animation-play-state: paused !important;
-}
-
-.encours {
-  animation-play-state: running !important;
-}
-
 #fond-mer {
   position: absolute;
   display: none;
@@ -48,13 +40,11 @@ div#change {
 
 #scene2 {
   display: none;
-
 }
 
-.vague {
-  animation: waveDown attr(data-time) ease-in-out infinite;
+#boat {
+	animation: 3s waveDown ease-in-out infinite;
 }
-
 
 @keyframes waveDown {
   0%   {

@@ -1,12 +1,6 @@
 'use strict';
 
-/**
- * Specific constants definition
- */
-const codeDep = getCodeDepartement(url);
-const codeType = getCodeType(url);
-
-const map = getMapDepartement(codeDep);
+const map = getMapDepartement();
 
 const baseNarration = {
 	html: {
@@ -52,11 +46,11 @@ const persoBox = document.getElementById('character');
  */
 (async () => {
 	console.log(map);
-	await getLegendes(codeDep, codeType, r => legendes = r);
+	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
 	if(!categories) await getTypesId(r => categories = r);
 	if(!deps.data) await getRegionsId(r => deps.data = r);
 	deps.data = [deps.get(map.properties.code)];
-	categorie = getCategorie(codeType);
+	categorie = getCategorie(router.data.personnage);
 	baseNarration.animation.text = categorie.phraseDep;
 	setNarrationBoxes();
 	generateDep(mapFusion);

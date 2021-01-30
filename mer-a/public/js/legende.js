@@ -2,7 +2,7 @@
 
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
-	await getLegendeById(document.querySelector('#content').dataset.legende, data => {
+	await getLegendeById(router.data.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
@@ -14,10 +14,12 @@
 			window.open(url, '_blank');
 		});
 		document.querySelector('#but-credits').addEventListener('click', (event) => {
-			loadRessources('credits', {});
+			router.loadRessources('credits', {
+				legende: router.data.legende
+			});
 		});
 		document.querySelector('#but-back-home').addEventListener('click', (event) => {
-			loadRessources('accueil', {});
+			router.loadRessources('accueil', {});
 		});
 		initLogo('wc', 'toilettes', data.toilettes);
 		initLogo('swim', 'baignade', data.baignade);

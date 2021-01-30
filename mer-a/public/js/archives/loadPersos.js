@@ -80,7 +80,7 @@ function sortCategories() {
         let imagePerso = document.createElement('p');
         imagePerso.id = formatC;
         imagePerso.addEventListener('click', () => {
-            loadRessources('departement', {
+            router.loadRessources('departement', {
                 department: departement,
                 personnage: c.id
             }, 3);
