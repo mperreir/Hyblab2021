@@ -1,4 +1,6 @@
 window.devMode = document.cookie.indexOf('dev=true') === 0;
+window.onhashchange = () => window.devMode && goToSlide(window.location.hash || "splash-screen");
+
 window.slides = {};
 
 let zoneChoisie = null, vehiculeChoisi = null;
@@ -18,10 +20,6 @@ function goToSlide(name) {
         alert(`La page "${name}" n'est pas registered avec registerSlide() !`);
     }
 }
-
-window.onhashchange = () => {
-    goToSlide(window.location.hash || "splash-screen");
-};
 
 function overrideAnim(data) {
     anime.remove(data.targets);
@@ -44,20 +42,24 @@ const initButtons = function () {
         });
 };
 
-const fetchJsonData = function(addr, callback) {
+const fetchJsonData = function (addr, callback) {
     fetch(addr)
-    .then(function(response) {
-        if (response.ok) {
-            response.json()
-            .then(function(data) {
-                callback(data);
-            })
-            .catch(e => {console.error(e);});
-        } else {
-            console.error(response+" is not valid");
-        }
-    })
-    .catch(e => {console.error(e);});
+        .then(function (response) {
+            if (response.ok) {
+                response.json()
+                    .then(function (data) {
+                        callback(data);
+                    })
+                    .catch(e => {
+                        console.error(e);
+                    });
+            } else {
+                console.error(response + " is not valid");
+            }
+        })
+        .catch(e => {
+            console.error(e);
+        });
 };
 
 registerSlide("slides", () => {

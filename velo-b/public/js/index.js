@@ -21,4 +21,4 @@ if (window.devMode) {
 
 initButtons();
 
-goToSlide(window.location.hash || "splash-screen");
+goToSlide(window.devMode && window.location.hash || "splash-screen");
