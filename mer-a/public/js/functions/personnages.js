@@ -34,10 +34,8 @@ function sortCategories() {
     if(ordreCategories == null || ordreCategories == undefined || ordreCategories.length !== categories.length) return null;
     let orderedCats = new Array(categories.length);
     for(let c of categories) {
-        console.log(c);
         orderedCats[ordreCategories.indexOf(c.id)] = c;
     }
-    console.log(orderedCats);
     return orderedCats;
 }
 

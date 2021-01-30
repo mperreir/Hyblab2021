@@ -35,6 +35,13 @@ function getCodeType(){
 }
 
 /**
+ * Function that extract the type id from the URL.
+ */
+function getCodeLegende(){
+	return parseInt(document.querySelector('#content').dataset.legende);
+}
+
+/**
  * Variables definition
  */
 let deps = {data: null, isValid: (code) => {

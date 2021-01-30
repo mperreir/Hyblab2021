@@ -90,6 +90,13 @@ const circlesStrokeWidth = '3px';
 let perso = null;
 let categorie = null;
 let legendes = null;
+let codeType;
+
+let map;
+
+let baseNarration;
+let legendNarration;
+let persoBox;
 
 /**
  * ===================================
@@ -118,3 +125,9 @@ const mapFontSize = 24;
  * Constants definition
  */
 const ordreCategories = [1,2,3];
+
+/**
+ * Variables definition
+ */
+let persosBox;
+let codeDep;
