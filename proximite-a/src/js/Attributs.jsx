@@ -30,7 +30,6 @@ class Attributs extends React.Component{
                     }
                 })
                 .then((response) => {  //récupération des données JSON
-                    console.log(response)
                     this.setState({
                         adresse:{
                             codepostal:response.codepostal,
@@ -77,7 +76,6 @@ class Attributs extends React.Component{
     };
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
-        console.log(this.state.adresse)
         return(
             <div id="attributContainer" class="d-flex justify-content-center align-items-center ">
                 <div id="leftPartAttribut">

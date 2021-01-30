@@ -26,7 +26,6 @@ class CarteInterractionChoixMultiples extends  React.Component {
         this.setState({
             moyenId: parseInt(e.target.value, 10)
         })
-        console.log(parseInt(e.target.value, 10))
         this.props.onSetMoyen(parseInt(e.target.value, 10))
     };
     addSelect = (l, r) => {
@@ -82,14 +81,14 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <div class="container" >
                             <div className="row" onClick={this.handleChange}>
                                 <div class="col">
-                                    <input type="radio" name="moyen" id="pied" value='1' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="pied" value='1' className="input-hidden" defaultChecked={this.state.moyenId == 1}/>
                                     <label htmlFor="pied">
                                         <img class="imgPictogram" src={pied} alt="pied" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div class="col">
-                                    <input type="radio" name="moyen" id="velo" value='2' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="velo" value='2' className="input-hidden" defaultChecked={this.state.moyenId == 2}/>
                                     <label htmlFor="velo">
                                         <img class="imgPictogram" src={velo} alt="velo" style={hoverStyle}/>
                                     </label>
@@ -97,28 +96,28 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
 
                                 <div className="col">
-                                    <input type="radio" name="moyen" id="fauteil" value='3' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="fauteil" value='3' className="input-hidden" defaultChecked={this.state.moyenId == 3}/>
                                     <label htmlFor="fauteil">
                                         <img className="imgPictogram" src={fauteil} alt="fauteil" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
-                                    <input type="radio" name="moyen" id="trottinette" value='4' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="trottinette" value='4' className="input-hidden" defaultChecked={this.state.moyenId == 4}/>
                                     <label htmlFor="trottinette">
                                         <img className="imgPictogram" src={trottinette} alt="trottinette" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
-                                    <input type="radio" name="moyen" id="skate" value='5' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="skate" value='5' className="input-hidden" defaultChecked={this.state.moyenId == 5}/>
                                     <label htmlFor="skate">
                                         <img className="imgPictogram" src={skate} alt="skate" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
-                                    <input type="radio" name="moyen" id="roller" value='6' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
+                                    <input type="radio" name="moyen" id="roller" value='6' className="input-hidden" defaultChecked={this.state.moyenId == 6}/>
                                     <label htmlFor="roller">
                                         <img className="imgPictogram" src={roller} alt="roller" style={hoverStyle}/>
                                     </label>
