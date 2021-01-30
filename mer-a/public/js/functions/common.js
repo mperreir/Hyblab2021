@@ -3,9 +3,14 @@
 const scene = document.querySelector('#scene');
 const parralax = new Parallax(scene);
 
+function loading() {
+  $('#loading')[0].style.display = 'flex';
+}
+
 // 0 = rien faire | 1 = fond 1 | 2 = fond 2 | 3 = fond mer
 let fond = 1;
 async function loadRessources(path, data, change) {
+  loading();
   if('legende' in data) {
     document.querySelector('#content').dataset.legende = data.legende;
   }
@@ -18,7 +23,9 @@ async function loadRessources(path, data, change) {
   document.querySelector('#content').dataset.idLegende = data;
   document.querySelector('#personnage').src = "";
   loadFond(change);
-  $('#content').load(`/mer-a/html/${path}.html`);
+  $('#content').load(`/mer-a/html/${path}.html`, () => {
+    $('#loading')[0].style.display = 'none';
+  });
 }
 
 function stopAnim(bool) {
