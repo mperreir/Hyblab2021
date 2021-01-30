@@ -58,31 +58,31 @@ section[data-slidr="page-2_1"] {
     transform: translateX(-30%);
 }
 
-#feuille_verte-p2_1 {
+#feuille-verte-p2_1 {
     position: absolute;
-    width: 16%;
+    width: 17%;
     bottom: 4%;
-    right: 6%;
+    right: 0%;
 }
 
-#feuille_bleue-p2_1 {
+#feuille-bleue-p2_1 {
     position: absolute;
     width: 8%;
     bottom: 12%;
     left: 3%;
 }
 
-#arbuste_rose-p2_1 {
+#arbuste-rose-p2_1 {
     position: absolute;
     width: 18%;
-    bottom: -7%;
-    right: 13%;
+    bottom: -4%;
+    right: 8%;
     transform: scale(1) translateY(0%);
     transition-property: transform;
     transition-duration: 1000ms;
 }
 
-#arbuste_rose-p2_1:hover {
+#arbuste-rose-p2_1:hover {
     transform: scale(0.9) translateY(10%);
 }
 

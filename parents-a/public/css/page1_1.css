@@ -20,7 +20,7 @@ section[data-slidr="page-1_1"] {
     transform: scale(1.1);
 }
 
-#arbuste_rouge-p1_1 {
+#arbuste-rouge-p1_1 {
     position: absolute;
     bottom: -5.3%;
     right: 35%;
@@ -30,7 +30,7 @@ section[data-slidr="page-1_1"] {
     transition-duration: 1000ms;
 }
 
-#arbuste_rouge-p1_1:hover {
+#arbuste-rouge-p1_1:hover {
     transform: scale(0.9) translateY(10%);
 }
 

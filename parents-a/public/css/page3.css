@@ -1,7 +1,7 @@
-/* PAGE 3 */
-
+/* VOTRE ENFANT EST-IL UN P'TIT AVENTURIER ? - PAGE 3 */
 section[data-slidr="page-3"] {
     background: linear-gradient(90.42deg, #6FB5EF 26.39%, #3391DE 82.69%);
+    overflow: hidden;
 }
 
 #logo-p3 {
@@ -50,14 +50,14 @@ section[data-slidr="page-3"] {
     right: 28%;
 }
 
-#arbuste_vert-p3 {
+#arbuste-vert-p3 {
     position: absolute;
     width: 35%;
     bottom: 8%;
     right: 9%;
 }
 
-#arbuste_bleu-p3 {
+#arbuste-bleu-p3 {
     position: absolute;
     width: 58%;
     bottom: 2%;
@@ -105,16 +105,18 @@ section[data-slidr="page-3"] {
     position: absolute;
     width: 100%;
     bottom: 0%;
+    left: 4%;
+    height: 12%;
 }
 
-#feuille_rouge-p3 {
+#feuille-rouge-p3 {
     position: absolute;
     width: 11%;
     bottom: 10%;
     right: 4%;
 }
 
-#feuille_bleue-p3 {
+#feuille-bleue-p3 {
     position: absolute;
     width: 10%;
     bottom: 7%;

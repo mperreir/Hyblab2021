@@ -73,27 +73,27 @@ section[data-slidr="page-2"] {
     left: 0%;
 }
 
-#arbuste_bleu-p2-1 {
+#arbuste-bleu-p2-1 {
     position: absolute;
     bottom: 9%;
-    right: 12%;
-    transform: rotate(353deg);
-    width: 45%;
+    right: 22%;
+    transform: rotate(359deg);
+    width: 25%;
 }
 
-#double_feuille_verte-p2-1 {
+#feuille-verte-p2-1 {
     position: absolute;
     bottom: 11%;
-    right: 35%;
+    right: 37%;
     width: 15%;
-    transform: rotate(350deg);
+    transform: rotate(356deg);
 }
 
-#arbuste_vert-p2-1 {
+#arbuste-vert-p2-1 {
     position: absolute;
     bottom: 10%;
-    right: 11%;
-    width: 32%;
+    right: 15%;
+    width: 21%;
 }
 
 #arbre_jaune-p2-1 {
@@ -141,8 +141,8 @@ section[data-slidr="page-2"] {
 #dune-p2-1 {
     position: absolute;
     width: 100%;
-    bottom: -1%;
-    height: 17%;
+    bottom: 0%;
+    left: 4%;
 }
 
 /* Element qui disparaisse */
