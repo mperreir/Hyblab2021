@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from '../img/LOGO OK_logo principal.png'
+import logo from '../img/LOGO OK_logo principal.png';
+import fond from '../img/video-pageaccueil-fond blanc.mp4';
+import fond2 from '../img/video-pageaccueil-fond blanc.mp4';
 import '../css/home.css'
 class Home extends  React.Component {
     
     state = {
         nomPers:"",
-        buttonActivate: false
+        buttonActivate: false,
+        video:{fond}.fond
     }
 
     updateName= (e)=>{
@@ -17,10 +20,27 @@ class Home extends  React.Component {
         updateNom(this.state.nomPers);
         NextPage();
     }
+
+    nextVideo = ()=>{
+        if(this.state.video!={fond2}){
+            this.setState({video:{fond2}.fond2})
+        }
+    }
+
+    videoPlayed=()=>{
+        if (this.state.video == { fond }) {
+            return {fond}.fond
+        }
+        else{
+            return {fond2}.fond2
+        }
+    }
+
     render() {
         const { updateNom,onNextPage} = this.props;
         return (
             <div id="homeContainer" class="container">
+                <video id="videoFond" src={this.state.video} role="presentation" muted autoPlay preload="auto" onEnded={() => this.nextVideo()}/>
                 <div class="container d-flex justify-content-center align-items-center flex-column">
                     <img src={logo} id='logo'></img>
                     <span id="paragraphe" class="text-center m-5">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
