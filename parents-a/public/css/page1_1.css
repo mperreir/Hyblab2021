@@ -18,7 +18,7 @@ section[data-slidr="page-1_1"] {
 }
 #arbuste_rouge-p1_1 {
     position: absolute;
-    bottom: -7%;
+    bottom: -5.3%;
     right: 35%;
     width: 21%;
 }
@@ -45,16 +45,19 @@ section[data-slidr="page-1_1"] {
     bottom: 55%;
     right: 34%;
     width: 30%;
+
 }
 #petit_nuage-p1_1 {
     position: absolute;
     bottom: 59%;
     right: 0%;
     width: 30%;
+
 }
 #pelouse-p1_1 {
     position: absolute;
     bottom: 0%;
     right: 0%;
     width: 45%;
+
 }

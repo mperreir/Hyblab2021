@@ -91,5 +91,18 @@ section[data-slidr="page-8"] {
     bottom: 25%;
     right: 33%;
 }
+#BOUTON_ARBRES_v2-p8{
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    right: 54%;
+}
+
+#BOUTON_BOUDE-ARBRES_v2-p8{
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    left: 54%;
+}
 
 
