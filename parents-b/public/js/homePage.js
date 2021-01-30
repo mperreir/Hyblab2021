@@ -1,8 +1,8 @@
 let initHome = function(){
-
-    d3.select('.more-info').on('click', function (){
-        //Doit ouvrir la page qui sommes nous
-    });
+    $(".more-info").on("click",function(){
+        mySlidr.slide('up');
+        initMoreInfo();
+    })
 
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
@@ -183,4 +183,6 @@ let resetHome = function(){
     d3.select('.catch-phrase')
         .style("transform", "")
         .style("opacity", 1);
+
+    mySlidr.slider("value", mySlidr.slider("option", "min") )
 }

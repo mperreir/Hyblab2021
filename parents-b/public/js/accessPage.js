@@ -2,6 +2,7 @@ let initAccess = function(){
 
     d3.select('.logoAccueil4').on('click', function (){
         mySlidr.slide('home-page');
+        // mySlidr.slider("value", mySlidr.slider("option", "min") )
         initHome();
         resetHome();
     });
@@ -119,4 +120,3 @@ $(document).ready(function(){
         }
     })
 })
-

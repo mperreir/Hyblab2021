@@ -6,18 +6,19 @@ let mySlidr = slidr.create('slidr',{
     keyboard: false,
     overflow: true,
     timing: { 'linear': '1.2s ease-out' }
-  })
-    
-    .add('v', ['home-page', 'address-page', 'home-page'], 'linear')
+})
 
+    .add('v', ['home-page','address-page'], 'linear')
+    .add('v', ['more-infos-page','home-page'], 'linear')
     .add('h', ['home-page', 'histoire-page', 'home-page'], 'linear')
     .add('h', ['histoire-page', 'home-page', 'histoire-page'], 'linear')
-    
-    .add('h', ['age-page', 'home-page', 'age-page'], 'linear')
+    .add('v', ['more-infos-page', 'home-page', 'more-infos-page'], 'linear')
 
+    .add('h', ['age-page', 'home-page', 'age-page'], 'linear')
     .add('h', ['address-page', 'hour-page', 'age-page', 'access-page', 'address-page'], 'linear')
     .add('v', ['access-page', 'fauna-flora-page', 'access-page'], 'linear')
-    .add('h', ['fauna-flora-page', 'activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
+    .add('v', ['fauna-flora-page', 'access-page','fauna-flora-page'], 'linear')
+    .add('h', ['fauna-flora-page','activities-page', 'searching-results-page', 'fauna-flora-page'], 'linear')
     .add('v', ['searching-results-page', 'results-page', 'searching-results-page'], 'linear')
     .add('h', ['results-page', 'credits-page', 'results-page'], 'linear')
     .add('v', ['address-page', 'activities-page', 'address-page'], 'fade')

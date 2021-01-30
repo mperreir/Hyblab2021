@@ -1,0 +1,148 @@
+.column-info{
+    float: left;
+    width: 16%;
+    height: 30%;
+    padding: 0%;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.name{
+    position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+
+  opacity: 1;
+}
+
+.container:hover {
+  background:#45396D;
+}
+
+.role{
+color : white;
+}
+
+.etude{
+color : white;
+}
+
+.image:hover ~ .container{
+    opacity: 1;
+}
+
+.container:hover{
+    opacity: 1;
+}
+
+.container{
+    position: relative;
+    border-radius: 10%;
+    margin: 7%;
+}
+
+.middle{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 15%;
+    width: 100%;
+    height: 80%;
+}
+
+.notre-equipe{
+    font-size: 38%;
+    text-align: center;
+    color: #45396D;
+    margin-bottom: 3%;
+    margin-top : 8%;
+}
+
+.text{
+    font-family: Comfortaa, serif;
+    color: white;
+}
+
+.nom{
+    margin-top: -5%;
+}
+
+.role{
+    margin-top: 15%;
+}
+
+.etude{
+    margin-top: 15%;
+}
+
+.logo-presentation{
+width: 22%;
+margin: 3%;
+margin-top: 8%;
+
+}
+
+.equipe{
+    margin-left: 4%;
+}
+.go-back-more-infos:hover{
+    cursor: pointer
+}
+#more-info:hover{
+    cursor: pointer
+}
+.go-back-more-infos{
+    position: absolute;
+    top: 2.4%;
+    left: 7%;
+    width: 2%;
+    z-index: 2;
+}
+
+/* .middle@media screen and (min-aspect-ratio: 16 / 9){
+    font-size : 120%;
+} */

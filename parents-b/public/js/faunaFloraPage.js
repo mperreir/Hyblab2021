@@ -92,6 +92,7 @@ let initFaunaFlora = function(){
 
 $(document).ready(function(){
 
+
     // $(".dropableCell-fauna").on('drop',function(event){
     //     //gestion de l'ajout / remove de l'image
     // })
@@ -124,4 +125,3 @@ $(document).ready(function(){
         }
     })
 })
-

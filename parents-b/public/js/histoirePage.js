@@ -2,6 +2,7 @@ let initHistoire = function(){
 
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
+        mySlidr.slider("value", mySlidr.slider("option", "min") );
         initHome();
     });
 

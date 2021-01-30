@@ -6,6 +6,7 @@ let initSlide1 = function(){
         scale: 0
       });
     mySlidr.slide('home');
+    mySlidr.slider("value", mySlidr.slider("option", "min"))
     initHome();
   });
 
