@@ -185,7 +185,7 @@ body {
 }
 
 .velo_in {
-	animation: velo_in 3s forwards;
+	animation: velo_in 2s forwards;
 }
 
 @keyframes velo_in {

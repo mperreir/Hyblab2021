@@ -18,14 +18,12 @@ function togglePath() {
 			const hover = document.getElementsByClassName("hover")[index];
 			if (hover.style.visibility !== 'visible')
 				hover.style.visibility = 'visible';
-			console.log("base")
 		});
 	});
 
 	Array.from(document.getElementsByClassName("hover")).forEach((el) => {
 		el.addEventListener("mouseleave", () => {
 			el.style.visibility = 'hidden';
-			console.log("hover")
 
 		});
 	});
@@ -47,7 +45,6 @@ function slide() {
 			document.getElementById("batiment").className = "batiment_pause" + i;
 			setTimeout(function () {
 				document.getElementById("batiment").className = "batiment_move" + (++i);
-				console.log(i)
 				if (i <= 0) batiment_return.style.display = "none";
 				else batiment_return.style.display = null;
 			}, 50);
@@ -85,12 +82,25 @@ function slide() {
 }
 
 function velos() {
+	let animating = true;
+
+	Array.from(document.querySelectorAll(".velo")).forEach((e) => {
+		e.setAttribute("class", "velo velo_out");
+	});
+
 	document.querySelectorAll("#question_velo button").forEach((el) => {
 		el.addEventListener("mouseenter", () => {
-			Array.from(document.getElementsByClassName("velo")).forEach((e) => {
-				e.setAttribute("class", "velo velo_out");
+
+			Array.from(document.querySelectorAll(".velo.velo_in")).forEach((e) => {
+				setTimeout(function () {
+
+					e.setAttribute("class", "velo velo_out");
+				}, 2000);
 			});
-			document.getElementById("velo_" + el.id).setAttribute("class", "velo velo_in");
+
+			const velo = document.getElementById("velo_" + el.id);
+			velo.setAttribute("class", "velo velo_in");
+
 		});
 	});
 }
