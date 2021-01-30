@@ -28,6 +28,11 @@ section[data-slidr="page-3"] {
     width: 25%;
     bottom: 24.4%;
     right: 49.6%;
+    opacity: 0.7;
+}
+
+#bouton_aventurier_anime-p3:hover {
+    opacity: 1;
 }
 
 #non-p3 {
@@ -41,6 +46,11 @@ section[data-slidr="page-3"] {
     width: 17%;
     bottom: 34%;
     right: 30%;
+    opacity: 0.7;
+}
+
+#bouton_non_aventurier_anime-p3:hover {
+    opacity: 1;
 }
 
 #aventurier-p3 {
@@ -52,16 +62,26 @@ section[data-slidr="page-3"] {
 
 #arbuste-vert-p3 {
     position: absolute;
-    width: 35%;
-    bottom: 8%;
-    right: 9%;
+    width: 15%;
+    bottom: 3%;
+    left: 7%;
+    transform: rotate(
+            6deg
+    );
+}
+
+#feuille-verte-p3 {
+    position: absolute;
+    width: 15%;
+    bottom: 5%;
+    right: 25%;
 }
 
 #arbuste-bleu-p3 {
     position: absolute;
-    width: 58%;
-    bottom: 2%;
-    right: -11%;
+    width: 27%;
+    bottom: 7%;
+    right: 5%;
 }
 
 #arbre_jaune-p3 {
@@ -92,13 +112,27 @@ section[data-slidr="page-3"] {
     width: 20%;
     bottom: 10%;
     right: 80%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre_rouge-p3:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
 #gros_nuage-p3 {
     position: absolute;
     width: 30%;
-    bottom: 58%;
+    top: -2%;
     right: 62%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros_nuage-p3:hover {
+    transform: translateX(30%);
 }
 
 #dune-p3 {
