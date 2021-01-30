@@ -95,3 +95,10 @@ section[data-slidr="page-6"] {
     bottom: 28%;
     right: 54%;
 }
+
+#BOUTON_NON_FLEUR-p6{
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    left: 54%;
+}

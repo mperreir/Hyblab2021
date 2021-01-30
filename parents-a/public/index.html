@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/page1.css">
     <link rel="stylesheet" href="css/page1_1.css">
     <link rel="stylesheet" href="css/page2.css">
+    <link rel="stylesheet" href="css/page2-1.css">
     <link rel="stylesheet" href="css/page3.css">
     <link rel="stylesheet" href="css/page4.css">
     <link rel="stylesheet" href="css/page5.css">
@@ -18,6 +19,9 @@
     <link rel="stylesheet" href="css/page8.css">
     <link rel="stylesheet" href="css/page9.css">
     <link rel="stylesheet" href="css/page10.css">
+    <link rel="stylesheet" href="css/page_resultats.css">
+    <link rel="stylesheet" href="css/credits.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -26,25 +30,26 @@
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
     <script src="https://kit.fontawesome.com/65cff0531a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="js/index.js" defer></script>
 </head>
 
 <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <main id="container">
-       
+
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id="slidr">
-            
+
             <!-- Page one - Logo gif-->
-            <section data-slidr="page-1" >
-            <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
-                <header class="masthead mb-auto"></header>
+            <section data-slidr="page-1">
+                <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
+                    <header class="masthead mb-auto"></header>
                     <main role="main" class="inner cover">
-                        <img  src="img/page1/logo.gif" class="img-fluid " id="logo">
+                        <img src="img/page1/logo.gif" class="img-fluid " id="logo">
                     </main>
-                <footer class="mastfoot mt-auto"></footer>
-            </div>
+                    <footer class="mastfoot mt-auto"></footer>
+                </div>
             </section>
 
             <!-- Page one bis - Transition -->
@@ -60,35 +65,67 @@
 
             <!-- Page two after timer - Etes vous pret -->
             <section data-slidr="page-2">
-               
-                <img src="img/logo.png" alt="logo" id="logo-p2-1">
 
+                <img src="img/logo.png" alt="logo" id="logo-p2-1">
                 <img src="img/page2/arbre_bleu.svg" alt="arbre-bleu" id="arbre-bleu-p2-1">
-                <img src="img/page2/nuage.svg" alt="nuage" id="nuage-p2-1">
-                <img src="img/page2/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p2-1">
                 <img src="img/page2/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p2-1">
                 <img src="img/page2/double_feuille_verte.svg" alt="double_feuille_verte" id="double_feuille_verte-p2-1">
                 <img src="img/page2/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-p2-1">
                 <img src="img/page2/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p2-1">
-                <img src="img/page2/dune.svg" alt="dune" id="dune-p2-1">
+                <img src="img/page2/dune.png" alt="dune" id="dune-p2-1">
+                <img src="img/page2/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p2-1">
                 <img src="img/page2/chaise.svg" alt="chaise" id="chaise-p2-1">
                 <img src="img/page2/mascotte.gif" alt="mascotte" id="mascotte-p2-1">
                 <img src="img/page2/pelouse.svg" alt="pelouse" id="pelouse-p2-1">
+                <img src="img/page2/nuage.svg" alt="nuage" id="nuage-p2-1">
+                <img src="img/page2/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p2-1">
                 <img src="img/page2/vector.svg" alt="vector" id="vector-p2-1">
 
                 <div id="disappear">
-                    <img src="img/page2/texte.svg" alt="texte" id="texte-p2-1">
+                    <img src="img/page2/texte_salut.svg" alt="texte" id="texte-p2-1">
                     <button id="button-p2-1" class='button'><i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div id="appear">
-                    <img src="img/page2/texte_en_avant.svg" alt="texte" id="texte2-p2-1">
-                    <button id="button2-p2-2" class='button' >Débuter le questionnaire</button>
+                    <img src="img/page2/texte_debut.svg" alt="texte" id="texte2-p2-1">
+                    <button id="button2-p2-2" class='button'>Débuter le questionnaire</button>
                 </div>
-                <!-- Bouttons retours arriere -->
-                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
-            
+
+       
+
+
             </section>
 
+            <!-- Page 2-1 : Age -->
+            <section data-slidr="page-2_1">
+                <img src="img/logo.png" alt="logo" id="logo-p4">
+                <img src="img/page3/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p2_1">
+                <img src="img/page4/double_feuille_verte.svg" alt="double_feuille_verte" id="feuille_verte-p2_1">
+
+                <img src="img/page4/petit_nuage.svg" alt="petit_nuage" id="petit_nuage-p2_1">
+                <img src="img/page4/arbuste_rose.svg" alt="arbuste_rose" id="arbuste_rose-p2_1">
+                <img src="img/page10/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p2_1">
+
+                <img src="img/page2_1/quelageastu.svg" alt="quelageastu" id="quelageastu-p2_1">
+
+
+
+                <img src="img/page2_1/0-3ans.svg" alt="0-3ans" id="zero_ans-p2_1" class="age">
+                <img src="img/page2_1/4-8ans.svg" alt="4-8ans" id="quatre_ans-p2_1" class="age">
+                <img src="img/page2_1/9+ans.svg" alt="9+ans" id="neuf_ans-p2_1" class="age">
+
+
+                <img src="img/page4/dune.svg" alt="dune" id="dune-p4">
+                <img src="img/page4/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p4">
+                <img src="img/page4/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p4">
+
+                <img src="img/page2_1/3anselephe.svg" alt="neuf_eleph" id="trois_eleph-p2_1" class="eleph">
+                <img src="img/page2_1/6anseleph.svg" alt="neuf_eleph" id="six_eleph-p2_1" class="eleph">
+                <img src="img/page2/mascotte.svg" alt="6anselephe" id="neuf_eleph-p2_1" class="eleph">
+
+                <!-- Bouttons retours arriere -->
+                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
+            </section>
             <!-- Page 3 : T'es un avanturier ? -->
             <section data-slidr="page-3">
                 <img src="img/logo.png" alt="logo" id="logo-p3">
@@ -155,24 +192,25 @@
                 <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
 
             </section>
-            
-             <!-- Page 6 : Sentir de nouveaux parfums ? -->
-             <section data-slidr="page-6">
-                 <img src="img/page6/question_parfum.svg" alt="question_parfum" id="question_parfum-p6">
-                 <img src="img/page6/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p6">
-                 <img src="img/page6/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p6">
-                 <img src="img/page6/dune.svg" alt="dune" id="dune-p6">
-                 <img src="img/page6/texte_mais_non.svg" alt="texte_mais_non" id="texte_mais_non-p6">
-                 <img src="img/page6/texte_oh_oui.svg" alt="texte_oh_oui" id="texte_oh_oui-p6">
-                 <img src="img/page6/bouton_oh_oui_anime.gif" alt="bouton_oh_oui_anime" id="bouton_oh_oui_anime-p6">
-                 <img src="img/page6/feuille_rouge.svg" alt="feuille_rouge" id="feuille_rouge-p6">
-                 <img src="img/page6/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-p6">
-                 <img src="img/page6/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p6">
-                 <img src="img/page6/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p6">
-                 <img src="img/page6/arbre_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p6">
-                 <img src="img/logo.png" alt="logo" id="logo-p6">
-                 <!-- Bouttons retours arriere -->
-                 <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+
+            <!-- Page 6 : Sentir de nouveaux parfums ? -->
+            <section data-slidr="page-6">
+                <img src="img/page6/question_parfum.svg" alt="question_parfum" id="question_parfum-p6">
+                <img src="img/page6/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p6">
+                <img src="img/page6/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p6">
+                <img src="img/page6/dune.svg" alt="dune" id="dune-p6">
+                <img src="img/page6/texte_mais_non.svg" alt="texte_mais_non" id="texte_mais_non-p6">
+                <img src="img/page6/BOUTON_NON_FLEUR.gif" alt="BOUTON_NON_FLEUR" id="BOUTON_NON_FLEUR-p6">
+                <img src="img/page6/texte_oh_oui.svg" alt="texte_oh_oui" id="texte_oh_oui-p6">
+                <img src="img/page6/bouton_oh_oui_anime.gif" alt="bouton_oh_oui_anime" id="bouton_oh_oui_anime-p6">
+                <img src="img/page6/feuille_rouge.svg" alt="feuille_rouge" id="feuille_rouge-p6">
+                <img src="img/page6/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-p6">
+                <img src="img/page6/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p6">
+                <img src="img/page6/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p6">
+                <img src="img/page6/arbre_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p6">
+                <img src="img/logo.png" alt="logo" id="logo-p6">
+                <!-- Bouttons retours arriere -->
+                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
             </section>
 
             <!-- Page 7 : Preference entre animaux et bruits nature -->
@@ -194,49 +232,50 @@
                 <img src="img/page7/text_non.svg" alt="text_non" id="text_non_p7">
                 <img src="img/page7/question.svg" alt="question" id="question_p7">
                 <!-- Bouttons retours arriere -->
-                <button  class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
 
             </section>
 
-             <!-- Page 8 : Decouverte d'arbres différents -->
-             <section data-slidr="page-8">
-                 <img src="img/page8/question.svg" alt="question" id="question-p8">
-                 <img src="img/page8/feuille_verte.svg" alt="feuille_verte" id="feuille_verte-p8">
-                 <img src="img/page8/dune.svg" alt="dune" id="dune-p8">
-                 <img src="img/page8/arbre_carotte.svg" alt="arbre_carotte" id="arbre_carotte-p8">
-                 <img src="img/page8/nuage.svg" alt="nuage" id="nuage-p8">
-                 <img src="img/page8/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p8">
-                 <img src="img/page8/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p8">
-                 <img src="img/page8/feuille_orange.svg" alt="feuille_orange" id="feuille_orange-p8">
-                 <img src="img/page8/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p8">
-                 <img src="img/page8/texte_jadore.svg" alt="texte_jadore" id="texte_jadore-p8">
-                 <img src="img/page8/texte_oh_non.svg" alt="texte_oh_non" id="texte_oh_non-p8">
-                 <img src="img/logo.png" alt="logo" id="logo-p8">
-                 
+            <!-- Page 8 : Decouverte d'arbres différents -->
+            <section data-slidr="page-8">
+                <img src="img/page8/question.svg" alt="question" id="question-p8">
+                <img src="img/page8/feuille_verte.svg" alt="feuille_verte" id="feuille_verte-p8">
+                <img src="img/page8/dune.svg" alt="dune" id="dune-p8">
+                <img src="img/page8/arbre_carotte.svg" alt="arbre_carotte" id="arbre_carotte-p8">
+                <img src="img/page8/nuage.svg" alt="nuage" id="nuage-p8">
+                <img src="img/page8/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p8">
+                <img src="img/page8/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p8">
+                <img src="img/page8/feuille_orange.svg" alt="feuille_orange" id="feuille_orange-p8">
+                <img src="img/page8/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p8">
+                <img src="img/page8/texte_jadore.svg" alt="texte_jadore" id="texte_jadore-p8">
+                <img src="img/page8/BOUTON_ARBRES_v2.gif" alt="BOUTON_ARBRES_v2" id="BOUTON_ARBRES_v2-p8">
+                <img src="img/page8/texte_oh_non.svg" alt="texte_oh_non" id="texte_oh_non-p8">
+                <img src="img/page8/BOUTON_BOUDE-ARBRES_v2.gif" alt="BOUTON_BOUDE-ARBRES_v2" id="BOUTON_BOUDE-ARBRES_v2-p8">
+                <img src="img/logo.png" alt="logo" id="logo-p8">
+
                 <!-- Bouttons retours arriere -->
                 <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
-                 <div>
-                     <button id="button_acceuil" class="button button_retour"><i class="fas fa-arrow-left"></i></button>
-                     <img src="img/texte_retour_accueil.svg" alt="texte_retour_accueil" id="texte_retour_accueil">
-                 </div>
-             </section>
+            </section>
 
-              <!-- Page 9 : Voir des animaux -->
-              <section data-slidr="page-9">
+            <!-- Page 9 : Voir des animaux -->
+            <section data-slidr="page-9">
                 <img src="img/logo.png" alt="logo" id="logo-p9">
                 <img src="img/page9/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p9">
                 <img src="img/page9/arbuste_bleu.svg" alt="arbustre-bleu" id="arbustre-bleu-p9">
                 <img src="img/page9/arbuste_rouge.svg" alt="arbre_rouge" id="arbre_rouge-p9">
                 <img src="img/page9/double_feuille_verte.svg" alt="double_feuille_verte" id="double_feuille_verte-p9">
-                <img src="img/page9/dune2-1.svg" alt="dune2-1" id="dune-p9">
                 <img src="img/page9/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p9">
                 <img src="img/page9/feuille_rouge.svg" alt="feuille_rouge" id="feuille_rouge-p9">
                 <img src="img/page9/nuage.svg" alt="nuage" id="nuage-p9">
+                <img src="img/page9/dune2-1.svg" alt="dune2-1" id="dune-p9">
                 <img src="img/page9/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p9">
                 <img src="img/page9/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p9">
                 <img src="img/page9/question_animaux .svg" alt="question_animaux " id="question_animaux-p9">
                 <img src="img/page9/texte_non.svg" alt="texte_non" id="texte_non-p9">
+                <img src="img/page9/BOUTON_NON_ANIMAUX-sourcils.gif" alt="BOUTON_NON_ANIMAUX-sourcils" id="BOUTON_NON_ANIMAUX-sourcils-p9">
                 <img src="img/page9/texte_oui.svg" alt="texte_oui" id="texte_oui-p9">
+                <img src="img/page9/animaux-heureux.gif" alt="animaux-heureux" id="animaux-heureux-p9">
+                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
             </section>
 
             <!-- Page 10 : Ou dans Nantes -->
@@ -244,18 +283,76 @@
                 <img src="img/logo.png" alt="logo" id="logo-p10">
                 <img src="img/page10/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p10">
                 <img src="img/page10/arbuste_rouge.svg" alt="arbuste_rouge" id="arbuste_rouge-p10">
-                <img src="img/page10/dune.svg" alt="dune" id="dune-p10">
                 <img src="img/page10/double_feuille_verte.svg" alt="double_feuille_verte" id="double_feuille_verte-p10">
                 <img src="img/page10/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p10">
                 <img src="img/page10/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p10">
                 <img src="img/page10/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p10">
                 <img src="img/page10/question.svg" alt="question" id="question-p10">
+                <img src="img/page10/dune.svg" alt="dune" id="dune-p10">
                 <img src="img/page10/sud.svg" alt="sud" id="sud-p10">
                 <img src="img/page10/ouest.svg" alt="ouest" id="ouest-p10">
                 <img src="img/page10/nord-est.svg" alt="nord-est" id="nord-est-p10">
                 <img src="img/page10/centre.svg" alt="centre" id="centre-p10">
                 <img src="img/page10/bouton_peu_importe.svg" alt="bouton_peu_importe" id="bouton_peu_importe-p10">
+                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
             </section>
+
+            <!-- Page de résultats -->
+            <section data-slidr="page-resultats">
+                <!-- Test Image de fond -->
+                <img src="img/images_parcs_jardins/Parc-des-oblates-Nantes.jpg" alt="parc1" id="parc1-pr">
+                <img src="img/images_parcs_jardins/jardin-des-plantes.jpg" alt="parc2" id="parc2-pr">
+                <img src="img/images_parcs_jardins/parc-de-beaulieu.jpg" alt="parc3" id="parc3-pr">
+                <!-- Debut -->
+                <img src="img/page_resultats/contour-img.png" alt="contour" id="contour-pr">
+                <img src="img/logo.png" alt="logo" id="logo-pr">
+                <img src="img/page_resultats/titre.svg" alt="titre" id="titre-pr">
+                <img src="img/page_resultats/info_pratique.svg" alt="info-1" id="info1-pr">
+                <img src="img/page_resultats/info_pratique.svg" alt="info-2" id="info2-pr">
+                <img src="img/page_resultats/info_pratique.svg" alt="info-3" id="info3-pr">
+                <!-- Add button (img) "revenir en arrière" -->
+                <img src="img/page_resultats/dune.svg" alt="dune" id="dune-pr">
+                <img src="img/page_resultats/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-pr">
+                <img src="img/page_resultats/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-pr">
+                <img src="img/page_resultats/feuille.svg" alt="feuille" id="feuille-pr">
+                <img src="img/page_resultats/fleurs.svg" alt="fleurs" id="fleurs-pr">
+                <img src="img/page_resultats/Crédits.svg" alt="credits" id="credits-pr">
+                <img src="img/page_resultats/random.svg" alt="random" id="random1">
+                <img src="img/page_resultats/random.svg" alt="random" id="random2">
+                <img src="img/page_resultats/random.svg" alt="random" id="random3">
+                <div class="radar-container" style="position: absolute; height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);z-index: 14;">
+                    <canvas id="myChart" ></canvas>
+                </div>
+                
+
+            </section>
+
+            <section data-slidr="credits">
+                <img src="img/logo.png" alt="logo" id="logo-credits">
+                <img src="img/credits/texte_credits.svg" alt="texte-credits" id="texte-credits">
+                <img src="img/credits/fond_blanc.svg" alt="fond_blanc" id="fond_blanc">
+                <img src="img/credits/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-credits">
+                <img src="img/credits/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-credits">
+                <img src="img/credits/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-credits">
+                <img src="img/credits/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-credits">
+                <img src="img/credits/double_feuille.svg" alt="double_feuille" id="double_feuille-credits">
+                <img src="img/credits/fleurs_rose.svg" alt="fleurs_rose" id="fleurs_rose-credits">
+                <img src="img/credits/logo_audencia.svg" alt="logo_audencia" id="logo_audencia-credits">
+                <img src="img/credits/logo_agr.svg" alt="logo_agr" id="logo_agr-credits">
+                <img src="img/credits/logo_polytech.png" alt="logo_polytech" id="logo_polytech-credits">
+                <img src="img/credits/texte_audencia.svg" alt="texte_audencia" id="texte_audencia-credits">
+                <img src="img/credits/texte_agr.svg" alt="texte_agr" id="texte_agr-credits">
+                <img src="img/credits/texte_polytech.svg" alt="texte_polytech" id="texte_polytech-credits">
+                <img src="img/credits/noms_audencia.svg" alt="noms_audencia" id="noms_audencia-credits">
+                <img src="img/credits/noms_agr.svg" alt="noms_agr" id="noms_agr-credits">
+                <img src="img/credits/noms_polytech.svg" alt="noms_polytech" id="noms_polytech-credits">
+                <img src="img/credits/logo_hyblab.svg" alt="logo_hyblab" id="logo_hyblab-credits">
+                <img src="img/credits/logo_OML.svg" alt="logo_OML" id="logo_OML-credits">
+                <img src="img/credits/logo_UN.svg" alt="logo_UN" id="logo_UN-credits">
+                <img src="img/credits/logo_opensource.svg" alt="logo_opensource" id="logo_opensource-credits">
+                <img src="img/credits/logo_cc.svg" alt="logo_cc" id="logo_cc-credits">
+            </section>
+
         </main>
     </main>
 </body>
