@@ -42,8 +42,8 @@ function loadCharacter() {
  * Initialise the view of the narration
  */
 function setNarrationBoxes() {
-	let nbRows = baseNarration.animation.text.length / (baseNarration.html.box.offsetWidth / (narrationFontSize*0.6667)) + 1;
-	baseNarration.properties.boxHeight = narrationFontSize * nbRows + padding * 2;
+	let nbRows = baseNarration.animation.text.length / (baseNarration.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
+	baseNarration.properties.boxHeight = narrationFontSize * 1.65 * nbRows + padding * 2;
 	baseNarration.html.box.style.height = `${baseNarration.properties.boxHeight}px`;
 	baseNarration.html.box.style.top = `-${baseNarration.properties.boxHeight}px`;
 	baseNarration.html.pass.onclick = () => stopNarration(baseNarration);
@@ -61,9 +61,9 @@ function loadLegendNarration(id) {
 	let legende = getLegende(id);
 	legendNarration.html.box.style.display = 'block';
 	legendNarration.html.pass.style.display = 'block';
-	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarration.html.box.offsetWidth / (narrationFontSize*0.6667)) + 2;
-	legendNarration.html.box.style.height = `${narrationFontSize * nbRows + padding * 2}px`;
-	legendNarration.html.box.style.top = `-${narrationFontSize * nbRows + padding * 2 + baseNarration.properties.boxHeight + window.innerHeight*0.07}px`;
+	let nbRows = (legende.resume.length + legende.nom.length) / (legendNarration.html.box.offsetWidth / (narrationFontSize*0.6)) + 2;
+	legendNarration.html.box.style.height = `${narrationFontSize * 1.65 * nbRows + padding * 2}px`;
+	legendNarration.html.box.style.top = `-${narrationFontSize * 1.65 * nbRows + padding * 2 + baseNarration.properties.boxHeight + window.innerHeight*0.07}px`;
 	legendNarration.html.title.innerHTML = legende.nom;
 	legendNarration.animation.text = legende.resume;
 	legendNarration.animation.intervals.narration = setInterval(narrate, narrationSpeed, legendNarration);

@@ -1,3 +1,5 @@
+'use strict';
+
 const scene = document.querySelector('#scene');
 const parralax = new Parallax(scene);
 
