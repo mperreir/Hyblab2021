@@ -240,6 +240,13 @@ window.onload = () => {
 
         container.style.bottom = "0";
 
+        document.getElementById("background-resultat").onclick = () => {
+            background.style.background = "rgba(0, 0, 0, 0)";
+            background.style.zIndex = "-2";
+
+            container.style.bottom = "-100%";
+        }
+
         if( reponse ) {
             document.getElementById("img-bicky").src = "img/bicky_bon.svg";
         } else {
