@@ -146,7 +146,7 @@ body {
 
 .show {
 	opacity: 1;
-	transition: opacity 1s linear;
+	transition: opacity 1s 1s linear;
 }
 
 .button-slide.batiment_button i{
