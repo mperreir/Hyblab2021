@@ -2,7 +2,8 @@
 
 (() => {
   document.querySelector('#next').addEventListener('click', () => {
-    $('#vagues_sound')[0].play();
+    playSound();
+    $('#audio_control')[0].style.display = 'block';
     loadRessources("departements", {}, 3);
   });
   let bool = true;
