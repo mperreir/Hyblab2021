@@ -151,7 +151,6 @@ function generateDep(mapData){
 
 	//Creation of the SVG element
 	var svg = d3.select("#department")
-		.html('')
 		.append('svg')
 		.attr("width", width)
 		.attr("height", height);
@@ -247,7 +246,6 @@ function generateMap(mapFusion){
 
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
-		.html('')
 		.append('svg')
 		.attr('width', width)
 		.attr('height', height);

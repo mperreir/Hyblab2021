@@ -3,6 +3,7 @@
 /**
  * Specific constants definition
  */
+
 codeType = getCodeType();
 
 map = getMapDepartement(codeDep);
@@ -24,6 +25,7 @@ baseNarration = {
 		boxHeight: 0
 	}
 };
+
 legendNarration = {
 	html: {
 		box: document.querySelector('#narration_legende'),
@@ -45,6 +47,7 @@ legendNarration = {
 };
 
 persoBox = document.getElementById('character');
+
 
 /**
  * The main function in ASYNC.

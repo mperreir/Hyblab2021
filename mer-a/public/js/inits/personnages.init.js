@@ -3,6 +3,7 @@
 /**
  * Specific variables initialization
  */
+
 persosBox = document.getElementsByClassName('personnages')[0];
 codeDep = getCodeDepartement();
 
