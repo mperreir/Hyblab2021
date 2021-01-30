@@ -38,23 +38,25 @@ function slide() {
 	const batiment_return = document.getElementById("batiment_return");
 
 	batiment_return.style.display = "none";
-	Array.from(document.getElementsByClassName("batiment_button")).forEach((el) => {
-		el.addEventListener('click', () => {
-			document.getElementById("batiment").className = "batiment_pause" + i;
-			setTimeout(function () {
-				document.getElementById("batiment").className = "batiment_move" + (++i);
-				if (i <= 0) batiment_return.style.display = "none";
-				else {
-					batiment_return.style.display = null;
-					if (start) {
-						velos();
-						start = false;
+	document.querySelectorAll(".batiment_button").forEach((el) => {
+		if(slides[slides.length-1] !== el.parentElement.id)
+			el.addEventListener('click', () => {
+				document.getElementById("batiment").className = "batiment_pause" + i;
+				setTimeout(function () {
+					document.getElementById("batiment").className = "batiment_move" + (++i);
+					if (i <= 0) batiment_return.style.display = "none";
+					else {
+						batiment_return.style.display = null;
+						if (start) {
+							velos();
+							start = false;
+						}
 					}
-				}
-			}, 50);
+				}, 50);
 
-		});
+			});
 	});
+
 	batiment_return.addEventListener('click', () => {
 		document.getElementById("batiment").className = "batiment_pause" + i;
 		setTimeout(function () {
@@ -75,38 +77,23 @@ function slide() {
 		if (el.parentElement.id !== slides[0]) {
 			el.parentElement.setAttribute("class", "hide_start");
 		}
-		el.addEventListener("click", () => {
-			el.parentElement.setAttribute("class", "hide");
-			document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
-		});
+		if(slides[slides.length-1] !== el.parentElement.id)
+			el.addEventListener("click", () => {
+				el.parentElement.setAttribute("class", "hide");
+				document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+			});
 	});
 
 }
 
 async function velos() {
 
-	await startVelos(0);
 
 	let isMovingMouseEnter = false;
 	let isMovingClick = false;
 
 	document.querySelectorAll("#question_velo button").forEach((el) => {
-		el.addEventListener("mouseenter", () => {
-			if (!isMovingMouseEnter) {
-				Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
-					isMovingMouseEnter = true;
-					await sleep(async () => {
-						e.setAttribute("class", "velo velo_out");
-					}, 2000);
-					isMovingMouseEnter = false;
-				});
 
-
-				const velo = document.getElementById("velo_" + el.id);
-				velo.setAttribute("class", "velo velo_in");
-			}
-
-		});
 
 		el.addEventListener("click", async () => {
 			await sleep(
@@ -127,6 +114,30 @@ async function velos() {
 
 				}, 2000);
 		});
+	});
+	await startVelos(0);
+
+
+	document.querySelectorAll("#question_velo button").forEach((el) => {
+
+		el.addEventListener("mouseenter", () => {
+			if (!isMovingMouseEnter) {
+				Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
+					isMovingMouseEnter = true;
+					await sleep(async () => {
+						e.setAttribute("class", "velo velo_out");
+					}, 2000);
+					isMovingMouseEnter = false;
+				});
+
+
+				const velo = document.getElementById("velo_" + el.id);
+				velo.setAttribute("class", "velo velo_in");
+			}
+
+		});
+
+
 	});
 
 
