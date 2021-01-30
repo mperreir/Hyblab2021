@@ -13,6 +13,31 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
+
+	autocompleteAddress(document.getElementById("input_depart"), document.getElementById("input_depart_container"), "adresseDepart");
+	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
+
+	document.getElementById("validerTrajet").addEventListener("click", event => {
+		const adresseDepart = localStorage.getItem("adresseDepartCoord");
+		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
+
+		if (!adresseDepart || !adresseArrivee) return;
+
+		fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${adresseDepart};${adresseArrivee}?steps=true&access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw`)
+			.then(res => res.json())
+			.then(routes => {
+				if (!routes || !routes.routes || !routes.routes[0]) return;
+				const { steps, distance, duration } = routes.routes[0]["legs"][0];
+				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+
+				getTraficData({ roadNames, distance, duration });
+
+				document.location = 'starterPack.html';
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	});
 });
 
 function togglePath() {
@@ -88,31 +113,6 @@ function slide() {
 				document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
 			});
 	});
-
-	autocompleteAddress(document.getElementById("input_depart"), document.getElementById("input_depart_container"), "adresseDepart");
-	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
-
-	document.getElementById("validerTrajet").addEventListener("click", event => {
-		const adresseDepart = localStorage.getItem("adresseDepartCoord");
-		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
-
-		if (!adresseDepart || !adresseArrivee) return;
-
-		fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${adresseDepart};${adresseArrivee}?steps=true&access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw`)
-			.then(res => res.json())
-			.then(routes => {
-				if (!routes || !routes.routes || !routes.routes[0]) return;
-				const { steps, distance, duration } = routes.routes[0]["legs"][0];
-				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
-
-				getTraficData({ roadNames, distance, duration });
-
-				document.location = 'starterPack.html';
-			})
-			.catch(err => {
-				console.error(err);
-			});
-	})
 }
 
 async function velos() {

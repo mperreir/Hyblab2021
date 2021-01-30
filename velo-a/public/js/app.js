@@ -16,7 +16,7 @@ async function bootstrap() {
 	});
 
 	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
-	let control = new MapboxDirections({
+	let directions = new MapboxDirections({
 		accessToken: mapboxgl.accessToken,
 		unit: 'metric',
 		profile: 'mapbox/cycling',
@@ -30,7 +30,25 @@ async function bootstrap() {
 		}
 	});
 
-	control.on("route", async routes => {
+	map.on('load', function(){
+		if (localStorage.getItem("adresseDepart")) directions.setOrigin(localStorage.getItem("adresseDepart"));
+		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
+	});
+
+	directions.on("origin", origin => {
+		if (!origin) return;
+
+		localStorage.removeItem("adresseDepart")
+		localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
+	});
+	directions.on("destination", destination => {
+		if (!destination) return;
+
+		localStorage.removeItem("adresseArrivee")
+		localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
+	});
+
+	directions.on("route", async routes => {
 		if (!routes || !routes.route || !routes.route[0]) return;
 		const { steps, distance, duration } = routes.route[0]["legs"][0];
 		const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
@@ -39,7 +57,7 @@ async function bootstrap() {
 	});
 
 	if (document.getElementById('mapbox-controllers'))
-		document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
+		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map))
 
 	let openMarker = undefined;
 
