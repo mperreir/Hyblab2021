@@ -4,6 +4,7 @@ import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
+import CreditPage from './CreditPage';
 
 class App extends  React.Component {
 
@@ -31,6 +32,8 @@ class App extends  React.Component {
                 return <Moyen data={this.state} onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
                 return <AcceuilCarte data={this.state} nomPers={this.state.nomPers}/>;
+            case 5:
+                return<CreditPage />
         }
     };
 
