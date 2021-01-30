@@ -14,7 +14,7 @@ section[data-slidr="page-6"] {
 }
 
 /* Vegétation droite */
-#arbre_jaune-p6{
+#arbre-jaune-p6{
     position: absolute;
     width: 25%;
     bottom: 11%;
@@ -40,7 +40,7 @@ section[data-slidr="page-6"] {
     bottom: 8%;
     right: 82%;
 }
-#arbre_rouge-p6 {
+#arbre-rouge-p6 {
     position: absolute;
     width: 15%;
     bottom: 2%;

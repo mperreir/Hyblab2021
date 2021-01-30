@@ -96,7 +96,7 @@ section[data-slidr="page-2"] {
     width: 21%;
 }
 
-#arbre_jaune-p2-1 {
+#arbre-jaune-p2-1 {
     position: absolute;
     bottom: 12%;
     right: 0%;
@@ -106,7 +106,7 @@ section[data-slidr="page-2"] {
     transition-duration: 1000ms;
 }
 
-#arbre_jaune-p2-1:hover {
+#arbre-jaune-p2-1:hover {
     transform: scale(0.9) translateY(5%);
 }
 
