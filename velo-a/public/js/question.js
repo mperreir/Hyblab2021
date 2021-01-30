@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	let buttons;
 
 	switch (page) {
+		default:
 		case "météo" :
 			document.getElementById("h2-question").innerText = "Quelle est la température annuelle à Nantes ?";
 

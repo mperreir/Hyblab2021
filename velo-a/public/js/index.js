@@ -6,4 +6,6 @@ async function bootstrap() {
 	}, 37000);
 }
 
-bootstrap();
+window.addEventListener('DOMContentLoaded', () => {
+	bootstrap();
+});

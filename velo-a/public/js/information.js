@@ -7,7 +7,9 @@ async function bootstrap() {
 
 }
 
-bootstrap();
+window.addEventListener('DOMContentLoaded', () => {
+	bootstrap();
+});
 
 
 function togglePath() {
@@ -63,7 +65,7 @@ function slide() {
 			const el = document.querySelector(".show > .batiment_button");
 
 			el.parentElement.setAttribute("class", "hide");
-			document.getElementById(slides[slides.indexOf(el.parentElement.id)-1]).setAttribute("class", "show");
+			document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
 
 
 		}, 50);
@@ -75,7 +77,7 @@ function slide() {
 		}
 		el.addEventListener("click", () => {
 			el.parentElement.setAttribute("class", "hide");
-			document.getElementById(slides[slides.indexOf(el.parentElement.id)+1]).setAttribute("class", "show");
+			document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
 		});
 	});
 }
