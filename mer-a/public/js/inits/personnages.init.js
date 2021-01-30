@@ -1,23 +1,22 @@
 'use strict';
 
 /**
- * Specific constants definition
+ * Specific variables initialization
  */
-const persosBox = document.getElementsByClassName('personnages')[0];
-const departement = document.querySelector('#content').dataset.department;
+persosBox = document.getElementsByClassName('personnages')[0];
+codeDep = getCodeDepartement();
 
 /**
  * The main function in ASYNC.
  */
 (async () => {
+	updateAriane(2, deps.get(codeDep).nomDepartement, 'catégorie');
     // Retrieve data from the API
     await getTypesId(r => categories = r);
-    console.log(categories);
     // Sort the data
     categories = sortCategories();
     // For each category we create the HTML component
     for(let c of categories) {
-        console.log(c);
         let formatC = formatCategorie(c.nomCategorie);
         let zone = document.createElement('div');
         zone.classList.add('zone', `zone-${formatC}`);
@@ -30,7 +29,7 @@ const departement = document.querySelector('#content').dataset.department;
         imagePerso.id = formatC;
         imagePerso.addEventListener('click', () => {
             loadRessources('departement', {
-                department: departement,
+                department: codeDep,
                 personnage: c.id
             }, 3);
         });

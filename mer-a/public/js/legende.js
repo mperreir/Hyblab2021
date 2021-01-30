@@ -2,6 +2,7 @@
 
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
+	updateAriane(4,  deps.get(codeDep).nomDepartement, getCategorie(codeType).nomCategorie, getLegende(getCodeLegende()).nom);
 	await getLegendeById(document.querySelector('#content').dataset.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;

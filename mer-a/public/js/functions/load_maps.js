@@ -137,8 +137,8 @@ function getMapDepartement(code){
 function generateMap(mapFusion){
 
 	//Definition of the SVG dimensions
-	const width = window.innerWidth-5;
-	const height = window.innerHeight-5;
+	const width = window.innerWidth;
+	const height = window.innerHeight;
 
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
