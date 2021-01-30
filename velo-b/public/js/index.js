@@ -13,6 +13,12 @@ let mySlidr = slidr.create('slidr', {
     transition: 'fade'
 }).start();
 
+if (window.devMode) {
+    const debugText = document.createElement('span');
+    debugText.id = "debug-text";
+    document.body.append(debugText);
+}
+
 initButtons();
 
-goToSlide(window.location.hash || "splash-screen");
+goToSlide(window.devMode && window.location.hash || "splash-screen");

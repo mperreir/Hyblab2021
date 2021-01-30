@@ -1,7 +1,9 @@
-window.zoneChoisie = null;
-window.vehiculeChoisi = null;
+window.devMode = document.cookie.indexOf('dev=true') === 0;
+window.onhashchange = () => window.devMode && goToSlide(window.location.hash || "splash-screen");
 
 window.slideGraph = {};
+window.zoneChoisie = null;
+window.vehiculeChoisi = null;
 window.currentSlide = null;
 
 // Chargement du graphe des slides.
@@ -32,8 +34,8 @@ function goToSlide(name) {
     if (!name) alert(`Le choix ${name} n'est pas disponible pour la slide ${window.currentSlide}`);
 
     name = name.match(/#?(.*)/)[1]; // Remove hashtag.
-
     mySlidr.slide(name);
+    d3.select("#debug-text").text(name);
     window.currentSlide = name;
 
     try {
@@ -42,10 +44,6 @@ function goToSlide(name) {
         alert(`La slide "${name}" n'est pas registered avec registerSlide() !`);
     }
 }
-
-window.onhashchange = () => {
-    goToSlide(window.location.hash || "splash-screen");
-};
 
 function overrideAnim(data) {
     anime.remove(data.targets);
