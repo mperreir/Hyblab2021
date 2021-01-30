@@ -1,11 +1,18 @@
 // Use strict mode
 'use strict';
 
+var config = require('./config');
+
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
 
 var app = express();
+
+app.get('/', (req, res) => {
+    res.cookie("dev", config.env==='dev');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));
