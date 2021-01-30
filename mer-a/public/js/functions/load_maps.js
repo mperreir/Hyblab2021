@@ -197,7 +197,6 @@ function generateMap(mapFusion){
 			.attr('alignment-baseline', 'central')
 			.on('mouseover', function(d){
 				let codeDep = d.properties.code;
-				console.log(codeDep);
 				let path = document.getElementById('path_' + codeDep);
 				hover(codeDep,path);
 			})
