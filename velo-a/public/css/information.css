@@ -69,6 +69,7 @@ body {
 }
 
 @keyframes anim_batiment1 {
+    0%  {transform: translateX(0%);}
     100%  {transform: translateX(-20%);}
 }
 
@@ -80,4 +81,48 @@ body {
 @keyframes anim_batiment2 {
     0%  {transform: translateX(-20%);}
     100%  {transform: translateX(-40%);}
+}
+
+.batiment_pause1 {
+    transform: translateX(-20%);
+}
+
+.batiment_pause2{
+    transform: translateX(-40%);
+}
+
+.batiment_back1 {
+    animation: ease-in-out anim_batiment1 2s reverse;
+    animation-fill-mode: forwards;
+}
+.batiment_back2 {
+    animation: ease-in-out anim_batiment2 2s reverse;
+    animation-fill-mode: forwards;
+}
+
+
+#pane {
+    position: absolute;
+
+    max-height: 80vh;
+    bottom: 11%;
+    right: 30%;
+}
+
+.button-return {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+#pane.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s linear;
+}
+
+#pane.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s linear;
 }
