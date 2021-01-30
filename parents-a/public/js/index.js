@@ -173,14 +173,16 @@ let initSlide5 = function() {
         });
     }
     //Sentir de nouveaux parfums
-let initSlide6 = function() {
+let initSlide6 = function(db) {
         d3.select("#bouton_oh_oui_anime-p6").on('click', async function() {
             data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+            checkData(data, db, 10);
             nextSlide('10', data); //FINAL SLIDE
             console.log(data);
         });
         d3.select("#texte_mais_non-p6").on('click', async function() {
             data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+            checkData(data, db, 10)
             nextSlide('10', data); //FINAL SLIDE
             console.log(data);
         });
@@ -223,14 +225,16 @@ let initSlide8 = function() {
     });
 }
 
-let initSlide9 = function() {
+let initSlide9 = function(db) {
 
     d3.select("#animaux-heureux-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        checkData(data, db, 10);
         nextSlide('10', data);
         console.log(data);
     });
     d3.select("#BOUTON_NON_ANIMAUX-sourcils-p9").on('click', async function() {
+        checkData(data, db, 10);
         nextSlide('10', data);
         console.log(data);
     });
@@ -251,10 +255,10 @@ function getRandomParc(target, source) {
     target.push(source[index]);
 }
 
-function checkData(d, db) {
-    if (d.length < 3) {
-        console.log('Resultats inferieurs à 3');
-        for (var i = d.length; i < 3; i++) {
+function checkData(d, db, max) {
+    if (d.length < max && db.length >= max) {
+        console.log('Resultats inferieurs à ' + max);
+        for (var i = d.length; i < max; i++) {
             getRandomParc(d, db);
         }
     }
@@ -264,25 +268,25 @@ let initSlide10 = function(db) {
 
         d3.select("#sud-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-            checkData(data, db);
+            checkData(data, db, 3);
             nextSlide('resultats', data);
             console.log(data);
         });
         d3.select("#ouest-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-            checkData(data, db);
+            checkData(data, db, 3);
             nextSlide('resultats', data);
             console.log(data);
         });
         d3.select("#nord-est-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-            checkData(data, db);
+            checkData(data, db, 3);
             nextSlide('resultats', data);
             console.log(data);
         });
         d3.select("#centre-p10").on('click', async function() {
             data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-            checkData(data, db);
+            checkData(data, db, 3);
             nextSlide('resultats', data);
             console.log(data);
         });
