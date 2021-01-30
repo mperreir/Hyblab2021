@@ -1,4 +1,11 @@
 
+
+function closePapy(){
+    $('#timeline_Papy').remove();
+}
+
+
+
 /**
  * Fonction qui permet de recupérer les données liée a une adresse et selon les 
  * critères choisis
