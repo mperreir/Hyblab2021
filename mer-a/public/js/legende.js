@@ -2,8 +2,8 @@
 
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
-	updateAriane(4,  deps.get(codeDep).nomDepartement, getCategorie(codeType).nomCategorie, getLegende(getCodeLegende()).nom);
-	await getLegendeById(document.querySelector('#content').dataset.legende, data => {
+	updateAriane(4,  deps.get(router.data.department).nomDepartement, getCategorie(router.data.personnage).nomCategorie, getLegende(getCodeLegende()).nom);
+	await getLegendeById(router.data.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
@@ -15,10 +15,10 @@
 			window.open(url, '_blank');
 		});
 		document.querySelector('#but-credits').addEventListener('click', (event) => {
-			loadRessources('credits', {});
+			router.loadRessources('credits', router.data);
 		});
 		document.querySelector('#but-back-home').addEventListener('click', (event) => {
-			loadRessources('accueil', {});
+			router.loadRessources('accueil', {});
 		});
 		initLogo('wc', 'toilettes', data.toilettes);
 		initLogo('swim', 'baignade', data.baignade);

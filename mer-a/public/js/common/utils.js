@@ -20,25 +20,19 @@ function getLegende(id) {
 	}
 }
 
-/**
- * Function that extract the region id from the URL.
- */
 function getCodeDepartement(){
-	return parseInt(document.querySelector('#content').dataset.department);
+	return router.data.department;
 }
 
-/**
- * Function that extract the type id from the URL.
- */
 function getCodeType(){
-	return parseInt(document.querySelector('#content').dataset.personnage);
+	return router.data.personnage;
 }
 
 /**
  * Function that extract the type id from the URL.
  */
 function getCodeLegende(){
-	return parseInt(document.querySelector('#content').dataset.legende);
+	return router.data.legende;
 }
 
 /**

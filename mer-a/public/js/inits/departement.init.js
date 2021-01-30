@@ -53,12 +53,13 @@ persoBox = document.getElementById('character');
  * The main function in ASYNC.
  */
 (async () => {
-	updateAriane(3, deps.get(codeDep).nomDepartement, getCategorie(codeType).nomCategorie, 'légende');
-	await getLegendes(codeDep, codeType, r => legendes = r);
+
+	updateAriane(3, deps.get(router.data.department).nomDepartement, getCategorie(router.data.personnage).nomCategorie, 'légende');
+	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
 	if(!categories) await getTypesId(r => categories = r);
 	await getRegionsId(r => deps.data = r);
 	deps.data = [deps.get(map.properties.code)];
-	categorie = getCategorie(codeType);
+	categorie = getCategorie(router.data.personnage);
 	baseNarration.animation.text = categorie.phraseDep;
 	setNarrationBoxes();
 	generateDep(mapFusion);
