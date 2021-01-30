@@ -1,9 +1,30 @@
+'use strict';
+
 const scene = document.querySelector('#scene');
 const parralax = new Parallax(scene);
+
+function loading() {
+  $('#loading')[0].style.display = 'flex';
+}
+
+function stopSound() {
+  $('#vagues_sound')[0].pause();
+  $('#audio_control')[0].classList = ['inactive'];
+  $('#audio_control')[0].innerHTML = 'Activer le son';
+  $('#audio_control').on('click', playSound)
+}
+
+function playSound() {
+  $('#vagues_sound')[0].play();
+  $('#audio_control')[0].classList = ['active'];
+  $('#audio_control')[0].innerHTML = 'Couper le son';
+  $('#audio_control').on('click', stopSound)
+}
 
 // 0 = rien faire | 1 = fond 1 | 2 = fond 2 | 3 = fond mer
 let fond = 1;
 async function loadRessources(path, data, change) {
+  loading();
   if('legende' in data) {
     document.querySelector('#content').dataset.legende = data.legende;
   }
@@ -16,7 +37,9 @@ async function loadRessources(path, data, change) {
   document.querySelector('#content').dataset.idLegende = data;
   document.querySelector('#personnage').src = "";
   loadFond(change);
-  $('#content').load(`/mer-a/html/${path}.html`);
+  $('#content').load(`/mer-a/html/${path}.html`, () => {
+    setTimeout(() => $('#loading')[0].style.display = 'none', 1500);
+  });
 }
 
 function stopAnim(bool) {

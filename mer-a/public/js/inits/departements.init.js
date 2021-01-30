@@ -1,8 +1,11 @@
+'use strict';
+
 /**
  * The main function in ASYNC.
  */
 (async () => {
-	if(!deps.data) await getRegionsId(r => deps.data = r);
+	updateAriane(1, 'département');
+	await getRegionsId(r => deps.data = r);
 	generateMap(mapFusion);
 })();
 

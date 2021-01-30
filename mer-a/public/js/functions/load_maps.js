@@ -1,3 +1,144 @@
+'use strict';
+
+/**
+ * Function that returns the color used to fill the regions
+ * @param {object} d the data object from the map.
+ */
+function setColor(d){
+	let codeDep = d.properties.code;
+	return (deps.isValid(codeDep)) ? validDepColor : invalidDepColor;
+}
+
+/**
+ * Functionthat returns the color used to paint the stroke of the regions
+ * @param {object} d the data object from the map.
+ */
+function setStrokeOpacity(d){
+	let codeDep = d.properties.code;
+	return (deps.isValid(codeDep)) ? validStrokeOpacity : invalidStrokeOpacity;
+}
+
+function setStrokeWidth(d){
+	let codeDep = d.properties.code;
+	return (deps.isValid(codeDep)) ? validStrokeWidth : invalidStrokeWidth;
+}
+
+/**
+ * Function that extract the svg paths of the selected region.
+ * @param {number} code 	the id of the selected region.
+ */
+function getMapDepartement(code){
+	let f = null;
+	for(let i in mapFusion.features){
+		let feature = mapFusion.features[i];
+		if(feature.properties.code === code){
+			f = feature;
+			break;
+		}
+	}
+	return f;
+}
+
+/**
+ * =============================
+ * 
+ *           HANDLERS
+ * 
+ * =============================
+ */
+
+/**
+ * ====================================
+ * 
+ *           PAGE CHOIX DEP
+ * 
+ * ====================================
+ */
+
+/**
+ * Function that handle the hover event of the regions.
+ * @param {number} codeDep	the department code.
+ * @param {object} t		the hovered element.
+ */
+function hover(codeDep,t){
+	if(deps.isValid(codeDep)){
+		d3.select(t)
+		.transition().duration(500)
+		.style('fill-opacity', 0.95)
+		.style('stroke-width', hoveredStrokeWidth)
+		.style('fill', hoveredValidDepColor)
+		.style('cursor','pointer');
+		d3.select('#text_' + codeDep).style("display", 'initial');
+	}
+}
+
+/**
+ * Function that handle the leave event of the regions.
+ * @param {number} codeDep	the department code.
+ * @param {object} t		the leaved element.
+ */
+function leave(codeDep,t){
+	if(deps.isValid(codeDep)){
+		d3.select(t)
+		.transition().duration(500)
+		.style('fill-opacity', 1)
+		.style('stroke-width', validStrokeWidth)
+		.style("fill", validDepColor)
+  		.style('cursor','initial');
+		d3.select('#text_' + codeDep).style("display", 'none');
+	}
+}
+
+/**
+ * ======================================
+ * 
+ *           PAGE CHOIX LEGENDE
+ * 
+ * ======================================
+ */
+
+/**
+ * Function that handle the hover event of the circles.
+ * @param {object} t		the hovered element.
+ */
+function hoverDot(t){
+	d3.select(t)
+		.transition().duration(350)
+		.attr("r", circlesSizeHovered)
+		.style('cursor','pointer')
+		.style("fill-opacity", circlesHoveredOpacity);
+	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
+}
+
+/**
+ * Function that handle the leave event of the circles.
+ * @param {object} t		the hovered element.
+ */
+function leaveDot(t){
+	d3.select(t)
+		.transition().duration(350)
+		.attr("r", circlesSize)
+		.style('cursor','initial')
+		.style("fill-opacity", circlesOpacity);
+	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
+}
+
+/**
+ * ======================================
+ * 
+ *           CHARGEMENT MAPS
+ * 
+ * ======================================
+ */
+
+/**
+ * ======================================
+ * 
+ *           PAGE CHOIX LEGENDE
+ * 
+ * ======================================
+ */
+
 /**
  * The function that generate the map and loads the legends.
  * @param {object} mapData the JSON object that contains the paths and data of the map.
@@ -87,46 +228,12 @@ function generateDep(mapData){
 }
 
 /**
- * Function that handle the hover event of the circles.
- * @param {object} t		the hovered element.
+ * ====================================
+ * 
+ *           PAGE CHOIX DEP
+ * 
+ * ====================================
  */
-function hoverDot(t){
-	d3.select(t)
-		.transition().duration(350)
-		.attr("r", circlesSizeHovered)
-		.style('cursor','pointer')
-		.style("fill-opacity", circlesHoveredOpacity);
-	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
-}
-
-/**
- * Function that handle the leave event of the circles.
- * @param {object} t		the hovered element.
- */
-function leaveDot(t){
-	d3.select(t)
-		.transition().duration(350)
-		.attr("r", circlesSize)
-		.style('cursor','initial')
-		.style("fill-opacity", circlesOpacity);
-	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
-}
-
-/**
- * Function that extract the svg paths of the selected region.
- * @param {number} code 	the id of the selected region.
- */
-function getMapDepartement(code){
-	let f = null;
-	for(let i in mapFusion.features){
-		let feature = mapFusion.features[i];
-		if(feature.properties.code === code){
-			f = feature;
-			break;
-		}
-	}
-	return f;
-}
 
 /**
  * The function that loads the map.
@@ -135,8 +242,8 @@ function getMapDepartement(code){
 function generateMap(mapFusion){
 
 	//Definition of the SVG dimensions
-	const width = window.innerWidth-5;
-	const height = window.innerHeight-5;
+	const width = window.innerWidth;
+	const height = window.innerHeight;
 
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
@@ -197,7 +304,6 @@ function generateMap(mapFusion){
 			.attr('alignment-baseline', 'central')
 			.on('mouseover', function(d){
 				let codeDep = d.properties.code;
-				console.log(codeDep);
 				let path = document.getElementById('path_' + codeDep);
 				hover(codeDep,path);
 			})
@@ -214,61 +320,4 @@ function generateMap(mapFusion){
 			.style('fill', fontColor)
 			.style('display','none');
 
-}
-
-/**
- * Function that returns the color used to fill the regions
- * @param {object} d the data object from the map.
- */
-function setColor(d){
-	let codeDep = d.properties.code;
-	return (deps.isValid(codeDep)) ? validDepColor : invalidDepColor;
-}
-
-/**
- * Functionthat returns the color used to paint the stroke of the regions
- * @param {object} d the data object from the map.
- */
-function setStrokeOpacity(d){
-	let codeDep = d.properties.code;
-	return (deps.isValid(codeDep)) ? validStrokeOpacity : invalidStrokeOpacity;
-}
-
-function setStrokeWidth(d){
-	let codeDep = d.properties.code;
-	return (deps.isValid(codeDep)) ? validStrokeWidth : invalidStrokeWidth;
-}
-
-/**
- * Function that handle the hover event of the regions.
- * @param {number} codeDep	the department code.
- * @param {object} t		the hovered element.
- */
-function hover(codeDep,t){
-	if(deps.isValid(codeDep)){
-		d3.select(t)
-		.transition().duration(500)
-		.style('fill-opacity', 0.95)
-		.style('stroke-width', hoveredStrokeWidth)
-		.style('fill', hoveredValidDepColor)
-		.style('cursor','pointer');
-		d3.select('#text_' + codeDep).style("display", 'initial');
-	}
-}
-
-/**
- * Function that handle the leave event of the regions.
- * @param {number} codeDep	the department code.
- * @param {object} t		the leaved element.
- */
-function leave(codeDep,t){
-	if(deps.isValid(codeDep)){
-		d3.select(t)
-		.transition().duration(500)
-		.style('fill-opacity', 1)
-		.style('stroke-width', validStrokeWidth)
-		.style("fill", validDepColor)
-  		.style('cursor','initial');
-		d3.select('#text_' + codeDep).style("display", 'none');
-	}
 }

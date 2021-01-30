@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Return the category with the id 'type'.
  * @param {number} type 	the id of the wanted type.
@@ -30,6 +32,13 @@ function getCodeDepartement(){
  */
 function getCodeType(){
 	return parseInt(document.querySelector('#content').dataset.personnage);
+}
+
+/**
+ * Function that extract the type id from the URL.
+ */
+function getCodeLegende(){
+	return parseInt(document.querySelector('#content').dataset.legende);
 }
 
 /**
