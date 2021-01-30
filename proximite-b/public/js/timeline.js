@@ -38,7 +38,6 @@ function getData(nameadd, adresse) {
                         $('#progressDiv').css('visibility', 'visible');
                         $('#goToConclusion').css('visibility', 'visible');
                         $('#titleTimeline').css('visibility', 'visible');
-                        $('#undertitleTimeline').css('visibility', 'visible');
 
                         timeline_progressbar_draw();
                     }
