@@ -1,0 +1,141 @@
+{
+  "splash-screen": {
+    "next": {
+      "timeout": "page-accueil"
+    }
+  },
+  "page-accueil": {
+    "next": {
+      "ok": "page-carte"
+    }
+  },
+  "page-carte": {
+    "next": {
+      "nord": "choix-transport-velo",
+      "sud": "choix-transport-velo",
+      "est": "choix-transport-velo",
+      "ouest": "choix-transport-velo"
+    },
+    "realNext": {
+      "nord": "info-choix-carte",
+      "sud": "info-choix-carte",
+      "est": "info-choix-carte",
+      "ouest": "info-choix-carte"
+    }
+  },
+  "info-choix-carte": {
+    "next": {
+      "ok": "choix-transport-transports"
+    }
+  },
+  "choix-transport-transports": {
+    "next": {
+      "ok": "question-transports-velo",
+      "info": "info-choix-transports",
+      "gauche": "choix-transport-bicloo",
+      "droite": "choix-transport-voiture",
+      "retour": "page-carte"
+    }
+  },
+  "info-choix-transports": {
+    "next": {
+      "ok": "choix-transport-transports"
+    }
+  },
+  "choix-transport-velo": {
+    "next": {
+      "ok": "question-velo-autres-transports",
+      "info": "info-choix-velo",
+      "gauche": "choix-transport-voiture",
+      "droite": "choix-transport-bicloo",
+      "retour": "page-carte"
+    }
+  },
+  "info-choix-velo": {
+    "next": {
+      "ok": "choix-transport-velo"
+    }
+  },
+  "choix-transport-bicloo": {
+    "next": {
+      "ok": "question-bicloo-autres-transports",
+      "info": "info-choix-bicloo",
+      "gauche": "choix-transport-velo",
+      "droite": "choix-transport-transports",
+      "retour": "page-carte"
+    }
+  },
+  "info-choix-bicloo": {
+    "next": {
+      "ok": "choix-transport-bicloo"
+    }
+  },
+  "choix-transport-voiture": {
+    "next": {
+      "ok": "question-voiture-velo",
+      "info": "info-choix-voiture",
+      "gauche": "choix-transport-transports",
+      "droite": "choix-transport-velo",
+      "retour": "page-carte"
+    }
+  },
+  "info-choix-voiture": {
+    "next": {
+      "ok": "choix-transport-voiture"
+    }
+  },
+  "question-transports-velo": {
+    "next": {
+      "oui": "choix-transport-velo",
+      "non": "question-transports-bicloo"
+    }
+  },
+  "question-transports-bicloo": {
+    "next": {
+      "oui": "choix-transport-bicloo",
+      "non": "page-finale"
+    }
+  },
+  "question-velo-autres-transports": {
+    "next": {
+      "oui": "choix-transport-transports",
+      "non": "question-garer-velo"
+    }
+  },
+  "question-bicloo-autres-transports": {
+    "next": {
+      "oui": "choix-transport-transports",
+      "non": "question-garer-velo"
+    }
+  },
+  "question-garer-velo": {
+    "next": {
+      "consigne": "page-finale",
+      "sauvage": "page-finale"
+    }
+  },
+  "question-voiture-velo": {
+    "next": {
+      "oui": "choix-transport-velo",
+      "non": "question-voiture-bicloo"
+    }
+  },
+  "question-voiture-bicloo": {
+    "next": {
+      "oui": "choix-transport-bicloo",
+      "non": "question-voiture-transport"
+    }
+  },
+  "question-voiture-transport": {
+    "next": {
+      "oui": "choix-transport-transports",
+      "non": "question-voiture-parking"
+    }
+  },
+  "question-voiture-parking": {
+    "next": {
+      "gratuit": "page-finale",
+      "payant": "page-finale"
+    }
+  }
+}

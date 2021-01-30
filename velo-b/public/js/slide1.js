@@ -5,7 +5,7 @@ registerSlide("page-accueil", function () {
             targets: '#startButton',
             scale: 0
         });
-        goToSlide('page-carte');
+        goToNextSlide('ok');
     });
 
     d3.select('#startButton').on('mouseover', function () {

@@ -1,21 +1,12 @@
 // SLIDE CHOIX BICLOO
 
 
-registerSlide("choix-transport-3", function () {
+registerSlide("choix-transport-bicloo", function () {
   
   /*==================== Fleches ===========================*/
-
-  const idFlecheD = '#fleche-droite-bycl';
-  const idFlecheG = '#fleche-gauche-bycl';
-  const nextD = 'choix-transport-4';
-  const nextG = 'choix-transport-2';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
-
-  //retour
-  const idFlecheRetour = '#fleche-retour-bicl';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  arrowbutton('#fleche-gauche-bicl', 'gauche');
+  arrowbutton('#fleche-droite-bicl', 'droite');
+  retourbutton('#fleche-retour-bicl');
 
   /*====================Bouton du bas ===========================*/
   d3.select('#plus-info-bicloo').on('click', function () {
@@ -23,10 +14,10 @@ registerSlide("choix-transport-3", function () {
       targets: '#plus-info-bicloo',
       scale: 0
     });
-    goToSlide('info-choix-bicloo');
+    goToNextSlide('info');
   });
 
-  const infoSelection = 'infos-selection-bicloo';
+  const infoSelection = 'question-bicloo-autres-transports';
   const idOkButton = '#ok-bicloo';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -36,19 +27,12 @@ registerSlide("choix-transport-3", function () {
 // SLIDE CHOIX TRANSPORT EN COMMUN
 
 
-registerSlide("choix-transport-4", function () {
+registerSlide("choix-transport-transports", function () {
 
-  const idFlecheD = '#fleche-droite-trans';
-  const idFlecheG = '#fleche-gauche-trans';
-  const nextD = 'choix-transport-1';
-  const nextG = 'choix-transport-3';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
-
-  //retour
-  const idFlecheRetour = '#fleche-retour-trans';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  /*==================== Fleches ===========================*/
+  arrowbutton('#fleche-gauche-trans', 'gauche');
+  arrowbutton('#fleche-droite-trans', 'droite');
+  retourbutton('#fleche-retour-trans');
 
 
   /*====================Bouton du bas ===========================*/
@@ -57,11 +41,11 @@ registerSlide("choix-transport-4", function () {
       targets: '#plus-info-transports',
       scale: 0
     });
-    goToSlide('info-choix-transports');
+    goToNextSlide('info');
   });
 
 
-  const infoSelection = 'infos-selection-transport';
+  const infoSelection = 'question-transports-velo';
   const idOkButton = '#ok-transport';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -81,21 +65,12 @@ registerSlide("choix-transport-4", function () {
 
 // SLIDE CHOIX VELO
 
-registerSlide("choix-transport-2",function () {
+registerSlide("choix-transport-velo",function () {
 
   /*==================== Fleches ===========================*/
-
-  const idFlecheD = '#fleche-droite-velo';
-  const idFlecheG = '#fleche-gauche-velo';
-  const nextD = 'choix-transport-3';
-  const nextG = 'choix-transport-1';
-  arrowbutton(idFlecheD, nextD);
-  arrowbutton(idFlecheG, nextG);
-  
-  //retour
-  const idFlecheRetour = '#fleche-retour-velo';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  arrowbutton('#fleche-gauche-velo', 'gauche');
+  arrowbutton('#fleche-droite-velo', 'droite');
+  retourbutton('#fleche-retour-velo');
 
   /*====================Bouton du bas ===========================*/
 
@@ -104,10 +79,10 @@ registerSlide("choix-transport-2",function () {
       targets: ['#plus-info-velo'],
       scale: 0
     });
-    goToSlide('info-choix-velo');
+    goToNextSlide('info');
   });
 
-  const infoSelection = 'infos-selection-velo';
+  const infoSelection = 'question-velo-autres-transports';
   const idOkButton = '#ok-velo';
   okbutton(idOkButton,infoSelection);
   infobutton();
@@ -116,22 +91,14 @@ registerSlide("choix-transport-2",function () {
 
 // SLIDE CHOIX VOITURE
 
-registerSlide("choix-transport-1", function () {
+registerSlide("choix-transport-voiture", function () {
   
    /*==================== Fleches ===========================*/
 
-   const idFlecheD = '#fleche-droite-voit';
-   const idFlecheG = '#fleche-gauche-voit';
-   const nextD = 'choix-transport-2';
-   const nextG = 'choix-transport-4';
-   arrowbutton(idFlecheD, nextD);
-   arrowbutton(idFlecheG, nextG);
-
-   
-  //retour
-  const idFlecheRetour = '#fleche-retour-voit';
-  const retour = 'page-carte';
-  retourbutton(idFlecheRetour, retour);
+  /*==================== Fleches ===========================*/
+  arrowbutton('#fleche-gauche-voit', 'gauche');
+  arrowbutton('#fleche-droite-voit', 'droite');
+  retourbutton('#fleche-retour-voit');
  
    /*====================Bouton du bas ===========================*/
 
@@ -141,23 +108,22 @@ registerSlide("choix-transport-1", function () {
       targets: '#plus-info-voiture',
       scale: 0
     });
-    goToSlide('info-choix-voiture');
+     goToNextSlide('info');
   });
 
-  const infoSelection = 'infos-selection-voiture';
+  const infoSelection = 'question-voiture-velo';
   const idOkButton = '#ok-voiture';
   okbutton(idOkButton,infoSelection);
   infobutton();
 });
 
-
-let arrowbutton = function (idButton, page) {
+let arrowbutton = function (idButton, choice) {
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
       scale: 1
     });
-    goToSlide(page);
+    goToNextSlide(choice);
   });
 
   d3.select(idButton).on('mouseover', function () {
@@ -184,9 +150,8 @@ let okbutton = function (idbutton,page) {
       targets: idbutton,
       scale: 0
     });
-    goToSlide(page);
+    goToNextSlide("ok");
   });
-
 }
 
 let infobutton = function (page) {
@@ -195,7 +160,7 @@ let infobutton = function (page) {
       targets: '#plus-info',
       scale: 0
     });
-    goToSlide('page-finale');
+    goToNextSlide('info');
   });
 }
 
@@ -214,15 +179,14 @@ function changeImage(element) {
 }
 
 
-
 let retourbutton = function (idButton, page) {
-  
+
   d3.select(idButton).on('click', function () {
     overrideAnim({
       targets: idButton,
       scale: 1
     });
-    goToSlide(page);
+    goToNextSlide('retour');
   });
 
   d3.select(idButton).on('mouseover', function () {

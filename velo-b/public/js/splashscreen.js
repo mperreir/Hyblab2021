@@ -10,7 +10,8 @@ registerSlide("splash-screen", function () {
     anim.setSpeed(speed);
     anim.addEventListener("data_ready", () => {
         setTimeout(() => {
-            goToSlide('page-accueil');
+            anim.destroy();
+            goToNextSlide('timeout');
         }, 5000 / speed);
     });
 });

@@ -1,6 +1,10 @@
 const disabledZone = "centre";
 
+let lastId, lastEvent, lastFn, lastThis;
+
 registerSlide("page-carte", function () {
+    [lastId, lastEvent, lastFn, lastThis] = [];
+
     d3.xml("assets/carte.svg").then(data => {
         const carte = d3.select("#carte");
         // clear au cas où des cartes sont déjà présentes
@@ -25,14 +29,11 @@ registerSlide("page-carte", function () {
                 if (this.id === disabledZone)
                     return;
 
-                console.log(this.id); // selectionné
-                zoneChoisie = this.id;
-                goToSlide('choix-transport-2');
+                window.zoneChoisie = this.id;
+                goToNextSlide(this.id);
             });
     });
 });
-
-let lastId, lastEvent, lastFn, lastThis;
 
 function debounce(id, event, fn) {
     if (this.id === disabledZone)
