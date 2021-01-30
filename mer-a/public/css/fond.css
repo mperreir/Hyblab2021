@@ -43,7 +43,11 @@ div#change {
 }
 
 #boat {
-	animation: 3s waveDown ease-in-out infinite;
+	animation: 3s waveDown ease-in-out infinite, 5s anim-glow ease-in-out infinite;
+}
+
+#phare {
+	animation: 8s anim-glow ease-in-out infinite;
 }
 
 @keyframes waveDown {
@@ -70,4 +74,17 @@ div#change {
   100% {
     transform: translateX(15px) translateY(0px);
   }
+}
+
+@keyframes anim-glow {
+	0% {
+		filter: brightness(1);
+	}
+	50% {
+		filter: brightness(1.5);
+	}
+	100% {
+		filter: brightness(1);
+
+	}
 }
