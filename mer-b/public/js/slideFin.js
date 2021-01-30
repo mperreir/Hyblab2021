@@ -122,6 +122,18 @@ function updateSlideFin(plages, criteres){
     let itineraire = cartePostale.querySelector(".itineraire");
     itineraire.setAttribute("href", "https://www.google.com/maps/dir/" + getAffichage().latitude + ",+" + getAffichage().longitude + " /" + element.latitude + "," + element.longitude + "/")
   });
+
+  if (plages.length === 2) {
+    let carte1 = document.getElementById("cp1");
+    let carte2 = document.getElementById("cp2");
+    carte1.style.marginTop = "-60px";
+    carte2.style.marginTop = "-45px";
+  }
+  if (plages.length === 1) {
+    let carte1 = document.getElementById("cp1");
+    carte1.style.marginTop = "-60px";
+    carte1.style.transform = "rotate(1.8deg)";
+  }
 }
 
 function updateSlideFinNotFound(){
