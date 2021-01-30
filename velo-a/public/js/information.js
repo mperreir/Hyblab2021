@@ -1,8 +1,8 @@
 "use strict";
 
 async function bootstrap() {
-	movingBatiment();
-	paneHide();
+	slide();
+
 	togglePath();
 
 }
@@ -34,7 +34,8 @@ function inRect(x, y, rect) {
 		&& (y >= rect.top + 10 && y <= rect.bottom - 10);
 }
 
-function movingBatiment() {
+function slide() {
+	const slides = ["pane", "question_velo", "question_trajet"];
 	let i = 0;
 	const batiment_return = document.getElementById("batiment_return");
 
@@ -57,17 +58,24 @@ function movingBatiment() {
 			document.getElementById("batiment").className = "batiment_back" + (i--);
 			if (i <= 0) {
 				batiment_return.style.display = "none";
-				document.getElementById("pane").setAttribute("class", "show");
-
 			}
+
+			const el = document.querySelector(".show > .batiment_button");
+
+			el.parentElement.setAttribute("class", "hide");
+			document.getElementById(slides[slides.indexOf(el.parentElement.id)-1]).setAttribute("class", "show");
+
+
 		}, 50);
 	});
-}
 
-function paneHide() {
-	document.querySelectorAll("#pane .batiment_button").forEach((el) => {
+	document.querySelectorAll(".batiment_button").forEach((el, index, list) => {
+		if (el.parentElement.id !== slides[0]) {
+			el.parentElement.setAttribute("class", "hide_start");
+		}
 		el.addEventListener("click", () => {
-			document.getElementById("pane").setAttribute("class", "hide");
+			el.parentElement.setAttribute("class", "hide");
+			document.getElementById(slides[slides.indexOf(el.parentElement.id)+1]).setAttribute("class", "show");
 		});
-	})
+	});
 }

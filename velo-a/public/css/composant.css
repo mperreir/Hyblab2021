@@ -37,18 +37,19 @@ input {
 	width: 341px;
 	height: 68px;
 	background: #FFFFFF;
-	border: 2px solid #000000;
+	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 22px;
+	color: #F96D48;
 }
 
 .button-slide :nth-child(2) {
 	display: none;
-	margin: 0px;
+	margin: 0;
 	font-weight: 500;
 	font-size: 12px;
 	font-style: italic;
@@ -57,7 +58,7 @@ input {
 }
 
 .button-slide:hover {
-	background: #24AE70;
+	background: #F96D48;
 	border: 3px solid #FFFFFF;
 	color: white;
 }

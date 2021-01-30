@@ -125,15 +125,55 @@ body {
 	bottom: 2%;
 	left: 2%;
 }
-
-#pane.hide {
-	visibility: hidden;
+.hide_start {
+	position: absolute;
+	z-index: -3;
 	opacity: 0;
-	transition: visibility 1s, opacity 1s linear;
 }
 
-#pane.show {
-	visibility: visible;
+.hide {
+	opacity: 0;
+	transition: opacity 1s linear;
+	animation: hide 3s forwards;
+}
+
+@keyframes hide {
+	100% {
+		position: absolute;
+		z-index: -3;
+	}
+}
+
+.show {
 	opacity: 1;
-	transition: visibility 1s, opacity 1s linear;
+	transition: opacity 1s linear;
+}
+
+.button-slide.batiment_button i{
+	display: none;
+	font-size: small;
+}
+
+.button-slide.batiment_button:hover i{
+	display: inherit;
+}
+
+#question_trajet {
+	display: flex;
+	width: 100%;
+	height: 70%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	position: absolute;
+}
+
+#question_velo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	display: flex;
+	justify-items: center;
+	justify-content: space-around;
 }

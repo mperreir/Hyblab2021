@@ -66,8 +66,18 @@
 
     </svg>
 
-    <button class="batiment_button button-panel" >TEMPORAIRE -> cliquez moi pour avancer</button>
-    <button class="carte_button button-panel" onclick="document.location = 'starterPack.html'">TEMPORAIRE -> cliquez moi pour aller à la map</button>
+    <div id="question_velo">
+        <button class="batiment_button button-slide" ><b>Vélo classique</b><br/><i>je reste sur une valeur sûre</i></button>
+        <button class="batiment_button button-slide" ><b>Vélo électrique</b><br/><i>j’aime son dynamisme et son confort</i></button>
+        <button class="batiment_button button-slide" ><b>Le bicloo</b><br/><i>c’est sans attache mais avec abonnement</i></button>
+    </div>
+
+    <div id="question_trajet">
+        <input id="input_depart" class="input-adresse" placeholder="Adresse de départ à Nantes..."/>
+        <input id="input_arrivee" class="input-adresse" placeholder="Adresse d’arrivée à Nantes..."/>
+        <button class="batiment_button button-slide" onclick="document.location = 'starterPack.html'">Quel est ton vélotrajet ?</button>
+        <button class="batiment_button button-slide" onclick="document.location = 'app.html'">Je veux juste voir la carte</button>
+    </div>
 
     <button class="button-return" id="batiment_return"></button>
 </body>
