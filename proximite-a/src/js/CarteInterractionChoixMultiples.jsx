@@ -18,6 +18,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
         themeId:this.props.data.themeId,
         moyenId:this.props.data.moyenId,
         sites:this.props.data.sites,
+        adresse:this.props.data.adresse,
         selected:[]
     };
 
@@ -65,8 +66,8 @@ class CarteInterractionChoixMultiples extends  React.Component {
                                 <div class="d-flex align-items-center">
                                     <img src={iconAdresse} width={17} height={50} class="m-1"/>
                                     <div class="horizontalAlign">
-                                        <span>4 Rue Sainte Catherine</span>
-                                        <span>44000 Nantes</span>
+                                        <span>{this.state.adresse.rue}</span>
+                                        <span>{this.state.adresse.codepostal} {this.state.adresse.ville}</span>
                                     </div>
                                 </div>
                             </div>
