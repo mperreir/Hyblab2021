@@ -24,7 +24,7 @@ async function loadRessources(path, data, change) {
   document.querySelector('#personnage').src = "";
   loadFond(change);
   $('#content').load(`/mer-a/html/${path}.html`, () => {
-    $('#loading')[0].style.display = 'none';
+    setTimeout(() => $('#loading')[0].style.display = 'none', 1500);
   });
 }
 
