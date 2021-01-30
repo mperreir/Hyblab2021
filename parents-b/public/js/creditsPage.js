@@ -1,12 +1,14 @@
 let initCredits = function(){
 
+    d3.select('.more-info').on('click', function (){
+        //Doit ouvrir la page qui sommes nous
+    });
+    
     console.log('credits chargés');
-    // On ne revient pas sur la page d'accueil
-    //Revenir sur la page d'accueil
-    /*
-    d3.select('.accueil').on('click', function (){
+    
+    d3.select('.logoAccueil9').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
     });
-*/
+
 };

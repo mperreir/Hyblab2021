@@ -1,4 +1,34 @@
 let initFaunaFlora = function(){
+     //--------------AUDIO-----------
+     document.getElementById('access_audio').pause();
+
+     let buutonVol = document.getElementById("volumeFaune");
+     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+ 
+     if(isSonOn){
+         document.getElementById('fauna_audio').play();
+         document.getElementById('fauna_audio').loop = false;
+     }
+     else{
+         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+     }
+     d3.selectAll('.volume').on('click', function (){
+         if(isSonOn){
+             this.setAttribute("src", "./img/common/volume_off.svg");
+             isSonOn = Boolean(false);
+             document.getElementById('fauna_audio').pause(); 
+         }
+         else{
+             this.setAttribute("src", "./img/common/volume_on.svg");
+             isSonOn = Boolean(true);
+             document.getElementById('fauna_audio').play(); 
+         }
+     }); 
+ 
+     
+     
+ 
+     //--------------HEADER-------------
     d3.select('.logoAccueil5').on('click', function (){
         mySlidr.slide('home-page');
         initHome();

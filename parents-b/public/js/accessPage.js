@@ -1,4 +1,35 @@
 let initAccess = function(){
+     //--------------AUDIO-----------
+     document.getElementById('age_audio').pause();
+
+     let buutonVol = document.getElementById("volumeAccess");
+     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+ 
+     if(isSonOn){
+         document.getElementById('access_audio').play();
+         document.getElementById('access_audio').loop = false;
+     }
+     else{
+         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+     }
+     d3.selectAll('.volume').on('click', function (){
+         if(isSonOn){
+             this.setAttribute("src", "./img/common/volume_off.svg");
+             isSonOn = Boolean(false);
+             document.getElementById('access_audio').pause(); 
+         }
+         else{
+             this.setAttribute("src", "./img/common/volume_on.svg");
+             isSonOn = Boolean(true);
+             document.getElementById('access_audio').play(); 
+         }
+     }); 
+ 
+     //--------------HEADER-------------
+     d3.select('.logoAccueil3').on('click', function (){
+         mySlidr.slide('home-page');
+         initHome();
+     });
 
     d3.select('.logoAccueil4').on('click', function (){
         mySlidr.slide('home-page');

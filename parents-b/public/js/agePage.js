@@ -6,6 +6,35 @@ const GRAND = 10.5;
 
 let initAge = function(){
 
+    //--------------AUDIO-----------
+    
+    document.getElementById('hour_audio').pause();
+
+    let buutonVol = document.getElementById("volumeAge");
+    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('age_audio').play();
+        document.getElementById('age_audio').loop = false;
+    }
+    else{
+        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('.volume').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('age_audio').pause(); 
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('age_audio').play(); 
+        }
+    }); 
+    
+
+    //--------------HEADER-------------
     d3.select('.logoAccueil3').on('click', function (){
         mySlidr.slide('home-page');
         initHome();

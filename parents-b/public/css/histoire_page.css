@@ -22,6 +22,7 @@
     width: 20%;
     border: .3em solid #FFCDB6;
     font-size: 18%;
+    z-index: 2;
 }
 
 .button-histoire-font{
@@ -36,4 +37,5 @@
     z-index: 2;
     font-size: 18%;
     border: 0.2em solid #ffe9de;
+    z-index: 4;
 }

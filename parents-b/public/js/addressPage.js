@@ -1,5 +1,32 @@
 let initAddress = function(){
+    //--------------AUDIO-----------
 
+    document.getElementById('debut_audio').pause();
+
+    let x = document.getElementById("volumeAdresse");
+    x.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('adresse_audio').play();
+    }
+    else{
+        x.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('.volume').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('adresse_audio').pause(); 
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('adresse_audio').play(); 
+        }
+    });
+    
+
+    //--------------HEADER-------------
     d3.select('.logoAccueil1').on('click', function (){
         mySlidr.slide('home-page');
         initHome();

@@ -1,5 +1,32 @@
 let initActivities = function(){
 
+    //--------------AUDIO-----------
+    document.getElementById('fauna_audio').pause();
+
+     let buutonVol = document.getElementById("volumeActivite");
+     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+ 
+     if(isSonOn){
+         document.getElementById('activite_audio').play();
+         document.getElementById('activite_audio').loop = false;
+     }
+     else{
+         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+     }
+     d3.selectAll('.volume').on('click', function (){
+         if(isSonOn){
+             this.setAttribute("src", "./img/common/volume_off.svg");
+             isSonOn = Boolean(false);
+             document.getElementById('activite_audio').pause(); 
+         }
+         else{
+             this.setAttribute("src", "./img/common/volume_on.svg");
+             isSonOn = Boolean(true);
+             document.getElementById('activite_audio').play(); 
+         }
+     }); 
+
+    //--------------HEADER-------------
     d3.select('.logoAccueil6').on('click', function (){
         mySlidr.slide('home-page');
         initHome();

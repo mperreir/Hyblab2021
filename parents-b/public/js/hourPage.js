@@ -1,5 +1,34 @@
 let initHour = function(){
     
+    //--------------AUDIO-----------
+
+    document.getElementById('adresse_audio').pause();
+
+    let x = document.getElementById("volumeHour");
+    x.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('hour_audio').play();
+        document.getElementById('hour_audio').loop = false;
+    }
+    else{
+        x.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('.volume').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('hour_audio').pause(); 
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('hour_audio').play(); 
+        }
+    });   
+
+    //--------------HEADER-------------
+    
     d3.select('.logoAccueil2').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
