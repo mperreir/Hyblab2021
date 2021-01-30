@@ -137,10 +137,11 @@ margin-top: 8%;
 }
 .go-back-more-infos{
     position: absolute;
-    top: 2.4%;
+    cursor: pointer;
+    top: 2%;
     left: 7%;
-    width: 2%;
-    z-index: 2;
+    width: 3%;
+    z-index: 4;
 }
 
 /* .middle@media screen and (min-aspect-ratio: 16 / 9){

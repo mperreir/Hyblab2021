@@ -174,3 +174,10 @@ input:checked + .slider:before {
     top: 58.5%;
 }
 
+.ui-draggable-handle{
+    cursor: grab;
+}
+
+.ui-draggable-dragging{
+    cursor: grabbing!important;
+}

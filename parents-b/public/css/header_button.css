@@ -25,6 +25,7 @@
 
 .more-info{
     position: absolute;
+    cursor:pointer;
     top:2%;
     left: 13%;
     width: 17%;
@@ -44,4 +45,20 @@
     left: 15%;
     width: 3%;
     z-index: 2;
+}
+
+.volume-on-credits{
+    position: absolute;
+    top: 2%;
+    left: 12.5%;
+    width: 3%;
+    z-index: 4;
+}
+
+.more-info-credits{
+    position: absolute;
+    cursor:pointer;
+    top: 2%;
+    left: 16%;
+    width: 17%;
 }

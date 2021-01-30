@@ -90,3 +90,12 @@
     right: 1%;
     top: 17%;
 }
+
+.go-back-end{
+    position: absolute;
+    cursor: pointer;
+    top: 2%;
+    left: 9%;
+    width: 3%;
+    z-index: 4;
+}
