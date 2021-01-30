@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/proximite-a/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/proximite-a/build/index.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.884807">
+      <split-first>
+        <splitter split-orientation="vertical" split-proportion="0.8535714">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Attributs.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="259">
+                      <caret line="23" selection-start-line="20" selection-start-column="13" selection-end-line="23" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/build/index.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="218">
+                      <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="82" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/server.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-426" />
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Moyen.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="27">
+                      <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                        <element signature="e#164#217#0" expanded="true" />
+                        <element signature="e#482#533#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/MoyenSelector.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="901">
+                      <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                        <element signature="e#479#543#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/AcceuilCarte.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="221">
+                      <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/CarteInterractionChoixMultiples.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="560">
+                      <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/equivalent.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="74">
+                      <caret line="2" column="17" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="17" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/server.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="225">
+                      <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="53" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/proximite-a/.env">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state>
+                      <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="23" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/App.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="8">
+                      <caret line="6" selection-start-line="6" selection-end-line="6" />
+                      <folding>
+                        <element signature="e#0#26#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/proximite-a/src/js/PopupAnnonce.jsx">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state>
+                      <caret line="16" column="6" selection-start-line="12" selection-start-column="36" selection-end-line="16" selection-end-column="6" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="573">
+                  <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/css/index.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="837">
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/css/theme.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1519">
+                  <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/css/attributs.css">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/css/moyen.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1197">
+                  <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="46">
+                  <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/proximite-a/src/css/AcceuilCarte.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-19">
+                  <caret line="234" column="11" selection-start-line="234" selection-start-column="11" selection-end-line="234" selection-end-column="11" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>col</find>
+      <find>moyen</find>
+      <find>10%</find>
+      <find>MoyenContainer</find>
+      <find>navig</find>
+      <find>local</find>
+      <find>inpu</find>
+      <find>input[type=&quot;radio&quot;</find>
+      <find>MoyenContainer input[type=&quot;radio&quot;]</find>
+      <find>suivant</find>
+      <find>btnNavigationAttribut</find>
+      <find>div</find>
+      <find>buttonActivate</find>
+      <find>oncli</find>
+      <find>dis</find>
+      <find>pointer</find>
+      <find>activate</find>
+      <find>Row</find>
+      <find>valider</find>
+      <find>buil</find>
+      <find>buildin</find>
+      <find>[</find>
+      <find>row</find>
+      <find>di</find>
+      <find>node</find>
+      <find>node_modules</find>
+      <find>containerInterractionEtiquette</find>
+      <find>inp</find>
+      <find>disa</find>
+      <find>main</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>TITRE LIEUX</replace>
+      <replace>theme</replace>
+      <replace>#756EFF</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/proximite-a/Main.js" />
+        <option value="$PROJECT_DIR$/proximite-a/App.js" />
+        <option value="$PROJECT_DIR$/proximite-a/public/index.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/index.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/App.js" />
+        <option value="$PROJECT_DIR$/proximite-a/README.md" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/home.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/theme.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/contenuInteraction.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/ContenuInteraction.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/CarteInterractionChoixLieu.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/Home.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/home.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/api/request.js" />
+        <option value="$PROJECT_DIR$/proximite-a/src/index.js" />
+        <option value="$PROJECT_DIR$/proximite-a/public/src/js/App.js" />
+        <option value="$PROJECT_DIR$/proximite-a/.env" />
+        <option value="$PROJECT_DIR$/proximite-a/server.js" />
+        <option value="$PROJECT_DIR$/proximite-a/public/index.html" />
+        <option value="$PROJECT_DIR$/proximite-a/package.json" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/index.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/attributs.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/moyen.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/Moyen.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/Theme.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/theme.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/ThemeSelector.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/MoyenSelector.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/AcceuilCarte.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/PopupAnnonce.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/equivalent.js" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/Etiquette.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/css/AcceuilCarte.css" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/CarteInterractionChoixMultiples.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/Attributs.jsx" />
+        <option value="$PROJECT_DIR$/proximite-a/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/proximite-a/src/js/App.js" />
+        <option value="$PROJECT_DIR$/proximite-a/build/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="1933" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hyblab2021" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hyblab2021" type="462c0819:PsiDirectoryNode" />
+              <item name="proximite-a" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/proximite-a/._server.js" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/proximite-a" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="ts.external.directory.path" value="D:\program files\JetBrains\WebStorm 2018.3.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\public" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\img" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\Static" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\js" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\js" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a\src\css" />
+      <recent name="C:\Users\Ioan.S\WebstormProjects\Hyblab2021\proximite-a" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration default="true" type="js.build_tools.npm">
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/proximite-a/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/proximite-a/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="825f731f-1f4e-41a2-acda-0d2d4231d6bd" name="Default Changelist" comment="" />
+      <created>1610727781223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610727781223</updated>
+      <workItem from="1610727784684" duration="1930000" />
+      <workItem from="1610793308935" duration="4331000" />
+      <workItem from="1610912928462" duration="1517000" />
+      <workItem from="1610917070042" duration="75000" />
+      <workItem from="1610965242648" duration="5016000" />
+      <workItem from="1611432001853" duration="976000" />
+      <workItem from="1611616520530" duration="48000" />
+      <workItem from="1611649747204" duration="43222000" />
+      <workItem from="1611736611334" duration="12954000" />
+      <workItem from="1611782538564" duration="1591000" />
+      <workItem from="1611844781647" duration="3379000" />
+      <workItem from="1611851349337" duration="50586000" />
+      <workItem from="1611937928023" duration="12973000" />
+      <workItem from="1611956287145" duration="23359000" />
+    </task>
+    <task id="LOCAL-00001" summary="create branch dev">
+      <created>1610728293834</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610728293834</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Configuring Express app for static files">
+      <created>1610795757233</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610795757233</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adding node configuration and gitignore">
+      <created>1610795911856</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610795911856</updated>
+    </task>
+    <task id="LOCAL-00004" summary="adding comments on how to get started with the server">
+      <created>1610796939154</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610796939154</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Restructuring project for React App">
+      <created>1610969452794</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610969452794</updated>
+    </task>
+    <task id="LOCAL-00006" summary="editing readme">
+      <created>1610969660630</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610969660630</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adding App.js">
+      <created>1611432088545</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611432088545</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ajout squelette site (pages web principales)">
+      <created>1611657216228</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611657216228</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Ajout mis en page Home">
+      <created>1611658175979</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611658175979</updated>
+    </task>
+    <task id="LOCAL-00010" summary="premières mise en page(Home et thème)">
+      <created>1611663743679</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611663743679</updated>
+    </task>
+    <task id="LOCAL-00011" summary="conteneurisation du thème">
+      <created>1611667259773</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611667259773</updated>
+    </task>
+    <task id="LOCAL-00012" summary="changement position par conteneurisation au lieu de absolute des boutons de navigation">
+      <created>1611668954724</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611668954724</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Ajout layout de première popup de carte">
+      <created>1611687752801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611687752847</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Ajout du menu de phase2 concernant les chhoix des paramètres multiples">
+      <created>1611694791014</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611694791014</updated>
+    </task>
+    <task id="LOCAL-00015" summary="ajout zoom map + qqs réglages css">
+      <created>1611701919546</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611701919546</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Ajout fenêtre modale et géolocalisation">
+      <created>1611877789248</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1611877789248</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ajout fichiers manquants">
+      <created>1611878611428</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1611878611428</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Ajout animation étiquette + affichage Nom per">
+      <created>1611925147209</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1611925147209</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Merge branch 'Frontpage3' into Feature/FrontPages1&#10;&#10;# Conflicts:&#10;#&#9;proximite-a/src/js/App.js">
+      <created>1611930323264</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611930323264</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Merge branch 'Frontpage3' into Feature/FrontPages1&#10;&#10;# Conflicts:&#10;#&#9;proximite-a/src/js/App.js">
+      <created>1611930750035</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611930750035</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Resolution conflits">
+      <created>1611931441519</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1611931441519</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Resolution conflits">
+      <created>1611932864415</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1611932864415</updated>
+    </task>
+    <task id="LOCAL-00023" summary="merging conflits dev build">
+      <created>1611940294949</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1611940294949</updated>
+    </task>
+    <task id="LOCAL-00024" summary="merging conflits dev build">
+      <created>1611940343789</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1611940343789</updated>
+    </task>
+    <task id="LOCAL-00025" summary="ajout fichiers pour gitignore">
+      <created>1611943097450</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1611943097450</updated>
+    </task>
+    <task id="LOCAL-00026" summary="ajout dossier au gitignore">
+      <created>1611943167204</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1611943167204</updated>
+    </task>
+    <task id="LOCAL-00027" summary="merging conflits dev build">
+      <created>1611943186150</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1611943186150</updated>
+    </task>
+    <task id="LOCAL-00028" summary="rebuild composantAttribut">
+      <created>1611963196776</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1611963196777</updated>
+    </task>
+    <task id="LOCAL-00029" summary="rebuild composantAttribut">
+      <created>1611963317966</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1611963317966</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Beaucoup de modifs coté front/design">
+      <created>1611969499027</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1611969499027</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Beaucoup de modifs coté front/design">
+      <created>1611970486556</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1611970486556</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Ajout étiuettes">
+      <created>1612016725812</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1612016725812</updated>
+    </task>
+    <task id="LOCAL-00033" summary="changement gitignore">
+      <created>1612017003169</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1612017003169</updated>
+    </task>
+    <task id="LOCAL-00034" summary="changement gitignore">
+      <created>1612017693428</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1612017693428</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="164602000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15384616" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="DB Browser" order="3" weight="0.16649048" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32870865" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.43007916" weight="0.5602988" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49973616" weight="0.32870865" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.58575195" weight="0.27854857" />
+      <window_info anchor="bottom" id="DB Execution Console" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.54531085" visible="true" weight="0.06616862" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.45468915" side_tool="true" weight="0.22945571" />
+      <window_info anchor="bottom" id="TypeScript" order="12" weight="0.21024546" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.036997885" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="DB Browser" order="3" weight="0.16649048" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49947312" weight="0.26077586" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297414" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.49030173" />
+      <window_info anchor="bottom" id="DB Execution Console" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49947312" weight="0.23922414" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50052685" side_tool="true" weight="0.24012807" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Feature/FrontPages1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Feature/FrontPages1" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Restructuring project for React App" />
+    <MESSAGE value="editing readme" />
+    <MESSAGE value="adding App.js" />
+    <MESSAGE value="Ajout squelette site (pages web principales)" />
+    <MESSAGE value="Ajout mis en page Home" />
+    <MESSAGE value="premières mise en page(Home et thème)" />
+    <MESSAGE value="conteneurisation du thème" />
+    <MESSAGE value="changement position par conteneurisation au lieu de absolute des boutons de navigation" />
+    <MESSAGE value="Ajout layout de première popup de carte" />
+    <MESSAGE value="Ajout du menu de phase2 concernant les chhoix des paramètres multiples" />
+    <MESSAGE value="ajout zoom map + qqs réglages css" />
+    <MESSAGE value="Ajout fenêtre modale et géolocalisation" />
+    <MESSAGE value="ajout fichiers manquants" />
+    <MESSAGE value="Ajout animation étiquette + affichage Nom per" />
+    <MESSAGE value="Fixation de merge avec branch3" />
+    <MESSAGE value="Merge branch 'Frontpage3' into Feature/FrontPages1&#10;&#10;# Conflicts:&#10;#&#9;proximite-a/src/js/App.js" />
+    <MESSAGE value="Resolution conflits" />
+    <MESSAGE value="ajout fichiers pour gitignore" />
+    <MESSAGE value="ajout dossier au gitignore" />
+    <MESSAGE value="merging conflits dev build" />
+    <MESSAGE value="rebuild composantAttribut" />
+    <MESSAGE value="Beaucoup de modifs coté front/design" />
+    <MESSAGE value="Ajout étiuettes" />
+    <MESSAGE value="changement gitignore" />
+    <MESSAGE value="Merge branch 'feature/Frontpages1' into dev&#10;&#10;# Conflicts:&#10;#&#9;.gitignore&#10;#&#9;node_modules/.bin/mime&#10;#&#9;node_modules/accepts/package.json&#10;#&#9;node_modules/array-flatten/package.json&#10;#&#9;node_modules/body-parser/package.json&#10;#&#9;node_modules/bytes/package.json&#10;#&#9;node_modules/content-disposition/package.json&#10;#&#9;node_modules/content-type/package.json&#10;#&#9;node_modules/cookie-signature/package.json&#10;#&#9;node_modules/cookie/package.json&#10;#&#9;node_modules/debug/package.json&#10;#&#9;node_modules/depd/package.json&#10;#&#9;node_modules/destroy/package.json&#10;#&#9;node_modules/ee-first/package.json&#10;#&#9;node_modules/encodeurl/package.json&#10;#&#9;node_modules/escape-html/package.json&#10;#&#9;node_modules/etag/package.json&#10;#&#9;node_modules/express/package.json&#10;#&#9;node_modules/finalhandler/package.json&#10;#&#9;node_modules/forwarded/package.json&#10;#&#9;node_modules/fresh/package.json&#10;#&#9;node_modules/http-errors/package.json&#10;#&#9;node_modules/iconv-lite/package.json&#10;#&#9;node_modules/inherits/package.json&#10;#&#9;node_modules/ipaddr.js/package.json&#10;#&#9;node_modules/media-typer/package.json&#10;#&#9;node_modules/merge-descriptors/package.json&#10;#&#9;node_modules/methods/package.json&#10;#&#9;node_modules/mime-db/package.json&#10;#&#9;node_modules/mime-types/package.json&#10;#&#9;node_modules/mime/package.json&#10;#&#9;node_modules/ms/package.json&#10;#&#9;node_modules/negotiator/package.json&#10;#&#9;node_modules/on-finished/package.json&#10;#&#9;node_modules/parseurl/package.json&#10;#&#9;node_modules/path-to-regexp/package.json&#10;#&#9;node_modules/proxy-addr/package.json&#10;#&#9;node_modules/qs/package.json&#10;#&#9;node_modules/range-parser/package.json&#10;#&#9;node_modules/raw-body/package.json&#10;#&#9;node_modules/safe-buffer/package.json&#10;#&#9;node_modules/safer-buffer/package.json&#10;#&#9;node_modules/send/node_modules/ms/package.json&#10;#&#9;node_modules/send/package.json&#10;#&#9;node_modules/serve-static/package.json&#10;#&#9;node_modules/setprototypeof/package.json&#10;#&#9;node_modules/statuses/package.json&#10;#&#9;node_modules/toidentifier/package.json&#10;#&#9;node_modules/type-is/package.json&#10;#&#9;node_modules/unpipe/package.json&#10;#&#9;node_modules/utils-merge/package.json&#10;#&#9;node_modules/vary/package.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'feature/Frontpages1' into dev&#10;&#10;# Conflicts:&#10;#&#9;.gitignore&#10;#&#9;node_modules/.bin/mime&#10;#&#9;node_modules/accepts/package.json&#10;#&#9;node_modules/array-flatten/package.json&#10;#&#9;node_modules/body-parser/package.json&#10;#&#9;node_modules/bytes/package.json&#10;#&#9;node_modules/content-disposition/package.json&#10;#&#9;node_modules/content-type/package.json&#10;#&#9;node_modules/cookie-signature/package.json&#10;#&#9;node_modules/cookie/package.json&#10;#&#9;node_modules/debug/package.json&#10;#&#9;node_modules/depd/package.json&#10;#&#9;node_modules/destroy/package.json&#10;#&#9;node_modules/ee-first/package.json&#10;#&#9;node_modules/encodeurl/package.json&#10;#&#9;node_modules/escape-html/package.json&#10;#&#9;node_modules/etag/package.json&#10;#&#9;node_modules/express/package.json&#10;#&#9;node_modules/finalhandler/package.json&#10;#&#9;node_modules/forwarded/package.json&#10;#&#9;node_modules/fresh/package.json&#10;#&#9;node_modules/http-errors/package.json&#10;#&#9;node_modules/iconv-lite/package.json&#10;#&#9;node_modules/inherits/package.json&#10;#&#9;node_modules/ipaddr.js/package.json&#10;#&#9;node_modules/media-typer/package.json&#10;#&#9;node_modules/merge-descriptors/package.json&#10;#&#9;node_modules/methods/package.json&#10;#&#9;node_modules/mime-db/package.json&#10;#&#9;node_modules/mime-types/package.json&#10;#&#9;node_modules/mime/package.json&#10;#&#9;node_modules/ms/package.json&#10;#&#9;node_modules/negotiator/package.json&#10;#&#9;node_modules/on-finished/package.json&#10;#&#9;node_modules/parseurl/package.json&#10;#&#9;node_modules/path-to-regexp/package.json&#10;#&#9;node_modules/proxy-addr/package.json&#10;#&#9;node_modules/qs/package.json&#10;#&#9;node_modules/range-parser/package.json&#10;#&#9;node_modules/raw-body/package.json&#10;#&#9;node_modules/safe-buffer/package.json&#10;#&#9;node_modules/safer-buffer/package.json&#10;#&#9;node_modules/send/node_modules/ms/package.json&#10;#&#9;node_modules/send/package.json&#10;#&#9;node_modules/serve-static/package.json&#10;#&#9;node_modules/setprototypeof/package.json&#10;#&#9;node_modules/statuses/package.json&#10;#&#9;node_modules/toidentifier/package.json&#10;#&#9;node_modules/type-is/package.json&#10;#&#9;node_modules/unpipe/package.json&#10;#&#9;node_modules/utils-merge/package.json&#10;#&#9;node_modules/vary/package.json" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/img/LOGO OK_logo principal.png" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/img/Perso-hyblab-02.png" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/img/Perso-hyblab-03.png" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/react-bootstrap/esm/Modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="180" selection-start-line="180" selection-end-line="180" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/@types/leaflet/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="136" column="12" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/react-leaflet/types/Marker.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/@types/react/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="490" column="8" selection-start-line="490" selection-start-column="8" selection-end-line="490" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="17197" column="20" selection-start-line="17197" selection-start-column="20" selection-end-line="17197" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/@types/eslint/rules/ecmascript-6.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.core.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/CarteInterractionChoixLieu.jsx" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/img/logo_hyblab.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/home.css" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Home.jsx" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/node_modules/react-leaflet/types/Circle.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/api/request.js" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/public/src/js/App.js" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/core-scripting.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/build/static/css/main.933bca92.chunk.css.map" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/creditPage.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1519">
+          <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/attributs.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/ThemeSelector.jsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Theme.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/PopupAnnonce.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="16" column="6" selection-start-line="12" selection-start-column="36" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/api/getZone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Etiquette.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/AcceuilCarte.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="234" column="11" selection-start-line="234" selection-start-column="11" selection-end-line="234" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/CarteInterractionChoixMultiples.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/equivalent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Attributs.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="23" selection-start-line="20" selection-start-column="13" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/Moyen.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#164#217#0" expanded="true" />
+            <element signature="e#482#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/MoyenSelector.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#479#543#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/AcceuilCarte.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/package.json" />
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/js/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/._server.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/._server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-426" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/src/css/moyen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1197">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proximite-a/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

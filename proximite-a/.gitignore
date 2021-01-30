@@ -1,3 +1,5 @@
+build
+
 # Logs
 logs
 *.log
@@ -104,4 +106,5 @@ dist
 ._*
 ._server.js
 
-build
+workspace.xml
+.idea

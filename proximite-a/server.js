@@ -8,7 +8,7 @@ const api = require('./src/api/api');
 var app = express();
 
 // Minimum routing: serve static content from the html directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
 console.log('brie2');
