@@ -1,3 +1,5 @@
+"use strict";
+
 const ABRIS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_abris-velos-nantes-metropole&q=&rows=500&facet=commune&facet=conditions&facet=gestionnaire";
 
 /**
@@ -5,13 +7,13 @@ const ABRIS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/sear
  * @return {Promise<any>} - Abris velo
  */
 const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
-    .then(response => {
-        return response.json();
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-        return undefined;
-    });
+	.then(response => {
+		return response.json();
+	})
+	.catch((error) => {
+		console.error("Error:", error);
+		return undefined;
+	});
 
 /**
  * Display "abris velo" of Nantes Metropole on the map
@@ -19,16 +21,16 @@ const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
  * @param {Map} map - The Mapbox Map
  */
 export async function abrisVeloDisplayData() {
-    const data = await abrisVeloFetchData();
+	const data = await abrisVeloFetchData();
 
-    if (!data || !data.records || !data.records.length) return;
+	if (!data || !data.records || !data.records.length) return;
 
-    const markers = [];
+	const markers = [];
 
-    data.records.forEach((record) => {
+	data.records.forEach((record) => {
 
-        const html =
-            `<div>
+		const html =
+			`<div>
                 <i class="fas fa-garage"></i>
                 <h4>${record.fields.nom}</h4>
                 <h5><bold>Téléphone :</bold> ${record.fields.tel}</h5>
@@ -38,15 +40,15 @@ export async function abrisVeloDisplayData() {
                 <h5><bold>Accès :</bold> ${record.fields.conditions}</h5>
             </div>`;
 
-        const marker = {
-            longitude: record.fields.location[1],
-            latitude: record.fields.location[0],
-            text: html
-        }
+		const marker = {
+			longitude: record.fields.location[1],
+			latitude: record.fields.location[0],
+			text: html
+		}
 
-        markers.push(marker);
-    });
+		markers.push(marker);
+	});
 
-    return markers;
+	return markers;
 
 }

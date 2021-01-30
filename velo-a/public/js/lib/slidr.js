@@ -51,7 +51,7 @@
     for (var i = 0, len = list.length; i < len; i++) if (list[i] === val) return i;
     return -1;
   }
-  
+
   // Simple trim polyfill for IE8.
   function trim(str) {
     return ("".trim) ? str.trim() : str.replace(/^\s+|\s+$/g, '');
@@ -114,7 +114,7 @@
     if (typeof(ev) === 'string') ev = [ev];
     for (var i = 0, e, isAnimation; e = ev[i]; i++) {
       isAnimation = indexOf(browser.animations, e) > 0;
-      e = (e === 'click' && 'ontouchstart' in window) ? 'touchend' : 
+      e = (e === 'click' && 'ontouchstart' in window) ? 'touchend' :
         (el.attachEvent && !isAnimation) ? 'on' + e : e;
       (el.attachEvent && !isAnimation) ? (optUnbind ? el.detachEvent(e, callback) : el.attachEvent(e, callback)) :
         (optUnbind ? el.removeEventListener(e, callback) : el.addEventListener(e, callback));
@@ -434,7 +434,7 @@
     // Get slide metadata.
     get: function(_) {
       var args = [];
-      for (var i = 1, a; (a = arguments[i++]) !== undefined; args.push(a)) {};
+      for (var i = 1, a; (a = arguments[i++]) !== undefined; args.push(a)) {}
       return lookup(_.slides, args);
     },
 
@@ -506,7 +506,7 @@
     validate: function(_, ids, trans, valid, prev, next) {
       if (!ids || ids.constructor !== Array) return false;
       // For each slide we're trying to add, check it against our known mapping.
-      for (var i = 0, current, newPrev, newNext, oldPrev, oldNext, 
+      for (var i = 0, current, newPrev, newNext, oldPrev, oldNext,
            prevPrev, oldPrevTrans, oldNextTrans; current = ids[i]; i++) {
         if (!(current in valid)) return false;
         if (slides.get(_, current)) {
@@ -682,7 +682,7 @@
   };
 
   var breadcrumbs = {
-  
+
     // Classnames
     cls: browser.classnames('breadcrumbs'),
 
@@ -811,7 +811,7 @@
               crumbs[element].el = liclone;
             }
             ulclone.appendChild(liclone);
-          };
+          }
           _.breadcrumbs.appendChild(ulclone);
         }
         _.crumbs = crumbs;

@@ -1630,7 +1630,7 @@
    * simple validators which return a string or undefined
    */
   v.any = function any() {
-    return;
+
   };
 
   v.boolean = function boolean(value) {

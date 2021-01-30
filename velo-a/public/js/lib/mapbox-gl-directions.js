@@ -6501,7 +6501,7 @@ function symbolObservablePonyfill(root) {
 	}
 
 	return result;
-};
+}
 },{}],35:[function(require,module,exports){
 var each = require('turf-meta').coordEach;
 
@@ -7038,7 +7038,7 @@ function reverse() {
     var suggestions = document.getElementsByClassName('suggestions');
     for (var i = 0; i < suggestions.length; i++) {
       suggestions[i].style.visibility = 'hidden';
-    };
+    }
   };
 }
 
@@ -7477,7 +7477,7 @@ var Geocoder = function () {
 }();
 
 exports.default = Geocoder;
-;
+
 
 },{"../utils":47,"events":3,"lodash.debounce":7,"suggestions":30}],41:[function(require,module,exports){
 'use strict';

@@ -1,83 +1,179 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
 
-    background-color: #fcd2cf;
+	background-color: #fcd2cf;
 }
 
 #montagne_droite, #montagne_gauche {
-    z-index: -1;
+	z-index: -1;
 
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
 }
 
 #montagne_droite {
-    right: 0;
+	right: 0;
 }
 
 #montagne_gauche {
-    left: 0;
+	left: 0;
 }
 
 #ciel {
-    z-index: -3;
+	z-index: -3;
 
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
 
-    animation: ease-in-out anim_ciel 20s infinite;
-    animation-direction: alternate;
+	animation: ease-in-out anim_ciel 20s infinite;
+	animation-direction: alternate;
 }
 
 
 @keyframes anim_ciel {
-    100%  {transform: translateX(-30%);}
+	100% {
+		transform: translateX(-30%);
+	}
 }
 
 
 #batiment {
-    z-index: -2;
+	z-index: -2;
 
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
 
 }
 
 .batiment_move1 {
-    animation: ease-in-out anim_batiment1 2s;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment1 2s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes anim_batiment1 {
-    100%  {transform: translateX(-20%);}
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-20%);
+	}
 }
 
 .batiment_move2 {
-    animation: ease-in-out anim_batiment2 2s;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment2 2s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes anim_batiment2 {
-    0%  {transform: translateX(-20%);}
-    100%  {transform: translateX(-40%);}
+	0% {
+		transform: translateX(-20%);
+	}
+	100% {
+		transform: translateX(-40%);
+	}
+}
+
+.batiment_pause1 {
+	transform: translateX(-20%);
+}
+
+.batiment_pause2 {
+	transform: translateX(-40%);
+}
+
+.batiment_back1 {
+	animation: ease-in-out anim_batiment1 2s reverse;
+	animation-fill-mode: forwards;
+}
+
+.batiment_back2 {
+	animation: ease-in-out anim_batiment2 2s reverse;
+	animation-fill-mode: forwards;
+}
+
+
+#pane {
+	position: absolute;
+
+	max-height: 80vh;
+	bottom: 11%;
+	right: 30%;
+}
+
+.button-return {
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+}
+.hide_start {
+	position: absolute;
+	z-index: -3;
+	opacity: 0;
+}
+
+.hide {
+	opacity: 0;
+	transition: opacity 1s linear;
+	animation: hide 3s forwards;
+}
+
+@keyframes hide {
+	100% {
+		position: absolute;
+		z-index: -3;
+	}
+}
+
+.show {
+	opacity: 1;
+	transition: opacity 1s 1s linear;
+}
+
+.button-slide.batiment_button i{
+	display: none;
+	font-size: small;
+}
+
+.button-slide.batiment_button:hover i{
+	display: inherit;
+}
+
+#question_trajet {
+	display: flex;
+	width: 100%;
+	height: 70%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	position: absolute;
+}
+
+#question_velo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	display: flex;
+	justify-items: center;
+	justify-content: space-around;
 }

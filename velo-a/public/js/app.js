@@ -3,7 +3,7 @@
 import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import { getMeteoByTime, getMeteoNow } from "./modules/meteo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
-import { getTraficData } from "./modules/trafic.js";
+import { getTraficData } from "./modules/roadMonitoring.js";
 
 async function bootstrap() {
 
@@ -12,7 +12,7 @@ async function bootstrap() {
 		container: 'map', // container id
 		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
 		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
-		zoom: 11 // starting zoom
+		zoom: 12.3 // starting zoom
 	});
 
 	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
@@ -79,7 +79,9 @@ async function bootstrap() {
 	getMeteoByTime(Date.now());
 }
 
-bootstrap();
+window.addEventListener('DOMContentLoaded', () => {
+	bootstrap();
+});
 
 // document.getElementById("button-question").onclick = () => {
 // 	document.location.href = "question.html?page=météo";
@@ -102,12 +104,12 @@ document.getElementById("input-vae").onclick = () => {
 };
 
 document.getElementById("btn-menu-nav").onclick = () => {
-	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"),null).getPropertyValue('visibility');
-	if(nav_visible === "hidden"){
+	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('visibility');
+	if (nav_visible === "hidden") {
 		document.getElementById("left-nav").setAttribute("style", "visibility: visible");
 		document.getElementById("btn-menu-nav").classList.remove("button-menu");
 		document.getElementById("btn-menu-nav").classList.add("button-cross");
-	}else{
+	} else {
 		document.getElementById("left-nav").setAttribute("style", "visibility: hidden");
 		document.getElementById("btn-menu-nav").classList.add("button-menu");
 		document.getElementById("btn-menu-nav").classList.remove("button-cross");
