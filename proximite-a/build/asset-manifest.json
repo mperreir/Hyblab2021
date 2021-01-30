@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/proximite-a/static/css/main.c6850e20.chunk.css",
-    "main.js": "/proximite-a/static/js/main.22da8243.chunk.js",
-    "main.js.map": "/proximite-a/static/js/main.22da8243.chunk.js.map",
+    "main.css": "/proximite-a/static/css/main.f4cd0a63.chunk.css",
+    "main.js": "/proximite-a/static/js/main.1c08ad7b.chunk.js",
+    "main.js.map": "/proximite-a/static/js/main.1c08ad7b.chunk.js.map",
     "runtime-main.js": "/proximite-a/static/js/runtime-main.805f25b1.js",
     "runtime-main.js.map": "/proximite-a/static/js/runtime-main.805f25b1.js.map",
-    "static/js/2.b5ce8df6.chunk.js": "/proximite-a/static/js/2.b5ce8df6.chunk.js",
-    "static/js/2.b5ce8df6.chunk.js.map": "/proximite-a/static/js/2.b5ce8df6.chunk.js.map",
+    "static/js/2.29c57345.chunk.js": "/proximite-a/static/js/2.29c57345.chunk.js",
+    "static/js/2.29c57345.chunk.js.map": "/proximite-a/static/js/2.29c57345.chunk.js.map",
     "index.html": "/proximite-a/index.html",
-    "static/css/main.c6850e20.chunk.css.map": "/proximite-a/static/css/main.c6850e20.chunk.css.map",
-    "static/js/2.b5ce8df6.chunk.js.LICENSE.txt": "/proximite-a/static/js/2.b5ce8df6.chunk.js.LICENSE.txt",
+    "static/css/main.f4cd0a63.chunk.css.map": "/proximite-a/static/css/main.f4cd0a63.chunk.css.map",
+    "static/js/2.29c57345.chunk.js.LICENSE.txt": "/proximite-a/static/js/2.29c57345.chunk.js.LICENSE.txt",
     "static/media/LOGO OK_logo bleu.85933828.png": "/proximite-a/static/media/LOGO OK_logo bleu.85933828.png",
+    "static/media/LOGO OK_logo jaune.e913cd3e.png": "/proximite-a/static/media/LOGO OK_logo jaune.e913cd3e.png",
+    "static/media/LOGO OK_logo orange.903cab26.png": "/proximite-a/static/media/LOGO OK_logo orange.903cab26.png",
     "static/media/LOGO OK_logo principal.b2d7a750.png": "/proximite-a/static/media/LOGO OK_logo principal.b2d7a750.png",
-    "static/media/Perso-hyblab-02.99a0f2f4.png": "/proximite-a/static/media/Perso-hyblab-02.99a0f2f4.png",
+    "static/media/LOGO OK_logo rose.f40714c7.png": "/proximite-a/static/media/LOGO OK_logo rose.f40714c7.png",
+    "static/media/LOGO OK_logo vert.cbeb688b.png": "/proximite-a/static/media/LOGO OK_logo vert.cbeb688b.png",
+    "static/media/Perso-hyblab-02.5c026111.png": "/proximite-a/static/media/Perso-hyblab-02.5c026111.png",
     "static/media/Perso-hyblab-03.b0d4659a.png": "/proximite-a/static/media/Perso-hyblab-03.b0d4659a.png",
-    "static/media/Perso-hyblab-04.c2a7a61d.png": "/proximite-a/static/media/Perso-hyblab-04.c2a7a61d.png",
-    "static/media/Perso-hyblab-05.ffc691f6.png": "/proximite-a/static/media/Perso-hyblab-05.ffc691f6.png",
-    "static/media/Perso-hyblab-06.896c040f.png": "/proximite-a/static/media/Perso-hyblab-06.896c040f.png",
+    "static/media/Perso-hyblab-04.4a377012.png": "/proximite-a/static/media/Perso-hyblab-04.4a377012.png",
+    "static/media/Perso-hyblab-05.f636d342.png": "/proximite-a/static/media/Perso-hyblab-05.f636d342.png",
+    "static/media/Perso-hyblab-06.f97e1cfc.png": "/proximite-a/static/media/Perso-hyblab-06.f97e1cfc.png",
     "static/media/moyen.css": "/proximite-a/static/media/illus-paged'accueil-hyblab-ok-06.89a3aee4.png",
     "static/media/picto moyen de transport-fauteuil.0ab62114.png": "/proximite-a/static/media/picto moyen de transport-fauteuil.0ab62114.png",
     "static/media/picto moyen de transport-pied.537818ee.png": "/proximite-a/static/media/picto moyen de transport-pied.537818ee.png",
@@ -24,12 +28,13 @@
     "static/media/picto moyen de transport-skate.24666e8f.png": "/proximite-a/static/media/picto moyen de transport-skate.24666e8f.png",
     "static/media/picto moyen de transport-trotinette.9da33087.png": "/proximite-a/static/media/picto moyen de transport-trotinette.9da33087.png",
     "static/media/picto moyen de transport-vélo.65ddd967.png": "/proximite-a/static/media/picto moyen de transport-vélo.65ddd967.png",
-    "static/media/position-icon.ee42b10d.svg": "/proximite-a/static/media/position-icon.ee42b10d.svg"
+    "static/media/position-icon.ee42b10d.svg": "/proximite-a/static/media/position-icon.ee42b10d.svg",
+    "static/media/video-pageaccueil-fond blanc.c6926bf6.mp4": "/proximite-a/static/media/video-pageaccueil-fond blanc.c6926bf6.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.805f25b1.js",
-    "static/js/2.b5ce8df6.chunk.js",
-    "static/css/main.c6850e20.chunk.css",
-    "static/js/main.22da8243.chunk.js"
+    "static/js/2.29c57345.chunk.js",
+    "static/css/main.f4cd0a63.chunk.css",
+    "static/js/main.1c08ad7b.chunk.js"
   ]
 }

@@ -1,6 +1,7 @@
 #homeContainer{
-    height: 100%;
-    background-image: none;
+    background: none;
+    min-height: 100%;
+    min-width: 100%;
 }
 #logo{
     margin-top: 5%;
@@ -11,9 +12,7 @@
 }
 
 #paragraphe{
-    padding-top: 3%;
-    padding-bottom: 2%;
-    width: 40%;
+    max-width: 600px;
 }
 
 h4{
@@ -22,9 +21,9 @@ h4{
 
 
 #homeContainer input[type=text]{
-    width: 20%;
     height: 70px;
     background: #FFFFFF;
+    font-size: 25px;
     border: 2px solid #756EFF;
     box-sizing: border-box;
     border-radius: 30px;
@@ -41,8 +40,8 @@ h4{
 }
 
 #homeContainer input[type=button]{
-    margin: 2%;
-    width: 15%;
+
+    padding: 0 35px 0 35px;
     height: 50px;
     background: #756EFF;
     box-sizing: border-box;
@@ -50,4 +49,41 @@ h4{
     border-radius: 10px;
     text-align: center;
     color: #FFFFFF;
+}
+
+
+#homeContainer input[type=button]:disabled{
+    opacity: 0.5;
+}
+#homeContainer #credits{
+    position: absolute;
+    bottom: 55px;
+    right: 85px;
+    border-radius: 30px;
+    background-color: white !important;
+    color: #756EFF !important;
+}
+
+#videoFond{
+    z-index: -1;
+    position: fixed;
+    background:none;
+    left: 0;
+    bottom: 0;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #videoFond{
+    width: 100vw; 
+    height:auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #videoFond {
+    height: 100vh; 
+    width:auto;
+    margin-left: 50vw;
+    transform: translate(-50%);
+  }
 }
