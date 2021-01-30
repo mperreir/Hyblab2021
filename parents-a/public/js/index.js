@@ -125,6 +125,7 @@ let initSlide2_1 = function() {
 
     d3.select('#trois_eleph-p2_1').on('click', async function() {
         console.log(d3.event.target.id);
+        nextSlide('3');
     });
 
     d3.select('#six_eleph-p2_1').on('click', async function() {
