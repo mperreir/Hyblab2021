@@ -45,20 +45,26 @@ async function bootstrap() {
 
 	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
 
-	abrisVeloDisplayData().then(data => { abrisVelo = data; });
-	getStationsVelos().then(data => { stationsVelo = data; });
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+
+	abrisVeloDisplayData().then(data => {
+		abrisVelo = data;
+		if( urlParams.get('abris') ) {
+			document.getElementById('abris_velo').checked = true
+			points("abris_velo", abrisVelo, "img/abris.svg");
+		}
+	});
+	getStationsVelos().then(data => {
+		stationsVelo = data;
+		if( urlParams.get('bicloo') ) {
+			document.getElementById('station_bicloo').checked = true;
+			points("station_bicloo", stationsVelo, "img/station.svg");
+		}
+	});
 	getMeteoNow();
 	getMeteoByTime(Date.now());
 
-	if( urlParams.get('bicloo') ) {
-		document.getElementById('station_bicloo').checked = true;
-		points("station_bicloo", stationsVelo, "img/station.svg");
-	}
-
-	if( urlParams.get('abris') ) {
-		document.getElementById('abris_velo').checked = true
-		points("abris_velo", abrisVelo, "img/abris.svg");
-	}
 }
 
 bootstrap();
@@ -75,9 +81,6 @@ document.getElementById("btn-menu-nav").onclick = () => {
 		document.getElementById("btn-menu-nav").classList.remove("button-cross");
 	}
 };
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
 
 document.getElementById('abris_velo').onchange = (e) => {
 	if (e.currentTarget.checked) {

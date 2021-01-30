@@ -46,19 +46,23 @@ async function bootstrap() {
     const urlParams = new URLSearchParams(queryString);
 
     if( urlParams.get('bicloo') ) {
-        abrisVeloDisplayData().then(data => {
-            points("station_bicloo", data, "img/station.svg");
-        });
-    }
-
-    if( urlParams.get('abris') ) {
         getStationsVelos().then(data => {
             points("abris_velo", data, "img/abris.svg");
         });
     }
 
+    if( urlParams.get('abris') ) {
+        abrisVeloDisplayData().then(data => {
+            points("station_bicloo", data, "img/station.svg");
+        });
+    }
+
     getMeteoNow();
     getMeteoByTime(Date.now());
+
+    document.getElementById("change-parameter").onclick = () => {
+        document.location.href = `app.html?${urlParams.toString()}`;
+    }
 }
 
 bootstrap();
