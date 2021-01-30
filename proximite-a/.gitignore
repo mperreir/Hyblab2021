@@ -103,3 +103,5 @@ dist
 .DS_Store
 ._*
 ._server.js
+
+build
