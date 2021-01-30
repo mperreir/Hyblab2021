@@ -83,3 +83,10 @@ section[data-slidr="ppage-resultats"] {
     bottom: 41%;
     right: 39%;
 }
+
+#myChart{
+    position : absolute;
+    height:40vh;
+    width:80vw;
+    z-index: 11;
+}

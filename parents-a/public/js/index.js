@@ -239,7 +239,7 @@ let initSlide9 = function() {
      });
 }
 
-let initSlide10 = function() {
+let initSlide10 = function(db) {
 
     d3.select("#sud-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -266,7 +266,7 @@ let initSlide10 = function() {
      });
 }
 //
-let initSlideResultat = function() {
+let initSlideResultat = function(db) {
 
     d3.select("#animaux-heureux-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -280,6 +280,57 @@ let initSlideResultat = function() {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('10')
      });
+    radar(data);
 }
+
+
+function radar (data){
+    var ctx = document.getElementById('myChart').getContext('2d');
+        var myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ["Nombre d'arbres ",  "Nombre d'arbres formidables", 'Diversité des arbres', 'Diversié des fleurs'],
+                datasets: [{
+                    label: data[0]['Nom formel'],
+                    backgroundColor : 'rgba(84,226,136, 0.5)',
+                    data: [data[0]['Nb arbre'],data[0]['Nb arbre formidable'],data[0]['Nb espece arbre'], data[0]['Nb Espece plantes']]
+                    },
+                    {
+                    label: data[1]['Nom formel'],
+                    backgroundColor : 'rgba(84,155,226, 0.5)',
+                    data: [data[1]['Nb arbre'],data[1]['Nb arbre formidable'],data[1]['Nb espece arbre'], data[1]['Nb Espece plantes']],
+                    },
+                    {
+                    label: data[2]['Nom formel'],
+                    backgroundColor : 'rgba(215,17,23, 0.5)',
+                    data: [data[2]['Nb arbre'],data[2]['Nb arbre formidable'],data[2]['Nb espece arbre'], data[2]['Nb Espece plantes']]
+                    }
+                ]
+                },
+                
+                    
+            options: {
+                scale: {
+                    angleLines: {
+                        display: true
+                    },
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                },
+                layout: {
+                    padding: {
+                        left: 50,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                }
+                
+            }
+        });
+}
+
 
 initSlide1();
