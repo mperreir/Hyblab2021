@@ -9,7 +9,7 @@ class App extends  React.Component {
 
     state = {
         nomPers: null,
-        pageId:4,
+        pageId:0,
         themeId:0,
         moyenId:0,
         coords:[0,0],
@@ -30,7 +30,7 @@ class App extends  React.Component {
             case 3:
                 return <Moyen data={this.state} onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
-                return <AcceuilCarte data={this.state} nomPers={this.state.nomPers}/>;
+                return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers}/>;
         }
     };
 
@@ -57,6 +57,7 @@ class App extends  React.Component {
     };
 
     updateMoyen=(e)=>{
+        console.log(e)
         this.setState({moyenId:e})
     };
 
