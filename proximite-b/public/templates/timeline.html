@@ -28,16 +28,20 @@
     </div>
 
 
-    <h2 id="titleTimeline" style="visibility: hidden;" class="pb-4">Comparaison des deux adresses</h2>
-        <div id='waitingSpinner' class="spinner-border mb-2" role="status"></div>
-        <div id="compEnCours" >Comparaison en cours...</div>
+    <h2 id="titleTimeline" style="visibility: hidden;" class="pb-1">Comparaison des deux adresses</h2>
+    <p id="undertitleTimeline" style="visibility: hidden;" class="pb-1"><i>Vous pouvez cliquez sur les bulles pour avoir plus d'informations</i></p>
+    <div id='waitingSpinner'>
+        <img src='/proximite-b/img/timeline/avion_1.gif'/>
 
-    <div  id="timelineholder">
+    </div>
+    <div id="compEnCours">Comparaison en cours...</div>
+
+    <div id="timelineholder">
         <div id="timeline1"></div>
         <div id="timeline2"></div>
         <div id="progressDiv" class="progress" style="visibility: hidden;"></div>
 
-        <button id="goToConclusion" style="visibility: hidden;" class="mt-5  figma_button figma_bg_orange"
+        <button id="goToConclusion" style="visibility: hidden;" class="py-2 px-5 mt-5  figma_button figma_bg_orange"
             id="start_button" onclick="go_to('conclu')">Conclusion</button>
     </div>
 </div>
