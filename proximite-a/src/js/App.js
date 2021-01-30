@@ -32,7 +32,9 @@ class App extends  React.Component {
                 return <Moyen data={this.state} onNextPage={this.nextPage} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
                 return <AcceuilCarte data={this.state} nomPers={this.state.nomPers}/>;
-            case 5:
+            
+            
+            case 6:
                 return<CreditPage />
         }
     };

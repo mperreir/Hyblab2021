@@ -20,7 +20,7 @@ function GetIcon(_iconsize){
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 1,
+        popupPhase : 2,
         currentPosition: [47.2819, -1.5158],
         sites:this.props.data.sites
     };
@@ -35,7 +35,7 @@ class AcceuilCarte extends  React.Component {
             case 1:
                 return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
-                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onNextPhase={this.nextPhase}/>;
         }
     };
 
@@ -48,6 +48,10 @@ class AcceuilCarte extends  React.Component {
         this.setState({popupPhase:newPopupPhase })
     };
 
+    updateMoyen = (e) => {
+        this.setState({ moyenId: e })
+        this.props.onSetMoyen(e)
+    };
 
 
     render() {
