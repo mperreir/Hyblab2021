@@ -65,6 +65,10 @@ let initHome = function(){
     });
 
     d3.select('.button-begin').on('click', function (){
+
+        document.getElementById('button-begin').disabled = true;
+        document.getElementById('button-histoire').disabled = true;
+
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
         });
@@ -95,7 +99,7 @@ let initHome = function(){
                 easing: "linear"
             })
             .add({
-                delay: 500
+                delay: 1500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -153,7 +157,6 @@ let initHome = function(){
                 translateY: "-150%",
                 duration: 500,
             })
-
             .finished.then(() => {
             mySlidr.slide('down');
             initAddress();
@@ -162,6 +165,10 @@ let initHome = function(){
 };
 
 let resetHome = function(){
+    document.getElementById('button-begin').disabled = false;
+    document.getElementById('button-histoire').disabled = false;
+
+
     d3.select('.oya-hello')
         .style("transform", "");
 

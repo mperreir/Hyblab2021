@@ -82,8 +82,12 @@ to {
    position:absolute;
 }
 
+#localization-button:disabled{
+   background-color: #45396D;
+}
+
 .button-first{
-   top: 0%;
+   top: 0;
 }
 
 .button-second{
