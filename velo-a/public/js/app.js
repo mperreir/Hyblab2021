@@ -40,10 +40,8 @@ async function bootstrap() {
 	});
 
 
-	if (document.getElementById('mapbox-controllers'))
-		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map))
-	else {
-		directions.onAdd(map);
+	if (document.getElementById('mapbox-controllers')) {
+		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map));
 
 		directions.on("origin", origin => {
 			if (!origin || origin.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseDepartCoord")) return;
@@ -65,6 +63,9 @@ async function bootstrap() {
 
 			getTraficData({ roadNames, distance, duration });
 		});
+
+	} else {
+		directions.onAdd(map);
 	}
 
 	let openMarker = undefined;
@@ -86,7 +87,6 @@ async function bootstrap() {
 				event.stopPropagation();
 			});
 
-
 			marker = new mapboxgl.Marker(el)
 				.setLngLat([d.longitude, d.latitude])
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
@@ -94,13 +94,17 @@ async function bootstrap() {
 		});
 	}
 
-	abrisVeloDisplayData().then(data => {
-		points(data, "img/abris.svg");
-	});
+	const veloType = localStorage.getItem("velo");
 
-	getStationsVelos().then(data => {
-		points(data, "img/station.svg");
-	});
+	if (!veloType || veloType !== "bicloo")
+		abrisVeloDisplayData().then(data => {
+			points(data, "img/abris.svg");
+		});
+
+	if (!veloType || veloType === "bicloo")
+		getStationsVelos().then(data => {
+			points(data, "img/station.svg");
+		});
 
 	getMeteoNow();
 	getMeteoByTime(Date.now());

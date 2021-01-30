@@ -38,6 +38,17 @@ window.addEventListener('DOMContentLoaded', () => {
 				console.error(err);
 			});
 	});
+
+	document.getElementById("simple").addEventListener("click", () => {
+		localStorage.setItem("velo", "simple");
+	});
+	document.getElementById("elec").addEventListener("click", () => {
+		localStorage.setItem("velo", "electrique");
+	});
+	document.getElementById("bicloo").addEventListener("click", () => {
+		localStorage.setItem("velo", "bicloo");
+		console.log("test");
+	});
 });
 
 function togglePath() {
@@ -69,7 +80,7 @@ function slide() {
 
 	batiment_return.style.display = "none";
 	document.querySelectorAll(".batiment_button").forEach((el) => {
-		if(slides[slides.length-1] !== el.parentElement.id)
+		if (slides[slides.length - 1] !== el.parentElement.id)
 			el.addEventListener('click', () => {
 				document.getElementById("batiment").className = "batiment_pause" + i;
 				setTimeout(function () {
@@ -107,7 +118,7 @@ function slide() {
 		if (el.parentElement.id !== slides[0]) {
 			el.parentElement.setAttribute("class", "hide_start");
 		}
-		if(slides[slides.length-1] !== el.parentElement.id)
+		if (slides[slides.length - 1] !== el.parentElement.id)
 			el.addEventListener("click", () => {
 				el.parentElement.setAttribute("class", "hide");
 				document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
@@ -173,7 +184,6 @@ async function velos() {
 }
 
 
-
 async function startVelos(i) {
 	let e = Array.from(document.querySelectorAll(".velo"))[i];
 	if (e != null) {
@@ -181,8 +191,7 @@ async function startVelos(i) {
 			e.setAttribute("class", "velo velo_in");
 			await startVelos(++i)
 		}, 200);
-	}
-	else {
+	} else {
 		await sleep(async () => {
 			await goVelos(--i)
 		}, 1600);
