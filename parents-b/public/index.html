@@ -116,11 +116,11 @@
             <img class="address-robot" id="address-robot" src="./img/address_page/Robot_09.gif" alt="Oya">
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/address_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-2-address"></button>
-                <button class="button-fil-arianne arianne-3-address"></button>
-                <button class="button-fil-arianne arianne-4-address"></button>
-                <button class="button-fil-arianne arianne-5-address"></button>
-                <button class="button-fil-arianne arianne-6-address"></button>
+                <button class="button-fil-arianne arianne-2-address" title="Horaire"></button>
+                <button class="button-fil-arianne arianne-3-address" title="Âge"></button>
+                <button class="button-fil-arianne arianne-4-address" title="Accès"></button>
+                <button class="button-fil-arianne arianne-5-address" title="Faune"></button>
+                <button class="button-fil-arianne arianne-6-address" title="Activités"></button>
             </div>
 
             <div class="address-zone">
@@ -156,11 +156,11 @@
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/hour_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-hour"></button>
-                <button class="button-fil-arianne arianne-3-hour"></button>
-                <button class="button-fil-arianne arianne-4-hour"></button>
-                <button class="button-fil-arianne arianne-5-hour"></button>
-                <button class="button-fil-arianne arianne-6-hour"></button>
+                <button class="button-fil-arianne arianne-1-hour" title="Localisation"></button>
+                <button class="button-fil-arianne arianne-3-hour" title="Âge"></button>
+                <button class="button-fil-arianne arianne-4-hour" title="Accès"></button>
+                <button class="button-fil-arianne arianne-5-hour" title="Faune"></button>
+                <button class="button-fil-arianne arianne-6-hour" title="Activités"></button>
             </div>
 
             <img class="page" src="img/hour_page/background_hour.svg" alt="Page Horaire">
@@ -242,11 +242,11 @@
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/access_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-access"></button>
-                <button class="button-fil-arianne arianne-2-access"></button>
-                <button class="button-fil-arianne arianne-3-access"></button>
-                <button class="button-fil-arianne arianne-5-access"></button>
-                <button class="button-fil-arianne arianne-6-access"></button>
+                <button class="button-fil-arianne arianne-1-access" title="Localisation"></button>
+                <button class="button-fil-arianne arianne-2-access" title="Horaire"></button>
+                <button class="button-fil-arianne arianne-3-access" title="Âge"></button>
+                <button class="button-fil-arianne arianne-5-access" title="Faune"></button>
+                <button class="button-fil-arianne arianne-6-access" title="Activités"></button>
             </div>
 
             <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
@@ -258,15 +258,60 @@
             <p class="oya-access-dialog dark-purple font-m">Glisse les icônes dans les bulles en fonction de tes préférences</p>
 
             <div id="null-access" class="images-base">
-                <div id="Accessibilité Handicapé" class="column image-drop"><img class="picto-access" src="img/common/pictograms/disabled_picto.svg" title="Accès Handicapé" alt="Handicapé Pictogramme"></div>
-                <div id="Table pique-nique" class="column image-drop"><img class="picto-access" src="img/common/pictograms/table_picto.svg" title="Table de pique-nique" alt="Pique-Nique Pictogramme"></div>
-                <div id="Sanitaires" class="column image-drop"><img class="picto-access" src="img/common/pictograms/wc_picto.svg" title="Toilettes" alt="Toilettes Pictogramme"></div>
-                <div id="Accès Parking" class="column image-drop"><img class="picto-access" src="img/common/pictograms/parking_picto.svg" title="Accès Parking" alt="Parking Pictogramme"></div>
-                <div id="Restauration" class="column image-drop"><img class="picto-access" src="img/common/pictograms/restaurant_picto.svg" title="Restauration proche" alt="Restaurant Pictogramme"></div>
-                <div id="Bancs" class="column image-drop"><img class="picto-access" src="img/common/pictograms/bench_picto.svg" title="Banc pour s'asseoir" alt="Banc Pictogramme"></div>
-                <div id="Accès transports en commun" class="column image-drop"><img class="picto-access" src="img/common/pictograms/tram_picto.svg" title="Accès Transports en commun" alt="Tram Pictogramme"></div>
-                <div id="Poubelles" class="column image-drop"><img class="picto-access" src="img/common/pictograms/bin_picto.svg" title="Poubelles" alt="Poubelle Pictogramme"></div>
-                <div id="Jardin clos" class="column image-drop"><img class="picto-access" src="img/common/pictograms/fence_picto.svg" title="Parc clôturé" alt="Clôture Pictogramme"></div>
+                <div id="Accessibilité Handicapé" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/disabled_picto.svg" alt="Handicapé Pictogramme">
+                        <div class="picto-access-hover">Accès Handicapé</div>
+                    </div>
+                </div>
+                <div id="Table pique-nique" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/table_picto.svg" alt="Pique-Nique Pictogramme">
+                        <div class="picto-access-hover">Table de pique-nique</div>
+                    </div>
+                </div>
+                <div id="Sanitaires" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/wc_picto.svg" alt="Toilettes Pictogramme">
+                        <div class="picto-access-hover">Toilettes</div>
+                    </div>
+                </div>
+                <div id="Accès Parking" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/parking_picto.svg" alt="Parking Pictogramme">
+                        <div class="picto-access-hover">Accès Parking</div>
+                    </div>
+                </div>
+                <div id="Restauration" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/restaurant_picto.svg" alt="Restaurant Pictogramme">
+                        <div class="picto-access-hover">Restauration proche</div>
+                    </div>
+                </div>
+                <div id="Bancs" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/bench_picto.svg" alt="Banc Pictogramme">
+                        <div class="picto-access-hover">Banc pour s'asseoir</div>
+                    </div>
+                </div>
+                <div id="Accès transports en commun" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/tram_picto.svg" alt="Tram Pictogramme">
+                        <div class="picto-access-hover">Accès Transports en commun</div>
+                    </div>
+                </div>
+                <div id="Poubelles" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/bin_picto.svg" alt="Poubelle Pictogramme">
+                        <div class="picto-access-hover">Poubelles</div>
+                    </div>
+                </div>
+                <div id="Jardin clos" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/fence_picto.svg" alt="Clôture Pictogramme">
+                        <div class="picto-access-hover">Parc clôturé</div>
+                    </div>
+                </div>
             </div>
 
             <div class="div-information">
@@ -284,36 +329,6 @@
                 <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
             </section>
 
-            <!-- <section data-slidr="fauna-flora-page">
-                <img class="planet-fauna-flora" src="img/fauna_flora_page/green-planet.svg" alt="Planete">
-        <img class="logo" src="./img/common/logo.svg" alt="Logo Sequ'Oya">
-        <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
-        <img class="volume-on" src="./img/common/volume_on.svg" alt="Volume On">
-        <img class="volume-off" src="./img/common/volume_off.svg" alt="Volume Off">
-        <img class="go-back" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
-        <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
-        <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
-        <img class="oya-fauna-flora" src="img/robot/oya_hour.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
-        <img class="talking-bubble-fauna-flora" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
-                    <p class="oya-fauna-flora-dialog dark-purple font-m">Parlons faune et flore maintenant.</p>
-                    <p class="oya-fauna-flora-dialog-indication dark-purple font-m">De la même manière que précédemment, place les icônes en fonction de tes préférences !</p>
-                    <div class="images-base-fauna">
-                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/dog_picto.svg" title="Chiens autorisés" alt="Chien Pictogramme"></div>
-                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/animals_picto.svg" title="Animaux dans le parc" alt="Animaux Pictogramme"></div>
-                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/pond_picto.svg" title="Point d'eau" alt="Etang Pictogramme"></div>
-                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/grass_picto.svg" title="Herbe" alt="Herbe Pictogramme"></div>
-                        <div class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/tree_picto.svg" title="Arbres" alt="Arbre Pictogramme"></div>
-                    </div>
-            <div id="no-access" class="dropableCell button-non button-non-access font-m white background-dark-purple">
-                        <p class="titre-button">Non, je souhaite un lieu sans cet élément !</p>
-            </div>
-            <div id="yes-access" class="dropableCell button-oui button-oui-access font-m white background-dark-purple">
-                <p class="titre-button">Oui, il me le faut absolument !</p>
-            </div>
-
-            <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
-        </section> -->
-
         <section data-slidr="fauna-flora-page">
 
             <img class="planet-fauna-flora" src="img/fauna_flora_page/planete.gif" alt="Planete">
@@ -325,11 +340,11 @@
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/fauna_flora_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-fauna-flora"></button>
-                <button class="button-fil-arianne arianne-2-fauna-flora"></button>
-                <button class="button-fil-arianne arianne-3-fauna-flora"></button>
-                <button class="button-fil-arianne arianne-4-fauna-flora"></button>
-                <button class="button-fil-arianne arianne-6-fauna-flora"></button>
+                <button class="button-fil-arianne arianne-1-fauna-flora" title="Localisation"></button>
+                <button class="button-fil-arianne arianne-2-fauna-flora" title="Horaire"></button>
+                <button class="button-fil-arianne arianne-3-fauna-flora" title="Âge" ></button>
+                <button class="button-fil-arianne arianne-4-fauna-flora" title="Accès"></button>
+                <button class="button-fil-arianne arianne-6-fauna-flora" title="Activités"></button>
             </div>
             <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
             <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
@@ -340,11 +355,40 @@
             <p class="oya-fauna-flora-dialog-indication dark-purple font-m">De la même manière que précédemment, place les icônes en fonction de tes préférences !</p>
 
             <div id="null-flora" class="images-base-fauna">
-                <div id="Chiens autorisés" class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/dog_picto.svg" title="Chiens autorisés" alt="Chien Pictogramme"></div>
-                <div id="Présence d'animaux" class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/animals_picto.svg" title="Animaux dans le parc" alt="Animaux Pictogramme"></div>
-                <div id="Point d'eau" class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/pond_picto.svg" title="Point d'eau" alt="Etang Pictogramme"></div>
-                <div id="Herbe (un minimum) / Sable" class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/grass_picto.svg" title="Herbe" alt="Herbe Pictogramme"></div>
-                <div id="Verdure / Plante Espace Vert" class="column-faune image-drop-fauna"><img class="picto-fauna-flora" src="img/common/pictograms/tree_picto.svg" title="Arbres" alt="Arbre Pictogramme"></div>
+                <div id="Chiens autorisés" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/dog_picto.svg" alt="Chien Pictogramme">
+                        <div class="picto-fauna-hover">Chiens autorisés</div>
+                    </div>
+                </div>
+
+                <div id="Présence d'animaux" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/animals_picto.svg" alt="Animaux Pictogramme">
+                        <div class="picto-fauna-hover">Animaux dans le parc</div>
+                    </div>
+                </div>
+
+                <div id="Point d'eau" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/pond_picto.svg" alt="Etang Pictogramme">
+                        <div class="picto-fauna-hover">Point d'eau</div>
+                    </div>
+                </div>
+
+                <div id="Herbe (un minimum) / Sable" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/grass_picto.svg" alt="Herbe Pictogramme">
+                        <div class="picto-fauna-hover">Herbe</div>
+                    </div>
+                </div>
+
+                <div id="Verdure / Plante Espace Vert" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/tree_picto.svg" alt="Arbre Pictogramme">
+                        <div class="picto-fauna-hover">Arbres</div>
+                    </div>
+                </div>
             </div>
 
             <div id="no-flora" class="dropableCell-fauna button-non button-non-fauna-flora font-m white background-dark-purple">
@@ -364,11 +408,11 @@
 
             <div class="fil-arianne">
                 <img class="fil-arianne-img" src="img/activities_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-activities"></button>
-                <button class="button-fil-arianne arianne-2-activities"></button>
-                <button class="button-fil-arianne arianne-3-activities"></button>
-                <button class="button-fil-arianne arianne-4-activities"></button>
-                <button class="button-fil-arianne arianne-5-activities"></button>
+                <button class="button-fil-arianne arianne-1-activities" title="Localisation"></button>
+                <button class="button-fil-arianne arianne-2-activities" title="Horaire"></button>
+                <button class="button-fil-arianne arianne-3-activities" title="Âge"></button>
+                <button class="button-fil-arianne arianne-4-activities" title="Accès"></button>
+                <button class="button-fil-arianne arianne-5-activities" title="Faune"></button>
             </div>
 
             <img class="page" src="img/activities_page/background.svg" alt="Page de renseignement de la faune et la flore">
@@ -380,23 +424,23 @@
 
             <label class="switch picto-activities crapa-picto">
                 <input type="checkbox" id="crapa-input">
-                <span class="slider round " title="Crapa : Parcours de sport"></span>
+                <span class="slider round "><span class="picto-activities-hover">Crapa : Parcours de sport</span></span>
             </label>
             <label class="switch picto-activities games-picto">
                 <input type="checkbox" id="games-input">
-                <span class="slider round" title="Jeux pour enfants"></span>
+                <span class="slider round"><span class="picto-activities-hover">Jeux pour enfants</span></span>
             </label>
             <label class="switch picto-activities sport-field-picto">
                 <input type="checkbox" id="sport-field-input">
-                <span class="slider round" title="Terrain de sport" ></span>
+                <span class="slider round"><span class="picto-activities-hover">Terrain de sport</span></span>
             </label>
             <label class="switch picto-activities activities-picto">
                 <input type="checkbox" id="activities-input">
-                <span class="slider round" title="Activités organisées" ></span>
+                <span class="slider round"><span class="picto-activities-hover">Activités organisées</span></span>
             </label>
             <label class="switch picto-activities statue-picto">
                 <input type="checkbox" id="statue-input">
-                <span class="slider round" title="Éléments culturels" ></span>
+                <span class="slider round"><span class="picto-activities-hover">Éléments culturels</span></span>
             </label>
             <p class="text-dialog-activite dark-purple font-s">  Si cela est important pour toi, glisse le bouton vers la droite. Sinon, laisse le bouton à son emplacement initial !</p>
             <button id="searchData" class="button-suivant-activities button-suivant font-s dark-purple background-beige">SUIVANT</button>
