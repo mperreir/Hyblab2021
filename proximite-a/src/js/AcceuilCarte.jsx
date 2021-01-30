@@ -24,8 +24,10 @@ class AcceuilCarte extends  React.Component {
         popupPhase : 2,
         currentPosition: this.props.data.coords,
         sites:this.props.data.sites,
-        adresse:this.props.data.adresse
-    };
+        adresse:this.props.data.adresse,
+        moyenId:this.props.data.moyenId,
+        nomPers:this.props.data.nomPers,
+        };
 
 
 
