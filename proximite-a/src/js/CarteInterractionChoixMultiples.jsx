@@ -39,12 +39,14 @@ class CarteInterractionChoixMultiples extends  React.Component {
     }
 
     handleCheck =(e)=>{
-        if(e.target.checked==true && !this.state.selected.includes(e.target.value)){
-            this.state.selected.push(e.target.value)
+        let newSelected = this.state.selected
+        if(e.target.checked === true && !this.state.selected.includes(e.target.value)){
+            newSelected.push(e.target.value)
         }
-        else if (e.target.checked == false && this.state.selected.includes(e.target.value)){
-            this.state.selected.pop(e.target.value)
+        else if (e.target.checked === false && this.state.selected.includes(e.target.value)){
+            newSelected.pop(e.target.value)
         }
+        this.setState({selected:newSelected})
     }
 
     render() {
