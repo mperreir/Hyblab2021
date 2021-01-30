@@ -19,15 +19,22 @@
     position: absolute;
     margin-top: 2em;
     top: 0vh;
+    margin-left: 2em;
     padding: 1em 2em 1em 2em;
-    right: 50vw;
+    left: 0vw;
     z-index: 500;
 }
 #timeline_Papy img{
     width: 35vw;
 }
 
-
+#closePapy{
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/croix.svg') !important;
+    background-repeat: no-repeat;
+    width: 5em;
+    height: 5em;
+    opacity: 1;
+}
 
 
 
@@ -79,7 +86,7 @@
     width: 20em;
     height: 20em;
     
-}
+}   
 
 /*
  

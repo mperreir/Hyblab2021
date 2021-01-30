@@ -34,6 +34,7 @@ function getData(nameadd, adresse) {
 
                         $('#waitingSpinner').remove();
                         $('#compEnCours').remove();
+                        $('#timeline_Papy').css('visibility', 'visible');
                         $('#progressDiv').css('visibility', 'visible');
                         $('#goToConclusion').css('visibility', 'visible');
                         $('#titleTimeline').css('visibility', 'visible');
