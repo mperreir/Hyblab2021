@@ -3,12 +3,12 @@
 /**
  * Specific constants definition
  */
-const codeDep = getCodeDepartement(url);
-const codeType = getCodeType(url);
+var codeDep = getCodeDepartement(url);
+var codeType = getCodeType(url);
 
-const map = getMapDepartement(codeDep);
+var map = getMapDepartement(codeDep);
 
-const baseNarration = {
+var baseNarration = {
 	html: {
 		box: document.getElementById('narration'),
 		text: document.querySelector('#narration > span'),
@@ -25,7 +25,7 @@ const baseNarration = {
 		boxHeight: 0
 	}
 };
-const legendNarration = {
+var legendNarration = {
 	html: {
 		box: document.querySelector('#narration_legende'),
 		title: document.querySelector('#narration_legende > span.title'),
@@ -45,7 +45,7 @@ const legendNarration = {
 	}
 };
 
-const persoBox = document.getElementById('character');
+var persoBox = document.getElementById('character');
 
 /**
  * The main function in ASYNC.

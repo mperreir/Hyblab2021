@@ -3,8 +3,8 @@
 /**
  * Specific constants definition
  */
-const persosBox = document.getElementsByClassName('personnages')[0];
-const departement = document.querySelector('#content').dataset.department;
+var persosBox = document.getElementsByClassName('personnages')[0];
+var departement = document.querySelector('#content').dataset.department;
 
 /**
  * The main function in ASYNC.

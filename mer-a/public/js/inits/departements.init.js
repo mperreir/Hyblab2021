@@ -4,7 +4,7 @@
  * The main function in ASYNC.
  */
 (async () => {
-	if(!deps.data) await getRegionsId(r => deps.data = r);
+	await getRegionsId(r => deps.data = r);
 	generateMap(mapFusion);
 })();
 
