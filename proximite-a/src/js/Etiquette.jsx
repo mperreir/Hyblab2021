@@ -10,7 +10,7 @@ class Etiquette extends  React.Component {
 
     render() {
         //const {theme} = props;
-        const {identifiant} = this.props;
+        const {identifiant, numero} = this.props;
         return (
             <div id={identifiant}
                  onAnimationEnd={() => this.setState({ stateEtiquette: false })}
@@ -27,7 +27,7 @@ class Etiquette extends  React.Component {
                 <button id="boutEtiquette"
                         className={'fondEtiquetteDefault'}
                     onClick={() => this.setState({ stateEtiquette: !this.state.stateEtiquette })}>
-                    <div className={"roundedText"}>1</div>
+                    <div className={"roundedText"}>{numero}</div>
                 </button>
             </div>
         );
