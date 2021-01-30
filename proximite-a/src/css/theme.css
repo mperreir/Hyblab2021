@@ -45,9 +45,9 @@ span + input {
     font-weight: lighter;
 }
 
-#themeSelector div div div label img {
-    width: 250px;
-    height: 250px;
+#themeSelector  img {
+    width: 200px;
+    height: 200px;
     transition: 500ms all;
 }
 

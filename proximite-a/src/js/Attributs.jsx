@@ -71,7 +71,7 @@ class Attributs extends React.Component{
                             <span className="fa fa-search fa-xl"></span>
                             <input placeholder="Choisir une adresse" value={this.state.adresse} onChange={this.handleChange}/>
                         </div>
-                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}}/>
+                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse}/>
                     </div>
                     <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse}/>
 

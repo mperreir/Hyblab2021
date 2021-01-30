@@ -22,7 +22,7 @@ class Theme extends  React.Component {
         const {onSetTheme,onNextPage, onPreviousPage} = this.props;
         return (
             <div id="themeContainer" class="d-flex flex-column">
-                <img src={logo} width={100} class="mt-2 ml-5"/>
+                <img src={logo} width={150} class="mt-2 ml-5"/>
                 <div class="d-flex h-100 justify-content-between align-items-center">
                     <div className="d-flex btn btnNavigationAttributPurple fa fa-arrow-left" onClick={onPreviousPage}/>
                     <div class="d-flex flex-column justify-content-center align-items-center ">

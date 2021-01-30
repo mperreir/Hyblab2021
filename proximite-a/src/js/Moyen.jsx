@@ -94,7 +94,7 @@ class Moyen extends  React.Component {
                         <input type='button' class="btn btnValidatePurpleBackground" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                     </div>
                     <div id="changepage" class="d-flex justify-content-center align-items-center flex-column">
-                        <button className='btnNavigationAttributPurple fa fa-arrow-right' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                        <button className='btn btnNavigationAttributPurple fa fa-arrow-right' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                         <p id='suiv'>Suivant</p>
                     </div>
                 </div>
