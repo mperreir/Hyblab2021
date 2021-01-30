@@ -17,7 +17,7 @@
 
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
-.background-white{background-color: white;}
+.background-white{background-color: #fbfbfb;}
 
 .black{color: black;}
 .background-black{background-color: black;}
@@ -191,4 +191,3 @@ dessus de l'apect ratio 16/9 */
         font-size: 12vh;
     }
 }
-
