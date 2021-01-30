@@ -13,6 +13,7 @@ class App extends  React.Component {
         themeId:0,
         moyenId:0,
         coords:[0,0],
+        adresse:'',
         sites: [{ id: '1', titre: 'squalala', img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg', adresse: 'nous sommes partis'},
             { id: '2', titre: 'squelele', img: 'https://image.jeuxvideo.com/medias-sm/145554/1455543880-3365-photo.png', adresse: 'nous sommes repartis' },
             { id: '3', titre: 'lelele', img:'https://i.redd.it/izua8frednh41.png',adresse:'AAAAAAAAAAAAAHH'}]
@@ -51,8 +52,8 @@ class App extends  React.Component {
         this.setState({ themeId: e })
     };
 
-    updateAttributs = (e) => {
-        this.setState({ coords: e })
+    updateAttributs = (e,f) => {
+        this.setState({ coords: e,adresse:f})
     };
 
     updateMoyen=(e)=>{

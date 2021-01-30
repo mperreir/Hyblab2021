@@ -70,14 +70,14 @@ class Moyen extends  React.Component {
         return (
             <div id="MoyenContainer" class="d-flex justify-content-center align-items-center">
 
-                <div id="Theme" class="d-flex flex-column justify-content-center align-items-center">
+                <div id="Theme" class="d-flex flex-column justify-content-center align-items-center fixed-top">
                     <img id="logoCorner" src={this.getThemeLogo()} width={100} ></img>
                     <img src={this.getThemePerso()} alt="fetard" />
                     <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
                 </div>
                 <div id="containerLocalisation">
                     <div id="Localisation" >
-                        <div className="d-flex flex-column justify-content-end align-items-center pt-5">
+                        <div className="d-flex flex-row justify-content-end align-items-end m-5">
                             <img src={local}/>
                         </div>
                     </div>

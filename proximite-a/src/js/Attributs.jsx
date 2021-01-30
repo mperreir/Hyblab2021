@@ -33,7 +33,7 @@ class Attributs extends React.Component{
     //envoi données + changement page
     submitAttributs = (update, NextPage) => {
         //todo envoyer coords + adresse uniquement
-        update(this.state.coords);
+        update(this.state.coords,this.state.adresse);
         NextPage();
     };
     render(){

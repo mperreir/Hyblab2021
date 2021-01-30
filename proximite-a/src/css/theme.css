@@ -20,7 +20,7 @@ h3 {
     padding-bottom: 50px;
 }
 
-div + span {
+#themeSelector div + span {
     border-radius: 20px;
     background-color: #BCBEFF;
     font-size: 15px;
@@ -32,7 +32,7 @@ div + span {
     margin-bottom: 40px;
 }
 
-span + input {
+#themeSelector span + input {
     border: none;
     border-radius: 10px;
     background-color: #756EFF;
@@ -51,11 +51,11 @@ span + input {
     transition: 500ms all;
 }
 
-#themeSelector div div div label img[class="img_hte"] {
+#themeSelector label img[class="img_hte"] {
     margin-bottom: 150px;
 }
 
-#themeSelector div div div label img[class="img_bas"] {
+#themeSelector label img[class="img_bas"] {
     margin-top: 150px;
 }
 
@@ -67,3 +67,27 @@ span + input {
     margin-bottom: 50px;
 }
 
+#themeSelector input[type=radio]:checked + label>img {
+    background-size: 100%;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#themeSelector input[type=radio] + label>img {
+    transition: 500ms all;
+    padding: 10%;
+    background-size:0%;
+    background-position: center;
+    background-repeat : no-repeat;
+    opacity: 0.5;
+
+}
+
+#themeSelector input[type=radio] + label>img:hover{
+     background-repeat : no-repeat;
+     transform: scale(1.1);
+     background-size: 100%;
+     opacity: 1;
+     transition: 400ms all;
+
+}

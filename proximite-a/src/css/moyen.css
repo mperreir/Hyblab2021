@@ -5,7 +5,7 @@
     height: 100%;
     background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
     background-size: 50%;
-    background-position: bottom -30% right 20%;
+    background-position: bottom -40% right 30%;
     background-repeat: no-repeat;
     z-index: -2;
     padding: 0;
@@ -17,7 +17,7 @@
     left: 15px;
     width: 150px;
 }
-#Theme{
+#MoyenContainer #Theme{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 0px 74px 74px 0px;
     height: 100%;
@@ -27,29 +27,29 @@
     width: 30%;
 }
 
-#Theme span{
+#MoyenContainer#Theme span{
     width: 50%;
 }
-#containerLocalisation{
-    width: 5%;
+#MoyenContainer #containerLocalisation{
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#Localisation{
-    height: 70%;
+#MoyenContainer #Localisation{
+    height: 100%;
     width: 100%;
     background-color: #756EFF;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 0 26px 26px 0;
 }
-#Localisation img{
+#MoyenContainer #Localisation img{
     width: 40px;
     height: 50px;
 }
-#Moyen{
+#MoyenContainer #Moyen{
     color: #756EFF;
     width: 70%;
 }
@@ -62,18 +62,18 @@
     position: absolute;
     left: -9999px;
 }
-#changepage p{
+#MoyenContainer #changepage p{
     margin: 0;
     opacity: 0;
     transition: 500ms all;
 }
-#changepage:hover p{
+#MoyenContainer #changepage:hover p{
     margin: 0;
     opacity: 1;
     transition: 400ms all;
 }
 
-#changepage input{
+#MoyenContainer #changepage input{
     background-color: Transparent;
     border: 2px solid #756EFF;
     display: flex;
@@ -112,15 +112,15 @@
 
 }
 
-#changepage input[type=button]:disabled{
+#MoyenContainer #changepage input[type=button]:disabled{
     opacity: 0.5;
 }
 
-#changepage:hover input[type=button]:disabled + p{
+#MoyenContainer #changepage:hover input[type=button]:disabled + p{
     opacity: 0.5;
 }
 
-#valide:disabled{
+#MoyenContainer #valide:disabled{
     opacity: 0.5;
 }
 
@@ -129,12 +129,12 @@
     #MoyenContainer{
         flex-direction: column !important;
     }
-    #Theme{
+    #MoyenContainer #Theme{
         width: 100%;
         border-radius: 0px 0px 74px 74px;
         padding: 15px;
     }
-    #containerLocalisation{
+    #MoyenContainer #containerLocalisation{
        display: none;
     }
     #Moyen{
