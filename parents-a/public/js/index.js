@@ -105,6 +105,8 @@ let initSlide2 = function() {
         appear('#appear')
         appear('#vector-p2-1')
 
+
+
     });
 
     //transi next slide
@@ -134,6 +136,8 @@ let initSlide3 = function() {
         nextSlide('4', data);
         route.push('3');
         console.log(data);
+        const s = new sound('sound/elephant8.mp3');
+        s.play();
 
     });
     //Retour arriere
@@ -384,6 +388,21 @@ function radar(data) {
 
         }
     });
+}
+
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function() {
+        this.sound.play();
+    }
+    this.stop = function() {
+        this.sound.pause();
+    }
 }
 
 initSlide1();
