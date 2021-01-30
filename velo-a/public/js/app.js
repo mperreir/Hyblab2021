@@ -5,10 +5,15 @@ import { getMeteoByTime, getMeteoNow } from "./modules/meteo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/trafic.js";
 
+let abrisVelo, stationsVelo;
+let map;
+let marker = {};
+let openMarker = undefined;
+
 async function bootstrap() {
 
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
-	const map = new mapboxgl.Map({
+	map = new mapboxgl.Map({
 		container: 'map', // container id
 		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
 		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
@@ -40,66 +45,23 @@ async function bootstrap() {
 
 	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
 
-	let openMarker = undefined;
-
-	function points(data, url) {
-
-		data.forEach((d) => {
-			const el = document.createElement("div");
-			el.className = "marker";
-			el.style.backgroundImage = `url(${url})`;
-
-			let marker;
-			el.addEventListener("click", function (event) {
-				// close the holde popup (if active)
-				if (openMarker) openMarker._popup.remove();
-				// open the popup
-				marker._popup.addTo(map)
-				openMarker = marker;
-				event.stopPropagation();
-			});
-
-
-			marker = new mapboxgl.Marker(el)
-				.setLngLat([d.longitude, d.latitude])
-				.setPopup(new mapboxgl.Popup().setHTML(d.text))
-				.addTo(map);
-		});
-	}
-
-	abrisVeloDisplayData().then(data => {
-		points(data, "img/abris.svg");
-	});
-
-	getStationsVelos().then(data => {
-		points(data, "img/station.svg");
-	});
-
+	abrisVeloDisplayData().then(data => { abrisVelo = data; });
+	getStationsVelos().then(data => { stationsVelo = data; });
 	getMeteoNow();
 	getMeteoByTime(Date.now());
+
+	if( urlParams.get('bicloo') ) {
+		document.getElementById('station_bicloo').checked = true;
+		points("station_bicloo", stationsVelo, "img/station.svg");
+	}
+
+	if( urlParams.get('abris') ) {
+		document.getElementById('abris_velo').checked = true
+		points("abris_velo", abrisVelo, "img/abris.svg");
+	}
 }
 
 bootstrap();
-
-// document.getElementById("button-question").onclick = () => {
-// 	document.location.href = "question.html?page=météo";
-// }
-
-document.getElementById("input-meteo").onclick = () => {
-	document.location.href = "question.html?page=météo";
-};
-
-document.getElementById("input-pollution").onclick = () => {
-	document.location.href = "question.html?page=pollution";
-};
-
-document.getElementById("input-activite").onclick = () => {
-	document.location.href = "question.html?page=activité";
-};
-
-document.getElementById("input-vae").onclick = () => {
-	document.location.href = "question.html?page=VAE";
-};
 
 document.getElementById("btn-menu-nav").onclick = () => {
 	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"),null).getPropertyValue('visibility');
@@ -113,3 +75,52 @@ document.getElementById("btn-menu-nav").onclick = () => {
 		document.getElementById("btn-menu-nav").classList.remove("button-cross");
 	}
 };
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+document.getElementById('abris_velo').onchange = (e) => {
+	if (e.currentTarget.checked) {
+		points("abris_velo", abrisVelo, "img/abris.svg");
+	} else {
+		removePoints("abris_velo");
+	}
+}
+
+document.getElementById('station_bicloo').onchange = (e) => {
+	if (e.currentTarget.checked) {
+		points("station_bicloo", stationsVelo, "img/station.svg");
+	} else {
+		removePoints("station_bicloo");
+	}
+}
+
+function points(varName, data, url) {
+
+	data.forEach((d) => {
+		const el = document.createElement("div");
+		el.className = "marker";
+		el.style.backgroundImage = `url(${url})`;
+
+		el.addEventListener("click", function (event) {
+			// close the holde popup (if active)
+			if (openMarker) openMarker._popup.remove();
+			// open the popup
+			marker._popup.addTo(map)
+			openMarker = marker;
+			event.stopPropagation();
+		});
+
+		if( !marker[varName] ) marker[varName] = [];
+		marker[varName].push( new mapboxgl.Marker(el)
+			.setLngLat([d.longitude, d.latitude])
+			.setPopup(new mapboxgl.Popup().setHTML(d.text))
+			.addTo(map));
+	});
+}
+
+function removePoints(varName) {
+	marker[varName].forEach(m => {
+		m.remove();
+	});
+}
