@@ -10,19 +10,23 @@ import fauteil from '../img/picto moyen de transport-fauteuil.png'
 import trottinette from '../img/picto moyen de transport-trotinette.png'
 import skate from '../img/picto moyen de transport-skate.png'
 import roller from '../img/picto moyen de transport-roller.png'
+import equiv from './equivalent.js'
 
 class CarteInterractionChoixMultiples extends  React.Component {
     state={
         themeId:this.props.data.themeId,
         moyenId:this.props.data.moyenId,
         sites:this.props.data.sites
-    }
+    };
+
+
     handleChange = (e) => {
         this.setState({
             moyenId: parseInt(e.target.value,10)
         });
-    }
+    };
     render() {
+        equiv.forEach((l,r) => console.log(l,r));
         const {onNextPhase, nomPers} = this.props;
         return (
             <div id="mainContainerInterraction">
@@ -126,114 +130,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
                                         <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -242,7 +139,9 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <input class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
-                <Etiquette data={this.state}/>
+                <Etiquette data={this.state.sites[0]} identifiant={"etiquette1"}/>
+                <Etiquette data={this.state.sites[1]} identifiant={"etiquette2"}/>
+                <Etiquette data={this.state.sites[2]} identifiant={"etiquette3"}/>
             </div>
         );
     }

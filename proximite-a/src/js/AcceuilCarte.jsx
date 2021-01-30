@@ -20,7 +20,7 @@ function GetIcon(_iconsize){
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 1,
+        popupPhase : 2,
         currentPosition: [47.2819, -1.5158],
         sites:this.props.data.sites
     };

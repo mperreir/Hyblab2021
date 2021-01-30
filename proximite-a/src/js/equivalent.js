@@ -1,0 +1,32 @@
+var equiv = new Map();
+equiv.set("Musée" , "tourism=museum");
+equiv.set("Cinéma", "amenity=cinema");
+equiv.set("Arts", "amenity=arts_centre");
+equiv.set("Théatre", "amenity=theatre");
+equiv.set("lieu de culte", "amenity=place_of_worship");
+equiv.set("Historique", "historic");
+equiv.set("Boîte de nuit", "amenity=nightclub");
+equiv.set("Bar", "amenity=bar");
+equiv.set("Jardin de la bière", "amenity=biergarten");
+equiv.set("Fast-food", "amenity=fast_food");
+equiv.set("Pub", "amenity=pub");
+equiv.set("Sport", "sport");
+equiv.set("Piscine", "leisure=swimming_pool");
+equiv.set("Stade", "building=stadium");
+equiv.set("Salle de sport", "building=sports_hall");
+equiv.set("Zone de baignade", "leisure=swimming_area");
+equiv.set("Centre sportif", "leisure=sports_centre");
+equiv.set("Loisirs", "leisure=pitch");
+equiv.set("Boutique de sport", "shop=sports");
+equiv.set("Ecole", "amenity=school");
+equiv.set("Maternelle", "amenity=kindergarten");
+equiv.set("Garde d'enfants", "amenity=childcare");
+equiv.set("Terrain de jeu", "leisure=playground");
+equiv.set("Give box", "amenity=give_box");
+equiv.set("Marché", "amenity=marketplace");
+equiv.set("Toilettes", "amenity=toilets");
+equiv.set("Hopital", "amenity=hospital");
+equiv.set("Pâtisserie", "shop=pastry");
+equiv.set("Restaurant", "amenity=restaurant");
+
+export  default  equiv

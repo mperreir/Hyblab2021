@@ -205,10 +205,33 @@ input[type=radio] + label>img {
     z-index: 3;
 }
 
-#containerInterractionEtiquette{
+#etiquette1{
     position: absolute;
     z-index: 1;
     top: 40px;
+    right: 0;
+    background-color: white;
+    border-radius: 30px;
+    width: 300px;
+    right: -15px;
+}
+#etiquette2{
+    position: absolute;
+    z-index: 1;
+    top: 110px;
+    right: 0;
+    background-color: white;
+    border-radius: 30px;
+    width: 300px;
+    right: -15px;
+}
+#etiquette2 > #boutEtiquette{
+    background-color: #5CFF9E;
+}
+#etiquette3{
+    position: absolute;
+    z-index: 1;
+    top: 180px;
     right: 0;
     background-color: white;
     border-radius: 30px;
@@ -225,8 +248,7 @@ input[type=radio] + label>img {
 
 #boutEtiquette{
     width: 100px;
-    height: 100px;
-
+    height: 70px;
     position: absolute;
     z-index: -1;
     right: -40px;
@@ -237,6 +259,16 @@ input[type=radio] + label>img {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 26px;
     border: none    ;
+}
+
+#etiquette1{
+
+}
+#etiquette2{
+
+}
+#etiquette3{
+
 }
 
 .roundedText{
