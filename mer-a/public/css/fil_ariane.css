@@ -46,6 +46,9 @@
   opacity: 0.4;
 }
 
+.active:hover{
+  cursor: pointer;
+}
 
 .cercle_inner {
 
