@@ -103,8 +103,7 @@ const getBoxFromZone = (zone) => {
         south = latCoor < south ? latCoor : south;
         north = latCoor > north ? latCoor : north;
     });
-    console.log([north, west, south, east]);
-    return [north, west, south, east];
+    return [south, west, north, east];
 }
 module.exports= {getPointsInZone, POINT_TYPES, getPointsInZoneForProfile };
 
