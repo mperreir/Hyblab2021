@@ -68,31 +68,33 @@ class Moyen extends  React.Component {
     render() {
         const { onNextPage, onPreviousPage, onSetMoyen} = this.props;
         return (
-            <div id="MoyenContainer" class="container-fluid d-flex flex-row">
-                <div class="container align-items-center" >
-                    <div id="Theme" class="d-flex flex-column justify-content-center align-items-center fixed-top">
-                        <img src={this.getThemeLogo()} width={100} class=" fixed-top"></img>
-                        <img src={this.getThemePerso()} alt="fetard" />
-                        <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
-                    </div>
-                    <div id="Localisation" class="d-flex flex-column align-items-end fixed-top">
-                        <div class="d-flex flex-column justify-content-end align-items-center p-5">
-                            <img src={local} />
+            <div id="MoyenContainer" class="d-flex justify-content-center align-items-center">
+
+                <div id="Theme" class="d-flex flex-column justify-content-center align-items-center">
+                    <img id="logoCorner" src={this.getThemeLogo()} width={100} ></img>
+                    <img src={this.getThemePerso()} alt="fetard" />
+                    <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
+                </div>
+                <div id="containerLocalisation">
+                    <div id="Localisation" >
+                        <div className="d-flex flex-column justify-content-end align-items-center pt-5">
+                            <img src={local}/>
                         </div>
                     </div>
                 </div>
-                <div id="Moyen" class="container d-flex flex-row align-items-center">
+
+                <div id="Moyen" class="d-flex justify-content-around align-items-center">
                     <div id="changepage" class="d-flex justify-content-center align-items-center flex-column ">
-                        <input type='button' value='←' onClick={onPreviousPage} />
+                        <button className='btnNavigationAttributPurple fa fa-arrow-left' onClick={onPreviousPage} />
                         <p>Retour</p>
                     </div>
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <h3>Choisis ton moyen de déplacement</h3>
                         <MoyenSelector data={this.state} updateSelect={this.handleChange}/>
-                        <input type='button' class="btn btn-primary mb-3" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                        <input type='button' class="btn btnValidatePurpleBackground" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                     </div>
                     <div id="changepage" class="d-flex justify-content-center align-items-center flex-column">
-                        <input type='button' value='→' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                        <button className='btnNavigationAttributPurple fa fa-arrow-right' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
                         <p id='suiv'>Suivant</p>
                     </div>
                 </div>

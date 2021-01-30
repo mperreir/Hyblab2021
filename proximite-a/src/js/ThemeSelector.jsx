@@ -13,7 +13,7 @@ class ThemeSelector extends React.Component {
             <div id="themeSelector" class="bg-white d-flex justify-content-center align-items-center flex-column">
                 <h3>Tu te sens plutôt .. ?</h3>
                 <div class="container">
-                    <div class="row">
+                    <div class="row selection">
                         <div class="col">
                             <input type="radio" name="theme" id="fetard" class="input-hidden" onClick={() => { this.props.updateSelect(1)}}/>
                             <label htmlFor="fetard">

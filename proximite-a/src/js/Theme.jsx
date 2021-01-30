@@ -5,13 +5,11 @@ import '../css/theme.css'
 class Theme extends  React.Component {
     state={
         themeId: null,
-        buttonActivate: false
     }
 
     handleChange = (e) => {
         this.setState({
             themeId: e,
-            buttonActivate: true
         });
     }
 
@@ -26,13 +24,13 @@ class Theme extends  React.Component {
             <div id="themeContainer" class="d-flex flex-column">
                 <img src={logo} width={100} class="mt-2 ml-5"/>
                 <div class="d-flex h-100 justify-content-between align-items-center">
-                    <input type='button' class="btnNavigation m-3 btn btn-primary" id='btnPrevious' value='←' onClick={onPreviousPage}/>
+                    <div className="d-flex btn btnNavigationAttributPurple fa fa-arrow-left" onClick={onPreviousPage}/>
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <ThemeSelector onNextPage={onNextPage} updateSelect={this.handleChange}/>
                         <span>fast food - bars - boîtes ....</span>
-                        <input type='button' class="mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.buttonActivate}/>
+                        <input type='button' class="btn btnValidatePurpleBackground mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.themeId}/>
                     </div>
-                    <input type='button' class="btnNavigation m-3 btn btn-primary" id='btnNext' value='→' onClick={() => { this.submitTheme(onSetTheme, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                    <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}}  disabled={!this.state.themeId}/>
                 </div>
             </div>
         );

@@ -166,10 +166,6 @@ hr{
     scrollbar-width: thin;
 }
 
-input[type=radio]:checked + label>img {
-    box-shadow: 0 0 3px 3px #756EFF;
-}
-
 input[type=radio] + label>img {
     width: 150px;
     height: 150px;

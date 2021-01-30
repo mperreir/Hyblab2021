@@ -36,36 +36,36 @@ class MoyenSelector extends React.Component {
         }
     }
     render() {
-        const fond =this.getThemeFond() 
+        const fond =this.getThemeFond()
         const hoverStyle = {
             backgroundImage: `url(${fond})`
         };
         return (
-            <div className=" m-5 d-flex justify-content-center align-items-center flex-column">
+            <div className=" m-5 d-flex justify-content-center align-items-center flex-column selection">
                 <div className="container">
                     <div className="row">
-                        <div className="col">
+                        <div className="col ">
                             <input type="radio" name="moyen" id="pied" className="input-hidden" onClick={(e) => { this.props.updateSelect(1) }}/>
                             <label htmlFor="pied">
                                 <img src={pied_img} alt="pied" style={hoverStyle}/>
                             </label>
                         </div>
 
-                        <div className="col" >
+                        <div className="col " >
                             <input type="radio" name="moyen" id="velo" className="input-hidden" onClick={(e) => { this.props.updateSelect(2) }}/>
                             <label htmlFor="velo">
                                 <img src={velo_img} alt="velo" style={hoverStyle}/>
                             </label>
                         </div>
 
-                        <div className="col">
+                        <div className="col ">
                             <input type="radio" name="moyen" id="fauteuil" className="input-hidden" onClick={(e) => { this.props.updateSelect(3) }}/>
                             <label htmlFor="fauteuil">
                                 <img src={fauteuil_img} alt="fauteuil" style={hoverStyle}/>
                             </label>
                         </div>
 
-                        <div className="col">
+                        <div className="col ">
                             <input type="radio" name="moyen" id="trotinette" className="input-hidden" onClick={(e) => { this.props.updateSelect(4) }}/>
                             <label htmlFor="trotinette">
                                 <img src={trotinette_img} alt="trotinette" style={hoverStyle}/>
@@ -79,7 +79,7 @@ class MoyenSelector extends React.Component {
                             </label>
                         </div>
 
-                        <div className="col">
+                        <div className="col ">
                             <input type="radio" name="moyen" id="roller" className="input-hidden" onClick={(e) => {this.props.updateSelect(6)}}/>
                             <label htmlFor="roller">
                                 <img src={roller_img} alt="roller" style={hoverStyle}/>

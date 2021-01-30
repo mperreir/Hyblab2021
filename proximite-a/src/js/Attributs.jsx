@@ -12,11 +12,10 @@ class Attributs extends React.Component{
     };
 
     requestingCoords = () =>{
-        console.log("testb");
         navigator.geolocation.getCurrentPosition(function (position) {   //une fois la position récupérée
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
-                adresse:"2 rue jean bombeur"
+                adresse:"2 rue jean bombeur",
             })
             console.log("coords received")
         }.bind(this));
@@ -26,7 +25,9 @@ class Attributs extends React.Component{
     //permet de mettre à jour le champ texte
     handleChange = (event) => {
         const value = event.currentTarget.value;
-        this.setState({adresse : value})
+        this.setState({
+            adresse : value,
+        })
     };
 
     //envoi données + changement page
@@ -57,7 +58,7 @@ class Attributs extends React.Component{
                     </div>
                 </div>
                 <div id="rightPartAttribut">
-                    <div className="btn btnNavigationAttribut fa fa-arrow-left" onClick={onPreviousPage}/>
+                    <button className="d-flex btn btnNavigationAttribut fa fa-arrow-left" onClick={onPreviousPage} />
                     <div id="rightPartAttributCenter">
                         <img src={maison} class="mb-3" width={40}/>
                         <p id="textChoisi" class="mb-4">Choisi ton point de départ</p>
@@ -72,7 +73,8 @@ class Attributs extends React.Component{
                         </div>
                         <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}}/>
                     </div>
-                    <div  class="btn btnNavigationAttribut fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}}/>
+                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse}/>
+
                 </div>
             </div>
         );

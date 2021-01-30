@@ -42,3 +42,11 @@ html, body {
     background-color: #e6e1e5;
     transition: .2s;
 }
+
+
+.btnValidatePurpleBackground{
+    background-color: #756EFF;
+    color: white;
+}
+
+

@@ -1,13 +1,22 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+
 #MoyenContainer{
     height: 100%;
-    width: auto;
     background-image: url('../img/illus-paged\'accueil-hyblab-ok-06.png');
     background-size: 50%;
-    background-position: top 140% right 20%;
+    background-position: bottom -30% right 20%;
     background-repeat: no-repeat;
     z-index: -2;
+    padding: 0;
 }
 
+#logoCorner{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 150px;
+}
 #Theme{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     border-radius: 0px 74px 74px 0px;
@@ -15,27 +24,34 @@
     width: 40%;
     background-color: #ffffff;
     left:0;
-
+    width: 30%;
 }
 
 #Theme span{
     width: 50%;
 }
-#Localisation{
+#containerLocalisation{
+    width: 5%;
     height: 100%;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Localisation{
+    height: 70%;
+    width: 100%;
     background-color: #756EFF;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 74px;
-    z-index: 0;
+    border-radius: 0 26px 26px 0;
 }
 #Localisation img{
     width: 40px;
     height: 50px;
-
 }
 #Moyen{
     color: #756EFF;
+    width: 70%;
 }
 
 .btnNavigation{
@@ -107,3 +123,48 @@
 #valide:disabled{
     opacity: 0.5;
 }
+
+@media screen and (max-width: 900px)
+{
+    #MoyenContainer{
+        flex-direction: column !important;
+    }
+    #Theme{
+        width: 100%;
+        border-radius: 0px 0px 74px 74px;
+        padding: 15px;
+    }
+    #containerLocalisation{
+       display: none;
+    }
+    #Moyen{
+        width: 100%;
+    }
+}
+
+
+
+.btnNavigationAttributPurple{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid #756EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #756EFF;
+    margin: 0 30px 0 30px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btnNavigationAttributPurple:hover{
+    border: none;
+    color: white;
+    background-color: #756EFF;
+    transition: .5s;
+}
+.selection img{
+    cursor: pointer;
+}
+

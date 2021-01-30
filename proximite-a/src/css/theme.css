@@ -2,6 +2,7 @@
     height: 100%;
 }
 
+
 .btnNavigation{
     width: 50px;
 }
@@ -11,9 +12,6 @@
     left: -9999px;
 }
 
-input[type=radio]:checked + label>img {
-    box-shadow: 0 0 3px 3px #fcfff3;
-}
 
 /* Stuff after this is only to make things more pretty */
 h3 {
@@ -68,3 +66,4 @@ span + input {
 #themeSelector {
     margin-bottom: 50px;
 }
+
