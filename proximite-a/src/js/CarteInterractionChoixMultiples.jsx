@@ -17,19 +17,39 @@ class CarteInterractionChoixMultiples extends  React.Component {
     state={
         themeId:this.props.data.themeId,
         moyenId:this.props.data.moyenId,
-        sites:this.props.data.sites
+        sites:this.props.data.sites,
+        selected:[]
     };
-
 
     handleChange = (e) => {
         this.setState({
-            moyenId: parseInt(e.target.value,10)
+            moyenId: parseInt(e.target.value, 10)
         })
         console.log(parseInt(e.target.value, 10))
         this.props.onSetMoyen(parseInt(e.target.value, 10))
     };
+    addSelect = (l, r) => {
+        return <div className="col form-check form-check-inline">
+                    <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
+                        id="inlineRadio1" value={l} />
+                    <label className="form-check-label" htmlFor="inlineRadio1">{r}</label>
+                </div>
+    }
+
+    handleCheck =(e)=>{
+        let newSelected = this.state.selected
+        if(e.target.checked === true && !this.state.selected.includes(e.target.value)){
+            newSelected.push(e.target.value)
+        }
+        else if (e.target.checked === false && this.state.selected.includes(e.target.value)){
+            newSelected.pop(e.target.value)
+        }
+        this.setState({selected:newSelected})
+    }
+
     render() {
-        equiv.forEach((l,r) => console.log(l,r));
+        var selectable = []
+        equiv.forEach((l, r) => selectable.push(this.addSelect(l, r)))
         const { onNextPhase, nomPers} = this.props;
         const hoverStyle = {
             backgroundImage: `url(${fond})`
@@ -122,20 +142,11 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
                             <div className="titlePhase2Section">Cocher ou décocher les choix du thème</div>
                             <div className="container" id="containerPictograms">
-                                <div className="row">
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio1" value="option1"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio1">Escaliers</label>
-                                    </div>
-                                    <div className="col form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" name="inlineRadioOptions"
-                                               id="inlineRadio2" value="option2"/>
-                                        <label className="form-check-label" htmlFor="inlineRadio2">Dénivelés</label>
-                                    </div>
+                                <div className="m-3 d-flex align-items-start flex-column" onChange={this.handleCheck}>
+                                    {selectable}
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
                     <hr/>
