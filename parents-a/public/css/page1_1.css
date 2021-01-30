@@ -6,7 +6,7 @@ section[data-slidr="page-1_1"] {
 }
 
 /* Décor */
-#arbre_jaune-p1_1 {
+#arbre-jaune-p1_1 {
     position: absolute;
     bottom: 8%;
     right: 18%;
@@ -16,7 +16,7 @@ section[data-slidr="page-1_1"] {
     transition-duration: 1000ms;
 }
 
-#arbre_jaune-p1_1:hover {
+#arbre-jaune-p1_1:hover {
     transform: scale(1.1);
 }
 

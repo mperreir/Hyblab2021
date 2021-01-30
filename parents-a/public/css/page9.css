@@ -49,7 +49,7 @@ section[data-slidr="page-9"] {
     z-index: 6;
 }
 
-#arbre_rouge-p9{
+#arbre-rouge-p9{
     position: absolute;
     width: 21.953125%;
     left: 68.515625%;
@@ -92,7 +92,7 @@ section[data-slidr="page-9"] {
     left: 50%;
 }
 
-#arbre_jaune-p9{
+#arbre-jaune-p9{
     position: absolute;
     width: 28%;
     height: 45.3%;

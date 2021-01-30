@@ -64,13 +64,13 @@ section[data-slidr="page-3"] {
     right: -11%;
 }
 
-#arbre_jaune-p3 {
+#arbre-jaune-p3 {
     position: absolute;
     width: 24%;
     bottom: 12%;
     right: 3%;
 }
-#arbre_jaune-p3:hover {
+#arbre-jaune-p3:hover {
     /*transition: 0.70s;
     -webkit-transition: 0.70s;
     -moz-transition: 0.70s;
@@ -87,7 +87,7 @@ section[data-slidr="page-3"] {
     perspective: 1000px;
 }
 
-#arbre_rouge-p3 {
+#arbre-rouge-p3 {
     position: absolute;
     width: 20%;
     bottom: 10%;
