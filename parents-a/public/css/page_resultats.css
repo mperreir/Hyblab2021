@@ -90,3 +90,24 @@ section[data-slidr="ppage-resultats"] {
     width:80vw;
     z-index: 11;
 }
+
+#random1 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 74%;
+}
+
+#random2 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 48%;
+}
+
+#random3 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 22%;
+}
