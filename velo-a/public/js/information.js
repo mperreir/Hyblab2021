@@ -80,4 +80,17 @@ function slide() {
 			document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
 		});
 	});
+
+	velos();
+}
+
+function velos() {
+	document.querySelectorAll("#question_velo button").forEach((el) => {
+		el.addEventListener("mouseenter", () => {
+			Array.from(document.getElementsByClassName("velo")).forEach((e) => {
+				e.setAttribute("class", "velo velo_out");
+			});
+			document.getElementById("velo_" + el.id).setAttribute("class", "velo velo_in");
+		});
+	});
 }

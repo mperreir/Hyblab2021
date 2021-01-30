@@ -177,3 +177,35 @@ body {
 	justify-items: center;
 	justify-content: space-around;
 }
+
+.velo {
+	position: absolute;
+	bottom: 11%;
+	transform: translateX(-100vw);
+}
+
+.velo_in {
+	animation: velo_in 3s forwards;
+}
+
+@keyframes velo_in {
+	0% {
+		transform: translateX(-100vw);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.velo_out {
+	animation: velo_out 3s forwards;
+}
+
+@keyframes velo_out {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100vw);
+	}
+}
