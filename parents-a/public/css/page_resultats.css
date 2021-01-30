@@ -84,12 +84,6 @@ section[data-slidr="ppage-resultats"] {
     right: 39%;
 }
 
-#myChart{
-    position : absolute;
-    height:40vh;
-    width:80vw;
-    z-index: 11;
-}
 
 #random1 {
     position: absolute;
@@ -102,7 +96,7 @@ section[data-slidr="ppage-resultats"] {
     position: absolute;
     width: 3%;
     bottom: 34%;
-    right: 48%;
+    right: 49%;
 }
 
 #random3 {

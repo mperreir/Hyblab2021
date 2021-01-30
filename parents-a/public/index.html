@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/page1.css">
     <link rel="stylesheet" href="css/page1_1.css">
     <link rel="stylesheet" href="css/page2.css">
+    <link rel="stylesheet" href="css/page2-1.css">
     <link rel="stylesheet" href="css/page3.css">
     <link rel="stylesheet" href="css/page4.css">
     <link rel="stylesheet" href="css/page5.css">
@@ -19,6 +20,8 @@
     <link rel="stylesheet" href="css/page9.css">
     <link rel="stylesheet" href="css/page10.css">
     <link rel="stylesheet" href="css/page_resultats.css">
+    <link rel="stylesheet" href="css/credits.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -62,7 +65,6 @@
 
             <!-- Page two after timer - Etes vous pret -->
             <section data-slidr="page-2">
-
                 <img src="img/logo.png" alt="logo" id="logo-p2-1">
                 <img src="img/page2/arbre_bleu.svg" alt="arbre-bleu" id="arbre-bleu-p2-1">
                 <img src="img/page2/arbuste_bleu.svg" alt="arbuste_bleu" id="arbuste_bleu-p2-1">
@@ -70,6 +72,7 @@
                 <img src="img/page2/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-p2-1">
                 <img src="img/page2/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-p2-1">
                 <img src="img/page2/dune.png" alt="dune" id="dune-p2-1">
+                <img src="img/page2/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p2-1">
                 <img src="img/page2/chaise.svg" alt="chaise" id="chaise-p2-1">
                 <img src="img/page2/mascotte.gif" alt="mascotte" id="mascotte-p2-1">
                 <img src="img/page2/pelouse.svg" alt="pelouse" id="pelouse-p2-1">
@@ -85,9 +88,29 @@
                     <img src="img/page2/texte_debut.svg" alt="texte" id="texte2-p2-1">
                     <button id="button2-p2-2" class='button'>Débuter le questionnaire</button>
                 </div>
-                <!-- Bouttons retours arriere -->
-                <button id="btr2" class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+            </section>
 
+            <!-- Page 2-1 : Age -->
+            <section data-slidr="page-2_1">
+                <img src="img/logo.png" alt="logo" id="logo-p2_1">
+                <img src="img/page2_1/quelageastu.svg" alt="quelageastu" id="quelageastu-p2_1">
+                <img src="img/page4/double_feuille_verte.svg" alt="double_feuille_verte" id="feuille_verte-p2_1">
+                <img src="img/page10/feuille_bleue.svg" alt="feuille_bleue" id="feuille_bleue-p2_1">
+                <img src="img/page2_1/0-3ans.svg" alt="0-3ans" id="zero_ans-p2_1" class="age">
+                <img src="img/page2_1/4-8ans.svg" alt="4-8ans" id="quatre_ans-p2_1" class="age">
+                <img src="img/page2_1/9+ans.svg" alt="9+ans" id="neuf_ans-p2_1" class="age">
+                <img src="img/page4/dune.svg" alt="dune" id="dune-p2_1">
+                <img src="img/page4/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-p2_1">
+                <img src="img/page4/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-p2_1">
+                <img src="img/page4/arbuste_rose.svg" alt="arbuste_rose" id="arbuste_rose-p2_1">
+                <img src="img/page2_1/3anselephe.svg" alt="neuf_eleph" id="trois_eleph-p2_1" class="eleph">
+                <img src="img/page2_1/6anseleph.svg" alt="neuf_eleph" id="six_eleph-p2_1" class="eleph">
+                <img src="img/page2/mascotte.svg" alt="6anselephe" id="neuf_eleph-p2_1" class="eleph">
+                <img src="img/page3/gros_nuage.svg" alt="gros_nuage" id="gros_nuage-p2_1">
+                <img src="img/page4/petit_nuage.svg" alt="petit_nuage" id="petit_nuage-p2_1">
+
+                <!-- Bouttons retours arriere -->
+                <button class="button button_retour d-inline-block"><i class="fas fa-arrow-left"></i>  Question précédente</button>
             </section>
 
             <!-- Page 3 : T'es un avanturier ? -->
@@ -284,8 +307,37 @@
                 <img src="img/page_resultats/random.svg" alt="random" id="random1">
                 <img src="img/page_resultats/random.svg" alt="random" id="random2">
                 <img src="img/page_resultats/random.svg" alt="random" id="random3">
-                <canvas id="myChart" style="height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);"></canvas>
+                <div class="radar-container" style="position: absolute; height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);z-index: 14;">
+                    <canvas id="myChart" ></canvas>
+                </div>
+                
 
+            </section>
+
+            <section data-slidr="credits">
+                <img src="img/logo.png" alt="logo" id="logo-credits">
+                <img src="img/credits/texte_credits.svg" alt="texte-credits" id="texte-credits">
+                <img src="img/credits/fond_blanc.svg" alt="fond_blanc" id="fond_blanc">
+                <img src="img/credits/arbuste_vert.svg" alt="arbuste_vert" id="arbuste_vert-credits">
+                <img src="img/credits/arbre_jaune.svg" alt="arbre_jaune" id="arbre_jaune-credits">
+                <img src="img/credits/pelouse_droite.svg" alt="pelouse_droite" id="pelouse_droite-credits">
+                <img src="img/credits/pelouse_gauche.svg" alt="pelouse_gauche" id="pelouse_gauche-credits">
+                <img src="img/credits/double_feuille.svg" alt="double_feuille" id="double_feuille-credits">
+                <img src="img/credits/fleurs_rose.svg" alt="fleurs_rose" id="fleurs_rose-credits">
+                <img src="img/credits/logo_audencia.svg" alt="logo_audencia" id="logo_audencia-credits">
+                <img src="img/credits/logo_agr.svg" alt="logo_agr" id="logo_agr-credits">
+                <img src="img/credits/logo_polytech.png" alt="logo_polytech" id="logo_polytech-credits">
+                <img src="img/credits/texte_audencia.svg" alt="texte_audencia" id="texte_audencia-credits">
+                <img src="img/credits/texte_agr.svg" alt="texte_agr" id="texte_agr-credits">
+                <img src="img/credits/texte_polytech.svg" alt="texte_polytech" id="texte_polytech-credits">
+                <img src="img/credits/noms_audencia.svg" alt="noms_audencia" id="noms_audencia-credits">
+                <img src="img/credits/noms_agr.svg" alt="noms_agr" id="noms_agr-credits">
+                <img src="img/credits/noms_polytech.svg" alt="noms_polytech" id="noms_polytech-credits">
+                <img src="img/credits/logo_hyblab.svg" alt="logo_hyblab" id="logo_hyblab-credits">
+                <img src="img/credits/logo_OML.svg" alt="logo_OML" id="logo_OML-credits">
+                <img src="img/credits/logo_UN.svg" alt="logo_UN" id="logo_UN-credits">
+                <img src="img/credits/logo_opensource.svg" alt="logo_opensource" id="logo_opensource-credits">
+                <img src="img/credits/logo_cc.svg" alt="logo_cc" id="logo_cc-credits">
             </section>
 
         </main>

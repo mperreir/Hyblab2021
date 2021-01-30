@@ -30,9 +30,11 @@ function choixSlide(num, data) {
 
     if (num == '2') { initSlide2(data) }
 
-    if (num == '3') { initSlide3(data) }
+    if (num == '2_1') { initSlide2_1(data) };
 
-    if (num == '4') { initSlide4(data) }
+    if (num == '3') { initSlide3(data) };
+
+    if (num == '4') { initSlide4(data) };
 
     if (num == '5') { initSlide5(data) }
 
@@ -113,6 +115,7 @@ let initSlide2 = function() {
     d3.select('#button2-p2-2').on('click', function() {
         nextSlide('3')
         route.push('2');
+
     });
     //Retour arriere
     d3.select('.button_retour').on('click', function() {
@@ -121,6 +124,34 @@ let initSlide2 = function() {
 
 }
 
+//Age ?
+let initSlide2_1 = function() {
+
+    //Age -> Aventurier
+    //recupérer l'age
+
+    d3.select('#trois_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+    });
+
+    d3.select('#six_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
+    });
+
+    d3.select('#neuf_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
+
+    });
+
+
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function(e) {
+        console.log(d3.event.target.id);
+        nextSlide('2')
+    });
+}
 
 //Premiere question : aventurier ? 
 let initSlide3 = function() {
@@ -168,6 +199,7 @@ let initSlide4 = function() {
 
 //Okey mais Avec quoi
 let initSlide5 = function() {
+
     //Plein la vue -> avec quoi 
     d3.select("#button_oui-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -186,6 +218,7 @@ let initSlide5 = function() {
         nextSlide(route.pop());
     });
 }
+
 
 let initSlide6 = function(db) {
     d3.select("#bouton_oh_oui_anime-p6").on('click', async function() {
@@ -228,6 +261,7 @@ let initSlide7 = function() {
 }
 
 // /Decouverte d'arbres différents 
+
 let initSlide8 = function() {
 
     d3.select("#BOUTON_ARBRES_v2-p8").on('click', async function() {
@@ -385,6 +419,7 @@ function radar(data) {
                     bottom: 0
                 }
             }
+        
 
         }
     });
