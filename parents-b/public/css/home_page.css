@@ -57,6 +57,7 @@
     left: 47.2%;
     border-radius: 50%;
     border: 0.2em solid #ffe9de;
+    z-index: 8;
 }
 
 .button-begin:hover{

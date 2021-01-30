@@ -6,7 +6,7 @@ let initResults = function(){
         resetHome();
     });
 
-    d3.select('.button-next-results').on('click', function (){
+    d3.select('.button-suivant-results').on('click', function (){
         mySlidr.slide('right');
         initCredits();
     });
