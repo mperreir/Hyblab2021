@@ -17,7 +17,7 @@ import {Humeur, Themes} from "@/store";
 import canariVanilla from "../assets/animationJson/wazo_vanilla_gauche.json";
 import canariCulture from "../assets/animationJson/wazo_culture.json";
 import canariSport from "../assets/animationJson/wazo_sport";
-import canariCultureSport from "../assets/animationJson/wazo_culture_sport.json";
+import canariSportCulture from "../assets/animationJson/wazo_culture_sport.json";
 import canariSportNature from "../assets/animationJson/wazo_sport_nature.json";
 import canariNature from "../assets/animationJson/wazo_nature.json";
 import jokes from '@/assets/joke.json'
@@ -44,6 +44,28 @@ function answer(Joke, ans) {
   }
 }
 
+function bonneHumeurFactory(theme) {
+  if (theme === Themes.NATURE)
+    return canariSportNature
+  if (theme === Themes.CULTURE)
+    return canariSportCulture
+  return canariSport
+}
+
+function mauvaiseHumeurFactory(theme) {
+  if( theme === Themes.NATURE )
+    return canariNature
+  if (theme === Themes.CULTURE )
+    return canariCulture
+  return canariVanilla
+}
+
+function animFactory(humeur, theme) {
+  if(humeur === Humeur.OUI || humeur === Humeur.PLUTOT )
+    return bonneHumeurFactory(theme)
+  return mauvaiseHumeurFactory(theme)
+}
+
 
 export default {
   name: "Oiseau",
@@ -56,28 +78,8 @@ export default {
   data() {
     const choixhumeur =this.$root.$data.state.choice.humeur;
     const choixtheme = this.$root.$data.state.choice.theme;
-    let animm;
-    if(choixhumeur === Humeur.OUI || choixhumeur === Humeur.PLUTOT ){
-      if( choixtheme === Themes.NATURE ){
-          animm = canariSportNature
-      }
-      else if (choixtheme === Themes.CULTURE ){
-          animm = canariCultureSport
-      } else {
-          animm = canariSport
-      }
-    } else {
-        if( choixtheme === Themes.NATURE ){
-          animm = canariNature
-      }
-      else if (choixtheme === Themes.CULTURE ){
-          animm = canariCulture
-      }else{
-          animm = canariVanilla
-      }
-    }
     return {
-      animm,
+      animm: animFactory(choixhumeur, choixtheme),
       msg : this.message,
       joke: new Joke()
     }
