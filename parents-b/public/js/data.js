@@ -409,16 +409,22 @@ function fetchData() {
             const perc1 = document.getElementById('result-one-percentage');
             const perc2 = document.getElementById('result-two-percentage');
             const perc3 = document.getElementById('result-three-percentage');
-            perc1.innerText += top[0]['affinity'] + '%';
-            perc2.innerText += top[1]['affinity'] + '%';
-            perc3.innerText += top[2]['affinity'] + '%';
+            perc1.innerText = top[0]['affinity'] + '%';
+            perc2.innerText = top[1]['affinity'] + '%';
+            perc3.innerText = top[2]['affinity'] + '%';
 
             const name1 = document.getElementById('result-one-name');
             const name2 = document.getElementById('result-two-name');
             const name3 = document.getElementById('result-three-name');
-            name1.innerText += top[0]['Nom'];
-            name2.innerText += top[1]['Nom'];
-            name3.innerText += top[2]['Nom'];
+            name1.innerText = top[0]['Nom'];
+            name2.innerText = top[1]['Nom'];
+            name3.innerText = top[2]['Nom'];
+            const url1 = top[0]['Web'] === null ? 'https://jardins.nantes.fr/' : top[0]['Web'];
+            const url2 = top[1]['Web'] === null ? 'https://jardins.nantes.fr/' : top[1]['Web'];
+            const url3 = top[2]['Web'] === null ? 'https://jardins.nantes.fr/' : top[2]['Web'];
+            name1.href = url1;
+            name2.href = url2;
+            name3.href = url3;
 
             const address1 = document.getElementById('result-one-address');
             const address2 = document.getElementById('result-two-address');
@@ -430,16 +436,19 @@ function fetchData() {
             const access1 = document.getElementById('result-one-access');
             const access2 = document.getElementById('result-two-access');
             const access3 = document.getElementById('result-three-access');
-            access1.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + top[0]['Accès transports en commun'];
-            access2.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + top[1]['Accès transports en commun'];
-            access3.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + top[2]['Accès transports en commun'];
+            const tram1 = top[0]['Accès transports en commun'] === null ? "Pas d'information" : top[0]['Accès transports en commun'];
+            const tram2 = top[1]['Accès transports en commun'] === null ? "Pas d'information" : top[1]['Accès transports en commun'];
+            const tram3 = top[2]['Accès transports en commun'] === null ? "Pas d'information" : top[2]['Accès transports en commun'];
+            access1.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + tram1;
+            access2.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + tram2;
+            access3.innerHTML = '<img src="img/results_page/tram.svg" alt="Icone d\'accès">' + ' ' + tram3;
 
             const time1 = document.getElementById('result-one-time');
             const time2 = document.getElementById('result-two-time');
             const time3 = document.getElementById('result-three-time');
-            let horaire1 = top[0]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[0]['Horaires d\'ouverture'];
-            let horaire2 = top[1]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[1]['Horaires d\'ouverture'];
-            let horaire3 = top[2]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[2]['Horaires d\'ouverture'];
+            const horaire1 = top[0]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[0]['Horaires d\'ouverture'];
+            const horaire2 = top[1]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[1]['Horaires d\'ouverture'];
+            const horaire3 = top[2]['Horaires d\'ouverture'] === "00h01-23h59" ? "Ouvert 24h/24h" : top[2]['Horaires d\'ouverture'];
             time1.innerHTML = '<img src="img/results_page/time.svg" alt="Icone d\'ouverture">' + ' ' + horaire1;
             time2.innerHTML = '<img src="img/results_page/time.svg" alt="Icone d\'ouverture">' + ' ' + horaire2;
             time3.innerHTML = '<img src="img/results_page/time.svg" alt="Icone d\'ouverture">' + ' ' + horaire3;
