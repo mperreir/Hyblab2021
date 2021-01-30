@@ -6,48 +6,40 @@
     <title>M&eacute;dia & Sea</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
     <link rel="icon" href="assets/img/logo/favicon.ico"/>
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/parallax.css">
-    <link rel="stylesheet" href="css/fond_1.css">
+    <link rel="stylesheet" href="css/fond.css">
     <link href="/mer-a/css/fil_ariane.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <script src="/mer-a/js/config.js" defer></script>
-    <script src="/mer-a/js/functions/common.js" defer></script>
-    <script src="/mer-a/js/functions/utils.js" defer></script>
-    <script src="/mer-a/js/functions/api_connection.js" defer></script>
-    <script src="/mer-a/js/functions/loadings.js" defer></script>
-    <script src="/mer-a/js/functions/load_maps.js" defer></script>
-    <script src="/mer-a/js/functions/narration.js" defer></script>
-    <script src="/mer-a/js/functions/personnages.js" defer></script>
-    <script src="/mer-a/js/script.js" defer></script>
-    <script src="/mer-a/js/classes/Legende.js"></script>
 
+    <script src="/mer-a/js/config.js" defer></script>
+    <script src="/mer-a/js/common/router.js" defer></script>
+    <script src="/mer-a/js/common/utils.js" defer></script>
+    <script src="/mer-a/js/common/api_connection.js" defer></script>
+    <script src="/mer-a/js/common/loadings.js" defer></script>
+    <script src="/mer-a/js/common/load_maps.js" defer></script>
+    <script src="/mer-a/js/common/narration.js" defer></script>
+    <script src="/mer-a/js/common/personnages.js" defer></script>
+    <script src="/mer-a/js/classes/Legende.js"></script>
+    <script src="/mer-a/js/script.js" defer></script>
   </head>
   <body>
-    <div id="scene" class="unselectable" data-friction-x="0.2" data-friction-y="0.2" >
-      <div data-depth="0.05"><img src="/mer-a/assets/img/decor1/PLAN_4.png" class="bg" id="plan4" alt=""></div>
-      <div data-depth="0.13"><img src="/mer-a/assets/img/decor1/VAGUE_6.png" class="bg" id="vague6" alt=""></div>
-      <div data-depth="0.1"><img src="/mer-a/assets/img/decor1/VAGUE_5.png" class="bg" id="vague5" alt=""></div>
-      <div data-depth="0.12"><img src="/mer-a/assets/img/decor1/VAGUE_4.png" class="bg" id="vague4" alt=""></div>
-      <div data-depth="0.09"><img src="/mer-a/assets/img/decor1/VAGUE_3.png" class="bg" id="vague3" alt=""></div>
-      <div data-depth="0.13"><img src="/mer-a/assets/img/decor1/VAGUE_2.png" class="bg" id="vague2" alt=""></div>
-      <div data-depth="0.11"><img src="/mer-a/assets/img/decor1/VAGUE_1.png" class="bg" id="vague1" alt=""></div>
-      <div data-depth="0.2"><img src="/mer-a/assets/img/decor1/PLAN_3.png" class="bg" id="plan3" alt=""></div>
-      <div data-depth="0.175"><img id="personnage" class="bg" src="" alt=""></div>
-      <div data-depth-y="0.25" data-depth-x="0.225"><img src="/mer-a/assets/img/decor1/PLAN_2.png" class="bg" id="plan2" alt=""></div>
-      <div data-depth-y="0.3" data-depth-x="0.25"><img src="/mer-a/assets/img/decor1/PLAN_1.png" class="bg" id="plan1" alt=""></div>
-    </div>
+    <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+    <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
 
     <div id="fond-mer"></div>
 
     <div id="content" class="center"></div>
+
+    <div class="button" id="change">Change</div>
   </body>
 </html>
