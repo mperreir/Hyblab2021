@@ -2,44 +2,28 @@
 async function bootstrap() {
     movingBatiment();
     paneHide();
-
-    Array.from(document.getElementsByClassName("rect")).forEach(togglePath);
-    Array.from(document.getElementsByClassName("text")).forEach(togglePath);
+    togglePath();
 
 }
 
 bootstrap();
 
 
-function togglePath(el, index) {
-    el.addEventListener("mouseover",() => {
-        const r = document.getElementById("r-"+index);
-        r.style.visibility = "visible";
-        const t = document.getElementById("t-"+index);
-        t.style.visibility = "visible";
-
-        let tOvering = false;
-        let rOvering = false;
-
-        t.addEventListener("mouseenter",() => {
-            tOvering = true;
+function togglePath() {
+    Array.from(document.getElementsByClassName("base")).forEach((el, index) => {
+        el.addEventListener("mouseenter",() => {
+            const hover = document.getElementsByClassName("hover")[index];
+            if (hover.style.visibility !== 'visible')
+                hover.style.visibility = 'visible';
+            console.log("base")
         });
-        r.addEventListener("mouseenter",() => {
-            rOvering = true;
-        });
+    });
 
-        r.addEventListener("mouseleave",() => {
-            tOvering = false;
+    Array.from(document.getElementsByClassName("hover")).forEach((el) => {
+        el.addEventListener("mouseleave",() => {
+            el.style.visibility = 'hidden';
+            console.log("hover")
 
-            setTimeout(function(){
-                document.addEventListener('mousemove', (e) => {
-
-                    if (!inRect(e.x, e.y, r.getBoundingClientRect())) {
-                        r.style.visibility = "hidden";
-                        t.style.visibility = "hidden";
-                    }
-                }, {once: true});
-            }, 10);
         });
     });
 }
@@ -70,7 +54,6 @@ function movingBatiment() {
         document.getElementById("batiment").className = "batiment_pause" + i;
         setTimeout(function(){
             document.getElementById("batiment").className = "batiment_back" + (i--);
-
             if (i <= 0) {
                 batiment_return.style.display = "none";
                 document.getElementById("pane").setAttribute("class", "show");
