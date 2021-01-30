@@ -356,6 +356,7 @@ function radar(data) {
                     bottom: 0
                 }
             }
+        
 
         }
     });
