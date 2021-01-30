@@ -1,0 +1,167 @@
+/* PAGE CREDITS */
+section[data-slidr="credits"] {
+    background: #171EB1;
+    width: 100%;
+    height: 100%;
+}
+
+#logo-credits {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#texte-credits {
+    position: absolute;
+    width: 7%;
+    top: 12%;
+    left: 42%;
+}
+
+#fond_blanc {
+    position: absolute;
+    width: 74%;
+    top: 19%;
+    left: 10%;
+}
+
+#pelouse_droite-credits {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#pelouse_gauche-credits {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#double_feuille-credits {
+    position: absolute;
+    width: 14%;
+    bottom: 10%;
+    left: 0%;
+}
+
+#fleurs_rose-credits {
+    position: absolute;
+    width: 11%;
+    bottom: 8%;
+    left: 5%;
+}
+
+#arbre_jaune-credits {
+    position: absolute;
+    width: 24%;
+    bottom: 6%;
+    right: 4%;
+}
+
+#arbuste_vert-credits {
+    position: absolute;
+    width: 17%;
+    bottom: 7%;
+    right: 4%;
+}
+
+#logo_audencia-credits {
+    position: absolute;
+    width: 15%;
+    top: 27%;
+    left: 18%;
+}
+
+#logo_agr-credits {
+    position: absolute;
+    width: 15%;
+    top: 30%;
+    left: 41%;
+}
+
+#logo_polytech-credits {
+    position: absolute;
+    width: 15%;
+    top: 19%;
+    right: 23%;
+}
+
+#texte_audencia-credits {
+    position: absolute;
+    width: 8%;
+    top: 41%;
+    left: 21%;
+}
+
+#texte_agr-credits {
+    position: absolute;
+    width: 13%;
+    top: 41%;
+    left: 41%;
+}
+
+#texte_polytech-credits {
+    position: absolute;
+    width: 8%;
+    top: 41%;
+    right: 27%;
+}
+
+#noms_audencia-credits {
+    position: absolute;
+    width: 8%;
+    top: 50%;
+    left: 21%;
+}
+
+#noms_agr-credits {
+    position: absolute;
+    width: 9%;
+    top: 50%;
+    left: 42%;
+}
+
+#noms_polytech-credits {
+    position: absolute;
+    width: 10%;
+    top: 47%;
+    right: 26%;
+}
+
+#logo_hyblab-credits {
+    position: absolute;
+    width: 12%;
+    bottom: 24%;
+    left: 23%;
+}
+
+#logo_OML-credits {
+    position: absolute;
+    width: 10%;
+    bottom: 23%;
+    left: 37%;
+}
+
+#logo_UN-credits {
+    position: absolute;
+    width: 7%;
+    bottom: 21%;
+    left: 49%;
+}
+
+#logo_opensource-credits {
+    position: absolute;
+    width: 4%;
+    bottom: 22%;
+    right: 37%;
+}
+
+#logo_cc-credits {
+    position: absolute;
+    width: 4%;
+    bottom: 24%;
+    right: 30%;
+}
