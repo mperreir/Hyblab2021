@@ -24,40 +24,48 @@ async function bootstrap() {
 		alternatives: true,
 		placeholderOrigin: 'Adresse de départ à Nantes',
 		placeholderDestination: 'Adresse d\'arrivée à Nantes',
+		interactive: !!document.getElementById('mapbox-controllers'),
 		controls: {
 			profileSwitcher: false,
 			instructions: false
 		}
 	});
 
-	map.on('load', function(){
+	map.on('load', function () {
 		if (localStorage.getItem("adresseDepart")) directions.setOrigin(localStorage.getItem("adresseDepart"));
+		else if (localStorage.getItem("adresseDepartCoord")) directions.setOrigin(localStorage.getItem("adresseDepartCoord").split(','));
+
 		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
+		else if (localStorage.getItem("adresseArriveeCoord")) directions.setDestination(localStorage.getItem("adresseArriveeCoord").split(','));
 	});
 
-	directions.on("origin", origin => {
-		if (!origin) return;
-
-		localStorage.removeItem("adresseDepart")
-		localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
-	});
-	directions.on("destination", destination => {
-		if (!destination) return;
-
-		localStorage.removeItem("adresseArrivee")
-		localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
-	});
-
-	directions.on("route", async routes => {
-		if (!routes || !routes.route || !routes.route[0]) return;
-		const { steps, distance, duration } = routes.route[0]["legs"][0];
-		const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
-
-		getTraficData({ roadNames, distance, duration });
-	});
 
 	if (document.getElementById('mapbox-controllers'))
 		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map))
+	else {
+		directions.onAdd(map);
+
+		directions.on("origin", origin => {
+			if (!origin || origin.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseDepartCoord")) return;
+
+			localStorage.removeItem("adresseDepart")
+			localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
+		});
+		directions.on("destination", destination => {
+			if (!destination || destination.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseArriveeCoord")) return;
+
+			localStorage.removeItem("adresseArrivee")
+			localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
+		});
+
+		directions.on("route", async routes => {
+			if (!routes || !routes.route || !routes.route[0]) return;
+			const { steps, distance, duration } = routes.route[0]["legs"][0];
+			const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+
+			getTraficData({ roadNames, distance, duration });
+		});
+	}
 
 	let openMarker = undefined;
 
