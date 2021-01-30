@@ -6,11 +6,11 @@ registerSlide("splash-screen", function () {
         loop: false
     });
 
-    anim.setSpeed(window.devMode ? 2.5 : 1);
-
+    const speed = window.devMode ? 2.5 : 1;
+    anim.setSpeed(speed);
     anim.addEventListener("data_ready", () => {
         setTimeout(() => {
             goToSlide('page-accueil');
-        }, 2000);
+        }, 5000 / speed);
     });
 });
