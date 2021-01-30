@@ -54,6 +54,8 @@ function getData(nameadd, adresse) {
  * Fonction qui permet de dessiner les différents composants graphiques
  */
 function timeline_progressbar_draw() {
+    $('#timeline_Papy').css('visibility', 'visible');
+
     var widthCard = ($("#timelineholder").width());
     var heightCard = 260;
     var waiting_time = 1500;
