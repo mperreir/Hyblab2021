@@ -1,5 +1,5 @@
 html, body {
-	font-family: 'Montserrat';
+	font-family: 'Montserrat', sans-serif;
 	background: #b7d5ed;
 	margin: 0;
 	padding: 0;
@@ -7,20 +7,20 @@ html, body {
 }
 
 #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    right: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	right: 0;
 	z-index: auto;
 
 }
 
-#left-nav{
-    width: 457px;
-    background-color: white;
-    height: 100%;
-	color:black;
+#left-nav {
+	width: 457px;
+	background-color: white;
+	height: 100%;
+	color: black;
 	font-size: 13px;
 	position: absolute;
 	z-index: 2;
@@ -30,43 +30,43 @@ html, body {
 }
 
 .marker {
-    width: 28px;
-    height: 35px;
-    background-size: contain;
-    cursor: pointer;
+	width: 28px;
+	height: 35px;
+	background-size: contain;
+	cursor: pointer;
 }
 
-.mapboxgl-ctrl-directions{
-    width: 95%!important;
-    min-width: 0!important;
+.mapboxgl-ctrl-directions {
+	width: 95% !important;
+	min-width: 0 !important;
 
 }
 
 /*header*/
-header h1, header h2{
+header h1, header h2 {
 	display: none;
 }
 
-header img{
+header img {
 	width: 380px;
 }
 
 /*Bicky Question*/
 .bicky-question {
-  position: relative;
-  text-align: center;
-  color: white;
+	position: relative;
+	text-align: center;
+	color: white;
 }
 
 .bicky-question h2 {
 	color: black;
-  position: absolute;
-  left: calc(50% - 80px);
+	position: absolute;
+	left: calc(50% - 80px);
 }
 
 /*Style des boutons*/
-.button-slide{
-	font-family: 'Montserrat';
+.button-slide {
+	font-family: 'Montserrat', sans-serif;
 	width: 341px;
 	height: 68px;
 	background: #FFFFFF;
@@ -79,7 +79,7 @@ header img{
 	line-height: 22px;
 }
 
-.button-slide :nth-child(2){
+.button-slide :nth-child(2) {
 	display: none;
 	margin: 0px;
 	font-weight: 500;
@@ -89,7 +89,7 @@ header img{
 	text-align: center;
 }
 
-.button-slide:hover{
+.button-slide:hover {
 	background: #24AE70;
 	border: 3px solid #FFFFFF;
 	color: white;
@@ -101,15 +101,15 @@ header img{
 }
 
 .button-slide:hover :nth-child(2) {
-  display: block;
+	display: block;
 }
 
 .button:hover p:after {
-  opacity: 1;
-  right: 0;
+	opacity: 1;
+	right: 0;
 }
 
-.button-return{
+.button-return {
 	height: 56px;
 	width: 100px;
 	background-image: url("../img/return_arrow.png");
@@ -117,72 +117,70 @@ header img{
 	background-position: center;
 }
 
-.button-return:hover{
+.button-return:hover {
 	background-image: url("../img/return_arrow.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
 }
 
-.button-panel-right{
+.button-panel-right {
 	height: 80px;
 	width: 200px;
 	border-radius: 34px 120px 120px 34px;
 }
 
-.button-panel-left{
+.button-panel-left {
 	height: 80px;
 	width: 200px;
 	border-radius: 120px 34px 34px 120px;
 }
 
 input[type=checkbox] {
-	display:none;
+	display: none;
 }
 
-input[type=checkbox] + label
-{
+input[type=checkbox] + label {
 	width: 42px;
 	height: 22px;
-	display:inline-block;
+	display: inline-block;
 	padding: 0 0 0 0;
 	border: 2px solid #000000;
 	box-sizing: border-box;
 	border-radius: 14px;
 }
 
-input[type=checkbox]:checked + label
-{
+input[type=checkbox]:checked + label {
 	border: 2px solid #000000;
 	box-sizing: border-box;
 	border-radius: 14px;
 	width: 42px;
 	height: 22px;
-	display:inline-block;
+	display: inline-block;
 	padding: 0 0 0 0;
 	background: #2EAD72 url("../img/checked.png") no-repeat center;
 
 }
 
-.button-cross{
+.button-cross {
 	background: url("../img/cross.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 
 }
 
-.button-cross:hover{
+.button-cross:hover {
 	background: #24AE70 url("../img/cross.png") no-repeat center;
 	cursor: pointer;
 }
 
-.button-menu{
+.button-menu {
 	background: white url("../img/menu.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 }
 
-.button-menu:hover{
+.button-menu:hover {
 	background: #24AE70 url("../img/menu.png") no-repeat center;
 	cursor: pointer;
 }
