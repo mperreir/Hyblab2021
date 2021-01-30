@@ -83,3 +83,25 @@ section[data-slidr="ppage-resultats"] {
     bottom: 41%;
     right: 39%;
 }
+
+
+#random1 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 74%;
+}
+
+#random2 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 49%;
+}
+
+#random3 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 22%;
+}
