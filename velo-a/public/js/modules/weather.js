@@ -1,3 +1,5 @@
+"use strict";
+
 const baseUrl = 'https://data.nantesmetropole.fr/api/records/1.0/search/'
 const addParams = (url, params) => {
 	const keys = Object.keys(params)

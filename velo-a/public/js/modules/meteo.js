@@ -1,3 +1,5 @@
+"use strict";
+
 const baseUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=47.21611304880233&lon=-1.5512347469335737&lang=fr&appid=b815d676c65c3c490491dae0736fd632'
 
 export function getMeteoNow() {

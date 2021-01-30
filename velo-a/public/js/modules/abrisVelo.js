@@ -1,3 +1,5 @@
+"use strict";
+
 const ABRIS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_abris-velos-nantes-metropole&q=&rows=500&facet=commune&facet=conditions&facet=gestionnaire";
 
 /**

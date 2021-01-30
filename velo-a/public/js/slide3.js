@@ -1,3 +1,5 @@
+"use strict";
+
 import { initSlide2 } from "./slide2.js";
 
 export const initSlide3 = function(mySlidr){
