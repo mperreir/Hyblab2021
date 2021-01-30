@@ -102,13 +102,14 @@
     top: 85%;
     left: 43.5%;
     width: 13%;
-    z-index: 2;
+    z-index: 3;
     padding: 0.5%;
     border: 0.3em solid #ffe9de;
     font-size: 20%;
 }
+
 .button-histoire:hover{
     color: #FFCDB6;
     background-color: #45396D;
-    border: 0.2em solid #aba3ca;
+    border: 0.3em solid #aba3ca;
 }
