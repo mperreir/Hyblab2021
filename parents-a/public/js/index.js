@@ -28,9 +28,11 @@ function choixSlide(num,data) {
   
     if (num == '2') { initSlide2(data) };
 
-    if (num =='3'){ initSlide3(data)};
-    
-    if (num =='4'){ initSlide4(data)};
+    if (num == '2_1') { initSlide2_1(data) };
+
+    if (num == '3') { initSlide3(data) };
+
+    if (num == '4') { initSlide4(data) };
 
     if (num == '5') { initSlide5(data) };
 
@@ -39,12 +41,9 @@ function choixSlide(num,data) {
     if (num == '7') { initSlide7(data) };
 
     if (num =='8'){ initSlide8(data)};
-  
+
     if (num =='9'){ initSlide9(data)};
 
-    if (num =='10'){ initSlide10(data)};
-
-    if (num =='resultats'){ initSlideResultat(data)};
 }
 
 //Transition quand appuie sur logo page 1
@@ -106,7 +105,7 @@ let initSlide2 = function() {
 
     //transi next slide
     d3.select('#button2-p2-2').on('click', function() {
-        nextSlide('3')
+        nextSlide('2_1')
     });
     //Retour arriere
     d3.select('.button_retour').on('click', function() {
@@ -115,6 +114,34 @@ let initSlide2 = function() {
 
 }
 
+//Age ?
+let initSlide2_1 = function() {
+
+    //Age -> Aventurier
+    //recupérer l'age
+
+    d3.select('#trois_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+    });
+
+    d3.select('#six_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
+    });
+
+    d3.select('#neuf_eleph-p2_1').on('click', async function() {
+        console.log(d3.event.target.id);
+        nextSlide('3');
+
+    });
+
+
+    //Retour arriere
+    d3.selectAll('.button_retour').on('click', function(e) {
+        console.log(d3.event.target.id);
+        nextSlide('2')
+    });
+}
 
 //Premiere question : aventurier ? 
 let initSlide3 = function() {
@@ -183,12 +210,12 @@ let initSlide6 = function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10',data);//FINAL SLIDE
         console.log(data);
-    });  
+    });
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('5')
      });
 }
-//Preference entre animaux et bruits nature 
+//Preference entre animaux et bruits nature
 let initSlide7 = function() {
 
     d3.select("#bouton_oui_p7").on('click', async function() {
@@ -205,7 +232,7 @@ let initSlide7 = function() {
         nextSlide('5')
      });
 }
-// /Decouverte d'arbres différents 
+// /Decouverte d'arbres différents
 let initSlide8 = function() {
 
     d3.select("#BOUTON_ARBRES_v2-p8").on('click', async function() {
