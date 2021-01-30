@@ -1,5 +1,33 @@
 section[data-slidr="page-2_1"] {
-    background: #6FB5EF
+    background: #6FB5EF;
+    overflow: hidden;
+}
+
+#logo-p2_1 {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#dune-p2_1 {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+}
+
+#pelouse_gauche-p2_1 {
+    position: absolute;
+    width: 37%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse_droite-p2_1 {
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
 }
 
 #gros_nuage-p2_1 {
@@ -84,6 +112,6 @@ section[data-slidr="page-2_1"] {
 #quelageastu-p2_1 {
     position: absolute;
     width: 26%;
-    top: 12%;
+    top: 15%;
     left: 38%;
 }
