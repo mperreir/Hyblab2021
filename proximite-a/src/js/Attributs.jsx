@@ -7,7 +7,11 @@ import '../css/attributs.css'
 class Attributs extends React.Component{
     state = {
         coords: [0,0],
-        adresse:'',
+        adresse:{
+            rue:'',
+            codepostal:'',
+            ville:''
+        },
         choixCoordonnes: false //si l'utilisateur a décidé d'utiliser la géolocalisation
     };
 
@@ -15,9 +19,7 @@ class Attributs extends React.Component{
         navigator.geolocation.getCurrentPosition(function (position) {   //une fois la position récupérée
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
-                adresse:"2 rue jean bombeur",
             });
-            console.log('http://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
             fetch( 'http://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
@@ -28,8 +30,13 @@ class Attributs extends React.Component{
                     }
                 })
                 .then((response) => {  //récupération des données JSON
+                    console.log(response)
                     this.setState({
-                        adresse: response.rue,
+                        adresse:{
+                            codepostal:response.codepostal,
+                            rue:response.rue,
+                            ville:response.ville
+                        },
                     });
                 })
 
@@ -37,11 +44,28 @@ class Attributs extends React.Component{
     }
 
 
-    //permet de mettre à jour le champ texte
-    handleChange = (event) => {
+    handleChangeRue = (event) => {
         const value = event.currentTarget.value;
+        let newAdress = this.state;
+        newAdress.adresse.rue = value
         this.setState({
-            adresse : value,
+            adresse : newAdress,
+        })
+    };
+    handleChangeVille = (event) => {
+        const value = event.currentTarget.value;
+        let newAdress = this.state;
+        newAdress.adresse.ville = value
+        this.setState({
+            adresse : newAdress,
+        })
+    };
+    handleChangeCP = (event) => {
+        const value = event.currentTarget.value;
+        let newAdress = this.state;
+        newAdress.adresse.codepostal = value
+        this.setState({
+            adresse : newAdress,
         })
     };
 
@@ -53,6 +77,7 @@ class Attributs extends React.Component{
     };
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
+        console.table(this.state.adresse)
         return(
             <div id="attributContainer" class="d-flex justify-content-center align-items-center ">
                 <div id="leftPartAttribut">
@@ -81,15 +106,18 @@ class Attributs extends React.Component{
                             <span className="fa fa-compass"></span>
                             <input  type="button" className="btnAttribut btn" value="Activer la géolocalisation" onClick={ this.requestingCoords}/>
                         </div>
-                        <p class="text-white m-4">OU</p>
-                        <div className="search">
-                            <span className="fa fa-search fa-xl"></span>
-                            <input placeholder="Choisir une adresse" value={this.state.adresse} onChange={this.handleChange}/>
+                        <p class="text-white m-4"><b>OU</b></p>
+                        <div className="search d-flex flex-column">
+                            <div class="text-white">Adresse</div>
+                            <input class="inputText" placeholder="ex: 23 rue Chopin" value={this.state.adresse.rue} onChange={this.handleChangeRue}/>
+                            <div class="text-white">Ville</div>
+                            <input class="inputText" placeholder="ex: Nantes" value={this.state.adresse.ville} onChange={this.handleChangeVille}/>
+                            <div class="text-white">Code Postal</div>
+                            <input class="inputText" placeholder="ex: 44100" value={this.state.adresse.codepostal} onChange={this.handleChangeCP}/>
                         </div>
-                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse}/>
+                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal==''}/>
                     </div>
-                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse}/>
-
+                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse.rue && !this.state.adresse.codepostal && !this.state.adresse.ville}/>
                 </div>
             </div>
         );
