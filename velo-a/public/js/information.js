@@ -2,9 +2,7 @@
 
 async function bootstrap() {
 	slide();
-
 	togglePath();
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +22,6 @@ function togglePath() {
 	Array.from(document.getElementsByClassName("hover")).forEach((el) => {
 		el.addEventListener("mouseleave", () => {
 			el.style.visibility = 'hidden';
-
 		});
 	});
 }
@@ -36,6 +33,7 @@ function inRect(x, y, rect) {
 
 function slide() {
 	const slides = ["pane", "question_velo", "question_trajet"];
+	let start = true;
 	let i = 0;
 	const batiment_return = document.getElementById("batiment_return");
 
@@ -46,7 +44,13 @@ function slide() {
 			setTimeout(function () {
 				document.getElementById("batiment").className = "batiment_move" + (++i);
 				if (i <= 0) batiment_return.style.display = "none";
-				else batiment_return.style.display = null;
+				else {
+					batiment_return.style.display = null;
+					if (start) {
+						velos();
+						start = false;
+					}
+				}
 			}, 50);
 
 		});
@@ -64,7 +68,6 @@ function slide() {
 			el.parentElement.setAttribute("class", "hide");
 			document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
 
-
 		}, 50);
 	});
 
@@ -78,29 +81,86 @@ function slide() {
 		});
 	});
 
-	velos();
 }
 
-function velos() {
-	let animating = true;
+async function velos() {
 
-	Array.from(document.querySelectorAll(".velo")).forEach((e) => {
-		e.setAttribute("class", "velo velo_out");
-	});
+	await startVelos(0);
+
+	let isMovingMouseEnter = false;
+	let isMovingClick = false;
 
 	document.querySelectorAll("#question_velo button").forEach((el) => {
 		el.addEventListener("mouseenter", () => {
+			if (!isMovingMouseEnter) {
+				Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
+					isMovingMouseEnter = true;
+					await sleep(async () => {
+						e.setAttribute("class", "velo velo_out");
+					}, 2000);
+					isMovingMouseEnter = false;
+				});
 
-			Array.from(document.querySelectorAll(".velo.velo_in")).forEach((e) => {
-				setTimeout(function () {
 
-					e.setAttribute("class", "velo velo_out");
-				}, 2000);
-			});
-
-			const velo = document.getElementById("velo_" + el.id);
-			velo.setAttribute("class", "velo velo_in");
+				const velo = document.getElementById("velo_" + el.id);
+				velo.setAttribute("class", "velo velo_in");
+			}
 
 		});
+
+		el.addEventListener("click", async () => {
+			await sleep(
+				() => {
+					if (!isMovingClick) {
+						Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
+							isMovingClick = true;
+							await sleep(async () => {
+								e.setAttribute("class", "velo velo_out");
+							}, 2000);
+							isMovingClick = false;
+						});
+
+
+						const velo = document.getElementById("velo_" + el.id);
+						velo.setAttribute("class", "velo velo_in");
+					}
+
+				}, 2000);
+		});
 	});
+
+
+}
+
+
+
+async function startVelos(i) {
+	let e = Array.from(document.querySelectorAll(".velo"))[i];
+	if (e != null) {
+		await sleep(async () => {
+			e.setAttribute("class", "velo velo_in");
+			await startVelos(++i)
+		}, 200);
+	}
+	else {
+		await sleep(async () => {
+			await goVelos(--i)
+		}, 1600);
+	}
+}
+
+async function goVelos(i) {
+
+	let e = Array.from(document.querySelectorAll(".velo"))[i];
+	if (e != null && i > 0)
+		await sleep(async () => {
+			e.setAttribute("class", "velo velo_out");
+			await goVelos(--i)
+		}, 200);
+}
+
+function sleep(callback, time) {
+	return new Promise((resolve) => {
+		setTimeout(() => resolve(callback()), time)
+	})
 }
