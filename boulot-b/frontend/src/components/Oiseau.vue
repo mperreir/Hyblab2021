@@ -24,7 +24,7 @@ import jokes from '@/assets/joke.json'
 
 function Joke() {
   this.state = question(this)
-  return () => {
+  this.tellJoke = () => {
     return this.state()
   }
 }
@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     tellJoke() {
-      this.msg = this.joke()
+      this.msg = this.joke.tellJoke()
     }
   },
   watch: {
