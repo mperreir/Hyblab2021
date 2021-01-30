@@ -45,6 +45,8 @@ export async function getTraficData(trajet) {
 		}
 	}
 
-	console.log(traficFluidity);
+	localStorage.setItem("fluiditeTrajet", traficFluidity);
+	localStorage.setItem("distanceTrajet", distance);
+	localStorage.setItem("dureeTrajet", duration);
 }
 

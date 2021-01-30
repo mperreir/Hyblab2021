@@ -74,9 +74,13 @@
     </div>
 
     <div id="question_trajet">
-        <input id="input_depart" class="input-adresse" placeholder="Adresse de départ à Nantes..."/>
-        <input id="input_arrivee" class="input-adresse" placeholder="Adresse d’arrivée à Nantes..."/>
-        <button class="batiment_button button-slide" onclick="document.location = 'starterPack.html'">Quel est ton vélotrajet ?</button>
+		<div id="input_depart_container" style="position: relative">
+			<input id="input_depart" type="text" class="input-adresse" placeholder="Adresse de départ à Nantes..."/>
+		</div>
+		<div id="input_arrivee_container" style="position: relative">
+			<input id="input_arrivee" type="text" class="input-adresse" placeholder="Adresse d’arrivée à Nantes..."/>
+		</div>
+        <button class="batiment_button button-slide" id="validerTrajet">Valider ce vélotrajet</button>
         <button class="batiment_button button-slide" onclick="document.location = 'app.html'">Je veux juste voir la carte</button>
     </div>
 

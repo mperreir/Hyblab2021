@@ -38,7 +38,8 @@ async function bootstrap() {
 		getTraficData({ roadNames, distance, duration });
 	});
 
-	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
+	if (document.getElementById('mapbox-controllers'))
+		document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
 
 	let openMarker = undefined;
 
