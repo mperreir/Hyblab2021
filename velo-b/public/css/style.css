@@ -26,6 +26,14 @@ body {
     /* pour slidr dans certains navigateurs */
 }
 
+#debug-text {
+    color: black;
+    font-size: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 #container {
     position: relative;
     /* pour permettre le positionnement en absolu des autres éléments */

@@ -6,7 +6,7 @@ registerSlide("splash-screen", function () {
         loop: false
     });
 
-    anim.setSpeed(2.5);
+    anim.setSpeed(window.devMode ? 2.5 : 1);
 
     anim.addEventListener("data_ready", () => {
         setTimeout(() => {

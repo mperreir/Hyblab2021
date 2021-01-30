@@ -1,3 +1,4 @@
+window.devMode = document.cookie.indexOf('dev=true') === 0;
 window.slides = {};
 
 let zoneChoisie = null, vehiculeChoisi = null;
@@ -8,8 +9,8 @@ function registerSlide(name, init) {
 
 function goToSlide(name) {
     name = name.match(/#?(.*)/)[1]; // Remove hashtag.
-
     mySlidr.slide(name);
+    d3.select("#debug-text").text(name);
 
     try {
         window.slides[name]();
