@@ -46,24 +46,24 @@ class Attributs extends React.Component{
 
     handleChangeRue = (event) => {
         const value = event.currentTarget.value;
-        let newAdress = this.state;
-        newAdress.adresse.rue = value
+        let newAdress = this.state.adresse;
+        newAdress.rue = value
         this.setState({
             adresse : newAdress,
         })
     };
     handleChangeVille = (event) => {
         const value = event.currentTarget.value;
-        let newAdress = this.state;
-        newAdress.adresse.ville = value
+        let newAdress = this.state.adresse;
+        newAdress.ville = value
         this.setState({
             adresse : newAdress,
         })
     };
     handleChangeCP = (event) => {
         const value = event.currentTarget.value;
-        let newAdress = this.state;
-        newAdress.adresse.codepostal = value
+        let newAdress = this.state.adresse;
+        newAdress.codepostal = value
         this.setState({
             adresse : newAdress,
         })
@@ -77,7 +77,7 @@ class Attributs extends React.Component{
     };
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
-        console.table(this.state.adresse)
+        console.log(this.state.adresse)
         return(
             <div id="attributContainer" class="d-flex justify-content-center align-items-center ">
                 <div id="leftPartAttribut">
@@ -115,9 +115,9 @@ class Attributs extends React.Component{
                             <div class="text-white">Code Postal</div>
                             <input class="inputText" placeholder="ex: 44100" value={this.state.adresse.codepostal} onChange={this.handleChangeCP}/>
                         </div>
-                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal==''}/>
+                        <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
                     </div>
-                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={!this.state.adresse.rue && !this.state.adresse.codepostal && !this.state.adresse.ville}/>
+                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
                 </div>
             </div>
         );
