@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * The function that generate the map and loads the legends.
  * @param {object} mapData the JSON object that contains the paths and data of the map.

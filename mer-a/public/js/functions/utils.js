@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Return the category with the id 'type'.
  * @param {number} type 	the id of the wanted type.

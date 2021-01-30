@@ -158,3 +158,28 @@ a.legend_button:active {
   margin-top: 2.5%;
   transition: all 300ms;
 }
+
+/* Affichage de l'indication */
+
+.indication {
+  position: absolute;
+  width: 33vw;
+  bottom: 5vh;
+  left: 5vw;
+  font-size: 1.2vw;
+  padding: 1%;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.texte {
+
+  /* aspect du texte */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #7D7FBC;
+
+  /* aspect de l'arrière-plan */
+  background-color: white;
+  border-radius: 25px;
+}
