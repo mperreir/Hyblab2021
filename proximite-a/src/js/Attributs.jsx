@@ -16,8 +16,23 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
                 adresse:"2 rue jean bombeur",
-            })
-            console.log("coords received")
+            });
+            console.log('http://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch( 'http://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+                .then((response) => {   //récupération de la réponse
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error('un problème sest passé');
+                    }
+                })
+                .then((response) => {  //récupération des données JSON
+                    this.setState({
+                        adresse: response.rue,
+                    });
+                })
+
         }.bind(this));
     }
 
@@ -51,7 +66,7 @@ class Attributs extends React.Component{
                                     <br/>
                                     <br/>
                                     C’est moi qui vais t’accompagner tout au long  de ton parcours. <b>Et pour te guider au mieux,
-                                        peux-tu me donner ton adresse ou ta géolocalisation ?</b>b>
+                                        peux-tu me donner ton adresse ou ta géolocalisation ?</b>
                                 </p>
                             </div>
                         </div>
