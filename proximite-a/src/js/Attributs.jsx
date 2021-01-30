@@ -10,14 +10,18 @@ class Attributs extends React.Component{
         adresse:{
             rue:'',
             codepostal:'',
-            ville:''
+            ville:'',
+            validAdress:false
         },
         choixCoordonnes: false //si l'utilisateur a décidé d'utiliser la géolocalisation
     };
 
         getCoords = () =>{
-        console.log('fetching https://hyblab.polytech.univ-nantes.fr/proximite-a/api/adresse/23+avenue+de+la+concorde+44800+saint-herblain+france')
-        fetch('http://localhost:8080/proximite-a/api/adresse/23+avenue+de+la+concorde+44800+saint-herblain+france')
+            let urlRue = this.state.adresse.rue.split(' ').join('+');
+            let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
+            let urlVille = this.state.adresse.ville.split(' ').join('+');
+            console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+        fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     console.log(response)
@@ -28,6 +32,10 @@ class Attributs extends React.Component{
             })
             .then((donnee) => {  //récupération des données JSON
                 console.log(donnee)
+                this.setState({
+                    coords:[donnee.latitude,donnee.longitude],
+                    validAdress:true
+                })
             })
     }
 
@@ -39,7 +47,7 @@ class Attributs extends React.Component{
             fetch( 'https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
-                        console.log(response)
+                        console.log(response);
                         return response.json();
                     }
                 })
@@ -51,6 +59,7 @@ class Attributs extends React.Component{
                             rue:donnee.rue,
                             ville:donnee.ville
                         },
+                        validAdress:true
                     });
                 })
 
@@ -64,6 +73,7 @@ class Attributs extends React.Component{
         newAdress.rue = value
         this.setState({
             adresse : newAdress,
+            validAdress:false
         })
     };
     handleChangeVille = (event) => {
@@ -72,6 +82,7 @@ class Attributs extends React.Component{
         newAdress.ville = value
         this.setState({
             adresse : newAdress,
+            validAdress:false
         })
     };
     handleChangeCP = (event) => {
@@ -80,6 +91,7 @@ class Attributs extends React.Component{
         newAdress.codepostal = value
         this.setState({
             adresse : newAdress,
+            validAdress:false
         })
     };
 
@@ -130,10 +142,10 @@ class Attributs extends React.Component{
                         </div>
                         <div>
                             <input type='button' class="border-0 bg-transparent mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
-                            <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
+                            <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
                         </div>
                     </div>
-                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue==''}/>
+                    <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
                 </div>
             </div>
         );

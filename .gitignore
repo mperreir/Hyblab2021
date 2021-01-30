@@ -2,6 +2,7 @@
 build
 _.*
 .idea
+.idea/workspace.xml.i
 # Logs
 logs
 *.log
