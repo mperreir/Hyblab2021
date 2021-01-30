@@ -6,7 +6,10 @@ function show(id_div, resource, fond) {
 	let step = document.getElementById(id_div);
 	color(step);
 	step.style.opacity = 1;
-	if(resource && fond) step.onclick = () => loadRessources(resource, {}, fond);
+	if(resource && fond){ 
+		step.classList.add('active');
+		step.onclick = () => loadRessources(resource, {}, fond);
+	}
 }
 
 function ecrire(id_div, txt){
