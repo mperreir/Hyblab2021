@@ -11,6 +11,7 @@ import trottinette from '../img/picto moyen de transport-trotinette.png'
 import skate from '../img/picto moyen de transport-skate.png'
 import roller from '../img/picto moyen de transport-roller.png'
 import equiv from './equivalent.js'
+import fond from '../img/HOVER-moyen de transport-tache-02.png'
 
 class CarteInterractionChoixMultiples extends  React.Component {
     state={
@@ -23,11 +24,16 @@ class CarteInterractionChoixMultiples extends  React.Component {
     handleChange = (e) => {
         this.setState({
             moyenId: parseInt(e.target.value,10)
-        });
+        })
+        console.log(parseInt(e.target.value, 10))
+        this.props.onSetMoyen(parseInt(e.target.value, 10))
     };
     render() {
         equiv.forEach((l,r) => console.log(l,r));
-        const {onNextPhase, nomPers} = this.props;
+        const { onNextPhase, nomPers} = this.props;
+        const hoverStyle = {
+            backgroundImage: `url(${fond})`
+        };
         return (
             <div id="mainContainerInterraction">
                 <div id="containerInterraction2" class="containersInterraction">
@@ -53,20 +59,18 @@ class CarteInterractionChoixMultiples extends  React.Component {
                     <div class="phase2Middle">
                         <div class="titlePhase2Section">Moyen de déplacement</div>
                         <div class="container" >
-                            <div className="row" on onChange={this.handleChange}>
-
-
+                            <div className="row" onClick={this.handleChange}>
                                 <div class="col">
                                     <input type="radio" name="moyen" id="pied" value='1' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="pied">
-                                        <img class="imgPictogram" src={pied} alt="pied"/>
+                                        <img class="imgPictogram" src={pied} alt="pied" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div class="col">
                                     <input type="radio" name="moyen" id="velo" value='2' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="velo">
-                                        <img class="imgPictogram" src={velo} alt="velo"/>
+                                        <img class="imgPictogram" src={velo} alt="velo" style={hoverStyle}/>
                                     </label>
                                 </div>
 
@@ -74,28 +78,28 @@ class CarteInterractionChoixMultiples extends  React.Component {
                                 <div className="col">
                                     <input type="radio" name="moyen" id="fauteil" value='3' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="fauteil">
-                                        <img className="imgPictogram" src={fauteil} alt="fauteil"/>
+                                        <img className="imgPictogram" src={fauteil} alt="fauteil" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
                                     <input type="radio" name="moyen" id="trottinette" value='4' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="trottinette">
-                                        <img className="imgPictogram" src={trottinette} alt="trottinette"/>
+                                        <img className="imgPictogram" src={trottinette} alt="trottinette" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
                                     <input type="radio" name="moyen" id="skate" value='5' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="skate">
-                                        <img className="imgPictogram" src={skate} alt="skate"/>
+                                        <img className="imgPictogram" src={skate} alt="skate" style={hoverStyle}/>
                                     </label>
                                 </div>
 
                                 <div className="col">
                                     <input type="radio" name="moyen" id="roller" value='6' className="input-hidden" defaultChecked={this.state.moyenId === this.value}/>
                                     <label htmlFor="roller">
-                                        <img className="imgPictogram" src={roller} alt="roller"/>
+                                        <img className="imgPictogram" src={roller} alt="roller" style={hoverStyle}/>
                                     </label>
                                 </div>
                             </div>
