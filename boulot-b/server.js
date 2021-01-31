@@ -3,6 +3,7 @@
 
 
 let getAll = require('./api.js');
+const getUrlImage = require('./urlImage.js');
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
@@ -21,6 +22,10 @@ app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangeri
 
 let port = 8080;
 //let api = require('./api');
+
+
+app.get('/getUrlImage/:imageName', (req, res) => getUrlImage(req, res));
+app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
 
 app.listen(port);
 

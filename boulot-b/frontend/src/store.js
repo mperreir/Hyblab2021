@@ -7,9 +7,9 @@ const store = {
             typeDeplacement: undefined,
             theme: undefined,
             style: undefined,
-            lieux: [{resto: false}, {boulangerie: false}, {bar: false}, {salleDeSport: false}],
+            lieux: {pharmacie: false, boulangerie: false, bar: false, salleDeSport: false},
             humeur: undefined,
-            path: {depart: undefined, arrive: undefined}
+            path: {depart: undefined, arrivee: undefined}
         }
     },
     subscribe(state,callback) {
@@ -53,6 +53,7 @@ const store = {
         console.log("clear de ",choiceName)
         this.state.choice[choiceName] = undefined
     },
+    getChoices() { return this.state.choice; }
 }
 
 const Humeur = Object.freeze({

@@ -4,13 +4,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from "vue";
+import axios from 'axios'
 
 export default Vue.component("finalMap", {
   name: "finalMap",
-  props: ['origin', 'destination', 'stops', 'transportType'],
-  mounted: function () {
+  methods: { async showMap() {
     var platform = new H.service.Platform({
       apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
     });
@@ -22,30 +22,84 @@ export default Vue.component("finalMap", {
     zoom: 12,
     pixelRatio: window.devicePixelRatio || 1
     });
-    window.addEventListener('resize', () => map.getViewPort().resize());
 
-    // STYLE MAP
-    // var provider = map.getBaseLayer().getProvider();
-    // var style = new H.map.Style("../assets/map/wazo_map.yaml",
-    // 'https://js.api.here.com/v3/3.1/styles/omv/');
-    // provider.setStyle(style);
+    window.addEventListener('resize', () => map.getViewPort().resize());
     
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     const ui = H.ui.UI.createDefault(map, defaultLayers);
 
-    let transportType = 'pedestrian';
-    if (this.transportType == 'bicycle') { transportType = 'bicycle' }
-  
-    const coordStops = this.stops.map(coords => coords[0] + "," + coords[1])
+    const choices = this.$root.$data.getChoices();
+    console.log(choices);
+    console.log(choices.path)
+    console.log(choices.path.depart)
+    console.log(choices.path.arrivee)
 
-    calculateRouteFromAtoB(platform, map, this.origin, this.destination, coordStops, transportType);
+    await createMap(platform, map, choices);
+    }
+  },
+  mounted: function () {
+    this.showMap();
   }
 });
 
-function calculateRouteFromAtoB (platform, map, origin, destination, coordStops, transportType) {
+async function createMap(platform, map, choices) {
+    // STYLE MAP
+    // var provider = map.getBaseLayer().getProvider();
+    // const reqUrlImage = await axios.get(`/boulot-b/getUrlImage/normal.day.yaml`);
+    // var style = new H.map.Style(reqUrlImage.data.urlImage);
+    // provider.setStyle(style);
+    
+    const datas = await getDatas(choices);
+
+    const transportType = (choices.typeDeplacement === 'pied' ? 'pedestrian' : 'bicycle');
+
+    console.log("origin");
+    console.log(origin);
+    console.log(datas.data.Depart)
+
+    await calculateRouteFromAtoB(platform, map, datas.data.Depart, datas.data.Arrivee, datas.data.POI, transportType);
+}
+
+async function getDatas(choices) {
+    const origin = choices.path.depart;
+    const destination = choices.path.arrivee;
+
+    const typeDeplacement = (choices.typeDeplacement === "velo" ? "bicycle" : "pedestrian");
+
+    let theme = "alea";
+    switch (choices.theme) {
+      case "nature":
+          theme = "nature";
+      case "culture":
+          theme = "culture";
+    }
+
+    const salleSport = choices.lieux.salleDeSport;
+    const bar = choices.lieux.bar;
+    const boulangerie = choices.lieux.boulangerie;
+    const pharmacie = choices.lieux.pharmacie;
+    console.log('Requête get');
+    console.log(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
+    const res = await axios.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
+    console.log('res')
+    console.log(res)
+    return res;
+}
+
+function calculateRouteFromAtoB (platform, map, origin, destination, stops, transportType) {
   const coordOrigin = origin[0] + ',' + origin[1];
   const coordDestination = destination[0] + ',' + destination[1];
   
+  console.log('stops')
+  console.log(stops)
+  const coordStops = stops.map((object) => {
+    console.log(object)
+    console.log(Object.values(object))
+    return Object.values(object)[0].coordonnees['lat'] + ',' + Object.values(object)[0].coordonnees['lng']
+  });
+  console.log('coordStop')
+  console.log(coordStops);
+
   var router = platform.getRoutingService(null, 8),
       routeRequestParams = {
         routingMode: 'fast',
@@ -56,17 +110,18 @@ function calculateRouteFromAtoB (platform, map, origin, destination, coordStops,
         return: 'polyline,travelSummary'
       };
 
+  console.log(router)
 
   router.calculateRoute(
     routeRequestParams,
-    (result) => onSuccess(result, map, origin, destination),
+    (result) => onSuccess(result, map, origin, destination, stops),
     onError
   );
 }
 
-function onSuccess(result, map, origin, destination) {
+function onSuccess(result, map, origin, destination, stops) {
   var route = result.routes[0];
-  addRouteShapeToMap(route, map, origin, destination);
+  addRouteShapeToMap(route, map, origin, destination, stops);
   //addManueversToMap(route);
   //addManueversToPanel(route);
   //addSummaryToPanel(route);
@@ -76,7 +131,11 @@ function onError(error) {
   alert('Can\'t reach the remote server');
 }
 
-function addRouteShapeToMap(route, map, origin, destination){
+async function addRouteShapeToMap(route, map, origin, destination, stops){
+  console.log(route);
+  console.log(map);
+  console.log(origin);
+  console.log(destination);
   route.sections.forEach((section) => {
     // decode LineString from the flexible polyline
     let linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
@@ -89,15 +148,6 @@ function addRouteShapeToMap(route, map, origin, destination){
       }
     });
 
-    console.log()
-
-    const pointSvg = document.createElement('img');
-    pointSvg.src = '';
-    const iconPoint = new H.map.DomIcon(pointSvg);
-    const coords = {lat: 47.218371, lng: -1.553621};
-    const marker = new H.map.DomMarker(coords, {icon: iconPoint});
-    map.addObject(marker);
-
     // Add the polyline to the map
     map.addObject(polyline);
     // And zoom to its bounding rectangle
@@ -105,6 +155,59 @@ function addRouteShapeToMap(route, map, origin, destination){
     //   bounds: polyline.getBoundingBox()
     // });
   });
+
+  await addMarkers(map, origin, destination, stops);
+}
+
+async function addMarkers(map, origin, destination, stops) {
+  const iconOrigin = await createIcon('origin.png');
+  const iconDestination = await createIcon('destination.png')
+
+  const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
+  const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
+  
+  map.addObject(markerOrigin);
+  map.addObject(markerDestination);
+
+  // const coordStops = stops.map((object) => {
+  //   return [Object.values(object)[0].coordonnees['lat'], Object.values(object)[0].coordonnees['lng']]
+  // });
+  // console.log(coordStops[0])
+
+  for (let i=0 ; i < stops.length; i++) {
+    const icon = await createIntermediaryIcon(Object.keys(stops[i])[0]);
+    const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
+    map.addObject(markerStop);
+  }
+}
+
+async function createIcon(imageName) {
+    console.log('Requête image')
+    console.log('/boulot-b/getUrlImage/' + imageName)
+    const reqUrlImage = await axios.get(`/boulot-b/getUrlImage/${imageName}`);
+    const image = document.createElement('img');
+    //console.log(reqUrlImage.data.urlImage);
+    image.src = reqUrlImage.data.urlImage;
+    image.width = 20;
+    image.height = 20;
+    return new H.map.DomIcon(image);
+  }
+
+async function createIntermediaryIcon(namePOI) {
+  console.log('namePOI')
+  console.log(namePOI)
+  switch(namePOI) {
+    case 'Boulangerie':
+      return await createIcon('baguette.png');
+    case 'SalleSport':
+      return await createIcon('haltere.png');
+    case 'Bar':
+      return await createIcon('verre.png');
+    case 'Pharmacie':
+      return await createIcon('medicament.png');
+    default:
+      return await createIcon('point.png');
+  }
 }
 
 </script>
