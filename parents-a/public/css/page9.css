@@ -3,6 +3,7 @@ section[data-slidr="page-9"] {
     /* fond */
     position: absolute;
     background: linear-gradient(90.42deg, #0574CF 13.84%, #181FB2 82.69%);
+    overflow: hidden;
 }
 
 #logo-p9 {
@@ -17,10 +18,9 @@ section[data-slidr="page-9"] {
 #pelouse-gauche-p9 {
     /* pelouse gauche */
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     bottom: 0%;
     left: 0%;
-    z-index: 4;
 }
 
 #dune6-p9 {
@@ -29,76 +29,84 @@ section[data-slidr="page-9"] {
     width: 80%;
     bottom: 0%;
     right: 0%;
-    z-index: 6;
 }
 
 #pelouse-droite-p9 {
     /* pelouse droite */
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
-    z-index: 7;
 }
 
-#arbustre-bleu-p9 {
+#arbuste-bleu-p9 {
     position: absolute;
-    width: 47.03125%; 
-    left: 64.453125%;
-    top: 63.30%;
-    z-index: 6;
+    width: 20%;
+    left: 75%;
+    top: 70%;
 }
 
-#arbre-rouge-p9 {
+#arbuste-rouge-p9 {
     position: absolute;
-    width: 21.953125%;
-    left: 68.515625%;
+    width: 23%;
+    left: 65%;
     bottom: -5.5%;
-    z-index: 8;
-    
+}
+
+#arbuste-rouge-p9:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
 #feuille-verte-p9 {
     position: absolute;
-    width: 17.1%;
-    bottom: 27.3%;
-    left: 1.17%;
-    top: 63.12%;
-    z-index: 2;
+    width: 14%;
+    bottom: 13%;
+    left: 3%;
+}
+
+#feuille-verte-p9:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 #feuille-bleue2-p9 {
     position: absolute;
-    width: 11.015625%;
-    height: 21.0%;
+    width: 10%;
     left: 8.5%;
-    top: 74.375%;
-    z-index: 3;
+    top: 70%;
 }
 
 #feuille-rouge-p9 {
     position: absolute;
     width: 14.53125%;
     height: 23.25%;
-    left: 16.640625%;
-    top: 73.625%; 
-    z-index: 5;
+    left: 20%;
+    top: 72%;
+}
+
+#feuille-rouge-p9:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
 #petit-nuage-p9 {
     position: absolute;
-    width: 22%;
-    top: 5.7%;
-    left: 50%;
+    width: 15%;
+    top: 13%;
+    left: 60%;
 }
 
-#arbre-jaune-p9{
+#petit-nuage-p9:hover {
+    transform: translateX(-30%);
+}
+
+#arbre-jaune-p9 {
     position: absolute;
-    width: 28%;
-    height: 45.3%;
-    top: 45%;
-    left: -4.5%;
-    z-index: 1;
+    width: 15%;
+    height: 45%;
+    top: 42%;
+    left: 2%;
 }
 
 #question-p9 {
@@ -110,30 +118,38 @@ section[data-slidr="page-9"] {
 
 #texte-droite-p9{
     position: absolute;
-    width: 3%;
+    width: 4%;
     right: 33.5%;
     top: 70.375%;
 }
 
 #texte-gauche-p9{
     position: absolute;
-    width: 3%;
+    width: 4%;
     left: 33%;
     top: 70%;
 }
 
 #bouton-gauche-p9 {
     position: absolute;
-    width: 22%;
-    bottom: 28%;
-    right: 54%;
-    z-index: 8;
+    width: 26%;
+    bottom: 25%;
+    right: 52%;
+    opacity: 0.7;
+}
+
+#bouton-gauche-p9:hover {
+    opacity: 1;
 }
 
 #bouton-droite-p9 {
     position: absolute;
-    width: 22%;
-    bottom: 28%;
-    left: 54%;
-    z-index: 8;
+    width: 25%;
+    bottom: 27%;
+    left: 52%;
+    opacity: 0.7;
+}
+
+#bouton-droite-p9:hover {
+    opacity: 1;
 }

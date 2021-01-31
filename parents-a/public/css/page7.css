@@ -46,6 +46,9 @@ section[data-slidr="page-7"] {
     bottom: -5%;
     right: 6%;
 }
+#feuille-rouge-p7:hover {
+    transform: scale(1.1) translateY(-5%);
+}
 
 #arbuste-vert-p7 {
     position: absolute;
@@ -62,11 +65,21 @@ section[data-slidr="page-7"] {
     left: 3%;
 }
 
+#feuille-orange-p7:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 #feuille-bleue-p7 {
     position: absolute;
     width: 13%;
     bottom: 0%;
     left: 27%;
+}
+#feuille-bleue-p7:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
 #petit-nuage-p7 {
@@ -76,11 +89,19 @@ section[data-slidr="page-7"] {
     left: 8%;
 }
 
+#petit-nuage-p7:hover {
+    transform: translateX(-30%);
+}
+
 #gros-nuage-p7 {
     position: absolute;
     width: 25%;
     top: 10%;
     right: 20%;
+}
+
+#gros-nuage-p7:hover {
+    transform: translateX(30%);
 }
 
 #bouton-gauche-p7 {
