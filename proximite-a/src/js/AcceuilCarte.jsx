@@ -7,22 +7,28 @@ import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
 import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
-
+import equivalent from './equivalent.js'
 const decallageCentrageCarte = 0.004;
+const decallageMarqueur = 0.0005;
 
-function GetIcon(type, _iconsize){
+
+function GetIcon(type, _iconsize, theme){
     switch (type) {
         case 1: //position actuelle
             return L.icon({
                 iconUrl : require("../img/pictogrammes_maison.png").default,
-                iconSize: [_iconsize]
-            })
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
             break
         case 2: //site
             return L.icon({
-                iconUrl : require("../img/pictogrammes_fete.png").default,
-                iconSize: [_iconsize]
-            })
+                iconUrl : theme.default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[_iconsize/2,39]
+            });
             break
     }
 }
@@ -77,11 +83,12 @@ class AcceuilCarte extends  React.Component {
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(1,30  )}  position={this.state.currentPosition}>
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}>
                         <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
                     </Marker>
                     {this.state.sites.map( (e) => {
-                        return <Marker icon={GetIcon(2,20)}  position={e.coordonnes}>
+                        console.log(e)
+                        return <Marker icon={GetIcon(2,20, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
                             <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
                         </Marker>
                     }) }

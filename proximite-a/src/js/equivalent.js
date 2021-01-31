@@ -46,5 +46,13 @@ themeEquiv.set(3, "gourmet");
 themeEquiv.set(4, "culture");
 themeEquiv.set(5, "famille");
 
-export default {equiv,moyenEquiv,themeEquiv}
+var themePicto = new Map();
+themePicto.set(0, require('../img/pictogrammes_fete.png'));
+themePicto.set(1, require('../img/pictogrammes_fete.png'));
+themePicto.set(2, require('../img/pictogrammes_sport.png'));
+themePicto.set(3, require('../img/pictogrammes_gourmet.png'));
+themePicto.set(4, require('../img/pictogrammes_culture.png'));
+themePicto.set(5, require('../img/pictogrammes_famille.png'));
+
+export default {equiv, moyenEquiv, themeEquiv, themePicto}
 

@@ -72,9 +72,10 @@
 
 
 
-.dimention{
+.dimention {
     width: 96vw;
     height: 90vh;
+}
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 #creditContainer{
@@ -82,7 +83,7 @@
     height: 100%;
 }
 
-#logoposition{
+#logoposition {
     position: relative;
     left: 40%;
     right: 10%;
@@ -90,6 +91,7 @@
     bottom: 29.54%;
     width: 200px;
     height: 123px;
+}
 @media screen and (max-width: 1150px)
 {
     #creditContainer{
@@ -102,13 +104,14 @@
 
 }
 
-.cadrcredit{
+.cadrcredit {
     position: absolute;
     width: 60vw;
     height: 94vh;
     left: 38vw;
     top: 27px;
     bottom: 50px;
+}
 
 /*Right Part*/
 #rightPartCredit{
@@ -129,7 +132,7 @@
     border-radius: 54px;
 }
 
-#exitposition{
+#exitposition {
     position: absolute;
     width: 37px;
     height: 37px;
@@ -139,8 +142,8 @@
     color: #FFFFFF;
     text-align: center;
     border: #756EFF;
-
     background: #756EFF;
+}
 #rightPartCreditCenter{
     display: flex;
     justify-content: center;
@@ -148,7 +151,7 @@
     flex-direction: column;
 }
 
-#textposition{
+#textposition {
     position: absolute;
     width: 521px;
     height: 102px;
@@ -161,15 +164,14 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 19px;
+}
 #paragrapheCredit{
     max-width: 520px;
     text-align: center;
-
     color: #000000;
-
 }
 
-#logohyblab{
+#logohyblab{}
 #closeButton{
     position: absolute;
     width: 4px;
@@ -187,4 +189,4 @@
 
 #logoEcole{
     margin: 15px;
-} 
+}

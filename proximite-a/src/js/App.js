@@ -26,7 +26,7 @@ class App extends  React.Component {
                 adresse: 'nous sommes partis',
                 description : "blabla",
                 coordonnes:[1,2],    //latitude_longitude
-                type:'culture'
+                type:4,
              },
             { id: '2',
                 titre: 'squelele',
@@ -34,7 +34,7 @@ class App extends  React.Component {
                 adresse: 'nous sommes repartis',
                 description : "blabla",
                 coordonnes:[3,4],    //latitude_longitude
-                type:'sportif'
+                type:1,
             },
             { id: '3',
                 titre: 'Oooo di',
@@ -42,7 +42,7 @@ class App extends  React.Component {
                 adresse:'AAAAAAAAAAAAAHH',
                 description : "blabla",
                 coordonnes:[5,6],    //latitude_longitude
-                type:'famille'
+                type:2,
             }],
             surprise: {
                 id: '3',
@@ -51,7 +51,7 @@ class App extends  React.Component {
                 adresse: 'AAAAAAAAAAAAAHH',
                 description: "blabla",
                 coordonnes: [5, 6],    //latitude_longitude
-                type: 'famille'
+                type: 3
         }
     };
 
@@ -102,8 +102,8 @@ class App extends  React.Component {
     //changer url
     createSites = () => {
         let stringAdresse = this.state.adresse.rue.replace(' ', '+') + '+' + this.state.adresse.codepostal + '+' + this.state.adresse.ville
-        let moyen=equivalent.moyenEquiv(this.state.moyenId)
-        let theme=equivalent.themeEquiv(this.state.themeId)
+        let moyen=equivalent.moyenEquiv.get(this.state.moyenId)
+        let theme=equivalent.themeEquiv.get(this.state.themeId)
         fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a//api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
@@ -112,6 +112,7 @@ class App extends  React.Component {
                 }
             })
             .then((donnee) => {  //récupération des données JSON
+                console.log("récupération des sites")
                 console.log(donnee)
                 let site1={id:'1',
                             titre:donnee.lieux[0].name,
