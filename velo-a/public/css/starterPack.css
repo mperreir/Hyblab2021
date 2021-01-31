@@ -1,3 +1,38 @@
+.container_map{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#form-savoir {
+    display: grid;
+    grid-template-columns: auto 35px auto;
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    justify-content: center;
+}
+
+#bicky-savoir {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+#bulle-savoir {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    margin-bottom: 10%;
+    width: 100%;
+}
+
+#button-question {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.bicky-savoir {
+    visibility: hidden;
+}
+
 body {
 	width: 100vw;
 	display: flex;
@@ -17,8 +52,6 @@ input {
 	margin-top: 2%;
 	z-index: 1000;
 	min-height: 68px;
-}
-
 
 @media (orientation: portrait) {
 	.bottom-right-nav-container {

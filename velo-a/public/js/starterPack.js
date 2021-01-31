@@ -129,3 +129,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 });
 
+let bickySavoir = document.getElementsByClassName("bicky-savoir");
+
+document.getElementById("button-question").onmouseover = () => {
+    bickySavoir.item(0).style.visibility = "visible";
+    bickySavoir.item(1).style.visibility = "visible";
+}
+
+document.getElementById("button-question").onmouseout = () => {
+    bickySavoir.item(0).style.visibility = "hidden";
+    bickySavoir.item(1).style.visibility = "hidden";
+}

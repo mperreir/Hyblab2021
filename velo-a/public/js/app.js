@@ -4,10 +4,15 @@ import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/roadMonitoring.js";
 
+let abrisVelo, stationsVelo;
+let map;
+let marker = {};
+let openMarker = undefined;
+
 async function bootstrap() {
 
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
-	const map = new mapboxgl.Map({
+	map = new mapboxgl.Map({
 		container: 'map', // container id
 		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
 		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]

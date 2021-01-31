@@ -31,7 +31,8 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/Logo.png">
+
+<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/Logo.svg">
 
 <div class="container_map">
 	<h2>Pour ton trajet, je te recommande de prendre :</h2>
@@ -57,8 +58,15 @@
 	   value="">
 
 <div class="bottom-right-nav-container">
-	<input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
-		   value="Testons ton vélosavoir!">
+
+  <div>
+    <img id="bicky-savoir" class="bicky-savoir" src="img/bicky_savoir.svg" alt="Bicky">
+          <img id="bulle-savoir" class="bicky-savoir" src="img/bulle_savoir.svg" alt="Bulle">
+          <input type="hidden" name="page" value="météo" />
+          <input id="button-question" type="submit" class="button-slide" value="Testons ton vélosavoir!">
+    <input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
+         value="Testons ton vélosavoir!">
+  </div>
 	<input class="button-slide" id="btn-veli-fin" onclick="document.location = 'this-is-the-end.html'" type="submit"
 		   value="C'est la Véli Fin">
 </div>
