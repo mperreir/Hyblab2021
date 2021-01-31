@@ -43,6 +43,15 @@ registerSlide("info-abonnements-consignes", async function () {
     const request = await fetch('api/abris-velo', {method: 'GET'});
     const data = await request.json();
     const placeStationnementLD = data.reduce((acc, val) => acc + val.capacite, 0);
+    const abrisGrat = data.filter(d => !d.conditions.includes('payant'));
+    const placesTotAbrisGrat = abrisGrat.reduce((acc, val) => acc + val.capacite, 0);
+    const abrisPay = data.filter(d => d.conditions.includes('payant'));
+    const placesTotAbrisPay = abrisPay.reduce((acc, val) => acc + val.capacite, 0);
+    d3.select('#placesStationnement').html(placeStationnementLD);
+    d3.select('#placesGratuites').html(placesTotAbrisGrat);
+    d3.select('#abrisExterieurs').html(abrisGrat.length);
+    d3.select('#placesPayantes').html(placesTotAbrisPay);
+    d3.select('#parcsPay').html(abrisPay.length);
 
 });
 
