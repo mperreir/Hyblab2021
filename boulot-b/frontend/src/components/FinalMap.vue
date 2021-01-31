@@ -45,8 +45,8 @@ export default Vue.component("finalMap", {
 async function createMap(platform, map, choices) {
     // STYLE MAP
     // var provider = map.getBaseLayer().getProvider();
-    // var style = new H.map.Style("../assets/map/wazo_map.yaml",
-    // 'https://js.api.here.com/v3/3.1/styles/omv/');
+    // const reqUrlImage = await axios.get(`/boulot-b/getUrlImage/normal.day.yaml`);
+    // var style = new H.map.Style(reqUrlImage.data.urlImage);
     // provider.setStyle(style);
     
     const datas = await getDatas(choices);
@@ -63,8 +63,6 @@ async function createMap(platform, map, choices) {
 async function getDatas(choices) {
     const origin = choices.path.depart;
     const destination = choices.path.arrivee;
-    // const origin = "57 Rue Général Buat, 44000 Nantes";
-    // const destination = "2 Rue Saint-Stanislas, 44000 Nantes";
 
     const typeDeplacement = (choices.typeDeplacement === "velo" ? "bicycle" : "pedestrian");
 
@@ -76,11 +74,6 @@ async function getDatas(choices) {
           theme = "culture";
     }
 
-    console.log('VALEURS DES LIEUX PAR DEFAUT');
-    // const salleSport = false;
-    // const bar = true;
-    // const boulangerie = false;
-    // const pharmacie = true;
     const salleSport = choices.lieux.salleDeSport;
     const bar = choices.lieux.bar;
     const boulangerie = choices.lieux.boulangerie;
@@ -195,8 +188,8 @@ async function createIcon(imageName) {
     const image = document.createElement('img');
     //console.log(reqUrlImage.data.urlImage);
     image.src = reqUrlImage.data.urlImage;
-    image.width = 15;
-    image.height = 15;
+    image.width = 20;
+    image.height = 20;
     return new H.map.DomIcon(image);
   }
 
