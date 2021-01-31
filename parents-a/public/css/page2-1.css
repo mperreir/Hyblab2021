@@ -1,40 +1,90 @@
-section[data-slidr="page-2_1"] {
-    background: #6FB5EF
+/* QUEL AGES AS-TU - PAGE 2-1 */
+section[data-slidr="page-2-1"] {
+    background: #6FB5EF;
+    overflow: hidden;
 }
 
-#gros_nuage-p2_1 {
+#logo-p2-1 {
     position: absolute;
-    width: 30%;
-    bottom: 56%;
-    right: 55%;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
 }
 
-#petit_nuage-p2_1 {
+#dune3-p2-1 {
     position: absolute;
-    width: 25%;
-    top: 15%;
-    right: 75%;
-}
-
-#feuille_verte-p2_1 {
-    position: absolute;
-    width: 15%;
+    width: 100%;
     bottom: 0%;
-    right: 15%;
 }
 
-#feuille_bleue-p2_1 {
+#pelouse-gauche-p2-1 {
     position: absolute;
-    width: 8%;
-    bottom: 5%;
+    width: 36.5%;
+    bottom: 0%;
     left: 0%;
 }
 
-#arbuste_rose-p2_1 {
+#pelouse-droite-p2-1 {
     position: absolute;
-    width: 20%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
+}
+
+#gros-nuage-p2-1 {
+    position: absolute;
+    width: 30%;
+    top: 15%;
+    right: 55%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p2-1:hover{
+    transform: translateX(30%);
+}
+
+#petit_nuage-p2-1 {
+    position: absolute;
+    width: 19%;
+    top: 28%;
+    left: 3%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit_nuage-p2-1:hover {
+    transform: translateX(-30%);
+}
+
+#feuille-verte-p2-1 {
+    position: absolute;
+    width: 17%;
+    bottom: 4%;
+    right: 0%;
+}
+
+#feuille-bleue-p2-1 {
+    position: absolute;
+    width: 8%;
+    bottom: 12%;
+    left: 3%;
+}
+
+#arbuste-rouge-p2-1 {
+    position: absolute;
+    width: 19%;
+    bottom: -4%;
+    right: 9%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbuste-rouge-p2-1:hover {
+    transform: scale(0.9) translateY(10%);
 }
 
 .age {
@@ -43,17 +93,19 @@ section[data-slidr="page-2_1"] {
     bottom: 17%;
 }
 
-#zero_ans-p2_1 {
-    left: 25%
+#texte-0-3-ans-p2-1 {
+    left: 24%;
+    width: 7%;
 }
 
-#quatre_ans-p2_1 {
-    left: 45%
+#texte-4-8-ans-p2-1 {
+    left: 45%;
+    width: 7%;
 }
 
-#neuf_ans-p2_1 {
-    width: 12%;
-    right: 23%
+#texte-plus-9-ans-p2-1 {
+    right: 25%;
+    width: 8%;
 }
 
 .eleph {
@@ -66,24 +118,26 @@ section[data-slidr="page-2_1"] {
     opacity: 1;
 }
 
-#trois_eleph-p2_1 {
-    left: 23%;
-    width: 17%
+#trois-ans-mascotte-p2-1 {
+    left: 20%;
+    width: 17%;
 }
 
-#six_eleph-p2_1 {
+#six-ans-mascotte-p2-1 {
     left: 39%;
-    width: 22%;
+    bottom: 23%;
+    width: 17%;
 }
 
-#neuf_eleph-p2_1 {
-    width: 30%;
-    right: 12%
+#neuf-ans-mascotte-p2-1 {
+    width: 20%;
+    right: 20%;
+    bottom: 23%;
 }
 
-#quelageastu-p2_1 {
+#question-p2-1 {
     position: absolute;
-    width: 26%;
-    top: 12%;
-    left: 38%;
+    width: 20%;
+    top: 25%;
+    left: 40%;
 }

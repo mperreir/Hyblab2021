@@ -2,12 +2,18 @@
 section[data-slidr="page-5"] {
     height: 100%;
     width: 100%;
-    background: linear-gradient(0deg,
-    #0574CF,
-    #0574CF);
+    background: linear-gradient(0deg, #0574CF, #0574CF);
+    overflow: hidden;
 }
 
-#dune-p5 {
+#logo-p5 {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#dune4-p5 {
     position: absolute;
     bottom: 0%;
     left: 15%;
@@ -18,39 +24,55 @@ section[data-slidr="page-5"] {
     position: absolute;
     bottom: 0%;
     right: 0%;
-    width: 30%;
+    width: 27.5%;
 }
 
 #pelouse-gauche-p5 {
     position: absolute;
     bottom: 0%;
     left: 0%;
-    width: 30%;
+    width: 36.5%;
 }
 
 #gros-nuage-p5 {
     position: absolute;
-    top: 0%;
+    top: 16%;
     left: 10%;
     width: 25%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p5:hover {
+    transform: translateX(30%);
 }
 
 #arbuste-vert-p5 {
     position: absolute;
     bottom: 9%;
     right: 12%;
-    width: 25%;
-    transform: rotate(352deg);
+    width: 23%;
+    transform: rotate(
+            352deg
+    );
 }
 
-#arbre_rouge-p5 {
+#arbre-rouge-p5 {
     position: absolute;
     bottom: 10%;
     right: 5%;
-    width: 25%;
+    width: 18%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
-#arbuste_bleu-p5 {
+#arbre-rouge-p5:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#arbuste-bleu-nuage-p5 {
     position: absolute;
     width: 18%;
     bottom: 3%;
@@ -58,11 +80,18 @@ section[data-slidr="page-5"] {
     transform: rotate(15deg);
 }
 
-#feuille-p5 {
+#feuille-verte-p5 {
     position: absolute;
     width: 15%;
     bottom: 8%;
     left: 5%;
+}
+
+#feuille-verte-p5:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 #question-p5 {
@@ -72,32 +101,58 @@ section[data-slidr="page-5"] {
     width: 25%;
 }
 
-#button_oui-p5 {
+#button-gauche-p5 {
     position: absolute;
     width: 20%;
     top: 30%;
     left: 25%;
+    opacity: 0.7;
 }
 
-#text_oui-p5 {
+#button-gauche-p5:hover {
+    opacity: 1;
+}
+
+#texte-gauche-p5 {
     position: absolute;
     width: 20%;
     bottom: 22%;
     left: 23%;
 }
 
-#button_non-p5 {
+#button-droite-p5 {
     position: absolute;
     width: 20%;
     top: 30%;
     right: 30%;
+    opacity: 0.7;
 }
 
-#text_non-p5 {
+#button-droite-p5:hover {
+    opacity: 1;
+}
+
+#texte-droite-p5 {
     position: absolute;
     width: 20%;
     bottom: 22%;
     right: 30%;
 }
 
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
 
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

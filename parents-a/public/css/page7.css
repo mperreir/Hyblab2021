@@ -2,119 +2,149 @@
 section[data-slidr="page-7"] {
     height: 100%;
     width: 100%;
-    background: linear-gradient(0deg,
-    #0574CF,
-    #0574CF);
+    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
+    overflow: hidden;
 }
 
-#logo_p7 {
+#logo-p7 {
     position: absolute;
     width: 6%;
     bottom: 85%;
     right: 5%;
 }
 
-#dune_p7 {
+#dune3-p7 {
     position: absolute;
     width: 100%;
-    bottom: 0%;
+    bottom: -6%;
 }
 
-#pelouse_gauche_p7 {
+#pelouse-gauche-p7 {
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite_p7 {
+#pelouse-droite-p7 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
 }
 
-#arbuste_bleu_p7 {
+#arbuste-bleu-nuage-p7 {
     position: absolute;
-    width: 17%;
-    bottom: 0%;
-    right: 15%;
+    width: 20%;
+    bottom: -4%;
+    right: 14%;
 }
 
-#feuille_rose_p7 {
+#feuille-rouge-p7 {
     position: absolute;
-    width: 15%;
-    bottom: 0%;
-    right: 8%;
+    width: 18%;
+    bottom: -5%;
+    right: 6%;
+}
+#feuille-rouge-p7:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
-#arbuste_vert_p7 {
+#arbuste-vert-p7 {
     position: absolute;
-    width: 25%;
-    bottom: 5%;
-    left: 5%;
+    width: 20%;
+    bottom: 6%;
+    left: 10%;
     transform: rotate(10deg);
 }
 
-#feuille_orange_p7 {
+#feuille-orange-p7 {
     position: absolute;
-    width: 10%;
-    bottom: 5%;
-    left: 5%;
+    width: 15%;
+    bottom: 10%;
+    left: 3%;
 }
 
-#feuille_bleue_p7 {
+#feuille-orange-p7:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#feuille-bleue-p7 {
     position: absolute;
-    width: 10%;
+    width: 13%;
     bottom: 0%;
-    left: 22%;
+    left: 27%;
+}
+#feuille-bleue-p7:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
-#petit_nuage_p7 {
+#petit-nuage-p7 {
     position: absolute;
-    width: 20%;
-    top: 15%;
-    left: 5%;
+    width: 15%;
+    top: 20%;
+    left: 8%;
 }
 
-#gros_nuage_p7 {
+#petit-nuage-p7:hover {
+    transform: translateX(-30%);
+}
+
+#gros-nuage-p7 {
     position: absolute;
-    width: 20%;
-    top: 5%;
+    width: 25%;
+    top: 10%;
     right: 20%;
 }
 
-#bouton_oui_p7 {
+#gros-nuage-p7:hover {
+    transform: translateX(30%);
+}
+
+#bouton-gauche-p7 {
     position: absolute;
-    width: 20%;
+    width: 22%;
     left: 25%;
     bottom: 30%;
+    opacity: 0.7;
 }
 
-#text_oui_p7 {
+#bouton-gauche-p7:hover {
+    opacity: 1;
+}
+
+#texte-gauche-p7 {
     position: absolute;
     width: 11%;
-    bottom: 20%;
-    left: 32%;
+    bottom: 21%;
+    left: 33%;
 }
 
-#bouton_non_p7 {
+#bouton-droite-p7{
     position: absolute;
-    width: 20%;
-    right: 30%;
+    width: 22%;
+    right: 29%;
     bottom: 30%;
+    opacity: 0.7;
 }
 
-#text_non_p7 {
+#bouton-droite-p7:hover {
+    opacity: 1;
+}
+
+#texte-droite-p7 {
     position: absolute;
     width: 15%;
-    bottom: 20%;
-    right: 35%;
+    bottom: 22%;
+    right: 31%;
 }
 
-#question_p7 {
+#question-p7 {
     position: absolute;
-    width: 30%;
-    top: 28%;
-    left: 32%;
+    width: 32%;
+    top: 26%;
+    left: 33%;
 }

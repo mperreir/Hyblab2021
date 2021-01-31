@@ -14,19 +14,19 @@ section[data-slidr="page-6"] {
 }
 
 /* Vegétation droite */
-#arbre_jaune-p6{
+#arbre-jaune-p6{
     position: absolute;
     width: 25%;
     bottom: 11%;
     right: 2%;
 }
-#feuille_rouge-p6{
+#feuille-rouge-p6{
     position: absolute;
     width: 12%;
     bottom: 9%;
     right: 1%;
 }
-#arbuste_bleu-p6{
+#arbuste-bleu-p6{
     position: absolute;
     width: 62%;
     bottom: 0%;
@@ -34,13 +34,13 @@ section[data-slidr="page-6"] {
 }
 
 /* Vegétation gauche */
-#arbuste_vert-p6 {
+#arbuste-vert-p6 {
     position: absolute;
     width: 18%;
     bottom: 8%;
     right: 82%;
 }
-#arbre_rouge-p6 {
+#arbre-rouge-p6 {
     position: absolute;
     width: 15%;
     bottom: 2%;
@@ -48,21 +48,21 @@ section[data-slidr="page-6"] {
 }
 
 /* Sols */
-#pelouse_gauche-p6 {
+#pelouse-gauche-p6 {
     /* pelouse gauche */
     position: absolute;
     width: 30%;
     bottom: 0%;
     left: 0%;
 }
-#pelouse_droite-p6 {
+#pelouse-droite-p6 {
     /* pelouse droite */
     position: absolute;
     width: 30%;
     bottom: 0%;
     right: 0%;
 }
-#dune-p6 {
+#dune2-p6 {
     /* dune 1 */
     position: absolute;
     width: 100%;
@@ -71,32 +71,32 @@ section[data-slidr="page-6"] {
 }
 
 /*  Question */
-#question_parfum-p6 {
+#question-p6 {
     position: absolute;
     width: 45%;
     bottom: 68%;
     right: 28%;
 }
-#texte_mais_non-p6 {
+#texte-droite-p6 {
     position: absolute;
     width: 12%;
     bottom: 25%;
     right: 33%;
 }
-#texte_oh_oui-p6 {
+#texte-gauche-p6 {
     position: absolute;
     width: 10%;
     bottom: 25%;
     right: 60%;
 }
-#bouton_oh_oui_anime-p6 {
+#boutton-gauche-p6 {
     position: absolute;
     width: 22%;
     bottom: 28%;
     right: 54%;
 }
 
-#BOUTON_NON_FLEUR-p6{
+#bouton-droite-p6 {
     position: absolute;
     width: 22%;
     bottom: 28%;

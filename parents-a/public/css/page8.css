@@ -1,8 +1,8 @@
 /* PAGE 8 */
 section[data-slidr="page-8"] {
     /* fond */
-    position: absolute;
     background: linear-gradient(0deg, #0574CF, #0574CF);
+    overflow: hidden;
 }
 
 #logo-p8 {
@@ -14,21 +14,29 @@ section[data-slidr="page-8"] {
 }
 
 /* Ciel */
-#nuage-p8 {
+#petit-nuage-p8 {
     position: absolute;
-    width: 23%;
-    bottom: 53%;
-    right: 76%;
+    width: 19%;
+    bottom: 65%;
+    right: 79%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p8:hover {
+    transform: translateX(-30%);
 }
 
 /* Végétation droite */
-#arbre_carotte-p8 {
+#arbre-carotte-p8 {
     position: absolute;
-    width: 29%;
+    width: 15%;
     bottom: 7%;
-    right: 1%;
+    right: 5%;
 }
-#arbuste_bleu-p8 {
+
+#arbuste-bleu-p8 {
     position: absolute;
     width: 22%;
     bottom: -5%;
@@ -36,35 +44,38 @@ section[data-slidr="page-8"] {
 }
 
 /* Végétation gauche */
-#feuille_verte-p8 {
+#feuille-verte-p8 {
     position: absolute;
     width: 18%;
     bottom: 8%;
     right: 82%;
 }
-#feuille_orange-p8 {
+
+#feuille-orange-p8 {
     position: absolute;
-    width: 15%;
-    bottom: 2%;
-    right: 78%;
+    width: 13%;
+    bottom: 9%;
+    right: 79%;
 }
 
 /* Sols */
-#pelouse_gauche-p8 {
+#pelouse-gauche-p8 {
     /* pelouse gauche */
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
-#pelouse_droite-p8 {
+
+#pelouse-droite-p8 {
     /* pelouse droite */
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
 }
-#dune-p8 {
+
+#dune5-p8 {
     /* dune 1 */
     position: absolute;
     width: 100%;
@@ -79,30 +90,41 @@ section[data-slidr="page-8"] {
     bottom: 68%;
     right: 28%;
 }
-#texte_jadore-p8 {
+
+#texte-gauche-p8 {
     position: absolute;
     width: 10%;
     bottom: 25%;
     right: 60%;
 }
-#texte_oh_non-p8 {
+
+#texte-droite-p8 {
     position: absolute;
     width: 12%;
     bottom: 25%;
     right: 33%;
 }
-#BOUTON_ARBRES_v2-p8{
+
+#bouton-gauche-p8 {
     position: absolute;
-    width: 22%;
-    bottom: 28%;
-    right: 54%;
+    width: 24%;
+    bottom: 27%;
+    right: 52%;
+    opacity: 0.7;
 }
 
-#BOUTON_BOUDE-ARBRES_v2-p8{
-    position: absolute;
-    width: 22%;
-    bottom: 28%;
-    left: 54%;
+#bouton-gauche-p8:hover {
+    opacity: 1;
 }
 
+#bouton-droite-p8 {
+    position: absolute;
+    width: 23%;
+    bottom: 30%;
+    left: 49%;
+    opacity: 0.7;
+}
 
+#bouton-droite-p8:hover {
+    opacity: 1;
+}
