@@ -106,15 +106,16 @@ getPerso: (cat) => {
     .on('data', (row) => {
       var sql = '';
       if(!depList.includes(row.departement)) {
+        // Insertion into Departement
         db.run(`INSERT INTO Departement VALUES (            
           ${row.numero_dep}, 
           '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
         depList.push(row.departement);
-        //countIdDep++;
       }
       
       if(!catList.includes(row.categorie)) {
         let catPerso = personnages.getPerso(row.categorie);
+        // Insersion into Categorie
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
@@ -126,6 +127,7 @@ getPerso: (cat) => {
         countIdCat++;
       }
       
+      // Insertion into Legende
       sql = `INSERT INTO Legende VALUES (
           ${countIdLeg},
           '${(encodeURI(row.nom)).replace(/'/g, "`")}',
