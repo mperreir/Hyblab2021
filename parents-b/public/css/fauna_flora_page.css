@@ -26,17 +26,17 @@
 }
 .oya-fauna-flora{
     position: absolute;
-    top: 12%;
-    left: 20%;
+    top: 14%;
+    left: 16%;
     width: 17%;
     z-index: 2;
 }
 
 .talking-bubble-fauna-flora{
     position: absolute;
-    top: 24%;
-    left: 38%;
-    width: 5%;
+    top: 11%;
+    left: 30%;
+    width: 3%;
     z-index: 2;
 }
 

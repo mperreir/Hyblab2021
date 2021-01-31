@@ -157,6 +157,7 @@ margin-top: 8%;
     margin-left: 4%;
 }
 
+/*
 .more-info{
     padding: 1%;
     border: 0.3em solid #ffe9de;
@@ -166,7 +167,7 @@ margin-top: 8%;
     color: #FFCDB6;
     background-color: #45396D;
     border: 0.3em solid #aba3ca;
-}
+}*/
 
 .go-back-more-infos:hover{
     cursor: pointer
@@ -178,7 +179,7 @@ margin-top: 8%;
     position: absolute;
     cursor: pointer;
     top: 2%;
-    left: 7%;
+    left: 9%;
     width: 3%;
     z-index: 4;
 }

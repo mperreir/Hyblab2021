@@ -104,6 +104,8 @@ let initHome = function(){
         musicPlay();
         document.getElementById('button-begin').disabled = true;
         document.getElementById('button-histoire').disabled = true;
+        document.getElementById('more-info').disabled = true;
+        document.getElementById('button-histoire').hidden = true;
 
         let tl_begin = anime.timeline({
             easing: 'easeOutCubic'
@@ -206,6 +208,8 @@ let initHome = function(){
 let resetHome = function(){
     document.getElementById('button-begin').disabled = false;
     document.getElementById('button-histoire').disabled = false;
+    document.getElementById('more-info').disabled = false;
+    document.getElementById('button-histoire').hidden = false;
 
     d3.select('.oya-hello')
         .style("transform", "");

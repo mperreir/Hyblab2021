@@ -189,6 +189,9 @@ to {
    right: 4%;
 }
 
+.no-click {pointer-events: none;}
+
+
 .ariane-2-address{
     top: 36.5%;
 }
