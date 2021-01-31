@@ -5,6 +5,6 @@ $(document).ready(function(){
     $("#chargementI")[0].style.display = "none";
     document.querySelector("body").className = "background-black";
     $("#home")[0].style.display = "block";
-    // $(".shooting-stars")[0].style.display = "block";
-  }, 3000);
+    $(".shooting-stars")[0].style.display = "block";
+  }, 4500);
 });

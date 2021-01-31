@@ -44,6 +44,7 @@ button{
 }
 
 .button-non{
+    padding: 0 3% 0 3%;
     left: 17%;
     top: 68%;
     transform: translate(-50%, -50%);
@@ -55,6 +56,7 @@ button{
 }
 
 .button-oui{
+    padding: 0 3% 0 3%;
     left: 78%;
     top: 68%;
     transform: translate(-50%, -50%);
