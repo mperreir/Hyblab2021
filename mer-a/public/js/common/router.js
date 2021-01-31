@@ -46,9 +46,12 @@ class Router {
       this.changeFond(idFond);
       $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
     });
-
+    console.log(data);
     this.data = data;
-    if(path !== 'accueil') this.saveData(path, data, idFond);
+    if(path !== 'accueil') {
+      this.saveData(path, data, idFond);
+      document.querySelector('#go-back-div').style.display = "none";
+    }
     this.fileAriane.updateAriane(
       path,
       (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
@@ -59,7 +62,7 @@ class Router {
 
   saveData(path, data, idFond) {
     localStorage.setItem('path', path);
-    localStorage.setItem('data', data);
+    localStorage.setItem('data', JSON.stringify(data));
     localStorage.setItem('idFond', idFond);
   }
 
@@ -68,7 +71,7 @@ class Router {
   }
 
   loadData() {
-    if(this.hasData()) this.loadRessources(localStorage.getItem('path'), localStorage.getItem('data'), localStorage.getItem('idFond'));
+    if(this.hasData()) this.loadRessources(localStorage.getItem('path'), JSON.parse(localStorage.getItem('data')), localStorage.getItem('idFond'));
   }
 
   loadParralax(id) {
