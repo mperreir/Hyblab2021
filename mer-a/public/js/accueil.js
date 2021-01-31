@@ -2,8 +2,7 @@
 
 (() => {
   document.querySelector('#next').addEventListener('click', () => {
-    playSound();
-    $('#audio_control')[0].style.display = 'block';
+    soundManager.playSound();
     router.loadRessources("departements", {}, 3);
   });
 })();

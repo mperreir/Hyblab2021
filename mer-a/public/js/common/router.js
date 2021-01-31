@@ -5,7 +5,9 @@ const nbFond = 3;
 
 class Router {
 
-  constructor() {
+  constructor(fileAriane, loader) {
+    this.fileAriane = fileAriane;
+    this.loader = loader;
     this.scene1 = document.querySelector('#scene1');
     this.scene2 = document.querySelector('#scene2');
     this.fondMer = document.querySelector('#fond-mer');
@@ -22,13 +24,23 @@ class Router {
   }
 
   loadRessources(path, data, change) {
-    loading();
+    this.loader.loading();
     $('#content').load(`/mer-a/html/${path}.html`, () => {
-      loaded();
+      this.loader.loaded();
     });
     this.data = data;
     this.#deleteCharacter();
     this.changeFond(change);
+    this.fileAriane.updateAriane(
+      this.#getId(path),
+      (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'departement',
+      (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'personnage',
+      'legende'
+    );
+  }
+
+  #getId(name) {
+    return 1;
   }
 
   #loadParralax(id) {
