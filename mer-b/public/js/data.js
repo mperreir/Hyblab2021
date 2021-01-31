@@ -78,8 +78,8 @@ function affichageReset(){
                       "img" : "img/Metiers/peinturefinal.png"
                     },
                     {
-                      "texte" : "Autres",
-                      "json" : "autres",
+                      "texte" : "Autre",
+                      "json" : "autre",
                       "img" : "img/Metiers/autresfinal.png"
                     }
                 ]

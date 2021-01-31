@@ -7,7 +7,7 @@
     },
     "openweather" : {
         "api_url" : "https://api.openweathermap.org/data/2.5/onecall?",
-        "key" : "6ca38ab5618377d4d95cd169bdab711a"
+        "key" : ""
     },
     "nominatim" : {
         "api_url" : "https://nominatim.openstreetmap.org/reverse?"

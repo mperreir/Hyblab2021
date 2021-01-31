@@ -26,6 +26,9 @@ function getPlagesSlideFin(){
   let loading = document.getElementById("loading");
   loading.innerHTML = '<img src="img/chargementecran.gif" /> <h2>Un instant, nous cherchons la plage de vos rêves...</h2>';
   loading.style.display = "block";
+
+  let cartesPostales = document.getElementsByClassName("cartesPostales")[0];
+  cartesPostales.style.display = "none";
 }
 
 var cards = document.getElementsByClassName("cartePostale");
@@ -56,6 +59,9 @@ for(let card of cards){
 function updateSlideFin(plages, criteres){
   let loading = document.getElementById("loading");
   loading.style.display = "none";
+  let cartesPostales = document.getElementsByClassName("cartesPostales")[0];
+  cartesPostales.style.display = "block";
+
   let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");
   plages.forEach((element, index) => {
 

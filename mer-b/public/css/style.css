@@ -167,6 +167,7 @@ div#displayCanvas {
     --bouton-texte-color: #203443;
     --bouton-bg-color: #203443;
     --breadcrumb-color: #6E889B;
+    --bouton-bg-slider: #203443;
 }
 
 * {
@@ -635,7 +636,7 @@ div#containerReponses {
 .stepperBouton {
     height: 41px;
     width: 41px;
-    background: var(--bouton-bg-color, #203443);
+    background: var(--bouton-bg-slider, #203443);
     border-radius: 45px;
     position: absolute;
 }
@@ -678,6 +679,10 @@ h2 {
 #loading {
     width: 100%;
     color: #203443;
+}
+
+.cartesPostales {
+    display: none;
 }
 
 #loading img {
