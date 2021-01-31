@@ -6,5 +6,5 @@ $(document).ready(function(){
     document.querySelector("body").className = "background-black";
     $("#home")[0].style.display = "block";
     // $(".shooting-stars")[0].style.display = "block";
-  }, 3000);
+}, 4000);
 });
