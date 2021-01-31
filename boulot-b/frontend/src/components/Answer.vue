@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from "vue";
 import ButtonCustom from "../components/ButtonCustom.vue"
 

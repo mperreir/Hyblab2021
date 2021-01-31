@@ -13,6 +13,7 @@ import ChoixTypeDeplacement from "@/views/ChoixTypeDeplacement";
 import ChoixHumeur from "@/views/ChoixHumeur";
 import ChoixStyle from "@/views/ChoixStyle";
 import ChoixLieux from "@/views/ChoixLieux";
+import ShowMap from "@/views/ShowMap";
 import {routes} from "@/router";
 
 const Views = [
@@ -22,6 +23,7 @@ const Views = [
   {actif: 4, component: ChoixStyle},
   {actif: 5, component: ChoixTheme},
   {actif: 6, component: ChoixLieux},
+  {actif: 7, component: ShowMap},
 ]
 
 export default {
