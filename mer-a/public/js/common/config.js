@@ -44,9 +44,9 @@ const validStrokeOpacity = 1;
 const invalidStrokeOpacity = 0.1;
 
 //Strokes
-const validStrokeWidth = '2px';
-const invalidStrokeWidth = '10px';
-const hoveredStrokeWidth = '3px';
+const validStrokeWidth = '1px';
+const invalidStrokeWidth = '8px';
+const hoveredStrokeWidth = '2px';
 
 /**
  * Variables definition
