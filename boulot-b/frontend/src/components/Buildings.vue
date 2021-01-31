@@ -1,11 +1,11 @@
 <template>
     <div id="img_container">
         <img class="hide" id="tower" src="@/assets/tower.svg" alt="tower">
-        <img class="hide" id="first_tree" src="@/assets/tree2.png" alt="tree">
+        <img class="hide" id="first_tree" src="@/assets/tree2.svg" alt="tree">
         <img class="hide" id="yellow_house" src="@/assets/yellow_house.svg" alt="yellow house">
         <img class="hide" id="white_house" src="@/assets/white_house.svg" alt="white house">
         <img class="hide" id="blue_house" src="@/assets/blue_house.svg" alt="blue house">
-        <img class="hide" id="second_tree" src="@/assets/tree.png" alt="tree">
+        <img class="hide" id="second_tree" src="@/assets/tree.svg" alt="tree">
     </div>
 </template>
 
