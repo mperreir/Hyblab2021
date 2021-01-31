@@ -3,14 +3,14 @@
     <template #question >
       <Question question="Sélectionne les lieux qui t'intéressent!">
         <div id="choix">
-          <img id="haltere" src="@/assets/haltere.svg" alt="haltere">
+          <img id="haltere" src="@/assets/map/haltere.svg" alt="haltere">
           <ButtonCustom @click="checkSalle" v-model="salleDeSport" :class="{checkedYellow: salleDeSport}" text="Salle de Sport" color="yellow" />
           <ButtonCustom @click="checkBar" v-model="bar" :class="{checkedBlue: bar}" text="Bar" color="blue" />
-          <img id="verre" src="@/assets/verre.svg" alt="verre">
-          <img id="pain" src="@/assets/bread.svg" alt="pain">
+          <img id="verre" src="@/assets/map/verre.svg" alt="verre">
+          <img id="pain" src="@/assets/map/baguette.svg" alt="pain">
           <ButtonCustom @click="checkBoulangerie" v-model="boulangerie" :class="{checkedBlue: boulangerie}" text="Boulangerie" color="blue" />
           <ButtonCustom @click="checkPharmacie" v-model="pharmacie" :class="{checkedYellow: pharmacie}" text="Pharmacie" color="yellow"/>
-          <img id="meds" src="@/assets/meds.svg" alt="meds">
+          <img id="meds" src="@/assets/map/medicament.svg" alt="medicament">
         </div>
       <!-- <Question>
         <Checkbox v-model="pharmacie"  color="yellow" >Pharmacie</Checkbox>
@@ -96,6 +96,7 @@ export default {
     display: flex;
     position: relative;
     min-width: 400px;
+    max-width: 510px;
     width: 60%;
     align-items: center;
     justify-content: center;
