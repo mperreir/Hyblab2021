@@ -104,6 +104,7 @@ module.exports = () => {
             }
             // save temporaire
             if(o.fileName === 'arrets-tan.json'){
+                Object.keys(data).forEach(k => data[k] = data[k].filter(a => a.parent_station === undefined));
                 liste_arrets = data;
                 // skip to next for value
                 continue;
