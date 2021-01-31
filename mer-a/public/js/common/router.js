@@ -29,7 +29,6 @@ class Router {
       this.loader.loaded();
     });
     this.data = data;
-    this.#deleteCharacter();
     this.changeFond(change);
     this.fileAriane.updateAriane(
       path,
@@ -49,6 +48,7 @@ class Router {
   }
 
   changeFond(idChange) {
+    this.#deleteCharacter();
     if(idChange >= 0 && idChange <= nbFond && this.idFond !== idChange) {
       this.idFond = idChange;
       switch (idChange) {
