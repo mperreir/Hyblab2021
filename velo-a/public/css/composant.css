@@ -45,6 +45,7 @@ input {
 	font-size: 18px;
 	line-height: 22px;
 	color: #F96D48;
+	cursor: pointer;
 }
 
 .button-slide :nth-child(2) {
@@ -82,7 +83,7 @@ input {
 	background-image: url("../img/return-orange.svg");
 	background-position: center;
 	background-repeat: no-repeat;
-
+	cursor: pointer;
 	position: absolute;
 	bottom: 2%;
 	left: 2%;
@@ -109,6 +110,7 @@ input {
 	background-color: #b7d5ed;
 	background-position: center;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 .button-panel-left {

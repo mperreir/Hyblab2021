@@ -4,6 +4,7 @@ body {
 	flex-direction: column;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .container_map {
@@ -26,20 +27,15 @@ input {
 
 	.container_map {
 		align-self: center;
-
 	}
-
 }
 
 @media (orientation: landscape) {
 	.bottom-right-nav-container {
 		align-items: flex-end;
 	}
-
 	.container_map {
-
 	}
-
 }
 
 #map {
