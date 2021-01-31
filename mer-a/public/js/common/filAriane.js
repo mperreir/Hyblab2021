@@ -38,7 +38,7 @@ class FilAriane {
 				step.appendChild(textBox);
 			}
 			textBox.innerHTML = txt;
-			textBox.style.fontSize = `${Math.min((window.innerHeight*0.075 / (txt.length ** 0.5)), '24')}px`;
+			//textBox.style.fontSize = `${Math.min((window.innerHeight*0.075 / (txt.length ** 0.5)), '24')}px`;
 		}
 	}
 
@@ -57,6 +57,9 @@ class FilAriane {
 				break;
 
 			case 'legende':
+				return 4;
+				break;
+			case 'credits':
 				return 4;
 				break;
 		}
