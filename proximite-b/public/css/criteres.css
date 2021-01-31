@@ -253,3 +253,17 @@ ul#sortable1{
     }
     
   }
+
+
+
+
+
+
+  @media screen and (max-resolution: 99dpi) {
+    #sort2div {
+      padding-left: 8em;
+    }
+    #sort3div {
+        padding-left: 8em;
+      }
+  }
