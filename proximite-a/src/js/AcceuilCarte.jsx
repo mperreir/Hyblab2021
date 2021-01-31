@@ -14,14 +14,14 @@ function GetIcon(type, _iconsize){
     switch (type) {
         case 1: //position actuelle
             return L.icon({
-                iconUrl : require("../img/pictogrammes_position.png").default,
-                iconSize: [_iconsize,35]
+                iconUrl : require("../img/pictogrammes_maison.png").default,
+                iconSize: [_iconsize]
             })
             break
         case 2: //site
             return L.icon({
-                iconUrl : require("../img/pictogrammes_position.png").default,
-                iconSize: [_iconsize,35]
+                iconUrl : require("../img/pictogrammes_fete.png").default,
+                iconSize: [_iconsize]
             })
             break
     }
@@ -71,14 +71,13 @@ class AcceuilCarte extends  React.Component {
 
 
     render() {
-        console.log(this.state.popupPhase)
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(1,20)}  position={this.state.currentPosition}>
+                    <Marker icon={GetIcon(1,30  )}  position={this.state.currentPosition}>
                         <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
                     </Marker>
                     {this.state.sites.map( (e) => {
