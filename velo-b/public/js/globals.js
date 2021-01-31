@@ -1,4 +1,4 @@
-window.devMode = document.cookie.indexOf('dev=true') === 0;
+window.devMode = document.cookie.indexOf('dev=true') > -1;
 window.onhashchange = () => window.devMode && goToSlide(window.location.hash || "splash-screen");
 
 window.slideGraph = {};
