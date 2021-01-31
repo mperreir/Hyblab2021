@@ -1,5 +1,9 @@
 build
-idea
+.idea
+._*
+._server.js
+
+
 # Logs
 logs
 *.log
@@ -103,8 +107,3 @@ dist
 # TernJS port file
 .tern-port
 .DS_Store
-._*
-._server.js
-
-workspace.xml
-.idea
