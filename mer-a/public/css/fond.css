@@ -24,8 +24,9 @@ div#content {
 
 div#change {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: calc(3.5vh + 20px);
+  right: 1vh;
+  margin: 0;
 }
 
 #fond-mer {

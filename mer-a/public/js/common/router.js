@@ -22,7 +22,10 @@ class Router {
   }
 
   loadRessources(path, data, change) {
-    $('#content').load(`/mer-a/html/${path}.html`);
+    loading();
+    $('#content').load(`/mer-a/html/${path}.html`, () => {
+      loaded();
+    });
     this.data = data;
     this.#deleteCharacter();
     this.changeFond(change);

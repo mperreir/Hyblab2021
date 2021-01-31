@@ -3,14 +3,14 @@
 
 
 .fil_ariane {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   padding-top: 2vh;
   padding-left: 2vh;
-  margin-left: 4vh;
-  margin-top: 1vh;
-  z-index: 10;
+  left: 4vh;
+  top: 1vh;
+  z-index: 50;
 }
 
 
@@ -24,7 +24,7 @@
   align-items: center;
 
   /* apparence du trait */
-  width: 10vh;
+  width: 10vw;
   border-top: white solid 2px;
   opacity: 0.4;
 }
@@ -33,7 +33,8 @@
 .cercle_outer {
 
   /* placement du cercle extérieur */
-  display: inline-block;
+  display:flex;
+  justify-content: center;
   align-items: center;
 
   /* apparence du cercle extérieur */
@@ -45,13 +46,14 @@
   opacity: 0.4;
 }
 
+.active:hover{
+  cursor: pointer;
+}
 
 .cercle_inner {
 
   /* placement du cercle intérieur */
   position: relative;
-  left: 1vh;
-  top: 1vh;
   display: inline-block;
   align-items: center;
 
@@ -63,40 +65,14 @@
   opacity: 0.4;
 }
 
-#text1{
+.text{
   color: white;
-  position: absolute;
-  left: -0.5vh;
-  top: 7vh;
+  position: relative;
+  top: 5vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.5vh;
-  width: 11vh;
+  min-width: 10vw;
   text-align: center;
-  visibility: hidden;
-}
-
-#text2{
-  color: white;
-  position: absolute;
-  left: 15vh;
-  top: 7vh;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5vh;
-  width: 11vh;
-  text-align: center;
-  visibility: hidden;
-}
-
-#text3{
-  color: white;
-  position: absolute;
-  left: 31.5vh;
-  top: 7vh;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5vh;
-  width: 11vh;
-  text-align: center;
-  visibility: hidden;
 }
 
 a,

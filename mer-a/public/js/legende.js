@@ -2,9 +2,11 @@
 
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
+	updateAriane(4,  deps.get(router.data.department).nomDepartement, getCategorie(router.data.personnage).nomCategorie, getLegende(getCodeLegende()).nom);
 	await getLegendeById(router.data.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;
+		document.querySelector('#bubble').innerHTML = data.histoire;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
 		document.querySelector('#modal-content').style.backgroundSize = 'cover';
 		document.querySelector('#title-legende h2').innerHTML = data.nom;
@@ -14,9 +16,7 @@
 			window.open(url, '_blank');
 		});
 		document.querySelector('#but-credits').addEventListener('click', (event) => {
-			router.loadRessources('credits', {
-				legende: router.data.legende
-			});
+			router.loadRessources('credits', router.data);
 		});
 		document.querySelector('#but-back-home').addEventListener('click', (event) => {
 			router.loadRessources('accueil', {});

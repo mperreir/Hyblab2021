@@ -1,14 +1,18 @@
 'use strict';
 
 /**
- * Specific constants definition
+ * Specific variables initialization
  */
-const persosBox = document.getElementsByClassName('personnages')[0];
+
+persosBox = document.getElementsByClassName('personnages')[0];
+codeDep = getCodeDepartement();
+
 
 /**
  * The main function in ASYNC.
  */
 (async () => {
+	updateAriane(2, deps.get(router.data.department).nomDepartement, 'catégorie');
     // Retrieve data from the API
     await getTypesId(r => categories = r);
     // Sort the data

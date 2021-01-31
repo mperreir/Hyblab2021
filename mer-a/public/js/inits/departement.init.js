@@ -1,8 +1,14 @@
 'use strict';
 
-const map = getMapDepartement();
+/**
+ * Specific constants definition
+ */
 
-const baseNarration = {
+codeType = getCodeType();
+
+map = getMapDepartement(codeDep);
+
+baseNarration = {
 	html: {
 		box: document.getElementById('narration'),
 		text: document.querySelector('#narration > span'),
@@ -19,7 +25,8 @@ const baseNarration = {
 		boxHeight: 0
 	}
 };
-const legendNarration = {
+
+legendNarration = {
 	html: {
 		box: document.querySelector('#narration_legende'),
 		title: document.querySelector('#narration_legende > span.title'),
@@ -39,16 +46,18 @@ const legendNarration = {
 	}
 };
 
-const persoBox = document.getElementById('character');
+persoBox = document.getElementById('character');
+
 
 /**
  * The main function in ASYNC.
  */
 (async () => {
-	console.log(map);
+
+	updateAriane(3, deps.get(router.data.department).nomDepartement, getCategorie(router.data.personnage).nomCategorie, 'légende');
 	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
 	if(!categories) await getTypesId(r => categories = r);
-	if(!deps.data) await getRegionsId(r => deps.data = r);
+	await getRegionsId(r => deps.data = r);
 	deps.data = [deps.get(map.properties.code)];
 	categorie = getCategorie(router.data.personnage);
 	baseNarration.animation.text = categorie.phraseDep;

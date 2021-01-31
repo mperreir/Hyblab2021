@@ -23,6 +23,7 @@
 
     <script src="/mer-a/js/config.js" defer></script>
     <script src="/mer-a/js/common/router.js" defer></script>
+    <script src="/mer-a/js/common/fil_ariane.js" defer></script>
     <script src="/mer-a/js/common/utils.js" defer></script>
     <script src="/mer-a/js/common/api_connection.js" defer></script>
     <script src="/mer-a/js/common/loadings.js" defer></script>
@@ -33,13 +34,17 @@
     <script src="/mer-a/js/script.js" defer></script>
   </head>
   <body>
+    <div id="loading"><div class="loader"></div></div>
     <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
     <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
-
     <div id="fond-mer"></div>
 
     <div id="content" class="center"></div>
-
+    <audio id="vagues_sound" >
+      <source src="/mer-a/assets/sound/vagues.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <button id="audio_control" class="active">Couper le son</button>
     <div class="button" id="change">Change</div>
   </body>
 </html>

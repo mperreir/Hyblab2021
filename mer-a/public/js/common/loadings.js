@@ -14,6 +14,8 @@
  */
 function selectLegende(idLegende){
 	if(idLegende > 0) router.loadRessources('legende', {
+		department: router.data.department,
+		personnage: router.data.personnage,
 		legende: idLegende
 	}, 1);
 }
