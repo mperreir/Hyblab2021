@@ -10,7 +10,7 @@ class App extends  React.Component {
 
     state = {
         nomPers: null,
-        pageId: 4,
+        pageId: 0,
         themeId:0,
         moyenId:0,
         coords:[47.215878,-1.55051],
@@ -104,53 +104,82 @@ class App extends  React.Component {
         let theme=equivalent.themeEquiv.get(this.state.themeId)
         console.log("appel de "+'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme);
         let lieux = await( await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)).json();
-        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`);
-        let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
-        let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json()
-        let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
-        let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+        let newSites=[]
+        console.log(lieux)
         console.log(lieux.lieux[0])
-        console.log(adresseSurp)
-        let site1={id:'1',
-            titre:lieux.lieux[0].name,
-            img:'',
-            adresse: adresse1,
-            description:'',
-            coordonnes: [lieux.lieux[0].lat, lieux.lieux[0].lon],
-            type: this.state.themeId
-        };
-        let site2 = {
-            id: '2',
-            titre: lieux.lieux[1].name,
-            img: '',
-            adresse: adresse2,
-            description: '',
-            coordonnes: [lieux.lieux[1].lat, lieux.lieux[1].lon],
-            type: this.state.themeId
+        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`);
+        if(lieux.lieux.lenght>=1){
+            let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
+            let name1 = ""
+            if (lieux.lieux[0].tags.name) {
+                name1 = lieux.lieux[0].tags.name
+            }
+            let site1 = {
+                id: '1',
+                titre: name1,
+                img: '',
+                adresse: adresse1,
+                description: '',
+                coordonnes: [lieux.lieux[0].lat, lieux.lieux[0].lon],
+                type: this.state.themeId
+            };
+            newSites.push(site1)
+    }
+        if (lieux.lieux.lenght>=2){let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
+            let name2 = ""
+            if (lieux.lieux[1].tags.name) {
+                name2 = lieux.lieux[1].tags.name
+            }
+            let site2 = {
+                id: '2',
+                titre: name2,
+                img: '',
+                adresse: adresse2,
+                description: '',
+                coordonnes: [lieux.lieux[1].lat, lieux.lieux[1].lon],
+                type: this.state.themeId
+            }
+            newSites.push(site2)
+    }
+        if (lieux.lieux.lenght >= 3) {let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
+            let name3 = ""
+            if (lieux.lieux[2].tags.name) {
+                name3 = lieux.lieux[2].tags.name
+            }
+            let site3 = {
+                id: '3',
+                titre: name3,
+                img: '',
+                adresse: adresse3,
+                description: '',
+                coordonnes: [lieux.lieux[2].lat, lieux.lieux[2].lon],
+                type: this.state.themeId
+            }
+            newSites.push(site3)
+    }
+        let lieuSurprise = this.state.surprise
+        if (lieux.surprise.lenght>=1){let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+            console.log(adresseSurp)
+            let nameSurp = ""
+            if (lieux.surprise.tags.name) {
+                nameSurp = lieux.surprise.tags.name
+            }
+            let lieuSurprise = {
+                titre: nameSurp,
+                img: '',
+                adresse: adresseSurp,
+                description: '',
+                coordonnes: [lieux.surprise.lat, lieux.surprise.lon],
+                type: 0 //todo mettre le bon theme
+            }
         }
-        let site3 = {
-            id: '3',
-            titre: lieux.lieux[2].name,
-            img: '',
-            adresse: adresse3,
-            description: '',
-            coordonnes: [lieux.lieux[2].lat, lieux.lieux[2].lon],
-            type: this.state.themeId
-        }
-        let lieuSurprise = {
-            titre: lieux.surprise.name,
-            img: '',
-            adresse: adresseSurp,
-            description: '',
-            coordonnes: [lieux.surprise.lat, lieux.surprise.lon],
-            type: 0 //todo mettre le bon theme
-        }
+
         this.setState({
-            sites: [site1,site2,site3],
+            sites: newSites,
             surprise:lieuSurprise
         });
-        console.log("nouveax sites")
-        console.log([site1, site2, site3])
+        console.log("nouveaux sites")
+        console.log(newSites)
         this.setState({pageId:4})
     }
 
