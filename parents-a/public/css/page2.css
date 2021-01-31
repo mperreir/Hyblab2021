@@ -1,168 +1,211 @@
-
 /* PAGE 2.1 */
 section[data-slidr="page-2"] {
-    background: linear-gradient(90.42deg,
-    #6FB5EF 13.84%,
-    #69ABEB 22.53%,
-    #5A91E0 37.19%,
-    #4166CF 56.01%,
-    #1F2BB6 78.06%);
+    background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
+    overflow: hidden;
 }
 
-#arbre-bleu-p2-1 {
+#arbre-bleu-p2 {
     position: absolute;
     bottom: 15%;
-    right: 10%;
-    width: 40%;
+    right: 14%;
+    width: 29%;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
-#mascotte-p2-1 {
-    position: absolute;
-    bottom: 4%;
-    left: 10%;
-    width: 25%;
+#arbre-bleu-p2:hover {
+    transform: scale(1.1);
 }
 
-#nuage-p2-1 {
+#mascotte-p2 {
     position: absolute;
-    top: 25%;
-    width: 15%;
+    bottom: -12%;
+    left: -2%;
+    width: 35%;
+    transform: translateY(0%);
+    transition-property: transform;
+    transition-duration: 2000ms;
 }
 
-#gros_nuage-p2-1 {
+#mascotte-p2:hover {
+    transform: translateY(-15%);
+}
+
+#petit-nuage-gauche-p2 {
     position: absolute;
-    top: -5%;
+    bottom: 68%;
+    width: 14%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-gauche-p2:hover {
+    transform: translateX(-60%);
+}
+
+#gros-nuage-p2 {
+    position: absolute;
+    top: 9%;
     width: 30%;
-    left: 15%;
+    left: 11%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
-#pelouse-p2-1 {
+#gros-nuage-p2:hover {
+    transform: translateX(30%);
+}
+
+#pelouse-droite-p2 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     right: 0%;
     bottom: 0%;
 }
 
-#arbuste_bleu-p2-1 {
+#petite-pelouse-gauche-p2 {
+    position: absolute;
+    width: 6.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#arbuste-bleu-p2 {
     position: absolute;
     bottom: 9%;
-    right: 12%;
-    transform: rotate(355deg);
-    width: 45%;
-}
-
-#double_feuille_verte-p2-1 {
-    position: absolute;
-    bottom: 13%;
-    right: 36%;
-    width: 15%;
-    transform: rotate(350deg);
-}
-
-#arbuste_vert-p2-1 {
-    position: absolute;
-    bottom: 10%;
-    right: 11%;
-    width: 35%;
-}
-
-#arbre_jaune-p2-1 {
-    position: absolute;
-    bottom: 10%;
-    right: 0%;
+    right: 22%;
+    transform: rotate(359deg);
     width: 25%;
 }
 
-#chaise-p2-1 {
+#feuille-verte-p2 {
+    position: absolute;
+    bottom: 11%;
+    right: 37%;
+    width: 15%;
+    transform: rotate(356deg);
+}
+
+#arbuste-vert-p2 {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
+    width: 21%;
+}
+
+#arbre-jaune-p2 {
+    position: absolute;
+    bottom: 12%;
+    right: 5%;
+    width: 13%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-jaune-p2:hover {
+    transform: scale(0.9) translateY(5%);
+}
+
+#chaise-p2 {
     position: absolute;
     bottom: 3%;
     left: 42%;
     width: 15%;
 }
 
-#vector-p2-1 {
+#chaise-p2:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#vector-p2 {
     position: absolute;
     width: 25%;
     bottom: 40%;
     left: 25%;
 }
 
-
-#logo-p2-1 {
+#logo-p2 {
     position: absolute;
     width: 6%;
     bottom: 85%;
     right: 5%;
 }
 
-#dune-p2-1 {
+#dune1-p2 {
     position: absolute;
     width: 100%;
     bottom: 0%;
+    left: 4%;
 }
 
-
 /* Element qui disparaisse */
-#texte-p2-1 {
+#texte-salut-p2 {
     position: absolute;
     width: 20%;
     left: 25%;
     top: 42%;
 }
 
-
-#button-p2-1 {
+#button-p2 {
     /* Position */
     position: absolute;
-    width: 4%;
+    width: 3%;
     left: 52%;
     top: 46%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 50%;
-    padding: 10px 13px 10px 13px;
+    border-radius: 100%;
     outline: none;
 }
 
-#button-p2-1:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-}
-
-/* elements qui apparaisse */
+/* elements qui apparaissent */
 #appear {
     opacity: 0 ;
 }
-#texte2-p2-1 {
+#texte-intro-p2 {
     position: absolute;
     width: 28%;
     left: 20%;
-    top: 38%;
+    top: 27%;
 }
 
-#button2-p2-2 {
+#button2-p2 {
     /* Position */
     position: absolute;
     width: 18%;
     left: 34%;
     top: 63%;
     /* Design */
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    border-radius: 5%;
-    padding: 10px 13px 10px 13px;
+    border-radius: 10%;
     outline: none;
-
 }
 
-#button2-p2-2:hover{
-    /* Only design change */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes slidein {
+    10%, 90% {
+        transform: translateX(1%);
+    }
 }

@@ -1,0 +1,107 @@
+/* PAGE 6 */
+section[data-slidr="ppage-resultats"] {
+    /* fond */
+    position: absolute;
+}
+
+#logo-pr {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#titre-pr {
+    position: absolute;
+    width: 38%;
+    bottom: 83%;
+    right: 29%;
+}
+
+#contour-pr {
+    position: absolute;
+    width: 100%;
+}
+
+/* Vegétation gauche */
+#fleurs-pr {
+    position: absolute;
+    width: 18%;
+    bottom: 8%;
+    right: 82%;
+}
+#feuille-pr {
+    position: absolute;
+    width: 15%;
+    bottom: 2%;
+    right: 78%;
+}
+
+/* Sols */
+#pelouse_gauche-pr {
+    /* pelouse gauche */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    left: 0%;
+}
+#pelouse_droite-pr {
+    /* pelouse droite */
+    position: absolute;
+    width: 30%;
+    bottom: 0%;
+    right: 0%;
+}
+#dune-pr {
+    /* dune 1 */
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    right: 0%;
+}
+
+/* Top Parcs */
+
+#parc1-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 43%;
+    right: 14%;
+}
+
+#parc2-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 42%;
+    right: 64%;
+}
+
+#parc3-pr {
+    position: absolute;
+    width: 23%;
+    bottom: 41%;
+    right: 39%;
+}
+
+
+#random1 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 74%;
+}
+
+#random2 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 49%;
+}
+
+#random3 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 22%;
+}

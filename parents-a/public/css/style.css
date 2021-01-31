@@ -50,49 +50,38 @@ section {
     height: 100%;
 }
 
-
-/* ---- css  page 4 (q: votre enfant aime-t'il les fleurs) -------- */
-
-section[data-slidr="page-4"] {
-    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #69ABEB 22.53%, #5A91E0 37.19%, #4166CF 56.01%, #1F2BB6 78.06%, #171EB1 82.69%);
-    position: relative;
-}
-
-#logo-questionnaire {
-    position: absolute;
-    width: 6%;
-    bottom: 85%;
-    right: 5%;
-}
-
-
-/* Bouttons */
-
+/* Boutons */
 .button {
     position: absolute;
     border-radius: 50%;
     padding: 0.3% 0.55%;
     border: 2px solid #fff;
-    background-color: transparent;
-}
-
-/* Bouton question precédente */
-#button_retour {
-    /* Position */
-    left: 4%;
-    top: 5%;
     color: #fff;
     cursor: pointer;
     outline: none;
+    background-color: transparent;
 }
-#button_retour:hover {
-    /* Only design change */
-    border: 3px solid #fff;
-    background-color: #fff;
-    color: #333;
+
+.button:hover{
+  /* Only design change */
+  border: 3px solid #fff;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+
+/* Bouton question precédente */
+.button_retour {
+    /* Position */
+    left: 4%;
+    top: 5%;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 5%;
+    outline: none;
 }
+
+
 #texte_question_precedente {
     position: absolute;
     width: 14%;

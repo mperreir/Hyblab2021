@@ -1,9 +1,7 @@
-section[data-sildr='page-4'] {
-    background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
-    transform: rotate(-180deg);
-    height: 100%;
-    width: 100%;
-    text-align: center;
+/* TU VEUX T'EN METTRE PLEIN LA VUE ? - PAGE 4 */
+section[data-slidr="page-4"] {
+    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
+    overflow: hidden;
 }
 
 #logo-p4 {
@@ -13,32 +11,42 @@ section[data-sildr='page-4'] {
     right: 5%;
 }
 
-#oui-p4 {
+#texte-gauche-p4 {
+    position: absolute;
+    width: 14%;
+    bottom: 24%;
+    right: 54%;
+}
+
+#texte-droite-p4{
     position: absolute;
     width: 15%;
     bottom: 25%;
-    right: 56%;
+    right: 30%;
 }
 
-#non-p4 {
+#bouton-gauche-p4 {
     position: absolute;
-    width: 15%;
-    bottom: 25%;
-    right: 33%;
+    width: 19%;
+    bottom: 33%;
+    right: 52%;
+    opacity: 0.7;
 }
 
-#bouton_pleinLaVue-p4 {
+#bouton-gauche-p4:hover {
+    opacity: 1;
+}
+
+#bouton-droite-p4 {
     position: absolute;
-    width: 22%;
+    width: 20%;
     bottom: 32%;
-    right: 51%;
+    right: 29%;
+    opacity: 0.7;
 }
 
-#bouton_non_pleinLaVue-p4 {
-    position: absolute;
-    width: 22%;
-    bottom: 32%;
-    right: 28%;
+#bouton-droite-p4:hover {
+    opacity: 1;
 }
 
 #question-p4 {
@@ -50,91 +58,95 @@ section[data-sildr='page-4'] {
 
 #fleurs-p4 {
     position: absolute;
-    width: 15%;
-    bottom: 5%;
+    width: 10%;
+    bottom: 9%;
     left: 12%;
 }
 
-#feuille_verte-p4 {
+#feuille-verte-p4 {
     position: absolute;
-    width: 28%;
-    bottom: 0%;
+    width: 20%;
+    bottom: 11%;
     left: 0%;
 }
 
-#petit_nuage-p4 {
-    position: absolute;
-    width: 30%;
-    top: 0%;
-    right: 70%;
+#feuille-verte-p4:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-#dune-p4 {
+#petit-nuage-p4 {
+    position: absolute;
+    width: 20%;
+    top: 16%;
+    right: 76%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p4:hover {
+    transform: translateX(-30%);
+}
+
+#dune3-p4 {
     position: absolute;
     width: 100%;
     bottom: 0.2%;
 }
 
-#pelouse_gauche-p4 {
+#pelouse-gauche-p4 {
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite-p4 {
+#pelouse-droite-p4 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
 }
 
-#arbuste_rose-p4 {
+#arbuste-rouge-p4 {
     position: absolute;
     width: 25%;
-    bottom: -3%;
-    right: 0%;
+    bottom: 9%;
+    right: 1%;
+
 }
 
-#arbuste_petales-p4 {
+#arbuste-bleu-petales-p4 {
     position: absolute;
-    width: 18%;
-    bottom: 2%;
+    width: 27%;
+    bottom: 0%;
     right: 11%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
-#button-p4-1 {
-    position: absolute;
-    left: 3%;
-    top: 4%;
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 10px 13px 10px 13px;
-    outline: none;
+#arbuste-bleu-petales-p4:hover {
+    transform: scale(0.9) translateY(5%);
 }
 
-#button-p4-1:hover {
-    border: 3px solid #fff;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 50%;
-}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
 
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
 
-#oh_oui_anime-p4 {
-    position: absolute;
-    width: 22%;
-    bottom: 33.4%;
-    right: 50.6%;
-}
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
 
-#mais_non_anime-p4 {
-    position: absolute;
-    width: 22%;
-    bottom: 31.9%;
-    right: 28%;
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
