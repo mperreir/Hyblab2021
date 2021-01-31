@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8"/>
-    <title>Véli Good</title>
+	<meta charset="utf-8"/>
+	<title>Véli Good</title>
 
-    <!-- Libraries-->
-    <script src="js/lib/mapbox-sdk.js" defer></script>
-    <script src="js/lib/mapbox-gl.js" defer></script>
-    <script src="js/lib/mapbox-gl-directions.js" defer></script>
+	<!-- Libraries-->
+	<script defer src="js/lib/mapbox-sdk.js"></script>
+	<script defer src="js/lib/mapbox-gl.js"></script>
+	<script defer src="js/lib/mapbox-gl-directions.js"></script>
 
-    <link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/lib/mapbox-gl-directions.css"/>
+	<link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
+	<link href="css/lib/mapbox-gl-directions.css" rel="stylesheet"/>
 
-    <!-- Scripts -->
-    <script type="module" src="js/app.js" defer></script>
-    <script type="module" src="js/startPack.js" defer></script>
+	<!-- Scripts -->
+	<script defer src="js/app.js" type="module"></script>
+	<script defer src="js/startPack.js" type="module"></script>
 
-    <!-- Styles-->
-    <link href="css/app.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/starterPack.css" rel="stylesheet"/>
-    <link href="css/composant.css" rel="stylesheet"/>
+	<!-- Styles-->
+	<link href="css/app.css" rel="stylesheet"/>
+	<link href="css/style.css" rel="stylesheet"/>
+	<link href="css/starterPack.css" rel="stylesheet"/>
+	<link href="css/composant.css" rel="stylesheet"/>
 
-    <!-- Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Fonts -->
+	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<img id="logo_header" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
+<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/Logo.png">
 
 <div class="container_map">
 
-    <p> Pour ton trajet, je te recommande... <br><br><br> - Un t-shirt; des lunettes de soleil; de la crème solaire; une casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un vêtement de pluie (en + avec la pluie) <br><br> N’oublie surtout pas ton casque et pense à un antivol pour protéger ton vélo.</p>
-    <p> <br> Traffic <br>- La route est dégagée, à fond les pédales - Bouchons sur ton trajet, gardes-en sous la pédale <br><br></p>
-    <p> Qualité de l’air <br> - Retiens ta respiration, attention à la pollution <br>- Respire à fond, l’air est sain <br><br>Si soleil : “Fais attention aux coups de soleil !” <br>Si pluie : “Bon courage, tu vas en avoir besoin !” <br>Si verglas : “Attention, ça va glisser !” <br>Si froid : “Garde la tête froide !” Conditions “standard” : “Sur ce, bonne route !”</p>
-    <form action="app.html">
-        <input type="submit" class="button-slide" value="Changer les paramètres">
-    </form>
+	<p> Pour ton trajet, je te recommande... <br><br><br> - Un t-shirt; des lunettes de soleil; de la crème solaire; une
+		casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un
+		vêtement de pluie (en + avec la pluie) <br><br> N’oublie surtout pas ton casque et pense à un antivol pour
+		protéger ton vélo.</p>
+	<p><br> Traffic <br>- La route est dégagée, à fond les pédales - Bouchons sur ton trajet, gardes-en sous la pédale
+		<br><br></p>
+	<p> Qualité de l’air <br> - Retiens ta respiration, attention à la pollution <br>- Respire à fond, l’air est sain
+		<br><br>Si soleil : “Fais attention aux coups de soleil !” <br>Si pluie : “Bon courage, tu vas en avoir besoin
+		!” <br>Si verglas : “Attention, ça va glisser !” <br>Si froid : “Garde la tête froide !” Conditions “standard” :
+		“Sur ce, bonne route !”</p>
+	<form action="app.html">
+		<input class="button-slide" type="submit" value="Changer les paramètres">
+	</form>
 </div>
 <div id="map"></div>
 
-<input type="submit" class="button-slide button-return bottom-left-nav" value="" onclick="document.location = 'information.html'">
+<input class="button-slide button-return bottom-left-nav" onclick="document.location = 'information.html'" type="submit"
+	   value="">
 
 <div class="bottom-right-nav-container">
-    <input id="button-question" type="submit" class="button-slide" value="Testons ton vélosavoir!" onclick="document.location = 'question.html'">
-    <input type="submit" id="btn-veli-fin" class="button-slide" value="C'est la Véli Fin" onclick="document.location = 'this-is-the-end.html'">
+	<input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
+		   value="Testons ton vélosavoir!">
+	<input class="button-slide" id="btn-veli-fin" onclick="document.location = 'this-is-the-end.html'" type="submit"
+		   value="C'est la Véli Fin">
 </div>
 
 </body>

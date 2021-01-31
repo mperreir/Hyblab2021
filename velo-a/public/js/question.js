@@ -1,6 +1,6 @@
 "use strict";
 
-import {slide} from "./modules/background.js";
+import { slide } from "./modules/background.js";
 
 let lastPage = "";
 
@@ -79,7 +79,7 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("pollution");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
@@ -125,7 +125,7 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("activité");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
@@ -168,7 +168,7 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("VAE");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
@@ -222,7 +222,7 @@ function load(page) {
 
 			buttonSuivant.addEventListener("click", () => {
 				document.location.href = "app.html";
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
@@ -252,7 +252,7 @@ function load(page) {
 		});
 	}
 
-	function bicky(reponse, msg) {
+	function bicky(response, msg) {
 		let background = document.getElementById("background-resultat");
 		let container = document.getElementById("container-resultat");
 
@@ -268,13 +268,13 @@ function load(page) {
 			container.style.bottom = "-100%";
 		});
 
-		if (reponse) {
+		if (response) {
 			document.getElementById("img-bicky").src = "img/bicky_bon.svg";
 		} else {
 			document.getElementById("img-bicky").src = "img/bicky_faux.svg";
 		}
 
-		document.getElementById("bicky-reponse").innerText = msg;
+		document.getElementById("bicky-response").innerText = msg;
 	}
 
 }

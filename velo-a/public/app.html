@@ -5,15 +5,15 @@
 	<title>Véli Good</title>
 
 	<!-- Libraries-->
-	<script src="js/lib/mapbox-sdk.js" defer></script>
-	<script src="js/lib/mapbox-gl.js" defer></script>
-	<script src="js/lib/mapbox-gl-directions.js" defer></script>
+	<script defer src="js/lib/mapbox-sdk.js"></script>
+	<script defer src="js/lib/mapbox-gl.js"></script>
+	<script defer src="js/lib/mapbox-gl-directions.js"></script>
 
 	<link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="css/lib/mapbox-gl-directions.css"/>
+	<link href="css/lib/mapbox-gl-directions.css" rel="stylesheet"/>
 
 	<!-- Scripts -->
-	<script type="module" src="js/app.js" defer></script>
+	<script defer src="js/app.js" type="module"></script>
 
 	<!-- Styles-->
 	<link href="css/app.css" rel="stylesheet"/>
@@ -21,20 +21,20 @@
 	<link href="css/composant.css" rel="stylesheet"/>
 
 	<!-- Fonts -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
 <header>
-	<img class="logo" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
+	<img alt="Véli Good : Pour un trajet Véli Bien" class="logo" src="img/Logo.png">
 	<h1 id="h1-veligood">Véli Good</h1>
 	<h2 id="h2-veligood">Pour un trajet Véli Bien</h2>
 </header>
 
-<input type="button" id="btn-menu-nav" class="button-menu">
+<input class="button-menu" id="btn-menu-nav" type="button">
 
 <div id="left-nav">
 
@@ -43,17 +43,17 @@
 	</form>
 
 	<form action="starterPack.html">
-		<input type="submit" id="btn-recalculer" class="button-slide" value="Recalculer">
+		<input class="button-slide" id="btn-recalculer" type="submit" value="Recalculer">
 	</form>
 
 
-	<input type='checkbox' name='abris_velo' value='valuable' id="abris_velo"/><label for="abris_velo"></label>
+	<input id="abris_velo" name='abris_velo' type='checkbox' value='valuable'/><label for="abris_velo"></label>
 	abris vélo
 	<br>
-<!--	<input type='checkbox' name='veloroute' value='valuable' id="veloroute"/><label for="veloroute"></label>-->
-<!--	véloroute-->
-<!--	<br>-->
-	<input type='checkbox' name='station_bicloo' value='valuable' id="station_bicloo"/><label
+	<!--	<input type='checkbox' name='veloroute' value='valuable' id="veloroute"/><label for="veloroute"></label>-->
+	<!--	véloroute-->
+	<!--	<br>-->
+	<input id="station_bicloo" name='station_bicloo' type='checkbox' value='valuable'/><label
 		for="station_bicloo"></label>
 	station bicloo
 
@@ -65,12 +65,12 @@
 <div id="map"></div>
 
 <form action="information.html">
-	<input type="submit" class="button-slide button-return bottom-left-nav" value="">
+	<input class="button-slide button-return bottom-left-nav" type="submit" value="">
 </form>
 
 <div class="bottom-right-nav-container">
-	<form id="form-veli-fin" action="this-is-the-end.html">
-		<input type="submit" id="btn-veli-fin" class="button-slide" value="C'est la Véli Fin">
+	<form action="this-is-the-end.html" id="form-veli-fin">
+		<input class="button-slide" id="btn-veli-fin" type="submit" value="C'est la Véli Fin">
 	</form>
 </div>
 

@@ -143,26 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 });
 
-// document.getElementById("button-question").onclick = () => {
-// 	document.location.href = "question.html?page=météo";
-// }
-
-document.getElementById("input-meteo").onclick = () => {
-	document.location.href = "question.html?page=météo";
-};
-
-document.getElementById("input-pollution").onclick = () => {
-	document.location.href = "question.html?page=pollution";
-};
-
-document.getElementById("input-activite").onclick = () => {
-	document.location.href = "question.html?page=activité";
-};
-
-document.getElementById("input-vae").onclick = () => {
-	document.location.href = "question.html?page=VAE";
-};
-
 document.getElementById("btn-menu-nav").onclick = () => {
 	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('visibility');
 	if (nav_visible === "hidden") {

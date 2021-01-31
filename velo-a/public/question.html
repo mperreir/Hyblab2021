@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Véli Good</title>
+	<meta charset="UTF-8">
+	<title>Véli Good</title>
 
-    <!-- Scripts -->
-    <script type="module" src="js/question.js" defer></script>
+	<!-- Scripts -->
+	<script defer src="js/question.js" type="module"></script>
 
-    <!-- Styles-->
-    <link href="css/background.css" rel="stylesheet"/>
-    <link href="css/question.css" rel="stylesheet"/>
-    <link href="css/composant.css" rel="stylesheet"/>
+	<!-- Styles-->
+	<link href="css/background.css" rel="stylesheet"/>
+	<link href="css/question.css" rel="stylesheet"/>
+	<link href="css/composant.css" rel="stylesheet"/>
 
 	<!-- Fonts -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap">
-	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://fonts.gstatic.com" rel="preconnect">
+	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+		  rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+	<link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
-    <img id="logo_header" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
+<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/Logo.png">
 
-    <div id="background_velos"></div>
+<div id="background_velos"></div>
 
-    <img id="montagne_gauche" src="img/montagne_gauche.svg" alt="Montagne"/>
-    <img id="montagne_droite" src="img/montagne_droite.svg" alt="Montagne"/>
-    <img id="ciel" src="img/ciel.svg" alt="Ciel"/>
-    <img id="batiment" src="img/batiment.svg" alt="Batiment"/>
+<img alt="Montagne" id="montagne_gauche" src="img/montagne_gauche.svg"/>
+<img alt="Montagne" id="montagne_droite" src="img/montagne_droite.svg"/>
+<img alt="Ciel" id="ciel" src="img/ciel.svg"/>
+<img alt="Batiment" id="batiment" src="img/batiment.svg"/>
 
-    <div id="div-question">
-        <div id="background-resultat"></div>
+<div id="div-question">
+	<div id="background-resultat"></div>
 
-        <div id="container-question">
-            <h2 id="h2-question"></h2>
-            <div id="div-page-2">
-                <button id="button-reponse-1" class="button-slide"></button>
-                <button id="button-reponse-2" class="button-slide"></button>
-                <button id="button-reponse-3" class="button-slide"></button>
-                <button id="button-reponse-4" class="button-slide"></button>
-            </div>
-        </div>
+	<div id="container-question">
+		<h2 id="h2-question"></h2>
+		<div id="div-page-2">
+			<button class="button-slide" id="button-reponse-1"></button>
+			<button class="button-slide" id="button-reponse-2"></button>
+			<button class="button-slide" id="button-reponse-3"></button>
+			<button class="button-slide" id="button-reponse-4"></button>
+		</div>
+	</div>
 
 
-        <div id="container-resultat">
-            <div id="div-resultat">
-                <div id="expression-bicky">
-                    <img id="img-bicky" src="" alt="img-bicky"/>
-                    <p id="bicky-reponse"></p>
-                </div>
-                <div id="div-info-question"></div>
-                <button id="button-next-question" class="button-slide batiment_button" >Question Suivante</button>
-            </div>
-        </div>
-    </div>
-    <button id="batiment_return" class="button-return"></button>
+	<div id="container-resultat">
+		<div id="div-resultat">
+			<div id="expression-bicky">
+				<img alt="img-bicky" id="img-bicky" src=""/>
+				<p id="bicky-reponse"></p>
+			</div>
+			<div id="div-info-question"></div>
+			<button class="button-slide batiment_button" id="button-next-question">Question Suivante</button>
+		</div>
+	</div>
+</div>
+<button class="button-return" id="batiment_return"></button>
 
 </body>
 </html>
