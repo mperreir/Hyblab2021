@@ -142,5 +142,16 @@
     "next": {
       "ok": "page-finale"
     }
+  },
+  "page-finale": {
+    "next": {
+      "rejouer": "page-accueil",
+      "credit": "page-credit"
+    }
+  },
+  "page-credit": {
+    "next": {
+      "retour": "page-finale"
+    }
   }
 }

@@ -47,6 +47,15 @@ registerSlide("question-transports-bicloo", function () {
     button( '#ic-non-transport-bicloo', 'non');
 });
 
+registerSlide("page-finale", function () {
+    button( '#ic-rejouer-finale', 'rejouer');
+    button( '#ic-credit-finale', 'credit');
+});
+
+registerSlide("page-credit", function () {
+    retourbutton('#ic-credit-retour');
+});
+
 let button = function (idbutton, choice) {
     d3.select(idbutton).on('click', function () {
         overrideAnim({
