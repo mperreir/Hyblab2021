@@ -28,6 +28,10 @@ function loading() {
   $('#loading')[0].style.display = 'flex';
 }
 
+function loaded() {
+  setTimeout(() => $('#loading')[0].style.display = 'none', 1500);
+}
+
 function stopSound() {
   $('#vagues_sound')[0].pause();
   $('#audio_control')[0].classList = ['inactive'];

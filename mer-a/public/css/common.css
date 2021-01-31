@@ -1,6 +1,7 @@
 .button, #audio_control {
   padding: 10px 28px;
   border-radius: 25px;
+  font-size: 1.5vh;
   text-decoration: none;
   color: #7D7FBC;
   background-color: #FFF;
