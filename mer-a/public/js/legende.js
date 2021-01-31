@@ -17,10 +17,10 @@
 			window.open(url, '_blank');
 		});
 		document.querySelector('#but-credits').addEventListener('click', (event) => {
-			router.loadRessources('credits', router.data);
+			router.loadRessources('credits', router.data, (router.data.personnage === 2) ? 2 : 1);
 		});
 		document.querySelector('#but-back-home').addEventListener('click', (event) => {
-			router.loadRessources('accueil', {});
+			router.loadRessources('accueil', {}, 1);
 		});
 		initLogo('wc', 'toilettes', data.toilettes);
 		initLogo('swim', 'baignade', data.baignade);
