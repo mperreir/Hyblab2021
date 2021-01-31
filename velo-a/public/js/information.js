@@ -2,9 +2,10 @@
 
 import { autocompleteAddress } from "./modules/autocompleteAddress.js";
 import { getTraficData } from "./modules/roadMonitoring.js";
+import {slide} from "./modules/background.js";
 
 async function bootstrap() {
-	slide();
+	slide(velos, backgroundContinue, ["pane", "question_velo", "question_trajet"]);
 	togglePath();
 }
 
@@ -212,4 +213,9 @@ function sleep(callback, time) {
 	return new Promise((resolve) => {
 		setTimeout(() => resolve(callback()), time)
 	})
+}
+
+function backgroundContinue(el, slides) {
+	el.parentElement.setAttribute("class", "hide");
+	document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
 }

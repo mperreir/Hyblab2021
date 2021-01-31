@@ -1,10 +1,25 @@
 "use strict";
 
+import {slide} from "./modules/background.js";
+
+let lastPage = "";
+
 window.addEventListener('DOMContentLoaded', () => {
 
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const page = urlParams.get('page');
+	slide(() => {}, () => load(lastPage), null);
+
+	load("");
+});
+
+
+function load(page) {
+	let background = document.getElementById("background-resultat");
+	let container = document.getElementById("container-resultat");
+
+	background.style.background = "rgba(0, 0, 0, 0)";
+	background.style.zIndex = "-2";
+
+	container.style.bottom = "-100%";
 
 	let listP = [];
 	let p;
@@ -15,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		case "météo" :
 			document.getElementById("h2-question").innerText = "Quelle est la température annuelle à Nantes ?";
 
-			buttons = document.getElementsByClassName("button-question");
+			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
 				buttons.item(i).style.minWidth = "24%";
 			}
@@ -25,10 +40,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			buttons.item(2).innerText = "15°C";
 			buttons.item(3).innerText = "19.3°C";
 
-            buttons.item(0).onclick = () => { bicky(false, "Oh non !"); }
-            buttons.item(1).onclick = () => { bicky(true, "Bien joué l'artiste !"); }
-            buttons.item(2).onclick = () => { bicky(false, "Oh non !"); }
-            buttons.item(3).onclick = () => { bicky(false, "Oh non !"); }
+			buttons.item(0).addEventListener("click", () => { bicky(false, "Oh non !"); });
+			buttons.item(1).addEventListener("click", () => { bicky(true, "Bien joué l'artiste !"); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "Oh non !"); });
+			buttons.item(3).addEventListener("click", () => { bicky(false, "Oh non !"); });
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -61,16 +76,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			addTextIntoDiv(listP);
 
-			document.getElementById("button-next-question").onclick = () => {
-				document.location.href = "question.html?page=pollution";
-			}
+			document.getElementById("button-next-question").addEventListener("click", () => {
+				lastPage = page;
+				load("pollution");
+			}, {once: true});
 
 			break;
 
 		case "pollution" :
 			document.getElementById("h2-question").innerText = "Combien de CO2 par gramme permet de sauver un kilomètre parcouru en vélo ?";
 
-			buttons = document.getElementsByClassName("button-question");
+			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
 				buttons.item(i).style.minWidth = "24%";
 			}
@@ -80,10 +96,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			buttons.item(2).innerText = "22 grammes";
 			buttons.item(3).innerText = "30 grammes";
 
-            buttons.item(0).onclick = () => { bicky(false, "Pas de bol !"); }
-            buttons.item(1).onclick = () => { bicky(false, "Pas de bol !"); }
-            buttons.item(2).onclick = () => { bicky(false, "Pas de bol !"); }
-            buttons.item(3).onclick = () => { bicky(true, "Tip top toi !"); }
+			buttons.item(0).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(1).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(3).addEventListener("click", () => { bicky(true, "Tip top toi !"); });
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -106,16 +122,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			addTextIntoDiv(listP);
 
-			document.getElementById("button-next-question").onclick = () => {
-				document.location.href = "question.html?page=activité";
-			}
+			document.getElementById("button-next-question").addEventListener("click", () => {
+				lastPage = page;
+				load("activité");
+			}, {once: true});
 
 			break;
 
 		case "activité" :
 			document.getElementById("h2-question").innerText = "1h de vélo à 15 km/h permet d’éliminer :";
 
-			buttons = document.getElementsByClassName("button-question");
+			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
 				buttons.item(i).style.minWidth = "40%";
 			}
@@ -125,10 +142,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			buttons.item(2).innerText = "100g grammes de fraises tagada\n(~360 calories)";
 			buttons.item(3).innerText = "Une bière bien fraîche 6%\n(~ 50 calories)";
 
-            buttons.item(0).onclick = () => { bicky(true, "Bravo !"); }
-            buttons.item(1).onclick = () => { bicky(false, "La prochaine sera la bonne !"); }
-            buttons.item(2).onclick = () => { bicky(false, "La prochaine sera la bonne !"); }
-            buttons.item(3).onclick = () => { bicky(false, "La prochaine sera la bonne !"); }
+			buttons.item(0).addEventListener("click", () => { bicky(true, "Bravo !"); });
+			buttons.item(1).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
+			buttons.item(3).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -148,9 +165,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			addTextIntoDiv(listP);
 
-			document.getElementById("button-next-question").onclick = () => {
-				document.location.href = "question.html?page=VAE";
-			}
+			document.getElementById("button-next-question").addEventListener("click", () => {
+				lastPage = page;
+				load("VAE");
+			}, {once: true});
 
 			break;
 
@@ -158,7 +176,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			document.getElementById("h2-question").innerText = "Quel est le montant maximal du bonus à l’achat " +
 				"d’un VAE (Vélo à assistance électrique) versé par l’Etat en 2020 ? ";
 
-			buttons = document.getElementsByClassName("button-question");
+			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
 				buttons.item(i).style.minWidth = "24%";
 			}
@@ -168,10 +186,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			buttons.item(2).innerText = "150 euros ";
 			buttons.item(3).innerText = "200 euros ";
 
-            buttons.item(0).onclick = () => { bicky(false, "À quelques euros près..."); }
-            buttons.item(1).onclick = () => { bicky(false, "À quelques euros près..."); }
-            buttons.item(2).onclick = () => { bicky(false, "À quelques euros près..."); }
-            buttons.item(3).onclick = () => { bicky(true, "Yes, t'es un bon toi !"); }
+			buttons.item(0).addEventListener("click", () => { bicky(false, "À quelques euros près..."); });
+			buttons.item(1).addEventListener("click", () => { bicky(false, "À quelques euros près..."); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "À quelques euros près..."); });
+			buttons.item(3).addEventListener("click", () => { bicky(true, "Yes, t'es un bon toi !"); });
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -202,9 +220,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			let buttonSuivant = document.getElementById("button-next-question");
 			buttonSuivant.innerText = "C'est la fin, good job !";
 
-			buttonSuivant.onclick = () => {
+			buttonSuivant.addEventListener("click", () => {
 				document.location.href = "app.html";
-			}
+			}, {once: true});
 
 			break;
 
@@ -243,12 +261,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		container.style.bottom = "0";
 
-		document.getElementById("background-resultat").onclick = () => {
+		document.getElementById("background-resultat").addEventListener("click", () => {
 			background.style.background = "rgba(0, 0, 0, 0)";
 			background.style.zIndex = "-2";
 
 			container.style.bottom = "-100%";
-		}
+		});
 
 		if (reponse) {
 			document.getElementById("img-bicky").src = "img/bicky_bon.svg";
@@ -259,8 +277,4 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.getElementById("bicky-reponse").innerText = msg;
 	}
 
-	document.getElementById("button-return-question").onclick = () => {
-		document.location.href = "app.html";
-	};
-
-});
+}
