@@ -4,9 +4,7 @@
  * Specific constants definition
  */
 
-codeType = getCodeType();
-
-map = getMapDepartement(codeDep);
+map = getMapDepartement(router.data.department);
 
 persoBox = document.querySelector('#character');
 
@@ -25,15 +23,12 @@ persoBox = document.querySelector('#character');
 		{ baseText: null });
 	deps.data = [deps.get(map.properties.code)];
 	categorie = getCategorie(router.data.personnage);
-	// baseNarrator.setText(categorie.phraseDep);
 	narrator.setText(categorie.phraseDep);
 	narrator.properties.baseText = categorie.phraseDep;
 	narrator.load();
-	// setNarrationBox();
 	generateDep(mapFusion, narrator);
 	loadCharacter();
 	perso = document.getElementById('character_image');
-	// baseNarrator.start();
 	narrator.start();
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,500);
 	/**
@@ -42,7 +37,6 @@ persoBox = document.querySelector('#character');
 	window.addEventListener("resize", function() {
 		perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
 		narrator.load();
-		// setNarrationBox();
 		generateDep(mapFusion, narrator);
 	});
 })();

@@ -13,24 +13,7 @@ function getCategorie(type) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getLegende(id) {
-	for(let l of legendes) {
-		if(l.id === id) return l;
-	}
-}
-
-function getCodeDepartement(){
-	return router.data.department;
-}
-
-function getCodeType(){
-	return router.data.personnage;
-}
-
-/**
- * Function that extract the type id from the URL.
- */
-function getCodeLegende(){
-	return router.data.legende;
+	if(legendes !== null) return legendes.find(legende => legende.id === id);
 }
 
 /**

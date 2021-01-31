@@ -131,11 +131,13 @@ function generateDep(mapData, narrator){
 	//Definition of the SVG dimensions
 	var width = window.innerWidth;
 	var height = window.innerHeight;
+	console.log(width);
+	console.log(height);
 
 	//Creation of the SVG element
 	var svg = d3.select("#department")
-		.append('svg')
 		.html('')
+		.append('svg')
 		.attr("width", width)
 		.attr("height", height);
 
@@ -156,7 +158,6 @@ function generateDep(mapData, narrator){
 			seaBorder = [seaBorder[0][0], center[1]];
 			break;
 	}
-	console.log(center);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
