@@ -1,7 +1,7 @@
 
 export function slide(onStart, onContinue, slides) {
 
-    velosSlide([]);
+    velosSlide();
 
     let start = true;
     let i = 0;
@@ -55,18 +55,28 @@ export function slide(onStart, onContinue, slides) {
 
 }
 
+function velosSlide() {
 
-function velosSlide(prevs) {
-    console.log(prevs)
+    _velosSlide([
+        "src=\"img/simple.svg\" alt=\"Vélo classique\"",
+        "src=\"img/elec.svg\" alt=\"Vélo électrique\"",
+        "src=\"img/bicloo.svg\" alt=\"Le bicloo\""
+    ], 0);
+}
+
+function _velosSlide(velos, i) {
+    const time =  Math.floor(Math.random()*5000);
     setTimeout(function () {
-        const rand = Math.floor(Math.random()*9);
-        if (!(rand in prevs)){
-            document.getElementsByClassName("background_velo")[rand]
-                .setAttribute("class", "background_velo move" + Math.round(Math.random()));
-        }
-        prevs.push(rand)
-        if (prevs.length >= 3) prevs.shift();
+        const rand = Math.round(Math.random()*2);
 
-        velosSlide(prevs);
-    }, Math.floor(Math.random()*5000));
+        const background_velos = document.getElementById("background_velos");
+        background_velos.insertAdjacentHTML('beforeend',
+            "<img id='background_velo"+ i +"' class=\"background_velo move"+ Math.round(Math.random()) +"\" " + velos[rand] + "/>"
+        );
+        const thisI = i;
+        setTimeout(function () {
+            background_velos.firstChild.remove();
+        }, 10000);
+        _velosSlide(velos, ++i);
+    }, time);
 }
