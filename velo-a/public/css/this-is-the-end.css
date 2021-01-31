@@ -152,3 +152,15 @@ button {
 	width: 100px;
 	border-radius: 33px;
 }
+
+#reinit {
+	left: unset;
+	right: 2%;
+	width: auto;
+	background-image: none;
+	color: #F76D48;
+}
+
+#reinit:hover {
+	color: white;
+}
