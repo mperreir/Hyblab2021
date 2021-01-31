@@ -18,6 +18,11 @@ registerSlide("question-transports-velo", function () {
     button( '#ic-non-transport', 'non');
 });
 
+registerSlide("question-garer-velo", function () {
+    button( '#ic-consigne-velo', 'consigne');
+    button( '#ic-sauvage-velo', 'sauvage');
+});
+
 let button = function (idbutton, choice) {
     d3.select(idbutton).on('click', function () {
         overrideAnim({
