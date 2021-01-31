@@ -45,7 +45,7 @@ class ThemeSelector extends React.Component {
                         <div class="col">
                             <input type="radio" name="theme" id="famille" class="input-hidden" onClick={() => { this.props.updateSelect(5) }}/>
                             <label htmlFor="famille">
-                                <img src={famille_img} alt="familley" class="img_bas"/>
+                                <img src={famille_img} alt="famille" class="img_bas"/>
                             </label>
                         </div>
                     </div>

@@ -27,10 +27,10 @@ class Theme extends  React.Component {
                     <div className="d-flex btn btnNavigationAttributPurple fa fa-arrow-left" onClick={onPreviousPage}/>
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <ThemeSelector onNextPage={onNextPage} updateSelect={this.handleChange}/>
-                        <span>fast food - bars - boîtes ....</span>
+                        <span>Qu'est-ce-qui vous intéresserait aujourd'hui ?</span>
                         <input type='button' class="btn btnValidatePurpleBackground mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.themeId}/>
                     </div>
-                    <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}}  disabled={!this.state.themeId}/>
+                    <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}} disabled={!this.state.themeId}/>
                 </div>
             </div>
         );
