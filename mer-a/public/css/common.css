@@ -90,8 +90,8 @@
   100% { transform: rotate(360deg); }
 }
 
-#audio_control {
-  position: fixed;
+div#audio_control {
+  position: absolute;
   top: 1vh;
   right: 1vh;
   z-index: 1001;
@@ -104,6 +104,10 @@ div#change {
 	top: calc(3.5vh + 20px);
   right: 1vh;
   margin: 0;
+}
+
+.inactive {
+  cursor: pointer;
 }
 
 div#go-back {

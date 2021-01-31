@@ -2,24 +2,33 @@ class SoundManager {
 
   constructor() {
     this.sound = document.querySelector('#vagues_sound');
-    this.sound.volume = 0.3;
+    this.sound.volume = 0.2;
     this.sound.loop = true;
     this.audio = document.querySelector('#audio_control');
-    this.audio.addEventListener('click', this.stopSound);
-    this.label = ' le son';
+    this.audio.addEventListener('click', () => {
+      this.gererSound();
+    });
   }
 
-  stopSound() {
-    this.sound.pause();
-    this.audio.classList = ['inactive'];
-    this.audio.innerHTML = `Activer${this.label}`;
-    this.audio.addEventListener('click', this.playsound);
+  startSound() {
+    this.audio.style.display = 'block';
+    if(router.soundStop === false) {
+      const sound = document.querySelector('#vagues_sound');
+      const audio = document.querySelector('#audio_control');
+      sound.play();
+      audio.classList = ['active'];
+      audio.innerHTML = 'Couper le son';
+    }
   }
 
-  playSound() {
-    this.sound.play();
-    this.audio.classList = ['active'];
-    this.audio.innerHTML = `Couper${this.label}`;
-    this.audio.addEventListener('click', this.stopSound);
+  gererSound() {
+    router.soundStop = !router.soundStop;
+    router.saveSound();
+    const sound = document.querySelector('#vagues_sound');
+    const audio = document.querySelector('#audio_control');
+
+    (router.soundStop) ? sound.pause() : sound.play();
+    audio.classList = (router.soundStop) ? ['inactive'] : ['active'];
+    audio.innerHTML = (router.soundStop) ? 'Activer le son' : 'Couper le son';
   }
 }

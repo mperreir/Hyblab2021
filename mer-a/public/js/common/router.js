@@ -2,9 +2,10 @@
 
 class Router {
 
-  constructor(fileAriane, loader) {
+  constructor(fileAriane, loader, soundManager) {
     this.fileAriane = fileAriane;
     this.loader = loader;
+    this.soundManager = soundManager;
 
     this.scene1 = {
       id: 1,
@@ -26,6 +27,7 @@ class Router {
 
     this.data = {}
     this.stop = false;
+    this.soundStop = true;
 
     $(this.scene1.elmt).load(`/mer-a/html/fond/parallax1.html`, () => {
       this.loadParralax(1);
@@ -44,7 +46,18 @@ class Router {
       if(path === 'accueil' || fond !== undefined && this.fondActuel !== fond) loader.hide();
       this.deleteCharacter();
       this.changeFond(idFond);
-      $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
+      $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow', () => {
+        if(path === 'departements') {
+          this.soundManager.startSound();
+        }
+        this.fileAriane.updateAriane(
+          path,
+          (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
+          (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
+          'Légende'
+        );
+      });
+
     });
     this.data = data;
     if(path !== 'accueil') {
@@ -52,26 +65,35 @@ class Router {
       document.querySelector('.fil_ariane').style.display = "flex";
       document.querySelector('#go-back').style.display = "none";
     }
-    this.fileAriane.updateAriane(
-      path,
-      (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
-      (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
-      'Légende'
-    );
   }
 
   saveData(path, data, idFond) {
-    localStorage.setItem('path', path);
-    localStorage.setItem('data', JSON.stringify(data));
-    localStorage.setItem('idFond', idFond);
+    if(path !== undefined) {
+      localStorage.setItem('path', path);
+    }
+    if(data !== undefined) {
+      localStorage.setItem('data', JSON.stringify(data));
+    }
+    if(idFond !== undefined) {
+      localStorage.setItem('idFond', idFond);
+    }
+  }
+
+  saveSound() {
+    localStorage.setItem('soundStop', this.soundStop);
   }
 
   hasData() {
-    return (localStorage.getItem('path') !== null && localStorage.getItem('data') !== null && localStorage.getItem('idFond') !== null) ? true : false;
+    return (localStorage.getItem('path') !== null && localStorage.getItem('data') !== null && localStorage.getItem('idFond') !== null && localStorage.getItem('soundStop')) ? true : false;
   }
 
   loadData() {
-    if(this.hasData()) this.loadRessources(localStorage.getItem('path'), JSON.parse(localStorage.getItem('data')), localStorage.getItem('idFond'));
+    if(this.hasData()){
+      this.loadRessources(localStorage.getItem('path'), JSON.parse(localStorage.getItem('data')), parseInt(localStorage.getItem('idFond'), 10));
+      this.soundStop = (localStorage.getItem('soundStop') === 'true');
+      this.soundManager.startSound();
+
+    }
   }
 
   loadParralax(id) {
