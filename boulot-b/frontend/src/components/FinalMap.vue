@@ -80,7 +80,7 @@ async function getDatas(choices) {
     const pharmacie = choices.lieux.pharmacie;
     console.log('Requête get');
     console.log(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
-    const res = await http.get(`/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
+    const res = await http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
     .catch((e) => console.log("error", e));
     console.log('res')
     console.log(res)
@@ -185,10 +185,12 @@ async function addMarkers(map, origin, destination, stops) {
 async function createIcon(imageName) {
     console.log('Requête image')
     console.log('/boulot-b/getUrlImage/' + imageName)
-    const reqUrlImage = await http.get(`/getUrlImage/${imageName}`);
+    const reqUrlImage = await http.get(`/boulot-b/getUrlImage/${imageName}`);
     const image = document.createElement('img');
     //console.log(reqUrlImage.data.urlImage);
-    image.src = reqUrlImage.data.urlImage;
+    image.src = origin + `/boulot-b/images/${imageName}`;
+    console.log('image.src');
+    console.log(image.src);
     image.width = 20;
     image.height = 20;
     return new H.map.DomIcon(image);
