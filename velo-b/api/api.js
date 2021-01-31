@@ -116,7 +116,12 @@ module.exports = () => {
         }
         // for each key get the value and map it to add bicloo_near
         Object.keys(liste_arrets).forEach(k => {
-            liste_arrets[k].map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
+            liste_arrets[k].map(ar => {
+                ar.bicloo_near = IsBiclooNear(ar, liste_bicloo);
+                ar.location = ar.stop_coordinates;
+                delete ar.stop_coordinates;
+                return ar;
+            });
         })
         fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
         res.status(200).send('Done');
@@ -157,7 +162,7 @@ module.exports = () => {
         data.map(d => d.desc = generateDescription(d, fileName))
     }
     function generateDescription(data, fileName){
-        let desc = "néant";
+        let desc = "Pas de description";
         if(fileName === "abris-velo.json" && data.nom && data.adresse && data.descriptif && data.conditions)
             desc = data.nom+" - "+data.adresse+"\n"+data.descriptif+"\n"+data.conditions;
         if(fileName === "arrets-tan.json" && data.stop_name && data.bicloo_near)
