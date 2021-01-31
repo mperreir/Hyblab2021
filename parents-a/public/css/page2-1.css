@@ -1,36 +1,36 @@
-section[data-slidr="page-2_1"] {
+section[data-slidr="page-2-1"] {
     background: #6FB5EF;
     overflow: hidden;
 }
 
-#logo-p2_1 {
+#logo-p2-1 {
     position: absolute;
     width: 6%;
     bottom: 85%;
     right: 5%;
 }
 
-#dune-p2_1 {
+#dune3-p2-1 {
     position: absolute;
     width: 100%;
     bottom: 0%;
 }
 
-#pelouse_gauche-p2_1 {
+#pelouse-gauche-p2-1 {
     position: absolute;
     width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite-p2_1 {
+#pelouse-droite-p2-1 {
     position: absolute;
     width: 27.5%;
     bottom: 0%;
     right: 0%;
 }
 
-#gros_nuage-p2_1 {
+#gros-nuage-p2-1 {
     position: absolute;
     width: 30%;
     bottom: 56%;
@@ -40,11 +40,11 @@ section[data-slidr="page-2_1"] {
     transition-duration: 1000ms;
 }
 
-#gros_nuage-p2_1:hover{
+#gros-nuage-p2-1:hover{
     transform: translateX(30%);
 }
 
-#petit_nuage-p2_1 {
+#petit-nuage-p2-1 {
     position: absolute;
     width: 25%;
     top: 15%;
@@ -54,25 +54,25 @@ section[data-slidr="page-2_1"] {
     transition-duration: 1000ms;
 }
 
-#petit_nuage-p2_1:hover {
+#petit-nuage-p2-1:hover {
     transform: translateX(-30%);
 }
 
-#feuille-verte-p2_1 {
+#feuille-verte-p2-1 {
     position: absolute;
     width: 17%;
     bottom: 4%;
     right: 0%;
 }
 
-#feuille-bleue-p2_1 {
+#feuille-bleue-p2-1 {
     position: absolute;
     width: 8%;
     bottom: 12%;
     left: 3%;
 }
 
-#arbuste-rose-p2_1 {
+#arbuste-rouge-p2-1 {
     position: absolute;
     width: 18%;
     bottom: -4%;
@@ -82,7 +82,7 @@ section[data-slidr="page-2_1"] {
     transition-duration: 1000ms;
 }
 
-#arbuste-rose-p2_1:hover {
+#arbuste-rouge-p2-1:hover {
     transform: scale(0.9) translateY(10%);
 }
 
@@ -92,17 +92,17 @@ section[data-slidr="page-2_1"] {
     bottom: 17%;
 }
 
-#zero_ans-p2_1 {
+#texte-0-3-ans-p2-1 {
     left: 24%;
     width: 7%;
 }
 
-#quatre_ans-p2_1 {
+#texte-4-8-ans-p2-1 {
     left: 45%;
     width: 7%;
 }
 
-#neuf_ans-p2_1 {
+#texte-plus-9-ans-p2-1 {
     right: 25%;
     width: 8%;
 }
@@ -117,24 +117,24 @@ section[data-slidr="page-2_1"] {
     opacity: 1;
 }
 
-#trois_eleph-p2_1 {
+#trois-eleph-p2-1 {
     left: 20%;
     width: 17%;
 }
 
-#six_eleph-p2_1 {
+#six-eleph-p2-1 {
     left: 37%;
     bottom: 23%;
     width: 21%;
 }
 
-#neuf_eleph-p2_1 {
+#neuf-eleph-p2-1 {
     width: 28%;
     right: 15%;
     bottom: 23%;
 }
 
-#quelageastu-p2_1 {
+#quelageastu-p2-1 {
     position: absolute;
     width: 20%;
     top: 25%;
