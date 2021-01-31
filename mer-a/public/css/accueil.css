@@ -25,6 +25,7 @@ div#accueil p {
   font-family: 'Poppins', sans-serif;
 }
 
-img.bg {
+#scene1 {
   filter: brightness(50%);
+  transition: filter 0.5s;
 }

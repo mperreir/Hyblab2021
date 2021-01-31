@@ -17,7 +17,7 @@ function selectLegende(idLegende){
 		department: router.data.department,
 		personnage: router.data.personnage,
 		legende: idLegende
-	}, 1);
+	}, (router.data.personnage === 2) ? 2 : 1);
 }
 
 /**
