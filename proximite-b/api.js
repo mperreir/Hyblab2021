@@ -3,9 +3,9 @@
 const {performance} = require('perf_hooks');
 const fetch = require('node-fetch');
 
-let HttpProxyAgent = require( 'http-proxy-agent' );
+let HttpsProxyAgent = require( 'https-proxy-agent' );
 let options = {
-    agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+    agent: new HttpsProxyAgent( 'https://cache.ha.univ-nantes.fr:3128' ),
 };
 
 const config = {
