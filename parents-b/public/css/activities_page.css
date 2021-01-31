@@ -44,13 +44,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    width: 2.2em;
-    height: 0.7em;
+    width: 3em;
+    height: 0.8em;
     z-index: 1;
 }
 
 .crapa-picto{
-    top: 25%;
+    top: 23%;
 }
 
 .games-picto{
@@ -58,15 +58,15 @@
 }
 
 .sport-field-picto{
-    top: 49%;
+    top: 51%;
 }
 
 .activities-picto{
-    top: 61%;
+    top: 65%;
 }
 
 .statue-picto{
-    top: 73%;
+    top: 79%;
 }
 /* Switch buttons */
 .switch {
@@ -90,17 +90,47 @@
     background-color: #685A82;
     -webkit-transition: .4s;
     transition: .4s;
-    border: .05em solid #ffe9de;
+    border: .07em solid #ffe9de;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: .6em;
-    width: .6em;
+    height: .66em;
+    width: .66em;
     background-size: 100%;
     -webkit-transition: .4s;
     transition: .4s;
+}
+
+.picto-activities-hover{
+    display: inline-flex;
+    position: absolute;
+    width: 4.5em;
+    height: 4.5em;
+    float: left;
+    margin-right: 0;
+    margin-left: 0.5em;
+    opacity: 0;
+    color: #FFCDB6;
+    font-size: 0.15em;
+    align-items: center;
+    text-align: center;
+}
+
+.picto-activities:hover span.slider:before{
+    opacity: 0.3;
+}
+
+.picto-activities:hover .picto-activities-hover{
+    opacity: 1;
+}
+
+input[type=checkbox]:checked ~ * .picto-activities-hover{
+    right: 0;
+    margin-left: 0;
+    margin-right: 0.5em;
+    color: #45396D;
 }
 
 .crapa-picto input[type=checkbox]:checked + span.slider:before{
@@ -148,9 +178,9 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(250%);
-    -ms-transform: translateX(250%);
-    transform: translateX(250%);
+    -webkit-transform: translateX(333%);
+    -ms-transform: translateX(333%);
+    transform: translateX(333%);
 }
 
 /* Rounded sliders */
