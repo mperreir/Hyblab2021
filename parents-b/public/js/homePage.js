@@ -14,7 +14,7 @@ let initHome = function(){
     let buttonVol = document.getElementById("volumeDebut");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeDebut').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);

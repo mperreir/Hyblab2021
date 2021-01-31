@@ -3,7 +3,7 @@ let initActivities = function(){
     // -------------- AUDIO -----------
     muteAll();
 
-    let buttonVol = document.getElementById("volumeActivite");
+    let buttonVol = document.getElementById("volumeActivities");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
     if(isSonOn){
@@ -13,7 +13,7 @@ let initActivities = function(){
     else{
         buttonVol.setAttribute("src", "./img/common/volume_off.svg");
     }
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeActivities').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);

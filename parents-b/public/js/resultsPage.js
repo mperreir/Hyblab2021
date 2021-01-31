@@ -13,7 +13,7 @@ let initResults = function(){
     else{
         buttonVol.setAttribute("src", "./img/common/volume_off.svg");
     }
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeResult2').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);

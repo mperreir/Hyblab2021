@@ -12,7 +12,7 @@ let initAddress = function(){
     else{
         x.setAttribute("src", "./img/common/volume_off.svg");
     }
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeAdresse').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
