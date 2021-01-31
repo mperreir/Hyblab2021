@@ -13,7 +13,6 @@ async function getAddress(input) {
 			return tmp;
 		})
 		.catch(e => {
-			console.error(e);
 		});
 }
 

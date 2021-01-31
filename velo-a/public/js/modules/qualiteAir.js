@@ -7,6 +7,5 @@ export async function getAirQuality() {
 			return data.records[0].fields.lib_qual;
 		})
 		.catch(err => {
-			console.error(err);
 		});
 }

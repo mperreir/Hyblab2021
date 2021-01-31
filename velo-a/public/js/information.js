@@ -13,13 +13,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 
 	if (localStorage.getItem("butTrajet")) {
-		console.log("but" +localStorage.getItem("butTrajet"))
 		setTimeout(() => {
 			document.getElementById(localStorage.getItem("butTrajet"))
 				.dispatchEvent(new MouseEvent("click"));
 
 			if (localStorage.getItem("velo")) {
-				console.log("velo" + localStorage.getItem("velo"))
 				setTimeout(() => {
 
 					document.getElementById(localStorage.getItem("velo"))
@@ -55,7 +53,6 @@ window.addEventListener('DOMContentLoaded', () => {
 				document.getElementById("validerTrajet").dispatchEvent(new Event('dblclick'));
 			})
 			.catch(err => {
-				console.error(err);
 			});
 	});
 

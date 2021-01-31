@@ -11,8 +11,6 @@ const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
 		return response.json();
 	})
 	.catch((error) => {
-		console.error("Error:", error);
-		return undefined;
 	});
 
 let data;
