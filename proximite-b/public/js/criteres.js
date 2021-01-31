@@ -31,6 +31,8 @@ function criteres_submitInterest() {
 
         go_to('timeline', {'interests': interest, 'disinterests': disinterest});
     } else {
-        console.log("Veuillez chosir au moin trois point d'intéret")
+        $('#modal').modal('show');
+        $('#modal').find('.modal-title').text("Pas assez de points d'intérets");
+        $('#modal').find('.modal-body').text("Veuillez selectionner aux moins trois points d'interets");
     }
 }
