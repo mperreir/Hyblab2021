@@ -125,7 +125,7 @@ section[data-slidr="page-3"] {
 #gros-nuage-p3 {
     position: absolute;
     width: 30%;
-    top: -2%;
+    top: 13%;
     right: 62%;
     transform: translateX(0%);
     transition-property: transform;

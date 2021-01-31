@@ -16,15 +16,15 @@ section[data-sildr='page-4'] {
 #texte-gauche-p4 {
     position: absolute;
     width: 15%;
-    bottom: 25%;
-    right: 56%;
+    bottom: 24%;
+    right: 54%;
 }
 
 #texte-droite-p4{
     position: absolute;
-    width: 15%;
+    width: 17%;
     bottom: 25%;
-    right: 33%;
+    right: 29%;
 }
 
 #bouton-gauche-p4 {
@@ -50,23 +50,23 @@ section[data-sildr='page-4'] {
 
 #fleurs-p4 {
     position: absolute;
-    width: 15%;
-    bottom: 5%;
+    width: 10%;
+    bottom: 9%;
     left: 12%;
 }
 
 #feuille-verte-p4 {
     position: absolute;
-    width: 28%;
-    bottom: 0%;
+    width: 20%;
+    bottom: 11%;
     left: 0%;
 }
 
 #petit-nuage-p4 {
     position: absolute;
-    width: 30%;
-    top: 0%;
-    right: 70%;
+    width: 20%;
+    top: 16%;
+    right: 76%;
 }
 
 #dune3-p4 {
@@ -77,7 +77,7 @@ section[data-sildr='page-4'] {
 
 #pelouse-gauche-p4 {
     position: absolute;
-    width: 30%;
+    width: 35.7%;
     bottom: 0%;
     left: 0%;
 }
@@ -92,13 +92,13 @@ section[data-sildr='page-4'] {
 #arbuste-rouge-p4 {
     position: absolute;
     width: 25%;
-    bottom: -3%;
-    right: 0%;
+    bottom: 9%;
+    right: 1%;
 }
 
 #arbuste-bleu-petales-p4 {
     position: absolute;
-    width: 18%;
-    bottom: 2%;
+    width: 27%;
+    bottom: 0%;
     right: 11%;
 }

@@ -34,8 +34,8 @@ section[data-slidr="page-2"] {
 
 #petit-nuage-gauche-p2 {
     position: absolute;
-    top: 25%;
-    width: 15%;
+    bottom: 68%;
+    width: 14%;
     transform: translateX(0%);
     transition-property: transform;
     transition-duration: 1000ms;
@@ -47,9 +47,9 @@ section[data-slidr="page-2"] {
 
 #gros-nuage-p2 {
     position: absolute;
-    top: -5%;
+    top: 9%;
     width: 30%;
-    left: 15%;
+    left: 11%;
     transform: translateX(0%);
     transition-property: transform;
     transition-duration: 1000ms;
