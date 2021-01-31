@@ -41,17 +41,13 @@ function getMapDepartement(code){
 
 /**
  * =============================
- * 
  *           HANDLERS
- * 
  * =============================
  */
 
 /**
  * ====================================
- * 
  *           PAGE CHOIX DEP
- * 
  * ====================================
  */
 
@@ -91,9 +87,7 @@ function leave(codeDep,t){
 
 /**
  * ======================================
- * 
  *           PAGE CHOIX LEGENDE
- * 
  * ======================================
  */
 
@@ -125,17 +119,13 @@ function leaveDot(t){
 
 /**
  * ======================================
- * 
  *           CHARGEMENT MAPS
- * 
  * ======================================
  */
 
 /**
  * ======================================
- * 
  *           PAGE CHOIX LEGENDE
- * 
  * ======================================
  */
 
@@ -162,7 +152,7 @@ function generateDep(mapData){
 	var projection = d3.geoMercator()
 		.center(center)
 		.scale(width*16)
-		.translate([ width /2, height/2 ])
+		.translate([ width /2, height/2 ]);
 
 	var path = d3.geoPath().projection(projection);
 
@@ -228,9 +218,7 @@ function generateDep(mapData){
 
 /**
  * ====================================
- * 
  *           PAGE CHOIX DEP
- * 
  * ====================================
  */
 
