@@ -6,7 +6,7 @@
 
 <script lang="js">
 import Vue from "vue";
-import axios from 'axios'
+import {http} from "@/config"
 
 export default Vue.component("finalMap", {
   name: "finalMap",
@@ -80,7 +80,8 @@ async function getDatas(choices) {
     const pharmacie = choices.lieux.pharmacie;
     console.log('Requête get');
     console.log(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
-    const res = await axios.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
+    const res = await http.get(`/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
+    .catch((e) => console.log("error", e));
     console.log('res')
     console.log(res)
     return res;
@@ -184,7 +185,7 @@ async function addMarkers(map, origin, destination, stops) {
 async function createIcon(imageName) {
     console.log('Requête image')
     console.log('/boulot-b/getUrlImage/' + imageName)
-    const reqUrlImage = await axios.get(`/boulot-b/getUrlImage/${imageName}`);
+    const reqUrlImage = await http.get(`/getUrlImage/${imageName}`);
     const image = document.createElement('img');
     //console.log(reqUrlImage.data.urlImage);
     image.src = reqUrlImage.data.urlImage;

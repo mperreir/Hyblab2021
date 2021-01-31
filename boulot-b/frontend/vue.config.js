@@ -1,3 +1,6 @@
 module.exports = {
-    publicPath: "/boulot-b"
+    publicPath: "/boulot-b",
+    devServer: {
+        port: 8000
+    }
 }

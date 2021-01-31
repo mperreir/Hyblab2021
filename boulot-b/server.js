@@ -5,21 +5,22 @@
 let getAll = require('./api.js');
 const getUrlImage = require('./urlImage.js');
 // Load usefull expressjs and nodejs objects / modules
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
+const cors = require("cors")
 
-var app = express();
+const app = express();
 
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
+app.use(cors())
 
 // You can then add whatever routing code you need
 
 app.use(express.static('public'));
 
 app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
-
 
 app.get('/getUrlImage/:imageName', (req, res) => getUrlImage(req, res));
 app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
