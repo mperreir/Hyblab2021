@@ -8,6 +8,6 @@ class Loader {
   }
 
   show() {
-    this.load.fadeInt('slow');
+    this.load.fadeIn('slow');
   }
 }

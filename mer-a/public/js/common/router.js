@@ -35,13 +35,15 @@ class Router {
     });
   }
 
-  loadRessources(path, data, change) {
+  loadRessources(path, data, idFond) {
+    const fond = this.fonds.find(fond => fond.id === idFond);
+    if(fond !== undefined && this.fondActuel !== fond) this.loader.show();
     this.stopAnim();
 
     $('#content').fadeOut('slow', () => {
-      if(path === 'accueil') loader.hide();
+      if(path === 'accueil' || fond !== undefined && this.fondActuel !== fond) loader.hide();
       this.deleteCharacter();
-      this.changeFond(change);
+      this.changeFond(idFond);
       $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
     });
 

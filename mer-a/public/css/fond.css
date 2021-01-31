@@ -108,7 +108,7 @@ div#change {
 		filter: brightness(1);
 	}
 	50% {
-		filter: brightness(1.5);
+		filter: brightness(2);
 	}
 	100% {
 		filter: brightness(1);
