@@ -32,7 +32,7 @@ function criteres_submitInterest() {
         go_to('timeline', {'interests': interest, 'disinterests': disinterest});
     } else {
         $('#modal').modal('show');
-        $('#modal').find('.modal-title').text("Pas assez de points d'intérets");
-        $('#modal').find('.modal-body').text("Veuillez selectionner aux moins trois points d'interets");
+        $('#modal').find('.modal-title').text("Pas assez de points d'intérêts");
+        $('#modal').find('.modal-body').text("Veuillez sélectionner au moins trois points d'intérêts");
     }
 }
