@@ -31,11 +31,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 	else
 		textInstructions += "- Un bonnet; des gants; une écharpe. \n";
 
-
 	const pluie = weather && weather.some(e => e.description.includes("pluie"));
+	const alerteGrave = alerts && alerts.some(e => e.event.includes("Severe"));
 
 	if (pluie)
 		textInstructions += "- Un vêtement de pluie. \n";
+
+	if (alerteGrave)
+		textInstructions += "Météo France signale que des phénomènes dangereux d'intensité exceptionnelle sont en cours, ne prends le vélo que pour motif impérieux.\n ";
 
 	if (Date.now() / 1000 < sunrise)
 		textInstructions += "Il semblerait que tu partes de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
@@ -78,7 +81,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	textTraffic += `- Distance du trajet : ${(distanceTrajet / 1000).toFixed(2)}km \n` +
 		`- Durée du trajet : ${Math.round(dureeTrajet / 60)} minutes \n` +
-		`- En partant maintenant vous arriverez à ${heureArrive.toLocaleTimeString("fr-FR")}`;
+		`- En partant maintenant, tu arriveras à ${heureArrive.toLocaleTimeString("fr-FR")}`;
 
 	document.getElementById("traffic").innerText = textTraffic;
 
@@ -120,7 +123,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 		messageFin = "C’est un temps idéal pour faire du vélo !"
 	} else if (pluie) { // Si pluie
 		messageFin = "Même s’il fait gris, prends ton vélo pour garder la pêche !"
-	} else if (temperature <= 3 || alerts.length > 0) { // Si verglas
+	} else if (temperature <= 3 || alerteGrave) { // Si verglas
 		messageFin = "Fais bien attention et ne prend pas de risque inconsidéré !"
 	} else if (temperature <= 13) { // Si froid
 		messageFin = "Un peu de vélo pour rester chaud !"
