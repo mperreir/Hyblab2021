@@ -114,7 +114,7 @@ function leaveDot(t){
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
-	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
+	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
 }
 
 /**
@@ -242,7 +242,7 @@ function leaveDot(t){
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
-	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
+	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
 }
 
 /**
