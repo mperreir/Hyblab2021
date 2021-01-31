@@ -130,7 +130,7 @@ function loadBaseTextNarration(narrator) {
 
 	narrator.setText(narrator.properties.baseText);
 	narrator.load();
-	narrator.start();
+	narrator.html.text.innerHTML = narrator.animation.text;
 }
 
 /**
