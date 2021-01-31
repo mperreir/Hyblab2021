@@ -42,13 +42,13 @@
       "ok": "choix-transport-transports"
     },
     "question-voiture-transport": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     },
     "question-velo-autres-transports": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     },
     "question-bicloo-autres-transports": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-velo": {
@@ -65,10 +65,10 @@
       "ok": "choix-transport-velo"
     },
     "question-transports-velo": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     },
     "question-voiture-velo": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-bicloo": {
@@ -85,10 +85,10 @@
       "ok": "choix-transport-bicloo"
     },
     "question-transports-bicloo": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     },
     "question-voiture-bicloo": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-voiture": {
@@ -161,12 +161,23 @@
   },
   "info-abonnements-consignes": {
     "next": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     }
   },
   "page-arrivee": {
     "next": {
-      "continuer": "page-finale"
+      "continuer": "page-arrivee-stats"
+    }
+  },
+  "page-arrivee-stats": {
+    "next": {
+      "rejouer": "page-accueil",
+      "credit": "page-credit"
+    }
+  },
+  "page-credit": {
+    "next": {
+      "retour": "page-arrivee-stats"
     }
   }
 }

@@ -51,6 +51,19 @@ registerSlide("page-arrivee", function () {
     button( '#page-arrivee-continue', 'continuer');
 });
 
+registerSlide("page-arrivee-stats", function () {
+    button( '#ic-rejouer-finale', 'rejouer');
+    button( '#ic-credit-finale', 'credit');
+    progressBar('#pb-ecol',75);
+    progressBar('#pb-vit',0);
+    progressBar('#pb-econ',50);
+    progressBar('#pb-pol',50);
+});
+
+registerSlide("page-credit", function () {
+    retourbutton('#ic-credit-retour');
+});
+
 let button = function (idbutton, choice) {
     d3.select(idbutton).on('click', function () {
         overrideAnim({
