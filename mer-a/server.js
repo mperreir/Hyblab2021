@@ -1,9 +1,16 @@
 // Use strict mode
 'use strict';
 
-// Load usefull expressjs and nodejs objects / modules
-var express = require('express');
-var path = require('path');
+/**
+ * This file contains the server handling.
+ */
+
+/**
+ * Imports/Constants definition
+ */
+const express = require('express');
+const path = require('path');
+
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -12,46 +19,75 @@ const config = require('./server/config.js');
 console.log(config);
 
 // Load useful classes
-var Legende = require('./server/classes/Legende.js');
+const Legende = require('./server/classes/Legende.js');
 
+/**
+ * Variables definition
+ */
 // Create the application object
-var app = express();
+let app = express();
 
-
-// open database
 let db = null;
+
+/**
+ * Function that decode the strings of of an object with decodeURI().
+ * @param {object} obj object to decode.
+ */
+function decodeURIObject(obj) {
+  for(let attr in obj)
+    if(typeof(obj[attr])==='string')
+      obj[attr] = decodeURI(obj[attr]);
+  return obj;
+}
+
+
+/**
+ * Function called on load to open the link with the database.
+ */
 (async () => {
   db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 })();
 
-// Retrieve all the department in the database
+/**
+ * Route API/all/regions that returns all the content of the table Departement.
+ */
 app.get(`${config.API_URL}all/regions`, async (req, res) => {
+  // Query SQL
   let sql = 'SELECT * FROM DEPARTEMENT;'
   const rows = await db.all(sql, []);
+  // Process data
   rows.forEach((row) => {
-    row.nomDepartement = decodeURI(row.nomDepartement);
+    // Decode
+    decodeURIObject(row);
   });
   console.log(rows);
+  // Send data
   res.status(200).json(rows);
 });
 
-// Retrieve all the types of story in the database
+/**
+ * Route API/all/types that returns all the content of the table Categorie.
+ */
 app.get(`${config.API_URL}all/types`, async (req, res) => {
+  // Query SQL
   let sql = 'SELECT * FROM CATEGORIE;'
   const rows = await db.all(sql, []);
+  // Process data
   rows.forEach((row) => {
-    row.nomCategorie = decodeURI(row.nomCategorie);
-    row.nomPersonnage = decodeURI(row.nomPersonnage);
-    row.phraseCat = decodeURI(row.phraseCat);
-    row.imageURI = decodeURI(row.imageURI);
+    // Decode
+    decodeURIObject(row);
   });
   console.log(rows);
+  // Send data
   res.status(200).json(rows);
 });
 
-
-// Route to get get one legend by id
+/**
+ * Route API/legende/:id that returns the legend with the corresponding ID.
+ * @param {number} id the id of the legend requested.
+ */
 app.get(`${config.API_URL}legende/:id`, async (req, res) => {
+    // Query SQL
     var sql = `SELECT Legende.id as idLegende, Departement.id as idDepartement, Categorie.id as idCategorie, Legende.nom as nom, departementId, categorieId,
     resume, histoire, latitude, longitude, adresse, baignade, toilettes, restaurant,
     photo, nomDepartement, nomCategorie, imageURI
@@ -59,19 +95,20 @@ app.get(`${config.API_URL}legende/:id`, async (req, res) => {
     INNER JOIN Categorie ON Categorie.id = categorieId WHERE Legende.id = ?; `;
 
     const row = await db.get(sql, [req.params.id]);
-    row.nom = decodeURI(row.nom);
-    row.resume = decodeURI(row.resume);
-    row.histoire = decodeURI(row.histoire);
-    row.adresse = decodeURI(row.adresse);
-    row.photo = decodeURI(row.photo);
-    row.nomDepartement = decodeURI(row.nomDepartement);
-    row.nomCategorie = decodeURI(row.nomCategorie);
-    row.imageURI = decodeURI(row.imageURI);
+
+    // Process data
+    // Decode
+    decodeURIObject(row);
     console.log(row);
+    //Send data
     res.status(200).json(row);
 });
 
-// Add route to get the legends
+/**
+ * Route API/:region_id/:type_id that returns all the legends in the region of region_id and with the type of type_id.
+ * @param {number} region       the id of the region requested.
+ * @param {number} typeHistoire the id of the type requested.
+ */
 app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     // Declaration of the variables
     var legendes = [];
@@ -87,64 +124,30 @@ app.get(`${config.API_URL}:region/:typeHistoire`, async (req, res) => {
     const rows = await db.all(sql, [req.params.region, req.params.typeHistoire]);
     // Process the query result
     rows.forEach((row) => {
-      console.log(row);
-        var legende = new Legende(
-            row.id,
-            decodeURI(row.nom), 
-            decodeURI(row.nomDepartement), //A modifier
-            decodeURI(row.nomCategorie),   //A modifier
-            decodeURI(row.resume), 
-            decodeURI(row.histoire), 
-            row.latitude, 
-            row.longitude, 
-            decodeURI(row.adresse),
-            (row.baignade === 1 ? true : false), 
-            (row.toilettes === 1 ? true : false), 
-            (row.restaurant === 1 ? true : false), 
-            decodeURI(row.photo));
-        legendes.push(legende);
+      // Decode
+      decodeURIObject(row);
+      // Cast to Legende
+      var legende = new Legende(
+          row.id,
+          row.nom, 
+          row.nomDepartement,
+          row.nomCategorie,
+          row.resume, 
+          row.histoire, 
+          row.latitude, 
+          row.longitude, 
+          row.adresse,
+          (row.baignade === 1 ? true : false), 
+          (row.toilettes === 1 ? true : false), 
+          (row.restaurant === 1 ? true : false), 
+          row.photo);
+      legendes.push(legende);
     });
     // Show and send processed query result
     console.log(legendes);
     res.status(200);
     res.json({data:legendes});
 });
-
-
-// Route to reach the departements page
-app.get(`/departements`, async (req, res) => {
-    res.status(200).sendFile(`public/html/departements.html`, { root : config.ROOT });
-});
-
-// Route to reach the personnages page
-app.get(`/personnages/:idDep`, async (req, res) => {
-    res.status(200).sendFile(`public/html/personnages.html`, { root : config.ROOT });
-});
-
-// Route to reach the departement page
-app.get(`/departement/:idDep/:idPerso`, async (req, res) => {
-    res.status(200).sendFile(`public/html/departement.html`, { root : config.ROOT });
-});
-
-// Route to reach the legende page
-app.get(`/legende/:idDep`, async (req, res) => {
-    res.status(200).sendFile(`public/html/legende.html`, { root : config.ROOT });
-    /*await fs.readFile(`${config.ROOT}public/html/legende.html`, (err, data) => {
-      if(err) {
-        console.error(err);
-        res.status(500).send('Invalid file path.');
-      }
-      else res.status(200).send(data.toString());
-    });*/
-});
-
-// Close the database connection
-/*db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Close the database connection.');
-});*/
 
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));

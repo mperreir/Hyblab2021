@@ -1,19 +1,6 @@
-
-/* Normalisation des marges et padding pour simplifier le positionnement des éléments */
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background-color: black;
-    overflow: hidden; /* pour slidr dans certains navigateurs */
-    height: 100vh;
-    width: 100vw;
-}
-
 #container {
+    width: 100%;
+    height: 100%;
     position: relative; /* pour permettre le positionnement en absolu des autres éléments */
 }
 
@@ -26,135 +13,9 @@ body {
 /* Illumination des deux 1ers cercles et du 1er trait */
 /* (le placement des éléments est décrit dans 'fil-ariane.css') */
 
-#cercle_outer1 {
+#cercle_outer1, #cercle_inner1, #cercle_outer2, #cercle_inner2, #trait1 {
     opacity: 1;
 }
-
-#cercle_inner1 {
-    opacity: 1;
-}
-
-#cercle_outer2 {
-    opacity: 1;
-}
-
-#cercle_inner2 {
-    opacity: 1;
-}
-
-#trait1 {
-    opacity: 1;
-}
-
-
-/*-------------------------------------------------------*/
-/*                     DECOR DE FOND                     */
-/*-------------------------------------------------------*/
-
-
-.decor {
-    position: relative;
-    z-index: 0;
-}
-
-
-/* Affichage des 3 plans */
-
-.plan {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-}
-
-.plan#plan1{
-    z-index: 11;
-}
-
-.plan#plan2 {
-    z-index:10;
-}
-
-.plan#plan3 {
-    z-index: 9;
-}
-
-.plan#plan4 {
-    z-index: 1;
-}
-
-
-/* Affichage des 7 vagues */
-
-.wave {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    margin-top: 4vh;
-}
-
-.wave#wave1 {
-    animation: waveDown 1.7s ease-in-out infinite;
-    z-index: 8;
-}
-
-.wave#wave2 {
-    animation: waveUp 2s ease-in-out infinite;
-    z-index: 7;
-}
-
-.wave#wave3 {
-    animation: waveDown 2.5s ease-in-out infinite;
-    z-index: 6;
-}
-
-.wave#wave4 {
-    animation: waveUp 3s ease-in-out infinite;
-    z-index: 5;
-}
-
-.wave#wave5 {
-    animation: waveDown 3.5s ease-in-out infinite;
-    z-index: 4;
-}
-
-.wave#wave6 {
-    animation: waveUp 4s ease-in-out infinite;
-    z-index: 3;
-}
-
-
-/* Animation des vagues */
-
-@keyframes waveUp {
-
-    /* position basse */
-    0%, 100% {
-      top: -4vh;
-      scale: 1.0;
-    }
-
-    /* position haute */
-    50% {
-      top: 0;
-      scale: 1.05;
-    }
-}
-
-@keyframes waveDown {
-
-    /* position haute */
-    0%, 100% {
-      top: 0;
-      scale: 1.05;
-    }
-
-    /* position basse */
-    50% {
-      top: -4vh;
-      scale: 1.0;
-    }
-}
-
 
 /*-------------------------------------------------------*/
 /*                      PERSONNAGES                      */
@@ -164,10 +25,12 @@ body {
 .choix-personnages {
     position: absolute;
     width: 50vw;
-    margin: 24vh 25vw 0;
+    margin: 23vh 25vw 0;
     z-index: 1;
+    background-color: orange;
 }
-/*<div class="perso" id="histoires-maritimes"></div>*/
+
+
 /* Affichage des personnages */
 
 .personnages {
@@ -178,6 +41,7 @@ body {
 }
 
 .perso {
+    position: absolute;
     height: 55vh;
     width: 16vw;
     transition: 0.2s ease-in-out;
@@ -185,15 +49,17 @@ body {
 
 .perso#creatures-fantastiques {
     margin-top: 8vh;
-    margin-right: -5vw;
-    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
-    /* clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%); */
+    margin-left: -6vw;
+    background: url("/mer-a/assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
+    clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
     background-size: contain;
 }
 
 .perso#histoires-maritimes {
-    background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
-    /* clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%); */
+    margin-left: -4vw;
+    margin-right: -4vw;
+    background: url("/mer-a/assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
+    clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
     background-size: contain;
 }
 
@@ -201,45 +67,44 @@ body {
     height: 45vh;
     width: 10vw;
     margin-top: 16vh;
-    margin-left: -4vw;
-    background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
-    /* clip-path: polygon(37% 0, 73% 0, 78% 14%, 100% 26%, 94% 100%, 13% 100%, 17% 55%, 0 51%, 13% 26%, 30% 17%); */
-    border-collapse: collapse;
+    background: url("/mer-a/assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
+    clip-path: polygon(31% 13%, 34% 0, 78% 0, 100% 28%, 100% 100%, 10% 100%, 13% 56%, 0 52%, 0 35%, 12% 19%);
     background-size: contain;
 }
 
 .zone-creatures-fantastiques {
-    /* créatures placées au-dessus du histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    /* placé au-dessus de histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 2;
 }
 
 .zone-histoires-maritimes {
-    /* histoires-maritimes placé au-dessus du prêtre, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    /* placé au-dessus de croyances-religion, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 1;
 }
 
 .zone-croyances-religion {
-    /* créatures placées au-dessus du histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
+    /* placé au-dessus de histoires-maritimes, pour éviter les incohérences dues à la forme rectangulaire des personnages */
     z-index: 2;
 }
 
 
- /* Gestion des effets sur les personnages */
+/* Gestion des effets sur les personnages */
 
 .perso:hover {
-    transform: scale(1.1); /* zoom */
+    transform: scale(1.1); /* zoom lors du survol */
+    cursor: pointer;
 }
 
 .perso#creatures-fantastiques:hover {
-    background-image: url("../assets/img/personnage/image_Créatures_Fantastiques_hover.png");
+    background-image: url("/mer-a/assets/img/personnage/image_Créatures_Fantastiques_hover.png");
 }
 
 .perso#histoires-maritimes:hover {
-    background-image: url("../assets/img/personnage/image_Histoires_Maritimes_hover.png");
+    background-image: url("/mer-a/assets/img/personnage/image_Histoires_Maritimes_hover.png");
 }
 
 .perso#croyances-religion:hover {
-    background-image: url("../assets/img/personnage/image_Croyances_Religion_hover.png");
+    background-image: url("/mer-a/assets/img/personnage/image_Croyances_Religion_hover.png");
 }
 
 
@@ -254,17 +119,12 @@ body {
 
     /* aspect du texte */
     text-align: center;
-    font-size: 1.4vw;
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: #7D7FBC;
 
     /* aspect de l'arrière-plan */
-    margin: -8vh -8vw;
-    padding: 2%;
     background-color: white;
     border-radius: 25px;
-    border: solid;
-    border-width: 1px;
 }
 
 
@@ -272,23 +132,26 @@ body {
 
 .categorie {
     position: relative;
-    width: 24vw;
+    width: 20vw;
+    margin: -8vh -6vw -10vh;
+    font-size: 1.2vw;
+    padding: 2%;
     opacity: 0;
 }
 
 .cat-creatures-fantastiques {
-    top: -2vh;
-    right: 6vw;
+    top: -4vh;
+    right: 8vw;
 }
 
 .cat-histoires-maritimes {
     top: -14vh;
-    left: 4vw;
+    left: 1vw;
 }
 
 .cat-croyances-religion {
-    top: 4vh;
-    left: 7vw;
+    top: 2vh;
+    left: 9vw;
 }
 
 
@@ -313,11 +176,12 @@ body {
 /* Affichage de l'indication */
 
 .indication {
-    position: relative;
-    width: 28vw;
-    margin: 5vh auto 0;
+    position: absolute;
+    width: 26vw;
+    margin-top: 80vh;
+    margin-left: 36vw;
+    font-size: 1.2vw;
+    padding: 1%;
+    text-transform: uppercase;
+    font-weight: bold;
 }
-
-/* histoires-maritimes :
-clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
-*/

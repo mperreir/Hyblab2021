@@ -1,37 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>M&eacute;dia  Sea</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/parallax.css">
-    <link rel="stylesheet" href="css/fond_1.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <script src="js/index.js" defer></script>
-  </head>
-  <body>
-    <div id="scene" data-friction-x="0.2" data-friction-y="0.2" >
-      <div><img src="assets/img/BG.png" alt=""></div>
-      <div data-depth="0.05"><img src="assets/img/decor1/PLAN_4.png" class="bg" id="plan4" alt=""></div>
-      <div data-depth="0.13"><img src="assets/img/decor1/VAGUE_6.png" class="bg" id="vague6" alt=""></div>
-      <div data-depth="0.1"><img src="assets/img/decor1/VAGUE_5.png" class="bg" id="vague5" alt=""></div>
-      <div data-depth="0.12"><img src="assets/img/decor1/VAGUE_4.png" class="bg" id="vague4" alt=""></div>
-      <div data-depth="0.09"><img src="assets/img/decor1/VAGUE_3.png" class="bg" id="vague3" alt=""></div>
-      <div data-depth="0.13"><img src="assets/img/decor1/VAGUE_2.png" class="bg" id="vague2" alt=""></div>
-      <div data-depth="0.11"><img src="assets/img/decor1/VAGUE_1.png" class="bg" id="vague1" alt=""></div>
-      <div data-depth="0.2"><img src="assets/img/decor1/PLAN_3.png" class="bg" id="plan3" alt=""></div>
-      <div data-depth-y="0.25" data-depth-x="0.225"><img src="assets/img/decor1/PLAN_2.png" class="bg" id="plan2" alt=""></div>
-      <div data-depth-y="0.3" data-depth-x="0.25"><img src="assets/img/decor1/PLAN_1.png" class="bg" id="plan1" alt=""></div>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title>M&eacute;dia & Sea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <div id="content">
-      <h4>M&Eacute;DIA & SEA PR&Eacute;SENTE</h4>
-      <img src="assets/img/logo/logo.png" alt="logo" id="logo">
-      <p>Les plus belles plages de Bretagne &agrave; d&eacute;couvrir &agrave; travers les l&eacute;gendes c&ocirc;ti&egrave;res les plus connues de France. Embarquez dans un voyage interactif &agrave; travers leurs histoires et trouvez votre destination. </p>
-      <div id="button"><a href="departements">D&Eacute;COUVRIR</a></div>
+  <link rel="icon" href="assets/img/logo/favicon.ico"/>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fond.css">
+  <link href="/mer-a/css/fil_ariane.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+  <script src="/mer-a/js/common/config.js" defer></script>
+  <script src="/mer-a/js/common/router.js" defer></script>
+  <script src="/mer-a/js/common/filAriane.js" defer></script>
+  <script src="/mer-a/js/common/utils.js" defer></script>
+  <script src="/mer-a/js/common/apiConnection.js" defer></script>
+  <script src="/mer-a/js/common/loadings.js" defer></script>
+  <script src="/mer-a/js/common/loader.js" defer></script>
+  <script src="/mer-a/js/common/loadMaps.js" defer></script>
+  <script src="/mer-a/js/common/soundManager.js" defer></script>
+  <script src="/mer-a/js/common/narration.js" defer></script>
+  <script src="/mer-a/js/common/personnages.js" defer></script>
+
+  <script src="/mer-a/js/classes/Legende.js"></script>
+  <script src="/mer-a/js/script.js" defer></script>
+</head>
+<body>
+  <div id="loading"><div class="loader"></div></div>
+  <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="fond-mer"></div>
+
+  <div id="content" class="center"></div>
+  <audio id="vagues_sound" >
+    <source src="/mer-a/assets/sound/vagues.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="fil_ariane">
+      <div class="cercle_outer" id="cercle_outer1">
+        <div class="cercle_inner" id="cercle_inner1"></div>
+      </div>
+      <div class="trait" id="trait1"></div>
+      <div class="cercle_outer" id="cercle_outer2">
+        <div class="cercle_inner" id="cercle_inner2"></div>
+      </div>
+      <div class="trait" id="trait2"></div>
+      <div class="cercle_outer" id="cercle_outer3">
+        <div class="cercle_inner" id="cercle_inner3"></div>
+      </div>
+      <div class="trait" id="trait3"></div>
+      <div class="cercle_outer" id="cercle_outer4">
+        <div class="cercle_inner" id="cercle_inner4"></div>
+      </div>
     </div>
+    <button id="audio_control" class="active">Couper le son</button>
+    <div class="button" id="change">Change</div>
   </body>
-</html>
+  </html>

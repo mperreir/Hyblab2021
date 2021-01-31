@@ -3,11 +3,14 @@
 
 
 .fil_ariane {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 2vh;
+  padding-left: 2vh;
+  left: 4vh;
+  top: 1vh;
+  z-index: 50;
 }
 
 
@@ -15,13 +18,13 @@
 
   /* placement du trait */
   position: relative;
-  left: -10px;
+  left: 0vh;
+  margin: 0px 1vh;
   display: inline-block;
   align-items: center;
-  z-index: 10;
 
   /* apparence du trait */
-  width: 100px;
+  width: 10vw;
   border-top: white solid 2px;
   opacity: 0.4;
 }
@@ -30,33 +33,58 @@
 .cercle_outer {
 
   /* placement du cercle extérieur */
-  display: inline-block;
+  display:flex;
+  justify-content: center;
   align-items: center;
-  z-index: 10;
 
   /* apparence du cercle extérieur */
-  width: 40px;
-  height: 40px;
+  width: 4vh;
+  height: 4vh;
   border-radius: 50%;
   border: white solid 2px;
   background-color: #1fe0;
   opacity: 0.4;
 }
 
+.active{
+  background-color: white;
+  opacity: 1;
+}
+
+.active:hover{
+  cursor: pointer;
+}
 
 .cercle_inner {
 
   /* placement du cercle intérieur */
   position: relative;
-  left: -32px;
   display: inline-block;
   align-items: center;
-  z-index: 10;
 
   /* apparence du cercle intérieur */
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  width: 2vh;
+  height: 2vh;
+  border-radius: 50%;
   background-color: white;
   opacity: 0.4;
+}
+
+.text{
+  color: white;
+  position: relative;
+  top: 5vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5vh;
+  min-width: 8vw;
+  text-align: center;
+}
+
+a,
+a:link,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
 }

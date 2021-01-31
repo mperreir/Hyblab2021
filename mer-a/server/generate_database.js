@@ -1,5 +1,10 @@
+/**
+ * The file used to generate the database from the CSV.
+ */
 
-// Load usefull expressjs and nodejs objects / modules
+/**
+ * Imports/Constants definition
+ */
 const sqlite3 = require('sqlite3').verbose();
 const { open } = require('sqlite');
 
@@ -7,48 +12,78 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 const config = require('./config.js');
+const CONFIG = require('./config.js');
 
 const verbose = true;
 
+/**
+ * Variables definition
+ */
 let db = null;
+//var countIdDep = 1;
+var countIdCat = 1;
+var countIdLeg = 1;
+var depList = [];
+var catList = [];
+var personnages = { data: [{cat: 'Créatures Fantastiques',
+                            //nom: 'Armelle',
+                            phrasePerso: 'Les créatures et leurs contes fantastiques',
+                            phraseDep: 'Bonjour à vous cher voyageur, cliquez sur l’un des points pour découvrir la légende qui y est associée.'},
+                          {cat: 'Croyances Religion',
+                            //nom: 'Saint-Paul',
+                            phrasePerso: 'Le moine et ses légendes religieuses',
+                            phraseDep: 'Chaque lieu renferme une légende, clique sur l’un des points pour faire ton choix mon enfant.'},
+                          {cat: 'Histoires Maritimes',
+                            //nom: 'Gwenaël',
+                            phrasePerso: 'Le marin et ses histoires maritimes',
+                            phraseDep: 'Place ton curseur sur un des points pour découvrir sa légende matelot !'}],
+getPerso: (cat) => {
+  for(perso of personnages.data) {
+    if(perso.cat === cat) return perso;
+  }
+}};
 
+/**
+ * The main function in ASYNC.
+ */
 (async () => {
   // open database
   db = await open({filename: config.ROOT + config.DB_PATH, driver: sqlite3.Database});
 
-  // Query to create the table Departement
+  // SQL query to create the Departement table
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
     nomDepartement VARCHAR(50) NOT NULL
   );`;
 
-  // Query to create the table Categorie
+  // SQL query to create the Categorie table
   var sqlCategorie = `CREATE TABLE IF NOT EXISTS Categorie (
-      id INT PRIMARY KEY,
-      nomCategorie VARCHAR(30) NOT NULL,
-      nomPersonnage VARCHAR(50) NOT NULL,
-      phraseCat VARCHAR(250) NOT NULL,
-      imageURI VARCHAR(10)
+    id INT PRIMARY KEY,
+    nomCategorie VARCHAR(30) NOT NULL,
+    phrasePerso VARCHAR(250) NOT NULL,
+    phraseDep VARCHAR(250) NOT NULL,
+    imageURI VARCHAR(10)
   );`;
+  // nomPersonnage VARCHAR(50) NOT NULL,
 
-  // Query to create the table Legende
+  // SQL query to create the Legende table
   var sqlLegende = `CREATE TABLE IF NOT EXISTS Legende (
-              id INT PRIMARY KEY,
-              nom VARCHAR(150) NOT NULL,
-              departementId INT NOT NULL,
-              categorieId INT NOT NULL,
-              resume VARCHAR(250) NOT NULL,
-              histoire VARCHAR(1000) NOT NULL,
-              latitude DOUBLE NOT NULL,
-              longitude DOUBLE NOT NULL,
-              adresse VARCHAR(200) NOT NULL,
-              baignade BIT NOT NULL DEFAULT 0,
-              toilettes BIT NOT NULL DEFAULT 0,
-              restaurant BIT NOT NULL DEFAULT 0,
-              photo VARCHAR(500),
-              FOREIGN KEY (departementId) REFERENCES Departement(id),
-              FOREIGN KEY (categorieId) REFERENCES Categorie(id)
-          );`;
+    id INT PRIMARY KEY,
+    nom VARCHAR(150) NOT NULL,
+    departementId INT NOT NULL,
+    categorieId INT NOT NULL,
+    resume VARCHAR(250) NOT NULL,
+    histoire VARCHAR(1000) NOT NULL,
+    latitude DOUBLE NOT NULL,
+    longitude DOUBLE NOT NULL,
+    adresse VARCHAR(200) NOT NULL,
+    baignade BIT NOT NULL DEFAULT 0,
+    toilettes BIT NOT NULL DEFAULT 0,
+    restaurant BIT NOT NULL DEFAULT 0,
+    photo VARCHAR(500),
+    FOREIGN KEY (departementId) REFERENCES Departement(id),
+    FOREIGN KEY (categorieId) REFERENCES Categorie(id)
+  );`;
 
   // If necessary
   // db.run('DROP TABLE IF EXISTS Departement;');
@@ -64,20 +99,6 @@ let db = null;
   db.run("DELETE FROM Departement;");
   db.run("DELETE FROM Categorie;");
   db.run("DELETE FROM Legende;");
-
-
-  var countIdCat = 1;
-  var countIdLeg = 1;
-  var depList = [];
-  var catList = [];
-  var personnages = { data: [{cat: 'Créatures Fantastiques', nom: 'La fée Armelle', phrase: 'et ses contes fantastiques'},
-  {cat: 'Croyances Religion', nom: 'Le moine Saint-Paul', phrase: 'et ses légendes religieuses'},
-  {cat: 'Histoires Maritimes', nom: 'Le marin Gwenaël', phrase: 'et ses histoires maritimes'}],
-  getPerso: (cat) => {
-    for(perso of personnages.data) {
-      if(perso.cat === cat) return perso;
-    }
-  }};
 
   // Fill the DB with the CSV content
   fs.createReadStream(config.ROOT + 'server/data.csv')
@@ -98,9 +119,10 @@ let db = null;
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
-          '${encodeURI(catPerso.nom)}',
-          '${encodeURI(catPerso.phrase)}',
-          'assets/img/personnage/image_${row.categorie.replace(" ", "_")}.png');\n`);
+          '${encodeURI(catPerso.phrasePerso)}',
+          '${encodeURI(catPerso.phraseDep)}',
+          '${encodeURI('assets/img/personnage/' + row.categorie.replace(' ', '_') + '.png')}');\n`);
+        // '${encodeURI(catPerso.nom)}',
         catList.push(row.categorie);
         countIdCat++;
       }
