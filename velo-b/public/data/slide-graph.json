@@ -40,6 +40,9 @@
   "info-choix-transports": {
     "next": {
       "ok": "choix-transport-transports"
+    },
+    "question-voiture-transport": {
+      "ok": "page-finale"
     }
   },
   "choix-transport-velo": {
@@ -128,7 +131,7 @@
   },
   "question-voiture-transport": {
     "next": {
-      "oui": "choix-transport-transports",
+      "oui": "info-choix-transports",
       "non": "question-voiture-parking"
     }
   },
