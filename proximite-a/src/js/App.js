@@ -14,6 +14,7 @@ class App extends  React.Component {
         themeId:0,
         moyenId:0,
         coords:[47.215878,-1.55051],
+        perimetre: [],
         adresse: {
             rue: '',
             codepostal: '',
@@ -69,8 +70,6 @@ class App extends  React.Component {
     };
 
 
-
-
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
         this.setState({pageId:newPageId })
@@ -94,8 +93,22 @@ class App extends  React.Component {
 
     updateMoyen=(e)=>{
         this.setState({moyenId:e})
-        this.createSites()
+        this.generatePerimetre();
     };
+
+    generatePerimetre = () => {
+        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+            .then(perimetre=> perimetre.json())
+            .then(perimetre => {
+                console.log(perimetre)
+                this.setState({perimetre:perimetre});
+                console.log(this.state.perimetre)
+                this.createSites()
+            })
+    };
+
+
 
     //changer url
     //changer url
@@ -105,10 +118,7 @@ class App extends  React.Component {
         let theme = equivalent.themeEquiv.get(this.state.themeId)
         console.log("appel de " + 'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme);
         let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
-        console.log(lieux)
-        console.log(lieux.length)
-        console.log(lieux.lieux.length)
-        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/`);
+
         let site1 = {
             id: '1',
             titre: '',
@@ -194,7 +204,6 @@ class App extends  React.Component {
         if (typeof lieux.surprise !== "undefined") {
             let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
             let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
-            console.log(adresseSurp)
             let nameSurp = ""
             if (lieux.surprise.tags.name) {
                 nameSurp = lieux.surprise.tags.name
@@ -211,12 +220,10 @@ class App extends  React.Component {
 
         this.setState({
             sites: [site1, site2, site3],
-            surprise: lieuSurprise
+            surprise: lieuSurprise,
+            pageId: 4
         });
-        console.log("nouveaux sites")
-        console.log([site1, site2, site3])
-        console.log(lieuSurprise)
-        this.setState({ pageId: 4 })
+
     }
 
     render() {
