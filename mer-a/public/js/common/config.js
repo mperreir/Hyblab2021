@@ -66,9 +66,6 @@ let mapFusion = null;
  * Constants definition
  */
 
-const narrationFontSize = window.innerHeight*0.023;
-const padding = window.innerHeight*0.008;
-
 const circlesSize = 14;
 const circlesSizeHovered = 20;
 

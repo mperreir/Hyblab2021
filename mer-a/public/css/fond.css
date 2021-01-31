@@ -29,6 +29,26 @@ div#change {
   right: 1vh;
   margin: 0;
 }
+/*==============
+	= Personnage =
+	==============*/
+#personnage-s1 {
+	margin-top: 5%;
+	margin-left: 20%;
+	height: 70%;
+	width: auto;
+}
+
+#personnage-s2 {
+	margin-top: 7.5%;
+	margin-left: 17.5%;
+	height: 70%;
+	width: auto;
+}
+
+#fond-mer, #scene1, #scene2 {
+	transition: display 0.5s;
+}
 
 #fond-mer {
   position: absolute;
@@ -83,7 +103,7 @@ div#change {
 		filter: brightness(1);
 	}
 	50% {
-		filter: brightness(1.5);
+		filter: brightness(2);
 	}
 	100% {
 		filter: brightness(1);

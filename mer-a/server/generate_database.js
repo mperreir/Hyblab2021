@@ -25,6 +25,11 @@ var countIdCat = 1;
 var countIdLeg = 1;
 var depList = [];
 var catList = [];
+var depFrontiereMer = [
+                    { dep: 'Finistère', mer: 'left' },
+                    { dep: 'Morbihan', mer: 'bottom' },
+                    { dep: 'Côte d’Armor & Ille-et-Villaine', mer: 'top'},
+                    ]
 var personnages = { data: [{cat: 'Créatures Fantastiques',
                             //nom: 'Armelle',
                             phrasePerso: 'Les créatures et leurs contes fantastiques',
@@ -53,7 +58,8 @@ getPerso: (cat) => {
   // SQL query to create the Departement table
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
-    nomDepartement VARCHAR(50) NOT NULL
+    nomDepartement VARCHAR(50) NOT NULL,
+    frontiereMer VARCHAR(6) NOT NULL
   );`;
 
   // SQL query to create the Categorie table
@@ -109,7 +115,8 @@ getPerso: (cat) => {
         // Insertion into Departement
         db.run(`INSERT INTO Departement VALUES (            
           ${row.numero_dep}, 
-          '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
+          '${(encodeURI(row.departement)).replace(/'/g, "`")}',
+          '${depFrontiereMer.find((obj) => obj.dep === row.departement).mer}');\n`);
         depList.push(row.departement);
       }
       
