@@ -27,6 +27,7 @@
     <script src="js/histoirePage.js" defer></script>
     <script src="js/audio.js" defer></script>
     <script src="js/more_infos.js" defer></script>
+    <script src="js/chargement.js" defer></script>
 
     <!-- For address page -->
     <script id="google_maps"></script>
@@ -40,14 +41,18 @@
         integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
 </head>
-<body class="background-black">
+<body class="background-white">
 <!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
 <div id="container">
     <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
     <main id="slidr">
 
-        <section data-slidr="home-page">
-            
+        <section id="chargementI" data-slidr="chargement">
+          <img src="img/chargement.gif" alt="chargement" class="chargementC">
+        </section>
+
+        <section id="home" data-slidr="home-page" style="display:none">
+
             <audio id="debut_audio" loop autoplay><source src="son/Home_page.mp3" type="audio/mp3"></audio>
 
             <img class="page" src="img/home_page/background.svg" alt="Page d'accueil">
@@ -58,8 +63,7 @@
             <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
 
             <img class="logo-name" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
-
-            <img class="more-info" src="./img/common/more_info.svg" alt="Plus d'informations">
+            <button id="button-histoire" class="more-info font-s dark-purple background-beige"> Qui sommes-nous ?</button>
             <input type="image" id="volumeDebut" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
 
 
@@ -75,7 +79,7 @@
             <p class="oya-home-go dark-purple font-xs">Bonjour ! Je m’appelle Oya Je vais t’aider à trouver le parc idéal pour ta sortie !</p>
         </section>
 
-        <section data-slidr="histoire-page">
+        <section data-slidr="histoire-page" style="display:none">
             <img class="page" src="img/histoire/histoire_page.svg" alt="Page de renseignement sur Sequ'Oya">
 
             <input type="image" class="logo-name logoAccueil" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
@@ -106,7 +110,7 @@
             <button id="accueil" class="accueil font-s white background-beige">Vers la page d'accueil</button>
         </section>
 
-        <section data-slidr="address-page">
+        <section data-slidr="address-page" style="display:none">
 
             <input type="image" id="logoAccueil1"class="logo-name logoAccueil1" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeAdresse" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
@@ -148,7 +152,7 @@
             <button class="button-next-address-from-continue button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="hour-page">
+        <section data-slidr="hour-page" style="display:none">
 
             <input type="image" id="logoAccueil2" class="logo-name logoAccueil2" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeHour" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
@@ -190,7 +194,7 @@
             <button class="button-suivant-hour button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="age-page">
+        <section data-slidr="age-page" style="display:none">
             <input type="image" id="logoAccueil3" class="logo-name logoAccueil3" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeAge" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="age_audio" loop autoplay><source src="son/Age_page.mp3" type="audio/mp3"></audio>
@@ -235,7 +239,7 @@
             <button class="button-suivant-age button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="access-page">
+        <section data-slidr="access-page" style="display:none">
             <input type="image" id="logoAccueil4" class="logo-name logoAccueil4" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeAccess"  class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="access_audio" loop autoplay><source src="son/Acess_page.mp3" type="audio/mp3"></audio>
@@ -329,7 +333,8 @@
                 <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
             </section>
 
-        <section data-slidr="fauna-flora-page">
+
+        <section data-slidr="fauna-flora-page" style="display:none">
 
             <img class="planet-fauna-flora" src="img/fauna_flora_page/planete.gif" alt="Planete">
             <input type="image" id="logoAccueil5" class="logo-name logoAccueil5" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
@@ -401,7 +406,7 @@
             <button class="button-suivant-fauna-flora button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="activities-page">
+        <section data-slidr="activities-page" style="display:none">
             <input type="image" id="logoAccueil6" class="logo-name logoAccueil6" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeActivite" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="activite_audio" loop autoplay><source src="son/Activities_page.mp3" type="audio/mp3"></audio>
@@ -446,13 +451,13 @@
             <button id="searchData" class="button-suivant-activities button-suivant font-s dark-purple background-beige">SUIVANT</button>
         </section>
 
-        <section data-slidr="searching-results-page">
+        <section data-slidr="searching-results-page" style="display:none">
             <img class="page" src="img/searching_results_page/searching_results_page.svg" alt="Page d'animation de recherche des résultats">
             <img id="oya-searching-results" id="volumeResult1" src="img/searching_results_page/robot_searching_results.gif" alt="Robot qui recherche les résultats">
             <audio id="result1_audio" loop autoplay><source src="son/Result_page1.mp3" type="audio/mp3"></audio>
         </section>
 
-        <section data-slidr="results-page">
+        <section data-slidr="results-page" style="display:none">
 
             <input type="image" id="logoAccueil7" class="logo-name logoAccueil7" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image" id="volumeResult2" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
@@ -537,7 +542,7 @@
             <button class="button-suivant-results button-end font-s dark-purple background-beige">Voir les crédits</button>
         </section>
 
-        <section data-slidr="credits-page">
+        <section data-slidr="credits-page" style="display:none">
             <img class="page" src="img/credits_page/credits_page.svg" alt="Page des crédits">
             <input type="image" id="logoAccueil9" class="logo-name logoAccueil9" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
             <input type="image"  class="volume-on-credits volume" alt="Volume" src="./img/common/volume_on.svg">
@@ -591,7 +596,7 @@
                                         Thibaut Perrouin
                                     </p>
                                     <p class="role">
-                                        Developpeur Web
+                                        Développeur Web
                                     </p>
                                     <p class="etude">
                                         Étudiant en Ingénierie Informatique
@@ -613,10 +618,10 @@
                                         Soline Ponsard
                                     </p>
                                     <p class="role">
-                                        Développeur Web
+                                        Développeuse Web
                                     </p>
                                     <p class="etude">
-                                        Etudiante en ingénierie informatique
+                                        Étudiante en ingénierie informatique
                                     </p>
 
                                     <div class="réseaux">
@@ -638,12 +643,12 @@
                                         Designer graphique
                                     </p>
                                     <p class="etude">
-                                        Etudiant en direction artistique
+                                        Étudiant en direction artistique
                                     </p>
 
                                     <div class="réseaux">
                                         <a href="https://www.instagram.com/lucamaillet/?hl=fr" target="_blank"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
-                                        <a href="https://github.com/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a>
+                                        <!-- <a href="https://github.com/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a> -->
                                     </div>
                                 </div>
                             </div>
@@ -658,10 +663,10 @@
                                         Camille Barthez
                                     </p>
                                     <p class="role">
-                                        Développeur Web
+                                        Développeuse Web
                                     </p>
                                     <p class="etude">
-                                        Étudiant en Ingénierie Informatique
+                                        Étudiante en Ingénierie Informatique
                                     </p>
 
                                     <div class="réseaux">
@@ -705,7 +710,7 @@
                                         Designer graphique
                                     </p>
                                     <p class="etude">
-                                        Etudiante en direction artistique
+                                        Étudiante en direction artistique
                                     </p>
 
                                     <div class="réseaux">
@@ -749,7 +754,7 @@
                                         Chargée de communication
                                     </p>
                                     <p class="etude">
-                                        Etudiante en communication & médias
+                                        Étudiante en communication & médias
                                     </p>
 
                                     <div class="réseaux">
@@ -775,7 +780,7 @@
                                     </p>
 
                                     <div class="réseaux">
-                                        <a href="https://loicboursin.fr/" target="_blank"><img src="./img/photos/svg/loic.svg" alt="Log de Loic bousin" class="logo-presentation"></a>
+                                        <a href="https://loic.pro/7ReDGg" target="_blank"><img src="./img/photos/svg/loic.svg" alt="Log de Loic bousin" class="logo-presentation"></a>
                                     </div>
                                 </div>
                             </div>
@@ -793,7 +798,7 @@
                                         Designer graphique
                                     </p>
                                     <p class="etude">
-                                        Etudiant en direction artistique
+                                        Étudiant en direction artistique
                                     </p>
 
                                     <div class="réseaux">
@@ -838,7 +843,7 @@
                                         Développeur Web
                                     </p>
                                     <p class="etude">
-                                        Étudiant en  Ingénierie Informatique
+                                        Étudiant en Ingénierie Informatique
                                     </p>
 
                                     <div class="réseaux">
@@ -849,9 +854,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </section>
     </main>
