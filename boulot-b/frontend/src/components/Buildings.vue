@@ -78,6 +78,7 @@
         right: -17%;
     }
     #tower {
+      width: 10%;
         left: 15%;
         z-index: -1;
     }
