@@ -49,7 +49,8 @@ class Router {
     this.data = data;
     if(path !== 'accueil') {
       this.saveData(path, data, idFond);
-      document.querySelector('#go-back-div').style.display = "none";
+      document.querySelector('.fil_ariane').style.display = "flex";
+      document.querySelector('#go-back').style.display = "none";
     }
     this.fileAriane.updateAriane(
       path,

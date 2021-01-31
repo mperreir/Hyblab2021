@@ -2,7 +2,8 @@
 
 (() => {
   if(router.hasData()) {
-    document.querySelector('#go-back-div').style.display = "block";
+    document.querySelector('.fil_ariane').style.display = "none";
+    document.querySelector('#go-back').style.display = "block";
     document.querySelector('#go-back').addEventListener('click', () => {
       router.loadData();
     })
