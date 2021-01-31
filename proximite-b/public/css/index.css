@@ -7,6 +7,11 @@ div#index_content {
     background-size: cover;
 }
 
+#img_son{
+    width: 2vw;
+    height: auto;
+}
+
 div#body {
     display: table-cell;
     vertical-align: middle;
@@ -17,8 +22,17 @@ div#body {
 button#start_button {
     height: 2em;
     width: 11em;
-}
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+#element_sonore{
+    position: absolute;
+    bottom: 0.5em;
+    left: 2em;
+}
 img#index_logo {
     width: 10%;
     position: absolute;
@@ -27,6 +41,7 @@ img#index_logo {
 
 div#index_text {
     width: 24em;
+    position: relative;
 }
 
 .font-architect {
