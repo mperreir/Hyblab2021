@@ -9,7 +9,7 @@ const store = {
             style: undefined,
             lieux: [{resto: false}, {boulangerie: false}, {bar: false}, {salleDeSport: false}],
             humeur: undefined,
-            path: {depart: undefined, arrive: undefined}
+            path: {depart: undefined, arrivee: undefined}
         }
     },
     subscribe(state,callback) {
