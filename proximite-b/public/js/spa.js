@@ -115,7 +115,6 @@ const go_to = (page, data, callback) => {
                         if ($("#sortable2 li").length > 5)
                             $(ui.sender).sortable('cancel');
                     });
-
                 });
 
                 $(function () {
@@ -123,6 +122,36 @@ const go_to = (page, data, callback) => {
                         if ($("#sortable3 li").length > 3)
                             $(ui.sender).sortable('cancel');
                     });
+                });
+
+                $( "#sortable2" ).sortable({
+                    update: function( event, ui ) {
+                        var sort = document.getElementById('sortable2');
+                        for (let child of sort.children) {
+                            var number = child.firstChild;
+                            number.innerHTML =  $(child).index()+1 + ". ";
+                        }
+                    }
+                });
+
+                $( "#sortable3" ).sortable({
+                    update: function( event, ui ) {
+                        var sort = document.getElementById('sortable3');
+                        for (let child of sort.children) {
+                            var number = child.firstChild;
+                            number.innerHTML =  $(child).index()+1 + ". ";
+                        }
+                    }
+                });
+
+                $( "#sortable1" ).sortable({
+                    update: function( event, ui ) {
+                        var sort = document.getElementById('sortable1');
+                        for (let child of sort.children) {
+                            var number = child.firstChild;
+                            number.innerHTML = "";
+                        }
+                    }
                 });
             }
             else if (page === 'animation') {

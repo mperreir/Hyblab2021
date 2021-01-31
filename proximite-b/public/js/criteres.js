@@ -8,7 +8,6 @@ function criteres_background() {
 
     var sort = document.getElementById('sortable1');
     for (let child of sort.children) {
-        console.log(child.id);
         child.style.backgroundImage = "url(/proximite-b/img/criteres/icons/"+child.id+".svg)";
         child.style.backgroundRepeat = "no-repeat";
     }
