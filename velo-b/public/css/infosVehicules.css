@@ -6,6 +6,13 @@
     text-align: center;
 }
 
+.infoConsignes {
+    color: black;
+    font-family: lemon-juice;
+    font-size: 22%;
+    text-align: center;
+}
+
 .retour-label {
     font-family: lemon-juice;
     color: #F98E12;

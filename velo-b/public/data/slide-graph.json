@@ -110,7 +110,7 @@
   },
   "question-garer-velo": {
     "next": {
-      "consigne": "page-finale",
+      "consigne": "info-abonnements-consignes",
       "sauvage": "page-finale"
     }
   },
@@ -132,7 +132,7 @@
       "non": "question-voiture-parking"
     }
   },
-  "question-voiture-parking": {
+  "info-abonnements-consignes": {
     "next": {
       "gratuit": "page-finale",
       "payant": "page-finale"
