@@ -33,7 +33,7 @@ export async function getStationsVelos() {
 		const marker = {
 			type: "bicloo",
 			class: "marker",
-			url: "img/station.svg",
+			url: "img/markers/station.svg",
 			longitude: record.fields.geo_shape.coordinates[0],
 			latitude: record.fields.geo_shape.coordinates[1],
 			text: html

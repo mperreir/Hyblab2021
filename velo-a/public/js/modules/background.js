@@ -58,9 +58,9 @@ export function slide(onStart, onContinue, slides) {
 function velosSlide() {
 
     _velosSlide([
-        "src=\"img/simple.svg\" alt=\"Vélo classique\"",
-        "src=\"img/elec.svg\" alt=\"Vélo électrique\"",
-        "src=\"img/bicloo.svg\" alt=\"Le bicloo\""
+        "src=\"img/velos/simple.svg\" alt=\"Vélo classique\"",
+        "src=\"img/velos/elec.svg\" alt=\"Vélo électrique\"",
+        "src=\"img/velos/bicloo.svg\" alt=\"Le bicloo\""
     ], 0);
 }
 
@@ -84,8 +84,8 @@ function _velosSlide(velos, i) {
 function nuagesSlide() {
 
     _nuagesSlide([
-        'src="img/cloud1.svg" alt="Vélo classique"',
-        'src="img/cloud2.svg" alt="Vélo électrique"'
+        'src="img/background/cloud1.svg" alt="Vélo classique"',
+        'src="img/background/cloud2.svg" alt="Vélo électrique"'
     ], 0);
 }
 
