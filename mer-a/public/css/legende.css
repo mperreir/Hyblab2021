@@ -37,18 +37,44 @@ div#title h2 {
 	===========*/
 div#legende {
 	grid-area: legende;
+	max-height: 100%;
 }
 
 div#bubble {
 	display: block;
-
 	height: 100%;
+	max-height: 50vh;
 	width: 80%;
+	padding: 5%;
 	background: lightblue;
 	border-radius: 20px;
 	text-align: center;
+	font-size: 1.7vh;
 	text-overflow: ellipsis;
-	overflow: hidden;
+	overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #0e0e0e;
+border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
 }
 
 /*==========

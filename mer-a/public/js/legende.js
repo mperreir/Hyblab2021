@@ -6,6 +6,7 @@
 	await getLegendeById(document.querySelector('#content').dataset.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;
+		document.querySelector('#bubble').innerHTML = data.histoire;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
 		document.querySelector('#modal-content').style.backgroundSize = 'cover';
 		document.querySelector('#title-legende h2').innerHTML = data.nom;
