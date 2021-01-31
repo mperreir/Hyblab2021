@@ -52,7 +52,8 @@ const store = {
     clearChoice(choiceName) {
         console.log("clear de ",choiceName)
         this.state.choice[choiceName] = undefined
-    }
+    },
+    getChoices() { return this.state.choice; }
 }
 
 const Humeur = Object.freeze({
