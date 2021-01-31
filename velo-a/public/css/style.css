@@ -167,8 +167,11 @@ header .logo {
 }
 
 .bottom-right-nav-container {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: auto 35px auto;
+	grid-template-rows: repeat(3, auto);
+	align-items: center;
+	justify-content: center;
 }
 
 #btn-menu-nav {

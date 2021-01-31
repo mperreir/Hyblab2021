@@ -4,13 +4,13 @@
     padding-right: 20px;
 }
 
-#form-savoir {
+/*#form-savoir {
     display: grid;
     grid-template-columns: auto 35px auto;
     grid-template-rows: repeat(2, auto);
     align-items: center;
     justify-content: center;
-}
+}*/
 
 #bicky-savoir {
     grid-column: 1 / 2;
@@ -29,8 +29,14 @@
     grid-row: 2 / 3;
 }
 
+#btn-veli-fin {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+
 .bicky-savoir {
     visibility: hidden;
+	z-index: 1;
 }
 
 body {
@@ -52,6 +58,7 @@ input {
 	margin-top: 2%;
 	z-index: 1000;
 	min-height: 68px;
+}
 
 @media (orientation: portrait) {
 	.bottom-right-nav-container {
