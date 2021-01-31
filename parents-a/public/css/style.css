@@ -50,22 +50,6 @@ section {
     height: 100%;
 }
 
-
-/* ---- css  page 4 (q: votre enfant aime-t'il les fleurs) -------- */
-
-section[data-slidr="page-4"] {
-    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #69ABEB 22.53%, #5A91E0 37.19%, #4166CF 56.01%, #1F2BB6 78.06%, #171EB1 82.69%);
-    position: relative;
-}
-
-#logo-questionnaire {
-    position: absolute;
-    width: 6%;
-    bottom: 85%;
-    right: 5%;
-}
-
-
 /* Boutons */
 .button {
     position: absolute;

@@ -1,9 +1,7 @@
 /* TU VEUX T'EN METTRE PLEIN LA VUE ? - PAGE 4 */
-section[data-sildr='page-4'] {
+section[data-slidr="page-4"] {
     background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
-    height: 100%;
-    width: 100%;
-    text-align: center;
+    overflow: hidden;
 }
 
 #logo-p4 {
