@@ -44,7 +44,6 @@ class App extends  React.Component {
                 type:2,
             }],
             surprise: {
-                id: '3',
                 titre: 'Oooo di',
                 img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
                 adresse: 'AAAAAAAAAAAAAHH',
@@ -109,8 +108,9 @@ class App extends  React.Component {
         let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
         let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json()
         let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
-        let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json
+        let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
         console.log(lieux.lieux[0])
+        console.log(adresseSurp)
         let site1={id:'1',
             titre:lieux.lieux[0].name,
             img:'',
