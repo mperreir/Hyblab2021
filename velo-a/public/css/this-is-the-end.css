@@ -14,7 +14,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-image: url('../img/cloud.svg');
+	background-image: url('../img/cloud1.svg');
 	background-repeat: no-repeat;
 	background-size: contain;
 	min-width: 80%;
