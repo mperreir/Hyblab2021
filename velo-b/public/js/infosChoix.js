@@ -141,11 +141,9 @@ registerSlide("info-choix-transports", function () {
     });
 
     fetchJsonData("api/arrets-tan", (arrets) => {
-        console.log(arrets.filter(a => a.parent_station == undefined));
-        document.getElementById("commun-arrets").innerText = arrets.filter(a => a.parent_station == undefined).length;
+        document.getElementById("commun-arrets").innerText = arrets.length;
     });
     fetchJsonData("api/arrets-tan/" + zoneChoisie, (arrets) => {
-        console.log(arrets.filter(a => a.parent_station == undefined));
-        document.getElementById("commun-arrets-zone").innerText = arrets.filter(a => a.parent_station == undefined).length;
+        document.getElementById("commun-arrets-zone").innerText = arrets.length;
     });
 });
