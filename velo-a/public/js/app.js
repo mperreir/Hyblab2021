@@ -3,6 +3,7 @@
 import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/roadMonitoring.js";
+import { monumentsDisplayData } from "./modules/monuments.js";
 
 async function bootstrap() {
 
@@ -42,8 +43,6 @@ async function bootstrap() {
 
 		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
 		else if (localStorage.getItem("adresseArriveeCoord")) directions.setDestination(localStorage.getItem("adresseArriveeCoord").split(','));
-
-
 	});
 
 
@@ -79,12 +78,12 @@ async function bootstrap() {
 
 	let markers = {};
 
-	function points(data, url, type) {
+	function points(data) {
 
 		data.forEach((d) => {
 			const el = document.createElement("div");
-			el.className = "marker";
-			el.style.backgroundImage = `url(${url})`;
+			el.className = d.class;
+			el.style.backgroundImage = `url(${d.url})`;
 
 			let marker;
 			el.addEventListener("click", function (event) {
@@ -101,16 +100,18 @@ async function bootstrap() {
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
 				.addTo(map);
 
-			if (!markers[type]) markers[type] = [marker];
-			else markers[type].push(marker);
+			if (!markers[d.type]) markers[d.type] = [marker];
+			else markers[d.type].push(marker);
 		});
 	}
 
 	const veloType = localStorage.getItem("velo");
+			const monuments = localStorage.getItem("monuments");
+
 
 	if (!veloType || veloType !== "bicloo") {
 		abrisVeloDisplayData().then(data => {
-			points(data, "img/abris.svg", "abris");
+			points(data);
 		});
 		if (document.getElementById("abris_velo"))
 			document.getElementById("abris_velo").checked = true;
@@ -118,17 +119,28 @@ async function bootstrap() {
 
 	if (!veloType || veloType === "bicloo") {
 		getStationsVelos().then(data => {
-			points(data, "img/station.svg", "bicloo");
+			points(data);
 		});
 		if (document.getElementById("station_bicloo"))
 			document.getElementById("station_bicloo").checked = true;
 	}
 
+	if( !monuments )
+		monumentsDisplayData.then(data => {
+			points(data);
+		});
+
+	if (document.getElementById("station_bicloo"))
+		document.getElementById("station_bicloo").checked = true;
+
+	if (document.getElementById("monument"))
+		document.getElementById("monuments").checked = true;
+
 	if (document.getElementById("abris_velo"))
 		document.getElementById("abris_velo").addEventListener("change", event => {
 			if (event.target.checked) {
 				abrisVeloDisplayData().then(data => {
-					points(data, "img/abris.svg", "abris");
+					points(data);
 				});
 			} else {
 				markers["abris"].forEach((marker) => marker.remove());
@@ -139,10 +151,21 @@ async function bootstrap() {
 		document.getElementById("station_bicloo").addEventListener("change", event => {
 			if (event.target.checked) {
 				getStationsVelos().then(data => {
-					points(data, "img/station.svg", "bicloo");
+					points(data);
 				});
 			} else {
 				markers["bicloo"].forEach((marker) => marker.remove());
+			}
+		});
+
+	if (document.getElementById("monuments"))
+		document.getElementById("monuments").addEventListener("change", event => {
+			if (event.target.checked) {
+				monumentsDisplayData().then(data => {
+					points(data);
+				});
+			} else {
+				markers["monuments"].forEach((marker) => marker.remove());
 			}
 		});
 

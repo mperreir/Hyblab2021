@@ -81,6 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	document.getElementById("bicloo").addEventListener("click", () => {
 		localStorage.setItem("velo", "bicloo");
 	});
+
 });
 
 function togglePath() {

@@ -43,6 +43,9 @@ export async function abrisVeloDisplayData() {
             </div>`;
 
 		const marker = {
+			type: "abris",
+			class: "marker",
+			url: "img/abris.svg",
 			longitude: record.fields.location[1],
 			latitude: record.fields.location[0],
 			text: html
