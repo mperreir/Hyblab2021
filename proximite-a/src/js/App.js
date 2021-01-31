@@ -5,7 +5,6 @@ import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
 import equivalent from './equivalent.js'
-import coordinatestoaddress from '../api/adresstocoordinates'
 
 class App extends  React.Component {
 
@@ -92,11 +91,11 @@ class App extends  React.Component {
 
     updateAttributs = (e,f) => {
         this.setState({ coords: e,adresse:f})
-        this.createSites()
     };
 
     updateMoyen=(e)=>{
         this.setState({moyenId:e})
+        this.createSites()
     };
 
     //changer url
@@ -104,7 +103,8 @@ class App extends  React.Component {
         let stringAdresse = this.state.adresse.rue.replace(' ', '+') + '+' + this.state.adresse.codepostal + '+' + this.state.adresse.ville
         let moyen=equivalent.moyenEquiv.get(this.state.moyenId)
         let theme=equivalent.themeEquiv.get(this.state.themeId)
-        fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a//api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)
+        console.log("appel de "+'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme);
+        fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     console.log(response);
@@ -113,15 +113,51 @@ class App extends  React.Component {
             })
             .then((donnee) => {  //récupération des données JSON
                 console.log("récupération des sites")
-                console.log(donnee)
-                let site1={id:'1',
+                console.log(donnee);
+
+
+                console.log("appel de "+`http://localhost:8080/proximite-a/api/coordinates/${donnee.lieux[0].lat}_${donnee.lieux[0].lon}`);
+                fetch(`http://localhost:8080/proximite-a/api/coordinates/${donnee.lieux[0].lat}_${donnee.lieux[0].lon}`)
+                    .then((response1) => {   //récupération de la réponse
+                        if (response1.ok) {
+                            console.log(response1);
+                            return response1.json();
+                        }
+                    })
+                    .then((donnee1) => {  //récupération des données JSON
+                        console.log('second then imbriqué');
+                        console.log(donnee1)
+                    })
+
+                /*fetch(`http://localhost:8080/proximite-a/api/coordinates/${donnee.lieux[0].lat}_${donnee.lieux[0].lon}`)
+                    .then((response2) => {   //récupération de la réponse
+                        if (response2.ok) {
+                            console.log(response2);
+                            return response2.json();
+                        }
+                    })
+                    .then((donnee2) => {  //récupération des données JSON
+                })
+
+                fetch(`http://localhost:8080/proximite-a/api/coordinates/${donnee.lieux[0].lat}_${donnee.lieux[0].lon}`)
+                    .then((response3) => {   //récupération de la réponse
+                        if (response3.ok) {
+                            console.log(response3);
+                            return response3.json();
+                        }
+                    })
+                    .then((donnee3) => {  //récupération des données JSON
+                    })*/
+
+
+                /*let site1={id:'1',
                             titre:donnee.lieux[0].name,
                             img:'',
                             adresse: coordinatestoaddress([donnee.lieux[0].lat,donnee.lieux[0].lon]),
                             description:'',
                             coordonnes: [donnee.lieux[0].lat, donnee.lieux[0].lon],
                             type:theme
-                }
+                };
                 let site2 = {
                     id: '2',
                     titre: donnee.lieux[1].name,
@@ -151,7 +187,7 @@ class App extends  React.Component {
                 this.setState({
                     site: [site1,site2,site3],
                     surprise:lieuSurprise
-                });
+                });*/
             })
     }
 

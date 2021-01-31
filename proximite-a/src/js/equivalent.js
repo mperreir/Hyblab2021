@@ -56,3 +56,6 @@ themePicto.set(5, require('../img/pictogrammes_famille.png'));
 
 export default {equiv, moyenEquiv, themeEquiv, themePicto}
 
+
+
+
