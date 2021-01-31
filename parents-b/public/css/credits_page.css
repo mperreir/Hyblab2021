@@ -2,6 +2,7 @@
 
 .logo-credits{
     position:absolute;
+    z-index: 5;
 }
 
 .logo-audencia{
@@ -52,6 +53,22 @@
     left: 77.4%;
 }
 
+.logo-NM{
+    width: 25%;
+    top: 75%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.logo-PJN{
+    width: 10%;
+    top: 75%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
 .zone-texte{
     position: absolute;
     width: 20%;
@@ -60,6 +77,7 @@
     font-size: 14.5%;
     line-height: 1.4em;
     color:#45396D;
+    z-index: 5;
 }
 
 .zone-texte-1{
@@ -72,6 +90,16 @@
 
 .zone-texte-3{
     left:53.75%;
+}
+
+.zone-texte-4{
+    display: flex;
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 25%;
+    align-items: center;
 }
 
 .credits-link {

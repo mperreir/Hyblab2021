@@ -43,6 +43,10 @@ button{
     font-family: Comfortaa, serif;
 }
 
+input{
+    outline: none;
+}
+
 .button-non{
     padding: 0 3% 0 3%;
     left: 17%;
