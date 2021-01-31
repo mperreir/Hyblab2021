@@ -1,5 +1,5 @@
 import React from 'react';
-import {MapContainer, TileLayer, Marker, Popup, Circle} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, Polygon} from 'react-leaflet'
 import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
@@ -44,6 +44,7 @@ class AcceuilCarte extends  React.Component {
         adresse:this.props.data.adresse,
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
+        perimetre: [],
         itineraire: [],
     };
 
@@ -84,8 +85,15 @@ class AcceuilCarte extends  React.Component {
         })
     }
 
+    generatePerimetre = () => {
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.moyenId}/${this.state.currentPosition}/`)
+        .then(perimetre => {
+            this.setState({perimetre});
+        })
+    }
 
     render() {
+        this.generatePerimetre();
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
@@ -102,7 +110,7 @@ class AcceuilCarte extends  React.Component {
                                 </Popup>
                         </Marker>
                     }) }
-                    <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
+                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
                     <Polyline positions={this.state.itineraire}/>
                 </MapContainer>
 
