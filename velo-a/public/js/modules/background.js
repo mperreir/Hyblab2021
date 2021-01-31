@@ -1,5 +1,8 @@
 
 export function slide(onStart, onContinue, slides) {
+
+    velosSlide([]);
+
     let start = true;
     let i = 0;
     const batiment_return = document.getElementById("batiment_return");
@@ -49,4 +52,21 @@ export function slide(onStart, onContinue, slides) {
                 onContinue(el, slides, true);
             });
     });
+
+}
+
+
+function velosSlide(prevs) {
+    console.log(prevs)
+    setTimeout(function () {
+        const rand = Math.floor(Math.random()*9);
+        if (!(rand in prevs)){
+            document.getElementsByClassName("background_velo")[rand]
+                .setAttribute("class", "background_velo move" + Math.round(Math.random()));
+        }
+        prevs.push(rand)
+        if (prevs.length >= 3) prevs.shift();
+
+        velosSlide(prevs);
+    }, Math.floor(Math.random()*5000));
 }

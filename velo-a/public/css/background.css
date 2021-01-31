@@ -30,7 +30,7 @@ body {
 }
 
 #ciel {
-    z-index: -3;
+    z-index: -4;
 
     height: 100%;
     padding: 0;
@@ -53,7 +53,7 @@ body {
 
 
 #batiment {
-    z-index: -2;
+    z-index: -3;
 
     height: 100%;
     padding: 0;
@@ -132,4 +132,42 @@ body {
 .batiment_back3 {
     animation: ease-in-out anim_batiment3 2s reverse;
     animation-fill-mode: forwards;
+}
+
+#background_velos {
+    display: flex;
+    justify-content: center;
+}
+
+.background_velo {
+    transform: scale(0.5) translate(0, 50%) translateX(-100vw);
+    position: absolute;
+    bottom: 12%;
+    z-index: -2;
+}
+
+.background_velo.move0 {
+    animation: move_velo 10s forwards;
+}
+
+@keyframes move_velo {
+    0% {
+        transform: scale(0.5) translate(0, 45%) translateX(-100vw);
+    }
+    100% {
+        transform: scale(0.5) translate(0, 45%) translateX(100vw);
+    }
+}
+
+.background_velo.move1 {
+    animation: move_velo_reverse 10s forwards;
+}
+
+@keyframes move_velo_reverse {
+    0% {
+        transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
+    }
+    100% {
+        transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
+    }
 }
