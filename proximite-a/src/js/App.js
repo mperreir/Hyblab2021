@@ -5,6 +5,7 @@ import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
 import equivalent from './equivalent.js'
+import coordinatestoaddress from '../api/adresstocoordinates'
 
 class App extends  React.Component {
 
@@ -42,7 +43,16 @@ class App extends  React.Component {
                 description : "blabla",
                 coordonnes:[5,6],    //latitude_longitude
                 type:'famille'
-            }]
+            }],
+            surprise: {
+                id: '3',
+                titre: 'Oooo di',
+                img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
+                adresse: 'AAAAAAAAAAAAAHH',
+                description: "blabla",
+                coordonnes: [5, 6],    //latitude_longitude
+                type: 'famille'
+        }
     };
 
     getPage = () => {
@@ -101,9 +111,44 @@ class App extends  React.Component {
                 }
             })
             .then((donnee) => {  //récupération des données JSON
-                console.log(donnee)//todo choisir donnee
+                console.log(donnee)
+                let site1={id:'1',
+                            titre:donnee.lieux[0].name,
+                            img:'',
+                            adresse: coordinatestoaddress([donnee.lieux[0].lat,donnee.lieux[0].lon]),
+                            description:'',
+                            coordonnes: [donnee.lieux[0].lat, donnee.lieux[0].lon],
+                            type:theme
+                }
+                let site2 = {
+                    id: '2',
+                    titre: donnee.lieux[1].name,
+                    img: '',
+                    adresse: coordinatestoaddress([donnee.lieux[1].lat, donnee.lieux[1].lon]),
+                    description: '',
+                    coordonnes: [donnee.lieux[1].lat, donnee.lieux[1].lon],
+                    type: theme
+                }
+                let site3 = {
+                    id: '3',
+                    titre: donnee.lieux[2].name,
+                    img: '',
+                    adresse: coordinatestoaddress([donnee.lieux[2].lat, donnee.lieux[2].lon]),
+                    description: '',
+                    coordonnes: [donnee.lieux[2].lat, donnee.lieux[2].lon],
+                    type: theme
+                }
+                let lieuSurprise = {
+                    titre: donnee.surprise.name,
+                    img: '',
+                    adresse: coordinatestoaddress([donnee.surprise.lat, donnee.surprise.lon]),
+                    description: '',
+                    coordonnes: [donnee.surprise.lat, donnee.surprise.lon],
+                    type: donnee.surprise.tag.amenity //todo mettre le bon theme
+                }
                 this.setState({
-                    site: donnee
+                    site: [site1,site2,site3],
+                    surprise:lieuSurprise
                 });
             })
     }
