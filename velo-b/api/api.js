@@ -96,9 +96,11 @@ module.exports = () => {
             if (o.quartiers) {
                 for (const k of Object.keys(quartiers)) {
                     data[k] = await fetchData(o.route, k);
+                    addDescription(data[k], o.fileName);
                 }
             } else {
                 data = await fetchData(o.route);
+                addDescription(data, o.fileName);
             }
             // save temporaire
             if(o.fileName === 'arrets-tan.json'){
@@ -149,6 +151,24 @@ module.exports = () => {
             throw {message:"Une erreur inconnue est survenue.", code:500, error_content:e};
         }
         return (await response.json()).records.map(r => r.fields);
+    }
+
+    function addDescription(data, fileName){
+        data.map(d => d.desc = generateDescription(d, fileName))
+    }
+    function generateDescription(data, fileName){
+        let desc = "néant";
+        if(fileName === "abris-velo.json" && data.nom && data.adresse && data.descriptif && data.conditions)
+            desc = data.nom+" - "+data.adresse+"\n"+data.descriptif+"\n"+data.conditions;
+        if(fileName === "arrets-tan.json" && data.stop_name && data.bicloo_near)
+            desc = "Arrêt " + data.stop_name + data.bicloo_near?"\nUne station bicloo est proche":"";
+        if(fileName === "gonfleurs-libre-service.json" && data.nom && data.adresse)
+            desc = data.nom + "\n" +data.adresse;
+        if(fileName === "stations-velo-libre-service.json" && data.nom && data.adresse)
+            desc = data.nom + "\n" +data.adresse;
+        if(fileName === "velocistes.json" && data.nom && data.adresse)
+            desc = data.nom + "\n" +data.adresse;
+        return desc;
     }
 
     return app;
