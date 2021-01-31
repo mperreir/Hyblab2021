@@ -48,7 +48,6 @@ const POINT_TYPES = {
     gourmet,
     sportif,
     famille,
-    tous
 };
 
 
