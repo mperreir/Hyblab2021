@@ -133,7 +133,7 @@
 .autocomplete-active {
 	/*when navigating through the items using the arrow keys:*/
 	background-color: #F96D48 !important;
-	color: #ffffff;
+	color: white !important;
 }
 
 #question_trajet > *:not(.mascotte) {
