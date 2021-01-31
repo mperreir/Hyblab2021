@@ -129,10 +129,8 @@ function leaveDot(t, narrator){
 function generateDep(mapData, narrator){
 
 	//Definition of the SVG dimensions
-	var width = window.innerWidth;
-	var height = window.innerHeight;
-	console.log(width);
-	console.log(height);
+	const width = window.innerWidth;
+	const height = window.innerHeight;
 
 	//Creation of the SVG element
 	var svg = d3.select("#department")
@@ -252,15 +250,8 @@ function generateMap(mapFusion){
 
 	// Place le centre de la map
 	var center = d3.geoCentroid((() => {
-		let useful = JSON.parse(JSON.stringify(mapFusion));
-		for(let i = 0; i < useful.features.length ; i++) {
-			let f = useful.features[i];
-			if(!deps.isValid(f.properties.code)) {
-				useful.features.splice(i,1);
-				i--;
-			}
-		}
-		return {type: 'FeatureCollection', features: useful.features};
+		let useful = mapFusion.features.filter(feature => deps.isValid(feature.properties.code));
+		return {type: 'FeatureCollection', features: useful};
 	})());
 
 	// Projection des longitudes et latitudes
