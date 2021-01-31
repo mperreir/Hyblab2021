@@ -124,6 +124,11 @@ div#information #modal-content {
 	color: #FFF !important;
 }
 
+#cross-quit{
+	padding: 0px !important;
+	line-height: 3vh !important;
+}
+
 /* Ligne 2 */
 #title-legende {
 	grid-area: title-legende;
