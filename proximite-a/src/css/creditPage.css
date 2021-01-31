@@ -1,26 +1,33 @@
-.dimention{
-    width: 96vw;
-    height: 90vh;
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+#creditContainer{
+    width: 100%;
+    height: 100%;
 }
 
-#logoposition{
-    position: relative;
-    left: 40%;
-    right: 10%;
-    top: 7%;
-    bottom: 29.54%;
-    width: 200px;
-    height: 123px;
+@media screen and (max-width: 1150px)
+{
+    #creditContainer{
+        flex-direction: column ;
+    }
 
+    #rightPartCredit{
+        width: 100% !important;
+    }
 }
 
-.cadrcredit{
-    position: absolute;
-    width: 60vw;
-    height: 94vh;
-    left: 38vw;
-    top: 27px;
-    bottom: 50px;
+/*Right Part*/
+#rightPartCredit{
+    width: 63%;
+    height: 93%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    margin-right: 30px;
+    margin-top: 20px;
 
     background: #FFFFFF;
     border: 1px solid #756EFF;
@@ -29,42 +36,34 @@
     border-radius: 54px;
 }
 
-#exitposition{
-    position: absolute;
-    width: 37px;
-    height: 37px;
-    left: 55vw;
-    top: 44px;
-    border-radius: 50%;
-    color: #FFFFFF;
-    text-align: center;
-    border: #756EFF;
-
-    background: #756EFF;
+#rightPartCreditCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-#textposition{
-    position: absolute;
-    width: 521px;
-    height: 102px;
-    left: 13vw;
-    right: 50%;
-    top: 30vh;
-
-    font-family: Red Hat Text;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
+#paragrapheCredit{
+    max-width: 520px;
     text-align: center;
 
     color: #000000;
-
 }
 
-#logohyblab{
+#closeButton{
     position: absolute;
     width: 4px;
     height: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #756EFF;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    background-color: #756EFF;
+    right: 45px;
+}
 
+#logoEcole{
+    margin: 15px;
 }

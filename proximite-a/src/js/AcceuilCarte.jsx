@@ -1,5 +1,5 @@
 import React from 'react';
-import {MapContainer, TileLayer, Marker, Popup, Circle} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, Polygon} from 'react-leaflet'
 import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
@@ -7,14 +7,31 @@ import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
 import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
-
+import equivalent from './equivalent.js'
+import { Polyline } from 'leaflet';
 const decallageCentrageCarte = 0.004;
+const decallageMarqueur = 0.0005;
 
-function GetIcon(_iconsize){
-    return L.icon({
-        iconUrl : require("../img/pictogrammes_position.png").default,
-        iconSize: [_iconsize,35]
-    })
+
+function GetIcon(type, _iconsize, theme){
+    switch (type) {
+        case 1: //position actuelle
+            return L.icon({
+                iconUrl : require("../img/pictogrammes_maison.png").default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
+            break
+        case 2: //site
+            return L.icon({
+                iconUrl : theme.default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[_iconsize/2,39]
+            });
+            break
+    }
 }
 
 
@@ -27,7 +44,9 @@ class AcceuilCarte extends  React.Component {
         adresse:this.props.data.adresse,
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
-        };
+        perimetre: [],
+        itineraire: [],
+    };
 
 
 
@@ -59,19 +78,40 @@ class AcceuilCarte extends  React.Component {
         this.props.onSetMoyen(e)
     };
 
+    generateItineraire = (dest) => {
+        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
+        .then(itineraire => {
+            this.setState({itineraire});
+        })
+    }
+
+    generatePerimetre = () => {
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.moyenId}/${this.state.currentPosition}/`)
+        .then(perimetre => {
+            this.setState({perimetre});
+        })
+    }
 
     render() {
-        console.log(this.state.popupPhase)
+        this.generatePerimetre();
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(20)}  position={this.state.currentPosition}>
-                        <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
-                    </Marker>
-                    <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}></Marker>
+                    {this.state.sites.map( (e) => {
+                        return <Marker icon={GetIcon(2,20, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
+                                <Popup> A pretty CSS3 popup. <br />
+                                    Easily customizable.<hr/>
+                                    {console.log(e)}
+                                    <input type="button" class="btn btn-primary" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                                </Popup>
+                        </Marker>
+                    }) }
+                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+                    <Polyline positions={this.state.itineraire}/>
                 </MapContainer>
 
                 <PopupAnnonce/>
