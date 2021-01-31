@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 
 let HttpsProxyAgent = require( 'https-proxy-agent' );
 let options = {
-    agent: new HttpsProxyAgent( 'https://cache.ha.univ-nantes.fr:3128' ),
+    agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
 };
 
 const TIMEOUT_MS = 8000;  // == 8 SECONDES
