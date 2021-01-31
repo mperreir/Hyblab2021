@@ -33,7 +33,7 @@ section[data-slidr="page-2-1"] {
 #gros-nuage-p2-1 {
     position: absolute;
     width: 30%;
-    bottom: 56%;
+    top: 15%;
     right: 55%;
     transform: translateX(0%);
     transition-property: transform;
@@ -44,17 +44,17 @@ section[data-slidr="page-2-1"] {
     transform: translateX(30%);
 }
 
-#petit-nuage-p2-1 {
+#petit_nuage-p2-1 {
     position: absolute;
-    width: 25%;
-    top: 15%;
-    right: 75%;
+    width: 19%;
+    top: 28%;
+    left: 3%;
     transform: translateX(0%);
     transition-property: transform;
     transition-duration: 1000ms;
 }
 
-#petit-nuage-p2-1:hover {
+#petit_nuage-p2-1:hover {
     transform: translateX(-30%);
 }
 
@@ -74,9 +74,9 @@ section[data-slidr="page-2-1"] {
 
 #arbuste-rouge-p2-1 {
     position: absolute;
-    width: 18%;
+    width: 19%;
     bottom: -4%;
-    right: 8%;
+    right: 9%;
     transform: scale(1) translateY(0%);
     transition-property: transform;
     transition-duration: 1000ms;
@@ -117,24 +117,24 @@ section[data-slidr="page-2-1"] {
     opacity: 1;
 }
 
-#trois-eleph-p2-1 {
+#trois-ans-mascotte-p2-1 {
     left: 20%;
     width: 17%;
 }
 
-#six-eleph-p2-1 {
-    left: 37%;
+#six-ans-mascotte-p2-1 {
+    left: 39%;
     bottom: 23%;
-    width: 21%;
+    width: 17%;
 }
 
-#neuf-eleph-p2-1 {
-    width: 28%;
-    right: 15%;
+#neuf-ans-mascotte-p2-1 {
+    width: 20%;
+    right: 20%;
     bottom: 23%;
 }
 
-#quelageastu-p2-1 {
+#question-p2-1 {
     position: absolute;
     width: 20%;
     top: 25%;
