@@ -18,9 +18,27 @@ class App extends  React.Component {
             codepostal: '',
             ville: ''
         },
-        sites: [{ id: '1', titre: 'squalala', img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg', adresse: 'nous sommes partis'},
-            { id: '2', titre: 'squelele', img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif', adresse: 'nous sommes repartis' },
-            { id: '3', titre: 'Oooo di', img:'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',adresse:'AAAAAAAAAAAAAHH'}]
+        sites: [{ id: '1',
+            titre: 'squalala',
+            img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
+            adresse: 'nous sommes partis',
+            description : "blabla",
+            coordonnes:[0,0]    //latitude_longitude
+        },
+            { id: '2',
+                titre: 'squelele',
+                img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif',
+                adresse: 'nous sommes repartis',
+                description : "blabla",
+                coordonnes:[0,0]    //latitude_longitude
+            },
+            { id: '3',
+                titre: 'Oooo di',
+                img:'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
+                adresse:'AAAAAAAAAAAAAHH',
+                description : "blabla",
+                coordonnes:[0,0]    //latitude_longitude
+            }]
     };
 
     getPage = () => {
