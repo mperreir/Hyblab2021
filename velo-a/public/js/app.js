@@ -4,6 +4,7 @@ import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/roadMonitoring.js";
 import { monumentsDisplayData } from "./modules/monuments.js";
+import { reverseGeocoding } from "./modules/autocompleteAddress.js";
 
 async function bootstrap() {
 
@@ -49,16 +50,18 @@ async function bootstrap() {
 	if (document.getElementById('mapbox-controllers')) {
 		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map));
 
-		directions.on("origin", origin => {
+		directions.on("origin", async origin => {
 			if (!origin || origin.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseDepartCoord")) return;
 
-			localStorage.removeItem("adresseDepart")
+			const address = await reverseGeocoding(origin.feature.geometry.coordinates.join(','));
+			localStorage.setItem("adresseDepart", address);
 			localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
 		});
-		directions.on("destination", destination => {
+		directions.on("destination", async destination => {
 			if (!destination || destination.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseArriveeCoord")) return;
 
-			localStorage.removeItem("adresseArrivee")
+			const address = await reverseGeocoding(destination.feature.geometry.coordinates.join(','));
+			localStorage.setItem("adresseArrivee", address);
 			localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
 		});
 
@@ -106,8 +109,7 @@ async function bootstrap() {
 	}
 
 	const veloType = localStorage.getItem("velo");
-			const monuments = localStorage.getItem("monuments");
-
+	const butTrajet = localStorage.getItem("butTrajet");
 
 	if (!veloType || veloType !== "bicloo") {
 		abrisVeloDisplayData().then(data => {
@@ -125,16 +127,13 @@ async function bootstrap() {
 			document.getElementById("station_bicloo").checked = true;
 	}
 
-	if( !monuments )
-		monumentsDisplayData.then(data => {
+	if (butTrajet === "flaner") {
+		monumentsDisplayData().then(data => {
 			points(data);
 		});
-
-	if (document.getElementById("station_bicloo"))
-		document.getElementById("station_bicloo").checked = true;
-
-	if (document.getElementById("monument"))
-		document.getElementById("monuments").checked = true;
+		if (document.getElementById("monuments"))
+			document.getElementById("monuments").checked = true;
+	}
 
 	if (document.getElementById("abris_velo"))
 		document.getElementById("abris_velo").addEventListener("change", event => {

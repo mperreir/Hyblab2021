@@ -269,9 +269,9 @@ function load(page) {
 		});
 
 		if (response) {
-			document.getElementById("img-bicky").src = "img/bicky_bon.svg";
+			document.getElementById("img-bicky").src = "img/mascottes/bicky_bon.svg";
 		} else {
-			document.getElementById("img-bicky").src = "img/bicky_faux.svg";
+			document.getElementById("img-bicky").src = "img/mascottes/bicky_faux.svg";
 		}
 
 		document.getElementById("bicky-reponse").innerText = msg;

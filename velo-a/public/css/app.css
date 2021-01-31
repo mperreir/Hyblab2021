@@ -104,6 +104,8 @@ input[type=checkbox] + label {
 	border: 2px solid #000000;
 	box-sizing: border-box;
 	border-radius: 14px;
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 input[type=checkbox]:checked + label {
@@ -125,12 +127,12 @@ input[type=checkbox]:checked + label {
 	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
-
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-cross:hover {
 	background: #F96D48 url("../img/utils/cross_blanc.png") no-repeat center;
-	cursor: pointer;
 }
 
 .button-menu {
@@ -140,11 +142,12 @@ input[type=checkbox]:checked + label {
 	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-menu:hover {
 	background: #F96D48 url("../img/utils/menu_blanc.png") no-repeat center;
-	cursor: pointer;
 }
 
 .mapboxgl-ctrl-geocoder .suggestions {

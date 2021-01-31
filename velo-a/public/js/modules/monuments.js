@@ -10,8 +10,8 @@ const monumentsFetchData = () => fetch(MONUMENTS_API_URL)
     .then(response => {
         return response.json();
     })
-    .catch((error) => {
-        console.error("Error:", error);
+    .catch(() => {
+        // console.error("Error:", error);
         return undefined;
     });
 
