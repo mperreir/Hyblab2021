@@ -346,28 +346,28 @@ let initSlide10 = function(db) {
     /* Chargements des images de la slide resultats */
     loadComponent('resultats');
 
-    d3.select("#sud-p10").on('click', async function() {
+    d3.select("#sud-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#ouest-p10").on('click', async function() {
+    d3.select("#ouest-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#nord-est-p10").on('click', async function() {
+    d3.select("#nord-est-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#centre-p10").on('click', async function() {
+    d3.select("#centre-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
