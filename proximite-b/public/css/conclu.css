@@ -134,7 +134,9 @@ p#conclu_text {
     left: 31%;
     width: 220px;
     height: 150px;
-    font-size: 14px;
+    font-size: 13.5px;
+    color: white;
+    font-family: ArchitectDaughter;
 }
 
 .font-montserrat {
