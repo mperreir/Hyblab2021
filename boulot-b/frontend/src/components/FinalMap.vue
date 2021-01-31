@@ -70,21 +70,21 @@ async function getDatas(choices) {
 
     let theme = "alea";
     switch (choices.theme) {
-        case "nature":
-            theme = "nature";
-        case "culture":
-            theme = "culture";
+      case "nature":
+          theme = "nature";
+      case "culture":
+          theme = "culture";
     }
 
     console.log('VALEURS DES LIEUX PAR DEFAUT');
-    const salleSport = false;
-    const bar = true;
-    const boulangerie = false;
-    const pharmacie = true;
-    // const salleSport = (choices.lieux.includes());
-    // const bar = (choices.lieux.includes());
-    // const boulangerie = (choices.lieux.includes());
-    // const pharmacie = (choices.lieux.includes());
+    // const salleSport = false;
+    // const bar = true;
+    // const boulangerie = false;
+    // const pharmacie = true;
+    const salleSport = choices.lieux.salleDeSport;
+    const bar = choices.lieux.bar;
+    const boulangerie = choices.lieux.boulangerie;
+    const pharmacie = choices.lieux.pharmacie;
     console.log('Requête get');
     console.log(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
     const res = await axios.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
