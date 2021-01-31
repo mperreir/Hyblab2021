@@ -35,7 +35,8 @@ export function slide(onStart, onContinue, slides) {
 
             const el = document.querySelector(".show > .batiment_button");
 
-            onContinue(el, slides);
+            if(slides == null || slides[slides.length-1] !== el.parentElement.id)
+                onContinue(el, slides);
 
 
         }, 50);
@@ -47,7 +48,7 @@ export function slide(onStart, onContinue, slides) {
         }
         if(slides == null || slides[slides.length-1] !== el.parentElement.id)
             el.addEventListener("click", () => {
-                onContinue(el);
+                onContinue(el, slides);
             });
     });
 }
