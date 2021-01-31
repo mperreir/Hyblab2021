@@ -92,7 +92,6 @@ div#critere_page {
     height: 23em;
     max-height: 85%;
     margin-right: 10px;
-    margin-top: 4em;
 }
 
 #sort3{
@@ -200,3 +199,57 @@ ul#sortable1{
     margin: 10px auto 10px auto;
 }
 
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-resolution: 100dpi) {
+    #greeters{
+        width: 13vw;
+        height: auto;
+        bottom: 0;
+        position: fixed;
+        right: 19em;
+    }
+    
+    #jeune{
+        width: 13vw;
+        height: auto;
+        bottom: 0;
+        position: fixed;
+    }
+    
+    #famille{
+        width: 11vw;
+        height: auto;
+        bottom: 0;
+        position: fixed;
+        /* left:10em; */
+    }
+    
+    #senior{
+        width: 11vw;
+        height: auto;
+        bottom: 0;
+        position: fixed;
+        /* left:10em; */
+    }
+    #sort2, #sort3{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 15px 0px 0px 0px;
+        position: relative;
+        position: relative;
+        border-radius: 45px;
+        margin-right: 10px;
+        margin-top: 3em;
+    }
+    
+  }
