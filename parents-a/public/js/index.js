@@ -30,7 +30,7 @@ function choixSlide(num, data) {
 
     if (num == '2') { initSlide2(data) }
 
-    if (num == 'age') { initSlide2_1(data) };
+    if (num == '2-1') { initSlide2_1(data) };
 
     if (num == '3') { initSlide3(data) };
 
@@ -113,7 +113,7 @@ let initSlide2 = function() {
 
     //transi next slide
     d3.select('#button2-p2').on('click', function() {
-        nextSlide('3')
+        nextSlide('2-1')
         route.push('2');
 
     });
@@ -130,17 +130,17 @@ let initSlide2_1 = function() {
     //Age -> Aventurier
     //recupérer l'age
 
-    d3.select('#trois-ans-mascotte-p-age').on('click', async function() {
+    d3.select('#trois-ans-mascotte-p2-1').on('click', async function() {
         console.log(d3.event.target.id);
         nextSlide('3');
     });
 
-    d3.select('#six-ans-mascotte-p-age').on('click', async function() {
+    d3.select('#six-ans-mascotte-p2-1').on('click', async function() {
         console.log(d3.event.target.id);
         nextSlide('3');
     });
 
-    d3.select('#neuf-ans-mascotte-p-age').on('click', async function() {
+    d3.select('#neuf-ans-mascotte-p2-1').on('click', async function() {
         console.log(d3.event.target.id);
         nextSlide('3');
 
