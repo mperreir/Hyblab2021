@@ -98,3 +98,17 @@
   margin: 0;
   display: none;
 }
+
+div#change {
+	position: absolute;
+	top: calc(3.5vh + 20px);
+  right: 1vh;
+  margin: 0;
+}
+
+div#go-back-div {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  display: none;
+}

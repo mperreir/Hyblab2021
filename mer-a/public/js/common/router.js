@@ -48,12 +48,27 @@ class Router {
     });
 
     this.data = data;
+    if(path !== 'accueil') this.saveData(path, data, idFond);
     this.fileAriane.updateAriane(
       path,
       (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
       (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
       'Légende'
     );
+  }
+
+  saveData(path, data, idFond) {
+    localStorage.setItem('path', path);
+    localStorage.setItem('data', data);
+    localStorage.setItem('idFond', idFond);
+  }
+
+  hasData() {
+    return (localStorage.getItem('path') !== null && localStorage.getItem('data') !== null && localStorage.getItem('idFond') !== null) ? true : false;
+  }
+
+  loadData() {
+    if(this.hasData()) this.loadRessources(localStorage.getItem('path'), localStorage.getItem('data'), localStorage.getItem('idFond'));
   }
 
   loadParralax(id) {
