@@ -1,8 +1,7 @@
 var positions = ["", ""];
-var citycode = ["44009", "44018", "44020", "44024", "44026", "44035", "44047", "44074", "44094", "44101", "44109", "44114", "44120", "44143", "44150", "44162", "44166", "44171", "44172", "44190", "44194", "44198", "44204", "44215"];
 
 async function adresses_autocompletion(adresse, num) {
-    var lieu = 'https://api-adresse.data.gouv.fr/search/?q=' + adresse + '&limit=5&autocomplete=1';
+    var lieu = 'https://api-adresse.data.gouv.fr/search/?q=' + adresse + '&limit=5&autocomplete=1&citycode=44109';
     var input = document.getElementById("adresse" + num);
     var list = document.getElementById("adresses" + num);
     list.innerHTML = "";
@@ -13,20 +12,11 @@ async function adresses_autocompletion(adresse, num) {
     resultAPI.features.forEach((element) => {
         var button = document.createElement("button");
         button.innerHTML = element.properties.label;
-        button.value = [element.geometry.coordinates, element.properties.label, element.properties.citycode];
+        button.value = [element.geometry.coordinates, element.properties.label];
         button.classList.add("bouton_adresse");
         button.addEventListener("click", () => {
-            const A = button.value.split(',');
-            if (citycode.includes(A[3])) {
-                input.value = button.innerHTML;
-                positions[num - 1] = button.value;
-            }
-            else {
-                $('#modal').modal('show');
-                $('#modal').find('.modal-title').text("Problème d'adresse");
-                $('#modal').find('.modal-body').text("L'adresse choisie est en dehors de l'agglomération nantaise veuillez en sélectionner une autre.");
-                document.getElementById("adresse" + num).value = "";
-            }
+            input.value = button.innerHTML;
+            positions[num - 1] = button.value;
             list.innerHTML = "";
         });
 
