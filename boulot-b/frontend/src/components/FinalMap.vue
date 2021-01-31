@@ -167,8 +167,8 @@ async function addRouteShapeToMap(route, map, origin, destination, stops){
 }
 
 async function addMarkers(map, origin, destination, stops) {
-  const iconPoint = await createIcon('point.png');
   const iconOrigin = await createIcon('origin.png');
+  const iconDestination = await createIcon('destination.png')
 
   const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
   const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
@@ -176,16 +176,14 @@ async function addMarkers(map, origin, destination, stops) {
   map.addObject(markerOrigin);
   map.addObject(markerDestination);
 
-  const iconDestination = await createIcon('destination.png');
+  // const coordStops = stops.map((object) => {
+  //   return [Object.values(object)[0].coordonnees['lat'], Object.values(object)[0].coordonnees['lng']]
+  // });
+  // console.log(coordStops[0])
 
-  const coordStops = stops.map((object) => {
-    return [Object.values(object)[0].coordonnees['lat'], Object.values(object)[0].coordonnees['lng']]
-  });
-
-  console.log(coordStops[0])
-
-  for (let i=0 ; i < coordStops.length; i++) {
-    const markerStop = new H.map.DomMarker({lat: coordStops[i][0], lng: coordStops[i][1]}, {icon: iconPoint});
+  for (let i=0 ; i < stops.length; i++) {
+    const icon = await createIntermediaryIcon(Object.keys(stops[i])[0]);
+    const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
     map.addObject(markerStop);
   }
 }
@@ -197,10 +195,27 @@ async function createIcon(imageName) {
     const image = document.createElement('img');
     //console.log(reqUrlImage.data.urlImage);
     image.src = reqUrlImage.data.urlImage;
-    image.width = 10;
-    image.height = 10;
+    image.width = 15;
+    image.height = 15;
     return new H.map.DomIcon(image);
   }
+
+async function createIntermediaryIcon(namePOI) {
+  console.log('namePOI')
+  console.log(namePOI)
+  switch(namePOI) {
+    case 'Boulangerie':
+      return await createIcon('baguette.png');
+    case 'SalleSport':
+      return await createIcon('haltere.png');
+    case 'Bar':
+      return await createIcon('verre.png');
+    case 'Pharmacie':
+      return await createIcon('medicament.png');
+    default:
+      return await createIcon('point.png');
+  }
+}
 
 </script>
 
