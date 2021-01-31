@@ -1,86 +1,105 @@
 /* ---------- mise en forme des composants ----------------- */
 /*header*/
-header h1, header h2{
+header h1, header h2 {
 	display: none;
 }
-header img{
+
+header img {
 	width: 380px;
 }
+
 /*Bicky Question*/
 .bicky-question {
-  position: relative;
-  text-align: center;
-  color: white;
+	position: relative;
+	text-align: center;
+	color: white;
 }
+
 .bicky-question h2 {
 	color: black;
-  position: absolute;
-  left: calc(50% - 80px);
+	position: absolute;
+	left: calc(50% - 80px);
 }
 
 /*Style des boutons*/
-button{
+button {
 	border-style: none;
 	outline: none;
 }
-input{
+
+input {
 	border-style: none;
 	outline: none;
 }
-.button-slide{
-	font-family: 'Montserrat';
+
+.button-slide {
+	font-family: 'Montserrat', sans-serif;
 	width: 341px;
 	height: 68px;
 	background: #FFFFFF;
-	border: 2px solid #000000;
+	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 22px;
+	color: #F96D48;
+	margin: 10px;
+	cursor: pointer;
 }
-.button-slide :nth-child(2){
+
+.button-slide :nth-child(2) {
 	display: none;
-	margin: 0px;
+	margin: 0;
 	font-weight: 500;
 	font-size: 12px;
 	font-style: italic;
 	line-height: 21px;
 	text-align: center;
 }
-.button-slide:hover{
-	background: #24AE70;
+
+.button-slide:hover {
+	background: #F96D48;
 	border: 3px solid #FFFFFF;
 	color: white;
 }
+
 .button-slide:hover :nth-child(1) {
 	margin: 5px;
 }
+
 .button-slide:hover :nth-child(2) {
-  display: block;
+	display: block;
 }
-.button-return{
-  background: #FFFFFF;
-	border: 2px solid #000000;
+
+.button-return {
+	background-color: #FFFFFF;
+	border: 4px solid #F76D48;
 	box-sizing: border-box;
 	border-radius: 34px;
 	height: 56px;
 	width: 100px;
-  text-align: center;
-  background-image: url("../img/return.svg");
+	text-align: center;
+	background-image: url("../img/return-orange.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+}
+
+.button-return:hover {
+	background-color: #F76D48;
+	border: 4px solid #FFFFFF;
+	background-image: url("../img/return-white.svg");
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.button-return:hover{
-  background: #24AE70;
-	border: 3px solid #FFFFFF;
-  background-image: url("../img/return-white.svg");
-	background-position: center;
-	background-repeat: no-repeat;
-}
-.button-panel{
-	font-family: 'Montserrat';
+
+.button-panel {
+	font-family: 'Montserrat', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
@@ -92,14 +111,18 @@ input{
 	background-color: #b7d5ed;
 	background-position: center;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
-.button-panel-left{
+
+.button-panel-left {
 	background-image: url("../img/panel-left.svg");
 }
-.button-panel-right{
+
+.button-panel-right {
 	background-image: url("../img/panel-right.svg");
 }
-.button-panel :nth-child(2){
+
+.button-panel :nth-child(2) {
 	display: none;
 	margin: 0px;
 	font-weight: 500;
@@ -108,30 +131,45 @@ input{
 	line-height: 21px;
 	text-align: center;
 }
+
 .button-panel:hover :nth-child(1) {
 	margin: 0px;
 	color: white;
 }
+
 .button-panel:hover :nth-child(2) {
-  display: block;
+	display: block;
 	color: white;
 }
-.button-panel-right:hover{
+
+.button-panel-right:hover {
 	background-image: url("../img/panel-right-hover.svg");
 }
-.button-panel-left:hover{
+
+.button-panel-left:hover {
 	background-image: url("../img/panel-left-hover.svg");
 }
-.input-adresse{
+
+.input-adresse {
 	width: 320px;
 	height: 40px;
 	background: #FFFFFF;
 	border-radius: 34px;
-	font-family: Montserrat;
+	font-family: Montserrat, sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 22px;
 	color: #9E9E9E;
 	padding: 15px;
+}
+
+#logo_header {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
 }

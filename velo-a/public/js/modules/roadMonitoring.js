@@ -35,7 +35,8 @@ export async function getTraficData(trajet) {
 		}
 	});
 
-	const indice = Math.round(trafic / sum);
+	let indice = Math.round(trafic / sum);
+	if(isNaN(indice)) indice = 1;
 	let traficFluidity;
 
 	for (const [k, v] of Object.entries(types)) {
@@ -45,6 +46,8 @@ export async function getTraficData(trajet) {
 		}
 	}
 
-	console.log(traficFluidity);
+	localStorage.setItem("fluiditeTrajet", traficFluidity);
+	localStorage.setItem("distanceTrajet", distance);
+	localStorage.setItem("dureeTrajet", duration);
 }
 

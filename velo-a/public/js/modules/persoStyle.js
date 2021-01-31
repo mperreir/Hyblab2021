@@ -1,3 +1,5 @@
+"use strict";
+
 const whatStyle = () => {
   if (true) {
     return 2; // Pos Bonnet et mains sur le visage
