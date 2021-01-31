@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <img @click="back_home" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
+    <img @click="backHome" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
 
     <ul class="progressbar">
         <li id="1" v-on="actif>1 ? {click: () => clickMethod(1)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>1}"></li>
@@ -25,8 +25,8 @@ export default Vue.extend({
       }
   },
   methods: {
-    back_home() {
-      this.$router.push({name: "Home"})
+    backHome() {
+      this.$root.$data.setActif(0)
     },
     setClassActive() {
         const elem = document.getElementById(this.actif);
@@ -55,11 +55,13 @@ export default Vue.extend({
         cursor: pointer;
         width: 8%;
         margin-right: 20px;
+        z-index: 1;
     }
     .progressbar {
         width: 60%;
         margin: 20px;
         padding-left: 0;
+        z-index: 1;
     }
     .progressbar li {
         list-style-type: none;

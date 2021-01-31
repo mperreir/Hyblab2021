@@ -4,14 +4,14 @@
       <div id="launcher">
         <div class="inputliste">
           <Input
-            @blur="onBlur"
+            @blur="onBlurDepart"
             @input="getAddressDepart"
             :error="error.depart"
             v-model="departlabel"
             class="depart"
             placeholder="Point de départ..."
           />
-          <ul class="depart-result-list">
+          <ul class="depart-result-list" >
             <li
               class="depart-result-item"
               v-for="item in suggestionsdepart"
@@ -22,8 +22,9 @@
             </li>
           </ul>
         </div>
-        <div class="inputliste">
+        <div class="inputliste" >
           <Input
+            @blur="onBlurArrive"
             :error="error.arrive"
             @input="getAddressArrive"
             v-model="arriveelabel"
@@ -55,9 +56,6 @@
     <img id="nuage4" src="@/assets/nuages_svg/nuage3.svg" alt="nuage" />
     <img id="nuage5" src="@/assets/nuages_svg/nuage1.svg" alt="nuage" />
 
-    <!-- <template #stepper>
-      <Stepper :actif="actif" />
-    </template> -->
   </Container>
 </template>
 
@@ -96,9 +94,14 @@ export default {
     Oiseau,
   },
   methods: {
-    onBlur(value) {
+    onBlurDepart(value) {
       if (value) {
         this.message = "Okay, et quelle est ta destination ?";
+      }
+    },
+    onBlurArrive(value) {
+      if (value) {
+        this.message = "Parfait, j'attend ton signal"
       }
     },
     launch() {
@@ -128,14 +131,12 @@ export default {
     },
 
     async getAddress(recherche) {
-      if (recherche.length > 4) {
         const url = `https://api-adresse.data.gouv.fr/search/?q=${recherche}&citycode=44109&limit=5`;
         const response = await fetch(url);
         return response
             .json()
             .then((res) => res.features)
             .then((suggestions) => suggestions);
-      }
     },
 
     async getAddressArrive() {
@@ -213,16 +214,26 @@ export default {
     left: 25%;
     width: 15%;
   }
-  .depart-result-list,
-  .arrivee-result-list {
-    position: relative;
+  .result-list {
+    position: absolute;
     margin-top: 0;
     list-style-type: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #ffdb27;
-    font-size: 10px;
+    font-size: 20px;
     width: 37%;
+  }
+
+  .depart-result-list {
+    @extend .result-list;
+    top: 50px;
+    z-index: 101;
+  }
+  .arrivee-result-list {
+    @extend .result-list;
+    top: 160px;
+    z-index: 100;
   }
 
   .depart-result-item:hover, .arrive-result-item:hover {

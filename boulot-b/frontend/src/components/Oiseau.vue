@@ -1,11 +1,11 @@
 <template>
   <div >
     <transition name="fade" mode="out-in">
-      <div class="bubble" :key="message">
-          <p class="text" >{{message}} </p>
+      <div class="bubble" :key="msg">
+          <p class="text" >{{msg}} </p>
       </div>
     </transition>
-    <div id="wazo-anim"  > </div>
+    <div @click="tellJoke" id="wazo-anim"  > </div>
   </div>
 </template>
 
@@ -20,6 +20,30 @@ import canariSport from "../assets/animationJson/wazo_sport";
 import canariCultureSport from "../assets/animationJson/wazo_culture_sport.json";
 import canariSportNature from "../assets/animationJson/wazo_sport_nature.json";
 import canariNature from "../assets/animationJson/wazo_nature.json";
+import jokes from '@/assets/joke.json'
+
+function Joke() {
+  this.state = question(this)
+  this.tellJoke = () => {
+    return this.state()
+  }
+}
+
+function question(Joke) {
+  return () => {
+    const jokeItem = jokes[Math.floor(Math.random() * jokes.length)];
+    Joke.state =  answer(Joke, jokeItem.answer)
+    return jokeItem.joke
+  }
+}
+
+function answer(Joke, ans) {
+  return  () => {
+    Joke.state =  question(Joke)
+    return ans
+  }
+}
+
 
 export default {
   name: "Oiseau",
@@ -28,41 +52,55 @@ export default {
     anim: {
       default: () => canariVanilla
     }
-  },  
-  data() {
-    let choixhumeur =this.$root.$data.state.choice.humeur;
-    let choixtheme = this.$root.$data.state.choice.theme;
-          if(choixhumeur === Humeur.OUI || choixhumeur === Humeur.PLUTOT ){
-            if( choixtheme === Themes.NATURE ){
-                return{animm : canariSportNature } 
-            }
-            else if (choixtheme === Themes.CULTURE ){
-                return{animm : canariCultureSport } 
-            }
-          return{animm : canariSport } 
-          }  else{
-              if( choixtheme === Themes.NATURE ){
-                return{animm : canariNature } 
-            }
-            else if (choixtheme === Themes.CULTURE ){
-                return{animm : canariCulture } 
-            }else{
-              return{animm : canariVanilla }
-            }
-          }
   },
-    
-    
-    mounted () {
-    lottie.loadAnimation({
-    container : document.getElementById('wazo-anim'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    animationData: this.animm, // par défaut
-      })
-
-    },
+  data() {
+    const choixhumeur =this.$root.$data.state.choice.humeur;
+    const choixtheme = this.$root.$data.state.choice.theme;
+    let animm;
+    if(choixhumeur === Humeur.OUI || choixhumeur === Humeur.PLUTOT ){
+      if( choixtheme === Themes.NATURE ){
+          animm = canariSportNature
+      }
+      else if (choixtheme === Themes.CULTURE ){
+          animm = canariCultureSport
+      } else {
+          animm = canariSport
+      }
+    } else {
+        if( choixtheme === Themes.NATURE ){
+          animm = canariNature
+      }
+      else if (choixtheme === Themes.CULTURE ){
+          animm = canariCulture
+      }else{
+          animm = canariVanilla
+      }
+    }
+    return {
+      animm,
+      msg : this.message,
+      joke: new Joke()
+    }
+  },
+  methods: {
+    tellJoke() {
+      this.msg = this.joke.tellJoke()
+    }
+  },
+  watch: {
+    message() {
+      this.msg = this.message
+    }
+  },
+  mounted () {
+      lottie.loadAnimation({
+      container : document.getElementById('wazo-anim'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: this.animm, // par défaut
+    })
+  },
 
 };
 </script>
@@ -85,8 +123,14 @@ export default {
     letter-spacing: 0;
     text-align: center;
   }
+
+
   #wazo-anim {
-    width: 200px;
+    width: 300px;
+  }
+  #wazo-anim:hover {
+    opacity: 0.5;
+    cursor: pointer;
   }
 
   .bubble{
@@ -99,10 +143,10 @@ export default {
 
   .bubble::after{
     content:"";
-    border-left:20px solid transparent;
-    border-right:20px solid transparent;
-    border-top: 20px solid $bulle;
-    margin-left: 100px;
+    border-left:30px solid transparent;
+    border-right:30px solid transparent;
+    border-top: 30px solid $bulle;
+    margin-left: 150px;
     position: absolute;
   }
 

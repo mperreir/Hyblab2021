@@ -7,7 +7,7 @@ const store = {
             typeDeplacement: undefined,
             theme: undefined,
             style: undefined,
-            lieux: [],
+            lieux: [{resto: false}, {boulangerie: false}, {bar: false}, {salleDeSport: false}],
             humeur: undefined,
             path: {depart: undefined, arrive: undefined}
         }
@@ -17,7 +17,7 @@ const store = {
     },
     notify(state, value) {
         this.subscribers.forEach((subscriber) => {
-            subscriber[state](value)
+            subscriber[state]?.(value)
         })
     },
     setActif(newActif) {
@@ -79,4 +79,4 @@ const Themes = Object.freeze({
     CULTURE: "culture"
 })
 
-export {store, TypeDeplacement, Styles, Themes, Humeur}
+export {store, TypeDeplacement, Styles, Themes, Humeur }

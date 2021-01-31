@@ -5,7 +5,7 @@
         <Checkbox v-model="resto"  color="yellow" >Restaurant</Checkbox>
         <Checkbox v-model="bar" color="blue" >Bar</Checkbox>
         <Checkbox v-model="boulangerie" color="yellow" >Boulangerie</Checkbox>
-        <Checkbox v-model="cinema" color="blue" >Cinéma</Checkbox>
+        <Checkbox v-model="salleDeSport" color="blue" >Salle de sport</Checkbox>
         <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" />
       </Question>
     </template>
@@ -39,16 +39,17 @@ export default {
   data() {
     return {
       message: "J’ai trouvé plusieurs lieux qui pourraient t’intéresser, ça te dit d’y passer ?",
-      resto: undefined,
-      bar: undefined,
-      boulangerie: undefined,
-      cinema: undefined
+      resto: false,
+      bar: false,
+      boulangerie: false,
+      salleDeSport:false
     }
   },
   methods : {
     next() {
       this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
       this.$root.$data.setActif(this.actif +1)
+      this.$root.$data.setLieux([ {resto:this.resto}, {boulangerie: this.boulangerie}, {bar: this.bar}, {salleDeSport: this.salleDeSport}])
     }
   },
   components: {

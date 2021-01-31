@@ -25,6 +25,7 @@ $yellow: #ffdb27;
   border-radius: 20px;
   background-color: $yellow;
   padding: 20px 20px;
+  max-width: 400px;
   width:40%;
 }
 
