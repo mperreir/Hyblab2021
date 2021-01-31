@@ -71,20 +71,6 @@ header img {
 	right: 0;
 }
 
-.button-return {
-	height: 56px;
-	width: 100px;
-	background-image: url("../img/return_arrow.png");
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.button-return:hover {
-	background-image: url("../img/return_arrow.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	cursor: pointer;
-}
 
 .button-panel-right {
 	height: 80px;

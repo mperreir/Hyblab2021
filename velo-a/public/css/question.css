@@ -197,8 +197,6 @@ button {
 	justify-self: center;
 }
 
-#batiment_return {
-	position: absolute;
-	bottom: 3%;
-	left: 5%;
+.button-slide {
+	margin: 10px;
 }

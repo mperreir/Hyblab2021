@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="css/lib/mapbox-gl-directions.css"/>
 
     <!-- Scripts -->
-	<script type="module" src="js/app.js" defer></script>
-	<script type="module" src="js/startPack.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script type="module" src="js/startPack.js" defer></script>
 
     <!-- Styles-->
     <link href="css/app.css" rel="stylesheet"/>
@@ -22,18 +22,14 @@
     <link href="css/starterPack.css" rel="stylesheet"/>
     <link href="css/composant.css" rel="stylesheet"/>
 
-	<!-- Fonts -->
-	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
-	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<header>
-    <img class="logo" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
-    <h1 id="h1-veligood">Véli Good</h1>
-    <h2 id="h2-veligood">Pour un trajet Véli Bien</h2>
-</header>
+<img id="logo_header" src="img/Logo.png" alt="Véli Good : Pour un trajet Véli Bien">
 
 <div class="container_map">
 
@@ -46,18 +42,11 @@
 </div>
 <div id="map"></div>
 
-<form action="information.html">
-    <input type="submit" class="button-slide button-return bottom-left-nav" value="">
-</form>
+<input type="submit" class="button-slide button-return bottom-left-nav" value="" onclick="document.location = 'information.html'">
 
 <div class="bottom-right-nav-container">
-    <form id="form-veli-fin" action="this-is-the-end.html">
-        <input type="submit" id="btn-veli-fin" class="button-slide" value="C'est la Véli Fin">
-    </form>
-    <form action="question.html">
-        <input id="button-question" type="submit" class="button-slide" value="Testons ton vélosavoir!">
-    </form>
-
+    <input id="button-question" type="submit" class="button-slide" value="Testons ton vélosavoir!" onclick="document.location = 'question.html'">
+    <input type="submit" id="btn-veli-fin" class="button-slide" value="C'est la Véli Fin" onclick="document.location = 'this-is-the-end.html'">
 </div>
 
 </body>

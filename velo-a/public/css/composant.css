@@ -82,6 +82,10 @@ input {
 	background-image: url("../img/return-orange.svg");
 	background-position: center;
 	background-repeat: no-repeat;
+
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
 }
 
 .button-return:hover {
@@ -155,4 +159,14 @@ input {
 	line-height: 22px;
 	color: #9E9E9E;
 	padding: 15px;
+}
+
+#logo_header {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
 }
