@@ -37,9 +37,9 @@ html, body {
 }
 
 .mapboxgl-ctrl-directions {
-	width: 95% !important;
+	width: auto !important;
 	min-width: 0 !important;
-
+	max-width: 300% !important;
 }
 
 /*header*/
@@ -70,7 +70,6 @@ header img {
 	opacity: 1;
 	right: 0;
 }
-
 
 .button-panel-right {
 	height: 80px;
@@ -111,7 +110,7 @@ input[type=checkbox]:checked + label {
 }
 
 .button-cross {
-	background: white url("../img/cross.png") no-repeat center;
+	background: white url("../img/cross_orange.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
@@ -121,12 +120,12 @@ input[type=checkbox]:checked + label {
 }
 
 .button-cross:hover {
-	background: #F96D48 url("../img/cross.png") no-repeat center;
+	background: #F96D48 url("../img/cross_blanc.png") no-repeat center;
 	cursor: pointer;
 }
 
 .button-menu {
-	background: white url("../img/menu.png") no-repeat center;
+	background: white url("../img/menu_orange.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
@@ -135,8 +134,14 @@ input[type=checkbox]:checked + label {
 }
 
 .button-menu:hover {
-	background: #F96D48 url("../img/menu.png") no-repeat center;
+	background: #F96D48 url("../img/menu_blanc.png") no-repeat center;
 	cursor: pointer;
 }
 
+.mapboxgl-ctrl-geocoder .suggestions {
+	top: 30px;
+}
 
+.geocoder-pin-right {
+	visibility: hidden;
+}

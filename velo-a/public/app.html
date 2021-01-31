@@ -20,6 +20,8 @@
 	<link href="css/style.css" rel="stylesheet"/>
 	<link href="css/composant.css" rel="stylesheet"/>
 
+	<script defer src="js/lib/prefixfree.js"></script>
+
 	<!-- Fonts -->
 	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -64,9 +66,7 @@
 
 <div id="map"></div>
 
-<form action="information.html">
-	<input class="button-slide button-return bottom-left-nav" type="submit" value="">
-</form>
+<input class="button-slide button-return bottom-left-nav" type="submit" value="" onclick="document.location = 'information.html'">
 
 <div class="bottom-right-nav-container">
 	<form action="this-is-the-end.html" id="form-veli-fin">
