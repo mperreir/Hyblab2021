@@ -1,34 +1,32 @@
 let initFaunaFlora = function(){
-     //--------------AUDIO-----------
-     document.getElementById('access_audio').pause();
+    //--------------AUDIO-----------
+    muteAll();
 
-     let buttonVol = document.getElementById("volumeFaune");
-     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
- 
-     if(isSonOn){
-         document.getElementById('fauna_audio').play();
-         document.getElementById('fauna_audio').loop = false;
-     }
-     else{
-         buttonVol.setAttribute("src", "./img/common/volume_off.svg");
-     }
-     d3.selectAll('.volume').on('click', function (){
-         if(isSonOn){
-             this.setAttribute("src", "./img/common/volume_off.svg");
-             isSonOn = Boolean(false);
-             document.getElementById('fauna_audio').pause(); 
-         }
-         else{
-             this.setAttribute("src", "./img/common/volume_on.svg");
-             isSonOn = Boolean(true);
-             document.getElementById('fauna_audio').play(); 
-         }
-     }); 
- 
-     
-     
- 
-     //--------------HEADER-------------
+    let buttonVol = document.getElementById("volumeFaune");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('fauna_audio').play();
+        document.getElementById('fauna_audio').loop = false;
+    }
+    else{
+        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('.volume').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('fauna_audio').pause();
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('fauna_audio').play();
+        }
+    });
+
+
+    //--------------HEADER-------------
     d3.select('.logoAccueil5').on('click', function (){
         mySlidr.slide('home-page');
         initHome();
@@ -77,6 +75,7 @@ let initFaunaFlora = function(){
     });
 
     d3.select(".arianne-1-fauna-flora").on('click', function (){
+        muteAll();
         mySlidr.slide('down');
         setTimeout(function(){
             mySlidr.slide('left');
@@ -87,10 +86,13 @@ let initFaunaFlora = function(){
         setTimeout(function(){
             mySlidr.slide('left');
         }, 4500);
-        initAddress();
+        setTimeout(function (){
+            initAddress();
+        }, 5700);
     });
 
     d3.select(".arianne-2-fauna-flora").on('click', function (){
+        muteAll();
         mySlidr.slide('down');
         setTimeout(function(){
             mySlidr.slide('left');
@@ -98,25 +100,36 @@ let initFaunaFlora = function(){
         setTimeout(function(){
             mySlidr.slide('left');
         }, 3000);
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 4200);
     });
 
     d3.select(".arianne-3-fauna-flora").on('click', function (){
+        muteAll();
         mySlidr.slide('down');
         setTimeout(function(){
             mySlidr.slide('left');
         }, 1500);
-        initAge();
+        setTimeout(function (){
+            initAge();
+        }, 2700);
     });
 
     d3.select(".arianne-4-fauna-flora").on('click', function (){
+        muteAll();
         mySlidr.slide('down');
-        initAccess();
+        setTimeout(function (){
+            initAccess();
+        }, 1200);
     });
 
     d3.select(".arianne-6-fauna-flora").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 1200);
     });
 };
 
@@ -128,30 +141,30 @@ $(document).ready(function(){
     // })
 
     $( ".image-drop-fauna" ).draggable({
-         tolerance: 'fit',
-         revert: "invalid"
+        tolerance: 'fit',
+        revert: "invalid"
     });
 
     $(".droppableCell-fauna").droppable({
         accept: ".image-drop-fauna",
         hoverClass: "ui-state-active",
-            drop: function( event, ui ) {
-               var droppable = $(this);
-               var draggable = ui.draggable;
-               // Move draggable into droppable
-               draggable.appendTo(droppable);
-               draggable.css({top: '0px', left: '0px'});
-            }
+        drop: function( event, ui ) {
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.appendTo(droppable);
+            draggable.css({top: '0px', left: '0px'});
+        }
     })
 
     $(".images-base-fauna").droppable({
         accept: ".image-drop-fauna",
         drop: function( event, ui ) {
-           var droppable = $(this);
-           var draggable = ui.draggable;
-           // Move draggable into droppable
-           draggable.css({top: '0px', left: '0px'});
-           draggable.appendTo(droppable);
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.css({top: '0px', left: '0px'});
+            draggable.appendTo(droppable);
         }
     })
 })

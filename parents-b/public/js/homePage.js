@@ -2,14 +2,7 @@ let initHome = function(){
 
     //-----------AUDIO--------------
     //Doit mettre les audio de n'importe quelle page en pause
-    document.getElementById('adresse_audio').pause();
-    document.getElementById('hour_audio').pause();
-    document.getElementById('age_audio').pause();
-    document.getElementById('access_audio').pause();
-    document.getElementById('fauna_audio').pause();
-    document.getElementById('result1_audio').pause();
-    document.getElementById('result2_audio').pause();
-
+    muteAll();
 
     //Le premier son doit avoir un listener
     document.addEventListener('click', musicPlay);
@@ -21,20 +14,20 @@ let initHome = function(){
 
     let buttonVol = document.getElementById("volumeDebut");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
-    
+
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('debut_audio').pause(); 
+            document.getElementById('debut_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('debut_audio').play(); 
+            document.getElementById('debut_audio').play();
         }
-    }); 
-    
+    });
+
 
     d3.select('.more-info').on('click', function (){
         //Doit ouvrir la page qui sommes nous
@@ -46,7 +39,7 @@ let initHome = function(){
     })
 
 
-      
+
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,

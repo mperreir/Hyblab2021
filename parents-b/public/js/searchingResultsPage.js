@@ -7,7 +7,7 @@ let initSearchingResults = function(){
 
 
     //-----------AUDIO--------------
-    document.getElementById('activite_audio').pause();
+    document.getElementById('activities_audio').pause();
 
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){

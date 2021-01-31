@@ -1,6 +1,6 @@
 let initAccess = function(){
     //--------------AUDIO-----------
-    document.getElementById('age_audio').pause();
+    muteAll();
 
     let buttonVol = document.getElementById("volumeAccess");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
@@ -80,6 +80,7 @@ let initAccess = function(){
     });
 
     d3.select(".arianne-1-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
         setTimeout(function(){
             mySlidr.slide('left');
@@ -87,33 +88,47 @@ let initAccess = function(){
         setTimeout(function(){
             mySlidr.slide('left');
         }, 3000);
-        initAddress();
+        setTimeout(function (){
+            initAddress();
+        }, 4200);
     });
 
     d3.select(".arianne-2-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
         setTimeout(function(){
             mySlidr.slide('left');
         }, 1500);
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 2700);
     });
 
     d3.select(".arianne-3-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
-        initAge();
+        setTimeout(function (){
+            initAge();
+        }, 1200);
     });
 
     d3.select(".arianne-5-access").on('click', function (){
+        muteAll();
         mySlidr.slide('up');
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 1200);
     });
 
     d3.select(".arianne-6-access").on('click', function (){
+        muteAll();
         mySlidr.slide('up');
         setTimeout(function(){
             mySlidr.slide('right');
         }, 1500);
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 2700);
     });
 };
 

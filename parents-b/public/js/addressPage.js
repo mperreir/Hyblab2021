@@ -86,34 +86,26 @@ let initAddress = function(){
     });
 
     d3.select(".arianne-2-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initHour();
         }, 1200);
     });
 
     d3.select(".arianne-3-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
         }, 1500);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initAge();
         }, 2700);
     });
 
     d3.select(".arianne-4-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -122,15 +114,12 @@ let initAddress = function(){
             mySlidr.slide('right');
         }, 3000);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initAccess();
         }, 4200);
     });
 
     d3.select(".arianne-5-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -142,15 +131,12 @@ let initAddress = function(){
             mySlidr.slide('up');
         }, 4500);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initFaunaFlora();
         }, 5700);
     });
 
     d3.select(".arianne-6-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -165,7 +151,6 @@ let initAddress = function(){
             mySlidr.slide('right');
         }, 6000);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initActivities();
         }, 7200);
     });
