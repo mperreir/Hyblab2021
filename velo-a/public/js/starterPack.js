@@ -130,16 +130,16 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	document.getElementById("messageFin").innerText = messageFin;
 
-	let bickySavoir = document.getElementsByClassName("bicky-savoir");
+	let bickySavoir = document.getElementById("container-bicky");
 
 	document.getElementById("button-question").onmouseover = () => {
-		bickySavoir.item(0).style.visibility = "visible";
-		bickySavoir.item(1).style.visibility = "visible";
+		bickySavoir.style.visibility = "visible";
+		bickySavoir.style.opacity = "1";
 	}
 
 	document.getElementById("button-question").onmouseout = () => {
-		bickySavoir.item(0).style.visibility = "hidden";
-		bickySavoir.item(1).style.visibility = "hidden";
+		bickySavoir.style.opacity = "0";
+		bickySavoir.style.visibility = "hidden";
 	}
 
 });

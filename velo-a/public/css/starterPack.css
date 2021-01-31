@@ -1,44 +1,3 @@
-.container_map{
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/*#form-savoir {
-    display: grid;
-    grid-template-columns: auto 35px auto;
-    grid-template-rows: repeat(2, auto);
-    align-items: center;
-    justify-content: center;
-}*/
-
-#bicky-savoir {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-}
-
-#bulle-savoir {
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-    margin-bottom: 10%;
-    width: 100%;
-}
-
-#button-question {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-}
-
-#btn-veli-fin {
-	grid-column: 3 / 4;
-	grid-row: 3 / 4;
-}
-
-.bicky-savoir {
-    visibility: hidden;
-	z-index: 1;
-}
-
 body {
 	width: 100vw;
 	display: flex;
@@ -54,11 +13,19 @@ body {
 	padding: 20px;
 }
 
+#container-bicky {
+	visibility: hidden;
+	z-index: 1;
+
+	transition: all 0.5s;
+}
+
 input {
 	margin-top: 2%;
 	z-index: 1000;
 	min-height: 68px;
 }
+
 
 @media (orientation: portrait) {
 	.bottom-right-nav-container {
@@ -68,13 +35,23 @@ input {
 	.container_map {
 		align-self: center;
 	}
+
+	#container-bicky {
+		display: flex;
+	}
+
+	#bicky-savoir {
+		width: 150px;
+	}
+
+	#bulle-savoir {
+		width: 250px;
+	}
 }
 
 @media (orientation: landscape) {
 	.bottom-right-nav-container {
 		align-items: flex-end;
-	}
-	.container_map {
 	}
 }
 
