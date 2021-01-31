@@ -2,7 +2,6 @@
 
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
-	updateAriane(4,  deps.get(router.data.department).nomDepartement, getCategorie(router.data.personnage).nomCategorie, getLegende(getCodeLegende()).nom);
 	await getLegendeById(router.data.legende, data => {
 		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
 		document.querySelector('#nom').innerHTML = data.nom;

@@ -5,9 +5,7 @@
  * @param {number} type 	the id of the wanted type.
  */
 function getCategorie(type) {
-	for(let c of categories) {
-		if(c.id === parseInt(type, 10)) return c;
-	}
+	if(categories !== null) return categories.find(categorie => categorie.id === parseInt(type, ));
 }
 
 /**
@@ -38,12 +36,19 @@ function getCodeLegende(){
 /**
  * Variables definition
  */
-let deps = {data: null, isValid: (code) => {
-				for(let d of deps.data) if(d.id === code) return true;
-				return false;
-			}, get: (code) => {
-				for(let d of deps.data) if(d.id === code) return d;
-			}};
+// transformer en classe TODO
+let deps = {
+	// regions
+	data: null,
+	// depart valide ?
+	isValid: (code) => {
+		if(deps.data !== null) return ((deps.data.find(data => data.id === code)) !== undefined) ? true : false;
+	},
+	// retourne depart depuis son code
+	get: (code) => {
+		if(deps.data !== null) return deps.data.find(data => data.id === code);
+	}
+};
 
 /**
  * Function that return the ID of a region from it's code.
