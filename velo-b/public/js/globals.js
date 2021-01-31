@@ -1,9 +1,13 @@
 window.devMode = document.cookie.indexOf('dev=true') > -1;
 window.onhashchange = () => window.devMode && goToSlide(window.location.hash || "splash-screen");
 
+window.results = {
+    quartier: null,
+    transport: null,
+    relevant: []
+};
+
 window.slideGraph = {};
-window.zoneChoisie = null;
-window.vehiculeChoisi = null;
 window.currentSlide = null;
 window.lastSlide = null;
 
@@ -29,6 +33,7 @@ function goToNextSlide(choice) {
     const next = links[choice];
     if (!current) alert(`Le choix ${choice} n'est pas disponible pour la slide ${window.currentSlide}`);
 
+    updateResults(window.currentSlide, choice);
     goToSlide(next);
 }
 
@@ -46,6 +51,24 @@ function goToSlide(name) {
         window.slideGraph[name].init();
     } catch {
         alert(`La slide "${name}" n'est pas registered avec registerSlide() !`);
+    }
+}
+
+function updateResults(name, choice) {
+    if (choice === 'ok') {
+        const relevant = window.slideGraph[name].relevant;
+        if (relevant) {
+            window.results.relevant = [...new Set([...window.results.relevant, ...relevant])];
+        }
+    }
+
+    if (name === 'page-carte') {
+        window.results.quartier = choice;
+    }
+
+    const transport = name.match(/choix-transport-(\w+)/);
+    if (transport) {
+        window.results.transport = transport[1];
     }
 }
 
