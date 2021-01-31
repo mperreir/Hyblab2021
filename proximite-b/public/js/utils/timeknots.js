@@ -104,7 +104,7 @@ var TimeKnots = {
 
         var col1 = $('<div>').attr('class', 'col');
         var ul1 = $('<ul>');
-        col1.append("<p>Vous pouvez accéder aux informations des lieux en cliquant dessous :<p>");
+        col1.append("<p>Cliquez sur les adresses pour accéder aux informations :<p>");
         col1.append(ul1);
 
         d.forEach(element => {
