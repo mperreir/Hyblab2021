@@ -82,8 +82,10 @@
     }
   }
 
-  #img_persona{
-    height: 75vh;
+  .contain_persona img {
+    position: absolute;
+    bottom: 12vh;
+    left: 10vw;
 }
 
   #train{

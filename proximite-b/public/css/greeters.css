@@ -64,3 +64,15 @@
     left : 45%;
     top : 30%
 }
+
+
+
+
+
+@media screen and (min-resolution: 100dpi) {
+
+    #rowPersonnages{
+        position: relative;
+        top: -2em;
+    }
+}
