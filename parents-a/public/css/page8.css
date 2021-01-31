@@ -34,6 +34,13 @@ section[data-slidr="page-8"] {
     width: 15%;
     bottom: 7%;
     right: 5%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-carotte-p8:hover {
+    transform: scale(1.1) translateY(-5%);
 }
 
 #arbuste-bleu-p8 {
@@ -41,6 +48,13 @@ section[data-slidr="page-8"] {
     width: 22%;
     bottom: -5%;
     right: 18%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbuste-bleu-p8:hover {
+    transform: scale(0.9) translateY(5%);
 }
 
 /* Végétation gauche */
@@ -56,6 +70,13 @@ section[data-slidr="page-8"] {
     width: 13%;
     bottom: 9%;
     right: 79%;
+}
+
+#feuille-orange-p8:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 /* Sols */

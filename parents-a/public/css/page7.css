@@ -45,6 +45,9 @@ section[data-slidr="page-7"] {
     width: 18%;
     bottom: -5%;
     right: 6%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 #feuille-rouge-p7:hover {
     transform: scale(1.1) translateY(-5%);
@@ -77,6 +80,9 @@ section[data-slidr="page-7"] {
     width: 13%;
     bottom: 0%;
     left: 27%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 #feuille-bleue-p7:hover {
     transform: scale(1.1) translateY(-5%);
@@ -87,6 +93,9 @@ section[data-slidr="page-7"] {
     width: 15%;
     top: 20%;
     left: 8%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
 #petit-nuage-p7:hover {
@@ -98,6 +107,9 @@ section[data-slidr="page-7"] {
     width: 25%;
     top: 10%;
     right: 20%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
 #gros-nuage-p7:hover {
