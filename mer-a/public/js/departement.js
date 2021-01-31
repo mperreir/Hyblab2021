@@ -8,7 +8,7 @@ codeType = getCodeType();
 
 map = getMapDepartement(codeDep);
 
-let baseNarrator = new Narrator($('#narration')[0], $('#narration > span')[0], $('#narration > button.pass_narration')[0], 45);
+// let baseNarrator = new Narrator($('#narration')[0], $('#narration > span')[0], $('#narration > button.pass_narration')[0], 45);
 // {
 // 	html: {
 // 		box: document.querySelector('#narration'),
@@ -27,9 +27,9 @@ let baseNarrator = new Narrator($('#narration')[0], $('#narration > span')[0], $
 // 	}
 // };
 
-let legendNarrator = new Narrator($('#narration_legende')[0], $('#narration_legende > span.resume')[0], $('#narration_legende > button.pass_narration')[0], 45,
-					{ title: $('#narration_legende > span.title')[0] },
-					{ timeout: null });
+// let legendNarrator = new Narrator($('#narration_legende')[0], $('#narration_legende > span.resume')[0], $('#narration_legende > button.pass_narration')[0], 45,
+// 					{ title: $('#narration_legende > span.title')[0] },
+// 					{ timeout: null });
 // {
 // 	html: {
 // 		box: document.querySelector('#narration_legende'),
@@ -50,6 +50,10 @@ let legendNarrator = new Narrator($('#narration_legende')[0], $('#narration_lege
 // 	}
 // };
 
+let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
+					{ title: $('#narration > span.title')[0] },
+					{ timeout: null },
+					{ baseText: null });
 persoBox = document.querySelector('#character');
 
 
@@ -63,19 +67,24 @@ persoBox = document.querySelector('#character');
 	await getRegionsId(r => deps.data = r);
 	deps.data = [deps.get(map.properties.code)];
 	categorie = getCategorie(router.data.personnage);
-	baseNarrator.setText(categorie.phraseDep);
-	setNarrationBox();
+	// baseNarrator.setText(categorie.phraseDep);
+	narrator.setText(categorie.phraseDep);
+	narrator.properties.baseText = categorie.phraseDep;
+	narrator.load();
+	// setNarrationBox();
 	generateDep(mapFusion);
 	loadCharacter();
 	perso = document.getElementById('character_image');
-	baseNarrator.start();
+	// baseNarrator.start();
+	narrator.start();
 	setTimeout(() => perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`,500);
 	/**
 	* When the window is resized, we update the view.
 	*/
 	window.addEventListener("resize", function() {
 		perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
-		setNarrationBox();
+		narrator.load();
+		// setNarrationBox();
 		generateDep(mapFusion);
 	});
 })();
