@@ -114,7 +114,7 @@ function leaveDot(t){
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
-	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
+	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
 }
 
 /**
@@ -142,6 +142,7 @@ function generateDep(mapData){
 	//Creation of the SVG element
 	var svg = d3.select("#department")
 		.append('svg')
+		.html('')
 		.attr("width", width)
 		.attr("height", height);
 
@@ -241,7 +242,7 @@ function leaveDot(t){
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
-	legendNarration.animation.intervals.timeout = setInterval(hideLegendNarration, 3000);
+	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
 }
 
 /**
@@ -264,6 +265,7 @@ function generateMap(mapFusion){
 
 	//Creation of the SVG element
 	var svg = d3.select('#bretagne')
+		.html('')
 		.append('svg')
 		.attr('width', width)
 		.attr('height', height);

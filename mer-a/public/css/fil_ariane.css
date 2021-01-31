@@ -46,6 +46,11 @@
   opacity: 0.4;
 }
 
+.active{
+  background-color: white;
+  opacity: 1;
+}
+
 .active:hover{
   cursor: pointer;
 }
@@ -71,7 +76,7 @@
   top: 5vh;
   font-family: 'Poppins', sans-serif;
   font-size: 1.5vh;
-  min-width: 10vw;
+  min-width: 8vw;
   text-align: center;
 }
 

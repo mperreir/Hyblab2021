@@ -1,5 +1,6 @@
 body {
 	overflow: hidden;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 /* Petite astuce pour avoir le parallax en full screen */

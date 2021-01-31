@@ -1,53 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>M&eacute;dia & Sea</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+<head>
+  <meta charset="utf-8">
+  <title>M&eacute;dia & Sea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="icon" href="assets/img/logo/favicon.ico"/>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/fond.css">
-    <link href="/mer-a/css/fil_ariane.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/logo/favicon.ico"/>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fond.css">
+  <link href="/mer-a/css/fil_ariane.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
-    <script src="/mer-a/js/common/config.js" defer></script>
-    <script src="/mer-a/js/common/router.js" defer></script>
-    <script src="/mer-a/js/common/filAriane.js" defer></script>
-    <script src="/mer-a/js/common/utils.js" defer></script>
-    <script src="/mer-a/js/common/apiConnection.js" defer></script>
-    <script src="/mer-a/js/common/loadings.js" defer></script>
-    <script src="/mer-a/js/common/loader.js" defer></script>
-    <script src="/mer-a/js/common/loadMaps.js" defer></script>
-    <script src="/mer-a/js/common/soundManager.js" defer></script>
-    <script src="/mer-a/js/common/narration.js" defer></script>
-    <script src="/mer-a/js/common/personnages.js" defer></script>
+  <script src="/mer-a/js/common/config.js" defer></script>
+  <script src="/mer-a/js/common/router.js" defer></script>
+  <script src="/mer-a/js/common/filAriane.js" defer></script>
+  <script src="/mer-a/js/common/utils.js" defer></script>
+  <script src="/mer-a/js/common/apiConnection.js" defer></script>
+  <script src="/mer-a/js/common/loadings.js" defer></script>
+  <script src="/mer-a/js/common/loader.js" defer></script>
+  <script src="/mer-a/js/common/loadMaps.js" defer></script>
+  <script src="/mer-a/js/common/soundManager.js" defer></script>
+  <script src="/mer-a/js/common/narration.js" defer></script>
+  <script src="/mer-a/js/common/personnages.js" defer></script>
 
-    <script src="/mer-a/js/classes/Legende.js"></script>
-    <script src="/mer-a/js/script.js" defer></script>
-  </head>
-  <body>
-    <div id="loading"><div class="loader"></div></div>
-    <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
-    <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
-    <div id="fond-mer"></div>
+  <script src="/mer-a/js/classes/Legende.js"></script>
+  <script src="/mer-a/js/script.js" defer></script>
+</head>
+<body>
+  <div id="loading"><div class="loader"></div></div>
+  <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="fond-mer"></div>
 
-    <div id="content" class="center"></div>
-    <audio id="vagues_sound" >
-      <source src="/mer-a/assets/sound/vagues.wav" type="audio/wav">
+  <div id="content" class="center"></div>
+  <audio id="vagues_sound" >
+    <source src="/mer-a/assets/sound/vagues.wav" type="audio/wav">
       Your browser does not support the audio element.
     </audio>
+    <div class="fil_ariane">
+      <div class="cercle_outer" id="cercle_outer1">
+        <div class="cercle_inner" id="cercle_inner1"></div>
+      </div>
+      <div class="trait" id="trait1"></div>
+      <div class="cercle_outer" id="cercle_outer2">
+        <div class="cercle_inner" id="cercle_inner2"></div>
+      </div>
+      <div class="trait" id="trait2"></div>
+      <div class="cercle_outer" id="cercle_outer3">
+        <div class="cercle_inner" id="cercle_inner3"></div>
+      </div>
+      <div class="trait" id="trait3"></div>
+      <div class="cercle_outer" id="cercle_outer4">
+        <div class="cercle_inner" id="cercle_inner4"></div>
+      </div>
+    </div>
     <button id="audio_control" class="active">Couper le son</button>
     <div class="button" id="change">Change</div>
   </body>
-</html>
+  </html>
