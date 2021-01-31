@@ -15,12 +15,6 @@
       "sud": "choix-transport-velo",
       "est": "choix-transport-velo",
       "ouest": "choix-transport-velo"
-    },
-    "realNext": {
-      "nord": "info-choix-carte",
-      "sud": "info-choix-carte",
-      "est": "info-choix-carte",
-      "ouest": "info-choix-carte"
     }
   },
   "info-choix-carte": {
@@ -35,7 +29,10 @@
       "gauche": "choix-transport-bicloo",
       "droite": "choix-transport-voiture",
       "retour": "page-carte"
-    }
+    },
+    "relevant": [
+      "arrets-tan"
+    ]
   },
   "info-choix-transports": {
     "next": {
@@ -58,7 +55,12 @@
       "gauche": "choix-transport-voiture",
       "droite": "choix-transport-bicloo",
       "retour": "page-carte"
-    }
+    },
+    "relevant": [
+      "velocistes",
+      "gonfleurs-libre-service",
+      "abris-velo"
+    ]
   },
   "info-choix-velo": {
     "next": {
@@ -78,7 +80,11 @@
       "gauche": "choix-transport-velo",
       "droite": "choix-transport-transports",
       "retour": "page-carte"
-    }
+    },
+    "relevant": [
+      "stations-velo-libre-service",
+      "abris-velo"
+    ]
   },
   "info-choix-bicloo": {
     "next": {
@@ -98,7 +104,11 @@
       "gauche": "choix-transport-transports",
       "droite": "choix-transport-velo",
       "retour": "page-carte"
-    }
+    },
+    "relevant": [
+      "disponibilites-parcs-relais",
+      "disponibilites-places-parking"
+    ]
   },
   "info-choix-voiture": {
     "next": {

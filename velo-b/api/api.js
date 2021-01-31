@@ -32,14 +32,16 @@ module.exports = () => {
     // création d'une app express
     const app = express();
 
-    // routes depuis les fichiers json
-    app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
+    // routes depuis les fichiers json (avec position)
     app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier'])));
-    app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
     app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier'])));
     app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier'])));
     app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier'])));
     app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier'])));
+
+    // routes depuis les fichiers json
+    app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
+    app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
     app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('tarifs-bicloo.json')));
 
     // routes depuis l'api de nantes metropole
