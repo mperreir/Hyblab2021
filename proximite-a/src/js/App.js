@@ -92,6 +92,7 @@ class App extends  React.Component {
 
     updateAttributs = (e,f) => {
         this.setState({ coords: e,adresse:f})
+        this.createSites()
     };
 
     updateMoyen=(e)=>{
