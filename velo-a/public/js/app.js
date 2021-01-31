@@ -11,7 +11,10 @@ async function bootstrap() {
 		container: 'map', // container id
 		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
 		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
-		zoom: 12.3 // starting zoom
+		zoom: 12.3, // starting zoom
+		dragRotate: false,
+		keyboard: false,
+		touchPitch: false,
 	});
 
 	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
