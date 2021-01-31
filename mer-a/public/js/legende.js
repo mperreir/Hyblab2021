@@ -3,7 +3,9 @@
 (async () => {
 	const path = '/mer-a/assets/img/logo/';
 	await getLegendeById(router.data.legende, data => {
-		document.querySelector('#personnage').src = `/mer-a/${data.imageURI}`;
+		document.querySelector('#personnage-s1').src = `/mer-a/${data.imageURI}`;
+		document.querySelector('#personnage-s2').src = `/mer-a/${data.imageURI}`;
+
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#bubble').innerHTML = data.histoire;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;

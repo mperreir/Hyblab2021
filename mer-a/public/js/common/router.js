@@ -2,7 +2,6 @@
 
 const nbFond = 3;
 
-
 class Router {
 
   constructor(fileAriane, loader) {
@@ -25,6 +24,7 @@ class Router {
 
   loadRessources(path, data, change) {
     $('#content').fadeOut('slow', () => {
+      this.#deleteCharacter();
       this.changeFond(change);
       $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
     });
@@ -32,9 +32,9 @@ class Router {
     this.data = data;
     this.fileAriane.updateAriane(
       path,
-      (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'departement',
-      (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'personnage',
-      'legende'
+      (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
+      (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
+      'Légende'
     );
   }
 
@@ -43,12 +43,15 @@ class Router {
   }
 
   #deleteCharacter() {
-    const personnage = this.fond.querySelector('#personnage');
-    if(personnage !== null) personnage.src = "";
+    if(this.fond.querySelector('#personnage-s1') !== null) {
+      this.fond.querySelector('#personnage-s1').src = "";
+    }
+    if(this.fond.querySelector('#personnage-s2') !== null) {
+      this.fond.querySelector('#personnage-s2').src = "";
+    }
   }
 
   changeFond(idChange) {
-    this.#deleteCharacter();
     if(idChange >= 0 && idChange <= nbFond && this.idFond !== idChange) {
       this.idFond = idChange;
       switch (idChange) {

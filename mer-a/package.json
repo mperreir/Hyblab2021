@@ -10,13 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/Titouan-GUYADER/Hyblab2021.git"
   },
-  "author": "Théo DAUDIN, Julien PINCON, Armand BOUTIER, Titouan GUYADER, Nolwenn LAPORTE, ...",
+  "author": "Nolwenn LAPORTE, Théo DAUDIN, Julien PINCON, Armand BOUTIER, Titouan GUYADER, Tom GOBARDHAN",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Titouan-GUYADER/Hyblab2021/issues"
   },
   "homepage": "https://github.com/Titouan-GUYADER/Hyblab2021#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "csv-parser": "^3.0.0",
     "fs": "0.0.1-security",
     "sqlite": "^4.0.19",

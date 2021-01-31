@@ -30,6 +30,26 @@ div#change {
   margin: 0;
 }
 
+
+/*==============
+	= Personnage =
+	==============*/
+
+
+#personnage-s1 {
+	margin-top: 5%;
+	margin-left: 20%;
+	height: 70%;
+	width: auto;
+}
+
+#personnage-s2 {
+	margin-top: 7.5%;
+	margin-left: 17.5%;
+	height: 70%;
+	width: auto;
+}
+
 #fond-mer {
   position: absolute;
   display: none;
