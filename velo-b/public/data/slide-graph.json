@@ -93,7 +93,7 @@
   "question-transports-bicloo": {
     "next": {
       "oui": "choix-transport-bicloo",
-      "non": "page-finale"
+      "non": "page-arrivee"
     }
   },
   "question-velo-autres-transports": {
@@ -111,7 +111,7 @@
   "question-garer-velo": {
     "next": {
       "consigne": "info-abonnements-consignes",
-      "sauvage": "page-finale"
+      "sauvage": "page-arrivee"
     }
   },
   "question-voiture-velo": {
@@ -134,13 +134,18 @@
   },
   "question-voiture-parking": {
     "next": {
-      "gratuit": "page-finale",
-      "payant": "page-finale"
+      "gratuit": "page-arrivee",
+      "payant": "page-arrivee"
     }
   },
   "info-abonnements-consignes": {
     "next": {
       "ok": "page-finale"
+    }
+  },
+  "page-arrivee": {
+    "next": {
+      "continuer": "page-finale"
     }
   }
 }
