@@ -98,7 +98,7 @@ class App extends  React.Component {
 
     generatePerimetre = () => {
         let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
-        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+        fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
                 console.log(perimetre)
@@ -116,8 +116,7 @@ class App extends  React.Component {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
         let moyen = equivalent.moyenEquiv.get(this.state.moyenId)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
-        console.log("appel de " + 'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme);
-        let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
+        let lieux = await (await fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
 
         let site1 = {
             id: '1',
@@ -129,7 +128,7 @@ class App extends  React.Component {
             type: 4,
         }
         if (lieux.lieux.length >= 1 && typeof lieux.lieux !== "undefined") {
-            let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
+            let adresse1 = await (await fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
             let adresseF1 = adresse1.rue + " " + adresse1.codepostal + " " + adresse1.ville
             let name1 = ""
             if (typeof lieux.lieux[0].tags.name !== "undefined") {
@@ -156,7 +155,7 @@ class App extends  React.Component {
             type: 4,
         }
         if (lieux.lieux.length >= 2 && typeof lieux.lieux !== "undefined") {
-            let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
+            let adresse2 = await (await fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
             let adresseF2 = adresse2.rue + " " + adresse2.codepostal + " " + adresse2.ville
             let name2 = ""
             if (typeof lieux.lieux[1].tags.name !== "undefined") {
@@ -183,7 +182,7 @@ class App extends  React.Component {
             type: 4,
         }
         if (lieux.lieux.length >= 3 && typeof lieux.lieux !== "undefined") {
-            let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
+            let adresse3 = await (await fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
             let adresseF3 = adresse3.rue + " " + adresse3.codepostal + " " + adresse3.ville
             let name3 = ""
             if (typeof lieux.lieux[0].tags.name !== "undefined") {
@@ -202,7 +201,7 @@ class App extends  React.Component {
         }
         let lieuSurprise = this.state.surprise
         if (typeof lieux.surprise !== "undefined") {
-            let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+            let adresseSurp = await (await fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
             let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
             let nameSurp = ""
             if (lieux.surprise.tags.name) {
