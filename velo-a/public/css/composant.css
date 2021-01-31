@@ -173,3 +173,9 @@ input {
 	right: 0;
 	z-index: 100;
 }
+
+body {
+	position: fixed;
+	width: 100vw;
+	height: 100%;
+}
