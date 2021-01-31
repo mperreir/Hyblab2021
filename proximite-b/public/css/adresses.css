@@ -1,68 +1,85 @@
 #adresses_background{
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     z-index: -3;
 }
 
-div#adresses_content {
-    background-image: url('/proximite-b/img/adresses/Pop-up.svg');
-    width: 100%;
-    height: 100%;
-    position: absolute;
+
+#body_popup_adresse{
+    background-color: #BFE3EE;
+}
+
+ .modal-content {
+    border: none;
+    background-color:transparent;
+}
+
+#head_popup_adresse {
+    background-image: url('/proximite-b/img/adresses/pop-up-feuilles.svg') !important;
     background-repeat: no-repeat;
-    background-size: cover;
+    border-radius: 0 none;
+    background-position-x: center;
+    border: none;
+    height: 13em;
+}
+
+#body_popup_adresse {
+    border-radius: 4em !important;
+    color: white;
+    height: 25em;
+    border: none;
+    background-image: url('/proximite-b/img/adresses/feuilles-bottom.svg') !important;
+
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: 70%;
+    background-position-x: center;
 }
 
 #adresse1 {
-    position: absolute;
-    top: 50%;
-    left: 37%;
+    width: 50%;
     background-image: url('/proximite-b/img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-position-y: center;
     background-position-x: 0.2em;
+    margin-top : 4.5em;
 }
-
-#adresses1 {
-    position: absolute;
-    top: 55%;
-    left: 37%;
-}
-
 #adresse2 {
-    position: absolute;
-    top: 60%;
-    left: 37%;
+    width: 50%;
     background-image: url('/proximite-b/img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-position-y: center;
     background-position-x: 0.2em;
+    margin-top: 2.5em;
 }
 
-#adresses2 {
+#papi_bulle{
     position: absolute;
-    top: 65%;
-    left: 37%;
-}
-
-#go_bouton {
-    position: absolute;
-    top: 72%;
-    left: 46%;
-    width: 7em;
-    height: 2em;
+    left: -7%;
+    width: 22vw;
+    height: auto;
+    z-index: 50;
 }
 
 .liste_adresses {
-    width: 400px;
     background-color: #E5E5E4;
     border-radius: 15px;
     z-index: 9999;
+}
+#adresses1, #adresses2{
+    position: absolute;
+    width: 50%;
+    right: 25%;
+
+}
+
+#go_bouton{
+    margin-top: 5em;
 }
 
 .bouton_adresse {
@@ -72,19 +89,4 @@ div#adresses_content {
     border-radius: 15px;
     background-color: transparent;
     margin: 5px;
-}
-
-button#bouton_accueil {
-    position: absolute;
-    left: 85.6%;
-    top: 4%;
-    width: 3em;
-    height: 1em;
-    background-image: url('/proximite-b/img/adresses/Bouton-accueil.svg');
-    font-size: 3em;
-    color: transparent;
-    background-color: transparent;
-    border: none;
-    background-size: contain;
-    background-repeat: no-repeat;
 }
