@@ -36,3 +36,13 @@ div#index_text {
 .font-montserrat {
     font-family: Montserrat;
 }
+
+
+@media screen and (min-resolution: 100dpi) {
+    div#body {
+        display: table-cell;
+        vertical-align: middle;
+        padding-top: 150px;
+        padding-left: 125px;
+    }
+}
