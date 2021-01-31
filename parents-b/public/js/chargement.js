@@ -1,4 +1,9 @@
 $(document).ready(function(){
+
+    //-----------AUDIO--------------
+    muteAll();
+
+
   $("#home")[0].style.display = "none";
   $(".shooting-stars")[0].style.display = "none";
   setTimeout(function () {

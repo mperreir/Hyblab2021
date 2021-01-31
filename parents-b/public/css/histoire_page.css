@@ -16,13 +16,12 @@
 }
 
 .accueil{
-    position: absolute;
-    top: 92%;
-    left: 40%;
-    width: 20%;
-    border: .3em solid #FFCDB6;
-    font-size: 18%;
-    z-index: 2;
+        position: absolute;
+        cursor: pointer;
+        top: 2%;
+        left: 13%;
+        width: 3%;
+        z-index: 4;
 }
 
 .button-histoire-font{
@@ -31,11 +30,8 @@
 
 .suivant_histoire{
     position: absolute;
-    top: 85%;
-    left: 38%;
-    width: 23%;
-    z-index: 2;
-    font-size: 18%;
-    border: 0.2em solid #ffe9de;
+    top: 84%;
+    left: 74%;
+    width: 4%;
     z-index: 4;
 }

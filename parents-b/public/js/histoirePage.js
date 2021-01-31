@@ -1,5 +1,8 @@
 let initHistoire = function(){
 
+    //Coupe Audio du go ne devrai pas avoir lieu car impossible de cliquer pendant lancement fusée
+    document.getElementById('debut_audio').pause();
+
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
         mySlidr.slider("value", mySlidr.slider("option", "min") );

@@ -9,6 +9,14 @@ let initSearchingResults = function(){
     //-----------AUDIO--------------
     document.getElementById('activite_audio').pause();
 
+    if(isSonOn){
+        document.getElementById('result1_audio').play();
+        document.getElementById('result1_audio').loop = false;
+    }
+    else{
+        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+    }
+
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
