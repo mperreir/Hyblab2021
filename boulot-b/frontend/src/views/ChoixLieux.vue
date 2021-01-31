@@ -2,7 +2,7 @@
   <Container>
     <template #question >
       <Question>
-        <Checkbox v-model="resto"  color="yellow" >Restaurant</Checkbox>
+        <Checkbox v-model="pharmacie"  color="yellow" >Pharmacie</Checkbox>
         <Checkbox v-model="bar" color="blue" >Bar</Checkbox>
         <Checkbox v-model="boulangerie" color="yellow" >Boulangerie</Checkbox>
         <Checkbox v-model="salleDeSport" color="blue" >Salle de sport</Checkbox>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       message: "J’ai trouvé plusieurs lieux qui pourraient t’intéresser, ça te dit d’y passer ?",
-      resto: false,
+      pharmacie: false,
       bar: false,
       boulangerie: false,
       salleDeSport:false
@@ -49,7 +49,10 @@ export default {
     next() {
       this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
       this.$root.$data.setActif(this.actif +1)
-      this.$root.$data.setLieux([ {resto:this.resto}, {boulangerie: this.boulangerie}, {bar: this.bar}, {salleDeSport: this.salleDeSport}])
+      this.$root.$data.setLieux({pharmacie: this.pharmacie,
+                                boulangerie: this.boulangerie,
+                                bar: this.bar, 
+                                salleDeSport: this.salleDeSport})
     }
   },
   components: {

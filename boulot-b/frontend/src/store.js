@@ -7,7 +7,7 @@ const store = {
             typeDeplacement: undefined,
             theme: undefined,
             style: undefined,
-            lieux: [{resto: false}, {boulangerie: false}, {bar: false}, {salleDeSport: false}],
+            lieux: {pharmacie: false, boulangerie: false, bar: false, salleDeSport: false},
             humeur: undefined,
             path: {depart: undefined, arrivee: undefined}
         }
