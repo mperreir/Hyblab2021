@@ -23,12 +23,6 @@ div#content {
 	height: 100%;
 }
 
-div#change {
-	position: absolute;
-	top: calc(3.5vh + 20px);
-  right: 1vh;
-  margin: 0;
-}
 /*==============
 	= Personnage =
 	==============*/
