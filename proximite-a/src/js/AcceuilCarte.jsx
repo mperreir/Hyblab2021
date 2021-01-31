@@ -106,7 +106,6 @@ class AcceuilCarte extends  React.Component {
                         </Marker>
                     }) }
                     <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
-                    /*<Polyline positions={this.state.itineraire ? this.state.itineraire : []}/>*/
                 </MapContainer>
 
                 <PopupAnnonce/>
