@@ -9,9 +9,9 @@ var path = require('path');
 
 var app = express();
 
-app.get('/', (req, res) => {
+app.use((req, res, next) => {
     res.cookie("dev", config.env==='dev');
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    next();
 });
 
 // Minimum routing: serve static content from the html directory
