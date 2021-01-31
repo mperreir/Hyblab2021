@@ -132,10 +132,15 @@
       "non": "question-voiture-parking"
     }
   },
-  "info-abonnements-consignes": {
+  "question-voiture-parking": {
     "next": {
       "gratuit": "page-finale",
       "payant": "page-finale"
+    }
+  },
+  "info-abonnements-consignes": {
+    "next": {
+      "ok": "page-finale"
     }
   }
 }

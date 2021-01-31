@@ -23,6 +23,9 @@ registerSlide("question-garer-velo", function () {
     button( '#ic-sauvage-velo', 'sauvage');
 });
 
+registerSlide("info-abonnements-consignes", function () {
+    button( '#ic-abonnements-consignes', 'ok');
+});
 
 registerSlide("question-transports-bicloo", function () {
     button( '#ic-oui-transport-bicloo', 'oui');
