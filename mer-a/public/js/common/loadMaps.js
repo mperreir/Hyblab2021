@@ -24,19 +24,11 @@ function setStrokeWidth(d){
 }
 
 /**
- * Function that extract the svg paths of the selected region.
- * @param {number} code 	the id of the selected region.
- */
-function getMapDepartement(code){
-	let f = null;
-	for(let i in mapFusion.features){
-		let feature = mapFusion.features[i];
-		if(feature.properties.code === code){
-			f = feature;
-			break;
-		}
-	}
-	return f;
+* Function that extract the svg paths of the selected region.
+* @param {number} code 	the id of the selected region.
+*/
+function getMapDepartement(){
+	return mapFusion.features.find(element => element.properties.code === router.data.department);
 }
 
 /**
@@ -114,7 +106,8 @@ function leaveDot(t){
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
-	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
+	//legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
+	narrator.animation.intervals.custom.timeout = setInterval(loadBaseTextNarration, 2000);
 }
 
 /**
@@ -222,36 +215,6 @@ function generateDep(mapData){
  *           PAGE CHOIX DEP
  * ====================================
  */
-
-function hoverDot(t){
-	d3.select(t)
-		.transition().duration(350)
-		.attr("r", circlesSizeHovered)
-		.style('cursor','pointer')
-		.style("fill-opacity", circlesHoveredOpacity);
-	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
-}
-
-/**
- * Function that handle the leave event of the circles.
- * @param {object} t		the hovered element.
- */
-function leaveDot(t){
-	d3.select(t)
-		.transition().duration(350)
-		.attr("r", circlesSize)
-		.style('cursor','initial')
-		.style("fill-opacity", circlesOpacity);
-	legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
-}
-
-/**
- * Function that extract the svg paths of the selected region.
- * @param {number} code 	the id of the selected region.
- */
-function getMapDepartement(){
-	return mapFusion.features.find(element => element.properties.code === router.data.department);
-}
 
 /**
  * The function that loads the map.

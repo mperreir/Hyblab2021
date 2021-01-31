@@ -99,7 +99,8 @@ p.narration {
 
 div#character > p.narration {
   top: 0vh;
-	width: 100%;
+  width: 100%;
+  word-break: break-word;
 }
 
 
@@ -111,9 +112,10 @@ div#instructions > p.narration {
 	width: auto;
 }
 
-#narration_legende > span.title {
+.narration > span.title {
   font-weight: bold;
   margin-bottom: 0.5vh;
+  display: none;
 }
 
 #cercle_outer1 {

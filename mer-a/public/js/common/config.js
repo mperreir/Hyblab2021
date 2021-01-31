@@ -69,8 +69,6 @@ let mapFusion = null;
 const narrationFontSize = window.innerHeight*0.023;
 const padding = window.innerHeight*0.008;
 
-const narrationSpeed = 45; // 0 : instant ; 1000 : every second.
-
 const circlesSize = 14;
 const circlesSizeHovered = 20;
 
@@ -94,8 +92,6 @@ let codeType;
 
 let map;
 
-let baseNarration;
-let legendNarration;
 let persoBox;
 
 /**
