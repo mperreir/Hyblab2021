@@ -155,8 +155,10 @@ div#services {
 }
 
 .logos {
-	width: 40px;
-	height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
 }
 
 .info-span {
