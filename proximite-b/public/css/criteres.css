@@ -51,7 +51,7 @@ div#critere_page {
 
 #sortable1, #sortable2, #sortable3{
     position: relative;
-    border-radius: 10%;
+    border-radius: 45px;
     list-style-type: none;
     width: 100%;
 }
@@ -82,7 +82,7 @@ div#critere_page {
     padding: 15px 0px 0px 0px;
     position: relative;
     position: relative;
-    border-radius: 10%;
+    border-radius: 45px;
     margin-right: 10px;
     margin-top: 4em;
 }
@@ -183,6 +183,7 @@ ul#sortable1{
     background-position : center center;
     background-repeat:no-repeat;
 }
+
 
 .div_sort2{
     background-color: #2a325a;
