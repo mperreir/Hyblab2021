@@ -30,7 +30,7 @@ class Theme extends  React.Component {
                         <span>fast food - bars - boîtes ....</span>
                         <input type='button' class="btn btnValidatePurpleBackground mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.themeId}/>
                     </div>
-                    <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}}  disabled={!this.state.themeId}/>
+                    <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}} disabled={!this.state.themeId}/>
                 </div>
             </div>
         );
