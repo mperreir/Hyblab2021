@@ -16,7 +16,7 @@ async function bootstrap() {
 	});
 
 	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
-	let control = new MapboxDirections({
+	let directions = new MapboxDirections({
 		accessToken: mapboxgl.accessToken,
 		unit: 'metric',
 		profile: 'mapbox/cycling',
@@ -24,21 +24,49 @@ async function bootstrap() {
 		alternatives: true,
 		placeholderOrigin: 'Adresse de départ à Nantes',
 		placeholderDestination: 'Adresse d\'arrivée à Nantes',
+		interactive: !!document.getElementById('mapbox-controllers'),
 		controls: {
 			profileSwitcher: false,
 			instructions: false
 		}
 	});
 
-	control.on("route", async routes => {
-		if (!routes || !routes.route || !routes.route[0]) return;
-		const { steps, distance, duration } = routes.route[0]["legs"][0];
-		const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+	map.on('load', function () {
+		if (localStorage.getItem("adresseDepart")) directions.setOrigin(localStorage.getItem("adresseDepart"));
+		else if (localStorage.getItem("adresseDepartCoord")) directions.setOrigin(localStorage.getItem("adresseDepartCoord").split(','));
 
-		getTraficData({ roadNames, distance, duration });
+		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
+		else if (localStorage.getItem("adresseArriveeCoord")) directions.setDestination(localStorage.getItem("adresseArriveeCoord").split(','));
 	});
 
-	document.getElementById('mapbox-controllers').appendChild(control.onAdd(map))
+
+	if (document.getElementById('mapbox-controllers')) {
+		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map));
+
+		directions.on("origin", origin => {
+			if (!origin || origin.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseDepartCoord")) return;
+
+			localStorage.removeItem("adresseDepart")
+			localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
+		});
+		directions.on("destination", destination => {
+			if (!destination || destination.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseArriveeCoord")) return;
+
+			localStorage.removeItem("adresseArrivee")
+			localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
+		});
+
+		directions.on("route", async routes => {
+			if (!routes || !routes.route || !routes.route[0]) return;
+			const { steps, distance, duration } = routes.route[0]["legs"][0];
+			const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+
+			getTraficData({ roadNames, distance, duration });
+		});
+
+	} else {
+		directions.onAdd(map);
+	}
 
 	let openMarker = undefined;
 
@@ -59,7 +87,6 @@ async function bootstrap() {
 				event.stopPropagation();
 			});
 
-
 			marker = new mapboxgl.Marker(el)
 				.setLngLat([d.longitude, d.latitude])
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
@@ -67,13 +94,17 @@ async function bootstrap() {
 		});
 	}
 
-	abrisVeloDisplayData().then(data => {
-		points(data, "img/abris.svg");
-	});
+	const veloType = localStorage.getItem("velo");
 
-	getStationsVelos().then(data => {
-		points(data, "img/station.svg");
-	});
+	if (!veloType || veloType !== "bicloo")
+		abrisVeloDisplayData().then(data => {
+			points(data, "img/abris.svg");
+		});
+
+	if (!veloType || veloType === "bicloo")
+		getStationsVelos().then(data => {
+			points(data, "img/station.svg");
+		});
 
 	getMeteoNow();
 	getMeteoByTime(Date.now());

@@ -1,16 +1,56 @@
 "use strict";
 
+import { autocompleteAddress } from "./modules/autocompleteAddress.js";
+import { getTraficData } from "./modules/roadMonitoring.js";
+import {slide} from "./modules/background.js";
+
 async function bootstrap() {
-	slide();
-
+	slide(velos, backgroundContinue, ["pane", "question_velo", "question_trajet"]);
 	togglePath();
-
 }
 
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
-});
 
+	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
+	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
+
+	autocompleteAddress(document.getElementById("input_depart"), document.getElementById("input_depart_container"), "adresseDepart");
+	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
+
+	document.getElementById("validerTrajet").addEventListener("click", event => {
+		const adresseDepart = localStorage.getItem("adresseDepartCoord");
+		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
+
+		if (!adresseDepart || !adresseArrivee) return;
+
+		fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${adresseDepart};${adresseArrivee}?steps=true&access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw`)
+			.then(res => res.json())
+			.then(routes => {
+				if (!routes || !routes.routes || !routes.routes[0]) return;
+				const { steps, distance, duration } = routes.routes[0]["legs"][0];
+				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
+
+				getTraficData({ roadNames, distance, duration });
+
+				document.location = 'starterPack.html';
+			})
+			.catch(err => {
+				console.error(err);
+			});
+	});
+
+	document.getElementById("simple").addEventListener("click", () => {
+		localStorage.setItem("velo", "simple");
+	});
+	document.getElementById("elec").addEventListener("click", () => {
+		localStorage.setItem("velo", "electrique");
+	});
+	document.getElementById("bicloo").addEventListener("click", () => {
+		localStorage.setItem("velo", "bicloo");
+		console.log("test");
+	});
+});
 
 function togglePath() {
 	Array.from(document.getElementsByClassName("base")).forEach((el, index) => {
@@ -18,15 +58,12 @@ function togglePath() {
 			const hover = document.getElementsByClassName("hover")[index];
 			if (hover.style.visibility !== 'visible')
 				hover.style.visibility = 'visible';
-			console.log("base")
 		});
 	});
 
 	Array.from(document.getElementsByClassName("hover")).forEach((el) => {
 		el.addEventListener("mouseleave", () => {
 			el.style.visibility = 'hidden';
-			console.log("hover")
-
 		});
 	});
 }
@@ -38,22 +75,30 @@ function inRect(x, y, rect) {
 
 function slide() {
 	const slides = ["pane", "question_velo", "question_trajet"];
+	let start = true;
 	let i = 0;
 	const batiment_return = document.getElementById("batiment_return");
 
 	batiment_return.style.display = "none";
-	Array.from(document.getElementsByClassName("batiment_button")).forEach((el) => {
-		el.addEventListener('click', () => {
-			document.getElementById("batiment").className = "batiment_pause" + i;
-			setTimeout(function () {
-				document.getElementById("batiment").className = "batiment_move" + (++i);
-				console.log(i)
-				if (i <= 0) batiment_return.style.display = "none";
-				else batiment_return.style.display = null;
-			}, 50);
+	document.querySelectorAll(".batiment_button").forEach((el) => {
+		if (slides[slides.length - 1] !== el.parentElement.id)
+			el.addEventListener('click', () => {
+				document.getElementById("batiment").className = "batiment_pause" + i;
+				setTimeout(function () {
+					document.getElementById("batiment").className = "batiment_move" + (++i);
+					if (i <= 0) batiment_return.style.display = "none";
+					else {
+						batiment_return.style.display = null;
+						if (start) {
+							velos();
+							start = false;
+						}
+					}
+				}, 50);
 
-		});
+			});
 	});
+
 	batiment_return.addEventListener('click', () => {
 		document.getElementById("batiment").className = "batiment_pause" + i;
 		setTimeout(function () {
@@ -67,7 +112,6 @@ function slide() {
 			el.parentElement.setAttribute("class", "hide");
 			document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
 
-
 		}, 50);
 	});
 
@@ -75,9 +119,103 @@ function slide() {
 		if (el.parentElement.id !== slides[0]) {
 			el.parentElement.setAttribute("class", "hide_start");
 		}
-		el.addEventListener("click", () => {
-			el.parentElement.setAttribute("class", "hide");
-			document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+		if (slides[slides.length - 1] !== el.parentElement.id)
+			el.addEventListener("click", () => {
+				el.parentElement.setAttribute("class", "hide");
+				document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+			});
+	});
+}
+
+async function velos() {
+
+
+	let isMovingMouseEnter = false;
+	let isMovingClick = false;
+
+	document.querySelectorAll("#question_velo button").forEach((el) => {
+
+
+		el.addEventListener("click", async () => {
+			await sleep(
+				() => {
+					if (!isMovingClick) {
+						Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
+							isMovingClick = true;
+							await sleep(async () => {
+								e.setAttribute("class", "velo velo_out");
+							}, 2000);
+							isMovingClick = false;
+						});
+
+
+						const velo = document.getElementById("velo_" + el.id);
+						velo.setAttribute("class", "velo velo_in");
+					}
+
+				}, 2000);
 		});
 	});
+	await startVelos(0);
+
+
+	document.querySelectorAll("#question_velo button").forEach((el) => {
+
+		el.addEventListener("mouseenter", () => {
+			if (!isMovingMouseEnter) {
+				Array.from(document.querySelectorAll(".velo.velo_in:not(#velo_" + el.id + ")")).forEach(async (e) => {
+					isMovingMouseEnter = true;
+					await sleep(async () => {
+						e.setAttribute("class", "velo velo_out");
+					}, 2000);
+					isMovingMouseEnter = false;
+				});
+
+
+				const velo = document.getElementById("velo_" + el.id);
+				velo.setAttribute("class", "velo velo_in");
+			}
+
+		});
+
+
+	});
+
+
+}
+
+
+async function startVelos(i) {
+	let e = Array.from(document.querySelectorAll(".velo"))[i];
+	if (e != null) {
+		await sleep(async () => {
+			e.setAttribute("class", "velo velo_in");
+			await startVelos(++i)
+		}, 200);
+	} else {
+		await sleep(async () => {
+			await goVelos(--i)
+		}, 1600);
+	}
+}
+
+async function goVelos(i) {
+
+	let e = Array.from(document.querySelectorAll(".velo"))[i];
+	if (e != null && i > 0)
+		await sleep(async () => {
+			e.setAttribute("class", "velo velo_out");
+			await goVelos(--i)
+		}, 200);
+}
+
+function sleep(callback, time) {
+	return new Promise((resolve) => {
+		setTimeout(() => resolve(callback()), time)
+	})
+}
+
+function backgroundContinue(el, slides) {
+	el.parentElement.setAttribute("class", "hide");
+	document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
 }
