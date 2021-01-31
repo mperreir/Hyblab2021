@@ -25,7 +25,10 @@ let mySlidr = slidr.create('slidr',{
     .start();
 
 // on s'occupe de la 1ère slide
-initHome();
+muteAll();
+setTimeout(function (){
+    initHome();
+}, 6200);
 
 
 // Vérification que tout est bien paramétré

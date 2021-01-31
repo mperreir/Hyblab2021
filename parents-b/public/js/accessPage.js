@@ -1,50 +1,52 @@
 let initAccess = function(){
-     //--------------AUDIO-----------
-     document.getElementById('age_audio').pause();
 
-     let buutonVol = document.getElementById("volumeAccess");
-     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
- 
-     if(isSonOn){
-         document.getElementById('access_audio').play();
-         document.getElementById('access_audio').loop = false;
-     }
-     else{
-         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
-     }
-     d3.selectAll('.volume').on('click', function (){
-         if(isSonOn){
-             this.setAttribute("src", "./img/common/volume_off.svg");
-             isSonOn = Boolean(false);
-             document.getElementById('access_audio').pause(); 
-         }
-         else{
-             this.setAttribute("src", "./img/common/volume_on.svg");
-             isSonOn = Boolean(true);
-             document.getElementById('access_audio').play(); 
-         }
-     }); 
- 
-     //--------------HEADER-------------
-     d3.select('.logoAccueil3').on('click', function (){
-         mySlidr.slide('home-page');
-         initHome();
-     });
+    // -------------- AUDIO -----------
+    muteAll();
 
+    let buttonVol = document.getElementById("volumeAccess");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('access_audio').play();
+        document.getElementById('access_audio').loop = false;
+    }
+    else{
+        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('#volumeAccess').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('access_audio').pause();
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('access_audio').play();
+        }
+    });
+
+    // -------------- HEADER -------------
+    // Retour à la page Accueil
     d3.select('.logoAccueil4').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        // mySlidr.slider("value", mySlidr.slider("option", "min") )
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
+    // Sliding du bouton "Suivant"
     d3.select('.button-suivant-access').on('click', function (){
-        tl_suivant_access_over.pause();
+        muteAll();
         mySlidr.slide('up');
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton "Suivant"
     let tl_suivant_access_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -79,7 +81,9 @@ let initAccess = function(){
         tl_suivant_access_over.pause();
     });
 
-    d3.select(".arianne-1-access").on('click', function (){
+    // Fil d'Ariane
+    d3.select(".ariane-1-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
         setTimeout(function(){
             mySlidr.slide('left');
@@ -87,67 +91,77 @@ let initAccess = function(){
         setTimeout(function(){
             mySlidr.slide('left');
         }, 3000);
-        initAddress();
+        setTimeout(function (){
+            initAddress();
+        }, 4200);
     });
 
-    d3.select(".arianne-2-access").on('click', function (){
+    d3.select(".ariane-2-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
         setTimeout(function(){
             mySlidr.slide('left');
         }, 1500);
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 2700);
     });
 
-    d3.select(".arianne-3-access").on('click', function (){
+    d3.select(".ariane-3-access").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
-        initAge();
+        setTimeout(function (){
+            initAge();
+        }, 1200);
     });
 
-    d3.select(".arianne-5-access").on('click', function (){
+    d3.select(".ariane-5-access").on('click', function (){
+        muteAll();
         mySlidr.slide('up');
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 1200);
     });
 
-    d3.select(".arianne-6-access").on('click', function (){
+    d3.select(".ariane-6-access").on('click', function (){
+        muteAll();
         mySlidr.slide('up');
         setTimeout(function(){
             mySlidr.slide('right');
         }, 1500);
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 2700);
     });
 };
 
+// Drag and drop
 $(document).ready(function(){
-
-    $(".dropableCell").on('drop',function(event){
-        //gestion de l'ajout / remove de l'image
-    })
-
     $( ".image-drop" ).draggable({
-         tolerance: 'fit',
-         revert: "invalid"
+        tolerance: 'fit',
+        revert: "invalid"
     });
 
-    $(".dropableCell").droppable({
+    $(".droppableCell").droppable({
         accept: ".image-drop",
         hoverClass: "ui-state-active",
-            drop: function( event, ui ) {
-               var droppable = $(this);
-               var draggable = ui.draggable;
-               // Move draggable into droppable
-               draggable.appendTo(droppable);
-               draggable.css({top: '0px', left: '0px'});
-            }
-    })
+        drop: function( event, ui ) {
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.appendTo(droppable);
+            draggable.css({top: '0px', left: '0px'});
+        }
+    });
 
     $(".images-base").droppable({
         accept: ".image-drop",
         drop: function( event, ui ) {
-           var droppable = $(this);
-           var draggable = ui.draggable;
-           // Move draggable into droppable
-           draggable.css({top: '0px', left: '0px'});
-           draggable.appendTo(droppable);
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.appendTo(droppable);
+            draggable.css({top: '0px', left: '0px'});
         }
-    })
-})
+    });
+});

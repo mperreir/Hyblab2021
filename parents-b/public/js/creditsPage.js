@@ -1,18 +1,19 @@
 let initCredits = function(){
 
     d3.select('.go-back-end').on('click', function () {
+        muteAll();
         mySlidr.slide('left');
-        initEnd();
-    });
-
-    d3.select('.more-info').on('click', function (){
-        //Doit ouvrir la page qui sommes nous
+        setTimeout(function (){
+            initResults();
+        }, 1200);
     });
 
     d3.select('.logoAccueil9').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
         resetHome();
-        initHome();
+        setTimeout(function (){
+            initHour();
+        }, 1200);
     });
-
 };

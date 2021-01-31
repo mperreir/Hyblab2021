@@ -18,6 +18,7 @@
     <script src="js/config/parameters.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" integrity="sha512-Gk+uNk8NWN235mIkS6B7/424TsDuPDaoAsUekJCKTWLKP6wlaPv+PBGfO7dbvZeibVPGW+mYidz0vL0XaWwz4w==" crossorigin="anonymous"></script>
+    <script src="js/audio.js" defer></script>
     <script src="js/creditsPage.js" defer></script>
     <script src="js/resultsPage.js" defer></script>
     <script src="js/searchingResultsPage.js" defer></script>
@@ -25,7 +26,6 @@
     <script src="js/homePage.js" defer></script>
     <script src="js/index.js" defer></script>
     <script src="js/histoirePage.js" defer></script>
-    <script src="js/audio.js" defer></script>
     <script src="js/more_infos.js" defer></script>
     <script src="js/chargement.js" defer></script>
 
@@ -37,9 +37,9 @@
     <script src="js/google-address-autocomplete.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
-        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-        crossorigin="anonymous"></script>
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
 </head>
 <body class="background-white">
 <!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
@@ -48,7 +48,7 @@
     <main id="slidr">
 
         <section id="chargementI" data-slidr="chargement">
-          <img src="img/chargement.gif" alt="chargement" class="chargementC">
+            <img src="img/chargement.gif" alt="chargement" class="chargementC">
         </section>
 
         <section id="home" data-slidr="home-page" style="display:none">
@@ -63,18 +63,15 @@
             <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
 
             <img class="logo-name" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
-            <input type="image" id="more-info" class="more-info" src="./img/common/more_info.svg" alt="Logo Sequ'Oya">
-
             <input type="image" id="volumeDebut" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
-
+            <button id="more-info" class="more-info dark-purple background-beige">Qui sommes-nous ?</button>
 
             <img class="oya-hello" src="img/robot/oya_home.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
             <img class="rocket-hello" src="img/home_page/rocket.svg" alt="Fusée">
             <button id="button-begin" class="button-begin font-m dark-purple background-beige">Go</button>
             <img class="talking-bubble-home" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
 
-            </br></br>
-            <button id ="button-histoire" class="button-histoire font-m dark-purple background-beige"> Sequ’oya, c’est quoi ? </button>
+            <button id ="button-histoire" class="button-histoire dark-purple background-beige"> Sequ’oya, c’est quoi ? </button>
 
             <p class="catch-phrase font-s dark-purple">Envie de prendre l’air avec tes enfants et de découvrir de nouveaux parcs dans la région ? Sequ’oya est là pour t’aider à faire le meilleur choix en fonction de tes envies du moment !</p>
             <p class="oya-home-go dark-purple font-xs">Bonjour ! Je m’appelle Oya. Je vais t’aider à trouver le parc idéal pour ta sortie !</p>
@@ -84,29 +81,27 @@
             <img class="page" src="img/histoire/histoire_page.svg" alt="Page de renseignement sur Sequ'Oya">
 
             <input type="image" class="logo-name logoAccueil" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
-            <input type="image"  class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <input type="image" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <input type="image" id="accueil" class="accueil back-menu" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
-            
 
             <img class="robot_histoire" id="robot_histoire" src="./img/robot/Robot_histoire.gif" alt="Oya">
             <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
             <p id="dialog" class="oya-histoire-dialog dark-purple font-s">
                 Bonjour petit humain et bienvenu dans mon univers… galactique !
-            </br></br>
+                </br></br>
                 Je suis très heureux que tu me rejoignes ! Tu ne me connais peut-être pas encore… Je me présente : je me nomme <b class="term">Oya</b> et je suis un robot intergalactique !
-            </br></br>
-                Tout petit, j’ai profité d’un moment où ma maman s’occupait de mon petit frère pour m’approcher du bord de notre planète et je suis tombé dans les nuages. Je me souviendrai toute ma vie de ce jour qui m’a permis de découvrir Gaïa. Oui, oui, Gaia, cette planète bleue, existant depuis 4,54 milliards d’années et que tu explores quotidiennement. J’ai été très rapidement séduit et émerveillé par sa taille et ses vastes océans. J’ai donc décidé de l’observer tous les soirs, après que ma famille se soit endormie. 
-
-            </br></br>
+                </br></br>
+                Tout petit, j’ai profité d’un moment où ma maman s’occupait de mon petit frère pour m’approcher du bord de notre planète et je suis tombé dans les nuages. Je me souviendrai toute ma vie de ce jour qui m’a permis de découvrir Gaïa. Oui, oui, Gaia, cette planète bleue, existant depuis 4,54 milliards d’années et que tu explores quotidiennement. J’ai été très rapidement séduit et émerveillé par sa taille et  ses vastes océans. J’ai donc décidé de l’observer tous les soirs, après que ma famille se soit endormie.
+                </br></br>
                 Après plusieurs années d'observation, je me suis surtout intéressé à la ville de Nantes, cette fourmilière géante regroupant <b class="term">309 346 êtres humains</b> protégés par le majestueux Grand Éléphant des Machines de l'île. </p>
             <p id="dialog2" class="oya-histoire-dialog dark-purple font-s">
                 Je me suis principalement attaché aux jeunes parents
                 et j’ai remarqué qu’ils découvraient l’intérêt des parcs lorsqu’ils commençaient à avoir des enfants. Ils ne connaissaient peut-être pas si bien Nantes lorsqu’il s’agit de trouver des lieux ludiques et intéressants et se sentent surtout un peu perdus face aux <b class="term">91 parcs et jardins</b> que comporte la ville...
-            </br></br>
+                </br></br>
                 C’est à ce moment-là que j'interviens !
-            </br></br>
+                </br></br>
                 J’ai décidé de mettre toutes mes compétences et mon expertise au service des êtres humains et plus précisément de ces parents, grands-parents, babysitters, frères et sœurs (comme toi !), qui peinent à intéresser les enfants aux parcs. Pour cela, j’ai créé cette plateforme en ligne, du même nom que ma planète, afin de t’aider à trouver le parc idéal pour ta sortie à Nantes. En effet, grâce à des critères prédéfinis, je pourrais faire fonctionner mes méninges et surtout mon importante mémoire afin de te fournir une liste non exhaustive de parcs pouvant correspondre à tes besoins et surtout à ceux des petits bambins. Quel <b class="term">gain de temps et d’énergie</b>, n’est-ce pas ?
-            </br></br>
+                </br></br>
                 Tu es prêt ? Alors… C’est parti !
 
             </p>
@@ -121,13 +116,13 @@
 
             <img class="page" src="img/address_page/address_page.svg" alt="Page de renseignement de votre location">
             <img class="address-robot" id="address-robot" src="./img/address_page/Robot_09.gif" alt="Oya">
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/address_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-2-address" title="Horaire"></button>
-                <button class="button-fil-arianne arianne-3-address" title="Âge"></button>
-                <button class="button-fil-arianne arianne-4-address" title="Accès"></button>
-                <button class="button-fil-arianne arianne-5-address" title="Faune"></button>
-                <button class="button-fil-arianne arianne-6-address" title="Activités"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/address_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-2-address" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-address" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-address" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-address" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-address" title="Activités"></button>
             </div>
 
             <div class="address-zone">
@@ -161,13 +156,13 @@
             <input type="image" id="volumeHour" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="hour_audio" loop autoplay><source src="son/Horaire_page.mp3" type="audio/mp3"></audio>
 
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/hour_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-hour" title="Localisation"></button>
-                <button class="button-fil-arianne arianne-3-hour" title="Âge"></button>
-                <button class="button-fil-arianne arianne-4-hour" title="Accès"></button>
-                <button class="button-fil-arianne arianne-5-hour" title="Faune"></button>
-                <button class="button-fil-arianne arianne-6-hour" title="Activités"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/hour_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-hour" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-3-hour" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-hour" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-hour" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-hour" title="Activités"></button>
             </div>
 
             <img class="page" src="img/hour_page/background_hour.svg" alt="Page Horaire">
@@ -202,13 +197,13 @@
             <input type="image" id="volumeAge" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="age_audio" loop autoplay><source src="son/Age_page.mp3" type="audio/mp3"></audio>
 
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/age_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-age"></button>
-                <button class="button-fil-arianne arianne-2-age"></button>
-                <button class="button-fil-arianne arianne-4-age"></button>
-                <button class="button-fil-arianne arianne-5-age"></button>
-                <button class="button-fil-arianne arianne-6-age"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/age_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-age"></button>
+                <button class="button-fil-ariane ariane-2-age"></button>
+                <button class="button-fil-ariane ariane-4-age"></button>
+                <button class="button-fil-ariane ariane-5-age"></button>
+                <button class="button-fil-ariane ariane-6-age"></button>
             </div>
             <img class="page" src="img/age_page/age_page.svg" alt="Page de renseignement de la catégorie d'âge de votre/vos enfant(s)">
             <img class="page2" src="img/age_page/fond.svg" alt="Page de renseignement de la catégorie d'âge de votre/vos enfant(s)">
@@ -247,13 +242,13 @@
             <input type="image" id="volumeAccess"  class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
             <audio id="access_audio" loop autoplay><source src="son/Acess_page.mp3" type="audio/mp3"></audio>
 
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/access_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-access" title="Localisation"></button>
-                <button class="button-fil-arianne arianne-2-access" title="Horaire"></button>
-                <button class="button-fil-arianne arianne-3-access" title="Âge"></button>
-                <button class="button-fil-arianne arianne-5-access" title="Faune"></button>
-                <button class="button-fil-arianne arianne-6-access" title="Activités"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/access_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-access" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-access" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-access" title="Âge"></button>
+                <button class="button-fil-ariane ariane-5-access" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-access" title="Activités"></button>
             </div>
 
             <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
@@ -298,7 +293,7 @@
                 <div id="Bancs" class="column image-drop">
                     <div class="picto-access-container">
                         <img class="picto-access" src="img/common/pictograms/bench_picto.svg" alt="Banc Pictogramme">
-                        <div class="picto-access-hover">Banc pour s'asseoir</div>
+                        <div class="picto-access-hover">Banc</div>
                     </div>
                 </div>
                 <div id="Accès transports en commun" class="column image-drop">
@@ -325,16 +320,16 @@
                 <p class="information-critere-text">Pour les critères n’ayant pas d’importance pour toi, laisse les à leur emplacement initial</p>
             </div>
 
-            <div id="no-access" class="dropableCell button-non button-non-access font-m white background-dark-purple">
-                <p class="titre-button">Non, je souhaite un lieu sans cet élément !</p>
-            </div>
-
-            <div id="yes-access" class="dropableCell button-oui button-oui-access font-m white background-dark-purple">
+            <div id="yes-access" class="droppableCell button-oui button-oui-access font-m white background-dark-purple">
                 <p class="titre-button">Oui, il me le faut absolument !</p>
             </div>
 
-                <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
-            </section>
+            <div id="no-access" class="droppableCell button-non button-non-access font-m white background-dark-purple">
+                <p class="titre-button">Non, je souhaite un lieu sans cet élément !</p>
+            </div>
+
+            <button class="button-suivant-access button-suivant font-s dark-purple background-beige">SUIVANT</button>
+        </section>
 
         <section data-slidr="fauna-flora-page" style="display:none">
 
@@ -345,13 +340,13 @@
 
             <img class="planeteBeige" src="img/fauna_flora_page/planeteBeige.svg" alt="PlaneteBeige">
 
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/fauna_flora_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-fauna-flora" title="Localisation"></button>
-                <button class="button-fil-arianne arianne-2-fauna-flora" title="Horaire"></button>
-                <button class="button-fil-arianne arianne-3-fauna-flora" title="Âge" ></button>
-                <button class="button-fil-arianne arianne-4-fauna-flora" title="Accès"></button>
-                <button class="button-fil-arianne arianne-6-fauna-flora" title="Activités"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/fauna_flora_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-fauna-flora" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-fauna-flora" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-fauna-flora" title="Âge" ></button>
+                <button class="button-fil-ariane ariane-4-fauna-flora" title="Accès"></button>
+                <button class="button-fil-ariane ariane-6-fauna-flora" title="Activités"></button>
             </div>
             <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
             <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
@@ -398,11 +393,11 @@
                 </div>
             </div>
 
-            <div id="no-flora" class="dropableCell-fauna button-non button-non-fauna-flora font-m white background-dark-purple">
+            <div id="no-flora" class="droppableCell-fauna button-non button-non-fauna-flora font-m white background-dark-purple">
                 <p class="titre-button-fauna">Non, je souhaite un lieu sans cet élément !</p>
             </div>
 
-            <div id="yes-flora" class="dropableCell-fauna button-oui button-oui-fauna-flora font-m white background-dark-purple">
+            <div id="yes-flora" class="droppableCell-fauna button-oui button-oui-fauna-flora font-m white background-dark-purple">
                 <p class="titre-button-fauna">Oui, il me le faut absolument !</p>
             </div>
             <button class="button-suivant-fauna-flora button-suivant font-s dark-purple background-beige">SUIVANT</button>
@@ -410,16 +405,16 @@
 
         <section data-slidr="activities-page" style="display:none">
             <input type="image" id="logoAccueil6" class="logo-name logoAccueil6" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
-            <input type="image" id="volumeActivite" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
-            <audio id="activite_audio" loop autoplay><source src="son/Activities_page.mp3" type="audio/mp3"></audio>
+            <input type="image" id="volumeActivities" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="activities_audio" loop autoplay><source src="son/Activities_page.mp3" type="audio/mp3"></audio>
 
-            <div class="fil-arianne">
-                <img class="fil-arianne-img" src="img/activities_page/fil_arianne.svg" alt="Fil d'Arianne">
-                <button class="button-fil-arianne arianne-1-activities" title="Localisation"></button>
-                <button class="button-fil-arianne arianne-2-activities" title="Horaire"></button>
-                <button class="button-fil-arianne arianne-3-activities" title="Âge"></button>
-                <button class="button-fil-arianne arianne-4-activities" title="Accès"></button>
-                <button class="button-fil-arianne arianne-5-activities" title="Faune"></button>
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/activities_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-activities" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-activities" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-activities" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-activities" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-activities" title="Faune"></button>
             </div>
 
             <img class="page" src="img/activities_page/background.svg" alt="Page de renseignement de la faune et la flore">

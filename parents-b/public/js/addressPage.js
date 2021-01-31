@@ -1,6 +1,6 @@
 let initAddress = function(){
-    //--------------AUDIO-----------
 
+    //----------------------- AUDIO ---------------------
     document.getElementById('debut_audio').pause();
 
     let x = document.getElementById("volumeAdresse");
@@ -12,45 +12,57 @@ let initAddress = function(){
     else{
         x.setAttribute("src", "./img/common/volume_off.svg");
     }
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeAdresse').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('adresse_audio').pause(); 
+            document.getElementById('adresse_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('adresse_audio').play(); 
+            document.getElementById('adresse_audio').play();
         }
     });
-    
 
-    //--------------HEADER-------------
+
+    // ------------------------ HEADER --------------------
+    // Retour à l'accueil
     d3.select('.logoAccueil1').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
-
+    // ----------------- BOUTONS ET ANIMATIONS -----------
+    // Clic sur bouton "Suivant" après localisation
     d3.select(".button-next-address-from-continue").on("click", function (){
         const addressInput = document.querySelector('#address1');
 
         if(addressInput.value == null || addressInput.value === ''){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
+            muteAll();
             mySlidr.slide('right');
-            initHour();
+            setTimeout(function (){
+                initHour();
+            }, 1200);
         }
     });
 
+    // Clic sur bouton "Suivant" après "Peu importe""
     d3.select(".button-next-address-from-nevermind").on("click", function (){
+        muteAll();
         mySlidr.slide('right');
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton Suivant
     let tl_suivant_address_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -85,20 +97,28 @@ let initAddress = function(){
         tl_suivant_address_over.pause();
     });
 
-    d3.select(".arianne-2-address").on('click', function (){
-       mySlidr.slide('right');
-       initHour();
+    // Fil d'Ariana
+    d3.select(".ariane-2-address").on('click', function (){
+        muteAll();
+        mySlidr.slide('right');
+        setTimeout(function (){
+            initHour();
+        }, 1200);
     });
 
-    d3.select(".arianne-3-address").on('click', function (){
+    d3.select(".ariane-3-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
-            }, 1500);
-        initAge();
+        }, 1500);
+        setTimeout(function (){
+            initAge();
+        }, 2700);
     });
 
-    d3.select(".arianne-4-address").on('click', function (){
+    d3.select(".ariane-4-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -106,10 +126,13 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 3000);
-        initAccess();
+        setTimeout(function (){
+            initAccess();
+        }, 4200);
     });
 
-    d3.select(".arianne-5-address").on('click', function (){
+    d3.select(".ariane-5-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -120,10 +143,13 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('up');
         }, 4500);
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 5700);
     });
 
-    d3.select(".arianne-6-address").on('click', function (){
+    d3.select(".ariane-6-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -137,12 +163,14 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 6000);
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 7200);
     });
 };
 
 
-
+// Autocomplete de l'adresse
 new AddressAutocomplete('#address1', function (result) {
     geoAttribute(result.coordinates.lat, result.coordinates.lng);
 });

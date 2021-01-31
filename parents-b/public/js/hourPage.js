@@ -1,8 +1,7 @@
 let initHour = function(){
-    
-    //--------------AUDIO-----------
 
-    document.getElementById('adresse_audio').pause();
+    // ----------------- AUDIO -----------------
+    muteAll();
 
     let x = document.getElementById("volumeHour");
     x.setAttribute("src", "./img/common/volume_on.svg");
@@ -14,33 +13,38 @@ let initHour = function(){
     else{
         x.setAttribute("src", "./img/common/volume_off.svg");
     }
-    d3.selectAll('.volume').on('click', function (){
+    d3.selectAll('#volumeHour').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('hour_audio').pause(); 
+            document.getElementById('hour_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('hour_audio').play(); 
+            document.getElementById('hour_audio').play();
         }
-    });   
+    });
 
-    //--------------HEADER-------------
-    
+    // ------------------- HEADER --------------------
     d3.select('.logoAccueil2').on('click', function (){
         mySlidr.slide('home-page');
-        initHome();
-        resetHome();
+        setTimeout(function (){
+            initHome();
+            resetHome();
+        }, 1200);
     });
 
+    // --------------- BOUTONS ET ANIMATIONS ------------
+    //Bouton Suivant
     d3.select(".button-suivant-hour").on("click", function (){
         mySlidr.slide('right');
-        initAge();
+        setTimeout(function (){
+            initAge();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton "Suivant"
     let tl_suivant_hour_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -75,25 +79,36 @@ let initHour = function(){
         tl_suivant_hour_over.pause();
     });
 
-    d3.select(".arianne-1-hour").on('click', function (){
+    // Fil d'Ariane
+    d3.select(".ariane-1-hour").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
-        initAddress();
+        setTimeout(function (){
+            initAddress();
+        }, 1200);
     });
 
-    d3.select(".arianne-3-hour").on('click', function (){
+    d3.select(".ariane-3-hour").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
-        initAge();
+        setTimeout(function (){
+            initAge();
+        }, 1200);
     });
 
-    d3.select(".arianne-4-hour").on('click', function (){
+    d3.select(".ariane-4-hour").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
         }, 1500);
-        initAccess();
+        setTimeout(function (){
+            initAccess();
+        }, 2700);
     });
 
-    d3.select(".arianne-5-hour").on('click', function (){
+    d3.select(".ariane-5-hour").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -101,10 +116,13 @@ let initHour = function(){
         setTimeout(function(){
             mySlidr.slide('up');
         }, 3000);
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 4200);
     });
 
-    d3.select(".arianne-6-hour").on('click', function (){
+    d3.select(".ariane-6-hour").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -115,10 +133,12 @@ let initHour = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 4500);
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 5700);
     });
-
 };
+
 var s = null;
 var rayon = null;
 var bigCircle = null;
@@ -126,6 +146,7 @@ var polygon = null;
 var discs = null;
 var bigCircle2 = null;
 
+// Slider circulaire
 function createSlider () {
     s = Snap("#svg-slider");
     rayon = document.querySelector("#svg-slider").clientWidth * 0.5;
@@ -176,8 +197,8 @@ document.querySelector("#svg-slider").addEventListener('click', function(event) 
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-        let dX = event.pageX - screenX*0.36 - ((width - screenX)/2);
-        let dY = event.pageY - screenY*0.56 - ((height-screenY)/2);
+    let dX = event.pageX - screenX*0.36 - ((width - screenX)/2);
+    let dY = event.pageY - screenY*0.56 - ((height-screenY)/2);
 
     document.querySelector("#svg-slider").innerHTML = "";
     let bigCircle = s.circle(rayon, rayon, rayon);
@@ -240,4 +261,3 @@ document.querySelector("#svg-slider").addEventListener('click', function(event) 
     });
 });
 createSlider();
-

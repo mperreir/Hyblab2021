@@ -1,35 +1,41 @@
 let initHome = function(){
 
-    //-----------AUDIO--------------
+    //----------- AUDIO --------------
+    //Doit mettre les audio de n'importe quelle page en pause
+    muteAll();
 
-    
+    //Le premier son doit avoir un listener
+    function musicPlay() {
+        document.getElementById('debut_audio').play();
+        document.getElementById('debut_audio').loop = false;
+        document.removeEventListener('click', musicPlay);
+    }
 
-    let buutonVol = document.getElementById("volumeDebut");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
-    
-    d3.selectAll('.volume').on('click', function (){
+    let buttonVol = document.getElementById("volumeDebut");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    d3.selectAll('#volumeDebut').on('click', function (){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('debut_audio').pause(); 
+            document.getElementById('debut_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('debut_audio').play(); 
+            document.getElementById('debut_audio').play();
         }
-    }); 
-    
-
-    d3.select('.more-info').on('click', function (){
-        //Doit ouvrir la page qui sommes nous
     });
 
+    //------------------ SLIDING & ANIMATIONS -----------------
+    // Sliding vers la page more-info
     $(".more-info").on("click",function(){
+        muteAll();
         mySlidr.slide('up');
         initMoreInfo();
     })
-      
+
+    // Animation des comètes
     let tl_shooting_stars = anime.timeline({
         easing: 'linear',
         loop: true,
@@ -48,16 +54,20 @@ let initHome = function(){
         })
         .add({
             delay: 4000,
-        })
+        });
 
-    let tl_begin_over = anime.timeline({
+    // Animation de la fusée lors du click sur le bouton "Go"
+    var tl_begin_over = anime.timeline({
         easing: 'linear',
         loop:true
     });
 
     d3.select(".button-histoire").on("click", function (){
+        muteAll();
         mySlidr.slide('histoire-page');
-        initHistoire();
+        setTimeout(function (){
+            initHistoire();
+        }, 1200);
     });
 
     d3.select('.button-begin').on('mouseover', function (){
@@ -77,7 +87,7 @@ let initHome = function(){
                 targets: ".button-begin",
                 scale: 1,
                 duration: 500
-            })
+            });
     });
 
     d3.select('.button-begin').on('mouseleave' ,function (){
@@ -91,11 +101,7 @@ let initHome = function(){
     });
 
     d3.select('.button-begin').on('click', function (){
-
-        // Lancement audio apres clic sur GO
-        document.getElementById('debut_audio').play();
-        document.getElementById('debut_audio').loop = false;
-
+        musicPlay();
         document.getElementById('button-begin').disabled = true;
         document.getElementById('button-histoire').disabled = true;
         document.getElementById('more-info').disabled = true;
@@ -131,7 +137,7 @@ let initHome = function(){
                 easing: "linear"
             })
             .add({
-                delay: 1500
+                delay: 3500
             })
             .add({
                 targets: ".talking-bubble-home",
@@ -190,20 +196,27 @@ let initHome = function(){
                 duration: 500,
             })
             .finished.then(() => {
+            anime({
+                targets: ".button-begin",
+                scale: 1,
+                duration: 50,
+                ease: 'linear'
+            });
+            tl_begin_over.pause();
             mySlidr.slide('down');
-            initAddress();
+            setTimeout(function (){
+                initAddress();
+            }, 1200);
         });
     });
 };
 
+// Reset la page lorsqu'on revient sur la page home
 let resetHome = function(){
-    muteAll();
-
     document.getElementById('button-begin').disabled = false;
     document.getElementById('button-histoire').disabled = false;
     document.getElementById('more-info').disabled = false;
     document.getElementById('button-histoire').hidden = false;
-
 
     d3.select('.oya-hello')
         .style("transform", "");

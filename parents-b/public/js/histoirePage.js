@@ -1,18 +1,21 @@
 let initHistoire = function(){
 
-    //Coupe Audio du go ne devrai pas avoir lieu car impossible de cliquer pendant lancement fusée
-    document.getElementById('debut_audio').pause();
-
+    muteAll();
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
         mySlidr.slider("value", mySlidr.slider("option", "min") );
-        initHome();
+        resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
     d3.select('.logoAccueil').on('click', function (){
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
     document.getElementById("dialog2").hidden = true;
