@@ -12,7 +12,12 @@
           <ButtonCustom @click="checkPharmacie" v-model="pharmacie" :class="{checkedYellow: pharmacie}" text="Pharmacie" color="yellow"/>
           <img id="meds" src="@/assets/meds.svg" alt="meds">
         </div>
-        <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" />
+      <!-- <Question>
+        <Checkbox v-model="pharmacie"  color="yellow" >Pharmacie</Checkbox>
+        <Checkbox v-model="bar" color="blue" >Bar</Checkbox>
+        <Checkbox v-model="boulangerie" color="yellow" >Boulangerie</Checkbox>
+        <Checkbox v-model="salleDeSport" color="blue" >Salle de sport</Checkbox>-->
+        <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" /> 
       </Question>
     </template>
     <template #buildings>
@@ -54,7 +59,11 @@ export default {
   methods : {
     next() {
       this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
-      this.$root.$data.setLieux([ {pharmacie:this.pharmacie}, {boulangerie: this.boulangerie}, {bar: this.bar}, {salleDeSport: this.salleDeSport}])
+      this.$root.$data.setActif(this.actif +1)
+      this.$root.$data.setLieux({pharmacie: this.pharmacie,
+                                boulangerie: this.boulangerie,
+                                bar: this.bar, 
+                                salleDeSport: this.salleDeSport})
     },
     checkPharmacie() {
       this.pharmacie = !this.pharmacie;
@@ -67,6 +76,7 @@ export default {
     },
     checkSalle() {
       this.salleDeSport = !this.salleDeSport;
+
     }
   },
   components: {

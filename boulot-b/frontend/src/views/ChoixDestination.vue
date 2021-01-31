@@ -79,7 +79,7 @@ export default {
       suggestionsdepart: [],
       suggestionarrivee: [],
       message: "Très bien, d’où pars-tu ?",
-      error: { depart: false, arrive: false },
+      error: { depart: false, arrivee: false },
     };
   },
   props: {
@@ -111,7 +111,7 @@ export default {
         this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
         return;
       }
-      const path = [this.depart, this.arrive];
+      const path = {depart: this.departlabel, arrivee: this.arriveelabel};
       this.$root.$data.setPath(path);
       this.message = "Allons-y !";
       setTimeout(() => {

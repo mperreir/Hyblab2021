@@ -3,6 +3,7 @@
 
 
 let getAll = require('./api.js');
+const getUrlImage = require('./urlImage.js');
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
@@ -19,10 +20,10 @@ app.use(express.static('public'));
 
 app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
 
-let port = 8080;
-//let api = require('./api');
 
-app.listen(port);
+app.get('/getUrlImage/:imageName', (req, res) => getUrlImage(req, res));
+app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
+
 
 // This module is exported and served by the main server.js located
 // at the root of this set of projects. You can access it by lanching the main
