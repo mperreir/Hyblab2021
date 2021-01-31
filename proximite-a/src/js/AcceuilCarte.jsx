@@ -75,10 +75,10 @@ class AcceuilCarte extends  React.Component {
         this.props.onSetMoyen(e)
     };
 
-    generateItineraire = (dest) => {
-        console.log(`demande de tracage d'itineraire de ${this.state.currentPosition} vers ${dest}`)
+        generateItineraire = (dest) => {
+            console.log(`demande de tracage d'itineraire de ${this.state.currentPosition} vers ${dest}`)
 
-    }
+        }
 
 
     render() {
