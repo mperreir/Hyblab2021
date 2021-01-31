@@ -61,7 +61,7 @@
 #papi_bulle{
     position: absolute;
     left: -7%;
-    width: 22vw;
+    width: 17vw;
     height: auto;
     z-index: 50;
 }
@@ -90,3 +90,10 @@
     background-color: transparent;
     margin: 5px;
 }
+
+@media screen and (min-resolution: 100dpi) {
+    #papi_bulle{
+        width: 22vw;
+    }
+}
+    
