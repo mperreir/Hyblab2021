@@ -32,15 +32,11 @@ class Router {
     this.#deleteCharacter();
     this.changeFond(change);
     this.fileAriane.updateAriane(
-      this.#getId(path),
+      path,
       (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'departement',
       (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'personnage',
       'legende'
     );
-  }
-
-  #getId(name) {
-    return 1;
   }
 
   #loadParralax(id) {

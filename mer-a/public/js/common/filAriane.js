@@ -31,8 +31,29 @@ class FilAriane {
 		}
 	}
 
-	updateAriane(n, dep, perso, legend){
-		switch(n){
+	#getIdByName(name) {
+		switch (name) {
+			case 'departements':
+				return 1;
+				break;
+
+			case 'personnages':
+				return 2;
+				break;
+
+			case 'departement':
+				return 3;
+				break;
+
+			case 'legende':
+				return 4;
+				break;
+		}
+		return null;
+	}
+
+	updateAriane(name, dep, perso, legend){
+		switch(this.#getIdByName(name)){
 			case 4:
 				this.#show('trait3');
 				this.#show('cercle_outer4');
