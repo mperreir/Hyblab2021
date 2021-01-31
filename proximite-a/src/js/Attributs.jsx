@@ -21,7 +21,7 @@ class Attributs extends React.Component{
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
             console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-        fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+             fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     console.log(response)
