@@ -1,3 +1,17 @@
+function criteres_background() {
+    var perso = read_store('personas').chosen;
+
+    var img = document.createElement('img');
+    img.src =  '/proximite-b/img/criteres/'+perso+'.svg#svgView(preserveAspectRatio(none))';
+    img.id = perso;
+    document.getElementById('persona').appendChild(img);
+
+    var sort = document.getElementById('sortable1');
+    for (let child of sort.children) {
+        child.style.backgroundImage = "url(/proximite-b/img/criteres/icons/"+child.id+".svg)";
+        child.style.backgroundRepeat = "no-repeat";
+    }
+}
 
 function criteres_submitInterest() {
     var ul2 = document.getElementById("sortable2");
@@ -16,6 +30,8 @@ function criteres_submitInterest() {
 
         go_to('timeline', {'interests': interest, 'disinterests': disinterest});
     } else {
-        console.log("Veuillez chosir au moin trois point d'intéret")
+        $('#modal').modal('show');
+        $('#modal').find('.modal-title').text("Pas assez de points d'intérêts");
+        $('#modal').find('.modal-body').text("Veuillez sélectionner au moins trois points d'intérêts");
     }
 }
