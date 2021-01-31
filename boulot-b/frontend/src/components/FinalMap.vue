@@ -160,8 +160,8 @@ async function addRouteShapeToMap(route, map, origin, destination, stops){
 }
 
 async function addMarkers(map, origin, destination, stops) {
-  const iconOrigin = await createIcon('origin.png');
-  const iconDestination = await createIcon('destination.png')
+  const iconOrigin = await createIcon('origin.svg');
+  const iconDestination = await createIcon('destination.svg')
 
   const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
   const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
@@ -198,18 +198,17 @@ async function createIntermediaryIcon(namePOI) {
   console.log(namePOI)
   switch(namePOI) {
     case 'Boulangerie':
-      return await createIcon('baguette.png');
+      return await createIcon('baguette.svg');
     case 'SalleSport':
-      return await createIcon('haltere.png');
+      return await createIcon('haltere.svg');
     case 'Bar':
-      return await createIcon('verre.png');
+      return await createIcon('verre.svg');
     case 'Pharmacie':
-      return await createIcon('medicament.png');
+      return await createIcon('medicament.svg');
     default:
-      return await createIcon('point.png');
+      return await createIcon('point.svg');
   }
 }
-
 </script>
 
 <style scoped>
