@@ -88,13 +88,13 @@ class AcceuilCarte extends  React.Component {
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}></Marker>
                     {this.state.sites.map( (e) => {
                         return <Marker icon={GetIcon(2,20, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
                                 <Popup> A pretty CSS3 popup. <br />
                                     Easily customizable.<hr/>
                                     {console.log(e)}
-                                    <input type="button" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                                    <input type="button" class="btn btn-primary" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
                                 </Popup>
                         </Marker>
                     }) }
