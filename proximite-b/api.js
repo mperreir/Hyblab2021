@@ -8,6 +8,8 @@ let options = {
     agent: new HttpsProxyAgent( 'https://cache.ha.univ-nantes.fr:3128' ),
 };
 
+const TIMEOUT_MS = 8000;  // == 8 SECONDES
+
 const config = {
     // LES PRINCIPAUX
     'Pharmacie': {
@@ -63,7 +65,7 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
 
     let polygon;
     do {
-        polygon = await timeout(500, fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
+        polygon = await timeout(TIMEOUT_MS, fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
         {
             method: 'POST',
             headers: {
@@ -109,7 +111,7 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     console.log("carré :",minLat, minLon, maxLat, maxLon);
     let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
     do {
-        request = await timeout(6000 , fetch("http://overpass-api.de/api/interpreter?data=" + request));
+        request = await timeout(TIMEOUT_MS , fetch("http://overpass-api.de/api/interpreter?data=" + request));
         request = await request.json();
     } while (!request);
     let t2 = performance.now();
@@ -216,7 +218,7 @@ async function api_parc(polygon) {
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-jardins-nantes&q=&rows=1000&geofilter.polygon=" + geo_polygon;
     let resultAPI;
     do {
-        const response = await timeout(1000, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien));
         resultAPI = await response.json();
     } while (!resultAPI);
 
@@ -241,7 +243,7 @@ async function api_bus(polygon) {
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=location_type=1&rows=1000&geofilter.polygon=" + geo_polygon;
     let resultAPI;
     do {
-        const response = await timeout(1000, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien));
         resultAPI = await response.json();
     } while (!resultAPI);
     const arrets = [];
@@ -284,7 +286,7 @@ async function get_adresse(lon, lat) {
     var lien = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
     let resultAPI;
     do {
-        const response = await timeout(1000, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien));
         resultAPI = await response.json();
     } while (!resultAPI);
     return resultAPI.features[0].properties.label;
