@@ -3,8 +3,12 @@
 const {performance} = require('perf_hooks');
 const fetch = require('node-fetch');
 
+var path = require('path');
+const env = require('dotenv');
+env.config({path : path.resolve(process.cwd(), 'proximite-b/.env')});
+
 let HttpsProxyAgent = require( 'https-proxy-agent' );
-let options = {
+let options = process.env.PROXY === 'false' ? {} : {
     agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
 };
 
