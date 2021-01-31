@@ -27,7 +27,7 @@ let initHome = function(){
         }
     });
 
-    //------------------ Sliding & Animations -----------------
+    //------------------ SLIDING & ANIMATIONS -----------------
     // Sliding vers la page more-info
     $(".more-info").on("click",function(){
         muteAll();
@@ -57,7 +57,7 @@ let initHome = function(){
         });
 
     // Animation de la fusée lors du click sur le bouton "Go"
-    let tl_begin_over = anime.timeline({
+    var tl_begin_over = anime.timeline({
         easing: 'linear',
         loop:true
     });
@@ -196,6 +196,13 @@ let initHome = function(){
                 duration: 500,
             })
             .finished.then(() => {
+            anime({
+                targets: ".button-begin",
+                scale: 1,
+                duration: 50,
+                ease: 'linear'
+            });
+            tl_begin_over.pause();
             mySlidr.slide('down');
             setTimeout(function (){
                 initAddress();

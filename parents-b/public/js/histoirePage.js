@@ -4,16 +4,16 @@ let initHistoire = function(){
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
         mySlidr.slider("value", mySlidr.slider("option", "min") );
+        resetHome();
         setTimeout(function (){
-            resetHome();
             initHome();
         }, 1200);
     });
 
     d3.select('.logoAccueil').on('click', function (){
         mySlidr.slide('home-page');
+        resetHome();
         setTimeout(function (){
-            resetHome();
             initHome();
         }, 1200);
     });

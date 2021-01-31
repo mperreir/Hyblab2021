@@ -5,7 +5,7 @@ const GRAND = 10.5;
 
 let initAge = function(){
 
-    //--------------AUDIO-----------
+    // -------------- AUDIO -----------
     muteAll();
 
     let buttonVol = document.getElementById("volumeAge");
@@ -31,15 +31,18 @@ let initAge = function(){
         }
     });
 
-    //--------------HEADER-------------
+    // -------------- HEADER -------------
     d3.select('.logoAccueil3').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
-    //---------------FONCTIONS-----------------
-    //Pour avoir l'image du jeu adéquat avec fleche
+    // --------------- FONCTIONS -----------------
+    // Pour avoir l'image du jeu adéquat avec fleche
     function setImage(cpt){
         let valeurImage= cpt%4;
         if(valeurImage===0 ){

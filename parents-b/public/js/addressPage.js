@@ -29,10 +29,11 @@ let initAddress = function(){
     // ------------------------ HEADER --------------------
     // Retour à l'accueil
     d3.select('.logoAccueil1').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
+        resetHome();
         setTimeout(function (){
             initHome();
-            resetHome();
         }, 1200);
     });
 
@@ -44,6 +45,7 @@ let initAddress = function(){
         if(addressInput.value == null || addressInput.value === ''){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
+            muteAll();
             mySlidr.slide('right');
             setTimeout(function (){
                 initHour();
@@ -53,6 +55,7 @@ let initAddress = function(){
 
     // Clic sur bouton "Suivant" après "Peu importe""
     d3.select(".button-next-address-from-nevermind").on("click", function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function (){
             initHour();
