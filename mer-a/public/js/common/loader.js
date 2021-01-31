@@ -12,6 +12,7 @@ class Loader {
   }
 
   loaded() {
-    setTimeout(() => this.load.style.display = 'none', 1500);
+    this.load.style.display = 'none';
+    // setTimeout(() => this.load.style.display = 'none', 1500);
   }
 }

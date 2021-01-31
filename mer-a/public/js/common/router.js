@@ -24,12 +24,12 @@ class Router {
   }
 
   loadRessources(path, data, change) {
-    this.loader.loading();
-    $('#content').load(`/mer-a/html/${path}.html`, () => {
-      this.loader.loaded();
+    $('#content').fadeOut('slow', () => {
+      this.changeFond(change);
+      $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
     });
+
     this.data = data;
-    this.changeFond(change);
     this.fileAriane.updateAriane(
       path,
       (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'departement',
@@ -53,23 +53,23 @@ class Router {
       this.idFond = idChange;
       switch (idChange) {
         case 1:
-          this.scene1.style.display = 'block';
-          this.scene2.style.display = 'none';
-          this.fondMer.style.display = 'none';
+          $('#scene1').fadeIn('slow');
+          $('#scene2').fadeOut('slow');
+          $('#fond-mer').fadeOut('slow');
           this.fond = this.scene1;
           break;
 
         case 2:
-          this.scene1.style.display = 'none';
-          this.scene2.style.display = 'block';
-          this.fondMer.style.display = 'none';
+          $('#scene1').fadeOut('slow');
+          $('#scene2').fadeIn('slow');
+          $('#fond-mer').fadeOut('slow');
           this.fond = this.scene2;
           break;
 
         case 3:
-          this.scene1.style.display = 'none';
-          this.scene2.style.display = 'none';
-          this.fondMer.style.display = 'block';
+        $('#scene1').fadeOut('slow');
+        $('#scene2').fadeOut('slow');
+          $('#fond-mer').fadeIn('slow');
           break;
       }
       this.#loadParralax(idChange);
