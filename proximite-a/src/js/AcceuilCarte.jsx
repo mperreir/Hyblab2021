@@ -1,19 +1,37 @@
 import React from 'react';
-import {MapContainer, TileLayer, Marker, Popup, Circle} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, Polygon} from 'react-leaflet'
 import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
 import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
+import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
-
+import equivalent from './equivalent.js'
+import { Polyline } from 'leaflet';
 const decallageCentrageCarte = 0.004;
+const decallageMarqueur = 0.0005;
 
-function GetIcon(_iconsize){
-    return L.icon({
-        iconUrl : require("../img/pictogrammes_position.png").default,
-        iconSize: [_iconsize,35]
-    })
+
+function GetIcon(type, _iconsize, theme){
+    switch (type) {
+        case 1: //position actuelle
+            return L.icon({
+                iconUrl : require("../img/pictogrammes_maison.png").default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
+            break
+        case 2: //site
+            return L.icon({
+                iconUrl : theme.default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
+            break
+    }
 }
 
 
@@ -21,8 +39,13 @@ function GetIcon(_iconsize){
 class AcceuilCarte extends  React.Component {
     state={
         popupPhase : 2,
-        currentPosition: [47.2819, -1.5158],
-        sites:this.props.data.sites
+        currentPosition: this.props.data.coords,
+        sites:this.props.data.sites,
+        adresse:this.props.data.adresse,
+        moyenId:this.props.data.moyenId,
+        nomPers:this.props.data.nomPers,
+        perimetre: this.props.data.perimetre,
+        itineraire: [],
     };
 
 
@@ -35,7 +58,9 @@ class AcceuilCarte extends  React.Component {
             case 1:
                 return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
-                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onNextPhase={this.nextPhase}/>;
+            case 3:
+                return <CarteInterractionChoixMultiplesReduit data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onPreviousPhase={this.previousPhase}/>;
         }
     };
 
@@ -48,26 +73,48 @@ class AcceuilCarte extends  React.Component {
         this.setState({popupPhase:newPopupPhase })
     };
 
+    updateMoyen = (e) => {
+        this.setState({ moyenId: e })
+        this.props.onSetMoyen(e)
+    };
+
+    generateItineraire = (dest) => {
+        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
+        .then(itineraire => {
+            this.setState({itineraire});
+        })
+    };
 
 
     render() {
+        console.log("render Acceil")
+        console.log(this.state)
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(20)}  position={this.state.currentPosition}>
-                        <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
-                    </Marker>
-                    <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}></Marker>
+                    {this.state.sites.map( (e) => {
+                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
+                            <Popup>
+                                <b>{e.titre}</b>
+                                <hr/>
+                                <input type="button" class="btn btn-primary" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                            </Popup>
+                        </Marker>
+                    }) }
+                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+                    /*<Polyline positions={this.state.itineraire ? this.state.itineraire : []}/>*/
                 </MapContainer>
 
                 <PopupAnnonce/>
                 {this.getPhase({nomPers})}
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
-                    <a href="https://www.google.com/" class="buttonMapNavigation">Télécharger la carte en PDF</a>
+                    <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
+                    <input type="button" class="buttonMapNavigation" value="Crédits"/>
                 </div>
             </div>
         );

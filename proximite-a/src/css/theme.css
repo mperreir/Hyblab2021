@@ -14,25 +14,29 @@
 
 
 /* Stuff after this is only to make things more pretty */
+#themeContainer {
+    padding-bottom: 100px;
+}
+
 h3 {
     color:#756EFF;
     font-weight: bold;
     padding-bottom: 50px;
 }
 
-#themeSelector div + span {
+#themeContainer div + span {
     border-radius: 20px;
     background-color: #BCBEFF;
     font-size: 15px;
-    padding-left: 200px;
-    padding-right: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-bottom: 40px;
+    width: 575px;
+    text-align: center;
 }
 
-#themeSelector span + input {
+#themeContainer span + input {
     border: none;
     border-radius: 10px;
     background-color: #756EFF;
@@ -43,11 +47,12 @@ h3 {
     color: white;
     font-size: 20px;
     font-weight: lighter;
+    margin-bottom: 40px;
 }
 
 #themeSelector  img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     transition: 500ms all;
 }
 
@@ -75,7 +80,7 @@ h3 {
 
 #themeSelector input[type=radio] + label>img {
     transition: 500ms all;
-    padding: 10%;
+    padding: 10px;
     background-size:0%;
     background-position: center;
     background-repeat : no-repeat;

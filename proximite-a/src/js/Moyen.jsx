@@ -60,9 +60,8 @@ class Moyen extends  React.Component {
             moyenId: e,
             buttonActivate:true});
     }
-    submitMoyen = (update, NextPage) => {
+    submitMoyen = (update) => {
         update(this.state.moyenId);
-        NextPage();
     }
 
     render() {
@@ -91,10 +90,10 @@ class Moyen extends  React.Component {
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <h3>Choisis ton moyen de déplacement</h3>
                         <MoyenSelector data={this.state} updateSelect={this.handleChange}/>
-                        <input type='button' class="btn btnValidatePurpleBackground" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                        <input type='button' class="btn btnValidatePurpleBackground" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen) }} disabled={!this.state.buttonActivate}/>
                     </div>
                     <div id="changepage" class="d-flex justify-content-center align-items-center flex-column">
-                        <button className='btn btnNavigationAttributPurple fa fa-arrow-right' onClick={() => { this.submitMoyen(onSetMoyen, onNextPage) }} disabled={!this.state.buttonActivate}/>
+                        <button className='btn btnNavigationAttributPurple fa fa-arrow-right' onClick={() => { this.submitMoyen(onSetMoyen) }} disabled={!this.state.buttonActivate}/>
                         <p id='suiv'>Suivant</p>
                     </div>
                 </div>

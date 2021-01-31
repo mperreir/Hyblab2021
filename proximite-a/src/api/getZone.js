@@ -35,12 +35,7 @@ const famille = [
     "leisure=playground",
 ];
 
-const tous = [
-    "amenity=give_box",
-    "amenity=marketplace",
-    "amenity=toilets",
-    "amenity=hospital",
-];
+
 
 const gourmet = [
     "shop=pastry",
@@ -53,12 +48,11 @@ const POINT_TYPES = {
     gourmet,
     sportif,
     famille,
-    tous
 };
 
 
 const getPointsInZoneForProfile =async function(zone, profil) {
-    return await getPointsInZone(zone,[...POINT_TYPES[profil], ...POINT_TYPES['tous']])
+    return await getPointsInZone(zone,[...POINT_TYPES[profil]/*, ...POINT_TYPES['tous']*/])
 }
 
 /**
