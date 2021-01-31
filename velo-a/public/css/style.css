@@ -215,3 +215,7 @@ header .logo {
 #form-veli-fin {
 	text-align: center;
 }
+
+.mapboxgl-popup-content{
+	color: black;
+}
