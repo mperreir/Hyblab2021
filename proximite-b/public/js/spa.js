@@ -100,7 +100,6 @@ const go_to = (page, data, callback) => {
                 // fin du bloc a commenter pour tests avec hardcodage
                 /////////
 
-                window.addEventListener("resize", timeline_progressbar_draw);
             }
             else if (page === 'criteres') {
                 criteres_background();
