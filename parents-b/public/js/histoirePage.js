@@ -1,15 +1,21 @@
 let initHistoire = function(){
 
+    muteAll();
     d3.select('.accueil').on('click', function (){
         mySlidr.slide('home-page');
         mySlidr.slider("value", mySlidr.slider("option", "min") );
-        initHome();
+        setTimeout(function (){
+            resetHome();
+            initHome();
+        }, 1200);
     });
 
     d3.select('.logoAccueil').on('click', function (){
         mySlidr.slide('home-page');
-        initHome();
-        resetHome();
+        setTimeout(function (){
+            resetHome();
+            initHome();
+        }, 1200);
     });
 
     document.getElementById("dialog2").hidden = true;

@@ -7,8 +7,7 @@ const GRAND = 10.5;
 let initAge = function(){
 
     //--------------AUDIO-----------
-    
-    document.getElementById('hour_audio').pause();
+    muteAll();
 
     let buttonVol = document.getElementById("volumeAge");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
@@ -24,15 +23,15 @@ let initAge = function(){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('age_audio').pause(); 
+            document.getElementById('age_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('age_audio').play(); 
+            document.getElementById('age_audio').play();
         }
-    }); 
-    
+    });
+
 
     //--------------HEADER-------------
     d3.select('.logoAccueil3').on('click', function (){
@@ -119,9 +118,9 @@ let initAge = function(){
 
 
     d3.select(".fleche_gauche").on("click", function (){
-      cpt =cpt-1;
-      if (cpt <0) cpt = 3;
-      setImage(cpt);
+        cpt =cpt-1;
+        if (cpt <0) cpt = 3;
+        setImage(cpt);
     });
     //Mouse over de fleche gauche
     d3.select(".fleche_gauche").on("mouseover",  function (){
@@ -278,33 +277,46 @@ let initAge = function(){
         tl_suivant_age_over.pause();
     });
 
-    d3.select(".arianne-1-age").on('click', function (){
+    d3.select(".ariane-1-age").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
         setTimeout(function(){
             mySlidr.slide('left');
         }, 1500);
-        initAddress();
+        setTimeout(function (){
+            initAddress();
+        }, 2700);
     });
 
-    d3.select(".arianne-2-age").on('click', function (){
+    d3.select(".ariane-2-age").on('click', function (){
+        muteAll();
         mySlidr.slide('left');
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 1200);
     });
 
-    d3.select(".arianne-4-age").on('click', function (){
+    d3.select(".ariane-4-age").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
-        initAccess();
+        setTimeout(function (){
+            initAccess();
+        }, 1200);
     });
 
-    d3.select(".arianne-5-age").on('click', function (){
+    d3.select(".ariane-5-age").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('up');
         }, 1500);
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 2700);
     });
 
-    d3.select(".arianne-6-age").on('click', function (){
+    d3.select(".ariane-6-age").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('up');
@@ -312,7 +324,8 @@ let initAge = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 3000);
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 4200);
     });
-
 };

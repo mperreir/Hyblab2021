@@ -1,6 +1,6 @@
 let initAddress = function(){
-    //--------------AUDIO-----------
 
+    //----------------------- AUDIO ---------------------
     document.getElementById('debut_audio').pause();
 
     let x = document.getElementById("volumeAdresse");
@@ -26,14 +26,18 @@ let initAddress = function(){
     });
 
 
-    //--------------HEADER-------------
+    // ------------------------ HEADER --------------------
+    // Retour à l'accueil
     d3.select('.logoAccueil1').on('click', function (){
         mySlidr.slide('home-page');
-        initHome();
-        resetHome();
+        setTimeout(function (){
+            initHome();
+            resetHome();
+        }, 1200);
     });
 
-
+    // ----------------- BOUTONS ET ANIMATIONS -----------
+    // Clic sur bouton "Suivant" après localisation
     d3.select(".button-next-address-from-continue").on("click", function (){
         const addressInput = document.querySelector('#address1');
 
@@ -41,16 +45,21 @@ let initAddress = function(){
             alert('Merci de saisir votre addresse ou vous localiser')
         }else{
             mySlidr.slide('right');
-            initHour();
+            setTimeout(function (){
+                initHour();
+            }, 1200);
         }
     });
 
+    // Clic sur bouton "Suivant" après "Peu importe""
     d3.select(".button-next-address-from-nevermind").on("click", function (){
         mySlidr.slide('right');
-        initHour();
+        setTimeout(function (){
+            initHour();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton Suivant
     let tl_suivant_address_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -85,35 +94,28 @@ let initAddress = function(){
         tl_suivant_address_over.pause();
     });
 
-    d3.select(".arianne-2-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+    // Fil d'Ariana
+    d3.select(".ariane-2-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initHour();
         }, 1200);
     });
 
-    d3.select(".arianne-3-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+    d3.select(".ariane-3-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
         }, 1500);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initAge();
         }, 2700);
     });
 
-    d3.select(".arianne-4-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+    d3.select(".ariane-4-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -122,15 +124,12 @@ let initAddress = function(){
             mySlidr.slide('right');
         }, 3000);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initAccess();
         }, 4200);
     });
 
-    d3.select(".arianne-5-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+    d3.select(".ariane-5-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -142,15 +141,12 @@ let initAddress = function(){
             mySlidr.slide('up');
         }, 4500);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initFaunaFlora();
         }, 5700);
     });
 
-    d3.select(".arianne-6-address").on('click', function (){
-        document.getElementById('adresse_audio').pause();
-        let prevSon = isSonOn;
-        if(prevSon) {isSonOn = false;}
+    d3.select(".ariane-6-address").on('click', function (){
+        muteAll();
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -165,14 +161,13 @@ let initAddress = function(){
             mySlidr.slide('right');
         }, 6000);
         setTimeout(function (){
-            if(prevSon) {isSonOn = true;}
             initActivities();
         }, 7200);
     });
 };
 
 
-
+// Autocomplete de l'adresse
 new AddressAutocomplete('#address1', function (result) {
     geoAttribute(result.coordinates.lat, result.coordinates.lng);
 });

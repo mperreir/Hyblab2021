@@ -100,7 +100,7 @@ input{
     z-index: -1;
 }
 
-.fil-arianne{
+.fil-ariane{
     position: absolute;
     top: 5%;
     left: 96%;
@@ -108,7 +108,7 @@ input{
     height: 34%;
     z-index: 7;
 }
-.fil-arianne-img{
+.fil-ariane-img{
     top: 0;
     left: 0;
     width: 100%;
@@ -116,7 +116,7 @@ input{
     z-index: 7;
 }
 
-.button-fil-arianne{
+.button-fil-ariane{
     position: absolute;
     left: 0;
     width: 100%;
