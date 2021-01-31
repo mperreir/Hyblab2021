@@ -1,13 +1,18 @@
 class Loader {
   constructor() {
-    this.load = $('#loading');
+    this.load = document.querySelector('#loading');
   }
 
   hide() {
-    this.load.fadeOut('800');
+    this.load.style.display = 'none';
   }
 
-  show() {
-    this.load.fadeIn('slow');
+  loading() {
+    this.load.style.display = 'flex';
+  }
+
+  loaded() {
+    this.load.style.display = 'none';
+    // setTimeout(() => this.load.style.display = 'none', 1500);
   }
 }
