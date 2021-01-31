@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "https-proxy-agent": "^5.0.0",
     "lottie-web": "^5.7.6",
     "node-fetch": "^2.6.1"
   },
