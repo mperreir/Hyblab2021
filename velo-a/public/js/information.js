@@ -48,7 +48,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById("bicloo").addEventListener("click", () => {
 		localStorage.setItem("velo", "bicloo");
-		console.log("test");
 	});
 });
 
