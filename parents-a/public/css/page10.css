@@ -3,6 +3,7 @@ section[data-slidr="page-10"] {
     /* fond */
     position: absolute;
     background: #171EB1;
+    overflow: hidden;
 }
 
 #logo-p10 {
@@ -20,25 +21,39 @@ section[data-slidr="page-10"] {
     left: 0%;
 }
 
+#gros-nuage-p10 {
+    position: absolute;
+    width: 25%;
+    top: 33%;
+    left: 15%;
+}
+
+#petit-nuage-p10 {
+    position: absolute;
+    width: 17%;
+    top: 23%;
+    left: 5%;
+}
+
 #pelouse-droite-p10 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     right: 0%;
     bottom: 0%;
 }
 
 #pelouse-gauche-p10 {
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     left: 0%;
     bottom: 0%;
 }
 
 #arbre-jaune-p10 {
     position: absolute;
-    width: 20%;
-    bottom: 8%;
-    left: 0%;
+    width: 15%;
+    bottom: 13%;
+    left: 2%;
 }
 
 #arbuste-rouge-p10 {
@@ -55,11 +70,11 @@ section[data-slidr="page-10"] {
     right: 2%;
 }
 
-#feuille-bleue-p10 {
+#feuille-bleue2-p10 {
     position: absolute;
-    width: 8%;
-    right: 1%;
-    bottom: 8%;
+    width: 11%;
+    right: 65%;
+    bottom: 3%;
 }
 
 #question-p10 {
@@ -69,64 +84,75 @@ section[data-slidr="page-10"] {
     left: 25%;
 }
 
-#centre-p10 {
+#centre-contour-p10 {
     position: absolute;
-    width: 11%;
-    right: 25%;
-    top: 44%;
+    width: 12%;
+    right: 23%;
+    top: 46.4%;
+    transform: rotate(
+            1deg
+    );
     filter: brightness(80%);
     -webkit-filter: brightness(80%);
 }
 
-#centre-p10:hover {
+#centre-hover-p10 {
+    width: 15%;
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
 }
 
-#nord-est-p10 {
+#nord-est-contour-p10 {
     position: absolute;
-    width: 20.5%;
-    right: 17.8%;
-    top: 15.2%;
-    transform: rotate(1deg);
+    width: 20%;
+    right: 16%;
+    top: 20%;
+    transform: rotate(
+            1deg
+    );
     filter: brightness(80%);
     -webkit-filter: brightness(80%);
 }
 
-#nord-est-p10:hover {
+#nord-est-hover-p10 {
+    width: 15%;
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
 }
 
-#ouest-p10 {
+#ouest-contour-p10 {
     position: absolute;
-    width: 13.8%;
-    right: 33.7%;
-    top: 42.3%;
-    transform: rotate(362deg);
+    width: 12.8%;
+    right: 33.2%;
+    top: 46.8%;
+    transform: rotate(
+            364deg
+    );
     filter: brightness(80%);
     -webkit-filter: brightness(80%);
 }
 
-#ouest-p10:hover {
+#ouest-hover-p10 {
+    width: 15%;
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
 }
 
-#sud-p10 {
+#sud-contour-p10 {
     position: absolute;
     width: 15%;
-    right: 23.5%;
-    top: 50.5%;
-    transform: rotate(362deg);
+    right: 21.5%;
+    top: 56%;
+    transform: rotate(
+            362deg
+    );
     filter: brightness(80%);
     -webkit-filter: brightness(80%);
     rotate: revert;
 }
 
-#sud-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
+#sud-hover-p10 {
+    width: 15%;
 }
 
 #bouton-peu-importe-p10 {
