@@ -87,10 +87,12 @@
         z-index: 1;
     }
     #white_house {
-        right: 12%;
-        z-index: 0;
+      width: 10%;
+      right: 12%;
+      z-index: 0;
     }
     #blue_house {
+      width: 8%;
         right: 3%;
     }
     .bounceInDown {
