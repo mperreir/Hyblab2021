@@ -6,6 +6,7 @@ import gourmet_img from '../img/Perso-hyblab-04.png'
 import curieux_img from '../img/Perso-hyblab-05.png'
 import famille_img from '../img/Perso-hyblab-06.png'
 import '../css/theme.css'
+import equivalent from './equivalent.js'
 class ThemeSelector extends React.Component {
     render() {
         const { onNextPage, onPreviousPage } = this.props;
@@ -45,7 +46,7 @@ class ThemeSelector extends React.Component {
                         <div class="col">
                             <input type="radio" name="theme" id="famille" class="input-hidden" onClick={() => { this.props.updateSelect(5) }}/>
                             <label htmlFor="famille">
-                                <img src={famille_img} alt="familley" class="img_bas"/>
+                                <img src={famille_img} alt="famille" class="img_bas"/>
                             </label>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import fond from '../img/video-pageaccueil-fond blanc.mp4';
 import fond2 from '../img/video-pageaccueil-fond blanc.mp4';
 import '../css/home.css'
 class Home extends  React.Component {
-    
+
     state = {
         nomPers:"",
         buttonActivate: false,
@@ -46,7 +46,9 @@ class Home extends  React.Component {
                     <span id="paragraphe" class="text-center m-5">Bienvenue sur EnvironNantes ! Cette application te permettra de découvrir tout ce qu’il y a autour de toi dans un rayon d’un quart d’heure ! </span>
                     <h4>Comment t’appelles-tu ?</h4>
                     <input type='text' placeholder='entrez votre prénom' onChange={this.updateName}/>
-                    <input type='button' class="mt-5" value='EXPLORER' onClick={() => { this.submitName(updateNom, onNextPage) }}disabled={!this.state.buttonActivate}/>
+                    <form onSubmit={() => { this.submitName(updateNom, onNextPage) }}>
+                        <input type='submit' class="btn btnValidatePurpleBackground mt-5" value='EXPLORER' disabled={!this.state.buttonActivate}/>
+                    </form>
                 </div>
                 <div class="d-flex justify-content-end mt-5">
                     <input id="credits" type='button' value='Crédits' />
