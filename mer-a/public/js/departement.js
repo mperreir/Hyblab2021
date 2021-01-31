@@ -8,10 +8,6 @@ codeType = getCodeType();
 
 map = getMapDepartement(codeDep);
 
-let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
-					{ title: $('#narration > span.title')[0] },
-					{ timeout: null },
-					{ baseText: null });
 persoBox = document.querySelector('#character');
 
 
@@ -23,6 +19,10 @@ persoBox = document.querySelector('#character');
 	if(!categories) await getTypesId(r => categories = r);
 	await getRegionsId(r => deps.data = r);
 
+	let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
+		{ title: $('#narration > span.title')[0] },
+		{ timeout: null },
+		{ baseText: null });
 	deps.data = [deps.get(map.properties.code)];
 	categorie = getCategorie(router.data.personnage);
 	// baseNarrator.setText(categorie.phraseDep);
@@ -30,7 +30,7 @@ persoBox = document.querySelector('#character');
 	narrator.properties.baseText = categorie.phraseDep;
 	narrator.load();
 	// setNarrationBox();
-	generateDep(mapFusion);
+	generateDep(mapFusion, narrator);
 	loadCharacter();
 	perso = document.getElementById('character_image');
 	// baseNarrator.start();
@@ -43,6 +43,6 @@ persoBox = document.querySelector('#character');
 		perso.style.left = `${(persoBox.offsetWidth-perso.offsetWidth)/2}px`;
 		narrator.load();
 		// setNarrationBox();
-		generateDep(mapFusion);
+		generateDep(mapFusion, narrator);
 	});
 })();
