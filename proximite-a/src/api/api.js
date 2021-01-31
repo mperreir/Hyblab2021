@@ -7,6 +7,7 @@ const { response } = require('../../server');
 const addresstocoordinates = require('./adresstocoordinates');
 const get15minzone = require('./get15mnZone');
 const getzone = require('./getZone');
+const getItinerary = require('./getItinerary');
 
 module.exports = function () {
 
@@ -59,6 +60,17 @@ module.exports = function () {
         res.json(points);
     })
 
+    app.get('/getItinerary/*/*/*', async function(req, res) {
+        res.header('Access-Control-Allow-Origin', '*');
+        const path = decodeURI(req.url).split('/');
+
+        const modeTransport = path[2];
+        const startPoint = path[3];
+        const endPoint = path[4];
+
+        getItinerary.getItinerary(modeTransport, startPoint, endPoint)
+        .then(itinerary => {res.json(itinerary)});
+    })
 
     return app;
 
