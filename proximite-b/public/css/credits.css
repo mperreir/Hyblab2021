@@ -7,54 +7,36 @@
     z-index: -10;
 }
 
-#img_agr {
-    width: auto;
-    height: 50px;
-    display: inline-block;
+#credits_pointilles {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 0vw;
 }
 
-#img_hyblab {
-    width: auto;
-    height: 50px;
-    display: inline-block;
+#credits_adresse_button {
+    position: absolute;
+    right: 88px;
+    top: 80px;
+    height: 25px;
 }
 
-#img_sc {
-    width: auto;
-    height: 50px;
+#credits_adresse_text {
+    position: relative;
     display: inline-block;
+    color:  #BFE3EE;
+    top: 0;
 }
 
-#img_CC {
-    width: auto;
-    height: 50px;
+#credits_adresse_cercle {
     display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background-color:  #BFE3EE;
 }
 
-#img_oml {
-    width: auto;
-    height: 50px;
-    display: inline-block;
-}
-
-#img_opensource {
-    width: auto;
-    height: 50px;
-    display: inline-block;
-}
-
-#img_polytech {
-    width: auto;
-    height: 50px;
-    display: inline-block;
-}
-
-#img_univ {
-    width: auto;
-    height: 50px;
-    display: inline-block;
-}
-
-#credit_line {
-    display: inline-block;
+#credits_adresse_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
