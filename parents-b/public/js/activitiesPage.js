@@ -1,4 +1,4 @@
-let initActivities = function(){
+let initActivities = function() {
 
     // -------------- AUDIO -----------
     muteAll();
@@ -6,45 +6,46 @@ let initActivities = function(){
     let buttonVol = document.getElementById("volumeActivities");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
-    if(isSonOn){
+    if (isSonOn) {
         document.getElementById('activities_audio').play();
         document.getElementById('activities_audio').loop = false;
     }
-    else{
-        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
-    }
-    d3.selectAll('#volumeActivities').on('click', function (){
-        if(isSonOn){
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
+
+
+    d3.selectAll('#volumeActivities').on('click', function() {
+        if (isSonOn) {
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
             document.getElementById('activities_audio').pause();
-        }
-        else{
+        } else {
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
             document.getElementById('activities_audio').play();
         }
     });
 
+
     // -------------- HEADER -------------
     // Retour à l'accueil
-    d3.select('.logoAccueil6').on('click', function (){
+    d3.select('.logoAccueil6').on('click', function() {
         muteAll();
         mySlidr.slide('home-page');
         resetHome();
-        setTimeout(function (){
+        setTimeout(function() {
             initHome();
         }, 1200);
     });
 
     // Sliding du bouton "Suivant"
-    d3.select('.button-suivant-activities').on('click', function (){
+    d3.select('.button-suivant-activities').on('click', function() {
         muteAll();
         mySlidr.slide('right');
-        setTimeout(function (){
+        setTimeout(function() {
             initSearchingResults();
         }, 1200);
     });
+
 
     // Animation du bouton "Suivant"
     let tl_suivant_activities_over = anime.timeline({
@@ -52,7 +53,7 @@ let initActivities = function(){
         loop:true
     });
 
-    d3.select('.button-suivant-activities').on('mouseover', function (){
+    d3.select('.button-suivant-activities').on('mouseover', function() {
         tl_suivant_activities_over
             .add({
                 targets: ".button-suivant-activities",
@@ -71,7 +72,8 @@ let initActivities = function(){
             })
     });
 
-    d3.select('.button-suivant-activities').on('mouseleave' ,function (){
+
+    d3.select('.button-suivant-activities').on('mouseleave', function() {
         anime({
             targets: ".button-suivant-activities",
             scale: 1,
@@ -81,72 +83,78 @@ let initActivities = function(){
         tl_suivant_activities_over.pause();
     });
 
+
     // Fil d'Ariane
-    d3.select(".ariane-1-activities").on('click', function (){
+    d3.select(".ariane-1-activities").on('click', function() {
         muteAll();
         mySlidr.slide('left');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('down');
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 3000);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 4500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 6000);
-        setTimeout(function (){
+        setTimeout(function() {
             initAddress();
         }, 7200);
     });
 
-    d3.select(".ariane-2-activities").on('click', function (){
+
+    d3.select(".ariane-2-activities").on('click', function() {
         muteAll();
         mySlidr.slide('left');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('down');
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 3000);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 4500);
-        setTimeout(function (){
+        setTimeout(function() {
             initHour();
         }, 5700);
     });
 
-    d3.select(".ariane-3-activities").on('click', function (){
+
+    d3.select(".ariane-3-activities").on('click', function() {
         muteAll();
         mySlidr.slide('left');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('down');
         }, 1500);
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('left');
         }, 3000);
-        setTimeout(function (){
+        setTimeout(function() {
             initAge();
         }, 4200);
     });
 
-    d3.select(".ariane-4-activities").on('click', function (){
+
+    d3.select(".ariane-4-activities").on('click', function() {
+        muteAll();
         mySlidr.slide('left');
-        setTimeout(function(){
+        setTimeout(function() {
             mySlidr.slide('down');
         }, 1500);
-        setTimeout(function (){
+        setTimeout(function() {
             initAccess();
         }, 2700);
     });
 
-    d3.select(".ariane-5-activities").on('click', function (){
+
+    d3.select(".ariane-5-activities").on('click', function() {
         muteAll();
         mySlidr.slide('left');
-        setTimeout(function (){
+        setTimeout(function() {
             initFaunaFlora();
         }, 1200);
     });

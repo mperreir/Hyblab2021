@@ -1,6 +1,6 @@
 var isSonOn = Boolean(true);
 
-function muteAll(){
+function muteAll() {
     document.getElementById('debut_audio').pause();
     document.getElementById('debut_audio').currentTime = 0;
     document.getElementById('adresse_audio').pause();
