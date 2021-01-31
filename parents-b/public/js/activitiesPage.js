@@ -3,15 +3,15 @@ let initActivities = function(){
     //--------------AUDIO-----------
     document.getElementById('fauna_audio').pause();
 
-     let buutonVol = document.getElementById("volumeActivite");
-     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+     let buttonVol = document.getElementById("volumeActivite");
+     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
  
      if(isSonOn){
          document.getElementById('activite_audio').play();
          document.getElementById('activite_audio').loop = false;
      }
      else{
-         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+         buttonVol.setAttribute("src", "./img/common/volume_off.svg");
      }
      d3.selectAll('.volume').on('click', function (){
          if(isSonOn){

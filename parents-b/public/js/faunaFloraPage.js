@@ -2,15 +2,15 @@ let initFaunaFlora = function(){
      //--------------AUDIO-----------
      document.getElementById('access_audio').pause();
 
-     let buutonVol = document.getElementById("volumeFaune");
-     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+     let buttonVol = document.getElementById("volumeFaune");
+     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
  
      if(isSonOn){
          document.getElementById('fauna_audio').play();
          document.getElementById('fauna_audio').loop = false;
      }
      else{
-         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+         buttonVol.setAttribute("src", "./img/common/volume_off.svg");
      }
      d3.selectAll('.volume').on('click', function (){
          if(isSonOn){
@@ -123,7 +123,7 @@ let initFaunaFlora = function(){
 $(document).ready(function(){
 
 
-    // $(".dropableCell-fauna").on('drop',function(event){
+    // $(".droppableCell-fauna").on('drop',function(event){
     //     //gestion de l'ajout / remove de l'image
     // })
 
@@ -132,7 +132,7 @@ $(document).ready(function(){
          revert: "invalid"
     });
 
-    $(".dropableCell-fauna").droppable({
+    $(".droppableCell-fauna").droppable({
         accept: ".image-drop-fauna",
         hoverClass: "ui-state-active",
             drop: function( event, ui ) {

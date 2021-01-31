@@ -1,35 +1,35 @@
 let initAccess = function(){
-     //--------------AUDIO-----------
-     document.getElementById('age_audio').pause();
+    //--------------AUDIO-----------
+    document.getElementById('age_audio').pause();
 
-     let buutonVol = document.getElementById("volumeAccess");
-     buutonVol.setAttribute("src", "./img/common/volume_on.svg");
- 
-     if(isSonOn){
-         document.getElementById('access_audio').play();
-         document.getElementById('access_audio').loop = false;
-     }
-     else{
-         buutonVol.setAttribute("src", "./img/common/volume_off.svg");
-     }
-     d3.selectAll('.volume').on('click', function (){
-         if(isSonOn){
-             this.setAttribute("src", "./img/common/volume_off.svg");
-             isSonOn = Boolean(false);
-             document.getElementById('access_audio').pause(); 
-         }
-         else{
-             this.setAttribute("src", "./img/common/volume_on.svg");
-             isSonOn = Boolean(true);
-             document.getElementById('access_audio').play(); 
-         }
-     }); 
- 
-     //--------------HEADER-------------
-     d3.select('.logoAccueil3').on('click', function (){
-         mySlidr.slide('home-page');
-         initHome();
-     });
+    let buttonVol = document.getElementById("volumeAccess");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
+
+    if(isSonOn){
+        document.getElementById('access_audio').play();
+        document.getElementById('access_audio').loop = false;
+    }
+    else{
+        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
+    }
+    d3.selectAll('.volume').on('click', function (){
+        if(isSonOn){
+            this.setAttribute("src", "./img/common/volume_off.svg");
+            isSonOn = Boolean(false);
+            document.getElementById('access_audio').pause();
+        }
+        else{
+            this.setAttribute("src", "./img/common/volume_on.svg");
+            isSonOn = Boolean(true);
+            document.getElementById('access_audio').play();
+        }
+    });
+
+    //--------------HEADER-------------
+    d3.select('.logoAccueil3').on('click', function (){
+        mySlidr.slide('home-page');
+        initHome();
+    });
 
     d3.select('.logoAccueil4').on('click', function (){
         mySlidr.slide('home-page');
@@ -119,35 +119,35 @@ let initAccess = function(){
 
 $(document).ready(function(){
 
-    $(".dropableCell").on('drop',function(event){
+    $(".droppableCell").on('drop',function(event){
         //gestion de l'ajout / remove de l'image
     })
 
     $( ".image-drop" ).draggable({
-         tolerance: 'fit',
-         revert: "invalid"
+        tolerance: 'fit',
+        revert: "invalid"
     });
 
-    $(".dropableCell").droppable({
+    $(".droppableCell").droppable({
         accept: ".image-drop",
         hoverClass: "ui-state-active",
-            drop: function( event, ui ) {
-               var droppable = $(this);
-               var draggable = ui.draggable;
-               // Move draggable into droppable
-               draggable.appendTo(droppable);
-               draggable.css({top: '0px', left: '0px'});
-            }
+        drop: function( event, ui ) {
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.appendTo(droppable);
+            draggable.css({top: '0px', left: '0px'});
+        }
     })
 
     $(".images-base").droppable({
         accept: ".image-drop",
         drop: function( event, ui ) {
-           var droppable = $(this);
-           var draggable = ui.draggable;
-           // Move draggable into droppable
-           draggable.css({top: '0px', left: '0px'});
-           draggable.appendTo(droppable);
+            var droppable = $(this);
+            var draggable = ui.draggable;
+            // Move draggable into droppable
+            draggable.appendTo(droppable);
+            draggable.css({top: '0px', left: '0px'});
         }
     })
 })

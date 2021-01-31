@@ -2,15 +2,15 @@ let initResults = function(){
     //-----------AUDIO--------------
     document.getElementById('result1_audio').pause();
 
-    let buutonVol = document.getElementById("volumeResult2");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+    let buttonVol = document.getElementById("volumeResult2");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
     if(isSonOn){
         document.getElementById('result2_audio').play();
         document.getElementById('result2_audio').loop = false;
     }
     else{
-        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
     }
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){

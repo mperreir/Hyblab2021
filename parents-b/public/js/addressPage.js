@@ -16,15 +16,15 @@ let initAddress = function(){
         if(isSonOn){
             this.setAttribute("src", "./img/common/volume_off.svg");
             isSonOn = Boolean(false);
-            document.getElementById('adresse_audio').pause(); 
+            document.getElementById('adresse_audio').pause();
         }
         else{
             this.setAttribute("src", "./img/common/volume_on.svg");
             isSonOn = Boolean(true);
-            document.getElementById('adresse_audio').play(); 
+            document.getElementById('adresse_audio').play();
         }
     });
-    
+
 
     //--------------HEADER-------------
     d3.select('.logoAccueil1').on('click', function (){
@@ -86,19 +86,34 @@ let initAddress = function(){
     });
 
     d3.select(".arianne-2-address").on('click', function (){
-       mySlidr.slide('right');
-       initHour();
+        document.getElementById('adresse_audio').pause();
+        let prevSon = isSonOn;
+        if(prevSon) {isSonOn = false;}
+        mySlidr.slide('right');
+        setTimeout(function (){
+            if(prevSon) {isSonOn = true;}
+            initHour();
+        }, 1200);
     });
 
     d3.select(".arianne-3-address").on('click', function (){
+        document.getElementById('adresse_audio').pause();
+        let prevSon = isSonOn;
+        if(prevSon) {isSonOn = false;}
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
-            }, 1500);
-        initAge();
+        }, 1500);
+        setTimeout(function (){
+            if(prevSon) {isSonOn = true;}
+            initAge();
+        }, 2700);
     });
 
     d3.select(".arianne-4-address").on('click', function (){
+        document.getElementById('adresse_audio').pause();
+        let prevSon = isSonOn;
+        if(prevSon) {isSonOn = false;}
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -106,10 +121,16 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 3000);
-        initAccess();
+        setTimeout(function (){
+            if(prevSon) {isSonOn = true;}
+            initAccess();
+        }, 4200);
     });
 
     d3.select(".arianne-5-address").on('click', function (){
+        document.getElementById('adresse_audio').pause();
+        let prevSon = isSonOn;
+        if(prevSon) {isSonOn = false;}
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -120,10 +141,16 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('up');
         }, 4500);
-        initFaunaFlora();
+        setTimeout(function (){
+            if(prevSon) {isSonOn = true;}
+            initFaunaFlora();
+        }, 5700);
     });
 
     d3.select(".arianne-6-address").on('click', function (){
+        document.getElementById('adresse_audio').pause();
+        let prevSon = isSonOn;
+        if(prevSon) {isSonOn = false;}
         mySlidr.slide('right');
         setTimeout(function(){
             mySlidr.slide('right');
@@ -137,7 +164,10 @@ let initAddress = function(){
         setTimeout(function(){
             mySlidr.slide('right');
         }, 6000);
-        initActivities();
+        setTimeout(function (){
+            if(prevSon) {isSonOn = true;}
+            initActivities();
+        }, 7200);
     });
 };
 

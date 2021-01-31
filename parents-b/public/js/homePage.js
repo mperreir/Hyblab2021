@@ -19,8 +19,8 @@ let initHome = function(){
         document.removeEventListener('click', musicPlay);
     };
 
-    let buutonVol = document.getElementById("volumeDebut");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+    let buttonVol = document.getElementById("volumeDebut");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
     
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){
@@ -142,7 +142,7 @@ let initHome = function(){
                 easing: "linear"
             })
             .add({
-                delay: 1500
+                delay: 2500
             })
             .add({
                 targets: ".talking-bubble-home",

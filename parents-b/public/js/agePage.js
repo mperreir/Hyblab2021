@@ -10,15 +10,15 @@ let initAge = function(){
     
     document.getElementById('hour_audio').pause();
 
-    let buutonVol = document.getElementById("volumeAge");
-    buutonVol.setAttribute("src", "./img/common/volume_on.svg");
+    let buttonVol = document.getElementById("volumeAge");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
     if(isSonOn){
         document.getElementById('age_audio').play();
         document.getElementById('age_audio').loop = false;
     }
     else{
-        buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+        buttonVol.setAttribute("src", "./img/common/volume_off.svg");
     }
     d3.selectAll('.volume').on('click', function (){
         if(isSonOn){
