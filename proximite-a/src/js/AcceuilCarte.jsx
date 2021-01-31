@@ -81,19 +81,27 @@ class AcceuilCarte extends  React.Component {
     generateItineraire = (dest) => {
         fetch(`http://localhost:8080/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
         .then(itineraire => {
+            console.log(itineraire)
             this.setState({itineraire});
         })
     };
 
     generatePerimetre = () => {
-        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.moyenId}/${this.state.currentPosition}/`)
+        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.currentPosition[1]}_${this.state.currentPosition[0]}/${moyenTransport}`)
         .then(perimetre => {
+            console.log(perimetre)
             this.setState({perimetre});
         })
     };
 
-    render() {
+    componentDidMount() {
         this.generatePerimetre();
+    }
+
+
+
+    render() {
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
@@ -110,8 +118,8 @@ class AcceuilCarte extends  React.Component {
                             </Popup>
                         </Marker>
                     }) }
-                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
-                    <Polyline positions={this.state.itineraire}/>
+                    <Polygon positions={this.state.perimetre ? this.state.perimetre : []} pathOptions={redOptions} />
+                    <Polyline positions={this.state.itineraire ? this.state.itineraire : []}/>
                 </MapContainer>
 
                 <PopupAnnonce/>

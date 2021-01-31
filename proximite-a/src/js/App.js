@@ -98,14 +98,16 @@ class App extends  React.Component {
     };
 
     //changer url
-    createSites = async function() {
-        let stringAdresse = this.state.adresse.rue.replace(' ', '+') + '+' + this.state.adresse.codepostal + '+' + this.state.adresse.ville
-        let moyen=equivalent.moyenEquiv.get(this.state.moyenId)
-        let theme=equivalent.themeEquiv.get(this.state.themeId)
-        console.log("appel de "+'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme);
-        let lieux = await( await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)).json();
+    //changer url
+    createSites = async function () {
+        let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
+        let moyen = equivalent.moyenEquiv.get(this.state.moyenId)
+        let theme = equivalent.themeEquiv.get(this.state.themeId)
+        console.log("appel de " + 'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme);
+        let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
         console.log(lieux)
-        console.log(lieux.lieux.lenght)
+        console.log(lieux.length)
+        console.log(lieux.lieux.length)
         console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/`);
         let site1 = {
             id: '1',
@@ -116,8 +118,9 @@ class App extends  React.Component {
             coordonnes: [1, 2],    //latitude_longitude
             type: 4,
         }
-        if(lieux.lieux.lenght>=1&&lieux.lenght>=1){
+        if (lieux.lieux.length >= 1 && typeof lieux.lieux !== "undefined") {
             let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
+            let adresseF1 = adresse1.rue + " " + adresse1.codepostal + " " + adresse1.ville
             let name1 = ""
             if (typeof lieux.lieux[0].tags.name !== "undefined") {
                 name1 = lieux.lieux[0].tags.name
@@ -126,7 +129,7 @@ class App extends  React.Component {
                 id: '1',
                 titre: name1,
                 img: '',
-                adresse: adresse1,
+                adresse: adresseF1,
                 description: '',
                 coordonnes: [lieux.lieux[0].lat, lieux.lieux[0].lon],
                 type: this.state.themeId
@@ -142,7 +145,9 @@ class App extends  React.Component {
             coordonnes: [3, 4],    //latitude_longitude
             type: 4,
         }
-        if (lieux.lieux.lenght >= 2 && lieux.lenght >= 1){let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
+        if (lieux.lieux.length >= 2 && typeof lieux.lieux !== "undefined") {
+            let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
+            let adresseF2 = adresse2.rue + " " + adresse2.codepostal + " " + adresse2.ville
             let name2 = ""
             if (typeof lieux.lieux[1].tags.name !== "undefined") {
                 name2 = lieux.lieux[1].tags.name
@@ -151,7 +156,7 @@ class App extends  React.Component {
                 id: '2',
                 titre: name2,
                 img: '',
-                adresse: adresse2,
+                adresse: adresseF2,
                 description: '',
                 coordonnes: [lieux.lieux[1].lat, lieux.lieux[1].lon],
                 type: this.state.themeId
@@ -167,7 +172,9 @@ class App extends  React.Component {
             coordonnes: [5, 6],    //latitude_longitude
             type: 4,
         }
-        if (lieux.lieux.lenght >= 3 && lieux.lenght >= 1) {let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
+        if (lieux.lieux.length >= 3 && typeof lieux.lieux !== "undefined") {
+            let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
+            let adresseF3 = adresse3.rue + " " + adresse3.codepostal + " " + adresse3.ville
             let name3 = ""
             if (typeof lieux.lieux[0].tags.name !== "undefined") {
                 name3 = lieux.lieux[2].tags.name
@@ -176,7 +183,7 @@ class App extends  React.Component {
                 id: '3',
                 titre: name3,
                 img: '',
-                adresse: adresse3,
+                adresse: adresseF3,
                 description: '',
                 coordonnes: [lieux.lieux[2].lat, lieux.lieux[2].lon],
                 type: this.state.themeId
@@ -184,7 +191,9 @@ class App extends  React.Component {
 
         }
         let lieuSurprise = this.state.surprise
-        if (lieux.lenght > 1){let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+        if (typeof lieux.surprise !== "undefined") {
+            let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+            let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
             console.log(adresseSurp)
             let nameSurp = ""
             if (lieux.surprise.tags.name) {
@@ -193,7 +202,7 @@ class App extends  React.Component {
             lieuSurprise = {
                 titre: nameSurp,
                 img: '',
-                adresse: adresseSurp,
+                adresse: adresseFS,
                 description: '',
                 coordonnes: [lieux.surprise.lat, lieux.surprise.lon],
                 type: 0 //todo mettre le bon theme
@@ -201,12 +210,13 @@ class App extends  React.Component {
         }
 
         this.setState({
-            sites: [site1,site2,site3],
-            surprise:lieuSurprise
+            sites: [site1, site2, site3],
+            surprise: lieuSurprise
         });
         console.log("nouveaux sites")
         console.log([site1, site2, site3])
-        this.setState({pageId:4})
+        console.log(lieuSurprise)
+        this.setState({ pageId: 4 })
     }
 
     render() {
