@@ -85,6 +85,7 @@ const circlesStrokeWidth = '3px';
 let perso = null;
 let categorie = null;
 let legendes = null;
+let departements = null;
 let codeType;
 
 let map;

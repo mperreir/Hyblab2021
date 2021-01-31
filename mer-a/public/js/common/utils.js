@@ -17,28 +17,19 @@ function getLegende(id) {
 }
 
 /**
- * Variables definition
+ * Return the legend with the id 'id'.
+ * @param {number} id 	the id of the wanted legende.
  */
-// transformer en classe TODO
-let deps = {
-	// regions
-	data: null,
-	// depart valide ?
-	isValid: (code) => {
-		if(deps.data !== null) return ((deps.data.find(data => data.id === code)) !== undefined) ? true : false;
-	},
-	// retourne depart depuis son code
-	get: (code) => {
-		if(deps.data !== null) return deps.data.find(data => data.id === code);
-	}
-};
+function getDepartement(id) {
+	if(departements !== null) return departements.find(dep => dep.id === id);
+}
 
 /**
  * Function that return the ID of a region from it's code.
  * @param {number} code 	the department code.
  */
 function getID(code){
-	return deps.isValid(code) ? code : -1;
+	return Map.isValid(code) ? code : -1;
 }
 
 /**

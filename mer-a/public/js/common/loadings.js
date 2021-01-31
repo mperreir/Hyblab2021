@@ -32,8 +32,8 @@ function selectLegende(idLegende){
  * Function that handle the selection of a region
  * @param {number} codeDep	the department code.
  */
-function selectDepartment(codeDep){
-	let id = getID(codeDep);
+function selectDepartment(codeDep, map){
+	let id = map.isValid(codeDep);
 	if(id > 0) router.loadRessources('personnages', {
 		department: id
 	}, 1);

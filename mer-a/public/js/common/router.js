@@ -53,7 +53,7 @@ class Router {
     }
     this.fileAriane.updateAriane(
       path,
-      (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
+      (getDepartement(router.data.department) !== undefined) ? getDepartement(router.data.department).nomDepartement : 'Département',
       (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
       'Légende'
     );
