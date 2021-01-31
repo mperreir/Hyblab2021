@@ -7,13 +7,24 @@ class FilAriane {
 
 	#show(id_div, ressource, fond) {
 		let step = document.querySelector(`#${id_div}`);
-		if(step !== null) {
-			this.#color(step);
-			step.style.opacity = 1;
+		if(step !== null){
+			step.classList.add('active');
 			if(ressource && fond){
-				step.classList.add('active');
 				step.onclick = () => router.loadRessources(ressource, router.data, fond);
 			}
+		}
+	}
+
+	#reset() {
+		var cercles = document.getElementsByClassName('cercle_outer');
+		for (let i = 0 ; i < cercles.length; i++){
+			cercles[i].classList.remove('active');
+			cercles[i].onclick = null;
+			if(cercles[i].children.length > 1) cercles[i].removeChild(cercles[i].children[1]);
+		}
+		var traits = document.getElementsByClassName('trait');
+		for (let i = 0 ; i < traits.length; i++){
+			traits[i].classList.remove('active');
 		}
 	}
 
@@ -53,6 +64,7 @@ class FilAriane {
 	}
 
 	updateAriane(name, dep, perso, legend){
+		this.#reset();
 		switch(this.#getIdByName(name)){
 			case 4:
 				this.#show('trait3');
