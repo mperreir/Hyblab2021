@@ -8,6 +8,7 @@ import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMulti
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
 import equivalent from './equivalent.js'
+import { Polyline } from 'leaflet';
 const decallageCentrageCarte = 0.004;
 const decallageMarqueur = 0.0005;
 
@@ -44,6 +45,7 @@ class AcceuilCarte extends  React.Component {
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
         perimetre: [],
+        itineraire: [],
     };
 
 
@@ -76,10 +78,12 @@ class AcceuilCarte extends  React.Component {
         this.props.onSetMoyen(e)
     };
 
-        generateItineraire = (dest) => {
-            console.log(`demande de tracage d'itineraire de ${this.state.currentPosition} vers ${dest}`)
-
-        }
+    generateItineraire = (dest) => {
+        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
+        .then(itineraire => {
+            this.setState({itineraire});
+        })
+    }
 
     generatePerimetre = () => {
         fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.moyenId}/${this.state.currentPosition}/`)
@@ -107,6 +111,7 @@ class AcceuilCarte extends  React.Component {
                         </Marker>
                     }) }
                     <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+                    <Polyline positions={this.state.itineraire}/>
                 </MapContainer>
 
                 <PopupAnnonce/>
