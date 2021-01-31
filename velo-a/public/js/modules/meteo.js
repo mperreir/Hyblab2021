@@ -6,6 +6,5 @@ export async function getMeteo() {
 	return fetch(baseUrl)
 		.then(res => res.json())
 		.catch(err => {
-			console.error(err);
 		});
 }

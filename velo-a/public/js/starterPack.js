@@ -24,20 +24,26 @@ window.addEventListener('DOMContentLoaded', async () => {
 	// 		casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un
 	// 		vêtement de pluie (en + avec la pluie)
 
-	if (temperature > 20) {
-		textInstructions += "Un t-shirt; des lunettes de soleil; de la crème solaire. ";
-	}
+	if (temperature > 20)
+		textInstructions += "- Un t-shirt; des lunettes de soleil; de la crème solaire. \n";
+	else if (temperature > 20)
+		textInstructions += "- Une veste; un pull. \n";
+	else
+		textInstructions += "- Un bonnet; des gants; une écharpe. \n";
 
 	const pluie = weather && weather.some(e => e.description.includes("pluie"));
+	const alerteGrave = alerts && alerts.some(e => e.event.includes("Severe"));
 
 	if (pluie)
-		textInstructions += "Un vêtement de pluie. ";
+		textInstructions += "- Un vêtement de pluie. \n";
 
+	if (alerteGrave)
+		textInstructions += "Météo France signale que des phénomènes dangereux d'intensité exceptionnelle sont en cours, ne prends le vélo que pour motif impérieux.\n ";
 
 	if (Date.now() / 1000 < sunrise)
-			textInstructions += "Il semblerait que tu partes de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
-		else if (heureArrive / 1000 > sunset - 600)
-			textInstructions += "Il semblerait que tu rentres de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
+		textInstructions += "Il semblerait que tu partes de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
+	else if (heureArrive / 1000 > sunset - 600)
+		textInstructions += "Il semblerait que tu rentres de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
 
 	if (localStorage.getItem("velo") === "bicloo")
 		textInstructions += "N’oublie surtout pas ton casque. "
@@ -57,9 +63,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 		textMeteo += `- Probabilité de précipitation : ${pop * 100}% \n`;
 	}
 	if (weather && weather.length > 0) {
-		textMeteo += `- Météo sur la prochaine heure : \n`;
+		textMeteo += `- Météo de la prochaine heure : \n`;
 		weather.forEach(e => {
-			textMeteo += `  - ${e.description}\n`;
+			textMeteo += `- ${e.description}\n`;
 		});
 	}
 
@@ -75,7 +81,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	textTraffic += `- Distance du trajet : ${(distanceTrajet / 1000).toFixed(2)}km \n` +
 		`- Durée du trajet : ${Math.round(dureeTrajet / 60)} minutes \n` +
-		`- En partant maintenant vous arriverez à ${heureArrive.toLocaleTimeString("fr-FR")}`;
+		`- En partant maintenant, tu arriveras à ${heureArrive.toLocaleTimeString("fr-FR")}`;
 
 	document.getElementById("traffic").innerText = textTraffic;
 
@@ -113,13 +119,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	let messageFin;
 
-	if (false) { // Si soleil
+	if (temperature > 20 && !pluie) { // Si soleil
 		messageFin = "C’est un temps idéal pour faire du vélo !"
-	} else if (false) { // Si pluie
+	} else if (pluie) { // Si pluie
 		messageFin = "Même s’il fait gris, prends ton vélo pour garder la pêche !"
-	} else if (false) { // Si verglas
+	} else if (temperature <= 3 || alerteGrave) { // Si verglas
 		messageFin = "Fais bien attention et ne prend pas de risque inconsidéré !"
-	} else if (false) { // Si froid
+	} else if (temperature <= 13) { // Si froid
 		messageFin = "Un peu de vélo pour rester chaud !"
 	} else {
 		messageFin = "Sur ce, bonne route !"
@@ -127,5 +133,16 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	document.getElementById("messageFin").innerText = messageFin;
 
-});
+	let bickySavoir = document.getElementById("container-bicky");
 
+	document.getElementById("button-question").onmouseover = () => {
+		bickySavoir.style.visibility = "visible";
+		bickySavoir.style.opacity = "1";
+	}
+
+	document.getElementById("button-question").onmouseout = () => {
+		bickySavoir.style.opacity = "0";
+		bickySavoir.style.visibility = "hidden";
+	}
+
+});

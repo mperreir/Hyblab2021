@@ -12,6 +12,24 @@ async function bootstrap() {
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 
+	if (localStorage.getItem("butTrajet")) {
+		setTimeout(() => {
+			document.getElementById(localStorage.getItem("butTrajet"))
+				.dispatchEvent(new MouseEvent("click"));
+
+			if (localStorage.getItem("velo")) {
+				setTimeout(() => {
+
+					document.getElementById(localStorage.getItem("velo"))
+						.dispatchEvent(new MouseEvent("click"));
+				}, 2000);
+
+			}
+		}, 1000);
+	}
+
+
+
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
 
@@ -35,7 +53,6 @@ window.addEventListener('DOMContentLoaded', () => {
 				document.getElementById("validerTrajet").dispatchEvent(new Event('dblclick'));
 			})
 			.catch(err => {
-				console.error(err);
 			});
 	});
 
@@ -55,12 +72,13 @@ window.addEventListener('DOMContentLoaded', () => {
 	document.getElementById("simple").addEventListener("click", () => {
 		localStorage.setItem("velo", "simple");
 	});
-	document.getElementById("elec").addEventListener("click", () => {
+	document.getElementById("electrique").addEventListener("click", () => {
 		localStorage.setItem("velo", "electrique");
 	});
 	document.getElementById("bicloo").addEventListener("click", () => {
 		localStorage.setItem("velo", "bicloo");
 	});
+
 });
 
 function togglePath() {

@@ -212,3 +212,16 @@ header .logo {
 #form-veli-fin {
 	text-align: center;
 }
+
+.mapboxgl-popup-content {
+	color: black;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.mapboxgl-popup-close-button {
+	width: 20px;
+}
+
+.mapboxgl-ctrl-bottom-right {
+	font-family: 'Montserrat', sans-serif;
+}

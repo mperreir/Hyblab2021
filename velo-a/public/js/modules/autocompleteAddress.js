@@ -2,6 +2,17 @@
 
 const mapboxAPIKEY = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
 
+export async function reverseGeocoding(input) {
+	return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(input)}.json?access_token=${mapboxAPIKEY}&autocomplete=false`)
+		.then(response => response.json())
+		.then(data => {
+			return data.features[0].place_name;
+		})
+		.catch(e => {
+			console.error(e);
+		});
+}
+
 async function getAddress(input) {
 	return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(input)}.json?access_token=${mapboxAPIKEY}&autocomplete=true&bbox=-1.7951350420290169%2C47.116367346841514%2C-1.3050286308555314%2C47.33902195868899&limit=10`)
 		.then(response => response.json())
@@ -13,7 +24,6 @@ async function getAddress(input) {
 			return tmp;
 		})
 		.catch(e => {
-			console.error(e);
 		});
 }
 

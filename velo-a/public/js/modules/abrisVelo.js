@@ -11,8 +11,6 @@ const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
 		return response.json();
 	})
 	.catch((error) => {
-		console.error("Error:", error);
-		return undefined;
 	});
 
 let data;
@@ -43,6 +41,9 @@ export async function abrisVeloDisplayData() {
             </div>`;
 
 		const marker = {
+			type: "abris",
+			class: "marker",
+			url: "img/markers/abris.svg",
 			longitude: record.fields.location[1],
 			latitude: record.fields.location[0],
 			text: html

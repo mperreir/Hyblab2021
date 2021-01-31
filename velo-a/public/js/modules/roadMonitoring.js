@@ -7,8 +7,6 @@ const traficFetchData = () => fetch(TRAFIC_API_URL)
 		return response.json();
 	})
 	.catch((error) => {
-		console.error("Error:", error);
-		return undefined;
 	});
 
 let data;
@@ -16,7 +14,7 @@ let data;
 export async function getTraficData(trajet) {
 	if (!data) data = await traficFetchData();
 
-	if (!data || !data.records || !data.records.length) return console.error("Invalide getTrafic return");
+	if (!data || !data.records || !data.records.length) return;
 
 	const { roadNames, distance, duration } = trajet
 	const roadNamesIds = roadNames.map(name => name.split(/([' ])/gm).pop().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))

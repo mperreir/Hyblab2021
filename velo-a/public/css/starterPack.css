@@ -13,6 +13,13 @@ body {
 	padding: 20px;
 }
 
+#container-bicky {
+	visibility: hidden;
+	z-index: 1;
+
+	transition: all 0.5s;
+}
+
 input {
 	margin-top: 2%;
 	z-index: 1000;
@@ -28,13 +35,23 @@ input {
 	.container_map {
 		align-self: center;
 	}
+
+	#container-bicky {
+		display: flex;
+	}
+
+	#bicky-savoir {
+		width: 150px;
+	}
+
+	#bulle-savoir {
+		width: 250px;
+	}
 }
 
 @media (orientation: landscape) {
 	.bottom-right-nav-container {
 		align-items: flex-end;
-	}
-	.container_map {
 	}
 }
 

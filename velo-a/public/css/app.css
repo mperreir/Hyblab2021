@@ -26,12 +26,21 @@ html, body {
 	z-index: 2;
 	padding-top: 100px;
 	padding-left: 35px;
-	visibility: hidden;
+	left: -100%;
+
+	transition: all 0.5s;
 }
 
 .marker {
 	width: 28px;
 	height: 35px;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.marker-monuments {
+	width: 40px;
+	height: 50px;
 	background-size: contain;
 	cursor: pointer;
 }
@@ -95,6 +104,8 @@ input[type=checkbox] + label {
 	border: 2px solid #000000;
 	box-sizing: border-box;
 	border-radius: 14px;
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 input[type=checkbox]:checked + label {
@@ -105,37 +116,38 @@ input[type=checkbox]:checked + label {
 	height: 22px;
 	display: inline-block;
 	padding: 0 0 0 0;
-	background: #2EAD72 url("../img/checked.png") no-repeat center;
+	background: #2EAD72 url("../img/utils/checked.png") no-repeat center;
 
 }
 
 .button-cross {
-	background: white url("../img/cross_orange.png") no-repeat center;
+	background: white url("../img/utils/cross_orange.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
-
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-cross:hover {
-	background: #F96D48 url("../img/cross_blanc.png") no-repeat center;
-	cursor: pointer;
+	background: #F96D48 url("../img/utils/cross_blanc.png") no-repeat center;
 }
 
 .button-menu {
-	background: white url("../img/menu_orange.png") no-repeat center;
+	background: white url("../img/utils/menu_orange.png") no-repeat center;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
 	box-sizing: border-box;
 	border-radius: 34px;
+	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-menu:hover {
-	background: #F96D48 url("../img/menu_blanc.png") no-repeat center;
-	cursor: pointer;
+	background: #F96D48 url("../img/utils/menu_blanc.png") no-repeat center;
 }
 
 .mapboxgl-ctrl-geocoder .suggestions {

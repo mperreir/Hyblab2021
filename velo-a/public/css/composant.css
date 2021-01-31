@@ -47,6 +47,7 @@ input {
 	color: #F96D48;
 	margin: 10px;
 	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-slide :nth-child(2) {
@@ -81,19 +82,20 @@ input {
 	height: 56px;
 	width: 100px;
 	text-align: center;
-	background-image: url("../img/return-orange.svg");
+	background-image: url("../img/utils/return-orange.svg");
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
 	position: absolute;
 	bottom: 2%;
 	left: 2%;
+	transition: background 0.5s;
 }
 
 .button-return:hover {
 	background-color: #F76D48;
 	border: 4px solid #FFFFFF;
-	background-image: url("../img/return-white.svg");
+	background-image: url("../img/utils/return-white.svg");
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -112,14 +114,15 @@ input {
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
+	transition: background 0.5s;
 }
 
 .button-panel-left {
-	background-image: url("../img/panel-left.svg");
+	background-image: url("../img/utils/panel-left.svg");
 }
 
 .button-panel-right {
-	background-image: url("../img/panel-right.svg");
+	background-image: url("../img/utils/panel-right.svg");
 }
 
 .button-panel :nth-child(2) {
@@ -143,11 +146,11 @@ input {
 }
 
 .button-panel-right:hover {
-	background-image: url("../img/panel-right-hover.svg");
+	background-image: url("../img/utils/panel-right-hover.svg");
 }
 
 .button-panel-left:hover {
-	background-image: url("../img/panel-left-hover.svg");
+	background-image: url("../img/utils/panel-left-hover.svg");
 }
 
 .input-adresse {
@@ -172,4 +175,12 @@ input {
 	left: 0;
 	right: 0;
 	z-index: 100;
+}
+
+body {
+	position: fixed;
+	width: 100vw;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }

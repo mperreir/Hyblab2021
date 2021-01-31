@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="utf-8"/>
-	<title>Véli Good</title>
+    <meta charset="utf-8"/>
+    <title>Véli Good</title>
 
-	<!-- Libraries-->
-	<script defer src="js/lib/mapbox-sdk.js"></script>
-	<script defer src="js/lib/mapbox-gl.js"></script>
-	<script defer src="js/lib/mapbox-gl-directions.js"></script>
+    <!-- Libraries-->
+    <script defer src="js/lib/mapbox-sdk.js"></script>
+    <script defer src="js/lib/mapbox-gl.js"></script>
+    <script defer src="js/lib/mapbox-gl-directions.js"></script>
 
-	<link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
-	<link href="css/lib/mapbox-gl-directions.css" rel="stylesheet"/>
+    <link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
+    <link href="css/lib/mapbox-gl-directions.css" rel="stylesheet"/>
 
-	<!-- Scripts -->
-	<script defer src="js/app.js" type="module"></script>
-	<script defer src="js/starterPack.js" type="module"></script>
+    <!-- Scripts -->
+    <script defer src="js/app.js" type="module"></script>
+    <script defer src="js/modules/monuments.js" type="module"></script>
+    <script defer src="js/starterPack.js" type="module"></script>
 
-	<!-- Styles-->
-	<link href="css/app.css" rel="stylesheet"/>
-	<link href="css/style.css" rel="stylesheet"/>
-	<link href="css/starterPack.css" rel="stylesheet"/>
-	<link href="css/composant.css" rel="stylesheet"/>
+    <!-- Styles-->
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/starterPack.css" rel="stylesheet"/>
+    <link href="css/composant.css" rel="stylesheet"/>
 
-	<script defer src="js/lib/prefixfree.js"></script>
+    <script defer src="js/lib/prefixfree.js"></script>
 
-	<!-- Fonts -->
-	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	<link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Fonts -->
+    <link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/Logo.png">
+
+<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/logos/Logo.png">
 
 <div class="container_map">
-	<h2>Pour ton trajet, je te recommande de prendre :</h2>
-	<p id="instruction"></p>
-	<p id="instructionBis"></p>
+    <h2>Pour ton trajet, je te recommande de prendre :</h2>
+    <p id="instruction"></p>
+    <p id="instructionBis"></p>
 
-	<h3>Infos météo :</h3>
-	<p id="meteo"></p>
+    <h3>Infos météo :</h3>
+    <p id="meteo"></p>
 
-	<h3>Infos trafic :</h3>
-	<p id="traffic"></p>
+    <h3>Infos trafic :</h3>
+    <p id="traffic"></p>
 
-	<h3>Info qualité de l’air :</h3>
-	<p id="qualiteAir"></p>
+    <h3>Info qualité de l’air :</h3>
+    <p id="qualiteAir"></p>
 
-	<p id="messageFin"></p>
+    <p id="messageFin"></p>
 
-	<input class="button-slide" type="submit" value="Changer les paramètres" onclick="window.location = 'app.html'">
+    <input class="button-slide" type="submit" value="Changer les paramètres" onclick="window.location = 'app.html'">
 </div>
 <div id="map"></div>
 
 <input class="button-slide button-return bottom-left-nav" onclick="document.location = 'information.html'" type="submit"
-	   value="">
+       value="">
 
 <div class="bottom-right-nav-container">
-	<input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
-		   value="Testons ton vélosavoir!">
-	<input class="button-slide" id="btn-veli-fin" onclick="document.location = 'this-is-the-end.html'" type="submit"
-		   value="C'est la Véli Fin">
+    <div id="container-bicky">
+        <img id="bicky-savoir" class="bicky-savoir" src="img/mascottes/bicky_savoir.svg" alt="Bicky">
+        <img id="bulle-savoir" class="bicky-savoir" src="img/bulle_savoir.svg" alt="Bulle">
+    </div>
+    <input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
+               value="Testons ton vélosavoir!">
+    <input class="button-slide" id="btn-veli-fin" onclick="document.location = 'this-is-the-end.html'" type="submit"
+           value="C'est la Véli Fin">
 </div>
 
 </body>

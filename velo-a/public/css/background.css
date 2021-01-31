@@ -1,6 +1,4 @@
 body {
-    width: 100vw;
-    height: 100vh;
     padding: 0;
     margin: 0;
     border: 0;
@@ -30,24 +28,24 @@ body {
 }
 
 #ciel {
-    z-index: -4;
+    z-index: -5;
 
-    height: 100%;
+    height: 20%;
     padding: 0;
     margin: 0;
     border: 0;
     overflow: hidden;
     position: absolute;
-    bottom: 0;
-
-    animation: ease-in-out anim_ciel 20s infinite;
+    top: 15%;
+    right: -15%;
+    animation: anim_ciel 75s linear infinite;
     animation-direction: alternate;
 }
 
 
 @keyframes anim_ciel {
     100% {
-        transform: translateX(-30%);
+        right: 100vw;
     }
 }
 
@@ -170,4 +168,39 @@ body {
     100% {
         transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
     }
+}
+
+#background_nuages {
+    display: flex;
+    justify-content: center;
+}
+
+.background_nuage {
+    position: absolute;
+    z-index: -4;
+}
+
+.background_nuage.move0 {
+    --nuage-top: 25%;
+    --nuage-size: 5%;
+    top: var(--nuage-top);
+    width: var(--nuage-size);
+    animation: move_nuage 35s linear forwards;
+}
+
+@keyframes move_nuage {
+    0% {
+        transform: translateX(calc(-50vw - var(--nuage-size)));
+    }
+    100% {
+        transform: translateX(calc(50vw + var(--nuage-size)));
+    }
+}
+
+.background_nuage.move1 {
+    --nuage-top: 25%;
+    --nuage-size: 5%;
+    top: var(--nuage-top);
+    width: var(--nuage-size);
+    animation: move_nuage 35s linear forwards reverse;
 }

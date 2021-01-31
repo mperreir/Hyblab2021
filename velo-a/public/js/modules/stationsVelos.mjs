@@ -7,8 +7,6 @@ const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
 		return response.json();
 	})
 	.catch((error) => {
-		console.error("Error:", error);
-		return undefined;
 	});
 
 let data;
@@ -33,6 +31,9 @@ export async function getStationsVelos() {
             </div>`;
 
 		const marker = {
+			type: "bicloo",
+			class: "marker",
+			url: "img/markers/station.svg",
 			longitude: record.fields.geo_shape.coordinates[0],
 			latitude: record.fields.geo_shape.coordinates[1],
 			text: html

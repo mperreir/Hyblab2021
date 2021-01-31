@@ -1,6 +1,7 @@
 body {
 	background-color: #fdd3d1;
 	height: 100%;
+	font-family: 'Montserrat', sans-serif
 }
 
 .logo-veli-good {
@@ -13,12 +14,14 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	background-image: url('../img/cloud.svg');
+	background-image: url('../img/background/cloud1.svg');
 	background-repeat: no-repeat;
-	height: 600px;
-	width: 705px;
+	background-size: contain;
+	min-width: 80%;
+	max-width: 80%;
+	min-height: 95%;
+	padding-top: 120px;
 	margin: 10px auto 0 auto;
-	padding: 150px 230px 0 250px;
 }
 
 .content > h3 {
@@ -42,6 +45,9 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 55%;
+	margin: 0 auto;
 }
 
 .schools img {
@@ -52,12 +58,12 @@ body {
 	margin-bottom: 10px;
 }
 
-.schools div {
+.schools>div {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	width: 190px;
-
+	margin: 0 auto;
 }
 
 .schools .center {
@@ -134,6 +140,7 @@ li {
 	bottom: 0;
 	left: 0;
 	z-index: 0;
+	width: 40%;
 }
 
 .bg-right {
@@ -141,6 +148,7 @@ li {
 	bottom: 0;
 	right: 0;
 	z-index: 1;
+	width: 40%;
 }
 
 button {
@@ -151,4 +159,16 @@ button {
 	height: 56px;
 	width: 100px;
 	border-radius: 33px;
+}
+
+#reinit {
+	left: unset;
+	right: 2%;
+	width: auto;
+	background-image: none;
+	color: #F76D48;
+}
+
+#reinit:hover {
+	color: white;
 }

@@ -3,6 +3,8 @@
 import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/roadMonitoring.js";
+import { monumentsDisplayData } from "./modules/monuments.js";
+import { reverseGeocoding } from "./modules/autocompleteAddress.js";
 
 async function bootstrap() {
 
@@ -11,7 +13,10 @@ async function bootstrap() {
 		container: 'map', // container id
 		style: 'mapbox://styles/djovannifouin/ckk45pdua52v317qwdq0ijclv', // style URL
 		center: [-1.5512347469335737, 47.21611304880233], // starting position [lng, lat]
-		zoom: 12.3 // starting zoom
+		zoom: 12.3, // starting zoom
+		dragRotate: false,
+		keyboard: false,
+		touchPitch: false,
 	});
 
 	// Départ et arrivée: https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md
@@ -39,24 +44,24 @@ async function bootstrap() {
 
 		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
 		else if (localStorage.getItem("adresseArriveeCoord")) directions.setDestination(localStorage.getItem("adresseArriveeCoord").split(','));
-
-
 	});
 
 
 	if (document.getElementById('mapbox-controllers')) {
 		document.getElementById('mapbox-controllers').appendChild(directions.onAdd(map));
 
-		directions.on("origin", origin => {
+		directions.on("origin", async origin => {
 			if (!origin || origin.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseDepartCoord")) return;
 
-			localStorage.removeItem("adresseDepart")
+			const address = await reverseGeocoding(origin.feature.geometry.coordinates.join(','));
+			localStorage.setItem("adresseDepart", address);
 			localStorage.setItem("adresseDepartCoord", origin.feature.geometry.coordinates.join(','));
 		});
-		directions.on("destination", destination => {
+		directions.on("destination", async destination => {
 			if (!destination || destination.feature.geometry.coordinates.join(',') === localStorage.getItem("adresseArriveeCoord")) return;
 
-			localStorage.removeItem("adresseArrivee")
+			const address = await reverseGeocoding(destination.feature.geometry.coordinates.join(','));
+			localStorage.setItem("adresseArrivee", address);
 			localStorage.setItem("adresseArriveeCoord", destination.feature.geometry.coordinates.join(','));
 		});
 
@@ -76,12 +81,12 @@ async function bootstrap() {
 
 	let markers = {};
 
-	function points(data, url, type) {
+	function points(data) {
 
 		data.forEach((d) => {
 			const el = document.createElement("div");
-			el.className = "marker";
-			el.style.backgroundImage = `url(${url})`;
+			el.className = d.class;
+			el.style.backgroundImage = `url(${d.url})`;
 
 			let marker;
 			el.addEventListener("click", function (event) {
@@ -98,16 +103,17 @@ async function bootstrap() {
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
 				.addTo(map);
 
-			if (!markers[type]) markers[type] = [marker];
-			else markers[type].push(marker);
+			if (!markers[d.type]) markers[d.type] = [marker];
+			else markers[d.type].push(marker);
 		});
 	}
 
 	const veloType = localStorage.getItem("velo");
+	const butTrajet = localStorage.getItem("butTrajet");
 
 	if (!veloType || veloType !== "bicloo") {
 		abrisVeloDisplayData().then(data => {
-			points(data, "img/abris.svg", "abris");
+			points(data);
 		});
 		if (document.getElementById("abris_velo"))
 			document.getElementById("abris_velo").checked = true;
@@ -115,17 +121,25 @@ async function bootstrap() {
 
 	if (!veloType || veloType === "bicloo") {
 		getStationsVelos().then(data => {
-			points(data, "img/station.svg", "bicloo");
+			points(data);
 		});
 		if (document.getElementById("station_bicloo"))
 			document.getElementById("station_bicloo").checked = true;
+	}
+
+	if (butTrajet === "flaner") {
+		monumentsDisplayData().then(data => {
+			points(data);
+		});
+		if (document.getElementById("monuments"))
+			document.getElementById("monuments").checked = true;
 	}
 
 	if (document.getElementById("abris_velo"))
 		document.getElementById("abris_velo").addEventListener("change", event => {
 			if (event.target.checked) {
 				abrisVeloDisplayData().then(data => {
-					points(data, "img/abris.svg", "abris");
+					points(data);
 				});
 			} else {
 				markers["abris"].forEach((marker) => marker.remove());
@@ -136,10 +150,21 @@ async function bootstrap() {
 		document.getElementById("station_bicloo").addEventListener("change", event => {
 			if (event.target.checked) {
 				getStationsVelos().then(data => {
-					points(data, "img/station.svg", "bicloo");
+					points(data);
 				});
 			} else {
 				markers["bicloo"].forEach((marker) => marker.remove());
+			}
+		});
+
+	if (document.getElementById("monuments"))
+		document.getElementById("monuments").addEventListener("change", event => {
+			if (event.target.checked) {
+				monumentsDisplayData().then(data => {
+					points(data);
+				});
+			} else {
+				markers["monuments"].forEach((marker) => marker.remove());
 			}
 		});
 
@@ -151,13 +176,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
 if (document.getElementById("btn-menu-nav"))
 	document.getElementById("btn-menu-nav").onclick = () => {
-		let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('visibility');
-		if (nav_visible === "hidden") {
-			document.getElementById("left-nav").setAttribute("style", "visibility: visible");
+		let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('left');
+		if (nav_visible === "-1920px") {
+			document.getElementById("left-nav").setAttribute("style", "left: 0");
 			document.getElementById("btn-menu-nav").classList.remove("button-menu");
 			document.getElementById("btn-menu-nav").classList.add("button-cross");
 		} else {
-			document.getElementById("left-nav").setAttribute("style", "visibility: hidden");
+			document.getElementById("left-nav").setAttribute("style", "left: -100%");
 			document.getElementById("btn-menu-nav").classList.add("button-menu");
 			document.getElementById("btn-menu-nav").classList.remove("button-cross");
 		}
