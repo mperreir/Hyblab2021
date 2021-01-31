@@ -1,6 +1,6 @@
 "use strict";
 
-import {slide} from "./modules/background.js";
+import { slide } from "./modules/background.js";
 
 let lastPage = "";
 
@@ -28,7 +28,7 @@ function load(page) {
 	switch (page) {
 		default:
 		case "météo" :
-			document.getElementById("h2-question").innerText = "Quelle est la température annuelle à Nantes ?";
+			document.getElementById("h2-question").innerText = "Quelle est la température annuelle à Nantes ?";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -79,12 +79,12 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("pollution");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
 		case "pollution" :
-			document.getElementById("h2-question").innerText = "Combien de CO2 par gramme permet de sauver un kilomètre parcouru en vélo ?";
+			document.getElementById("h2-question").innerText = "Combien de CO2 par gramme permet de sauver un kilomètre parcouru en vélo ?";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -125,21 +125,21 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("activité");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
 		case "activité" :
-			document.getElementById("h2-question").innerText = "1h de vélo à 15 km/h permet d’éliminer :";
+			document.getElementById("h2-question").innerText = "1h de vélo à 15 km/h permet d’éliminer :";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
 				buttons.item(i).style.minWidth = "40%";
 			}
 
-			buttons.item(0).innerText = "un burger ou une pizza\n(~500 calories)";
-			buttons.item(1).innerText = "une canette de coca\n(~140 calories)";
-			buttons.item(2).innerText = "100g grammes de fraises tagada\n(~360 calories)";
+			buttons.item(0).innerText = "Un burger ou une pizza\n(~500 calories)";
+			buttons.item(1).innerText = "Une canette de soda\n(~140 calories)";
+			buttons.item(2).innerText = "Un sachet de bonbons de 100g\n(~360 calories)";
 			buttons.item(3).innerText = "Une bière bien fraîche 6%\n(~ 50 calories)";
 
 			buttons.item(0).addEventListener("click", () => { bicky(true, "Bravo !"); });
@@ -168,13 +168,13 @@ function load(page) {
 			document.getElementById("button-next-question").addEventListener("click", () => {
 				lastPage = page;
 				load("VAE");
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
 		case "VAE" :
 			document.getElementById("h2-question").innerText = "Quel est le montant maximal du bonus à l’achat " +
-				"d’un VAE (Vélo à assistance électrique) versé par l’Etat en 2020 ? ";
+				"d’un VAE (Vélo à assistance électrique) versé par l’Etat en 2020 ?";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -218,11 +218,11 @@ function load(page) {
 			addTextIntoDiv(listP);
 
 			let buttonSuivant = document.getElementById("button-next-question");
-			buttonSuivant.innerText = "C'est la fin, good job !";
+			buttonSuivant.innerText = "C'est la fin, good job !";
 
 			buttonSuivant.addEventListener("click", () => {
 				document.location.href = "app.html";
-			}, {once: true});
+			}, { once: true });
 
 			break;
 
@@ -252,7 +252,7 @@ function load(page) {
 		});
 	}
 
-	function bicky(reponse, msg) {
+	function bicky(response, msg) {
 		let background = document.getElementById("background-resultat");
 		let container = document.getElementById("container-resultat");
 
@@ -268,7 +268,7 @@ function load(page) {
 			container.style.bottom = "-100%";
 		});
 
-		if (reponse) {
+		if (response) {
 			document.getElementById("img-bicky").src = "img/bicky_bon.svg";
 		} else {
 			document.getElementById("img-bicky").src = "img/bicky_faux.svg";

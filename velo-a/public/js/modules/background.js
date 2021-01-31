@@ -44,7 +44,7 @@ export function slide(onStart, onContinue, slides) {
     });
 
     document.querySelectorAll(".batiment_button").forEach((el, index, list) => {
-        if (slides == null || el.parentElement.id !== slides[0]) {
+        if (slides == null || el.parentElement.parentElement.id !== slides[0]) {
             el.parentElement.setAttribute("class", "hide_start");
         }
         if(slides == null || slides[slides.length-1] !== el.parentElement.id)

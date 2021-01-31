@@ -2,10 +2,10 @@
 
 import { autocompleteAddress } from "./modules/autocompleteAddress.js";
 import { getTraficData } from "./modules/roadMonitoring.js";
-import {slide} from "./modules/background.js";
+import { slide } from "./modules/background.js";
 
 async function bootstrap() {
-	slide(velos, backgroundContinue, ["pane", "question_velo", "question_trajet"]);
+	slide(velos, backgroundContinue, ["question_pane", "question_velo", "question_trajet"]);
 	togglePath();
 }
 
@@ -38,6 +38,19 @@ window.addEventListener('DOMContentLoaded', () => {
 			.catch(err => {
 				console.error(err);
 			});
+	});
+
+	document.getElementById("bosser").addEventListener("click", () => {
+		localStorage.setItem("butTrajet", "bosser");
+	});
+	document.getElementById("flaner").addEventListener("click", () => {
+		localStorage.setItem("butTrajet", "flaner");
+	});
+	document.getElementById("pioncer").addEventListener("click", () => {
+		localStorage.setItem("butTrajet", "pioncer");
+	});
+	document.getElementById("glander").addEventListener("click", () => {
+		localStorage.setItem("butTrajet", "glander");
 	});
 
 	document.getElementById("simple").addEventListener("click", () => {
@@ -103,7 +116,6 @@ async function velos() {
 	});
 	await startVelos(0);
 
-
 	document.querySelectorAll("#question_velo button").forEach((el) => {
 
 		el.addEventListener("mouseenter", () => {
@@ -116,17 +128,11 @@ async function velos() {
 					isMovingMouseEnter = false;
 				});
 
-
 				const velo = document.getElementById("velo_" + el.id);
 				velo.setAttribute("class", "velo velo_in");
 			}
-
 		});
-
-
 	});
-
-
 }
 
 
@@ -161,9 +167,12 @@ function sleep(callback, time) {
 }
 
 function backgroundContinue(el, slides, plus) {
-	el.parentElement.setAttribute("class", "hide");
+	let parent = el.parentElement;
+	if (parent.id === "pane")
+		parent = parent.parentElement;
+	parent.setAttribute("class", "hide");
 	if (plus)
-		document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+		document.getElementById(slides[slides.indexOf(parent.id) + 1]).setAttribute("class", "show");
 	else
-		document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
+		document.getElementById(slides[slides.indexOf(parent.id) - 1]).setAttribute("class", "show");
 }

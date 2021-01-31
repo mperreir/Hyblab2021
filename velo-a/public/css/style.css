@@ -132,41 +132,6 @@ section[data-slidr="page-2"] {
 	height: 2em;
 }
 
-/* ---------- media queries importantes pour le responsive facile :-D ----------------- */
-/* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
-
-/* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
-tant qu'on est en dessous de l'apect ratio 16/9 */
-@media screen and (max-aspect-ratio: 16/9) {
-	#container {
-		margin-top: calc((100vh - 100 * 9vw / 16) / 2);
-		width: 100vw;
-		height: calc(100 * 9vw / 16);
-	}
-
-	/* On fixe une taille de police par défaut pour le body qui servira de base à toutes
-	les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-	body {
-		font-size: 9vw;
-	}
-}
-
-/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
-dessus de l'apect ratio 16/9 */
-@media screen and (min-aspect-ratio: 16/9) {
-	#container {
-		margin-left: calc((100vw - 100 * 16vh / 9) / 2);
-		width: calc(100 * 16vh / 9);
-		height: 100vh;
-	}
-
-	/* On fixe une taille de police par défaut pour le body qui servira de base à toutes
-	les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
-	body {
-		font-size: 16vh;
-	}
-}
-
 header {
 	width: 100%;
 	position: absolute;
@@ -183,13 +148,10 @@ header .logo {
 .container_map {
 	background-color: white;
 	color: black;
-	position: absolute;
 	width: 356px;
-	height: 668px;
+
 	z-index: 999;
 	border-radius: 34px;
-	left: 35px;
-	top: 56px;
 }
 
 .container_map p {
@@ -205,14 +167,8 @@ header .logo {
 }
 
 .bottom-right-nav-container {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
 	display: flex;
-	flex-direction: column-reverse;
-	justify-content: space-between;
-	height: 100px;
-
+	flex-direction: column;
 }
 
 #btn-menu-nav {
@@ -253,10 +209,6 @@ header .logo {
 }
 
 /*Fin de redéfinition controles MapBox*/
-
-#btn-veli-fin {
-	width: 209px;
-}
 
 #form-veli-fin {
 	text-align: center;

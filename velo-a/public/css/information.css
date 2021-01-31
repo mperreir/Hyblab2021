@@ -1,4 +1,6 @@
-
+* {
+	font-family: 'Montserrat', sans-serif;
+}
 
 #pane {
 	position: absolute;
@@ -8,11 +10,6 @@
 	right: 30%;
 }
 
-.button-return {
-	position: absolute;
-	bottom: 2%;
-	left: 2%;
-}
 .hide_start {
 	position: absolute;
 	z-index: -3;
@@ -49,11 +46,11 @@
 #question_trajet {
 	display: flex;
 	width: 100%;
-	height: 70%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	position: absolute;
+	top: 20%;
 }
 
 #question_velo {
@@ -63,8 +60,9 @@
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	align-items: flex-start;
+	align-items: center;
 	bottom: 50%;
+	top: 200px;
 }
 
 #velos {
@@ -134,4 +132,88 @@
 	/*when navigating through the items using the arrow keys:*/
 	background-color: #F96D48 !important;
 	color: #ffffff;
+}
+
+#question_trajet > *:not(.mascotte) {
+	margin-top: 20px;
+}
+
+.mascotte {
+	position: absolute;
+	left: 0;
+}
+
+.mascotte > div {
+	font-size: x-large;
+	background: white;
+	border-radius: 25px;
+	position: absolute;
+	width: 125%;
+	padding: 1em;
+}
+
+#question_velo > .mascotte{
+	top: -150px;
+}
+
+
+#question_pane > .mascotte > div{
+	left: 20px;
+}
+
+#question_velo > .mascotte > div{
+	right: -400px;
+	bottom: 0;
+}
+
+#question_trajet > .mascotte > div{
+	top: -150px;
+	left: 20px;
+}
+
+#question_pane > .mascotte > div::after{
+	content:"";
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid white;
+	position: absolute;
+	top: -20px;
+	left: 20px;
+}
+
+#question_velo > .mascotte > div::after{
+	content:"";
+	border-bottom: 20px solid transparent;
+	border-top: 20px solid transparent;
+	border-right: 40px solid white;
+	position: absolute;
+	top: 10px;
+	left: -20px;
+}
+
+#question_trajet > .mascotte > div::after{
+	content:"";
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid white;
+	position: absolute;
+	bottom: -20px;
+	left: 20px;
+}
+
+.show > .mascotte > div > div {
+	height: 1.2em;
+	overflow: hidden;
+	word-break: break-all;
+	width: 0;
+	animation: type_text 2s 2s linear forwards;
+}
+
+@keyframes type_text{
+	from{
+		width: 0;
+	}
+	to{
+		width: 100%;
+	}
 }

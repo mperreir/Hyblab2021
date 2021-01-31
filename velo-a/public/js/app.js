@@ -1,7 +1,6 @@
 "use strict";
 
 import { abrisVeloDisplayData } from "./modules/abrisVelo.js";
-import { getMeteoByTime, getMeteoNow } from "./modules/meteo.js";
 import { getStationsVelos } from "./modules/stationsVelos.mjs";
 import { getTraficData } from "./modules/roadMonitoring.js";
 
@@ -70,7 +69,9 @@ async function bootstrap() {
 
 	let openMarker = undefined;
 
-	function points(data, url) {
+	let markers = {};
+
+	function points(data, url, type) {
 
 		data.forEach((d) => {
 			const el = document.createElement("div");
@@ -91,58 +92,68 @@ async function bootstrap() {
 				.setLngLat([d.longitude, d.latitude])
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
 				.addTo(map);
+
+			if (!markers[type]) markers[type] = [marker];
+			else markers[type].push(marker);
 		});
 	}
 
 	const veloType = localStorage.getItem("velo");
 
-	if (!veloType || veloType !== "bicloo")
+	if (!veloType || veloType !== "bicloo") {
 		abrisVeloDisplayData().then(data => {
-			points(data, "img/abris.svg");
+			points(data, "img/abris.svg", "abris");
 		});
+		if (document.getElementById("abris_velo"))
+			document.getElementById("abris_velo").checked = true;
+	}
 
-	if (!veloType || veloType === "bicloo")
+	if (!veloType || veloType === "bicloo") {
 		getStationsVelos().then(data => {
-			points(data, "img/station.svg");
+			points(data, "img/station.svg", "bicloo");
+		});
+		if (document.getElementById("station_bicloo"))
+			document.getElementById("station_bicloo").checked = true;
+	}
+
+	if (document.getElementById("abris_velo"))
+		document.getElementById("abris_velo").addEventListener("change", event => {
+			if (event.target.checked) {
+				abrisVeloDisplayData().then(data => {
+					points(data, "img/abris.svg", "abris");
+				});
+			} else {
+				markers["abris"].forEach((marker) => marker.remove());
+			}
 		});
 
-	getMeteoNow();
-	getMeteoByTime(Date.now());
+	if (document.getElementById("station_bicloo"))
+		document.getElementById("station_bicloo").addEventListener("change", event => {
+			if (event.target.checked) {
+				getStationsVelos().then(data => {
+					points(data, "img/station.svg", "bicloo");
+				});
+			} else {
+				markers["bicloo"].forEach((marker) => marker.remove());
+			}
+		});
+
 }
 
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 });
 
-// document.getElementById("button-question").onclick = () => {
-// 	document.location.href = "question.html?page=météo";
-// }
-
-document.getElementById("input-meteo").onclick = () => {
-	document.location.href = "question.html?page=météo";
-};
-
-document.getElementById("input-pollution").onclick = () => {
-	document.location.href = "question.html?page=pollution";
-};
-
-document.getElementById("input-activite").onclick = () => {
-	document.location.href = "question.html?page=activité";
-};
-
-document.getElementById("input-vae").onclick = () => {
-	document.location.href = "question.html?page=VAE";
-};
-
-document.getElementById("btn-menu-nav").onclick = () => {
-	let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('visibility');
-	if (nav_visible === "hidden") {
-		document.getElementById("left-nav").setAttribute("style", "visibility: visible");
-		document.getElementById("btn-menu-nav").classList.remove("button-menu");
-		document.getElementById("btn-menu-nav").classList.add("button-cross");
-	} else {
-		document.getElementById("left-nav").setAttribute("style", "visibility: hidden");
-		document.getElementById("btn-menu-nav").classList.add("button-menu");
-		document.getElementById("btn-menu-nav").classList.remove("button-cross");
-	}
-};
+if (document.getElementById("btn-menu-nav"))
+	document.getElementById("btn-menu-nav").onclick = () => {
+		let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('visibility');
+		if (nav_visible === "hidden") {
+			document.getElementById("left-nav").setAttribute("style", "visibility: visible");
+			document.getElementById("btn-menu-nav").classList.remove("button-menu");
+			document.getElementById("btn-menu-nav").classList.add("button-cross");
+		} else {
+			document.getElementById("left-nav").setAttribute("style", "visibility: hidden");
+			document.getElementById("btn-menu-nav").classList.add("button-menu");
+			document.getElementById("btn-menu-nav").classList.remove("button-cross");
+		}
+	};
