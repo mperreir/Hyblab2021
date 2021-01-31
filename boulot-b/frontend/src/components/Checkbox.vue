@@ -50,7 +50,7 @@ label {
   margin: 10px;
   display: flex;
   flex-direction: row-reverse;
-  padding: 10px 30px 10px ;
+  padding: 1% 4% ;
   border: 5px solid var(--color-lighter);
   border-radius: 20px;
   color: #fff;
@@ -63,7 +63,6 @@ label {
   border-radius: 30px;
   border: 5px solid  var(--color-lighter);
   margin-right: 30px;
-  height: 15px;
   width: 15px;
   background: #eee;
 }

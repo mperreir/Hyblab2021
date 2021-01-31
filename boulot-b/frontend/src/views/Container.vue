@@ -6,14 +6,8 @@
         <slot name="buildings"></slot>
       </div>
       <div id="question">
-
-        <div id="canari">
-          <div class="flex-item">
-            <slot name="canari" ></slot>
-          </div>
-        </div>
+        <slot name="canari" ></slot>
         <slot name="question" ></slot>
-
       </div>
 
       <div id="stepper">
@@ -62,21 +56,9 @@ export default {
   margin-top: 40px;
   width: 40%;
 }
-  #canari {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: flex-start;
-  }
 
-  .flex-item:nth-child(1) {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
-  }
+
+
 
   #question {
     align-self: center;

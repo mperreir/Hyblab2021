@@ -1,11 +1,11 @@
 <template>
-  <div >
-    <transition name="fade" mode="out-in">
-      <div class="bubble" :key="msg">
+  <div class="flex-container" >
+      <transition name="fade" mode="out-in">
+        <div class="bubble" :key="msg">
           <p class="text" >{{msg}} </p>
-      </div>
-    </transition>
-    <div @click="tellJoke" id="wazo-anim"  > </div>
+        </div>
+      </transition>
+      <div @click="tellJoke" id="wazo-anim"  > </div>
   </div>
 </template>
 
@@ -119,7 +119,7 @@ export default {
 
   .text {
     font-family: Poppins,serif;
-    font-size: 1.2em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0;
@@ -128,7 +128,7 @@ export default {
 
 
   #wazo-anim {
-    width: 300px;
+    width: 30%;
   }
   #wazo-anim:hover {
     opacity: 0.5;
@@ -140,7 +140,7 @@ export default {
     color:#fff;
     padding:5px 15px;
     border-radius: 50px;
-    width:350px;
+    width:300px;
   }
 
   .bubble::after{
@@ -151,6 +151,16 @@ export default {
     margin-left: 150px;
     position: absolute;
   }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
+
 
 </style>
 

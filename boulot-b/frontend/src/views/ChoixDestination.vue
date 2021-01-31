@@ -219,18 +219,17 @@ export default {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #ffdb27;
-    font-size: 20px;
-    width: 37%;
+    width: 35%;
   }
 
   .depart-result-list {
     @extend .result-list;
-    top: 50px;
+    top: 30px;
     z-index: 101;
   }
   .arrivee-result-list {
     @extend .result-list;
-    top: 160px;
+    top: 120px;
     z-index: 100;
   }
 
