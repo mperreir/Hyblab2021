@@ -13,21 +13,21 @@ section[data-slidr="page-10"] {
     right: 5%;
 }
 
-#dune-p10 {
+#dune2-p10 {
     position: absolute;
     width: 100%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite-p10 {
+#pelouse-droite-p10 {
     position: absolute;
     width: 30%;
     right: 0%;
     bottom: 0%;
 }
 
-#pelouse_gauche-p10 {
+#pelouse-gauche-p10 {
     position: absolute;
     width: 30%;
     left: 0%;
@@ -41,21 +41,21 @@ section[data-slidr="page-10"] {
     left: 0%;
 }
 
-#arbuste_rouge-p10 {
+#arbuste-rouge-p10 {
     position: absolute;
     width: 18%;
     right: 0%;
     bottom: 5%;
 }
 
-#double_feuille_verte-p10 {
+#feuille-verte-p10 {
     position: absolute;
     width: 15%;
     bottom: 9%;
     right: 2%;
 }
 
-#feuille_bleue-p10 {
+#feuille-bleue-p10 {
     position: absolute;
     width: 8%;
     right: 1%;
@@ -129,7 +129,7 @@ section[data-slidr="page-10"] {
     -webkit-filter: brightness(100%);
 }
 
-#bouton_peu_importe-p10 {
+#bouton-peu-importe-p10 {
     position: absolute;
     width: 15%;
     bottom: 50%;
@@ -138,7 +138,7 @@ section[data-slidr="page-10"] {
     -webkit-filter: brightness(50%);
 }
 
-#bouton_peu_importe-p10:hover {
+#bouton-peu-importe-p10:hover {
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
 }

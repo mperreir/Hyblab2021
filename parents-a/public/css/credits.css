@@ -19,35 +19,35 @@ section[data-slidr="credits"] {
     left: 42%;
 }
 
-#fond_blanc {
+#fond-blanc {
     position: absolute;
     width: 74%;
     top: 19%;
     left: 10%;
 }
 
-#pelouse_droite-credits {
+#pelouse-droite-credits {
     position: absolute;
     width: 30%;
     bottom: 0%;
     right: 0%;
 }
 
-#pelouse_gauche-credits {
+#pelouse-gauche-credits {
     position: absolute;
     width: 30%;
     bottom: 0%;
     left: 0%;
 }
 
-#double_feuille-credits {
+#feuille-verte-credits {
     position: absolute;
     width: 14%;
     bottom: 10%;
     left: 0%;
 }
 
-#fleurs_rose-credits {
+#fleurs-credits {
     position: absolute;
     width: 11%;
     bottom: 8%;
@@ -61,7 +61,7 @@ section[data-slidr="credits"] {
     right: 4%;
 }
 
-#arbuste_vert-credits {
+#arbuste-vert-credits {
     position: absolute;
     width: 17%;
     bottom: 7%;

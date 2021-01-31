@@ -14,7 +14,7 @@ section[data-slidr="page-9"] {
 }
 
 
-#pelouse_gauche-p9 {
+#pelouse-gauche-p9 {
     /* pelouse gauche */
     position: absolute;
     width: 30%;
@@ -23,7 +23,7 @@ section[data-slidr="page-9"] {
     z-index: 4;
 }
 
-#dune-p9 {
+#dune6-p9 {
     /* dune 1 */
     position: absolute;
     width: 80%;
@@ -32,7 +32,7 @@ section[data-slidr="page-9"] {
     z-index: 6;
 }
 
-#pelouse_droite-p9 {
+#pelouse-droite-p9 {
     /* pelouse droite */
     position: absolute;
     width: 30%;
@@ -41,7 +41,7 @@ section[data-slidr="page-9"] {
     z-index: 7;
 }
 
-#arbustre-bleu-p9{
+#arbustre-bleu-p9 {
     position: absolute;
     width: 47.03125%; 
     left: 64.453125%;
@@ -49,7 +49,7 @@ section[data-slidr="page-9"] {
     z-index: 6;
 }
 
-#arbre-rouge-p9{
+#arbre-rouge-p9 {
     position: absolute;
     width: 21.953125%;
     left: 68.515625%;
@@ -58,7 +58,7 @@ section[data-slidr="page-9"] {
     
 }
 
-#double_feuille_verte-p9{
+#feuille-verte-p9 {
     position: absolute;
     width: 17.1%;
     bottom: 27.3%;
@@ -67,7 +67,7 @@ section[data-slidr="page-9"] {
     z-index: 2;
 }
 
-#feuille_bleue-p9{
+#feuille-bleue2-p9 {
     position: absolute;
     width: 11.015625%;
     height: 21.0%;
@@ -76,7 +76,7 @@ section[data-slidr="page-9"] {
     z-index: 3;
 }
 
-#feuille_rouge-p9{
+#feuille-rouge-p9 {
     position: absolute;
     width: 14.53125%;
     height: 23.25%;
@@ -85,7 +85,7 @@ section[data-slidr="page-9"] {
     z-index: 5;
 }
 
-#nuage-p9{
+#petit-nuage-p9 {
     position: absolute;
     width: 22%;
     top: 5.7%;
@@ -101,28 +101,28 @@ section[data-slidr="page-9"] {
     z-index: 1;
 }
 
-#question_animaux-p9{
+#question-p9 {
     position: absolute;
     width: 36%;
     bottom: 68%;
     right: 32%;
 }
 
-#texte_non-p9{
+#texte-droite-p9{
     position: absolute;
     width: 3%;
     right: 33.5%;
     top: 70.375%;
 }
 
-#texte_oui-p9{
+#texte-gauche-p9{
     position: absolute;
     width: 3%;
     left: 33%;
     top: 70%;
 }
 
-#animaux-heureux-p9 {
+#bouton-gauche-p9 {
     position: absolute;
     width: 22%;
     bottom: 28%;
@@ -130,7 +130,7 @@ section[data-slidr="page-9"] {
     z-index: 8;
 }
 
-#BOUTON_NON_ANIMAUX-sourcils-p9{
+#bouton-droite-p9 {
     position: absolute;
     width: 22%;
     bottom: 28%;

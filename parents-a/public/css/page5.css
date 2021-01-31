@@ -7,7 +7,7 @@ section[data-slidr="page-5"] {
     #0574CF);
 }
 
-#dune-p5 {
+#dune4-p5 {
     position: absolute;
     bottom: 0%;
     left: 15%;
@@ -50,7 +50,7 @@ section[data-slidr="page-5"] {
     width: 25%;
 }
 
-#arbuste_bleu-p5 {
+#arbuste-bleu-nuage-p5 {
     position: absolute;
     width: 18%;
     bottom: 3%;
@@ -58,7 +58,7 @@ section[data-slidr="page-5"] {
     transform: rotate(15deg);
 }
 
-#feuille-p5 {
+#feuille-verte-p5 {
     position: absolute;
     width: 15%;
     bottom: 8%;
@@ -72,28 +72,28 @@ section[data-slidr="page-5"] {
     width: 25%;
 }
 
-#button_oui-p5 {
+#button-gauche-p5 {
     position: absolute;
     width: 20%;
     top: 30%;
     left: 25%;
 }
 
-#text_oui-p5 {
+#texte-gauche-p5 {
     position: absolute;
     width: 20%;
     bottom: 22%;
     left: 23%;
 }
 
-#button_non-p5 {
+#button-droite-p5 {
     position: absolute;
     width: 20%;
     top: 30%;
     right: 30%;
 }
 
-#text_non-p5 {
+#texte-droite-p5 {
     position: absolute;
     width: 20%;
     bottom: 22%;

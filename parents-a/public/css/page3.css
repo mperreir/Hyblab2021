@@ -11,19 +11,19 @@ section[data-slidr="page-3"] {
     right: 5%;
 }
 
-#oui-p3 {
+#texte-gauche-p3 {
     position: absolute;
     width: 5%;
     bottom: 25%;
     right: 60%;
 }
-#oui-p3:hover {
+#texte-gauche-p3:hover {
     position: absolute;
     width: 7%;
     bottom: 25%;
     right: 60%;
 }
-#bouton_aventurier_anime-p3 {
+#bouton-gauche-p3 {
     position: absolute;
     width: 25%;
     bottom: 24.4%;
@@ -31,17 +31,17 @@ section[data-slidr="page-3"] {
     opacity: 0.7;
 }
 
-#bouton_aventurier_anime-p3:hover {
+#bouton-gauche-p3:hover {
     opacity: 1;
 }
 
-#non-p3 {
+#texte-droite-p3 {
     position: absolute;
     width: 6%;
     bottom: 25%;
     right: 36%;
 }
-#bouton_non_aventurier_anime-p3 {
+#bouton-droite-p3 {
     position: absolute;
     width: 17%;
     bottom: 34%;
@@ -49,11 +49,11 @@ section[data-slidr="page-3"] {
     opacity: 0.7;
 }
 
-#bouton_non_aventurier_anime-p3:hover {
+#bouton-droite-p3:hover {
     opacity: 1;
 }
 
-#aventurier-p3 {
+#question-p3 {
     position: absolute;
     width: 45%;
     bottom: 68%;
@@ -122,7 +122,7 @@ section[data-slidr="page-3"] {
     transform: scale(1.1) translateY(-5%);
 }
 
-#gros_nuage-p3 {
+#gros-nuage-p3 {
     position: absolute;
     width: 30%;
     top: -2%;
@@ -132,11 +132,11 @@ section[data-slidr="page-3"] {
     transition-duration: 1000ms;
 }
 
-#gros_nuage-p3:hover {
+#gros-nuage-p3:hover {
     transform: translateX(30%);
 }
 
-#dune-p3 {
+#dune2-p3 {
     position: absolute;
     width: 100%;
     bottom: 0%;
@@ -158,14 +158,14 @@ section[data-slidr="page-3"] {
     right: 76%;
 }
 
-#pelouse_gauche-p3 {
+#pelouse-gauche-p3 {
     position: absolute;
     width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite-p3 {
+#pelouse-droite-p3 {
     position: absolute;
     width: 27.5%;
     bottom: 0%;

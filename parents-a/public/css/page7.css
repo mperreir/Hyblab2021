@@ -7,48 +7,48 @@ section[data-slidr="page-7"] {
     #0574CF);
 }
 
-#logo_p7 {
+#logo-p7 {
     position: absolute;
     width: 6%;
     bottom: 85%;
     right: 5%;
 }
 
-#dune_p7 {
+#dune3-p7 {
     position: absolute;
     width: 100%;
     bottom: 0%;
 }
 
-#pelouse_gauche_p7 {
+#pelouse-gauche-p7 {
     position: absolute;
     width: 30%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite_p7 {
+#pelouse-droite-p7 {
     position: absolute;
     width: 30%;
     bottom: 0%;
     right: 0%;
 }
 
-#arbuste_bleu_p7 {
+#arbuste-bleu-p7 {
     position: absolute;
     width: 17%;
     bottom: 0%;
     right: 15%;
 }
 
-#feuille_rose_p7 {
+#feuille-rouge-p7 {
     position: absolute;
     width: 15%;
     bottom: 0%;
     right: 8%;
 }
 
-#arbuste_vert_p7 {
+#arbuste-vert-p7 {
     position: absolute;
     width: 25%;
     bottom: 5%;
@@ -56,63 +56,63 @@ section[data-slidr="page-7"] {
     transform: rotate(10deg);
 }
 
-#feuille_orange_p7 {
+#feuille-orange-p7 {
     position: absolute;
     width: 10%;
     bottom: 5%;
     left: 5%;
 }
 
-#feuille_bleue_p7 {
+#feuille-bleue-p7 {
     position: absolute;
     width: 10%;
     bottom: 0%;
     left: 22%;
 }
 
-#petit_nuage_p7 {
+#petit-nuage-p7 {
     position: absolute;
     width: 20%;
     top: 15%;
     left: 5%;
 }
 
-#gros_nuage_p7 {
+#gros-nuage-p7 {
     position: absolute;
     width: 20%;
     top: 5%;
     right: 20%;
 }
 
-#bouton_oui_p7 {
+#bouton-gauche-p7 {
     position: absolute;
     width: 20%;
     left: 25%;
     bottom: 30%;
 }
 
-#text_oui_p7 {
+#texte-gauche-p7 {
     position: absolute;
     width: 11%;
     bottom: 20%;
     left: 32%;
 }
 
-#bouton_non_p7 {
+#bouton-droite-p7{
     position: absolute;
     width: 20%;
     right: 30%;
     bottom: 30%;
 }
 
-#text_non_p7 {
+#texte-droite-p7 {
     position: absolute;
     width: 15%;
     bottom: 20%;
     right: 35%;
 }
 
-#question_p7 {
+#question-p7 {
     position: absolute;
     width: 30%;
     top: 28%;

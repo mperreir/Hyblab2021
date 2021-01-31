@@ -13,28 +13,28 @@ section[data-sildr='page-4'] {
     right: 5%;
 }
 
-#oui-p4 {
+#texte-gauche-p4 {
     position: absolute;
     width: 15%;
     bottom: 25%;
     right: 56%;
 }
 
-#non-p4 {
+#texte-droite-p4{
     position: absolute;
     width: 15%;
     bottom: 25%;
     right: 33%;
 }
 
-#bouton_pleinLaVue-p4 {
+#bouton-gauche-p4 {
     position: absolute;
     width: 22%;
     bottom: 32%;
     right: 51%;
 }
 
-#bouton_non_pleinLaVue-p4 {
+#bouton-droite-p4 {
     position: absolute;
     width: 22%;
     bottom: 32%;
@@ -55,86 +55,50 @@ section[data-sildr='page-4'] {
     left: 12%;
 }
 
-#feuille_verte-p4 {
+#feuille-verte-p4 {
     position: absolute;
     width: 28%;
     bottom: 0%;
     left: 0%;
 }
 
-#petit_nuage-p4 {
+#petit-nuage-p4 {
     position: absolute;
     width: 30%;
     top: 0%;
     right: 70%;
 }
 
-#dune-p4 {
+#dune3-p4 {
     position: absolute;
     width: 100%;
     bottom: 0.2%;
 }
 
-#pelouse_gauche-p4 {
+#pelouse-gauche-p4 {
     position: absolute;
     width: 30%;
     bottom: 0%;
     left: 0%;
 }
 
-#pelouse_droite-p4 {
+#pelouse-droite-p4 {
     position: absolute;
     width: 30%;
     bottom: 0%;
     right: 0%;
 }
 
-#arbuste_rose-p4 {
+#arbuste-rouge-p4 {
     position: absolute;
     width: 25%;
     bottom: -3%;
     right: 0%;
 }
 
-#arbuste_petales-p4 {
+#arbuste-bleu-petales-p4 {
     position: absolute;
     width: 18%;
     bottom: 2%;
     right: 11%;
-}
-
-#button-p4-1 {
-    position: absolute;
-    left: 3%;
-    top: 4%;
-    border: 2px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 50%;
-    padding: 10px 13px 10px 13px;
-    outline: none;
-}
-
-#button-p4-1:hover {
-    border: 3px solid #fff;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-
-#oh_oui_anime-p4 {
-    position: absolute;
-    width: 22%;
-    bottom: 33.4%;
-    right: 50.6%;
-}
-
-#mais_non_anime-p4 {
-    position: absolute;
-    width: 22%;
-    bottom: 31.9%;
-    right: 28%;
 }

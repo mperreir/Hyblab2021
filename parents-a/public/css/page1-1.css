@@ -1,0 +1,91 @@
+/* Slide 1_1 transition */
+
+section[data-slidr="page-1-1"] {
+    background: linear-gradient(90.42deg, #181FB2 13.84%, #0574CF 82.69%);
+    overflow: hidden;
+}
+
+/* Décor */
+#arbre-jaune-p1-1 {
+    position: absolute;
+    bottom: 8%;
+    right: 20%;
+    width: 17%;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-jaune-p1-1:hover {
+    transform: scale(1.1);
+}
+
+#arbuste-rouge-p1-1 {
+    position: absolute;
+    bottom: -5.3%;
+    right: 35%;
+    width: 21%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbuste-rouge-p1-1:hover {
+    transform: scale(0.9) translateY(10%);
+}
+
+#feuille-rouge-p1-1 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 30%;
+}
+
+#feuille-rouge-p1-1 {
+    position: absolute;
+    bottom: 9%;
+    right: 8%;
+    width: 11%;
+}
+
+#feuille-verte-p1-1 {
+    position: absolute;
+    bottom: 9%;
+    right: -1%;
+    width: 16%;
+}
+
+#gros-nuage-p1-1 {
+    position: absolute;
+    bottom: 55%;
+    right: 34%;
+    width: 30%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p1-1:hover {
+    transform: translateX(30%);
+}
+
+#petit-nuage-droite-p1-1 {
+    position: absolute;
+    bottom: 54%;
+    right: 0%;
+    width: 20%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-droite-p1-1:hover {
+    transform: translateX(30%);
+}
+
+#grande-pelouse-droite-p1-1 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 45%;
+}
