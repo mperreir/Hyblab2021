@@ -2,9 +2,9 @@
 
 class Narrator {
 
+	static defaultSpeed = 45; // 0 : instant ; 1000 : every second.
+
 	constructor(boxElement, textElement, passButton, speed, customElements, customIntervals, customProperties) {
-		console.log(passButton);
-		console.log( $('#narration > button.pass_narration')[0]);
 		this.html = {
 			box: boxElement,
 			text: textElement,
@@ -117,30 +117,18 @@ function loadCharacter() {
 
 /**
  * ======================================
- * 
  *           PAGE CHOIX LEGENDE
- * 
  * ======================================
  */
 
-function setNarrationToBase() {
+function loadBaseTextNarration() {
 	narrator.reset();
+
 	narrator.html.custom.title.style.display = 'none';
+
 	narrator.setText(narrator.properties.baseText);
 	narrator.load();
 	narrator.start();
-}
-
-/**
- * Initialise the view of the narration
- */
-function setNarrationBox() {
-	baseNarrator.load();
-	// let nbRows = baseNarrator.animation.text.length / (baseNarrator.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
-	// baseNarrator.properties.boxHeight = narrationFontSize * 1.65 * nbRows + padding * 2;
-	// baseNarrator.html.box.style.height = `${baseNarrator.properties.boxHeight}px`;
-	// baseNarrator.html.box.style.top = `-${baseNarrator.html.box.offsetHeight}px`;
-	// baseNarrator.html.pass.onclick = () => baseNarrator.stopNarration();
 }
 
 /**
@@ -149,35 +137,15 @@ function setNarrationBox() {
  */
 function loadLegendNarration(id) {
 	narrator.reset();
+
 	let legende = getLegende(id);
-	narrator.setText(legende.resume);
-	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
 	narrator.html.custom.title.style.display = 'block';
-	//narrator.show();
+	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
+
 	let nbRows = narrator.getNbRows() + (narrator.html.custom.title.innerHTML.length) / (narrator.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
+	narrator.setText(legende.resume);
 	narrator.load(() => {
 			return nbRows;
 	});
 	narrator.start();
-
-
-	// legendNarrator.reset();
-	// let legende = getLegende(id);
-	// legendNarrator.setText(legende.resume);
-	// legendNarrator.html.custom.title.innerHTML = legende.nom;
-	// legendNarrator.show();
-	// let nbRows = legendNarrator.getNbRows() + (legendNarrator.html.custom.title.innerHTML.length) / (legendNarrator.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
-	// legendNarrator.load(() => {
-	// 		return nbRows;
-	// });
-	// legendNarrator.start();
-
-
-	// legendNarrator.html.box.style.top = `-${narrationFontSize * 1.65 * nbRows + padding * 2 + baseNarrator.html.box.offsetHeight + window.innerHeight*0.07}px`;
-	// legendNarration.html.box.style.display = 'block';
-	// legendNarration.html.pass.style.display = 'block';
-	// let nbRows = (legende.resume.length + legende.nom.length) / (legendNarration.html.box.offsetWidth / (narrationFontSize*0.6)) + 2;
-	// legendNarration.html.box.style.height = `${narrationFontSize * 1.65 * nbRows + padding * 2}px`;
-	// legendNarration.animation.text = legende.resume;
-	// legendNarration.animation.intervals.narration = setInterval(#narrate, narrationSpeed, legendNarration);
 }
