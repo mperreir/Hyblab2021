@@ -13,7 +13,7 @@ class App extends  React.Component {
         pageId: 4,
         themeId:0,
         moyenId:0,
-        coords:[0,0],
+        coords:[47.215878,-1.55051],
         adresse: {
             rue: '',
             codepostal: '',
