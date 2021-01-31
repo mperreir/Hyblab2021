@@ -161,7 +161,10 @@ function sleep(callback, time) {
 	})
 }
 
-function backgroundContinue(el, slides) {
+function backgroundContinue(el, slides, plus) {
 	el.parentElement.setAttribute("class", "hide");
-	document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+	if (plus)
+		document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+	else
+		document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
 }
