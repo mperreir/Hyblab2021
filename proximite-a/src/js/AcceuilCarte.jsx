@@ -7,6 +7,7 @@ import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
 import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
+import { Polyline } from 'leaflet';
 
 const decallageCentrageCarte = 0.004;
 
@@ -27,6 +28,7 @@ class AcceuilCarte extends  React.Component {
         adresse:this.props.data.adresse,
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
+        itineraire:[],
         };
 
 
@@ -59,6 +61,12 @@ class AcceuilCarte extends  React.Component {
         this.props.onSetMoyen(e)
     };
 
+    generateItineraire = () => {
+        fetch(`api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${[43.6471465,0.5841169]}`)
+        .then(itineraire => {
+            this.setState({itineraire});
+        });
+    }
 
     render() {
         console.log(this.state.popupPhase)
@@ -72,6 +80,7 @@ class AcceuilCarte extends  React.Component {
                         <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
                     </Marker>
                     <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
+                    {this.state.itineraire ? <Polyline positions={this.state.itineraire}/> : null}
                 </MapContainer>
 
                 <PopupAnnonce/>
