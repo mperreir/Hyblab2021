@@ -4,6 +4,7 @@ import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
 import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
+import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
 
@@ -21,9 +22,12 @@ function GetIcon(_iconsize){
 class AcceuilCarte extends  React.Component {
     state={
         popupPhase : 2,
-        currentPosition: [47.2819, -1.5158],
-        sites:this.props.data.sites
-    };
+        currentPosition: this.props.data.coords,
+        sites:this.props.data.sites,
+        adresse:this.props.data.adresse,
+        moyenId:this.props.data.moyenId,
+        nomPers:this.props.data.nomPers,
+        };
 
 
 
@@ -35,7 +39,9 @@ class AcceuilCarte extends  React.Component {
             case 1:
                 return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
             case 2:
-                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onNextPhase={this.nextPhase}/>;
+            case 3:
+                return <CarteInterractionChoixMultiplesReduit data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onPreviousPhase={this.previousPhase}/>;
         }
     };
 
@@ -48,9 +54,14 @@ class AcceuilCarte extends  React.Component {
         this.setState({popupPhase:newPopupPhase })
     };
 
+    updateMoyen = (e) => {
+        this.setState({ moyenId: e })
+        this.props.onSetMoyen(e)
+    };
 
 
     render() {
+        console.log(this.state.popupPhase)
         const {nomPers} = this.props;
         const redOptions = { color: '#999999' }
         return (
@@ -67,7 +78,8 @@ class AcceuilCarte extends  React.Component {
                 {this.getPhase({nomPers})}
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
-                    <a href="https://www.google.com/" class="buttonMapNavigation">Télécharger la carte en PDF</a>
+                    <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
+                    <input type="button" class="buttonMapNavigation" value="Crédits"/>
                 </div>
             </div>
         );

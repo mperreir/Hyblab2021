@@ -316,6 +316,7 @@ input[type=radio] + label>img {
     text-decoration: none;
     border-radius: 15px;
     transition: .3s;
+    width: max-content;
 }
 .buttonMapNavigation:hover{
     background-color: #756EFF;
@@ -387,4 +388,40 @@ input[type=radio] + label>img {
 .modal-content{
     background-color: transparent;
     border: none;
+}
+
+
+/*selecteur*/
+#containerInterraction2 input[type=radio]:checked + label>img {
+    background-size: 100%;
+    opacity: 1;
+}
+
+#containerInterraction2 input[type=radio] + label>img {
+    width: 120px;
+    height: 120px;
+    transition: 500ms all;
+    padding: 10%;
+    background-size:0%;
+    background-position: center;
+    background-repeat : no-repeat;
+    opacity: 0.5;
+
+}
+
+#containerInterraction2 input[type=radio] + label>img:hover{
+     background-repeat : no-repeat;
+     background-size: 100%;
+     opacity: 1;
+     transition: 400ms all;
+
+}
+#containerButtonsMapNavigation{
+    position: absolute;
+    z-index: 3;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
