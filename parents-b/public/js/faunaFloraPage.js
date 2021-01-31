@@ -1,5 +1,6 @@
-let initFaunaFlora = function(){
-    //--------------AUDIO-----------
+let initFaunaFlora = function() {
+
+    // -------------- AUDIO -----------
     muteAll();
 
     let buttonVol = document.getElementById("volumeFaune");
@@ -26,20 +27,28 @@ let initFaunaFlora = function(){
     });
 
 
-    //--------------HEADER-------------
+    //--------------HEADER-------------*
+    // Retour à l'accueil
     d3.select('.logoAccueil5').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
+    // Sliding du bouton "Suivant"
     d3.select('.button-suivant-fauna-flora').on('click', function (){
+        muteAll();
         tl_suivant_fauna_flora_over.pause();
         mySlidr.slide('right');
-        initActivities();
+        setTimeout(function (){
+            initActivities();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton "Suivant"
     let tl_suivant_fauna_flora_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -74,6 +83,7 @@ let initFaunaFlora = function(){
         tl_suivant_fauna_flora_over.pause();
     });
 
+    // Fil d'Ariane
     d3.select(".ariane-1-fauna-flora").on('click', function (){
         muteAll();
         mySlidr.slide('down');
@@ -134,13 +144,7 @@ let initFaunaFlora = function(){
 };
 
 $(document).ready(function(){
-
-
-    // $(".droppableCell-fauna").on('drop',function(event){
-    //     //gestion de l'ajout / remove de l'image
-    // })
-
-    $( ".image-drop-fauna" ).draggable({
+    $(".image-drop-fauna").draggable({
         tolerance: 'fit',
         revert: "invalid"
     });

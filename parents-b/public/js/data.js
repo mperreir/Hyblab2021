@@ -238,6 +238,8 @@ function fetchData() {
                                                 } else if (myCriteria[key] === 2 && maxHour > 19) {
                                                     line["nbElemCorrect"]++;
                                                     line["listElemMatch"].push(key);
+                                                } else {
+                                                    line["nbElemCorrect"] -= 100;
                                                 }
                                                 break;
                                             case "Accès transports en commun":

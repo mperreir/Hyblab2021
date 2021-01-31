@@ -1,5 +1,6 @@
 let initAccess = function(){
-    //--------------AUDIO-----------
+
+    // -------------- AUDIO -----------
     muteAll();
 
     let buttonVol = document.getElementById("volumeAccess");
@@ -25,26 +26,27 @@ let initAccess = function(){
         }
     });
 
-    //--------------HEADER-------------
-    d3.select('.logoAccueil3').on('click', function (){
-        mySlidr.slide('home-page');
-        initHome();
-    });
-
+    // -------------- HEADER -------------
+    // Retour à la page Accueil
     d3.select('.logoAccueil4').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        // mySlidr.slider("value", mySlidr.slider("option", "min") )
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
+    // Sliding du bouton "Suivant"
     d3.select('.button-suivant-access').on('click', function (){
-        tl_suivant_access_over.pause();
+        muteAll();
         mySlidr.slide('up');
-        initFaunaFlora();
+        setTimeout(function (){
+            initFaunaFlora();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton "Suivant"
     let tl_suivant_access_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -79,6 +81,7 @@ let initAccess = function(){
         tl_suivant_access_over.pause();
     });
 
+    // Fil d'Ariane
     d3.select(".ariane-1-access").on('click', function (){
         muteAll();
         mySlidr.slide('left');
@@ -132,12 +135,8 @@ let initAccess = function(){
     });
 };
 
+// Drag and drop
 $(document).ready(function(){
-
-    $(".droppableCell").on('drop',function(event){
-        //gestion de l'ajout / remove de l'image
-    })
-
     $( ".image-drop" ).draggable({
         tolerance: 'fit',
         revert: "invalid"
@@ -153,7 +152,7 @@ $(document).ready(function(){
             draggable.appendTo(droppable);
             draggable.css({top: '0px', left: '0px'});
         }
-    })
+    });
 
     $(".images-base").droppable({
         accept: ".image-drop",
@@ -164,5 +163,5 @@ $(document).ready(function(){
             draggable.appendTo(droppable);
             draggable.css({top: '0px', left: '0px'});
         }
-    })
-})
+    });
+});

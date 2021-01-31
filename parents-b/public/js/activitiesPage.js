@@ -1,6 +1,6 @@
 let initActivities = function(){
 
-    //--------------AUDIO-----------
+    // -------------- AUDIO -----------
     muteAll();
 
     let buttonVol = document.getElementById("volumeActivite");
@@ -26,20 +26,27 @@ let initActivities = function(){
         }
     });
 
-    //--------------HEADER-------------
+    // -------------- HEADER -------------
+    // Retour à l'accueil
     d3.select('.logoAccueil6').on('click', function (){
+        muteAll();
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
+    // Sliding du bouton "Suivant"
     d3.select('.button-suivant-activities').on('click', function (){
-        tl_suivant_activities_over.pause();
+        muteAll();
         mySlidr.slide('right');
-        initSearchingResults();
+        setTimeout(function (){
+            initSearchingResults();
+        }, 1200);
     });
 
-    //Bouton Suivant
+    // Animation du bouton "Suivant"
     let tl_suivant_activities_over = anime.timeline({
         easing: 'linear',
         loop:true
@@ -74,6 +81,7 @@ let initActivities = function(){
         tl_suivant_activities_over.pause();
     });
 
+    // Fil d'Ariane
     d3.select(".ariane-1-activities").on('click', function (){
         muteAll();
         mySlidr.slide('left');

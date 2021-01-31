@@ -1,12 +1,13 @@
 let initSearchingResults = function(){
 
+    muteAll();
     setTimeout(function(){
         mySlidr.slide('down');
         initResults();
     }, 4000);
 
 
-    //-----------AUDIO--------------
+    // ----------- AUDIO --------------
     document.getElementById('activities_audio').pause();
 
     if(isSonOn){
@@ -28,8 +29,5 @@ let initSearchingResults = function(){
             isSonOn = Boolean(true);
             document.getElementById('result1_audio').play(); 
         }
-    }); 
-
-
+    });
 };
-

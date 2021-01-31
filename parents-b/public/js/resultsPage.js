@@ -1,6 +1,7 @@
 let initResults = function(){
-    //-----------AUDIO--------------
-    document.getElementById('result1_audio').pause();
+
+    // ------------------ AUDIO --------------------
+    muteAll();
 
     let buttonVol = document.getElementById("volumeResult2");
     buttonVol.setAttribute("src", "./img/common/volume_on.svg");
@@ -25,15 +26,23 @@ let initResults = function(){
         }
     }); 
    
-
-    d3.select('.logoAccueil7').on('click', function (){
+    // --------------------- SLIDE --------------------
+    // Retour à l'accueil
+    d3.select('.logoAccueil7').on('click', function() {
+        muteAll()
         mySlidr.slide('home-page');
-        initHome();
         resetHome();
+        setTimeout(function (){
+            initHome();
+        }, 1200);
     });
 
-    d3.select('.button-suivant-results').on('click', function (){
+    // Sliding du bouton "Suivant"
+    d3.select('.button-suivant-results').on('click', function() {
+        muteAll();
         mySlidr.slide('right');
-        initCredits();
+        setTimeout(function (){
+            initCredits();
+        }, 1200);
     });
 };
