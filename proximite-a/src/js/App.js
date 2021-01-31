@@ -4,6 +4,7 @@ import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
+import equivalent from './equivalent.js'
 
 class App extends  React.Component {
 
@@ -19,25 +20,28 @@ class App extends  React.Component {
             ville: ''
         },
         sites: [{ id: '1',
-            titre: 'squalala',
-            img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
-            adresse: 'nous sommes partis',
-            description : "blabla",
-            coordonnes:[1,2]    //latitude_longitude
-        },
+                titre: 'squalala',
+                img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
+                adresse: 'nous sommes partis',
+                description : "blabla",
+                coordonnes:[1,2],    //latitude_longitude
+                type:'culture'
+             },
             { id: '2',
                 titre: 'squelele',
                 img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif',
                 adresse: 'nous sommes repartis',
                 description : "blabla",
-                coordonnes:[3,4]    //latitude_longitude
+                coordonnes:[3,4],    //latitude_longitude
+                type:'sportif'
             },
             { id: '3',
                 titre: 'Oooo di',
                 img:'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
                 adresse:'AAAAAAAAAAAAAHH',
                 description : "blabla",
-                coordonnes:[5,6]    //latitude_longitude
+                coordonnes:[5,6],    //latitude_longitude
+                type:'famille'
             }]
     };
 
@@ -55,6 +59,8 @@ class App extends  React.Component {
                 return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers}/>;
         }
     };
+
+
 
 
     nextPage = () =>{
@@ -81,6 +87,26 @@ class App extends  React.Component {
     updateMoyen=(e)=>{
         this.setState({moyenId:e})
     };
+
+    //changer url
+    createSites = () => {
+        let stringAdresse = this.state.adresse.rue.replace(' ', '+') + '+' + this.state.adresse.codepostal + '+' + this.state.adresse.ville
+        let moyen=equivalent.moyenEquiv(this.state.moyenId)
+        let theme=equivalent.themeEquiv(this.state.themeId)
+        fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a//api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)
+            .then((response) => {   //récupération de la réponse
+                if (response.ok) {
+                    console.log(response);
+                    return response.json();
+                }
+            })
+            .then((donnee) => {  //récupération des données JSON
+                console.log(donnee)//todo choisir donnee
+                this.setState({
+                    site: donnee
+                });
+            })
+    }
 
     render() {
         return (
