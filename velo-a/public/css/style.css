@@ -179,7 +179,7 @@ header .logo {
 }
 
 #btn-recalculer {
-	width: 341px;
+	width: 85%;
 	height: 47px;
 	margin-bottom: 18px;
 }
@@ -187,7 +187,6 @@ header .logo {
 /*Redéfinition controles MapBox*/
 
 .mapboxgl-ctrl-geocoder input[type='text'] {
-	width: 341px;
 	height: 47px;
 	background: #FFFFFF;
 	border: 1px solid #DBDBDB;

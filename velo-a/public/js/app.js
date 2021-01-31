@@ -28,6 +28,9 @@ async function bootstrap() {
 		controls: {
 			profileSwitcher: false,
 			instructions: false
+		},
+		geocoder: {
+			bbox: "-1.7951350420290169%2C47.116367346841514%2C-1.3050286308555314%2C47.33902195868899"
 		}
 	});
 
@@ -37,6 +40,8 @@ async function bootstrap() {
 
 		if (localStorage.getItem("adresseArrivee")) directions.setDestination(localStorage.getItem("adresseArrivee"));
 		else if (localStorage.getItem("adresseArriveeCoord")) directions.setDestination(localStorage.getItem("adresseArriveeCoord").split(','));
+
+
 	});
 
 
