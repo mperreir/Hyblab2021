@@ -62,7 +62,7 @@ let initSlide1 = function() {
 //Slide de transi 
 let initSlide1_1 = function() {
 
-    //Transi 1.2 vers 2(Camille) 
+    //Transi 1.2 vers 2(Camille)
     d3.select('#t').on('click', function() {
         nextSlide('2');
     });
@@ -201,7 +201,7 @@ let initSlide4 = function() {
 //Okey mais Avec quoi
 let initSlide5 = function() {
 
-    //Plein la vue -> avec quoi 
+    //Plein la vue -> avec quoi
     d3.select("#bouton-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -241,7 +241,7 @@ let initSlide6 = function(db) {
     });
 }
 
-//Preference entre animaux et bruits nature 
+//Preference entre animaux et bruits nature
 let initSlide7 = function() {
 
     d3.select("#bouton-gauche-p7").on('click', async function() {
@@ -261,7 +261,7 @@ let initSlide7 = function() {
     });
 }
 
-// /Decouverte d'arbres différents 
+// /Decouverte d'arbres différents
 
 let initSlide8 = function() {
 
@@ -308,10 +308,13 @@ function getRandomInt(max) {
 
 function getRandomParc(target, source) {
     let index = 0;
-    while (target.find(p => p.id === source[index].id)) {
-        index = getRandomInt(source.length);
+
+    while (index < source.length && target.find(p => p.id === source[index].id)) {
+        index++;
     }
-    target.push(source[index]);
+    if (index < source.length)
+        target.push(source[index]);
+    else console.log('not found');
 }
 
 function checkData(d, db, max) {
@@ -370,55 +373,261 @@ let initSlideResultat = function(db) {
         nextSlide('10', data);
         console.log(data);
     });
+    d3.select('#parc1-titre').text(function(d) { return data[2]['Nom formel']});
+    d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel']});
+    d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel']});
+
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('10')
+
     });
-    radar(data);
+
+    d3.select('#random2').on('click', () => {
+        console.log('random 2');
+        const index = parseInt(d3.event.target.id.split('random')[1]);
+        console.log(db);
+        getRandomParc(podium, db);
+        d3.select('#parc2-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+        podium[1] = podium[podium.length - 1];
+        chooseimage(podium, div2);
+        new radar(podium[0], podium[1], podium[2]);
+    });
+    d3.select('#random1').on('click', () => {
+        console.log('random 2');
+        const index = parseInt(d3.event.target.id.split('random')[1]);
+        console.log(db);
+        getRandomParc(podium, db);
+        d3.select('#parc1-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+        podium[2] = podium[podium.length - 1];
+        chooseimage(podium, div1);
+        new radar(podium[0], podium[1], podium[2]);
+    });
+    d3.select('#random3').on('click', () => {
+        console.log('random 3');
+        const index = parseInt(d3.event.target.id.split('random')[1]);
+        console.log(db);
+        getRandomParc(podium, db);
+        d3.select('#parc3-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+        podium[0] = podium[podium.length - 1];
+        chooseimage(podium, div3);
+        new radar(podium[0], podium[1], podium[2]);
+    });
+    let podium = [data[0], data[1], data[2]]
+    new radar(podium[0], podium[1], podium[2]);
+    const div1 = document.getElementById("parc1-pr")
+    console.log(div1.id);
+    const img1 = document.createElement("img")
+    const div2 = document.getElementById("parc2-pr")
+    const img2 = document.createElement("img")
+    const div3 = document.getElementById("parc3-pr")
+    const img3 = document.createElement("img")
+    div1.appendChild(img1)
+    console.log(div1.firstChild);
+    chooseimage(data, div1);
+    div2.appendChild(img2);
+    chooseimage(data, div2);
+    div3.appendChild(img3);
+    chooseimage(data, div3);
+
+}
+
+let im_sources = {
+        "ILE DE VERSAILLES": "img/images_parcs_jardins/ile-de-versailles.jpg",
+        "PLANTES": "img/images_parcs_jardins/jardin-des-plantes.jpg",
+        "BEAULIEU": "img/images_parcs_jardins/parc-de-beaulieu.jpg",
+        "BEAUJOIRE": "img/images_parcs_jardins/parc-de-la-beaujoire.jpg",
+        "CHANTRERIE": "img/images_parcs_jardins/Parc-de-la-Chantrerie.jpg",
+        "PROCE": "img/images_parcs_jardins/Parc-de-proce-Nantes.jpg",
+        "LE OBLATES": "img/images_parcs_jardins/Parc-des-oblates-Nantes.jpg",
+        "BLOTTEREAU": "img/images_parcs_jardins/parc-du-grand-bloterreau.jpg"
+    }
+    // parc 1 data[2]  // parc 2 data[1] // parc 3  data[0]
+
+
+function chooseimage(data, div) {
+    var num = div.id.match(/\d+/g);
+    console.log(num[0]);
+    Object.keys(im_sources).forEach(d => {
+        if (num[0] === "1") {
+            if (data[2]['Nom'] === d) {
+                div.firstChild.src = im_sources[d]
+            }
+
+        }
+        if (num[0] === "2") {
+            if (data[1]['Nom'] === d) {
+                div.firstChild.src = im_sources[d]
+            }
+
+        }
+        if (num[0] === "3") {
+            if (data[0]['Nom'] === d) {
+                div.firstChild.src = im_sources[d]
+            }
+        }
+
+    });
+    if (num[0] === "1" && div.firstChild.src === "" || div.firstChild.src === undefined) {
+        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+    }
+    if (num[0] === "2" && div.firstChild.src === "" || div.firstChild.src === undefined) {
+        div.firstChild.src = "img/images_parcs_jardins/lambda-2.jpg"
+    }
+    if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
+        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+    }
 }
 
 
-function radar(data) {
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myRadarChart = new Chart(ctx, {
-        type: 'radar',
+
+function radar(parc1, parc2, parc3) {
+    /*
+    this.random_1 = parc1;
+    this.random_2 = parc2;
+    this.random_3 = parc3;
+    */
+
+    var fleurs = document.getElementById('myChart').getContext('2d');
+    this.Fleurs = new Chart(fleurs, {
+        type: 'bar',
         data: {
-            labels: ["Nombre d'arbres ", "Nombre d'arbres formidables", 'Diversité des arbres', 'Diversié des fleurs'],
+            labels: ["Nombre d'espèces de fleurs"],
             datasets: [{
-                    label: data[0]['Nom formel'],
-                    backgroundColor: 'rgba(84,226,136, 0.5)',
-                    data: [data[0]['Nb arbre'], data[0]['Nb arbre formidable'], data[0]['Nb espece arbre'], data[0]['Nb Espece plantes']]
+                    label: parc1['Nom formel'],
+                    backgroundColor: 'rgba(226,226,83, 0.5)',
+                    data: [parc1['Nb Espece plantes']]
                 },
                 {
-                    label: data[1]['Nom formel'],
-                    backgroundColor: 'rgba(84,155,226, 0.5)',
-                    data: [data[1]['Nb arbre'], data[1]['Nb arbre formidable'], data[1]['Nb espece arbre'], data[1]['Nb Espece plantes']],
+                    label: parc2['Nom formel'],
+                    backgroundColor: 'rgba(227,155,84, 0.5)',
+                    data: [parc2['Nb Espece plantes']],
                 },
                 {
-                    label: data[2]['Nom formel'],
+                    label: parc3['Nom formel'],
                     backgroundColor: 'rgba(215,17,23, 0.5)',
-                    data: [data[2]['Nb arbre'], data[2]['Nb arbre formidable'], data[2]['Nb espece arbre'], data[2]['Nb Espece plantes']]
+                    data: [parc3['Nb Espece plantes']]
+                }
+            ]
+        },
+        options: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                fontSize: 14,
+                fontColor: '#fff',
+                position: 'bottom'
+            }
+
+        }
+    });
+    var nbarbre = document.getElementById('myChart1').getContext('2d');
+    this.NbArbre = new Chart(nbarbre, {
+        type: 'bar',
+        data: {
+            labels: ["Nombre d'arbres "],
+            datasets: [{
+                    label: parc1['Nom formel'],
+                    backgroundColor: 'rgba(226,226,83, 0.5)',
+                    data: [parc1['Nb arbre']]
+                },
+                {
+                    label: parc2['Nom formel'],
+                    backgroundColor: 'rgba(227,155,84, 0.5)',
+                    data: [parc2['Nb arbre']],
+                },
+                {
+                    label: parc3['Nom formel'],
+                    backgroundColor: 'rgba(215,17,23, 0.5)',
+                    data: [parc3['Nb arbre']]
                 }
             ]
         },
 
 
         options: {
-            scale: {
-                angleLines: {
-                    display: true
-                },
-                ticks: {
-                    suggestedMin: 50,
-                    suggestedMax: 100
-                }
+            legend: {
+                display: false,
             },
-            layout: {
-                padding: {
-                    left: 50,
-                    right: 0,
-                    top: 0,
-                    bottom: 0
+            title: {
+                display: true,
+                fontSize: 14,
+                fontColor: '#fff',
+                position: 'bottom'
+            }
+
+        }
+    });
+    var arbreFor = document.getElementById('myChart2').getContext('2d');
+    this.ArbreFor = new Chart(arbreFor, {
+        type: 'bar',
+        data: {
+            labels: ["Nombre d'arbres formidables"],
+            datasets: [{
+                    label: parc1['Nom formel'],
+                    backgroundColor: 'rgba(226,226,83, 0.5)',
+                    data: [parc1['Nb arbre formidable']]
+                },
+                {
+                    label: parc2['Nom formel'],
+                    backgroundColor: 'rgba(227,155,84, 0.5)',
+                    data: [parc2['Nb arbre formidable']],
+                },
+                {
+                    label: parc3['Nom formel'],
+                    backgroundColor: 'rgba(215,17,23, 0.5)',
+                    data: [parc3['Nb arbre formidable']]
                 }
+            ]
+        },
+        options: {
+
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                fontSize: 14,
+                fontColor: '#fff',
+                position: 'bottom'
+            }
+
+        }
+    });
+    var divArbre = document.getElementById('myChart3').getContext('2d');
+    this.DivArbre = new Chart(divArbre, {
+        type: 'bar',
+        data: {
+            labels: ["Nombre d'écpèce d'arbres"],
+            datasets: [{
+                    label: parc1['Nom formel'],
+                    backgroundColor: 'rgba(226,226,83, 0.5)',
+                    data: [parc1['Nb espece arbre']]
+                },
+                {
+                    label: parc2['Nom formel'],
+                    backgroundColor: 'rgba(227,155,84, 0.5)',
+                    data: [parc2['Nb espece arbre']],
+                },
+                {
+                    label: parc3['Nom formel'],
+                    backgroundColor: 'rgba(215,17,23, 0.5)',
+                    data: [parc3['Nb espece arbre']]
+                }
+            ]
+        },
+
+
+        options: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                fontSize: 14,
+                fontColor: '#fff',
+                position: 'bottom'
             }
         
 
