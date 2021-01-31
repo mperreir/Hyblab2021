@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/progressBar.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/stats.css">
     <link rel="stylesheet" href="css/infosVehicules.css">
 
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
@@ -22,6 +23,7 @@
 
     <script src="js/globals.js" defer></script>
     <script src="js/splashscreen.js" defer></script>
+    <script src="js/progressBar.js" defer></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/carte.js" defer></script>
@@ -523,12 +525,20 @@
                 </div>
             </section>
 
-            <section data-slidr="page-finale"
+            <section data-slidr="page-finale" class="grid content-center justify-end"
                      style="background: url(assets/finale/finale.svg) no-repeat center" hidden>
 
-                <div>
-                    <div id="pb-eco"></div>
-                </div>
+                <aside class="stats-aside">
+                    <p>Économie</p>
+                    <div id="pb-econ"></div>
+                    <p>Vitesse</p>
+                    <div id="pb-vit"></div>
+                    <p>Écologie</p>
+                    <div id="pb-ecol"></div>
+                    <p>Pollution</p>
+                    <div id="pb-pol"></div>
+                </aside>
+
                 <div class="relative inset-y-3/4 flex justify-center content-center">
                     <img src="assets/finale/rejouer.svg" class="image-button w-2/15 mx-10" id="ic-rejouer-finale"
                          alt="Bouton rejouer">

@@ -50,6 +50,10 @@ registerSlide("question-transports-bicloo", function () {
 registerSlide("page-finale", function () {
     button( '#ic-rejouer-finale', 'rejouer');
     button( '#ic-credit-finale', 'credit');
+    progressBar('#pb-ecol',75);
+    progressBar('#pb-vit',0);
+    progressBar('#pb-econ',50);
+    progressBar('#pb-pol',50);
 });
 
 registerSlide("page-credit", function () {

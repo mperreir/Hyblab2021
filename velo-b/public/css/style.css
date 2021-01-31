@@ -216,6 +216,10 @@ section[data-slidr="page-finale"] {
     flex-wrap: wrap;
 }
 
+.lemon-juice-font{
+    font-family: lemon-juice;
+}
+
 /* -------------- Mettre des éléments en background --------------*/
 .background-index {
     z-index: -10;
@@ -242,7 +246,7 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
     }
 }
 
-/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
+/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
 dessus de l'apect ratio 16/9 */
 
 @media screen and (min-aspect-ratio: 16/9) {
