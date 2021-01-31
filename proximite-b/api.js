@@ -3,6 +3,11 @@
 const {performance} = require('perf_hooks');
 const fetch = require('node-fetch');
 
+let HttpProxyAgent = require( 'http-proxy-agent' );
+let options = {
+    agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+};
+
 const config = {
     // LES PRINCIPAUX
     'Pharmacie': {
@@ -78,10 +83,10 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
                     avoid_features: ["ferries", "fords"]
                 }
             })
-        }));
+        }, options));
         polygon = await polygon.json();
-    } while(!polygon.features[0]);
-    
+    } while(!polygon.features);
+
     let t1 = performance.now();
     console.log("POLYGON CALL : " + Math.round(t1 - t0) + " ms");
     polygon = polygon.features[0].geometry.coordinates[0];
@@ -100,37 +105,17 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
             maxLat = polygon[i][1];
     }
     
-    let HttpProxyAgent = require( 'http-proxy-agent' );
-    let options = {
-        agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
-    };
-    
-    // console.log("centre :", longitude, latitude);
-    // console.log("carré :",minLat, minLon, maxLat, maxLon);
+    console.log("centre :", longitude, latitude);
+    console.log("carré :",minLat, minLon, maxLat, maxLon);
     let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
-    request = await fetch("http://overpass-api.de/api/interpreter?data=" + request);
-    request = await request.json();
+    do {
+        request = await timeout(6000 , fetch("http://overpass-api.de/api/interpreter?data=" + request));
+        request = await request.json();
+    } while (!request);
     let t2 = performance.now();
     console.log("OVERPASS CALL : " + Math.round(t2 - t0) + " ms");
     
-    let response = request;
-    let elements = response.elements.filter(el => inside([el.lon, el.lat], polygon));
-
-    // Mention honorable : AMNITY bar 	cafe fast_food restaurant
-
-    // Pharmacie  AMNITY pharmacy
-    // Boulangerie  SHOP  bakery
-    // Supermarché  SHOP greengrocer supermarket mall
-    // Médecin  	AMNITY clinic 	dentist doctors hospital
-    // Arrêt bus    AMNITY bus_station
-    // Ecole 	AMNITY kindergarten college school university
-    // Parc     LEISURE garden  park
-    // Lieu de culte   AMNITY place_of_worship   https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dplace_of_worship
-    // -----------------
-    // Coiffeur    shop=hairdresser
-    // Musée    TOURISM = museum
-    // Biblio  	amenity=library
-    // Salle de sport   LEISURE fitness_centre sports_centre fitness_station
+    let elements = request.elements.filter(el => inside([el.lon, el.lat], polygon));
 
     // On classe tout dans les catégories
     let res = [];
@@ -229,8 +214,12 @@ async function api_parc(polygon) {
     })
     geo_polygon = geo_polygon.slice(0, -1);
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-jardins-nantes&q=&rows=1000&geofilter.polygon=" + geo_polygon;
-    const response = await fetch(lien);
-    const resultAPI = await response.json();
+    let resultAPI;
+    do {
+        const response = await timeout(1000, fetch(lien));
+        resultAPI = await response.json();
+    } while (!resultAPI);
+
     const data = [];
     resultAPI.records.forEach(result => {
         const parc = {}
@@ -250,8 +239,11 @@ async function api_bus(polygon) {
     })
     geo_polygon = geo_polygon.slice(0, -1);
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=location_type=1&rows=1000&geofilter.polygon=" + geo_polygon;
-    const response = await fetch(lien);
-    const resultAPI = await response.json();
+    let resultAPI;
+    do {
+        const response = await timeout(1000, fetch(lien));
+        resultAPI = await response.json();
+    } while (!resultAPI);
     const arrets = [];
     resultAPI.records.forEach(result => {
         const arret = {};
@@ -289,9 +281,12 @@ function retourner(poly) {
 }
 
 async function get_adresse(lon, lat) {
-    var lieu = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
-    const response = await fetch(lieu);
-    var resultAPI = await response.json();
+    var lien = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
+    let resultAPI;
+    do {
+        const response = await timeout(1000, fetch(lien));
+        resultAPI = await response.json();
+    } while (!resultAPI);
     return resultAPI.features[0].properties.label;
 }
 

@@ -1,4 +1,11 @@
 
+
+function closePapy(){
+    $('#timeline_Papy').remove();
+}
+
+
+
 /**
  * Fonction qui permet de recupérer les données liée a une adresse et selon les 
  * critères choisis
@@ -27,6 +34,7 @@ function getData(nameadd, adresse) {
 
                         $('#waitingSpinner').remove();
                         $('#compEnCours').remove();
+                        $('#timeline_Papy').css('visibility', 'visible');
                         $('#progressDiv').css('visibility', 'visible');
                         $('#goToConclusion').css('visibility', 'visible');
                         $('#titleTimeline').css('visibility', 'visible');
@@ -45,6 +53,8 @@ function getData(nameadd, adresse) {
  * Fonction qui permet de dessiner les différents composants graphiques
  */
 function timeline_progressbar_draw() {
+    $('#timeline_Papy').css('visibility', 'visible');
+
     var widthCard = ($("#timelineholder").width());
     var heightCard = 260;
     var waiting_time = 1500;
