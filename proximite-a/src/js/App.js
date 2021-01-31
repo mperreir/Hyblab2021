@@ -9,7 +9,7 @@ class App extends  React.Component {
 
     state = {
         nomPers: null,
-        pageId: 0,
+        pageId: 4,
         themeId:0,
         moyenId:0,
         coords:[0,0],
@@ -23,21 +23,21 @@ class App extends  React.Component {
             img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
             adresse: 'nous sommes partis',
             description : "blabla",
-            coordonnes:[0,0]    //latitude_longitude
+            coordonnes:[1,2]    //latitude_longitude
         },
             { id: '2',
                 titre: 'squelele',
                 img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif',
                 adresse: 'nous sommes repartis',
                 description : "blabla",
-                coordonnes:[0,0]    //latitude_longitude
+                coordonnes:[3,4]    //latitude_longitude
             },
             { id: '3',
                 titre: 'Oooo di',
                 img:'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
                 adresse:'AAAAAAAAAAAAAHH',
                 description : "blabla",
-                coordonnes:[0,0]    //latitude_longitude
+                coordonnes:[5,6]    //latitude_longitude
             }]
     };
 

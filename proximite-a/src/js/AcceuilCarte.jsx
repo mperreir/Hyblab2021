@@ -10,24 +10,34 @@ import {getPosition} from "leaflet/src/dom/DomUtil";
 
 const decallageCentrageCarte = 0.004;
 
-function GetIcon(_iconsize){
-    return L.icon({
-        iconUrl : require("../img/pictogrammes_position.png").default,
-        iconSize: [_iconsize,35]
-    })
+function GetIcon(type, _iconsize){
+    switch (type) {
+        case 1: //position actuelle
+            return L.icon({
+                iconUrl : require("../img/pictogrammes_position.png").default,
+                iconSize: [_iconsize,35]
+            })
+            break
+        case 2: //site
+            return L.icon({
+                iconUrl : require("../img/pictogrammes_position.png").default,
+                iconSize: [_iconsize,35]
+            })
+            break
+    }
 }
 
 
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 1,
+        popupPhase : 2,
         currentPosition: this.props.data.coords,
         sites:this.props.data.sites,
         adresse:this.props.data.adresse,
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
-        };
+    };
 
 
 
@@ -68,9 +78,14 @@ class AcceuilCarte extends  React.Component {
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(20)}  position={this.state.currentPosition}>
+                    <Marker icon={GetIcon(1,20)}  position={this.state.currentPosition}>
                         <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
                     </Marker>
+                    {this.state.sites.map( (e) => {
+                        return <Marker icon={GetIcon(2,20)}  position={e.coordonnes}>
+                            <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
+                        </Marker>
+                    }) }
                     <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
                 </MapContainer>
 
