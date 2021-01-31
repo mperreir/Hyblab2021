@@ -57,13 +57,50 @@
     left: 10vw;
 }
 
+
+@keyframes slidein {
+  from {
+    left: -50%;
+  }
+
+  to {
+    left: 200%;
+  }
+}
+
+
+
+@media screen and (min-resolution: 100dpi) {
+
   @keyframes slidein {
     from {
-      left: -50%;
+      left: -25%;
     }
   
     to {
       left: 200%;
     }
   }
-  
+
+  #img_persona{
+    height: 75vh;
+}
+
+  #train{
+    position: absolute;
+    width: 120vw;
+    height: auto;
+    animation-delay: 1s;
+    animation-duration: 8s;
+    animation-name: slidein;
+    left: -25%;
+    top: -12%;
+    z-index: -2;
+  }
+}
+
+
+
+
+
+
