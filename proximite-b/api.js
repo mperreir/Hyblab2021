@@ -3,8 +3,12 @@
 const {performance} = require('perf_hooks');
 const fetch = require('node-fetch');
 
+var path = require('path');
+const env = require('dotenv');
+env.config({path : path.resolve(process.cwd(), 'proximite-b/.env')});
+
 let HttpsProxyAgent = require( 'https-proxy-agent' );
-let options = {
+let options = process.env.PROXY === 'false' ? {} : {
     agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
 };
 
@@ -84,8 +88,9 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
                 "options": {
                     avoid_features: ["ferries", "fords"]
                 }
-            })
-        }, options));
+            }),
+            ...options
+        }));
         polygon = await polygon.json();
     } while(!polygon.features);
 
@@ -111,7 +116,7 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     console.log("carré :",minLat, minLon, maxLat, maxLon);
     let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
     do {
-        request = await timeout(TIMEOUT_MS , fetch("http://overpass-api.de/api/interpreter?data=" + request));
+        request = await timeout(TIMEOUT_MS , fetch("http://overpass-api.de/api/interpreter?data=" + request, options));
         request = await request.json();
     } while (!request);
     let t2 = performance.now();
@@ -218,7 +223,7 @@ async function api_parc(polygon) {
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_parcs-jardins-nantes&q=&rows=1000&geofilter.polygon=" + geo_polygon;
     let resultAPI;
     do {
-        const response = await timeout(TIMEOUT_MS, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien, options));
         resultAPI = await response.json();
     } while (!resultAPI);
 
@@ -243,7 +248,7 @@ async function api_bus(polygon) {
     const lien = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_tan-arrets&q=location_type=1&rows=1000&geofilter.polygon=" + geo_polygon;
     let resultAPI;
     do {
-        const response = await timeout(TIMEOUT_MS, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien, options));
         resultAPI = await response.json();
     } while (!resultAPI);
     const arrets = [];
@@ -286,7 +291,7 @@ async function get_adresse(lon, lat) {
     var lien = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
     let resultAPI;
     do {
-        const response = await timeout(TIMEOUT_MS, fetch(lien));
+        const response = await timeout(TIMEOUT_MS, fetch(lien, options));
         resultAPI = await response.json();
     } while (!resultAPI);
     return resultAPI.features[0].properties.label;

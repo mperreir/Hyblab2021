@@ -52,7 +52,6 @@ div#critere_page {
 #sortable1, #sortable2, #sortable3{
     position: relative;
     border-radius: 45px;
-    list-style-type: none;
     width: 100%;
 }
 
@@ -77,7 +76,6 @@ div#critere_page {
 
 #sort2, #sort3{
     width: 100%;
-    list-style-type: none;
     margin: 0;
     padding: 15px 0px 0px 0px;
     position: relative;
@@ -189,7 +187,6 @@ ul#sortable1{
     border-radius: 15px;
     z-index: 100;
     position: relative;
-    list-style-type: none;
 }
 
 #criteres li{
@@ -200,6 +197,18 @@ ul#sortable1{
 }
 
 
+#max3, #max5{
+    width: 12%;
+    position: relative;
+}
+
+#max3{
+    left: 17%;
+}
+
+#max5{
+    left: 12%;
+}
 
 
 
@@ -242,7 +251,6 @@ ul#sortable1{
     }
     #sort2, #sort3{
         width: 100%;
-        list-style-type: none;
         margin: 0;
         padding: 15px 0px 0px 0px;
         position: relative;
@@ -256,14 +264,11 @@ ul#sortable1{
 
 
 
-
-
-
   @media screen and (max-resolution: 99dpi) {
     #sort2div {
       padding-left: 8em;
     }
     #sort3div {
-        padding-left: 8em;
+        padding-right: 8em;
       }
   }
