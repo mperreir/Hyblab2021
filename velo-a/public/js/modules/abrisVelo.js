@@ -15,13 +15,15 @@ const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
 		return undefined;
 	});
 
+let data;
+
 /**
  * Display "abris velo" of Nantes Metropole on the map
  * @param {Object} mapboxgl - The Mapbox Map
  * @param {Map} map - The Mapbox Map
  */
 export async function abrisVeloDisplayData() {
-	const data = await abrisVeloFetchData();
+	if (!data) data = await abrisVeloFetchData();
 
 	if (!data || !data.records || !data.records.length) return;
 

@@ -11,8 +11,9 @@ const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
 		return undefined;
 	});
 
+let data;
 export async function getStationsVelos() {
-	const data = await stationsVeloFetchData();
+	if (!data) data = await stationsVeloFetchData();
 
 	if (!data || !data.records || !data.records.length) return;
 

@@ -70,7 +70,9 @@ async function bootstrap() {
 
 	let openMarker = undefined;
 
-	function points(data, url) {
+	let markers = {};
+
+	function points(data, url, type) {
 
 		data.forEach((d) => {
 			const el = document.createElement("div");
@@ -91,20 +93,47 @@ async function bootstrap() {
 				.setLngLat([d.longitude, d.latitude])
 				.setPopup(new mapboxgl.Popup().setHTML(d.text))
 				.addTo(map);
+
+			if (!markers[type]) markers[type] = [marker];
+			else markers[type].push(marker);
 		});
 	}
 
 	const veloType = localStorage.getItem("velo");
 
-	if (!veloType || veloType !== "bicloo")
+	if (!veloType || veloType !== "bicloo") {
 		abrisVeloDisplayData().then(data => {
-			points(data, "img/abris.svg");
+			points(data, "img/abris.svg", "abris");
 		});
+		document.getElementById("abris_velo").checked = true;
+	}
 
-	if (!veloType || veloType === "bicloo")
+	if (!veloType || veloType === "bicloo") {
 		getStationsVelos().then(data => {
-			points(data, "img/station.svg");
+			points(data, "img/station.svg", "bicloo");
 		});
+		document.getElementById("station_bicloo").checked = true;
+	}
+
+	document.getElementById("abris_velo").addEventListener("change", event => {
+		if (event.target.checked) {
+			abrisVeloDisplayData().then(data => {
+				points(data, "img/abris.svg", "abris");
+			});
+		} else {
+			markers["abris"].forEach((marker) => marker.remove());
+		}
+	});
+
+	document.getElementById("station_bicloo").addEventListener("change", event => {
+		if (event.target.checked) {
+			getStationsVelos().then(data => {
+				points(data, "img/station.svg", "bicloo");
+			});
+		} else {
+			markers["bicloo"].forEach((marker) => marker.remove());
+		}
+	});
 
 	getMeteoNow();
 	getMeteoByTime(Date.now());
