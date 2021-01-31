@@ -183,33 +183,31 @@ export default {
     flex: 0 1 auto;
     align-self: auto;
   }
-
-  #nuage1 {
+  #nuage1, #nuage2, #nuage3, #nuage4, #nuage5 {
     position: absolute;
+    z-index: -1;
+  }
+  #nuage1 {
     top: 60%;
     left: -6%;
     width: 25%;
   }
   #nuage2 {
-    position: absolute;
     top: 55%;
     left: 20%;
     width: 8%;
   }
   #nuage3 {
-    position: absolute;
     top: 30%;
     right: 10%;
     width: 15%;
   }
   #nuage4 {
-    position: absolute;
     bottom: 8%;
     right: -12%;
     width: 50%;
   }
   #nuage5 {
-    position: absolute;
     bottom: -6%;
     left: 25%;
     width: 15%;

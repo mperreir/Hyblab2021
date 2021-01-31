@@ -65,8 +65,5 @@ export default {
 
 <style scoped>
 
-.button-launch {
-  margin-top: 50px;
-}
 
 </style>

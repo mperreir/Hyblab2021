@@ -6,8 +6,8 @@
     
     <template #question >
       <Question  question="Tu te déplaces...">
-          <ButtonCustom @click="nextPied"  text="A pied" color="yellow"/>
-          <ButtonCustom @click="nextVelo"   text="A vélo" color="blue" />
+          <ButtonCustom @click="nextPied"  text="À pied" color="yellow"/>
+          <ButtonCustom @click="nextVelo"   text="À vélo" color="blue" />
       </Question>
     </template>
     <template #canari>
@@ -56,6 +56,7 @@ export default {
       this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
      const velo= document.getElementById("velo-anim");
      const audio = new Audio(sonVelo);
+     audio.volume=0.2;
      audio.play();
       velo.classList.add("slide-lr");
       velo.addEventListener("animationend", () => {
@@ -131,28 +132,28 @@ export default {
     width: 30%;
     animation: slide-lr 1s ease-in both;
   }
-  #nuage1 {
+  #nuage1, #nuage2, #nuage3, #nuage4 {
     position: absolute;
+    z-index: -1;
+  }  
+  #nuage1 {
     top: 25%;
     left: -6%;
     width: 25%;
   }
   #nuage2 {
-    position: absolute;
     top: 20%;
     left: 20%;
     width: 8%;
   }
   #nuage3 {
-    position: absolute;
     bottom: 52%;
     right: -12%;
     width: 50%;
   }
   #nuage4 {
-    position: absolute;
-    bottom: 20%;
-    left: 30%;
+    bottom: 25%;
+    left: 25%;
     width: 10%;
   }
 </style>

@@ -13,6 +13,7 @@
     <template #canari>
       <Oiseau message="Je te propose plusieurs thèmes pour ton trajet, lequel préfères-tu ?"/>
     </template>
+    <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage"/>
     <template #stepper>
       <Stepper :actif=actif />
     </template>
@@ -79,5 +80,11 @@ export default {
 </script>
 
 <style scoped>
-
+  #nuage1 {
+    position: absolute;
+    top: -3%;
+    left: -7%;
+    width: 35%;
+    z-index: -1;
+  }
 </style>
