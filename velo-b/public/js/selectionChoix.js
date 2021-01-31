@@ -38,8 +38,21 @@ registerSlide("question-garer-velo", function () {
     button( '#ic-sauvage-velo', 'sauvage');
 });
 
-registerSlide("info-abonnements-consignes", function () {
+registerSlide("info-abonnements-consignes", async function () {
     button( '#ic-abonnements-consignes', 'ok');
+    const request = await fetch('api/abris-velo', {method: 'GET'});
+    const data = await request.json();
+    const placeStationnementLD = data.reduce((acc, val) => acc + val.capacite, 0);
+    const abrisGrat = data.filter(d => !d.conditions.includes('payant'));
+    const placesTotAbrisGrat = abrisGrat.reduce((acc, val) => acc + val.capacite, 0);
+    const abrisPay = data.filter(d => d.conditions.includes('payant'));
+    const placesTotAbrisPay = abrisPay.reduce((acc, val) => acc + val.capacite, 0);
+    d3.select('#placesStationnement').html(placeStationnementLD);
+    d3.select('#placesGratuites').html(placesTotAbrisGrat);
+    d3.select('#abrisExterieurs').html(abrisGrat.length);
+    d3.select('#placesPayantes').html(placesTotAbrisPay);
+    d3.select('#parcsPay').html(abrisPay.length);
+
 });
 
 registerSlide("question-transports-bicloo", function () {
@@ -49,6 +62,19 @@ registerSlide("question-transports-bicloo", function () {
 
 registerSlide("page-arrivee", function () {
     button( '#page-arrivee-continue', 'continuer');
+});
+
+registerSlide("page-arrivee-stats", function () {
+    button( '#ic-rejouer-finale', 'rejouer');
+    button( '#ic-credit-finale', 'credit');
+    progressBar('#pb-ecol',75);
+    progressBar('#pb-vit',0);
+    progressBar('#pb-econ',50);
+    progressBar('#pb-pol',50);
+});
+
+registerSlide("page-credit", function () {
+    retourbutton('#ic-credit-retour');
 });
 
 let button = function (idbutton, choice) {

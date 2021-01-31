@@ -32,7 +32,7 @@ registerSlide("info-choix-velo", function () {
         const sum = abris.reduce((result,a)=> result+a.capacite, 0);
         document.getElementById("velo-parking-places").innerText = sum;
     });
-    fetchJsonData("api/abris-velo/"+zoneChoisie, (abris) => {
+    fetchJsonData("api/abris-velo/"+window.results.quartier, (abris) => {
         const sum = abris.reduce((result,a)=> result+a.capacite, 0);
         document.getElementById("velo-parking-places-zone").innerText = sum;
     });
@@ -105,10 +105,10 @@ registerSlide("info-choix-bicloo", function () {
         const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
         document.getElementById("bicloo-velos").innerText = sum;
     });
-    fetchJsonData("api/stations-velo-libre-service/" + zoneChoisie, (stations) => {
+    fetchJsonData("api/stations-velo-libre-service/" + window.results.quartier, (stations) => {
         document.getElementById("bicloo-stations-zone").innerText = stations.length;
     });
-    fetchJsonData("api/disponibilites-bicloo/" + zoneChoisie, (dispos) => {
+    fetchJsonData("api/disponibilites-bicloo/" + window.results.quartier, (dispos) => {
         const sum = dispos.reduce((result,a)=> result+a.available_bikes, 0);
         document.getElementById("bicloo-velos-zone").innerText = sum;
     });
@@ -143,7 +143,8 @@ registerSlide("info-choix-transports", function () {
     fetchJsonData("api/arrets-tan", (arrets) => {
         document.getElementById("commun-arrets").innerText = arrets.length;
     });
-    fetchJsonData("api/arrets-tan/" + zoneChoisie, (arrets) => {
+    fetchJsonData("api/arrets-tan/" + window.results.quartier, (arrets) => {
+        console.log(arrets.filter(a => a.parent_station == undefined));
         document.getElementById("commun-arrets-zone").innerText = arrets.length;
     });
 });

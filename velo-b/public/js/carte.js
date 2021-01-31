@@ -29,7 +29,6 @@ registerSlide("page-carte", function () {
                 if (this.id === disabledZone)
                     return;
 
-                window.zoneChoisie = this.id;
                 goToNextSlide(this.id);
             });
     });

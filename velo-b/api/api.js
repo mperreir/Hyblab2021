@@ -32,14 +32,16 @@ module.exports = () => {
     // création d'une app express
     const app = express();
 
-    // routes depuis les fichiers json
-    app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
+    // routes depuis les fichiers json (avec position)
     app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier'])));
-    app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
     app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier'])));
     app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier'])));
     app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier']).filter(a => a.parent_station == undefined)));
     app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier'])));
+
+    // routes depuis les fichiers json
+    app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
+    app.get('/amenagements-cyclables/:quartier?', JsonRoute((req) => getLocalJSONData('amenagements-cyclables.json', req.params['quartier'])));
     app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('tarifs-bicloo.json')));
 
     // routes depuis l'api de nantes metropole
@@ -104,6 +106,7 @@ module.exports = () => {
             }
             // save temporaire
             if(o.fileName === 'arrets-tan.json'){
+                Object.keys(data).forEach(k => data[k] = data[k].filter(a => a.parent_station === undefined));
                 liste_arrets = data;
                 // skip to next for value
                 continue;
@@ -116,7 +119,12 @@ module.exports = () => {
         }
         // for each key get the value and map it to add bicloo_near
         Object.keys(liste_arrets).forEach(k => {
-            liste_arrets[k].map(ar => ar.bicloo_near = IsBiclooNear(ar, liste_bicloo));
+            liste_arrets[k].map(ar => {
+                ar.bicloo_near = IsBiclooNear(ar, liste_bicloo);
+                ar.location = ar.stop_coordinates;
+                delete ar.stop_coordinates;
+                return ar;
+            });
         })
         fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
         res.status(200).send('Done');
@@ -157,7 +165,7 @@ module.exports = () => {
         data.map(d => d.desc = generateDescription(d, fileName))
     }
     function generateDescription(data, fileName){
-        let desc = "néant";
+        let desc = "Pas de description";
         if(fileName === "abris-velo.json" && data.nom && data.adresse && data.descriptif && data.conditions)
             desc = data.nom+" - "+data.adresse+"\n"+data.descriptif+"\n"+data.conditions;
         if(fileName === "arrets-tan.json" && data.stop_name && data.bicloo_near)
