@@ -23,6 +23,12 @@ registerSlide("question-garer-velo", function () {
     button( '#ic-sauvage-velo', 'sauvage');
 });
 
+
+registerSlide("question-transports-bicloo", function () {
+    button( '#ic-oui-transport-bicloo', 'oui');
+    button( '#ic-non-transport-bicloo', 'non');
+});
+
 let button = function (idbutton, choice) {
     d3.select(idbutton).on('click', function () {
         overrideAnim({
