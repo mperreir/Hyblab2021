@@ -2,9 +2,9 @@
 
 /**
  * ==============================================
- * 
+ *
  *           CHOIX LEGENDE -> LEGENDE
- * 
+ *
  * ==============================================
  */
 
@@ -13,16 +13,18 @@
  * @param {number} idLegende the id of the selected legend.
  */
 function selectLegende(idLegende){
-	if(idLegende > 0) loadRessources('legende', {
+	if(idLegende > 0) router.loadRessources('legende', {
+		department: router.data.department,
+		personnage: router.data.personnage,
 		legende: idLegende
 	}, 1);
 }
 
 /**
  * ==============================================
- * 
+ *
  *           CHOIX DEP -> CHOIX PERSO
- * 
+ *
  * ==============================================
  */
 
@@ -32,7 +34,7 @@ function selectLegende(idLegende){
  */
 function selectDepartment(codeDep){
 	let id = getID(codeDep);
-	if(id > 0) loadRessources('personnages', {
+	if(id > 0) router.loadRessources('personnages', {
 		department: id
 	}, 1);
 }

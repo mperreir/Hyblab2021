@@ -7,11 +7,12 @@
 persosBox = document.getElementsByClassName('personnages')[0];
 codeDep = getCodeDepartement();
 
+
 /**
  * The main function in ASYNC.
  */
 (async () => {
-	updateAriane(2, deps.get(codeDep).nomDepartement, 'catégorie');
+	updateAriane(2, deps.get(router.data.department).nomDepartement, 'catégorie');
     // Retrieve data from the API
     await getTypesId(r => categories = r);
     // Sort the data
@@ -29,8 +30,8 @@ codeDep = getCodeDepartement();
         let imagePerso = document.createElement('p');
         imagePerso.id = formatC;
         imagePerso.addEventListener('click', () => {
-            loadRessources('departement', {
-                department: codeDep,
+            router.loadRessources('departement', {
+                department: router.data.department,
                 personnage: c.id
             }, 3);
         });

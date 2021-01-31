@@ -8,7 +8,7 @@ function show(id_div, resource, fond) {
 	step.style.opacity = 1;
 	if(resource && fond){ 
 		step.classList.add('active');
-		step.onclick = () => loadRessources(resource, {}, fond);
+		step.onclick = () => router.loadRessources(resource, router.data, fond);
 	}
 }
 
