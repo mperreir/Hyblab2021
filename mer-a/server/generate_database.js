@@ -25,6 +25,11 @@ var countIdCat = 1;
 var countIdLeg = 1;
 var depList = [];
 var catList = [];
+var depFrontiereMer = [
+                    { dep: 'Finistère', mer: 'left' },
+                    { dep: 'Morbihan', mer: 'bottom' },
+                    { dep: 'Côte d’Armor & Ille-et-Villaine', mer: 'top'},
+                    ]
 var personnages = { data: [{cat: 'Créatures Fantastiques',
                             //nom: 'Armelle',
                             phrasePerso: 'Les créatures et leurs contes fantastiques',
@@ -53,7 +58,8 @@ getPerso: (cat) => {
   // SQL query to create the Departement table
   var sqlDepartement = `CREATE TABLE IF NOT EXISTS Departement (
     id INT PRIMARY KEY,
-    nomDepartement VARCHAR(50) NOT NULL
+    nomDepartement VARCHAR(50) NOT NULL,
+    frontiereMer VARCHAR(6) NOT NULL
   );`;
 
   // SQL query to create the Categorie table
@@ -106,15 +112,17 @@ getPerso: (cat) => {
     .on('data', (row) => {
       var sql = '';
       if(!depList.includes(row.departement)) {
+        // Insertion into Departement
         db.run(`INSERT INTO Departement VALUES (            
           ${row.numero_dep}, 
-          '${(encodeURI(row.departement)).replace(/'/g, "`")}');\n`);
+          '${(encodeURI(row.departement)).replace(/'/g, "`")}',
+          '${depFrontiereMer.find((obj) => obj.dep === row.departement).mer}');\n`);
         depList.push(row.departement);
-        //countIdDep++;
       }
       
       if(!catList.includes(row.categorie)) {
         let catPerso = personnages.getPerso(row.categorie);
+        // Insersion into Categorie
         db.run(`INSERT INTO Categorie VALUES (
           ${countIdCat}, 
           '${(encodeURI(row.categorie)).replace(/'/g, "`")}',
@@ -126,6 +134,7 @@ getPerso: (cat) => {
         countIdCat++;
       }
       
+      // Insertion into Legende
       sql = `INSERT INTO Legende VALUES (
           ${countIdLeg},
           '${(encodeURI(row.nom)).replace(/'/g, "`")}',

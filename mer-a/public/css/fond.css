@@ -23,13 +23,6 @@ div#content {
 	height: 100%;
 }
 
-div#change {
-	position: absolute;
-	top: calc(3.5vh + 20px);
-  right: 1vh;
-  margin: 0;
-}
-
 /*==============
 	= Personnage =
 	==============*/
@@ -59,10 +52,6 @@ div#change {
   width: 100%;
   height: 100%;
 	background-image: url("/mer-a/assets/img/mer.png");
-}
-
-#scene1 {
-	display: block;
 }
 
 #scene2 {

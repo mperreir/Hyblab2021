@@ -44,9 +44,9 @@ const validStrokeOpacity = 1;
 const invalidStrokeOpacity = 0.1;
 
 //Strokes
-const validStrokeWidth = '2px';
-const invalidStrokeWidth = '10px';
-const hoveredStrokeWidth = '3px';
+const validStrokeWidth = '1px';
+const invalidStrokeWidth = '8px';
+const hoveredStrokeWidth = '2px';
 
 /**
  * Variables definition
@@ -65,9 +65,6 @@ let mapFusion = null;
 /**
  * Constants definition
  */
-
-const narrationFontSize = window.innerHeight*0.023;
-const padding = window.innerHeight*0.008;
 
 const circlesSize = 14;
 const circlesSizeHovered = 20;

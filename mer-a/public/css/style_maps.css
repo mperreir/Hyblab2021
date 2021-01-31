@@ -31,7 +31,7 @@ div#character{
 	height: 50vh;
 	position: fixed;
 	right: 2vw;
-	top: 50vh;
+	bottom: 1vh;
 }
 /* Animation des vagues */
 
@@ -166,11 +166,10 @@ a.legend_button:active {
 .indication {
   position: absolute;
   width: 33vw;
-  bottom: 5vh;
-  left: 5vw;
+  bottom: 3vh;
+  left: 3vw;
   font-size: 1.2vw;
   padding: 1%;
-  text-transform: uppercase;
   font-weight: bold;
 }
 

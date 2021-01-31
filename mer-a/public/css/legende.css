@@ -32,16 +32,19 @@ div#legende {
 
 div#bubble {
 	display: block;
-	height: 100%;
-	max-height: 50vh;
-	width: 80%;
-	padding: 5%;
-	background: lightblue;
-	border-radius: 20px;
-	text-align: center;
-	font-size: 1.7vh;
-	text-overflow: ellipsis;
-	overflow: auto;
+    height: 100%;
+    color: #7D7FBC;
+    max-height: 50vh;
+    width: 80%;
+    padding: 5%;
+    line-height: 170%;
+    background: white;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: #7d7fbc 0px 0px 200px;
+    font-size: 1.7vh;
+    text-overflow: ellipsis;
+    overflow: auto;
 }
 
 /* width */
@@ -121,6 +124,11 @@ div#information #modal-content {
 	color: #FFF !important;
 }
 
+#cross-quit{
+	padding: 0px !important;
+	line-height: 3vh !important;
+}
+
 /* Ligne 2 */
 #title-legende {
 	grid-area: title-legende;
@@ -155,8 +163,10 @@ div#services {
 }
 
 .logos {
-	width: 40px;
-	height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
 }
 
 .info-span {

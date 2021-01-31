@@ -2,7 +2,9 @@
 
 class Narrator {
 
-	static defaultSpeed = 45; // 0 : instant ; 1000 : every second.
+	defaultSpeed = 45; // 0 : instant ; 1000 : every second.
+	fontSize = window.innerHeight*0.023;
+	padding = window.innerHeight*0.008;
 
 	constructor(boxElement, textElement, passButton, speed, customElements, customIntervals, customProperties) {
 		this.html = {
@@ -42,7 +44,7 @@ class Narrator {
 
 	load(customNbRows, paramsRows) {
 		let nbRows = customNbRows ? customNbRows(paramsRows) : this.getNbRows();
-		let height = narrationFontSize * 1.65 * nbRows + padding * 2;
+		let height = this.fontSize * 1.65 * nbRows + this.padding * 2;
 		this.html.box.style.height = `${height}px`;
 		this.html.box.style.top = `-${height}px`;
 	}
@@ -51,7 +53,7 @@ class Narrator {
 	 * Fonction that display a text char by char.
 	 */
 	start() {
-		this.animation.intervals.narration = setInterval(this.#narrate, this.animation.speed, this);
+		this.animation.intervals.narration = setInterval(this.narrate, this.animation.speed, this);
 		this.html.pass.style.display = 'block';
 	}
 
@@ -59,13 +61,13 @@ class Narrator {
 	 * Fonction that display a text char by char.
 	 */
 	getNbRows() {
-		return this.animation.text.length / (this.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
+		return this.animation.text.length / (this.html.box.offsetWidth / (this.fontSize*0.6)) + 1;
 	}
 
 	/**
 	 * Fonction that display a text char by char.
 	 */
-	#narrate(narrator) {
+	narrate(narrator) {
 		if(!narrator) narrator = this;
 		narrator.html.text.innerHTML += narrator.animation.text[narrator.animation.index];
 		narrator.animation.index++;
@@ -121,28 +123,28 @@ function loadCharacter() {
  * ======================================
  */
 
-function loadBaseTextNarration() {
+function loadBaseTextNarration(narrator) {
 	narrator.reset();
 
 	narrator.html.custom.title.style.display = 'none';
 
 	narrator.setText(narrator.properties.baseText);
 	narrator.load();
-	narrator.start();
+	narrator.html.text.innerHTML = narrator.animation.text;
 }
 
 /**
  * Function that initialize and load the narration of the legend with the corresponding id.
- * @param {number} id	the id of the legend to #narrate.
+ * @param {number} id	the id of the legend to narrate.
  */
-function loadLegendNarration(id) {
+function loadLegendNarration(narrator, id) {
 	narrator.reset();
 
 	let legende = getLegende(id);
 	narrator.html.custom.title.style.display = 'block';
 	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
 
-	let nbRows = narrator.getNbRows() + (narrator.html.custom.title.innerHTML.length) / (narrator.html.box.offsetWidth / (narrationFontSize*0.6)) + 1;
+	let nbRows = narrator.getNbRows() + (narrator.html.custom.title.innerHTML.length) / (narrator.html.box.offsetWidth / (narrator.fontSize*0.6)) + 1;
 	narrator.setText(legende.resume);
 	narrator.load(() => {
 			return nbRows;

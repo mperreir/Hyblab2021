@@ -87,27 +87,27 @@ function leave(codeDep,t){
  * Function that handle the hover event of the circles.
  * @param {object} t		the hovered element.
  */
-function hoverDot(t){
+function hoverDot(t, narrator){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", circlesSizeHovered)
 		.style('cursor','pointer')
 		.style("fill-opacity", circlesHoveredOpacity);
-	loadLegendNarration(parseInt(t.getAttribute('lbl-legende-id')));
+	loadLegendNarration(narrator, parseInt(t.getAttribute('lbl-legende-id')));
 }
 
 /**
  * Function that handle the leave event of the circles.
  * @param {object} t		the hovered element.
  */
-function leaveDot(t){
+function leaveDot(t, narrator){
 	d3.select(t)
 		.transition().duration(350)
 		.attr("r", circlesSize)
 		.style('cursor','initial')
 		.style("fill-opacity", circlesOpacity);
 	//legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
-	narrator.animation.intervals.custom.timeout = setInterval(loadBaseTextNarration, 2000);
+	narrator.animation.intervals.custom.timeout = setInterval(loadBaseTextNarration, 2000, narrator);
 }
 
 /**
@@ -126,7 +126,7 @@ function leaveDot(t){
  * The function that generate the map and loads the legends.
  * @param {object} mapData the JSON object that contains the paths and data of the map.
  */
-function generateDep(mapData){
+function generateDep(mapData, narrator){
 
 	//Definition of the SVG dimensions
 	var width = window.innerWidth;
@@ -141,6 +141,22 @@ function generateDep(mapData){
 
 	// Place le centre de la map
 	var center = d3.geoCentroid(map);
+	var seaBorder = d3.geoBounds(map);
+	switch(deps.get(router.data.department).frontiereMer) {
+		case 'top':
+			center = [center[0], seaBorder[1][1]];
+			break;
+		case 'right':
+			seaBorder = [seaBorder[1][0], center[1]];
+			break;
+		case 'bottom':
+			seaBorder = [center[0], seaBorder[0][1]];
+			break;
+		case 'left':
+			seaBorder = [seaBorder[0][0], center[1]];
+			break;
+	}
+	console.log(center);
 
 	// Projection des longitudes et latitudes
 	var projection = d3.geoMercator()
@@ -178,11 +194,11 @@ function generateDep(mapData){
 			.attr("stroke-width", circlesStrokeWidth)
 			.attr("fill-opacity", circlesOpacity)
 			.on('mouseover', function(d){
-				hoverDot(this);
+				hoverDot(this, narrator);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
 			})
 			.on('mouseleave', function(d){
-				leaveDot(this);
+				leaveDot(this, narrator);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
 			.on('click', d => selectLegende(parseInt(d.id)));

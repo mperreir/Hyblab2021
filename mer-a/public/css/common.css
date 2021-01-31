@@ -78,7 +78,7 @@
 
 .loader {
   border: 16px solid rgb(55, 159, 154); /* Light grey */
-  border-top: 16px solid #9e81e2; /* Blue */
+  border-top: 16px solid white; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -90,11 +90,33 @@
   100% { transform: rotate(360deg); }
 }
 
-#audio_control {
-  position: fixed;
+div#audio_control {
+  position: absolute;
   top: 1vh;
   right: 1vh;
   z-index: 1001;
   margin: 0;
   display: none;
+}
+
+div#change {
+	position: absolute;
+	top: calc(3.5vh + 20px);
+  right: 1vh;
+  margin: 0;
+}
+
+.inactive {
+  cursor: pointer;
+}
+
+div#go-back {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  display: none;
+}
+
+p{
+  margin-bottom: 0 !important; 
 }
