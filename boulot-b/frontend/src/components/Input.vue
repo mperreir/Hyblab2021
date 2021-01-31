@@ -24,7 +24,7 @@ $yellow: #ffdb27;
 .input {
   border-radius: 20px;
   background-color: $yellow;
-  padding: 20px 20px;
+  padding: 10px;
   max-width: 400px;
   width:40%;
 }

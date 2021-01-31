@@ -183,33 +183,31 @@ export default {
     flex: 0 1 auto;
     align-self: auto;
   }
-
-  #nuage1 {
+  #nuage1, #nuage2, #nuage3, #nuage4, #nuage5 {
     position: absolute;
+    z-index: -1;
+  }
+  #nuage1 {
     top: 60%;
     left: -6%;
     width: 25%;
   }
   #nuage2 {
-    position: absolute;
     top: 55%;
     left: 20%;
     width: 8%;
   }
   #nuage3 {
-    position: absolute;
     top: 30%;
     right: 10%;
     width: 15%;
   }
   #nuage4 {
-    position: absolute;
     bottom: 8%;
     right: -12%;
     width: 50%;
   }
   #nuage5 {
-    position: absolute;
     bottom: -6%;
     left: 25%;
     width: 15%;
@@ -221,18 +219,17 @@ export default {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #ffdb27;
-    font-size: 20px;
-    width: 37%;
+    width: 35%;
   }
 
   .depart-result-list {
     @extend .result-list;
-    top: 50px;
+    top: 30px;
     z-index: 101;
   }
   .arrivee-result-list {
     @extend .result-list;
-    top: 160px;
+    top: 120px;
     z-index: 100;
   }
 

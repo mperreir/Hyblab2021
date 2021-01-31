@@ -77,21 +77,21 @@ export default {
 </script>
 
 <style scoped>
-
+#nuage1, #nuage2, #nuage3 {
+  position: absolute;
+  z-index: -1;
+}
   #nuage1 {
-    position: absolute;
     top: 40%;
     left: -6%;
     width: 25%;
   }
   #nuage2 {
-    position: absolute;
     top: 35%;
     left: 20%;
     width: 8%;
   }
   #nuage3 {
-    position: absolute;
     bottom: 15%;
     right: -12%;
     width: 35%;

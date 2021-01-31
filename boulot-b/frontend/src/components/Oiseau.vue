@@ -1,11 +1,11 @@
 <template>
-  <div >
-    <transition name="fade" mode="out-in">
-      <div class="bubble" :key="msg">
+  <div class="flex-container" >
+      <transition name="fade" mode="out-in">
+        <div class="bubble" :key="msg">
           <p class="text" >{{msg}} </p>
-      </div>
-    </transition>
-    <div @click="tellJoke" id="wazo-anim"  > </div>
+        </div>
+      </transition>
+      <div @click="tellJoke" id="wazo-anim"  > </div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import {Humeur, Themes} from "@/store";
 import canariVanilla from "../assets/animationJson/wazo_vanilla_gauche.json";
 import canariCulture from "../assets/animationJson/wazo_culture.json";
 import canariSport from "../assets/animationJson/wazo_sport";
-import canariCultureSport from "../assets/animationJson/wazo_culture_sport.json";
+import canariSportCulture from "../assets/animationJson/wazo_culture_sport.json";
 import canariSportNature from "../assets/animationJson/wazo_sport_nature.json";
 import canariNature from "../assets/animationJson/wazo_nature.json";
 import jokes from '@/assets/joke.json'
@@ -44,6 +44,28 @@ function answer(Joke, ans) {
   }
 }
 
+function bonneHumeurFactory(theme) {
+  if (theme === Themes.NATURE)
+    return canariSportNature
+  if (theme === Themes.CULTURE)
+    return canariSportCulture
+  return canariSport
+}
+
+function mauvaiseHumeurFactory(theme) {
+  if( theme === Themes.NATURE )
+    return canariNature
+  if (theme === Themes.CULTURE )
+    return canariCulture
+  return canariVanilla
+}
+
+function animFactory(humeur, theme) {
+  if(humeur === Humeur.OUI || humeur === Humeur.PLUTOT )
+    return bonneHumeurFactory(theme)
+  return mauvaiseHumeurFactory(theme)
+}
+
 
 export default {
   name: "Oiseau",
@@ -56,28 +78,8 @@ export default {
   data() {
     const choixhumeur =this.$root.$data.state.choice.humeur;
     const choixtheme = this.$root.$data.state.choice.theme;
-    let animm;
-    if(choixhumeur === Humeur.OUI || choixhumeur === Humeur.PLUTOT ){
-      if( choixtheme === Themes.NATURE ){
-          animm = canariSportNature
-      }
-      else if (choixtheme === Themes.CULTURE ){
-          animm = canariCultureSport
-      } else {
-          animm = canariSport
-      }
-    } else {
-        if( choixtheme === Themes.NATURE ){
-          animm = canariNature
-      }
-      else if (choixtheme === Themes.CULTURE ){
-          animm = canariCulture
-      }else{
-          animm = canariVanilla
-      }
-    }
     return {
-      animm,
+      animm: animFactory(choixhumeur, choixtheme),
       msg : this.message,
       joke: new Joke()
     }
@@ -117,7 +119,7 @@ export default {
 
   .text {
     font-family: Poppins,serif;
-    font-size: 1.2em;
+    font-size: 1em;
     font-style: normal;
     font-weight: 600;
     letter-spacing: 0;
@@ -126,7 +128,7 @@ export default {
 
 
   #wazo-anim {
-    width: 300px;
+    width: 30%;
   }
   #wazo-anim:hover {
     opacity: 0.5;
@@ -138,7 +140,7 @@ export default {
     color:#fff;
     padding:5px 15px;
     border-radius: 50px;
-    width:350px;
+    width:300px;
   }
 
   .bubble::after{
@@ -149,6 +151,16 @@ export default {
     margin-left: 150px;
     position: absolute;
   }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+  }
+
 
 </style>
 

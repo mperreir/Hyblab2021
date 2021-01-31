@@ -1,10 +1,10 @@
 <template>
     <div id="img_container">
-        <img class="hide" id="tower" src="@/assets/tower.png" alt="tower">
+        <img class="hide" id="tower" src="@/assets/tower.svg" alt="tower">
         <img class="hide" id="first_tree" src="@/assets/tree2.png" alt="tree">
-        <img class="hide" id="yellow_house" src="@/assets/yellow_house.png" alt="yellow house">
-        <img class="hide" id="white_house" src="@/assets/white_house.png" alt="white house">
-        <img class="hide" id="blue_house" src="@/assets/blue_house.png" alt="blue house">
+        <img class="hide" id="yellow_house" src="@/assets/yellow_house.svg" alt="yellow house">
+        <img class="hide" id="white_house" src="@/assets/white_house.svg" alt="white house">
+        <img class="hide" id="blue_house" src="@/assets/blue_house.svg" alt="blue house">
         <img class="hide" id="second_tree" src="@/assets/tree.png" alt="tree">
     </div>
 </template>
@@ -61,30 +61,40 @@
 </script>
 
 <style scoped>
-  .hide {
+    .hide {
         display: none;
     }
+
+    #first_tree, #second_tree, #tower, #yellow_house, #white_house, #blue_house {
+        position: absolute;
+        bottom: -1%;
+    }
     #first_tree {
-        position: relative;
-        left: 5%;
+        width: 30%;
+        left: -8%;
     }
     #second_tree {
-        position: relative;
-        left: -10%;
+        width: 34%;
+        right: -17%;
     }
     #tower {
-        position: relative;
-        left: 7%;
-        bottom: 3%;
+      width: 10%;
+        left: 15%;
         z-index: -1;
     }
+    #yellow_house {
+        width: 15%;
+        right: 22%;
+        z-index: 1;
+    }
     #white_house {
-        position: relative;
-        left: -3%;
+      width: 10%;
+      right: 12%;
+      z-index: 0;
     }
     #blue_house {
-        position: relative;
-        left: -5%;
+      width: 8%;
+        right: 3%;
     }
     .bounceInDown {
         display: inline;

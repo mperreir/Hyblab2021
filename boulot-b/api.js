@@ -3,11 +3,18 @@
 
 
 //%%%%%%%%%%%%%%%%%%%%% Les fonctions utilitaires%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+let HttpsProxyAgent = require( 'https-proxy-agent' );
+
+let options = {
+    //agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+};
+
 // fetch Asynchrone
 const fetch = require('node-fetch');
 
  async function fetchAsync (url) {
-    let response = await fetch(url);
+    let response = await fetch(url, options);
     let data = await response.json();
     return data;
 }
@@ -156,7 +163,8 @@ async function getAll(req,res){
             let randN = getRandomInt(0, listNature.length)
 
             let P_nature1 = listNature[randN]
-            let P_nature = extractUtilsValue(P_nature1)
+            let P_nature = extractUtilsValue(P_nature1);
+            P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
             P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
             list_POI.push({"Nature": P_nature})
             break;
@@ -166,6 +174,7 @@ async function getAll(req,res){
 
             let P_culture1 = listCulture[randC]
             let P_culture = extractUtilsValue(P_culture1)
+            P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
             P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
             list_POI.push({"Culture": P_culture})
             break;

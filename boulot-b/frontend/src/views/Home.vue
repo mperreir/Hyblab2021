@@ -28,9 +28,8 @@ export default {
     };
   },
   mounted: function () {
-    const wazzo = document.getElementById("wazzo");
-    wazzo.style.display = "none";
     const audio = new Audio(sonCanari);
+    audio.volume = 0.4;
     const { logo, canari, video } = this.loadAnim();
     video.play();
     video.addEventListener("complete", () => {
@@ -47,7 +46,6 @@ export default {
       const canariCome = document.getElementById("canari-come");
       canariCome.classList.add("fade");
       canariCome.addEventListener("transitionend", () => {
-        wazzo.style.display = "block";
         this.$router.push({ name: "questionnaire" });
       });
     });
