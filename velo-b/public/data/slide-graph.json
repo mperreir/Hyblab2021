@@ -40,6 +40,15 @@
   "info-choix-transports": {
     "next": {
       "ok": "choix-transport-transports"
+    },
+    "question-voiture-transport": {
+      "ok": "page-arrivee-stats"
+    },
+    "question-velo-autres-transports": {
+      "ok": "page-arrivee-stats"
+    },
+    "question-bicloo-autres-transports": {
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-velo": {
@@ -54,6 +63,12 @@
   "info-choix-velo": {
     "next": {
       "ok": "choix-transport-velo"
+    },
+    "question-transports-velo": {
+      "ok": "page-arrivee-stats"
+    },
+    "question-voiture-velo": {
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-bicloo": {
@@ -68,6 +83,12 @@
   "info-choix-bicloo": {
     "next": {
       "ok": "choix-transport-bicloo"
+    },
+    "question-transports-bicloo": {
+      "ok": "page-arrivee-stats"
+    },
+    "question-voiture-bicloo": {
+      "ok": "page-arrivee-stats"
     }
   },
   "choix-transport-voiture": {
@@ -86,64 +107,69 @@
   },
   "question-transports-velo": {
     "next": {
-      "oui": "choix-transport-velo",
+      "oui": "info-choix-velo",
       "non": "question-transports-bicloo"
     }
   },
   "question-transports-bicloo": {
     "next": {
-      "oui": "choix-transport-bicloo",
-      "non": "page-finale"
+      "oui": "info-choix-bicloo",
+      "non": "page-arrivee"
     }
   },
   "question-velo-autres-transports": {
     "next": {
-      "oui": "choix-transport-transports",
+      "oui": "info-choix-transports",
       "non": "question-garer-velo"
     }
   },
   "question-bicloo-autres-transports": {
     "next": {
-      "oui": "choix-transport-transports",
+      "oui": "info-choix-transports",
       "non": "question-garer-velo"
     }
   },
   "question-garer-velo": {
     "next": {
       "consigne": "info-abonnements-consignes",
-      "sauvage": "page-finale"
+      "sauvage": "page-arrivee"
     }
   },
   "question-voiture-velo": {
     "next": {
-      "oui": "choix-transport-velo",
+      "oui": "info-choix-velo",
       "non": "question-voiture-bicloo"
     }
   },
   "question-voiture-bicloo": {
     "next": {
-      "oui": "choix-transport-bicloo",
+      "oui": "info-choix-bicloo",
       "non": "question-voiture-transport"
     }
   },
   "question-voiture-transport": {
     "next": {
-      "oui": "choix-transport-transports",
+      "oui": "info-choix-transports",
       "non": "question-voiture-parking"
     }
   },
   "question-voiture-parking": {
     "next": {
-      "gratuit": "page-finale",
-      "payant": "page-finale"
+      "gratuit": "page-arrivee",
+      "payant": "page-arrivee"
     }
   },
   "info-abonnements-consignes": {
     "next": {
-      "ok": "page-finale"
+      "ok": "page-arrivee-stats"
     }
   },
-  "page-finale": {
+  "page-arrivee": {
+    "next": {
+      "continuer": "page-arrivee-stats"
+    }
+  },
+  "page-arrivee-stats": {
     "next": {
       "rejouer": "page-accueil",
       "credit": "page-credit"
@@ -151,7 +177,7 @@
   },
   "page-credit": {
     "next": {
-      "retour": "page-finale"
+      "retour": "page-arrivee-stats"
     }
   }
 }

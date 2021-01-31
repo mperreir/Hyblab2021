@@ -5,6 +5,7 @@ window.slideGraph = {};
 window.zoneChoisie = null;
 window.vehiculeChoisi = null;
 window.currentSlide = null;
+window.lastSlide = null;
 
 // Chargement du graphe des slides.
 d3.json('data/slide-graph.json').then(slides => {
@@ -24,7 +25,8 @@ function goToNextSlide(choice) {
     const current = window.slideGraph[window.currentSlide];
     if (!current) alert(`La slide ${window.currentSlide} (actuelle) n'existe pas !`);
 
-    const next = current.next[choice];
+    const links = current[window.lastSlide] || current.next;
+    const next = links[choice];
     if (!current) alert(`Le choix ${choice} n'est pas disponible pour la slide ${window.currentSlide}`);
 
     goToSlide(next);
@@ -36,6 +38,8 @@ function goToSlide(name) {
     name = name.match(/#?(.*)/)[1]; // Remove hashtag.
     mySlidr.slide(name);
     d3.select("#debug-text").text(name);
+
+    window.lastSlide = window.currentSlide;
     window.currentSlide = name;
 
     try {

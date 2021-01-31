@@ -103,7 +103,7 @@ body {
 
 /* dernier slide sur fond blanc */
 
-section[data-slidr="page-finale"] {
+section[data-slidr="page-arrivee-stats"] {
     background-color: white;
 }
 

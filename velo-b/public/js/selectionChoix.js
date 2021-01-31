@@ -47,7 +47,11 @@ registerSlide("question-transports-bicloo", function () {
     button( '#ic-non-transport-bicloo', 'non');
 });
 
-registerSlide("page-finale", function () {
+registerSlide("page-arrivee", function () {
+    button( '#page-arrivee-continue', 'continuer');
+});
+
+registerSlide("page-arrivee-stats", function () {
     button( '#ic-rejouer-finale', 'rejouer');
     button( '#ic-credit-finale', 'credit');
     progressBar('#pb-ecol',75);

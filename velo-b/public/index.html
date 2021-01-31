@@ -24,8 +24,7 @@
     <script src="js/globals.js" defer></script>
     <script src="js/splashscreen.js" defer></script>
     <script src="js/progressBar.js" defer></script>
-    <script src="js/slide1.js" defer></script>
-    <script src="js/slide2.js" defer></script>
+    <script src="js/accueil.js" defer></script>
     <script src="js/carte.js" defer></script>
     <script src="js/choix.js" defer></script>
     <script src="js/infosChoix.js" defer></script>
@@ -46,7 +45,7 @@
             <section data-slidr="page-accueil" hidden>
 
                 <div class="z-10" id="background">
-                    <img class="w-screen h-screen" src="assets/homepage.svg"/>
+                    <img class="w-screen" src="assets/homepage.svg"/>
                 </div>
 
                 <div id="for-the-love-of-god-be-centered" class="z-20">
@@ -363,7 +362,7 @@
             <section data-slidr="question-transports-bicloo"
                 style="background: url(assets/cheminTransport/fondBicloo.svg) no-repeat center" hidden>
                 <img src="assets/cheminTransport/bulle-info-bicloo.svg" class="absolute inset-0 w-1/2 mt-5 mx-auto"
-                    id="ic-bulle-info-garer" alt="Bulle info"></img>
+                    id="ic-bulle-info-bicloo" alt="Bulle info"></img>
 
                 <div class="relative inset-y-1/3 flex justify-center content-center">
                     <img src="assets/cheminVelo/oui.svg" class="image-button w-2/12 mx-10" id="ic-oui-transport-bicloo"
@@ -373,7 +372,11 @@
                 </div>
             </section>
 
-
+            <section data-slidr="page-arrivee"
+                style="background: url(assets/arrivee/background-arrivee.svg) no-repeat center" 
+                hidden
+                id="page-arrivee-continue">
+            </section>
 
 
 
@@ -525,7 +528,7 @@
                 </div>
             </section>
 
-            <section data-slidr="page-finale" class="grid content-center"
+            <section data-slidr="page-arrivee-stats" class="grid content-center"
                      style="background: url(assets/finale/finale.svg) no-repeat center" hidden>
 
                 <aside class="stats-aside justify-self-end">
