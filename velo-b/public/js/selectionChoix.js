@@ -38,8 +38,12 @@ registerSlide("question-garer-velo", function () {
     button( '#ic-sauvage-velo', 'sauvage');
 });
 
-registerSlide("info-abonnements-consignes", function () {
+registerSlide("info-abonnements-consignes", async function () {
     button( '#ic-abonnements-consignes', 'ok');
+    const request = await fetch('api/abris-velo', {method: 'GET'});
+    const data = await request.json();
+    const placeStationnementLD = data.reduce((acc, val) => acc + val.capacite, 0);
+
 });
 
 registerSlide("question-transports-bicloo", function () {
