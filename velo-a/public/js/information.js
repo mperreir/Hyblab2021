@@ -5,7 +5,7 @@ import { getTraficData } from "./modules/roadMonitoring.js";
 import { slide } from "./modules/background.js";
 
 async function bootstrap() {
-	slide(velos, backgroundContinue, ["pane", "question_velo", "question_trajet"]);
+	slide(velos, backgroundContinue, ["question_pane", "question_velo", "question_trajet"]);
 	togglePath();
 }
 
@@ -167,9 +167,12 @@ function sleep(callback, time) {
 }
 
 function backgroundContinue(el, slides, plus) {
-	el.parentElement.setAttribute("class", "hide");
+	let parent = el.parentElement;
+	if (parent.id === "pane")
+		parent = parent.parentElement;
+	parent.setAttribute("class", "hide");
 	if (plus)
-		document.getElementById(slides[slides.indexOf(el.parentElement.id) + 1]).setAttribute("class", "show");
+		document.getElementById(slides[slides.indexOf(parent.id) + 1]).setAttribute("class", "show");
 	else
-		document.getElementById(slides[slides.indexOf(el.parentElement.id) - 1]).setAttribute("class", "show");
+		document.getElementById(slides[slides.indexOf(parent.id) - 1]).setAttribute("class", "show");
 }

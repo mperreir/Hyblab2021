@@ -44,7 +44,6 @@
 #question_trajet {
 	display: flex;
 	width: 100%;
-	height: 50%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
@@ -59,8 +58,9 @@
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	align-items: flex-start;
+	align-items: center;
 	bottom: 50%;
+	top: 200px;
 }
 
 #velos {
@@ -130,4 +130,72 @@
 	/*when navigating through the items using the arrow keys:*/
 	background-color: #F96D48 !important;
 	color: #ffffff;
+}
+
+#question_trajet > * {
+	margin-top: 20px;
+}
+.mascotte {
+	position: absolute;
+	left: 0;
+}
+
+.mascotte > p {
+	font-size: x-large;
+	background: white;
+	border-radius: 25px;
+	padding: 20px 40px;
+	position: absolute;
+	width: 70%;
+	text-align: center;
+
+}
+
+#question_velo > .mascotte{
+	top: -200px;
+}
+
+
+#question_pane > .mascotte > p{
+	left: 20px;
+}
+
+#question_velo > .mascotte > p{
+	right: -275px;
+	bottom: 0;
+}
+
+#question_trajet > .mascotte > p{
+	top: -150px;
+	left: 20px;
+}
+
+#question_pane > .mascotte > p::after{
+	content:"";
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid white;
+	position: absolute;
+	top: -20px;
+	left: 20px;
+}
+
+#question_velo > .mascotte > p::after{
+	content:"";
+	border-bottom: 20px solid transparent;
+	border-top: 20px solid transparent;
+	border-right: 40px solid white;
+	position: absolute;
+	top: 10px;
+	left: -20px;
+}
+
+#question_trajet > .mascotte > p::after{
+	content:"";
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid white;
+	position: absolute;
+	bottom: -20px;
+	left: 20px;
 }
