@@ -5,18 +5,11 @@ import { getMeteo } from "./modules/meteo.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
 
-	const { alerts, hourly, daily } = await getMeteo();
-	const meteoHeure = hourly[0];
+	const [meteo, airQuality] = await Promise.all([getMeteo(), getAirQuality()]);
+	const { alerts, hourly, daily } = meteo;
+
+	const { temp: temperature, weather, pop, feels_like } = hourly[0];
 	const { sunrise, sunset } = daily[0];
-
-	console.log(alerts, meteoHeure);
-
-	// - Un t-shirt; des lunettes de soleil; de la crème solaire; une
-	// 		casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un
-	// 		vêtement de pluie (en + avec la pluie)
-
-	//	N’oublie surtout pas ton casque et pense à un antivol pour
-	// 		protéger ton vélo.
 
 	const fluiditeTrajet = localStorage.getItem("fluiditeTrajet");
 	const distanceTrajet = localStorage.getItem("distanceTrajet");
@@ -24,18 +17,69 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	const heureArrive = new Date(Date.now() + dureeTrajet * 1000);
 
+	////////////// Instructions début //////////////
+
+	let textInstructions = "";
+	// - Un t-shirt; des lunettes de soleil; de la crème solaire; une
+	// 		casquette (chaud) - Un bonnet; des gants; une écharpe (Froid) - Une veste; un pull (ensolleilé) <br><br> - Un
+	// 		vêtement de pluie (en + avec la pluie)
+
+	if (temperature > 20) {
+		textInstructions += "Un t-shirt; des lunettes de soleil; de la crème solaire. ";
+	}
+
+	const pluie = weather && weather.some(e => e.description.includes("pluie"));
+
+	if (pluie)
+		textInstructions += "Un vêtement de pluie. ";
+
+
 	if (Date.now() / 1000 < sunrise)
-		console.log("N'oublie pas de prendre tes lampes de vélo !");
-	if (heureArrive / 1000 > sunset - 600)
-		console.log("N'oublie pas de prendre tes lampes de vélo !");
+			textInstructions += "Il semblerait que tu partes de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
+		else if (heureArrive / 1000 > sunset - 600)
+			textInstructions += "Il semblerait que tu rentres de nuit, pense à prendre le nécessaire pour être visible sur la route. ";
 
-	document.getElementById("traffic").innerText = `- Fuidité du traffic : ${fluiditeTrajet} \n` +
-		`- DistanceTrajet : ${(distanceTrajet / 1000).toFixed(2)}km \n` +
-		`- Durée trajet : ${Math.round(dureeTrajet / 60)} minutes \n` +
-		`- En partant maintenant nous arriverez à ${heureArrive.toLocaleTimeString("fr-FR")}`;
-//		- La route est dégagée, à fond les pédales - Bouchons sur ton trajet, gardes-en sous la pédale
+	if (localStorage.getItem("velo") === "bicloo")
+		textInstructions += "N’oublie surtout pas ton casque. "
+	else
+		textInstructions += "N’oublie surtout pas ton casque et pense à un antivol pour protéger ton vélo. "
 
-	const airQuality = await getAirQuality();
+	document.getElementById("instruction").innerText = textInstructions;
+
+	////////////// Météo //////////////
+
+	let textMeteo = "";
+
+	textMeteo += `- Température : ${temperature}°C \n` +
+		`- Température ressentie : ${feels_like}°C \n`;
+
+	if (pop) {
+		textMeteo += `- Probabilité de précipitation : ${pop * 100}% \n`;
+	}
+	if (weather && weather.length > 0) {
+		textMeteo += `- Météo sur la prochaine heure : \n`;
+		weather.forEach(e => {
+			textMeteo += `  - ${e.description}\n`;
+		});
+	}
+
+	document.getElementById("meteo").innerText = textMeteo;
+
+	////////////// Trafic //////////////
+
+	let textTraffic = "";
+	if (fluiditeTrajet === "Fluide")
+		textTraffic += "- La route est dégagée, à fond les pédales !\n"
+	else
+		textTraffic += "- Bouchons sur ton trajet, gardes-en sous la pédale !\n"
+
+	textTraffic += `- Distance du trajet : ${(distanceTrajet / 1000).toFixed(2)}km \n` +
+		`- Durée du trajet : ${Math.round(dureeTrajet / 60)} minutes \n` +
+		`- En partant maintenant vous arriverez à ${heureArrive.toLocaleTimeString("fr-FR")}`;
+
+	document.getElementById("traffic").innerText = textTraffic;
+
+	////////////// Qualité de l'air //////////////
 
 	let textQualiteAir = "";
 	switch (airQuality) {
@@ -65,17 +109,18 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 	document.getElementById("qualiteAir").innerText = textQualiteAir;
 
+	////////////// Message fin //////////////
 
 	let messageFin;
 
-	if (false) {
-		messageFin = "Fais attention aux coups de soleil !"
-	} else if (false) {
-		messageFin = "Bon courage, tu vas en avoir besoin !"
-	} else if (false) {
-		messageFin = "Attention, ça va glisser !"
-	} else if (false) {
-		messageFin = "Garde la tête froide !"
+	if (false) { // Si soleil
+		messageFin = "C’est un temps idéal pour faire du vélo !"
+	} else if (false) { // Si pluie
+		messageFin = "Même s’il fait gris, prends ton vélo pour garder la pêche !"
+	} else if (false) { // Si verglas
+		messageFin = "Fais bien attention et ne prend pas de risque inconsidéré !"
+	} else if (false) { // Si froid
+		messageFin = "Un peu de vélo pour rester chaud !"
 	} else {
 		messageFin = "Sur ce, bonne route !"
 	}

@@ -221,7 +221,7 @@ function load(page) {
 			buttonSuivant.innerText = "C'est la fin, good job !";
 
 			buttonSuivant.addEventListener("click", () => {
-				document.location.href = "app.html";
+				document.location.href = "starterPack.html";
 			}, { once: true });
 
 			break;
