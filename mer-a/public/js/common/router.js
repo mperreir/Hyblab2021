@@ -46,7 +46,6 @@ class Router {
       this.changeFond(idFond);
       $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow');
     });
-    console.log(data);
     this.data = data;
     if(path !== 'accueil') {
       this.saveData(path, data, idFond);
