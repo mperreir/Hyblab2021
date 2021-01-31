@@ -22,8 +22,9 @@ async function adresses_autocompletion(adresse, num) {
                 positions[num - 1] = button.value;
             }
             else {
-                $('#adresseModal').modal('show');
-                $('#adresseModal').find('.modal-body').text("L'adresse choisie est en dehors de l'agglomération nantaise veuillez en sélectionner une autre.");
+                $('#modal').modal('show');
+                $('#modal').find('.modal-title').text("Problème d'adresse");
+                $('#modal').find('.modal-body').text("L'adresse choisie est en dehors de l'agglomération nantaise veuillez en sélectionner une autre.");
                 document.getElementById("adresse" + num).value = "";
             }
             list.innerHTML = "";
@@ -37,8 +38,9 @@ function adresses_validation() {
     if (positions[0] == "" || positions[1] == "") {
         document.getElementById("adresses1").innerHTML = "";
         document.getElementById("adresses2").innerHTML = "";
-        $('#adresseModal').modal('show');
-        $('#adresseModal').find('.modal-body').text("Veuillez saisir deux adresses qui existent !");
+        $('#modal').modal('show');
+        $('#modal').find('.modal-title').text("Problème d'adresse");
+        $('#modal').find('.modal-body').text("Veuillez saisir deux adresses qui existent !");
         if (positions[0] == "") {
             document.getElementById("adresse1").value = "";
         }
