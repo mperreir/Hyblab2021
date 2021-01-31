@@ -29,4 +29,22 @@ equiv.set("Hopital", "amenity=hospital");
 equiv.set("Pâtisserie", "shop=pastry");
 equiv.set("Restaurant", "amenity=restaurant");
 
-export  default  equiv
+var moyenEquiv = new Map();
+moyenEquiv.set(0,"foot-walking");
+moyenEquiv.set(1, "foot-walking");
+moyenEquiv.set(2, "cycling-regular");
+moyenEquiv.set(3, "wheelchair");
+moyenEquiv.set(4, "foot-walking");
+moyenEquiv.set(5, "foot-walking");
+moyenEquiv.set(6, "foot-walking");
+
+var themeEquiv = new Map();
+themeEquiv.set(0,"default");
+themeEquiv.set(1, "fetard");
+themeEquiv.set(2, "sportif");
+themeEquiv.set(3, "gourmet");
+themeEquiv.set(4, "culture");
+themeEquiv.set(5, "famille");
+
+export default {equiv,moyenEquiv,themeEquiv}
+
