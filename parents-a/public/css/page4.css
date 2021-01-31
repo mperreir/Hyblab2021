@@ -1,6 +1,6 @@
+/* TU VEUX T'EN METTRE PLEIN LA VUE ? - PAGE 4 */
 section[data-sildr='page-4'] {
-    background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
-    transform: rotate(-180deg);
+    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
     height: 100%;
     width: 100%;
     text-align: center;
@@ -15,30 +15,40 @@ section[data-sildr='page-4'] {
 
 #texte-gauche-p4 {
     position: absolute;
-    width: 15%;
+    width: 14%;
     bottom: 24%;
     right: 54%;
 }
 
 #texte-droite-p4{
     position: absolute;
-    width: 17%;
+    width: 15%;
     bottom: 25%;
-    right: 29%;
+    right: 30%;
 }
 
 #bouton-gauche-p4 {
     position: absolute;
-    width: 22%;
-    bottom: 32%;
-    right: 51%;
+    width: 19%;
+    bottom: 33%;
+    right: 52%;
+    opacity: 0.7;
+}
+
+#bouton-gauche-p4:hover {
+    opacity: 1;
 }
 
 #bouton-droite-p4 {
     position: absolute;
-    width: 22%;
+    width: 20%;
     bottom: 32%;
-    right: 28%;
+    right: 29%;
+    opacity: 0.7;
+}
+
+#bouton-droite-p4:hover {
+    opacity: 1;
 }
 
 #question-p4 {
@@ -62,11 +72,25 @@ section[data-sildr='page-4'] {
     left: 0%;
 }
 
+#feuille-verte-p4:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 #petit-nuage-p4 {
     position: absolute;
     width: 20%;
     top: 16%;
     right: 76%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p4:hover {
+    transform: translateX(-30%);
 }
 
 #dune3-p4 {
@@ -77,14 +101,14 @@ section[data-sildr='page-4'] {
 
 #pelouse-gauche-p4 {
     position: absolute;
-    width: 35.7%;
+    width: 36.5%;
     bottom: 0%;
     left: 0%;
 }
 
 #pelouse-droite-p4 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     bottom: 0%;
     right: 0%;
 }
@@ -94,6 +118,7 @@ section[data-sildr='page-4'] {
     width: 25%;
     bottom: 9%;
     right: 1%;
+
 }
 
 #arbuste-bleu-petales-p4 {
@@ -101,4 +126,29 @@ section[data-sildr='page-4'] {
     width: 27%;
     bottom: 0%;
     right: 11%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbuste-bleu-petales-p4:hover {
+    transform: scale(0.9) translateY(5%);
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }

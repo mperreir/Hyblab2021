@@ -1,6 +1,6 @@
-/* VOTRE ENFANT EST-IL UN P'TIT AVENTURIER ? - PAGE 3 */
+/* EST-CE QUE T'ES UN P'TIT AVENTURIER ? - PAGE 3 */
 section[data-slidr="page-3"] {
-    background: linear-gradient(90.42deg, #6FB5EF 26.39%, #3391DE 82.69%);
+    background: linear-gradient(0deg, #6FB5EF, #6FB5EF);
     overflow: hidden;
 }
 
@@ -92,16 +92,6 @@ section[data-slidr="page-3"] {
 }
 
 #arbre-jaune-p3:hover {
-    /*transition: 0.70s;
-    -webkit-transition: 0.70s;
-    -moz-transition: 0.70s;
-    -ms-transition: 0.70s;
-    -o-transition: 0.70s;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg);*/
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
