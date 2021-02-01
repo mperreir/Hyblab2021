@@ -30,7 +30,7 @@ class ThemeSelector extends React.Component {
                         <div class="col">
                             <input type="radio" name="theme" id="sportif" class="input-hidden" onClick={() => { this.props.updateSelect(2) }}/>
                             <label htmlFor="sportif">
-                                <img src={sportif_img} alt="sportif" class="img_hte" onMouseEnter={e => e.target.src = sportif_gif} onMouseLeave={e => e.target.src = sportif_gif}/>
+                                <img src={sportif_img} alt="sportif" class="img_hte" onMouseEnter={e => e.target.src = sportif_gif} onMouseLeave={e => e.target.src = sportif_img}/>
                             </label>
                         </div>
 
