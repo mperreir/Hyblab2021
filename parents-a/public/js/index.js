@@ -66,13 +66,17 @@ let loadComponent = function(p) {
     });
 }
 
+let playSoundFlore = function () {
+    const s = new sound('sound/bruitFeuille.mp3', true, 0.2);
+    s.play();
+}
+
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
-
     d3.select('#logo').on('click', function() {
         const s = new sound('sound/back.mp3', true, 0.1);
-        s.play()
-            // make the element go to full-screen mode
+        s.play();
+        // make the element go to full-screen mode
         element.requestFullscreen()
             .then(function() {
                 // element has entered fullscreen mode successfully
@@ -82,12 +86,15 @@ let initSlide1 = function() {
             });
         loadComponent(2);
         nextSlide('1-1');
-
     });
 }
 
 //Slide de transi 
 let initSlide1_1 = function() {
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
 
     //Transi 1.2 vers 2(Camille)
     d3.select('#t').on('click', function() {
@@ -114,6 +121,10 @@ function appear(id) {
 let initSlide2 = function() {
     //Transi Camille to Pret a démarrer 
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
+
     d3.select('#button-p2').on('click', function() {
 
         //Disparition de la 1 bulle 
@@ -136,7 +147,6 @@ let initSlide2 = function() {
     d3.select('.button_retour').on('click', function() {
         nextSlide('1')
     });
-
 }
 
 //Age ?
@@ -173,8 +183,12 @@ let initSlide2_1 = function() {
 let initSlide3 = function() {
     /* Chargements des images des slides 4 et 7 */
     loadComponent('4');
-    loadComponent('7')
+    loadComponent('7');
         //Aventurier -> Plein la vue
+    
+    d3.selectAll('.arbre').on('mouseover', function() {
+            playSoundFlore();
+    });
     d3.select('#bouton-droite-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
         nextSlide('7', data);
@@ -224,8 +238,11 @@ let initSlide4 = function(db) {
 let initSlide5 = function(db) {
     /* Chargements des images des slides 9 et 10 */
     loadComponent('9');
-    loadComponent('10')
+    loadComponent('10');
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     //Plein la vue -> avec quoi 
     d3.select("#button-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -253,6 +270,10 @@ let initSlide5 = function(db) {
 let initSlide6 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#boutton-gauche-p6").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
@@ -302,7 +323,11 @@ let initSlide7 = function(db) {
 let initSlide8 = function(db) {
     /* Chargements des images des slides 6 et 10 */
     loadComponent('6');
-    loadComponent('10')
+    loadComponent('10');
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#bouton-gauche-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
@@ -323,6 +348,11 @@ let initSlide8 = function(db) {
 let initSlide9 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
+
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -374,6 +404,9 @@ let initSlide10 = function(db) {
     /* Chargements des images de la slide resultats */
     loadComponent('resultats');
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#sud-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
