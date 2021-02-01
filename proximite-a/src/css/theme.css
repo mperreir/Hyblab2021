@@ -95,3 +95,12 @@ h3 {
      transition: 400ms all;
 
 }
+
+#txttheme{
+    background-color: #C3C3FB;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+    margin: 10px 25px 10px 25px;
+    width: 500px;
+    text-align: center;
+}
