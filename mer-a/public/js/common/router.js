@@ -60,9 +60,9 @@ class Router {
         }
         this.fileAriane.updateAriane(
           path,
-          (getDepartement(this.data.department) !== undefined) ? getDepartement(this.data.department).nomDepartement : 'Département',
-          (getCategorie(this.data.personnage) !== undefined) ? getCategorie(this.data.personnage).nomCategorie : 'Guide',
-          (getLegende(this.data.legende) !== undefined) ? getLegende(this.data.legende).nom : 'Légende',
+          (path !== 'departements' && getDepartement(this.data.department) !== undefined) ? getDepartement(this.data.department).nomDepartement : 'Département',
+          (path !== 'personnages' && getCategorie(this.data.personnage) !== undefined) ? getCategorie(this.data.personnage).nomCategorie : 'Guide',
+          (path !== 'departement' && getLegende(this.data.legende) !== undefined) ? getLegende(this.data.legende).nom : 'Légende',
           'Histoire'
         );
       });
