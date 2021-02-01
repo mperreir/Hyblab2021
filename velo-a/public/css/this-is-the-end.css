@@ -107,6 +107,10 @@ li {
 	margin-right: 15px;
 }
 
+li:hover {
+	font-weight: bolder;
+}
+
 .citation {
 	display: flex;
 	flex-direction: row;
@@ -178,4 +182,19 @@ button {
 
 button {
 	font-family: 'Montserrat', sans-serif;
+}
+
+#logo_header:hover::before{
+	content: "";
+	background-image: url("../img/mascottes/styleMeteo/mascotte_Jul.svg");
+	height: 50px;
+}
+
+@keyframes bicky_jul {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(500%);
+	}
 }

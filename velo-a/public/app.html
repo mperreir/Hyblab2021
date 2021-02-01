@@ -16,9 +16,9 @@
 	<script defer src="js/app.js" type="module"></script>
 
 	<!-- Styles-->
-	<link href="css/app.css" rel="stylesheet"/>
 	<link href="css/style.css" rel="stylesheet"/>
 	<link href="css/composant.css" rel="stylesheet"/>
+	<link href="css/app.css" rel="stylesheet"/>
 
 	<script defer src="js/lib/prefixfree.js"></script>
 
@@ -42,7 +42,7 @@
 	</form>
 
 	<form action="starterPack.html">
-		<input class="button-slide" id="btn-recalculer" type="submit" value="Recalculer">
+		<input class="button-slide" id="btn-recalculer" type="submit" value="Recalculer"/>
 	</form>
 
 
@@ -57,20 +57,19 @@
 	<input id="monuments" name='monuments' type='checkbox' value='valuable'/>
 	<label for="monuments"></label>
 	Monuments
-	<div id="previsualisation-meteo">
-		<!-- TODO: prévisualisation météo-->
-	</div>
 </div>
 
 <div id="map"></div>
 
-<input class="button-slide button-return bottom-left-nav" onclick="document.location = 'starterPack.html'" type="submit"
-	   value="">
+<button class="button-slide button-return" type="submit" id="valider">
+	Valider
+</button>
+<div id="filtre_oops"></div>
+<div id="oops">
+	<img src="img/mascottes/styleMeteo/mascotte_alerte.svg" alt="Bicky alerte"/>
+	<p>Tu dois entrer un velotrajet pour valider !</p>
 
-<div class="bottom-right-nav-container">
-	<form action="this-is-the-end.html" id="form-veli-fin">
-		<input class="button-slide" id="btn-veli-fin" type="submit" value="C'est la Véli Fin">
-	</form>
+	<button id="oops_ok" class="button-slide" type="button">Ok</button>
 </div>
 
 </body>

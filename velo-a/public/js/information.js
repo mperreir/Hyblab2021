@@ -15,7 +15,6 @@ function bootstrap() {
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 
-	console.log(localStorage.getItem("adresseDepart"), localStorage.getItem("adresseArrivee"))
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
 
@@ -23,13 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
 
 	document.getElementById("validerTrajet").addEventListener("click", event => {
-		Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
-			el.setAttribute("disabled", "true");
-		});
+
 		const adresseDepart = localStorage.getItem("adresseDepartCoord");
 		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
 
 		if (!adresseDepart || !adresseArrivee) return;
+
+		Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+			el.setAttribute("disabled", "true");
+		});
 
 		fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${adresseDepart};${adresseArrivee}?steps=true&access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw`)
 			.then(res => res.json())

@@ -157,3 +157,53 @@ input[type=checkbox]:checked + label {
 .geocoder-pin-right {
 	visibility: hidden;
 }
+
+.button-return {
+	left: unset;
+	right: 2%;
+	background-image: none;
+}
+
+.button-return:hover {
+	background-image: none;
+}
+
+#oops {
+	z-index: 100;
+	display: none;
+	text-align: center;
+	border: 2px solid #F96D48;
+	border-radius: 3em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 50%;
+	width: 25em;
+	background-color: white;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#oops p {
+	color: black;
+}
+
+#oops img {
+	height: 50%;
+}
+
+#oops button {
+	width: 20%;
+}
+
+#filtre_oops {
+	position: absolute;
+	display: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
