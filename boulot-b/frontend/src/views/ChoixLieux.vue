@@ -59,11 +59,13 @@ export default {
   methods : {
     next() {
       this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
-      this.$root.$data.setActif(this.actif +1)
       this.$root.$data.setLieux({pharmacie: this.pharmacie,
-                                boulangerie: this.boulangerie,
-                                bar: this.bar, 
-                                salleDeSport: this.salleDeSport})
+        boulangerie: this.boulangerie,
+        bar: this.bar,
+        salleDeSport: this.salleDeSport})
+      setTimeout(() => {
+        this.$root.$data.setActif(this.actif +1)
+      }, 2500)
     },
     checkPharmacie() {
       this.pharmacie = !this.pharmacie;

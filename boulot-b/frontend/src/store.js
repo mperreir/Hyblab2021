@@ -64,8 +64,8 @@ const Humeur = Object.freeze({
 })
 
 const TypeDeplacement = Object.freeze({
-    VELO: "velo",
-    PIED: "pied"
+    VELO: "bicycle",
+    PIED: "pedestrian"
 })
 
 const Styles = Object.freeze({
