@@ -197,7 +197,15 @@ function generateDep(mapData, narrator){
 				hoverDot(this, narrator);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
 			})
+			.on('touchstart', function(d) {
+				hoverDot(this, narrator);
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
+			})
 			.on('mouseleave', function(d){
+				leaveDot(this, narrator);
+				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
+			})
+			.on('touchend', function(d) {
 				leaveDot(this, narrator);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})

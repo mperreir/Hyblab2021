@@ -118,5 +118,12 @@ div#go-back {
 }
 
 p{
-  margin-bottom: 0 !important; 
+  margin-bottom: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  div#audio_control {
+    top: 12.5%;
+    padding: 4px 8px;
+  }
 }
