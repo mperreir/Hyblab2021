@@ -63,10 +63,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 		textMeteo += `- Probabilité de précipitation : ${pop * 100}% \n`;
 	}
 	if (weather && weather.length > 0) {
-		textMeteo += `- Météo de la prochaine heure : \n`;
-		weather.forEach(e => {
-			textMeteo += `- ${e.description}\n`;
+		textMeteo += `- Météo de la prochaine heure : `;
+		weather.forEach((e, i, l) => {
+			textMeteo += `${e.description}`;
+			if (l.length-1 !== i)
+				textMeteo += ",";
 		});
+		textMeteo += "\n";
 	}
 
 	document.getElementById("meteo").innerText = textMeteo;

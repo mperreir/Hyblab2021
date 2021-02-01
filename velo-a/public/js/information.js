@@ -49,8 +49,10 @@ window.addEventListener('DOMContentLoaded', () => {
 				const { steps, distance, duration } = routes.routes[0]["legs"][0];
 				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
 
-				getTraficData({ roadNames, distance, duration });
-				document.getElementById("validerTrajet").dispatchEvent(new Event('dblclick'));
+				getTraficData({ roadNames, distance, duration }).then(() => {
+					document.location = 'starterPack.html';
+
+				});
 			})
 			.catch(err => {
 			});
