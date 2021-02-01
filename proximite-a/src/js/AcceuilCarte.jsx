@@ -1,5 +1,5 @@
 import React from 'react';
-import {MapContainer, TileLayer, Marker, Popup, Polygon} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, Polygon, Polyline} from 'react-leaflet'
 import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
@@ -8,10 +8,10 @@ import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMulti
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
 import equivalent from './equivalent.js'
-import { Polyline } from 'leaflet';
 const decallageCentrageCarte = 0.004;
 const decallageMarqueur = 0.0005;
-
+const redOptions = { color: '#37ff42' }
+const pupleOption = { color: '#8356db' }
 
 function GetIcon(type, _iconsize, theme){
     switch (type) {
@@ -33,6 +33,7 @@ function GetIcon(type, _iconsize, theme){
             break
     }
 }
+
 
 
 
@@ -79,18 +80,35 @@ class AcceuilCarte extends  React.Component {
     };
 
     generateItineraire = (dest) => {
-        fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
+        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
+        .then(itineraire=> itineraire.json())
+
         .then(itineraire => {
-            this.setState({itineraire});
+            let newA=[];
+            itineraire.forEach((l) => {
+                newA.push([l[1],l[0]])
+            });
+            this.setState({itineraire:newA});
         })
     };
 
+    getPolyne = () => {
+        if(typeof this.state.itineraire !== 'undefined' && this.state.itineraire.length > 0){
+            return <Polyline positions={[this.state.itineraire]} pathOptions={redOptions}/>
+        }
+    }
+
+    getPolygone = () => {
+        if(typeof this.state.perimetre !== 'undefined' && this.state.perimetre.length > 0){
+            return <Polygon positions={this.state.perimetre} pathOptions={pupleOption} />
+        }
+    }
 
     render() {
-        console.log("render Acceil")
+        console.log("state recu:")
         console.log(this.state)
         const {nomPers} = this.props;
-        const redOptions = { color: '#999999' }
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
@@ -100,12 +118,18 @@ class AcceuilCarte extends  React.Component {
                         return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
                             <Popup>
                                 <b>{e.titre}</b>
+                                <br/>
+                                {e.adresse}
                                 <hr/>
-                                <input type="button" class="btn btn-primary" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                                <input type="button" class="btn btnValidatePurpleBackground" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
                             </Popup>
                         </Marker>
                     }) }
                     <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+
+                    {this.getPolygone()}
+                    {this.getPolyne()}
+
                 </MapContainer>
 
                 <PopupAnnonce/>
@@ -118,5 +142,8 @@ class AcceuilCarte extends  React.Component {
             </div>
         );
     }
+
+
+
 }
 export default AcceuilCarte;

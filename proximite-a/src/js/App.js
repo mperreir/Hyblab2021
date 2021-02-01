@@ -92,7 +92,8 @@ class App extends  React.Component {
     };
 
     updateMoyen=(e)=>{
-        this.setState({moyenId:e})
+        this.setState({moyenId:e});
+
         this.generatePerimetre();
     };
 
@@ -101,9 +102,11 @@ class App extends  React.Component {
         fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
-                console.log(perimetre)
-                this.setState({perimetre:perimetre});
-                console.log(this.state.perimetre)
+                let abc=[];
+                perimetre[0].forEach((l) => {
+                    abc.push([l[1],l[0]])
+                });
+                this.setState({perimetre:abc});
                 this.createSites()
             })
     };
@@ -116,6 +119,7 @@ class App extends  React.Component {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
         let moyen = equivalent.moyenEquiv.get(this.state.moyenId)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
+
         let lieux = await (await fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
 
         let site1 = {
