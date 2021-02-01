@@ -13,11 +13,13 @@ import logoScience from '../img/logoaudenciasciencescom 1.png'
 import logoAgr from '../img/logo_agr_nantes_rennes_retina 1.png'
 import { useState } from 'react'
 
+import video from '../img/video-pageaccueil-fond blanc.mp4';
 class CereditPage extends React.Component {
     render() {
         const {getBack}=this.props
         return (
                 <div id="creditContainer" class="d-flex justify-content-end justify-content-end">
+                <video id="videoFond" src={video} role="presentation" muted autoPlay preload="auto" loop />
                     <div id="rightPartCredit" class="d-flex justify-content-center">
                         <button id="closeButton" type="button" class="btn-close" aria-label="Close" onClick={getBack}/>
                         <div id="rightPartCreditCenter">
