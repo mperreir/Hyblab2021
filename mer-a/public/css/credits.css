@@ -25,7 +25,7 @@
 	display: grid;
 	border-radius: 4vh;
 	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
-	grid-template-areas: 
+	grid-template-areas:
 	"haut-gauche haut-mid haut-droit"
 	"agr-a sc-a p-a"
 	"agr-b sc-b p-b"
@@ -44,15 +44,20 @@
 #relativ #logos{
 	grid-area: logo;
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	padding-left: 4vh;
+	padding-right: 4vh;
+	background-color: #CFE0EC;
+	border-radius: 0 0 4vh 4vh;
 }
 
 /* Définition du header */
 
 #relativ .head{
-	height: 8vh;	
+	height: 8vh;
 	background-color: #CFE0EC;
 }
 
@@ -71,7 +76,7 @@
 
 }
 
-/* Définition du body */ 
+/* Définition du body */
 
 #relativ .body{
 	color: white;
@@ -80,7 +85,7 @@
 	padding-bottom: 2vh;
 }
 
-/* AGR */ 
+/* AGR */
 
 #relativ .AGR1{
 	grid-area: agr-a;
@@ -104,7 +109,7 @@
 	grid-area: sc-b;
 }
 
-/* Polytech */ 
+/* Polytech */
 
 #relativ .P1{
 	grid-area: p-a;
@@ -134,7 +139,7 @@
 	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
 }
 
-/* Définition du footer */ 
+/* Définition du footer */
 #relativ .foot{
 	background-color: #CFE0EC;
 	height: 10vh;
@@ -143,13 +148,6 @@
 
 #relativ img{
 	margin: 0 auto;
-}
-
-#relativ #logos{
-	padding-left: 4vh;
-	padding-right: 4vh;
-	background-color: #CFE0EC; 
-	border-radius: 0 0 4vh 4vh;
 }
 
 /* Définition du tableau de sources */
@@ -175,12 +173,12 @@
 #relativ .head-sources{
 	font-weight: bold;
 	border-radius: 4vh 4vh 0 0;
-	height: 8vh;	
+	height: 8vh;
 	background-color: #CFE0EC;
 	padding-left: 3vw;
-	padding-top: 3vh; 
+	padding-top: 3vh;
 	padding-bottom: 3vh;
-}	
+}
 
 #relativ .haut-sources{
 	padding-top: 2.5vh !important;
@@ -216,18 +214,40 @@ a:active{
 
 @media only screen and (max-width: 768px) {
 
+#relativ {
+	font-size: 0.75rem;
+}
+
 #relativ .credits {
-	grid-template-columns: 5% 30% 30% 30fr 5fr;
-  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  gap: 0px 0px;
+	grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 17.5% 17.5% 17.5% 17.5% 30%;
+	width: 95%;
+	margin: 0 auto;
   grid-template-areas:
-    ". haut-gauche . . ."
-    ". agr-a agr-b agr-c ."
-    ". haut-mid . . ."
-    ". sc-a sc-b . ."
-    ". haut-droit . . ."
-    ". p-a p-b p-c ."
-    ". p-d p-e p-f ."
-    ". logo logo logo .";
+    "haut-gauche agr-a agr-b agr-c"
+    "haut-mid sc-a sc-b ."
+    "haut-droit p-a p-b p-c"
+    "p-d p-e p-f ."
+    "logo logo logo logo";
+	}
+
+	div.head img {
+		width: 90%;
+	}
+
+	div.head {
+		border-radius: 4vh 0 4vh 0 !important;
+	}
+
+	.AGR3 {
+		border-radius: 0 4vh 0 0;
+	}
+
+	div#logos div.foot {
+		height: 47.5%;
+	}
+
+	div.sources {
+		display: none !important;
 	}
 }

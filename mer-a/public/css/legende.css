@@ -321,4 +321,12 @@ div#filter {
 	div#infos {
 		margin-top: 5%;
 	}
+
+	div#label-home {
+		display: none;
+	}
+
+	#title-info, #logo {
+		display: none;
+	}
 }
