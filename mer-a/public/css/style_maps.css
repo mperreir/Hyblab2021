@@ -98,6 +98,7 @@ p.narration {
     border-radius: 25px;
 }
 
+
 div#character > p.narration {
   top: 0vh;
   width: 100%;
@@ -184,4 +185,28 @@ a.legend_button:active {
   /* aspect de l'arrière-plan */
   background-color: white;
   border-radius: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#department {
+    width: 100vw;
+    margin-bottom: 170%;
+    height: 60vh;
+	}
 }

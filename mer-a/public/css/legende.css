@@ -207,3 +207,39 @@ div#filter {
 	background-color: rgba(0,0,0,0.25);
 	z-index: 1 !important;
 }
+
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#bubble {
+		width: 100%;
+		height: 100%;
+		margin-right: 5%;
+	}
+
+	div#content {
+		grid-template-columns: 35% 65%;
+		grid-template-rows: 16.5% 12.5% 58.5% 12.5%;
+		grid-template-areas:
+		 ". ."
+		 "title title"
+		 ". legende"
+		 "credits info";
+	}
+}
+
