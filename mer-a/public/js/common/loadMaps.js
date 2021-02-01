@@ -15,9 +15,9 @@ class Map {
 	invalidStrokeOpacity = 0.1;
 
 	//Strokes
-	validStrokeWidth = '2px';
-	invalidStrokeWidth = '10px';
-	hoveredStrokeWidth = '3px';
+	validStrokeWidth = '1px';
+	invalidStrokeWidth = '8px';
+	hoveredStrokeWidth = '2px';
 
 	circlesSize = 14;
 	circlesSizeHovered = 20;

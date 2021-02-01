@@ -182,6 +182,7 @@ div#services {
 /* Ligne 4 */
 #label-home {
 	grid-area: label-home;
+	margin-bottom: 3vh;
 }
 
 #label-home p {

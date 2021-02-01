@@ -92,8 +92,8 @@
 
 div#audio_control {
   position: absolute;
-  top: 1vh;
-  right: 1vh;
+  top: 3vh;
+  right: 3vh;
   z-index: 1001;
   margin: 0;
   display: none;
