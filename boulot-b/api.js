@@ -55,9 +55,17 @@ function getRandomIntInclusive(min, max) {
 
 /** renvoie la liste des points d'interets */
 async function pointInteret(adresseDepart, adresseArriver, theme, transport){
+  
+/* debut */
+
+    // let depart = coordonneeD
+    // let arriver = coordoneeA
+
     
     let depart = await adresse2coord(adresseDepart)
     let arriver =  await adresse2coord(adresseArriver)
+
+/* fin */
 
     let milieu = [-1,-1]
     milieu[0] = (depart[0] + arriver[0])/2
@@ -121,12 +129,24 @@ function getStreetViewUrl(latitude,longitude){
 async function getAll(req,res){
     let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
     let arrivee = req.params.arrivee;//"7 rue george berthome nantes"
+
     let transport = req.params.transport;//"pedestrian"
     let style = req.params.style; // a voir comment le définir (parc/jardin)
     let sallesport = req.params.sallesport;
     let bar = req.params.bar;
     let boulangerie = req.params.boulangerie;
     let pharmacie = req.params.pharmacie;
+
+    /** =================debut de modifications=================================*/
+    // let origin = [-1,-1]
+    // let arrivee = [-1,-1]
+
+    // origin[0] = req.params.departX
+    // origin[1] = req.params.departY
+
+    // arrivee[0] = req.params.arriveeX
+    // arrivee[1] = req.params.arriveeY
+    /** ================= fin =================================*/
 
     /** tableau de coordonnee */ 
     let originCordinat = await adresse2coord(origin)
@@ -234,8 +254,8 @@ async function getAll(req,res){
 
     /** la reponse retourner */
     let reponseJSON = {
-        Depart : originCordinat,
-        Arrivee : arriveeCordinat,
+        Depart : originCordinat ,//origin,
+        Arrivee : arriveeCordinat,//arrivee,
         POI : list_POI
     };
 

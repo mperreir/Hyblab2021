@@ -20,7 +20,8 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+// app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+app.get('/trajet/:departX/:departY/:arriveeX/:arriveeY/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
 
 app.get('/getUrlImage/:imageName', (req, res) => getUrlImage(req, res));
 app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
