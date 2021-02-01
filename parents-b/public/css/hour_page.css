@@ -1,7 +1,4 @@
 /* ------------------------- Page Hour ---------------------------- */
-.sol-hour{
-    z-index: 3;
-}
 
 .page{
     position: absolute;
@@ -160,4 +157,3 @@
 .ariane-6-hour{
     top: 93%;
 }
-

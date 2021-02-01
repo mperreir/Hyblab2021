@@ -81,7 +81,7 @@
     top: 50%;
     left : 38%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .fleche_droite{
@@ -89,7 +89,7 @@
     top: 50%;
     left : 62%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .button_add{
@@ -97,7 +97,7 @@
     top: 62%;
     left : 50%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .bb{
@@ -105,14 +105,14 @@
     top: 28%;
     left : 10%;
     width: 6%;
-    z-index: 2;
+    z-index: 3;
 }
 .supp_bb{
     position: absolute;
     top: 26%;
     left : 14.5%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .nounours{
@@ -120,14 +120,14 @@
     top: 28%;
     left : 20%;
     width: 6%;
-    z-index: 2;
+    z-index: 3;
 }
 .supp_nounours{
     position: absolute;
     top: 26%;
     left : 24.5%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .lego{
@@ -135,7 +135,7 @@
     top: 46.5%;
     left : 10%;
     width: 6%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .supp_lego{
@@ -143,7 +143,7 @@
     top: 43%;
     left : 14.5%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .ballon{
@@ -151,7 +151,7 @@
     top: 45%;
     left : 20%;
     width: 6%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .supp_ballon{
@@ -159,7 +159,7 @@
     top: 43%;
     left : 24.5%;
     width: 3%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .button-suivant-age{
