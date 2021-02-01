@@ -154,6 +154,8 @@ div#information #modal-content > * {
 /* Ligne 3 */
 #text-legende {
 	grid-area: text-legende;
+	text-align: justify;
+	width: 90%;
 }
 
 #infos {
@@ -164,6 +166,7 @@ div#services {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-around;
+	margin-top: 5%;
 }
 
 .logos {

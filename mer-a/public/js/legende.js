@@ -12,6 +12,9 @@
 		document.querySelector('#modal-content').style.backgroundSize = 'cover';
 		document.querySelector('#title-legende h2').innerHTML = data.nom;
 		document.querySelector('#adresse').innerHTML = data.adresse;
+		document.querySelector('#website').innerHTML = data.site;
+		document.querySelector('#website').href = data.site;
+		document.querySelector('#text-legende').innerHTML = data.resume_lieu;
 		document.querySelector('#googlemaps').addEventListener('click', (event) => {
 			const url = `https://maps.google.com/?q=${data.latitude},${data.longitude}`;
 			window.open(url, '_blank');
