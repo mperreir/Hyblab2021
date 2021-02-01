@@ -193,6 +193,12 @@ header .logo {
 	box-sizing: border-box;
 	border-radius: 34px;
 	margin-bottom: 18px;
+
+	transition: all 0.3s;
+}
+
+.mapboxgl-ctrl-geocoder input[type='text']:hover {
+	border: 1px solid #F96D48;
 }
 
 .mapbox-directions-origin .mapbox-form-label, .mapbox-form-label, .mapbox-directions-inputs button {

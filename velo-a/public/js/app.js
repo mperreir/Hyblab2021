@@ -111,7 +111,7 @@ async function bootstrap() {
 	const veloType = localStorage.getItem("velo");
 	const butTrajet = localStorage.getItem("butTrajet");
 
-	if (!veloType || veloType !== "bicloo") {
+	if (!veloType || (veloType !== "bicloo" && butTrajet !== "bosser" && butTrajet !== "pioncer")) {
 		abrisVeloDisplayData().then(data => {
 			points(data);
 		});

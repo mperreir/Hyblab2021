@@ -12,24 +12,6 @@ async function bootstrap() {
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 
-	if (localStorage.getItem("butTrajet")) {
-		setTimeout(() => {
-			document.getElementById(localStorage.getItem("butTrajet"))
-				.dispatchEvent(new MouseEvent("click"));
-
-			if (localStorage.getItem("velo")) {
-				setTimeout(() => {
-
-					document.getElementById(localStorage.getItem("velo"))
-						.dispatchEvent(new MouseEvent("click"));
-				}, 2000);
-
-			}
-		}, 1000);
-	}
-
-
-
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
 
@@ -49,8 +31,10 @@ window.addEventListener('DOMContentLoaded', () => {
 				const { steps, distance, duration } = routes.routes[0]["legs"][0];
 				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
 
-				getTraficData({ roadNames, distance, duration });
-				document.getElementById("validerTrajet").dispatchEvent(new Event('dblclick'));
+				getTraficData({ roadNames, distance, duration }).then(() => {
+					document.location = 'starterPack.html';
+
+				});
 			})
 			.catch(err => {
 			});
