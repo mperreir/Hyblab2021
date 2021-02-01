@@ -41,11 +41,10 @@ for (let i = 0; i < PARCNUMBER; i++) {
 }
 
 let data = fs.readFileSync('parents-a/public/data/data.json');
-data = JSON.parse(data);
-keys = Object.keys(data);
+data = JSON.parse(data.toString('utf-8'));
+let keys = Object.keys(data);
 keys.forEach(key => {
     Object.keys(data[key]).forEach(id => parcs[id].addAttribute(key, data[key][id]));
 });
 
 fs.writeFileSync('parents-a/public/data/formatedData.json', JSON.stringify(parcs));
-
