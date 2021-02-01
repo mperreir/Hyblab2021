@@ -387,7 +387,8 @@ let initSlide10 = function(db) {
 let initSlideResultat = function(db) {
     /* Chargements des images de la slide credits */
     loadComponent('credits');
-    const charts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
+    const charts = ['chart', 'chart1', 'chart2', 'chart3'];
+    const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -418,6 +419,8 @@ let initSlideResultat = function(db) {
         d3.select('#parc2-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
         podium[1] = podium[podium.length - 1];
         chooseimage(podium, div2);
+        clearElement(charts);
+        addCanvas(charts, myCharts);
         new radar(podium[0], podium[1], podium[2]);
     });
     d3.select('#random1').on('click', () => {
@@ -429,6 +432,7 @@ let initSlideResultat = function(db) {
         podium[2] = podium[podium.length - 1];
         chooseimage(podium, div1);
         clearElement(charts);
+        addCanvas(charts, myCharts);
         new radar(podium[0], podium[1], podium[2]);
     });
     d3.select('#random3').on('click', () => {
@@ -439,6 +443,8 @@ let initSlideResultat = function(db) {
         d3.select('#parc3-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
         podium[0] = podium[podium.length - 1];
         chooseimage(podium, div3);
+        clearElement(charts);
+        addCanvas(charts, myCharts);
         new radar(podium[0], podium[1], podium[2]);
     });
     let podium = [data[0], data[1], data[2]]
@@ -688,6 +694,14 @@ function sound(src, loop) {
 
 function clearElement(list) {
     list.forEach(p => document.getElementById(p).innerHTML = '');
+}
+
+function addCanvas(containers, childs) {
+    for (let i = 0; i < containers.length; i++) {
+        const myChart = document.createElement('canvas');
+        myChart.id = childs[i];
+        document.getElementById(containers[i]).appendChild(myChart);
+    }
 }
 
 initSlide1();
