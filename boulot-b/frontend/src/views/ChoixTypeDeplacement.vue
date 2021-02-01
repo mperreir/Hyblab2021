@@ -53,7 +53,7 @@ export default {
       this.$root.$data.setActif(this.actif +1)
     },
     nextVelo() {
-      this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
+      this.message = "Super ! En selle !"
      const velo= document.getElementById("velo-anim");
      const audio = new Audio(sonVelo);
      audio.volume=0.2;
@@ -65,7 +65,7 @@ export default {
       });
     },
     nextPied() {
-      this.message = "Super ! Sais-tu que tu as économisé .... en Co2 ? La planète te remercie"
+      this.message = "Super ! "
       document.getElementById("pied-anim").style.display = "block";
       this.pied.play()
       this.pied.addEventListener("complete", () => {

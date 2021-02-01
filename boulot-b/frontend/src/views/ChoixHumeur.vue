@@ -52,7 +52,7 @@ export default {
     },
     plutot() {
       this.$root.$data.setHumeur(Humeur.PLUTOT)
-      this.message = "Super, on est partit !";
+      this.message = "Super, on est partis !";
       this.next();
     },
     bof() {

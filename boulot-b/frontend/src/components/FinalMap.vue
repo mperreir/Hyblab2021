@@ -83,7 +83,7 @@ async function addRouteShapeToMap(route, map, origin, destination, stops){
     const polyline = new H.map.Polyline(linestring, {
       style: {
         lineWidth: 4,
-        strokeColor: 'rgba(255, 219, 39, 1)'
+        strokeColor: 'rgba(0, 0, 0, 1)'
       }
     });
     // Add the polyline to the map
