@@ -28,16 +28,10 @@ async function adresse2coord(adresse){
         departURI2 += element + '+'
     });
 
-/*     console.log('URI est :');
-    console.log(departURI2)
- */
     let departData = fetchAsync(departURI2)
     let departAsync = await departData.then(res=>{
         return res})
 
-/*     console.log('mon adresse est :');
-    console.log(departAsync.features[0].geometry.coordinates)
- */
     let coordonee = departAsync.features[0].geometry.coordinates;
 /*     console.log('les coordonnes sont :');
     console.log(coordonee) */
@@ -65,32 +59,19 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
     let depart = await adresse2coord(adresseDepart)
     let arriver =  await adresse2coord(adresseArriver)
 
-  /*   console.log('Le depart est :')
-    console.log(depart) */
-
-    let routeAPI = `https://router.hereapi.com/v8/routes?
-    alternatives=0&
-    origin=${depart[1]},${depart[0]}&
-    transportMode=pedestrian&
-    destination=${arriver[1]},${arriver[0]}&
-    return=polyline,summary,routeHandle&
-    apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4
-    `
+    let milieu = [-1,-1]
+    milieu[0] = (depart[0] + arriver[0])/2
+    milieu[1] = (depart[1] + arriver[1])/2
 
     /* console.log('la route API est :')
     console.log(routeAPI) */
 
-    let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=47.283234,-1.51707&transportMode=${transport}&destination=47.180037,-1.55536&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
-    // let routePolyline = await routePolylineAPI.then(res => {
-    //     console.log("le res est :")
-    //     console.log(res)
-    //     return res
-    // })
+    let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
 
     let routePolyline = routePolylineAPI.routes[0].sections[0].polyline
     // console.log(routePolyline)
 
-    let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=41.70035,-93.20866&limit=10&route=${routePolyline}&q=${theme}`
+    let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=${milieu[0]},${milieu[1]}&limit=10&route=${routePolyline}&q=${theme}`
     let pointInteretAPI = await fetchAsync(URI) 
 /*     console.log(pointInteretAPI) */
 
@@ -166,7 +147,8 @@ async function getAll(req,res){
             let P_nature = extractUtilsValue(P_nature1);
             P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
             P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
-            list_POI.push({"Nature": P_nature})
+            list_POI.push({"Nature": P_nature,
+                            "distance": P_nature.distance})
             break;
         case "culture":
             let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
@@ -176,7 +158,8 @@ async function getAll(req,res){
             let P_culture = extractUtilsValue(P_culture1)
             P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
             P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
-            list_POI.push({"Culture": P_culture})
+            list_POI.push({"Culture": P_culture,
+                            "distance": P_culture.distance})
             break;
 
         default :
@@ -187,7 +170,8 @@ async function getAll(req,res){
 
             let P_hasard1 = listHasard[randH]
             let P_hasard = extractUtilsValue(P_hasard1)
-            list_POI.push({"Hasard": P_hasard})
+            list_POI.push({"Hasard": P_hasard,
+                            "distance": P_hasard.distance})
     }
 
 
@@ -200,7 +184,8 @@ async function getAll(req,res){
         let P_boulangerie = extractUtilsValue(P_boulangerie1)
         P_boulangerie["description"] = "Hmm on dirait qu’une boulangerie se trouve sur ton trajet retour. Plutôt baguette, viennoiserie ou pâtisserie ?"
         P_boulangerie["streetView"] = getStreetViewUrl(P_boulangerie.coordonnees.lat,P_boulangerie.coordonnees.lng);
-        list_POI.push({"Boulangerie": P_boulangerie})
+        list_POI.push({"Boulangerie": P_boulangerie,
+                        "distance": P_boulangerie.distance})
     }
 
     /** SALLES SPORT */
@@ -212,7 +197,8 @@ async function getAll(req,res){
         let P_salle = extractUtilsValue(P_salle1)
         P_salle["description"] = "La salle de sport Basic Fit est sur ton chemin ! Une belle occasion de te défouler après ta journée."
         P_salle["streetView"] = getStreetViewUrl(P_salle.coordonnees.lat,P_salle.coordonnees.lng);
-        list_POI.push({"SalleSport": P_salle})
+        list_POI.push({"SalleSport": P_salle,
+                        "distance": P_salle.distance})
     }
 
      /** bar */
@@ -224,7 +210,8 @@ async function getAll(req,res){
         let P_bar = extractUtilsValue(P_bar1)
         P_bar["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
         P_bar["streetView"] = getStreetViewUrl(P_bar.coordonnees.lat,P_bar.coordonnees.lng);
-        list_POI.push({"Bar": P_bar})
+        list_POI.push({"Bar": P_bar,
+                    "distance": P_bar.distance})
     }
 
 
@@ -237,8 +224,13 @@ async function getAll(req,res){
         let P_pharmacie = extractUtilsValue(P_pharmacie1)
         P_pharmacie["description"] = "Tiens, au cas où tu en aurais besoin, une pharmacie se situe entre ton lieu de travail et ton domicile."
         P_pharmacie["streetView"] = getStreetViewUrl(P_pharmacie.coordonnees.lat,P_pharmacie.coordonnees.lng);
-        list_POI.push({"Pharmacie": P_pharmacie})
+        list_POI.push({"Pharmacie": P_pharmacie,
+                        "distance": P_pharmacie.distance})
     }
+
+    list_POI = list_POI.sort(function(a, b){
+        return a.distance-b.distance;
+    })
 
     /** la reponse retourner */
     let reponseJSON = {
