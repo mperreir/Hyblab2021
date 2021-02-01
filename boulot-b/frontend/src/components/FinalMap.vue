@@ -45,7 +45,10 @@ export default Vue.component("finalMap", {
 });
 
 async function createMap(platform, map, choices, data, divMap) {
-    const transportType = choices.typeDeplacement;
+  const provider = map.getBaseLayer().getProvider();
+  const style = new H.map.Style(origin + '/boulot-b/styles/normal.day.yaml');
+  provider.setStyle(style);
+  const transportType = choices.typeDeplacement;
     await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
 }
 
