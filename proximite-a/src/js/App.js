@@ -104,7 +104,7 @@ class App extends React.Component {
 
     generatePerimetre = (e) => {
         let moyenTransport = equivalent.moyenEquiv.get(e);
-       fetch(`/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+       fetch(`/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
                 let abc=[];
