@@ -1,12 +1,13 @@
 <template>
   <div id="map">
-    <div id="mapContainer" ref="mapCont"></div>
+    <div  id="mapContainer" ref="mapCont"></div>
   </div>
 </template>
 
 <script lang="js">
 import Vue from "vue";
 import {http} from "@/config"
+
 
 export default Vue.component("finalMap", {
   name: "finalMap",
@@ -33,8 +34,7 @@ export default Vue.component("finalMap", {
     console.log(choices.path)
     console.log(choices.path.depart)
     console.log(choices.path.arrivee)
-
-    await createMap(platform, map, choices);
+    await createMap(platform, map, choices)
     }
   },
   mounted: function () {
@@ -216,20 +216,11 @@ async function createIntermediaryIcon(namePOI) {
 </script>
 
 <style scoped>
-  #map {
-    display: flex;
-    position: relative;
-
-    left: 30%;
-    width: 900px;
-    height: 600px;
-  }
 
   #mapContainer {
     display: block;
     position: relative;
-
-    width: 700px;
+    width: 100%;
     height: 500px;
   }
 </style>

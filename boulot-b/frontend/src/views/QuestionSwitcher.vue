@@ -23,7 +23,7 @@ const Views = [
   {actif: 3, component: ChoixStyle},
   {actif: 4, component: ChoixTheme},
   {actif: 5, component: ChoixLieux},
-  {actif: 6, component: ShowMap}
+  {actif: 6, component: ShowMap},
 ]
 
 export default {
