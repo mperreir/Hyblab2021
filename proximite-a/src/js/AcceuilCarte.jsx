@@ -10,7 +10,8 @@ import {getPosition} from "leaflet/src/dom/DomUtil";
 import equivalent from './equivalent.js'
 const decallageCentrageCarte = 0.004;
 const decallageMarqueur = 0.0005;
-const redOptions = { color: '#00d66f' }
+const redOptions = { color: '#37ff42' }
+const pupleOption = { color: '#8356db' }
 
 function GetIcon(type, _iconsize, theme){
     switch (type) {
@@ -79,11 +80,11 @@ class AcceuilCarte extends  React.Component {
     };
 
     generateItineraire = (dest) => {
-        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        let moyenTransport = equivalent.moyenEquiv.get(this.state.moyenId);
         fetch(`http://localhost:8080/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
         .then(itineraire=> itineraire.json())
+
         .then(itineraire => {
-            console.log(itineraire)
             let newA=[];
             itineraire.forEach((l) => {
                 newA.push([l[1],l[0]])
@@ -100,12 +101,12 @@ class AcceuilCarte extends  React.Component {
 
     getPolygone = () => {
         if(typeof this.state.perimetre !== 'undefined' && this.state.perimetre.length > 0){
-            return <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+            return <Polygon positions={this.state.perimetre} pathOptions={pupleOption} />
         }
     }
 
     render() {
-        console.log("render Acceil")
+        console.log("state recu:")
         console.log(this.state)
         const {nomPers} = this.props;
         return (
@@ -117,12 +118,13 @@ class AcceuilCarte extends  React.Component {
                         return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0],(e.coordonnes[1])]}>
                             <Popup>
                                 <b>{e.titre}</b>
+                                <br/>
+                                {e.adresse}
                                 <hr/>
-                                <input type="button" class="btn btn-primary" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                                <input type="button" class="btn btnValidatePurpleBackground" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
                             </Popup>
                         </Marker>
                     }) }
-                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
                     {this.getPolygone()}
                     {this.getPolyne()}
                 </MapContainer>

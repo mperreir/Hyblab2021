@@ -99,22 +99,18 @@ class App extends React.Component {
 
     updateMoyen=(e)=>{
         this.setState({moyenId:e});
+        this.generatePerimetre(e);
+      };
 
-        this.generatePerimetre();
-    };
-
-    generatePerimetre = () => {
-        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
-        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+    generatePerimetre = (e) => {
+        let moyenTransport = equivalent.moyenEquiv.get(e);
+       fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
-                console.log(perimetre)
                 let abc=[];
                 perimetre[0].forEach((l) => {
-                    console.log(l)
                     abc.push([l[1],l[0]])
                 });
-                console.log(abc)
                 this.setState({perimetre:abc});
                 this.createSites()
             })
@@ -125,7 +121,7 @@ class App extends React.Component {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
         let moyen = equivalent.moyenEquiv.get(this.state.moyenId)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
-        console.log("appel de " + 'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme);
+
         let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
         console.log(lieux)
         let newSites = []
