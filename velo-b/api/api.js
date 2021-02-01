@@ -166,6 +166,11 @@ module.exports = () => {
             }
             if(r.geo_shape && r.geo_shape.coordinates !== undefined){
                 r.location = r.geo_shape.coordinates;
+                if(base_url === 'https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_gonfleurs-libre-service-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions&rows=-1'){
+                    const tmp = r.location[0];
+                    r.location[0] = r.location[1];
+                    r.location[1] = tmp;
+                }
                 delete r.geo_shape;
             }
             return r;

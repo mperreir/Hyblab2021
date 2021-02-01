@@ -72,6 +72,7 @@ let initMap = async function() {
     })
     .addTo(map);
 
+    /*
     let lat, lng;
     map.addEventListener('click', function(e) {
         lat = e.latlng.lat;
@@ -79,7 +80,7 @@ let initMap = async function() {
         console.log('event click:')
         console.log(lat,':',lng);
     });
-
+     */
     window.map = map;
 }
 
