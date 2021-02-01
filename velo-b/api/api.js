@@ -33,11 +33,11 @@ module.exports = () => {
     const app = express();
 
     // routes depuis les fichiers json (avec position)
-    app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier'])));
-    app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier'])));
-    app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier'])));
-    app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier']).filter(a => a.parent_station == undefined)));
-    app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier'])));
+    app.get('/abris-velo/:quartier?', JsonRoute((req) => getLocalJSONData('abris-velo.json', req.params['quartier']).filter(x => x.location !== undefined)));
+    app.get('/gonfleurs-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('gonfleurs-libre-service.json', req.params['quartier']).filter(x => x.location !== undefined)));
+    app.get('/stations-velo-libre-service/:quartier?', JsonRoute((req) => getLocalJSONData('stations-velo-libre-service.json', req.params['quartier']).filter(x => x.location !== undefined)));
+    app.get('/arrets-tan/:quartier?', JsonRoute((req) => getLocalJSONData('arrets-tan.json', req.params['quartier']).filter(x => x.parent_station === undefined && x.location !== undefined)));
+    app.get('/velocistes/:quartier?', JsonRoute((req) => getLocalJSONData('velocistes.json', req.params['quartier']).filter(x => x.location !== undefined)));
 
     // routes depuis les fichiers json
     app.get('/quartiers/:quartier', JsonRoute((req) => getLocalJSONData('quartiers.json', req.params['quartier'])));
@@ -45,9 +45,9 @@ module.exports = () => {
     app.get('/services-velos-bicloo/', JsonRoute(() => getLocalJSONData('tarifs-bicloo.json')));
 
     // routes depuis l'api de nantes metropole
-    app.get('/disponibilites-parcs-relais/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.parcs_relais, req.params['quartier'])));
-    app.get('/disponibilites-places-parking/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.places_parking, req.params['quartier'])));
-    app.get('/disponibilites-bicloo/:quartier?', JsonRoute((req) => fetchData(API_NANTES_ROUTES.disponibilites_bicloo, req.params['quartier'])));
+    app.get('/disponibilites-parcs-relais/:quartier?', JsonRoute(async (req) => (await fetchData(API_NANTES_ROUTES.parcs_relais, req.params['quartier'])).filter(x => x.location !== undefined)));
+    app.get('/disponibilites-places-parking/:quartier?', JsonRoute(async (req) => (await fetchData(API_NANTES_ROUTES.places_parking, req.params['quartier'])).filter(x => x.location !== undefined)));
+    app.get('/disponibilites-bicloo/:quartier?', JsonRoute(async (req) => (await fetchData(API_NANTES_ROUTES.disponibilites_bicloo, req.params['quartier']))));
 
     app.get('/update/', (req,res) => update(req, res));
 
@@ -83,7 +83,7 @@ module.exports = () => {
                 if(err.code){
                     err.code = err.code?err.code:500
                 }
-                res.status(err.code).send(JSON.stringify({error:err}));
+                res.status(err.code || 500).send(JSON.stringify({error:err}));
             }
         };
     }
@@ -159,7 +159,13 @@ module.exports = () => {
         } catch (e) {
             throw {message:"Une erreur inconnue est survenue.", code:500, error_content:e};
         }
-        let data = (await response.json()).records.map(r => r.fields)
+        let data = (await response.json()).records.map(r => r.fields).map(r => {
+            if(r.position !== undefined){
+                r.location = r.position;
+                delete r.position;
+            }
+            return r;
+        })
         if(Object.values(API_NANTES_ROUTES).includes(base_url)){
             addDescription(data, base_url);
         }
