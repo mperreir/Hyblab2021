@@ -199,7 +199,7 @@ let initSlide3 = function() {
     });
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide('2-1',data);
     });
 }
 
