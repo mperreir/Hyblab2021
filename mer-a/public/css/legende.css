@@ -84,10 +84,6 @@ div#credits {
 /*=======================
 	= Information (Modal) =
 	=======================*/
-div#information {
-	background-color: rgba(200,255,255,0.4);
-}
-
 div#information #modal-content {
 	min-height: 75vh;
 	color: #FFF;
@@ -206,6 +202,7 @@ div#filter {
     width: 100%;
     height: 100%;
     border-radius: 3.5vh;
-	backdrop-filter: brightness(0.7) blur(1px);
+	backdrop-filter: blur(1px);
+	background-color: rgba(0,0,0,0.25);
 	z-index: 1 !important;
 }
