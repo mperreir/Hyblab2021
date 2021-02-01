@@ -1,3 +1,3 @@
 module.exports = {
-    env: 'dev', // dev | prod
+    env: process.env.NODE_ENV || 'dev', // dev | prod
 }
