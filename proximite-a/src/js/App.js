@@ -93,13 +93,12 @@ class App extends  React.Component {
 
     updateMoyen=(e)=>{
         this.setState({moyenId:e});
+        this.generatePerimetre(e);
+      };
 
-        this.generatePerimetre();
-    };
-
-    generatePerimetre = () => {
-        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
-        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+    generatePerimetre = (e) => {
+        let moyenTransport = equivalent.moyenEquiv.get(e);
+       fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
                 let abc=[];
