@@ -62,11 +62,11 @@ section {
     cursor: pointer;
     outline: none;
     background-color: transparent;
-    opacity : 0.3 ;
+    opacity: 0.3;
 }
 
 .button:hover {
-   opacity : 1 ; 
+    opacity: 1;
 }
 
 
@@ -74,16 +74,18 @@ section {
 
 .button_retour {
     /* Position */
-    left : 9%;
+    left: 9%;
     cursor: pointer;
     border-radius: 5%;
     outline: none;
 }
 
-.home, .button_retour {
+.home,
+.button_retour {
     top: 5%;
     cursor: pointer;
 }
+
 .home {
     left: 3%;
 }
@@ -188,7 +190,7 @@ dessus de l'apect ratio 16/9 */
 
 #mute {
     position: absolute;
-    width: 4%;
+    width: 3%;
     top: 5.2%;
-    right: 72%;
+    right: 69%;
 }

@@ -1,7 +1,10 @@
 //Mon objet stockant mes données 
 let data = []
 let route = []
-    // init du slider (qui peut aussi faire des fondus enchainé)
+let soundBack;;
+
+
+// init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
     breadcrumbs: false,
     controls: 'none',
@@ -74,11 +77,21 @@ let playSoundEleph = function() {
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
     d3.select('#logo').on('click', function() {
-        const s = new sound('sound/back.mp3', true, 0.1);
-        s.play()
+        soundBack = new sound('sound/back.mp3', true, 0.1);
+        soundBack.play();
+        isPlayed = true;
+        muteBack();
         loadComponent(2);
         nextSlide('1-1');
     });
+}
+
+
+function muteBack() {
+    document.getElementById('mute').addEventListener('click', () => {
+        isPlayed === true ? soundBack.stop() : soundBack.play();
+        isPlayed = !isPlayed;
+    })
 }
 
 //Slide de transi 
@@ -163,7 +176,7 @@ let initSlide2_1 = function() {
 
     });
 
-
+    muteBack();
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function(e) {
         console.log(d3.event.target.id);
@@ -201,6 +214,8 @@ let initSlide3 = function() {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('2-1', data);
     });
+
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -229,8 +244,8 @@ let initSlide4 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -265,8 +280,8 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -296,8 +311,8 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -324,8 +339,8 @@ let initSlide7 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -356,8 +371,8 @@ let initSlide8 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -387,8 +402,8 @@ let initSlide9 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -461,7 +476,7 @@ let initSlide10 = function(db) {
         nextSlide('resultats', data);
         route.push('10');
     });
-    
+
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });

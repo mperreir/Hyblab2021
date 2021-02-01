@@ -53,7 +53,7 @@ module.exports = {
     },
 
     getParcBeauPaysage(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 40 && p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
+        return data.filter(p => p['Nb arbre formidable'] > 40 || p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
     },
 
     getParcAvecAnimaux(data) {
@@ -81,7 +81,7 @@ module.exports = {
 
 
     getDecouvrirArbre(d) {
-        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 3 )
+        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 3)
     },
 
 
@@ -91,18 +91,18 @@ module.exports = {
 
 
     getCentre(d) {
-        return d.filter(p => p['Code postal'] === 44000 )
+        return d.filter(p => p['Code postal'] === 44000)
     },
 
     getOuest(d) {
-        return d.filter(p => p['Code postal'] === 44200 )
+        return d.filter(p => p['Code postal'] === 44200)
     },
     getNord(d) {
-        return d.filter(p => p['Code postal'] === 44300 )
+        return d.filter(p => p['Code postal'] === 44300)
     },
     getSud(d) {
-        return d.filter(p => p['Code postal'] === 44100 )
+        return d.filter(p => p['Code postal'] === 44100)
     },
-    
+
 
 }
