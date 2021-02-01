@@ -61,7 +61,6 @@ class Narrator {
 	 * Fonction that display a text char by char.
 	 */
 	getNbRows() {
-		console.log(this.animation.text.length / (this.html.box.offsetWidth / (this.fontSize*0.6)) + 1);
 		return this.animation.text.length / (this.html.box.offsetWidth / (this.fontSize*0.6)) + 1;
 	}
 

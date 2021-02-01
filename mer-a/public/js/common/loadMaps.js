@@ -81,7 +81,6 @@ class Map {
 				.style('stroke-width', function(d){return currentMap.setStrokeWidth(d);});
 
 		if(this.baseEvents) this.baseEvents.forEach((event) => {
-			console.log(event);
 			svg.selectAll('path').on(event.name, event.handler);
 		});
 

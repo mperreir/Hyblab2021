@@ -58,13 +58,12 @@ class Router {
         if(path === 'departements') {
           this.soundManager.startSound();
         }
-        console.log(this.data);
-        console.log(getDepartement(this.data.department));
         this.fileAriane.updateAriane(
           path,
           (getDepartement(this.data.department) !== undefined) ? getDepartement(this.data.department).nomDepartement : 'Département',
           (getCategorie(this.data.personnage) !== undefined) ? getCategorie(this.data.personnage).nomCategorie : 'Guide',
-          'Légende'
+          (getLegende(this.data.legende) !== undefined) ? getLegende(this.data.legende).nom : 'Légende',
+          'Histoire'
         );
       });
 

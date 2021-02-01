@@ -37,7 +37,6 @@ function selectLegende(idLegende, legendes){
  */
 function selectDepartment(codeDep, map){
 	let id = map.getID(codeDep);
-	console.log(id);
 	if(id > 0) {
 		window.onresize = null;
 		router.loadRessources('personnages', {
