@@ -13,7 +13,7 @@ function getCategorie(type) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getLegende(id) {
-	if(globalLegendes !== null) return globalLegendes.find(legende => legende.id === id);
+	if(router.data.legendes !== null && router.data.legendes !== undefined) return router.data.legendes.find(legende => legende.id === id);
 }
 
 /**
@@ -21,7 +21,7 @@ function getLegende(id) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getDepartement(id) {
-	if(router.data.departements !== null && router.data.departements !== undefined) return router.data.departements.find(dep => dep.id === id);
+	if(router.data.departments !== null && router.data.departments !== undefined) return router.data.departments.find(dep => dep.id === id);
 }
 
 /**

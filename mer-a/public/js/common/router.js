@@ -49,6 +49,7 @@ class Router {
     if(fond !== undefined && this.fondActuel !== fond) this.loader.show();
     this.stopAnim();
 
+    this.data = data;
     $('#content').fadeOut('slow', () => {
       if(path === 'accueil' || fond !== undefined && this.fondActuel !== fond) loader.hide();
       this.deleteCharacter();
@@ -59,14 +60,14 @@ class Router {
         }
         this.fileAriane.updateAriane(
           path,
-          (getDepartement(router.data.department) !== undefined) ? getDepartement(router.data.department).nomDepartement : 'Département',
-          (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
-          'Légende'
+          (getDepartement(this.data.department) !== undefined) ? getDepartement(this.data.department).nomDepartement : 'Département',
+          (getCategorie(this.data.personnage) !== undefined) ? getCategorie(this.data.personnage).nomCategorie : 'Guide',
+          (getLegende(this.data.legende) !== undefined) ? getLegende(this.data.legende).nom : 'Légende',
+          'Histoire'
         );
       });
 
     });
-    this.data = data;
     if(path !== 'accueil') {
       this.saveData(path, data, idFond);
       document.querySelector('.fil_ariane').style.display = "flex";

@@ -66,12 +66,13 @@ class FilAriane {
 		return null;
 	}
 
-	updateAriane(name, dep, perso, legend){
+	updateAriane(name, dep, perso, legend, histoire){
 		this.reset();
 		switch(this.getIdByName(name)){
 			case 4:
 				this.show('trait3');
 				this.show('cercle_outer4');
+				this.ecrire('cercle_outer4', histoire);
 			case 3:
 				this.show('trait2');
 				this.show('cercle_outer3', 'departement', 3);

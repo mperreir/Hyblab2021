@@ -37,7 +37,6 @@ function selectLegende(idLegende, legendes){
  */
 function selectDepartment(codeDep, map){
 	let id = map.getID(codeDep);
-	console.log(id);
 	if(id > 0) {
 		window.onresize = null;
 		router.loadRessources('personnages', {
@@ -51,7 +50,7 @@ function selectCategorie(categorie, categories) {
 	router.loadRessources('departement', {
 		department: router.data.department,
 		personnage: categorie.id,
-		departements: router.data.departements,
+		departments: router.data.departments,
 		personnages: categories
 	}, 3);
 }
