@@ -205,7 +205,7 @@ async function createIntermediaryIcon(namePOI) {
     case 'SalleSport':
       return await createIcon('haltere.svg');
     case 'Bar':
-      return await createIcon('verre.svg');
+      return await createIcon('verre.png');
     case 'Pharmacie':
       return await createIcon('medicament.svg');
     default:
