@@ -66,6 +66,11 @@ let playSoundFlore = function() {
     s.play();
 }
 
+let playSoundEleph = function() {
+    const s = new sound('sound/elephant8.mp3', true, 0.2);
+    s.play();
+}
+
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
     d3.select('#logo').on('click', function() {
@@ -110,6 +115,10 @@ let initSlide2 = function() {
 
     d3.selectAll('.arbre').on('mouseover', function() {
         playSoundFlore();
+    });
+
+    d3.select('#mascotte-p2').on('mouseover', function() {
+        playSoundEleph();
     });
 
     d3.select('#button-p2').on('click', function() {
@@ -187,9 +196,6 @@ let initSlide3 = function() {
         nextSlide('4', data);
         route.push('3');
         console.log(data);
-        const s = new sound('sound/elephant8.mp3', false, 0.1);
-        s.play();
-
     });
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
