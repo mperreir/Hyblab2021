@@ -10,6 +10,9 @@
   categories.forEach(categorie => {
     createHTMLComponent(categorie);
   });
+  particlesJS.load('particles-js', 'assets/data/particles_persos.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
 
   function createHTMLComponent(categorie) {
     const nom = formatCategorie(categorie.nomCategorie);

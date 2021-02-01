@@ -33,4 +33,7 @@
 			logo.title = (boolean) ? alt : `pas de ${alt}`;
 		}
 	});
+	particlesJS.load('particles-js', 'assets/data/particles_legende.json', function() {
+	  console.log('callback - particles.js config loaded');
+	});
 })();
