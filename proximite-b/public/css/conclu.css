@@ -9,7 +9,7 @@
 
 #papy_bulle_background {
     width: auto;
-    height: 525px;
+    height: 85vh;
     bottom: 0vh;
     position: absolute;
     left: 30%;
@@ -128,7 +128,7 @@
 }
 
 
-p#conclu_text {
+/*p#conclu_text {
     position: absolute;
     bottom: 350px;
     left: 31%;
@@ -137,5 +137,5 @@ p#conclu_text {
     font-size: 13.5px;
     color: white;
     font-family: Montserrat;
-}
+}*/
 
