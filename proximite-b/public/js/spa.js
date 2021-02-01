@@ -63,6 +63,22 @@ const css_dyn_loader = (filename) => {
     head.appendChild(style);
 }
 
+function audioVolumeFadeOut(q){
+    if(q.volume){
+       var InT = 0.4;
+       var setVolume = 0;  // Target volume level for old song 
+       var speed = 0.020;  // Rate of volume decrease
+       q.volume = InT;
+       var fAudio = setInterval(function(){
+           InT -= speed;
+           q.volume = InT.toFixed(1);
+           if(InT.toFixed(1) <= setVolume){
+              clearInterval(fAudio);
+           };
+       },50);
+    };
+};
+
 const go_to = (page, data, callback) => {
     console.log('store before:' + JSON.stringify(_app_stores));
 
@@ -75,6 +91,17 @@ const go_to = (page, data, callback) => {
 
     make_page_from_template(page)
         .then(() => {
+            if(page === 'animation') {
+                const son_gare = document.getElementById("son-gare");
+                son_gare.volume = 0.2;
+                son_gare.play();
+            }
+
+            if(page === 'adresses') {
+                 const son_gare = document.getElementById("son-gare");
+                 audioVolumeFadeOut(son_gare);
+            }
+
             if (page === 'timeline') {
                 //formatage des criteres pour permettre a l'api de les traiter
                 _app_stores['criteres']['interests'] = _app_stores['criteres']['interests'].map(x => reformatCriteres(x));
