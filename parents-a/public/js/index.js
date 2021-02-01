@@ -49,6 +49,9 @@ function choixSlide(num, data) {
     if (num == '10') { initSlide10(data) }
 
     if (num == 'resultats') { initSlideResultat(data) }
+
+    if (num == 'credit') { initSlideCredit(data) }
+
 }
 
 let loadComponent = function (p) {
@@ -397,10 +400,14 @@ let initSlideResultat = function(db) {
     d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel']});
     d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel']});
 
-    d3.selectAll('.button_retour').on('click', function() {
-        nextSlide('10')
-
+    d3.selectAll('.accueil').on('click', function() {
+        nextSlide('2')
     });
+
+    d3.select('#credit').on('click', function() {
+        nextSlide('credit')
+    });
+    
 
     d3.select('#random2').on('click', () => {
         console.log('random 2');
@@ -449,6 +456,13 @@ let initSlideResultat = function(db) {
     div3.appendChild(img3);
     chooseimage(data, div3);
 
+}
+
+let initSlideCredit = function(db) {
+
+    d3.selectAll('.accueil').on('click', function() {
+        nextSlide('2')
+    });
 }
 
 let im_sources = {

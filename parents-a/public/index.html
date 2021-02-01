@@ -315,10 +315,11 @@
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-pr">
                 <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-pr">
-                <img data-src="img/slides/page_resultats/text-credits.svg" alt="text-credits" id="text-credits-pr">
                 <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random1">
                 <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random2">
                 <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random3">
+                <button id="credits" class="button">Crédits</button>
+                <button class="button button_retour accueil"><i class="fas fa-arrow-left"></i>Retour à l'accueil</button>
 
                 <button type="button"  data-toggle="modal" data-target="#modalResult">
                     <div id="img1" class="img-result"></div>
@@ -329,6 +330,8 @@
                 <button class data-toggle="modal" data-target="#modalResult">
                     <div id="img3" class="img-result"></div>
                 </button>
+
+
 
                 <!-- style="position: absolute; height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);z-index: 14;" -->
 
@@ -395,7 +398,7 @@
 </body>
 
 <!-- Modal -->
-<div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog-centered" role="document">
     <div class="modal-content bg-warning">
         <div class="modal-header">

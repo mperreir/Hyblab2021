@@ -7,6 +7,29 @@ section[data-slidr="page-resultats"] {
 .photo, .photo *{
     z-index: -2;
 }
+
+#feuille-verte-pr{
+    position: absolute;
+    width: 18%;
+    bottom: 5%;
+    left: 6%;
+}
+
+#fleurs-pr{
+    position: absolute;
+    width: 9%;
+    bottom: 8%;
+    left: 3%;
+
+}
+#credits{
+    right : 2%;
+    bottom: 15%;
+    cursor: pointer;
+    border-radius: 5%;
+    outline: none;
+}
+
 #titre-pr {
     position: absolute;
     width: 38%;
