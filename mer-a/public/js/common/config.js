@@ -26,7 +26,6 @@ const API_LEGENDE = 'legende/';
  * ================================
  */
 
-
 /**
  * Variables definition
  */

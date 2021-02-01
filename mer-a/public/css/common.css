@@ -78,7 +78,7 @@
 
 .loader {
   border: 16px solid rgb(55, 159, 154); /* Light grey */
-  border-top: 16px solid #9e81e2; /* Blue */
+  border-top: 16px solid white; /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -115,4 +115,8 @@ div#go-back {
   bottom: 5%;
   left: 5%;
   display: none;
+}
+
+p{
+  margin-bottom: 0 !important; 
 }

@@ -1,8 +1,8 @@
 'use strict';
 
 (() => {
+  document.querySelector('.fil_ariane').style.display = "none";
   if(router.hasData()) {
-    document.querySelector('.fil_ariane').style.display = "none";
     document.querySelector('#go-back').style.display = "block";
     document.querySelector('#go-back').addEventListener('click', () => {
       router.loadData();
