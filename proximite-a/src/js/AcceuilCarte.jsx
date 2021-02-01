@@ -50,7 +50,9 @@ class AcceuilCarte extends  React.Component {
         selectedSites:[]
     };
 
-
+    toCreditPage=(c)=>{
+        c();
+    };
 
 
     getPhase(nom){
@@ -116,7 +118,7 @@ class AcceuilCarte extends  React.Component {
     render() {
         console.log("state recu:")
         console.log(this.state)
-        const {nomPers} = this.props;
+        const {nomPers, onCreditPage} = this.props;
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
@@ -142,7 +144,7 @@ class AcceuilCarte extends  React.Component {
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
-                    <input type="button" class="buttonMapNavigation" value="Crédits"/>
+                    <input type="button" class="buttonMapNavigation" value="Crédits" onClick={()=>{this.toCreditPage(onCreditPage)}} />
                     <input type="button" class="buttonReturn" className="input-hidden"/>
                 </div>
             </div>
