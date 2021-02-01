@@ -110,6 +110,7 @@ to {
    top: calc(67%);
    height: 10%;
    width: calc(var(--slider-width));
+   z-index: 3;
 }
 
 #localize-range{
