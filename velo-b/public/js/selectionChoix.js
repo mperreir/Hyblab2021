@@ -61,7 +61,7 @@ registerSlide("question-transports-bicloo", function () {
 });
 
 registerSlide("page-arrivee", function () {
-    button( '#page-arrivee-continue', 'continuer');
+    button( '#ok-stats', 'continuer');
 });
 
 registerSlide("page-arrivee-stats", function () {
