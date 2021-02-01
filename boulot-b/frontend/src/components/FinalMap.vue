@@ -18,19 +18,19 @@ import origin from '@/assets/map/origin.svg'
 export default Vue.component("finalMap", {
   name: "finalMap",
   methods: { async showMap() {
-    const platform = new H.service.Platform({
-      apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
-    });
-    const defaultLayers = platform.createDefaultLayers();
+      const platform = new H.service.Platform({
+        apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
+      });
+      const defaultLayers = platform.createDefaultLayers();
 
-    const map = new H.Map(this.$refs.mapCont,
-    defaultLayers.vector.normal.map,{
-      center: {lat:47.218371, lng:-1.553621},
-      zoom: 12,
-      pixelRatio: window.devicePixelRatio || 1
-    });
+      const map = new H.Map(this.$refs.mapCont,
+      defaultLayers.vector.normal.map,{
+        center: {lat:47.218371, lng:-1.553621},
+        zoom: 12,
+        pixelRatio: window.devicePixelRatio || 1
+      });
 
-    window.addEventListener('resize', () => map.getViewPort().resize());
+      window.addEventListener('resize', () => map.getViewPort().resize());
     // Permet le zoom
       new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       H.ui.UI.createDefault(map, defaultLayers);
