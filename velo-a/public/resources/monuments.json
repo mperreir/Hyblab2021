@@ -84,10 +84,10 @@
     {
       "type": "monuments",
       "class": "marker-monuments",
-      "url": "img/monuments/tnb.svg",
-      "longitude": "-1.6730796",
-      "latitude": "48.1079665",
-      "text": "<div><i class=\"fas fa-garage\"></i><p>Théâtre National de Bretagne</p></div>"
+      "url": "img/monuments/tjn.svg",
+      "longitude": "-1.5614631",
+      "latitude": "47.2076652",
+      "text": "<div><i class=\"fas fa-garage\"></i><p>Tribunal Judiciaire de Nantes</p></div>"
     },
     {
       "type": "monuments",
@@ -104,6 +104,22 @@
       "longitude": "-1.5427672",
       "latitude": "47.2195755",
       "text": "<div><i class=\"fas fa-garage\"></i><p>Jardin des Plantes</p></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/eglise-notre-dame.svg",
+      "longitude": "-1.5689834",
+      "latitude": "47.210446",
+      "text": "<div><i class=\"fas fa-garage\"></i><p>Église Notre-Dame de Bon Port</p></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/musee-jules-verne.svg",
+      "longitude": "-1.5774964",
+      "latitude": "47.2016157",
+      "text": "<div><i class=\"fas fa-garage\"></i><p>Musée Jules Verne</p></div>"
     }
   ]
 }
