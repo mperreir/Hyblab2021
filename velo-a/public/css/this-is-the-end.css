@@ -20,7 +20,7 @@ body {
 	min-width: 80%;
 	max-width: 80%;
 	min-height: 95%;
-	padding-top: 120px;
+	padding-top: 150px;
 	margin: 10px auto 0 auto;
 }
 
@@ -46,8 +46,9 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	width: 55%;
+	width: 70%;
 	margin: 0 auto;
+	padding-left: 10px;
 }
 
 .schools img {
