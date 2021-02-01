@@ -1,6 +1,7 @@
 import React from 'react';
 import maison from '../img/pictogrammes_maison.png'
 import '../css/attributs.css'
+import {Spinner} from "react-bootstrap";
 //images logos
 import logo0 from '../img/LOGO OK_logo principal.png'
 import logo1 from '../img/LOGO OK_logo vert.png'
@@ -14,6 +15,7 @@ import sportif_img from '../img/Perso-hyblab-02.png'
 import gourmet_img from '../img/Perso-hyblab-04.png'
 import culture_img from '../img/Perso-hyblab-05.png'
 import famille_img from '../img/Perso-hyblab-06.png'
+
 class Attributs extends React.Component{
     state = {
         themeId: this.props.data.themeId,
@@ -24,58 +26,69 @@ class Attributs extends React.Component{
             ville:'',
             validAdress:false
         },
-        choixCoordonnes: false //si l'utilisateur a décidé d'utiliser la géolocalisation
+        onSetAttributs : this.props.onSetAttributs,
+        onNextPage : this.props.onNextPage,
+        choixCoordonnes: false, //si l'utilisateur a décidé d'utiliser la géolocalisation
+        loading:false
     };
 
-        getCoords = () =>{
-            let urlRue = this.state.adresse.rue.split(' ').join('+');
-            let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
-            let urlVille = this.state.adresse.ville.split(' ').join('+');
-            console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+    getCoords = () =>{
+        let urlRue = this.state.adresse.rue.split(' ').join('+');
+        let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
+        let urlVille = this.state.adresse.ville.split(' ').join('+');
+        console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
         fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
-                    console.log(response)
                     return response.json();
                 }else {
                     console.log("err")
+                    this.setState({
+                        loading: false
+                    });
                 }
             })
             .then((donnee) => {  //récupération des données JSON
-                console.log(donnee)
                 this.setState({
                     coords:[donnee.latitude,donnee.longitude],
-                    validAdress:true
+                    validAdress:true,
+                    loading:false
                 })
+                this.submitAttributs(this.state.onSetAttributs,this.state.onNextPage);
             })
     }
 
     getLocalAdress = () =>{
+        this.setState({loading:true})
         navigator.geolocation.getCurrentPosition(function (position) {   //une fois la position récupérée
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch( 'https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch('http://localhost:8080/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
-                        console.log(response);
                         return response.json();
+                    }else{
+                        this.setState({
+                            loading: false
+                        });
                     }
                 })
                 .then((donnee) => {  //récupération des données JSON
-                    console.log(donnee)
                     this.setState({
                         adresse:{
                             codepostal:donnee.codepostal,
                             rue:donnee.rue,
-                            ville:donnee.ville
+                            ville:donnee.ville,
                         },
+                        loading:false,
                         validAdress:true
                     });
+                    this.submitAttributs(this.state.onSetAttributs,this.state.onNextPage);
                 })
 
         }.bind(this));
-    }
+    };
 
 
     handleChangeRue = (event) => {
@@ -113,6 +126,29 @@ class Attributs extends React.Component{
         NextPage();
     };
 
+    getSpinner() {
+        if(this.state.loading == true){
+            return <Spinner animation="border" variant="light"></Spinner>
+        }
+    }
+
+    getThemeLogo = () => {
+        switch (this.state.themeId) {
+            case 0://défaut(bleu)
+                return { logo0 }.logo0;
+            case 1://fêtard(vert)
+                return { logo1 }.logo1;
+            case 2://sportif(cyan)
+                return { logo2 }.logo2;
+            case 3://gourmet(jaune)
+                return { logo3 }.logo3;
+            case 4://curieux/culture(orange)
+                return { logo4 }.logo4;
+            case 5://famille(rose)
+                return { logo5 }.logo5;
+        }
+    };
+
     getThemePerso  = () =>{
         switch (this.state.themeId) {
             case 0://défaut(bleu)
@@ -129,22 +165,7 @@ class Attributs extends React.Component{
                 return { famille_img }.famille_img;
         }
     }
-    getThemeLogo = () => {
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { logo0 }.logo0;
-            case 1://fêtard(vert)
-                return { logo1 }.logo1;
-            case 2://sportif(cyan)
-                return { logo2 }.logo2;
-            case 3://gourmet(jaune)
-                return { logo3 }.logo3;
-            case 4://curieux/culture(orange)
-                return { logo4 }.logo4;
-            case 5://famille(rose)
-                return { logo5 }.logo5;
-        }
-    }
+
 
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
@@ -156,8 +177,7 @@ class Attributs extends React.Component{
                             <img id="logoCorner" src={this.getThemeLogo()} width={150} ></img>
                             <div id="blablaMadameAttribut">
                                 <img id="ThemeLogoCenter" src={this.getThemePerso()} alt="fetard" />
-                                <br/>
-                                <br/>
+                                <br></br><br></br>
                                 <p id="paragrapheBlablaMadameAttribut">Hello moi c’est Alex !
                                     Tu aimes rencontrer tes amis dans des bars, déguster  des planches apéros et sortir danser ? Alors, suis-moi !
                                     <br/>
@@ -179,6 +199,7 @@ class Attributs extends React.Component{
                             <input  type="button" className="btnAttribut btn" value="Activer la géolocalisation" onClick={ this.getLocalAdress}/>
                         </div>
                         <p class="text-white m-4"><b>OU</b></p>
+                        {this.getSpinner()}
                         <div className="search d-flex flex-column">
                             <div class="text-white">Adresse</div>
                             <input class="inputText" placeholder="ex: 23 rue Chopin" value={this.state.adresse.rue} onChange={this.handleChangeRue}/>
@@ -188,8 +209,7 @@ class Attributs extends React.Component{
                             <input class="inputText" placeholder="ex: 44100" value={this.state.adresse.codepostal} onChange={this.handleChangeCP}/>
                         </div>
                         <div>
-                            <input type='button' class="border-0 bg-transparent mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
-                            <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
+                            <input type='button' class="border-0 btnWhiteBgpurpleText mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
                         </div>
                     </div>
                     <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
