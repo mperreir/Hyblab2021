@@ -37,6 +37,8 @@ import pied from "@/assets/animationJson/wazo_pas.json"
 import {TypeDeplacement} from "@/store";
 import lottie from "lottie-web";
 import sonVelo from "@/assets/son/sonnette_velo.mp3"
+import sonPas from '@/assets/son/pas.mp3'
+
 export default {
   choice: "typeDeplacement",
   name: "ChoixTypeDeplacement",
@@ -67,9 +69,13 @@ export default {
     nextPied() {
       this.message = "Super ! "
       document.getElementById("pied-anim").style.display = "block";
+      const audio = new Audio(sonPas);
+      audio.volume=0.2;
+      audio.play();
       this.pied.play()
       this.pied.addEventListener("complete", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.PIED)
+        audio.pause()
         this.next();
       });
     },
