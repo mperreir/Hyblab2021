@@ -22,9 +22,10 @@ class Attributs extends React.Component{
             let urlRue = this.state.adresse.rue.split(' ').join('+');
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
-            console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+            console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`);
+            this.setState({loading:true});
         fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-            this.setState({loading:true})
+            
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     console.log(response)
