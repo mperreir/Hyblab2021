@@ -88,10 +88,13 @@ let initSlide1 = function() {
 
 
 function muteBack() {
-    document.getElementById('mute').addEventListener('click', () => {
-        isPlayed === true ? soundBack.stop() : soundBack.play();
-        isPlayed = !isPlayed;
-    })
+    const btn = document.getElementsByClassName('mute');
+    for (const b of btn) {
+        b.addEventListener('click', () => {
+            isPlayed === true ? soundBack.stop() : soundBack.play();
+            isPlayed = !isPlayed;
+        });
+    }
 }
 
 //Slide de transi 
@@ -244,6 +247,7 @@ let initSlide4 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -280,6 +284,7 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -311,6 +316,7 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -339,6 +345,7 @@ let initSlide7 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -371,6 +378,7 @@ let initSlide8 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -402,6 +410,7 @@ let initSlide9 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
@@ -476,7 +485,7 @@ let initSlide10 = function(db) {
         nextSlide('resultats', data);
         route.push('10');
     });
-
+    muteBack();
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
@@ -513,7 +522,7 @@ let initSlideResultat = function(db) {
         nextSlide('credits')
     });
 
-
+    muteBack();
     d3.select('#random2').on('click', () => {
         console.log('random 2');
         console.log(db);
