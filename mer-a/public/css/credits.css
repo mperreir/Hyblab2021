@@ -133,3 +133,21 @@
 #back{
 	margin-top: 0;
 }
+
+@media only screen and (max-width: 768px) {
+
+#relativ .credits {
+	grid-template-columns: 5% 30% 30% 30fr 5fr;
+  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". haut-gauche . . ."
+    ". agr-a agr-b agr-c ."
+    ". haut-mid . . ."
+    ". sc-a sc-b . ."
+    ". haut-droit . . ."
+    ". p-a p-b p-c ."
+    ". p-d p-e p-f ."
+    ". logo logo logo .";
+	}
+}
