@@ -413,7 +413,6 @@ let initSlideResultat = function(db) {
 
     d3.select('#random2').on('click', () => {
         console.log('random 2');
-        const index = parseInt(d3.event.target.id.split('random')[1]);
         console.log(db);
         getRandomParc(podium, db);
         d3.select('#parc2-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
@@ -425,7 +424,6 @@ let initSlideResultat = function(db) {
     });
     d3.select('#random1').on('click', () => {
         console.log('random 2');
-        const index = parseInt(d3.event.target.id.split('random')[1]);
         console.log(db);
         getRandomParc(podium, db);
         d3.select('#parc1-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
@@ -437,7 +435,6 @@ let initSlideResultat = function(db) {
     });
     d3.select('#random3').on('click', () => {
         console.log('random 3');
-        const index = parseInt(d3.event.target.id.split('random')[1]);
         console.log(db);
         getRandomParc(podium, db);
         d3.select('#parc3-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
@@ -516,6 +513,11 @@ function giveInfo(data,id) {
     d3.select('#handi').text(function(d) { return data[num]['Sanitaires pour handicapés'] });
     d3.select('#dog').text(function(d) { return data[num]['Chiens autorisés'] });
     d3.select('#table').text(function(d) { return data[num]['Table pique-nique'] });
+    if (data[num]['Descriptif'] !== null) {
+        d3.select('#desc').text(function(d) { return data[num]['Descriptif'] });
+    }else {
+        document.getElementById("divdesc").style.display = "none";
+    }
 }
 
 function chooseimage(data, div) {
