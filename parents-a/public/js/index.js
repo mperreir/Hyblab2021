@@ -233,7 +233,7 @@ let initSlide5 = function() {
 let initSlide6 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
-    d3.select("#bouton-gauche-p6").on('click', async function() {
+    d3.select("#boutton-gauche-p6").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
         nextSlide('10', data); //FINAL SLIDE
@@ -440,6 +440,20 @@ let initSlideResultat = function(db) {
         chooseimage(podium, div3);
         new radar(podium[0], podium[1], podium[2]);
     });
+    ////////////////////////////////////:
+    d3.selectAll(".parc1").on("click", () => {
+        console.log("parrrrrrc");
+        giveInfo(data,1)
+    });
+    d3.selectAll(".parc2").on("click", () => {
+        giveInfo(data,2)
+    });
+    d3.selectAll(".parc3").on("click", () => {
+        giveInfo(data,3)
+    });
+    // d3.select('.parc1').on('click', () => {
+
+    // });
     let podium = [data[0], data[1], data[2]]
     new radar(podium[0], podium[1], podium[2]);
     const div1 = document.getElementById("parc1-pr")
@@ -477,7 +491,25 @@ let im_sources = {
         "BLOTTEREAU": "img/parcs/parc-du-grand-bloterreau.jpg"
     }
     // parc 1 data[2]  // parc 2 data[1] // parc 3  data[0]
-
+function giveInfo(data,id) {
+    let num 
+    if (id === 1) {
+        num = 2
+    } 
+    if (id === 2){
+        num = 1
+    }
+    if (id === 3){
+        num = 0
+    }
+    d3.select('#titre-parc').text(function(d) { return data[num]['Nom formel'] });
+    d3.select('#addr').text(function(d) { return data[num]['Adresse'] +", " + data[num]['Code postal'] });
+    d3.select('#acces').text(function(d) { return data[num]['Accès transports en commun'] });
+    d3.select('#wc').text(function(d) { return data[num]['Sanitaires'] });
+    d3.select('#handi').text(function(d) { return data[num]['Sanitaires pour handicapés'] });
+    d3.select('#dog').text(function(d) { return data[num]['Chiens autorisés'] });
+    d3.select('#table').text(function(d) { return data[num]['Table pique-nique'] });
+}
 
 function chooseimage(data, div) {
     var num = div.id.match(/\d+/g);
