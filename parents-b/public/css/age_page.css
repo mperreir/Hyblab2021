@@ -21,7 +21,6 @@
     top: 8%;
     left : 0;
     width: 30%;
-    font-size: 23% ;
     z-index: 1;
 }
 
@@ -38,7 +37,6 @@
     position: absolute;
     top: 10%;
     left : 29%;
-    font-size: 30% ;
     z-index: 1;
 }
 
@@ -56,6 +54,7 @@
     left : 31%;
     width: 4%;
     z-index: 1;
+    opacity: 0;
     transform: rotate(16deg);
 }
 
@@ -64,6 +63,7 @@
     top: 72%;
     left : 37%;
     width: 26%;
+    opacity: 0;
     z-index: 1;
 }
 

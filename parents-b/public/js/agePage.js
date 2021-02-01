@@ -17,7 +17,7 @@ let initAge = function() {
         document.getElementById('age_audio').play();
         document.getElementById('age_audio').loop = false;
     }
-    else buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 
 
     d3.selectAll('#volumeAge').on('click', function() {
@@ -253,9 +253,6 @@ let initAge = function() {
         targets: '.txt2'
     });
     txt2
-        .add({
-            opacity: 0,
-        })
         .add({
             delay : 7500,
             opacity: 1,
