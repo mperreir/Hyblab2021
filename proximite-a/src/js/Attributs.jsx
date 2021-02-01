@@ -57,7 +57,7 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch( 'https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch( 'http://localhost:8080/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
                         console.log(response);
