@@ -5,6 +5,7 @@ import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
 import equivalent from './equivalent.js'
+import imageDefault from '../img/image_pas_disponible.png'
 
 class App extends React.Component {
 
@@ -113,26 +114,30 @@ class App extends React.Component {
         console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/`);
         let site1 = {
             id: '1',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
+            titre: 'Pas de titre disponible',
+            img: imageDefault,
+            adresse: 'Pas d\'adresse disponible',
+            description: "Pas de description disponible",
             coordonnes: [1, 2],    //latitude_longitude
             type: 4,
         }
         if (lieux.lieux.length >= 1 && typeof lieux.lieux !== "undefined") {
             let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
             let adresseF1 = adresse1.rue + " " + adresse1.codepostal + " " + adresse1.ville
-            let name1 = ""
+            let name1 = 'Pas de titre disponible'
             if (typeof lieux.lieux[0].tags.name !== "undefined") {
                 name1 = lieux.lieux[0].tags.name
+            }
+            let description1 = "Pas de description disponible"
+            if (typeof lieux.lieux[0].tags.description !== "undefined") {
+                description1 = lieux.lieux[0].tags.description
             }
             site1 = {
                 id: '1',
                 titre: name1,
-                img: '',
+                img: imageDefault,
                 adresse: adresseF1,
-                description: '',
+                description: description1,
                 coordonnes: [lieux.lieux[0].lat, lieux.lieux[0].lon],
                 type: this.state.themeId
             };
@@ -140,53 +145,61 @@ class App extends React.Component {
         }
         let site2 = {
             id: '2',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
+            titre: 'Pas de titre disponible',
+            img: imageDefault,
+            adresse: 'Pas d\'adresse disponible',
+            description: "Pas de description disponible",
             coordonnes: [3, 4],    //latitude_longitude
             type: 4,
         }
         if (lieux.lieux.length >= 2 && typeof lieux.lieux !== "undefined") {
             let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
             let adresseF2 = adresse2.rue + " " + adresse2.codepostal + " " + adresse2.ville
-            let name2 = ""
+            let name2 = 'Pas de titre disponible'
             if (typeof lieux.lieux[1].tags.name !== "undefined") {
                 name2 = lieux.lieux[1].tags.name
+            }
+            let description2 = "Pas de description disponible"
+            if (typeof lieux.lieux[1].tags.description !== "undefined") {
+                description2 = lieux.lieux[1].tags.description
             }
             site2 = {
                 id: '2',
                 titre: name2,
                 img: '',
                 adresse: adresseF2,
-                description: '',
+                description: description2,
                 coordonnes: [lieux.lieux[1].lat, lieux.lieux[1].lon],
                 type: this.state.themeId
             }
 
         }
         let site3 = {
-            id: '',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
+            id: 'surprise',
+            titre: 'Pas de titre disponible',
+            img: imageDefault,
+            adresse: 'Pas d\'adresse disponible',
+            description: "Pas de description disponible",
             coordonnes: [5, 6],    //latitude_longitude
             type: 4,
         }
         if (lieux.lieux.length >= 3 && typeof lieux.lieux !== "undefined") {
             let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
             let adresseF3 = adresse3.rue + " " + adresse3.codepostal + " " + adresse3.ville
-            let name3 = ""
-            if (typeof lieux.lieux[0].tags.name !== "undefined") {
+            let name3 = 'Pas de titre disponible'
+            if (typeof lieux.lieux[2].tags.name !== "undefined") {
                 name3 = lieux.lieux[2].tags.name
+            }
+            let description3 = "Pas de description disponible"
+            if (typeof lieux.lieux[2].tags.description !== "undefined") {
+                description3 = lieux.lieux[2].tags.description
             }
             site3 = {
                 id: '3',
                 titre: name3,
                 img: '',
                 adresse: adresseF3,
-                description: '',
+                description: description3,
                 coordonnes: [lieux.lieux[2].lat, lieux.lieux[2].lon],
                 type: this.state.themeId
             }
@@ -197,15 +210,19 @@ class App extends React.Component {
             let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
             let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
             console.log(adresseSurp)
-            let nameSurp = ""
+            let nameSurp = 'Pas de titre disponible'
             if (lieux.surprise.tags.name) {
                 nameSurp = lieux.surprise.tags.name
+            }
+            let descriptionS = "Pas de description disponible"
+            if (typeof lieux.surprise.tags.description !== "undefined") {
+                descriptionS = lieux.surprise.tags.description
             }
             lieuSurprise = {
                 titre: nameSurp,
                 img: '',
                 adresse: adresseFS,
-                description: '',
+                description: descriptionS,
                 coordonnes: [lieux.surprise.lat, lieux.surprise.lon],
                 type: 0 //todo mettre le bon theme
             }
