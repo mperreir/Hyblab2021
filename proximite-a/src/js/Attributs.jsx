@@ -65,7 +65,7 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch('/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch('proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
                         return response.json();
