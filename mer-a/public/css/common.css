@@ -120,3 +120,11 @@ div#go-back {
 p{
   margin-bottom: 0 !important; 
 }
+
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  position: fixed;
+  filter: blur(1px);
+}

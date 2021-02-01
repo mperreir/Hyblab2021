@@ -48,9 +48,13 @@ class Router {
     const fond = this.fonds.find(fond => fond.id === idFond);
     if(fond !== undefined && this.fondActuel !== fond) this.loader.show();
     this.stopAnim();
+    if(window["pJSDom"] instanceof Array) for(let pJSD of window["pJSDom"]) 
+      pJSD.pJS.fn.vendors.destroypJS();
+    window["pJSDom"] = [];
 
     this.data = data;
     $('#content').fadeOut('slow', () => {
+      if(path === 'accueil') document.querySelector('#scene1').style.filter = 'brightness(50%)';
       if(path === 'accueil' || fond !== undefined && this.fondActuel !== fond) loader.hide();
       this.deleteCharacter();
       this.changeFond(idFond);
