@@ -19,7 +19,7 @@ function load(page) {
 	background.style.background = "rgba(0, 0, 0, 0)";
 	background.style.zIndex = "-2";
 
-	container.style.bottom = "-100%";
+	container.style.bottom = "-200%";
 
 	let listP = [];
 	let p;
@@ -265,7 +265,7 @@ function load(page) {
 			background.style.background = "rgba(0, 0, 0, 0)";
 			background.style.zIndex = "-2";
 
-			container.style.bottom = "-100%";
+			container.style.bottom = "-200%";
 		});
 
 		if (response) {
