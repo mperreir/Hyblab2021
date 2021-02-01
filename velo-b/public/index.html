@@ -527,27 +527,36 @@
 
                 <img class="background-index w-screen h-screen absolute bottom-0"
                      src="assets/finale/finale.svg"/>
-
-                <aside class="stats-aside justify-self-end">
-                    <p>Prix (€/km)</p>
-                    <div id="pb-prix"></div>
-                    <p>Vitesse (km/h)</p>
-                    <div id="pb-vit"></div>
-                    <p>Émission de CO2 (g/km)</p>
-                    <div id="pb-co2"></div>
-                    <p>Calories brûlées (kcal/km)</p>
-                    <div id="pb-kcal"></div>
-                </aside>
-
-                <div class="map-wrapper">
-                    <div id="map-large"></div>
-                </div>
-
-                <div class="relative inset-y-3/4 flex justify-center content-center">
-                    <img src="assets/finale/rejouer.svg" class="image-button w-2/15 mx-10" id="ic-rejouer-finale"
-                        alt="Bouton rejouer">
-                    <img src="assets/finale/credit.svg" class="image-button w-2/15 mx-10" id="ic-credit-finale"
-                        alt="Bouton credit">
+                <div class="flex flex-col">
+                    <!-- row 1 -->
+                    <div class="flex flex-row px-72 pt-24 pb-10">
+                        <div class="flex-1">
+                            <div class="map-wrapper">
+                                <div id="map-large"></div>
+                            </div>
+                        </div>
+                        <div class="flex-grow-0 my-auto">
+                            <aside class="stats-aside justify-self-end">
+                                <p>Prix (€/km)</p>
+                                <div id="pb-prix"></div>
+                                <p>Vitesse (km/h)</p>
+                                <div id="pb-vit"></div>
+                                <p>Émission de CO2 (g/km)</p>
+                                <div id="pb-co2"></div>
+                                <p>Calories brûlées (kcal/km)</p>
+                                <div id="pb-kcal"></div>
+                            </aside>
+                        </div>
+                    </div>
+                    <!-- row 2 -->
+                    <div>
+                        <div class="relative inset-y-3/4 flex justify-center content-center">
+                            <img src="assets/finale/rejouer.svg" class="image-button w-2/15 mx-10" id="ic-rejouer-finale"
+                                 alt="Bouton rejouer">
+                            <img src="assets/finale/credit.svg" class="image-button w-2/15 mx-10" id="ic-credit-finale"
+                                 alt="Bouton credit">
+                        </div>
+                    </div>
                 </div>
             </section>
 
