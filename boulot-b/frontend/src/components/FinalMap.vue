@@ -45,10 +45,8 @@ export default Vue.component("finalMap", {
 async function createMap(platform, map, choices) {
     // STYLE MAP
     var provider = map.getBaseLayer().getProvider();
-
-    // A MODIFIER : NE MARCHE QUE EN LOCAL POUR L'INSTANT
     
-    var style = new H.map.Style('http://localhost:8080/boulot-b/styles/normal.day.yaml');
+    var style = new H.map.Style(origin + '/boulot-b/styles/normal.day.yaml');
     console.log(style);
     provider.setStyle(style);
     
@@ -148,7 +146,7 @@ async function addRouteShapeToMap(route, map, origin, destination, stops){
     let polyline = new H.map.Polyline(linestring, {
       style: {
         lineWidth: 4,
-        strokeColor: 'rgba(255, 219, 39, 1)'
+        strokeColor: 'rgba(0, 0, 0, 1)'
       }
     });
 
