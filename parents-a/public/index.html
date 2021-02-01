@@ -19,11 +19,15 @@
     <link rel="stylesheet" href="css/page8.css">
     <link rel="stylesheet" href="css/page9.css">
     <link rel="stylesheet" href="css/page10.css">
-    <link rel="stylesheet" href="css/page-resultats.css">
+    <link rel="stylesheet" href="css/page_resultats.css">
     <link rel="stylesheet" href="css/credits.css">
     <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
-
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
@@ -265,17 +269,17 @@
 
             <!-- Page 10 : Ou dans Nantes -->
             <section data-slidr="page-10" id="page-10">
-                <img data-src="img/logo.png" alt="logo" id="logo-p10">
+                <img data-src="img/logo.png" alt="logo" class="logo-p10">
                 <img data-src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p10">
                 <img data-src="img/slides/page10/ou.svg" alt="texte-ou" id="texte-ou-p10">
-                <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-p10">
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
                 <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p10">
                 <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p10">
                 <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p10">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p10">
                 <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue2" id="feuille-bleue2-p10">
-                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p10">
-                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p10">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" class="pelouse-gauche-p10">
                 <img data-src="img/slides/page10/question.svg" alt="question" id="question-p10">
                 <img data-src="img/slides/page10/ouest-contour.svg" alt="ouest-contour" id="ouest-contour-p10">
                 <img data-src="img/slides/page10/nord-est-contour.svg" alt="nord-est-contour" id="nord-est-contour-p10">
@@ -293,22 +297,22 @@
             <section data-slidr="page-resultats" id="page-resultats">
                 <!-- Test Image de fond -->
                 <h3 id="parc3-titre" style="font-family: +Maru+Pop;"></h3>
-                <div id="parc3-pr"></div>
+                <div id="parc3-pr" class="photo"></div>
                 <h3 id="parc2-titre"></h3>
-                <div id="parc2-pr"></div>
+                <div id="parc2-pr" class="photo"></div>
                 <h3 id="parc1-titre"></h3>
-                <div id="parc1-pr"></div>
+                <div id="parc1-pr" class="photo"></div>
                 <!-- Debut -->
                 <img data-src="img/slides/page_resultats/contour-img.png" alt="contour-img" id="contour-img-pr">
-                <img data-src="img/logo.png" alt="logo" id="logo-pr">
+                <img data-src="img/logo.png" alt="logo" class="logo-p10">
                 <img data-src="img/slides/page_resultats/titre.svg" alt="titre" id="titre-pr">
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr">
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr">
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr">
                 <!-- Add button (img) "revenir en arrière" -->
-                <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-pr">
-                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-pr">
-                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-pr">
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" class="pelouse-gauche-p10">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-pr">
                 <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-pr">
                 <img data-src="img/slides/page_resultats/text-credits.svg" alt="text-credits" id="text-credits-pr">
@@ -322,7 +326,7 @@
                 <button type="button"  data-toggle="modal" data-target="#modalResult">
                     <div id="img2" class="img-result"></div>
                 </button>
-                <button type="button"  data-toggle="modal" data-target="#modalResult">
+                <button class data-toggle="modal" data-target="#modalResult">
                     <div id="img3" class="img-result"></div>
                 </button>
 
@@ -356,6 +360,7 @@
                 <div id = "chart3" >
                     <canvas id="myChart3" ></canvas>
                 </div> -->
+
             </section>
 
             <!-- Page crédits -->
@@ -390,22 +395,23 @@
 </body>
 
 <!-- Modal -->
-<div class="modal fade " id="modalResult"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog-centered" role="document">
-        <div class="modal-content bg-warning">
-            <div class="modal-header">
-                    <h5 class="modal-title" id="titreModal">Titre</h5>
-                    <i class="fa fa-heart-o"></i>
-                    <button data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-            </div>
+    <div class="modal-content bg-warning">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">x</span>
+        </button>
+        </div>
+                
+        
             <div class="modal-body">
                 <div class="d-flex flex-row">
                     <i class="fas fa-map-marker-alt"></i>
                     <p>Adresse </p>
                 </div>
+                <i class="fa fa-heart-o"></i>
 
                 <div class="d-flex flex-row">
                     <i class="fas fa-train"> </i>

@@ -6,7 +6,7 @@ section[data-slidr="page-10"] {
     overflow: hidden;
 }
 
-#logo-p10 {
+.logo-p10 {
     /* logo */
     position: absolute;
     width: 6%;
@@ -14,7 +14,7 @@ section[data-slidr="page-10"] {
     right: 5%;
 }
 
-#dune2-p10 {
+.dune2-p10 {
     position: absolute;
     width: 100%;
     bottom: 0%;
@@ -49,14 +49,14 @@ section[data-slidr="page-10"] {
     transform: translateX(-30%);
 }
 
-#pelouse-droite-p10 {
+.pelouse-droite-p10 {
     position: absolute;
     width: 27.5%;
     right: 0%;
     bottom: 0%;
 }
 
-#pelouse-gauche-p10 {
+.pelouse-gauche-p10 {
     position: absolute;
     width: 36.5%;
     left: 0%;

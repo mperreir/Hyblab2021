@@ -452,14 +452,14 @@ let initSlideResultat = function(db) {
 }
 
 let im_sources = {
-        "ILE DE VERSAILLES": "img/images_parcs_jardins/ile-de-versailles.jpg",
-        "PLANTES": "img/images_parcs_jardins/jardin-des-plantes.jpg",
-        "BEAULIEU": "img/images_parcs_jardins/parc-de-beaulieu.jpg",
-        "BEAUJOIRE": "img/images_parcs_jardins/parc-de-la-beaujoire.jpg",
-        "CHANTRERIE": "img/images_parcs_jardins/Parc-de-la-Chantrerie.jpg",
-        "PROCE": "img/images_parcs_jardins/Parc-de-proce-Nantes.jpg",
-        "LE OBLATES": "img/images_parcs_jardins/Parc-des-oblates-Nantes.jpg",
-        "BLOTTEREAU": "img/images_parcs_jardins/parc-du-grand-bloterreau.jpg"
+        "ILE DE VERSAILLES": "img/parcs/ile-de-versailles.jpg",
+        "PLANTES": "img/parcs/jardin-des-plantes.jpg",
+        "BEAULIEU": "img/parcs/parc-de-beaulieu.jpg",
+        "BEAUJOIRE": "img/parcs/parc-de-la-beaujoire.jpg",
+        "CHANTRERIE": "img/parcs/Parc-de-la-Chantrerie.jpg",
+        "PROCE": "img/parcs/Parc-de-proce-Nantes.jpg",
+        "LE OBLATES": "img/parcs/Parc-des-oblates-Nantes.jpg",
+        "BLOTTEREAU": "img/parcs/parc-du-grand-bloterreau.jpg"
     }
     // parc 1 data[2]  // parc 2 data[1] // parc 3  data[0]
 
@@ -488,13 +488,13 @@ function chooseimage(data, div) {
 
     });
     if (num[0] === "1" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
     if (num[0] === "2" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-2.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
 }
 
