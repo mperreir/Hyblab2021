@@ -3,15 +3,15 @@ let initHour = function() {
     // ----------------- AUDIO -----------------
     muteAll();
 
-    let x = document.getElementById("volumeHour");
-    x.setAttribute("src", "./img/common/volume_on.svg");
+    let buttonVol = document.getElementById("volumeHour");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
     if (isSonOn) {
         document.getElementById('hour_audio').play();
         document.getElementById('hour_audio').loop = false;
         document.getElementById('hour_audio').volume = 0.15;
     }
-    else x.setAttribute("src", "./img/common/volume_off.svg");
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 
 
     d3.selectAll('#volumeHour').on('click', function() {

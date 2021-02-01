@@ -4,8 +4,8 @@ let initAddress = function() {
     document.getElementById('debut_audio').pause();
 
 
-    let x = document.getElementById("volumeAdresse");
-    x.setAttribute("src", "./img/common/volume_on.svg");
+    let buttonVol = document.getElementById("volumeAdresse");
+    buttonVol.setAttribute("src", "./img/common/volume_on.svg");
 
 
     if (isSonOn) {
@@ -13,7 +13,7 @@ let initAddress = function() {
         document.getElementById('adresse_audio').loop = false;
         document.getElementById('adresse_audio').volume = 0.15;
     }
-    else x.setAttribute("src", "./img/common/volume_off.svg");
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 
 
     d3.selectAll('#volumeAdresse').on('click', function() {
