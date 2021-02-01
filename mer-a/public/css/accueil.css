@@ -29,3 +29,27 @@ div#accueil p {
   filter: brightness(50%);
   transition: filter 0.5s;
 }
+
+@media only screen and (max-width: 768px) {
+  div#accueil {
+    width: 80%;
+  }
+
+  div#accueil h4 {
+    font-size: 1.5rem;
+  }
+
+  div#accueil img#logo {
+    width: 75%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+
+  div#accueil p {
+    margin-top : 5%;
+  }
+
+  div#accueil div.button {
+    margin-top: 5%;
+  }
+}

@@ -11,7 +11,7 @@
 	await getRegionsId(r => validRegions = r);
 	if(!router.data.departement) router.data.departement = validRegions;
 	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
-	
+
 	let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
 		{ title: $('#narration > span.title')[0] },
 		{ timeout: null },
@@ -62,6 +62,14 @@
 			.on('mouseleave', function(d){
 				leaveDot(this, narrator, map);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
+			})
+			.on('touchstart', function(d) {
+			  hoverDot(this, narrator, map);
+			  document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'block';
+			})
+			.on('touchend', function(d) {
+			  leaveDot(this, narrator, map);
+			  document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
 			.on('click', d => {
 				selectLegende(parseInt(d.id), legendes);

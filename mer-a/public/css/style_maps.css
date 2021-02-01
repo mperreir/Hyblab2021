@@ -32,7 +32,7 @@ div#character{
 	height: 50vh;
 	position: fixed;
 	right: 2vw;
-	bottom: 6vh;
+	bottom: 4vh;
 }
 /* Animation des vagues */
 
@@ -97,6 +97,7 @@ p.narration {
     background-color: rgba(255,255,255,0.9);
     border-radius: 25px;
 }
+
 
 div#character > p.narration {
   top: 0vh;
@@ -184,4 +185,39 @@ a.legend_button:active {
   /* aspect de l'arrière-plan */
   background-color: white;
   border-radius: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#department {
+		margin-bottom: 30%;
+	}
+
+	div#bretagne {
+		margin-bottom: 30%;
+	}
+
+	div#bretagne g {
+		transform: scale(1.25);
+	}
+
+	div#bretagne text {
+		font-size: 0.75rem !important;
+		width: 40% !important;
+	}
 }
