@@ -1,3 +1,10 @@
+#relativ {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 20vh;
+}
+
 #relativ img{
 	margin-left: auto;
 	margin-right: auto;
@@ -22,22 +29,15 @@
 #relativ #credits{
 	border-radius: 5vh;
  	border-spacing: 0;
- 	margin-top: 15vh;
- 	margin-left: 6vh;
- 	margin-right: 5vh;
- 	margin-bottom: 5vh;
 	text-align: center;
-	width: 130vh;
+	width: 70%;
 }
 
 #relativ #sources{
 	border-radius: 5vh;
  	border-spacing: 0;
- 	margin-top: -72.5vh;
- 	margin-left: 150vh;
 	text-align: left;
-	width: 40vh;
-	position: absolute;
+	width: 25%;
 }
 
 #relativ .haut{
