@@ -92,7 +92,8 @@ class App extends  React.Component {
     };
 
     updateMoyen=(e)=>{
-        this.setState({moyenId:e})
+        this.setState({moyenId:e});
+
         this.generatePerimetre();
     };
 
@@ -102,8 +103,13 @@ class App extends  React.Component {
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
                 console.log(perimetre)
-                this.setState({perimetre:perimetre});
-                console.log(this.state.perimetre)
+                let abc=[];
+                perimetre[0].forEach((l) => {
+                    console.log(l)
+                    abc.push([l[1],l[0]])
+                });
+                console.log(abc)
+                this.setState({perimetre:abc});
                 this.createSites()
             })
     };
