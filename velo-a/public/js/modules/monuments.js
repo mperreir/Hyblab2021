@@ -7,13 +7,13 @@ const MONUMENTS_API_URL = "resources/monuments.json";
  * @return {Promise<any>} - Monuments
  */
 const monumentsFetchData = () => fetch(MONUMENTS_API_URL)
-    .then(response => {
-        return response.json();
-    })
-    .catch(() => {
-        // console.error("Error:", error);
-        return undefined;
-    });
+	.then(response => {
+		return response.json();
+	})
+	.catch(() => {
+		// console.error("Error:", error);
+		return undefined;
+	});
 
 let data;
 
@@ -23,7 +23,7 @@ let data;
  * @param {Map} map - The Mapbox Map
  */
 export async function monumentsDisplayData() {
-    if (!data) data = await monumentsFetchData();
+	if (!data) data = await monumentsFetchData();
 
-    return data.monuments;
+	return data.monuments;
 }

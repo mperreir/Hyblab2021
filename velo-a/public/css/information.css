@@ -34,12 +34,12 @@
 	transition: opacity 1s 1s linear;
 }
 
-.button-slide.batiment_button i{
+.button-slide.batiment_button i {
 	display: none;
 	font-size: small;
 }
 
-.button-slide.batiment_button:hover i{
+.button-slide.batiment_button:hover i {
 	display: inherit;
 }
 
@@ -107,6 +107,7 @@
 	position: relative;
 	display: inline-block;
 }
+
 .autocomplete-items {
 	position: absolute;
 	border: 1px solid #F96D48;
@@ -118,6 +119,7 @@
 	left: 0;
 	right: 0;
 }
+
 .autocomplete-items div {
 	padding: 10px;
 	cursor: pointer;
@@ -125,11 +127,13 @@
 	border-bottom: 1px solid #F96D48;
 	color: #F96D48;
 }
+
 .autocomplete-items div:hover {
 	/*when hovering an item:*/
 	background-color: #F96D48;
 	color: white;
 }
+
 .autocomplete-active {
 	/*when navigating through the items using the arrow keys:*/
 	background-color: #F96D48 !important;
@@ -154,27 +158,27 @@
 	padding: 1em;
 }
 
-#question_velo > .mascotte{
+#question_velo > .mascotte {
 	top: -150px;
 }
 
 
-#question_pane > .mascotte > div{
+#question_pane > .mascotte > div {
 	left: 20px;
 }
 
-#question_velo > .mascotte > div{
+#question_velo > .mascotte > div {
 	right: -400px;
 	bottom: 0;
 }
 
-#question_trajet > .mascotte > div{
+#question_trajet > .mascotte > div {
 	top: -150px;
 	left: 20px;
 }
 
-#question_pane > .mascotte > div::after{
-	content:"";
+#question_pane > .mascotte > div::after {
+	content: "";
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-bottom: 20px solid white;
@@ -183,8 +187,8 @@
 	left: 20px;
 }
 
-#question_velo > .mascotte > div::after{
-	content:"";
+#question_velo > .mascotte > div::after {
+	content: "";
 	border-bottom: 20px solid transparent;
 	border-top: 20px solid transparent;
 	border-right: 40px solid white;
@@ -193,8 +197,8 @@
 	left: -20px;
 }
 
-#question_trajet > .mascotte > div::after{
-	content:"";
+#question_trajet > .mascotte > div::after {
+	content: "";
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	border-top: 20px solid white;
@@ -211,11 +215,11 @@
 	animation: type_text 2s 2s linear forwards;
 }
 
-@keyframes type_text{
-	from{
+@keyframes type_text {
+	from {
 		width: 0;
 	}
-	to{
+	to {
 		width: 100%;
 	}
 }

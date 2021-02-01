@@ -61,7 +61,7 @@ body {
 	margin-bottom: 10px;
 }
 
-.schools>div {
+.schools > div {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;

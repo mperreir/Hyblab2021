@@ -6,10 +6,11 @@ const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
 	.then(response => {
 		return response.json();
 	})
-	.catch((error) => {
+	.catch(() => {
 	});
 
 let data;
+
 export async function getStationsVelos() {
 	if (!data) data = await stationsVeloFetchData();
 
