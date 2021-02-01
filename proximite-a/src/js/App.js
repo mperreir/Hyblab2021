@@ -112,14 +112,14 @@ class App extends React.Component {
                     abc.push([l[1],l[0]])
                 });
                 this.setState({perimetre:abc});
-                this.createSites()
+                this.createSites(e)
             })
     };
 
     //changer url
-    createSites = async function () {
+    createSites = async function (e) {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
-        let moyen = equivalent.moyenEquiv.get(this.state.moyenId)
+        let moyen = equivalent.moyenEquiv.get(e)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
 
         let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
