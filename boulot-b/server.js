@@ -25,6 +25,7 @@ app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangeri
 app.get('/getUrlImage/:imageName', (req, res) => getUrlImage(req, res));
 app.use('/images', express.static(__dirname +'/frontend/src/assets/map'));
 
+app.use('/styles', express.static(__dirname +'/frontend/src/style'));
 
 // This module is exported and served by the main server.js located
 // at the root of this set of projects. You can access it by lanching the main
