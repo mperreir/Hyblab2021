@@ -181,14 +181,14 @@ let initSlide3 = function() {
 }
 
 //Plein la vue 
-let initSlide4 = function() {
+let initSlide4 = function(db) {
     /* Chargements des images des slides 9 et 5 */
     loadComponent('9');
     loadComponent('5')
 
     //Plein la vue -> avec quoi
     d3.select("#bouton-gauche-p4").on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('5', data);
         route.push('4');
         console.log(data);
@@ -205,20 +205,20 @@ let initSlide4 = function() {
 }
 
 //Okey mais Avec quoi
-let initSlide5 = function() {
+let initSlide5 = function(db) {
     /* Chargements des images des slides 9 et 10 */
     loadComponent('9');
     loadComponent('10')
 
     //Plein la vue -> avec quoi 
     d3.select("#button-gauche-p5").on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
         route.push('5');
         console.log(data);
     });
     d3.select("#button-droite-p5").on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('9', data);
         route.push('5');
         console.log(data);
@@ -234,14 +234,14 @@ let initSlide6 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
     d3.select("#boutton-gauche-p6").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
         nextSlide('10', data); //FINAL SLIDE
         route.push('6');
         console.log(data);
     });
     d3.select("#bouton-droite-p6").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10)
         nextSlide('10', data); //FINAL SLIDE
         route.push('6');
@@ -254,19 +254,19 @@ let initSlide6 = function(db) {
 
 
 //Preference entre animaux et bruits nature 
-let initSlide7 = function() {
+let initSlide7 = function(db) {
     /* Chargements des images des slides 6 et 5 */
     loadComponent('6');
     loadComponent('8')
 
     d3.select("#bouton-gauche-p7").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/animaux/decouvrir-arbres", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/animaux/decouvrir-arbres", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('8', data);
         route.push('7');
         console.log(data);
     });
     d3.select("#bouton-droite-p7").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
         route.push('7');
         console.log(data);
@@ -279,18 +279,18 @@ let initSlide7 = function() {
 // /Decouverte d'arbres différents 
 
 
-let initSlide8 = function() {
+let initSlide8 = function(db) {
     /* Chargements des images des slides 6 et 10 */
     loadComponent('6');
     loadComponent('10')
     d3.select("#bouton-gauche-p8").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
         route.push('8');
         console.log(data);
     });
     d3.select("#bouton-droite-p8").on('click', async function() {
-        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/non-aventurier/nature", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data); //final slide
         route.push('8');
         console.log(data);
@@ -305,7 +305,7 @@ let initSlide9 = function(db) {
     loadComponent('10');
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 8);
         nextSlide('10', data);
         route.push('9');
@@ -355,28 +355,28 @@ let initSlide10 = function(db) {
     loadComponent('resultats');
 
     d3.select("#sud-hover-p10").on('click', async function() {
-        data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
     d3.select("#ouest-hover-p10").on('click', async function() {
-        data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
     d3.select("#nord-est-hover-p10").on('click', async function() {
-        data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
     d3.select("#centre-hover-p10").on('click', async function() {
-        data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
@@ -394,7 +394,7 @@ let initSlideResultat = function(db) {
     const charts = ['chart', 'chart1', 'chart2', 'chart3'];
     const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
     d3.select("#bouton-gauche-p9").on('click', async function() {
-        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
         console.log(data);
     });
@@ -531,7 +531,7 @@ function giveInfo(data, id) {
     }
     d3.select('#titre-parc').text(function(d) { return data[num]['Nom formel'] });
     d3.select('#addr').text(function(d) { return data[num]['Adresse'] + ", " + data[num]['Code postal'] });
-    d3.select('#acces').text(function(d) { return data[num]['Accès transports en commun'] });
+    d3.select('#acces').text(function(d) { return data[num]['Acces transports en commun'] });
     d3.select('#wc').text(function(d) { return data[num]['Sanitaires'] });
     d3.select('#handi').text(function(d) { return data[num]['Sanitaires pour handicapés'] });
     d3.select('#dog').text(function(d) { return data[num]['Chiens autorisés'] });
