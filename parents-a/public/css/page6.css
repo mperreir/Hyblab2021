@@ -2,7 +2,7 @@
 section[data-slidr="page-6"] {
     /* fond */
     position: absolute;
-    background: linear-gradient(90.42deg, #0574CF 13.84%, #181FB2 82.69%);
+    background: linear-gradient(0deg, #0574CF, #0574CF);
     overflow: hidden;
 }
 
