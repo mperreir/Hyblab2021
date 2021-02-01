@@ -1,5 +1,5 @@
 import React from 'react';
-import {MapContainer, TileLayer, Marker, Popup, Circle} from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, Polygon, Polyline} from 'react-leaflet'
 import '../css/AcceuilCarte.css'
 import CarteInterractionChoixLieu from './CarteInterractionChoixLieu'
 import PopupAnnonce from './PopupAnnonce'
@@ -7,29 +7,47 @@ import CarteInterractionChoixMultiples from './CarteInterractionChoixMultiples'
 import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMultiplesReduit'
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
-import { Polyline } from 'leaflet';
-
+import equivalent from './equivalent.js'
 const decallageCentrageCarte = 0.004;
+const decallageMarqueur = 0.0005;
+const redOptions = { color: '#37ff42' }
+const pupleOption = { color: '#8356db' }
 
-function GetIcon(_iconsize){
-    return L.icon({
-        iconUrl : require("../img/pictogrammes_position.png").default,
-        iconSize: [_iconsize,35]
-    })
+function GetIcon(type, _iconsize, theme){
+    switch (type) {
+        case 1: //position actuelle
+            return L.icon({
+                iconUrl : require("../img/pictogrammes_maison.png").default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
+            break
+        case 2: //site
+            return L.icon({
+                iconUrl : theme.default,
+                iconSize: [_iconsize, 39],
+                iconAnchor:[_iconsize/2,39],
+                popupAnchor:[0,-39]
+            });
+            break
+    }
 }
+
 
 
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 2,
+        popupPhase : 1,
         currentPosition: this.props.data.coords,
         sites:this.props.data.sites,
         adresse:this.props.data.adresse,
         moyenId:this.props.data.moyenId,
         nomPers:this.props.data.nomPers,
-        itineraire:[],
-        };
+        perimetre: this.props.data.perimetre,
+        itineraire: [],
+    };
 
     toCreditPage=(c)=>{
         c();
@@ -63,26 +81,54 @@ class AcceuilCarte extends  React.Component {
         this.props.onSetMoyen(e)
     };
 
-    generateItineraire = () => {
-        fetch(`api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${[43.6471465,0.5841169]}`)
+    generateItineraire = (dest) => {
+        let moyenTransport = equivalent.moyenEquiv.get(this.state.moyenId);
+        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
+        .then(itineraire=> itineraire.json())
+
         .then(itineraire => {
-            this.setState({itineraire});
-        });
+            let newA=[];
+            itineraire.forEach((l) => {
+                newA.push([l[1],l[0]])
+            });
+            this.setState({itineraire:newA});
+        })
+    };
+
+    getPolyne = () => {
+        if(typeof this.state.itineraire !== 'undefined' && this.state.itineraire.length > 0){
+            return <Polyline positions={[this.state.itineraire]} pathOptions={redOptions}/>
+        }
+    }
+
+    getPolygone = () => {
+        if(typeof this.state.perimetre !== 'undefined' && this.state.perimetre.length > 0){
+            return <Polygon positions={this.state.perimetre} pathOptions={pupleOption} />
+        }
     }
 
     render() {
-        console.log(this.state.popupPhase)
-        const {nomPers, onCreditPage} = this.props;
-        const redOptions = { color: '#999999' }
+        console.log("state recu:")
+        console.log(this.state)
+        const {nomPers} = this.props;
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(20)}  position={this.state.currentPosition}>
-                        <Popup> A pretty CSS3 popup. <br /> Easily customizable. </Popup>
-                    </Marker>
-                    <Circle center={this.state.currentPosition} pathOptions={redOptions} radius={500} />
-                    {this.state.itineraire ? <Polyline positions={this.state.itineraire}/> : null}
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0],this.state.currentPosition[1]]}></Marker>
+                    {this.state.sites.map( (e) => {
+                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0],(e.coordonnes[1])]}>
+                            <Popup>
+                                <b>{e.titre}</b>
+                                <br/>
+                                {e.adresse}
+                                <hr/>
+                                <input type="button" class="btn btnValidatePurpleBackground" value="S'y rendre" onClick={ ()=>{this.generateItineraire(e.coordonnes)} }/>
+                            </Popup>
+                        </Marker>
+                    }) }
+                    {this.getPolygone()}
+                    {this.getPolyne()}
                 </MapContainer>
 
                 <PopupAnnonce/>
@@ -91,9 +137,13 @@ class AcceuilCarte extends  React.Component {
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
                     <input type="button" class="buttonMapNavigation" value="Crédits" onClick={()=>{this.toCreditPage(onCreditPage)}} />
+                    <input type="button" class="buttonReturn" className="input-hidden"/>
                 </div>
             </div>
         );
     }
+
+
+
 }
 export default AcceuilCarte;

@@ -1,8 +1,6 @@
 'use strict';
 
 const express = require('express');
-const { lazy } = require('react');
-const { response } = require('../../server');
 
 const addresstocoordinates = require('./adresstocoordinates');
 const get15minzone = require('./get15mnZone');
@@ -46,7 +44,39 @@ module.exports = function () {
         coordinates = [coordinates.longitude, coordinates.latitude];
         let polygon = await get15minzone.get15mnZone(coordinates, path[3]);
         let points = await getzone.getPointsInZoneForProfile(polygon, path[4]);
-        res.json(points);
+        const elements = points.elements;
+        console.log(points.elements);
+        let finalresult = {};
+        if (elements.length <6) {
+            finalresult.lieux = elements;
+        }
+        else {
+            let result = [];
+            for (let i = 0; i < 6; i++) {
+                let indice = Math.floor(Math.random() * (elements.length));
+                result.push(elements[indice]);
+                elements.splice(indice,1);
+            }
+            finalresult.lieux = result;
+        }
+        let theme_surprise='';
+
+        switch (path[4]) {
+            case 'culture':
+                theme_surprise='sportif'
+                break;
+        
+            default:
+                theme_surprise = 'culture';
+                break;
+        }
+
+
+        let  surprise  = await getzone.getPointsInZoneForProfile(polygon, theme_surprise);
+        let elements_surprise = surprise.elements;
+        finalresult.surprise = elements_surprise[Math.floor(Math.random() * (elements_surprise.length))];
+        res.json(finalresult);
+        
     })
 
     app.get('/getlocations/*/*/*', async function(req, res){
@@ -57,7 +87,25 @@ module.exports = function () {
         let polygon = await get15minzone.get15mnZone(coordinates, path[3]);
         let typeslieux = path[4].split('-');
         let points = await getzone.getPointsInZone(polygon, typeslieux);
-        res.json(points);
+        const elements = points.elements;
+        console.log(points.elements);
+        let finalresult = {};
+        if (elements.length <6) {
+            finalresult.lieux = elements;
+        }
+        else {
+            let result = [];
+            for (let i = 0; i < 6; i++) {
+                let indice = Math.floor(Math.random() * (elements.length));
+                result.push(elements[indice]);
+                elements.splice(indice,1);
+            }
+            finalresult.lieux = result;
+        }
+        let  surprise  = await getzone.getPointsInZoneForProfile(polygon, 'culture');
+        let elements_surprise = surprise.elements;
+        finalresult.surprise = elements_surprise[Math.floor(Math.random() * (elements_surprise.length))];
+        res.json(finalresult);
     })
 
     app.get('/getItinerary/*/*/*', async function(req, res) {

@@ -10,7 +10,7 @@ import fauteil from '../img/picto moyen de transport-fauteuil.png'
 import trottinette from '../img/picto moyen de transport-trotinette.png'
 import skate from '../img/picto moyen de transport-skate.png'
 import roller from '../img/picto moyen de transport-roller.png'
-import equiv from './equivalent.js'
+import equivalent from './equivalent.js'
 import fond from '../img/HOVER-moyen de transport-tache-02.png'
 
 class CarteInterractionChoixMultiples extends  React.Component {
@@ -49,7 +49,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
     render() {
         var selectable = []
-        equiv.forEach((l, r) => selectable.push(this.addSelect(l, r)))
+        equivalent.equiv.forEach((l, r) => selectable.push(this.addSelect(l, r)))
         const { onNextPhase, nomPers} = this.props;
         const hoverStyle = {
             backgroundImage: `url(${fond})`
@@ -154,9 +154,9 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <input type="button" class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
-                <Etiquette data={this.state.sites[0]} identifiant={"etiquette1"} numero={1}/>
-                <Etiquette data={this.state.sites[1]} identifiant={"etiquette2"} numero={2}/>
-                <Etiquette data={this.state.sites[2]} identifiant={"etiquette3"} numero={3}/>
+                {this.state.sites.slice(0,3).map((e) => {
+                    return <Etiquette data={e} identifiant={"etiquette"+e.id} numero={e.id} />
+                })}
             </div>
         );
     }
