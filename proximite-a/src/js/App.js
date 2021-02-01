@@ -50,7 +50,7 @@ class App extends React.Component {
             coordonnes: [5, 6],    //latitude_longitude
             type: 2,
         }],
-        surprises: {
+        surprise: {
             id:'0',
             titre: 'Oooo di',
             img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
@@ -215,7 +215,7 @@ class App extends React.Component {
         console.log(newSurprise)
         this.setState({
             sites: newSites,
-            surprises: newSurprise,
+            surprise: newSurprise,
             pageId: 4
         });
 

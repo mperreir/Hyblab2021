@@ -47,7 +47,10 @@ class AcceuilCarte extends  React.Component {
         nomPers:this.props.data.nomPers,
         perimetre: this.props.data.perimetre,
         itineraire: [],
-        selectedSites:[]
+        selectedSites:[],
+        popupSurpriseState: false,
+        surprise: this.props.data.surprise,
+        surpriseEnabled: false
     };
 
     toCreditPage=(c)=>{
@@ -114,10 +117,38 @@ class AcceuilCarte extends  React.Component {
         console.log(this.setState)
     }
 
+    afficherPopupSurprise = () => {
+        this.setState({popupSurpriseState : true});
+    }
+
+    getPopupSurprise = () =>{
+        if (this.state.popupSurpriseState){
+            return <PopupAnnonce affiche={this.state.popupSurpriseState} valider={this.updateSurpriseState}/>
+        }
+    };
+    updateSurpriseState = () =>{
+        this.setState({surpriseEnabled:true})
+    };
+
+    displaySurprise = () =>{
+        if (this.state.surpriseEnabled == true) {
+            return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(this.state.surprise.type))}  position={[this.state.surprise.coordonnes[0],(this.state.surprise.coordonnes[1])]}>
+                <Popup>
+                    <b>{this.state.surprise.titre}</b>
+                    <br/>
+                    {this.state.surprise.adresse}
+                    <hr/>
+                    <input type="button" class="btn btnValidatePurpleBackground" value="S'y rendre" onClick={ ()=>{this.generateItineraire(this.state.surprise.coordonnes)} }/>
+                </Popup>
+            </Marker>
+        }
+    };
+
 
     render() {
-        console.log("state recu:")
-        console.log(this.state)
+        if (this.state.popupPhase>1){
+            setTimeout(this.afficherPopupSurprise,100);
+        }
         const {nomPers, onCreditPage} = this.props;
         return (
             <div id="map">
@@ -135,11 +166,11 @@ class AcceuilCarte extends  React.Component {
                             </Popup>
                         </Marker>
                     }) }
+                    {this.displaySurprise()}
                     {this.getPolygone()}
                     {this.getPolyne()}
                 </MapContainer>
-
-                <PopupAnnonce/>
+                {this.getPopupSurprise()}
                 {this.getPhase({nomPers})}
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
@@ -150,8 +181,5 @@ class AcceuilCarte extends  React.Component {
             </div>
         );
     }
-
-
-
 }
 export default AcceuilCarte;
