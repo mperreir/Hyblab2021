@@ -113,7 +113,7 @@ class Narrator {
  */
 function loadCharacter() {
 	let imgChar = document.createElement('img');
-	imgChar.src = ROOT + categorie.imageURI;
+	imgChar.src = router.ROOT + categorie.imageURI;
 	imgChar.id = 'character_image';
 	persoBox.appendChild(imgChar);
 }

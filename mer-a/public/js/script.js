@@ -7,5 +7,5 @@ const router = new Router(filAriane, loader, soundManager);
 
 (async () => {
   router.loadRessources("accueil", {}, 1);
-  mapFusion = await (await fetchAsync('/mer-a/assets/data/map.json', 'GET')).json();
+  router.externData.map = await (await fetchAsync(`${router.ROOT}assets/data/map.json`, 'GET')).json();
 })();

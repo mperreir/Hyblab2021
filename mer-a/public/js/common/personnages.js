@@ -13,7 +13,7 @@
  */
 function loadCharacter(container) {
 	let imgChar = document.createElement('img');
-	imgChar.src = ROOT + categorie.imageURI;
+	imgChar.src = router.ROOT + getCategorie(router.data.personnage).imageURI;
 	imgChar.id = 'character_image';
 	container.appendChild(imgChar);
 }
