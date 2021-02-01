@@ -233,7 +233,7 @@ let initSlide5 = function() {
 let initSlide6 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
-    d3.select("#bouton-gauche-p6").on('click', async function() {
+    d3.select("#boutton-gauche-p6").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
         nextSlide('10', data); //FINAL SLIDE
