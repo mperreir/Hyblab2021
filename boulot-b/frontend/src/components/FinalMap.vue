@@ -44,10 +44,13 @@ export default Vue.component("finalMap", {
 
 async function createMap(platform, map, choices) {
     // STYLE MAP
-    // var provider = map.getBaseLayer().getProvider();
-    // const reqUrlImage = await axios.get(`/boulot-b/getUrlImage/normal.day.yaml`);
-    // var style = new H.map.Style(reqUrlImage.data.urlImage);
-    // provider.setStyle(style);
+    var provider = map.getBaseLayer().getProvider();
+
+    // A MODIFIER : NE MARCHE QUE EN LOCAL POUR L'INSTANT
+    
+    var style = new H.map.Style('http://localhost:8080/boulot-b/styles/normal.day.yaml');
+    console.log(style);
+    provider.setStyle(style);
     
     const datas = await getDatas(choices);
 
