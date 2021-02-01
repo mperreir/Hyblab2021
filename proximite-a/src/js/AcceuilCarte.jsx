@@ -125,8 +125,10 @@ class AcceuilCarte extends  React.Component {
                         </Marker>
                     }) }
                     <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
+
                     {this.getPolygone()}
                     {this.getPolyne()}
+
                 </MapContainer>
 
                 <PopupAnnonce/>
