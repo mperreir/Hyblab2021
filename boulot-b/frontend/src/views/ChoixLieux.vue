@@ -6,7 +6,7 @@
           <img id="haltere" src="@/assets/map/haltere.svg" alt="haltere">
           <ButtonCustom @click="checkSalle" v-model="salleDeSport" :class="{checkedYellow: salleDeSport}" text="Salle de Sport" color="yellow" />
           <ButtonCustom @click="checkBar" v-model="bar" :class="{checkedBlue: bar}" text="Bar" color="blue" />
-          <img id="verre" src="@/assets/map/verre.svg" alt="verre">
+          <img id="verre" src="@/assets/map/verre.png" alt="verre">
           <img id="pain" src="@/assets/map/baguette.svg" alt="pain">
           <ButtonCustom @click="checkBoulangerie" v-model="boulangerie" :class="{checkedBlue: boulangerie}" text="Boulangerie" color="blue" />
           <ButtonCustom @click="checkPharmacie" v-model="pharmacie" :class="{checkedYellow: pharmacie}" text="Pharmacie" color="yellow"/>
@@ -137,8 +137,9 @@ export default {
   }
   #verre {
     position: absolute;
-    right: -8%;
-    top: -10%;
+    width: 8%;
+    right: 5%;
+    top: -8%;
     z-index: 12;
   }
   #pain {
