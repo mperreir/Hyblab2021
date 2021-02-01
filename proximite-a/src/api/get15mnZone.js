@@ -23,14 +23,14 @@ let get15mnZone = async function(position, modeTransport = 'foot-walking') {
                 'Content-Type': 'application/json'
             }});
 
-        if (response.ok) {
+        if (data.ok) {
             const response = await data.json();
             let polygon = response.features[0].geometry.coordinates;
             return polygon;
         }
         else {
             console.error("Erreur de requête isochrone!");
-            console.error(response);
+            console.error(data);
         }
     } catch (e) {
         console.error(e);
