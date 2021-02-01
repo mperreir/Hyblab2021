@@ -4,9 +4,9 @@
 }
 
 #pb-prix, #pb-co2 rect {
-    fill: #c70000;
+    fill: #FF6073;
 }
 
 #pb-vit, #pb-kcal rect {
-    fill: #308a30;
+    fill: #22c79e;
 }
