@@ -104,6 +104,7 @@ class Router {
       this.loadRessources(localStorage.getItem('path'), JSON.parse(localStorage.getItem('data')), parseInt(localStorage.getItem('idFond'), 10));
       this.soundStop = (localStorage.getItem('soundStop') === 'true');
       this.soundManager.startSound();
+      document.querySelector('#scene1').style.filter = 'brightness(100%)';
 
     }
   }
