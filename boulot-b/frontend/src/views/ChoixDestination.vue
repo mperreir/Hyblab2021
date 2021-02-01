@@ -101,7 +101,7 @@ export default {
     },
     onBlurArrive(value) {
       if (value) {
-        this.message = "Parfait, j'attend ton signal"
+        this.message = "Parfait, j'attends ton signal"
       }
     },
     launch() {
