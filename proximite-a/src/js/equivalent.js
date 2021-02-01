@@ -62,7 +62,7 @@ themetxt.set(3, require('../img/pictogrammes_gourmet.png'));
 themetxt.set(4, require('../img/pictogrammes_culture.png'));
 themetxt.set(5, require('../img/pictogrammes_famille.png'));
 
-export default {equiv, moyenEquiv, themeEquiv, themePicto}
+export default {equiv, moyenEquiv, themeEquiv, themePicto, themetxt}
 
 
 

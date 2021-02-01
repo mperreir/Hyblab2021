@@ -39,7 +39,7 @@ function GetIcon(type, _iconsize, theme){
 
 class AcceuilCarte extends  React.Component {
     state={
-        popupPhase : 2,
+        popupPhase : 1,
         currentPosition: this.props.data.coords,
         sites:this.props.data.sites,
         adresse:this.props.data.adresse,
@@ -80,8 +80,8 @@ class AcceuilCarte extends  React.Component {
     };
 
     generateItineraire = (dest) => {
-        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
-        fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
+        let moyenTransport = equivalent.moyenEquiv.get(this.state.moyenId);
+        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
         .then(itineraire=> itineraire.json())
 
         .then(itineraire => {
@@ -113,9 +113,9 @@ class AcceuilCarte extends  React.Component {
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}></Marker>
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0],this.state.currentPosition[1]]}></Marker>
                     {this.state.sites.map( (e) => {
-                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
+                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0],(e.coordonnes[1])]}>
                             <Popup>
                                 <b>{e.titre}</b>
                                 <br/>
@@ -125,11 +125,8 @@ class AcceuilCarte extends  React.Component {
                             </Popup>
                         </Marker>
                     }) }
-                    <Polygon positions={this.state.perimetre} pathOptions={redOptions} />
-
                     {this.getPolygone()}
                     {this.getPolyne()}
-
                 </MapContainer>
 
                 <PopupAnnonce/>
@@ -138,6 +135,7 @@ class AcceuilCarte extends  React.Component {
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
                     <input type="button" class="buttonMapNavigation" value="Crédits"/>
+                    <input type="button" class="buttonReturn" className="input-hidden"/>
                 </div>
             </div>
         );
