@@ -1,6 +1,15 @@
 .progressBar {
     background: url(../assets/fond-barre.svg) no-repeat;
     height: 38px;
+    position: relative;
+}
+
+.progressBar span {
+    color: white;
+    position: absolute;
+    font-size: 1rem;
+    left: 20px;
+    bottom: 6px;
 }
 
 #pb-prix, #pb-co2 rect {

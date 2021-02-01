@@ -76,20 +76,16 @@ function updateResults(name, choice) {
 
     if (name === 'page-arrivee') {
         window.results.stats = {
-            "prix": constrain(average(window.results.transports.map(name => statistics[name]["prix"])), statistics.min["prix"], statistics.max["prix"]),
-            "vitesse": constrain(average(window.results.transports.map(name => statistics[name]["vitesse"])), statistics.min["vitesse"], statistics.max["vitesse"]),
-            "émission de CO2": constrain(average(window.results.transports.map(name => statistics[name]["émission de CO2"])), statistics.min["émission de CO2"], statistics.max["émission de CO2"]),
-            "calories brûlés": constrain(average(window.results.transports.map(name => statistics[name]["calories brûlés"])), statistics.min["calories brûlés"], statistics.max["calories brûlés"]),
+            "prix": [average(window.results.transports.map(name => statistics[name]["prix"])), statistics.min["prix"], statistics.max["prix"]],
+            "vitesse": [average(window.results.transports.map(name => statistics[name]["vitesse"])), statistics.min["vitesse"], statistics.max["vitesse"]],
+            "émission de CO2": [average(window.results.transports.map(name => statistics[name]["émission de CO2"])), statistics.min["émission de CO2"], statistics.max["émission de CO2"]],
+            "calories brûlés": [average(window.results.transports.map(name => statistics[name]["calories brûlés"])), statistics.min["calories brûlés"], statistics.max["calories brûlés"]],
         };
     }
 }
 
 function average(arr) {
     return arr.length > 0 ? arr.reduce((a, b) => a + b) / arr.length : 0;
-}
-
-function constrain(value, min, max) {
-    return (value - min) / (max - min);
 }
 
 function unique(...arr) {
