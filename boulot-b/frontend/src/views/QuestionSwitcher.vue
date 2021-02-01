@@ -1,6 +1,6 @@
 <template>
   <keep-alive>
-    <transition name="slide" mode="out-in">
+    <transition :name="transition" mode="out-in">
       <component  :actif="actif" :is="view"></component>
     </transition>
   </keep-alive>
@@ -30,12 +30,14 @@ export default {
   name: "QuestionnaireContainer",
   data() {
     return {
+      transition: "slide_bas",
       actif: 0,
       view: ChoixDestination
     }
   },
   mounted() {
     this.$root.$data.subscribe("actif", (nextActif) => {
+      this.transition =  nextActif < this.actif ?  "slide_haut" : "slide_bas"
       this.actif = nextActif
       const indexView = Views.findIndex((view) => view.actif === this.actif)
       this.view = Views[indexView].component
@@ -50,22 +52,42 @@ export default {
 </script>
 
 <style scoped>
-  .slide-enter {
+  .slide_bas-enter {
     transform: translateY(100%);
   }
-  .slide-enter-to {
+  .slide_bas-enter-to {
     transform: translateY(0);
   }
-  .slide-enter-active {
+  .slide_bas-enter-active {
     position: absolute;
   }
-  .slide-leave {
+  .slide_bas-leave {
     transform: translateY(0);
   }
-  .slide-leave-to {
+  .slide_bas-leave-to {
     transform: translateY(-100%);
   }
-  .slide-enter-active, .slide-leave-active {
+  .slide_bas-enter-active, .slide_bas-leave-active {
     transition: all 1s ease-in;
   }
+
+  .slide_haut-enter {
+    transform: translateY(-100%);
+  }
+  .slide_haut-enter-to {
+    transform: translateY(0);
+  }
+  .slide_haut-enter-active {
+    position: absolute;
+  }
+  .slide_haut-leave {
+    transform: translateY(0);
+  }
+  .slide_haut-leave-to {
+    transform: translateY(100%);
+  }
+  .slide_haut-enter-active, .slide_haut-leave-active {
+    transition: all 1s ease-in;
+  }
+
 </style>
