@@ -49,12 +49,23 @@ function choixSlide(num, data) {
     if (num == '10') { initSlide10(data) }
 
     if (num == 'resultats') { initSlideResultat(data) }
+
+    if (num == 'credit') { initSlideCredit(data) }
+
+}
+
+let loadComponent = function(p) {
+    console.log(p);
+    document.querySelectorAll(`#page-${p} > img`).forEach(elem => {
+        elem.setAttribute("src", elem.getAttribute("data-src"));
+    });
 }
 
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
 
     d3.select('#logo').on('click', function() {
+        loadComponent(2);
         nextSlide('1-1');
     });
 }
@@ -67,17 +78,6 @@ let initSlide1_1 = function() {
         nextSlide('2');
     });
 }
-
-/*
-let initSlide2 = function() {
-    setTimeout(suiteTraitement, 1000)
-    function suiteTraitement()
-    {
-        mySlidr.slide('page-2.1');
-        initSlide2_1();
-    }
-}*/
-
 
 function disappear(id) {
     d3.select(id)
@@ -106,9 +106,8 @@ let initSlide2 = function() {
 
         appear('#appear')
         appear('#vector-p2-1')
-
-
-
+        loadComponent('2-1')
+        loadComponent('3')
     });
 
     //transi next slide
@@ -156,7 +155,10 @@ let initSlide2_1 = function() {
 
 //Premiere question : aventurier ? 
 let initSlide3 = function() {
-    //Aventurier -> Plein la vue
+    /* Chargements des images des slides 4 et 7 */
+    loadComponent('4');
+    loadComponent('7')
+        //Aventurier -> Plein la vue
     d3.select('#bouton-droite-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
         nextSlide('7', data);
@@ -180,7 +182,11 @@ let initSlide3 = function() {
 
 //Plein la vue 
 let initSlide4 = function() {
-    //Plein la vue -> avec quoi 
+    /* Chargements des images des slides 9 et 5 */
+    loadComponent('9');
+    loadComponent('5')
+
+    //Plein la vue -> avec quoi
     d3.select("#bouton-gauche-p4").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('5', data);
@@ -200,8 +206,11 @@ let initSlide4 = function() {
 
 //Okey mais Avec quoi
 let initSlide5 = function() {
+    /* Chargements des images des slides 9 et 10 */
+    loadComponent('9');
+    loadComponent('10')
 
-    //Plein la vue -> avec quoi
+    //Plein la vue -> avec quoi 
     d3.select("#bouton-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -222,6 +231,8 @@ let initSlide5 = function() {
 
 
 let initSlide6 = function(db) {
+    /* Chargements des images de la slide 10 */
+    loadComponent('10');
     d3.select("#bouton-gauche-p6").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
@@ -242,8 +253,11 @@ let initSlide6 = function(db) {
 }
 
 
-//Preference entre animaux et bruits nature
+//Preference entre animaux et bruits nature 
 let initSlide7 = function() {
+    /* Chargements des images des slides 6 et 5 */
+    loadComponent('6');
+    loadComponent('8')
 
     d3.select("#bouton-gauche-p7").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux/decouvrir-arbres", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -262,10 +276,13 @@ let initSlide7 = function() {
     });
 }
 
-// /Decouverte d'arbres différents
+// /Decouverte d'arbres différents 
 
-let initSlide8 = function(db) {
 
+let initSlide8 = function() {
+    /* Chargements des images des slides 6 et 10 */
+    loadComponent('6');
+    loadComponent('10')
     d3.select("#bouton-gauche-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
@@ -284,6 +301,8 @@ let initSlide8 = function(db) {
 }
 
 let initSlide9 = function(db) {
+    /* Chargements des images de la slide 10 */
+    loadComponent('10');
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -328,29 +347,31 @@ function checkData(d, db, max) {
 }
 
 let initSlide10 = function(db) {
+    /* Chargements des images de la slide resultats */
+    loadComponent('resultats');
 
-    d3.select("#sud-p10").on('click', async function() {
+    d3.select("#sud-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#ouest-p10").on('click', async function() {
+    d3.select("#ouest-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Ouest", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#nord-est-p10").on('click', async function() {
+    d3.select("#nord-est-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Nord", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
         route.push('10');
         console.log(data);
     });
-    d3.select("#centre-p10").on('click', async function() {
+    d3.select("#centre-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Centre", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
         nextSlide('resultats', data);
@@ -364,6 +385,8 @@ let initSlide10 = function(db) {
 
 //
 let initSlideResultat = function(db) {
+    /* Chargements des images de la slide credits */
+    loadComponent('credits');
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -378,10 +401,14 @@ let initSlideResultat = function(db) {
     d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel'] });
     d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel'] });
 
-    d3.selectAll('.button_retour').on('click', function() {
-        nextSlide('10')
-
+    d3.selectAll('.accueil').on('click', function() {
+        nextSlide('2')
     });
+
+    d3.select('#credit').on('click', function() {
+        nextSlide('credit')
+    });
+
 
     d3.select('#random2').on('click', () => {
         console.log('random 2');
@@ -432,15 +459,22 @@ let initSlideResultat = function(db) {
 
 }
 
+let initSlideCredit = function(db) {
+
+    d3.selectAll('.accueil').on('click', function() {
+        nextSlide('2')
+    });
+}
+
 let im_sources = {
-        "ILE DE VERSAILLES": "img/images_parcs_jardins/ile-de-versailles.jpg",
-        "PLANTES": "img/images_parcs_jardins/jardin-des-plantes.jpg",
-        "BEAULIEU": "img/images_parcs_jardins/parc-de-beaulieu.jpg",
-        "BEAUJOIRE": "img/images_parcs_jardins/parc-de-la-beaujoire.jpg",
-        "CHANTRERIE": "img/images_parcs_jardins/Parc-de-la-Chantrerie.jpg",
-        "PROCE": "img/images_parcs_jardins/Parc-de-proce-Nantes.jpg",
-        "LE OBLATES": "img/images_parcs_jardins/Parc-des-oblates-Nantes.jpg",
-        "BLOTTEREAU": "img/images_parcs_jardins/parc-du-grand-bloterreau.jpg"
+        "ILE DE VERSAILLES": "img/parcs/ile-de-versailles.jpg",
+        "PLANTES": "img/parcs/jardin-des-plantes.jpg",
+        "BEAULIEU": "img/parcs/parc-de-beaulieu.jpg",
+        "BEAUJOIRE": "img/parcs/parc-de-la-beaujoire.jpg",
+        "CHANTRERIE": "img/parcs/Parc-de-la-Chantrerie.jpg",
+        "PROCE": "img/parcs/Parc-de-proce-Nantes.jpg",
+        "LE OBLATES": "img/parcs/Parc-des-oblates-Nantes.jpg",
+        "BLOTTEREAU": "img/parcs/parc-du-grand-bloterreau.jpg"
     }
     // parc 1 data[2]  // parc 2 data[1] // parc 3  data[0]
 
@@ -469,13 +503,13 @@ function chooseimage(data, div) {
 
     });
     if (num[0] === "1" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
     if (num[0] === "2" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-2.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/images_parcs_jardins/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
 }
 

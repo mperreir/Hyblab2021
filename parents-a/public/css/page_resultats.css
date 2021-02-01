@@ -1,15 +1,33 @@
 /* PAGE 6 */
-section[data-slidr="ppage-resultats"] {
+section[data-slidr="page-resultats"] {
     /* fond */
     position: absolute;
 }
 
-#logo-pr {
-    /* logo */
+.photo, .photo *{
+    z-index: -2;
+}
+
+#feuille-verte-pr{
     position: absolute;
-    width: 6%;
-    bottom: 85%;
-    right: 5%;
+    width: 18%;
+    bottom: 5%;
+    left: 6%;
+}
+
+#fleurs-pr{
+    position: absolute;
+    width: 9%;
+    bottom: 8%;
+    left: 3%;
+
+}
+#credits{
+    right : 2%;
+    bottom: 15%;
+    cursor: pointer;
+    border-radius: 5%;
+    outline: none;
 }
 
 #titre-pr {
@@ -19,15 +37,19 @@ section[data-slidr="ppage-resultats"] {
     right: 29%;
 }
 
-#contour-pr {
+#contour-img-pr {
     position: absolute;
+    top: 0%;
+    left: 0%;
     width: 100%;
+    z-index: -1 ;
 }
 
 
 /* Top Parcs */
 
-#parc1-pr,#img1 {
+
+#parc1-pr ,#img1 {
     position: absolute;
     width: 23%;
     bottom: 43%;
@@ -56,9 +78,8 @@ section[data-slidr="ppage-resultats"] {
     right: 10%;
     z-index: 14;
 } */
-#parc2-pr ,#img2{
+#parc2-pr,#img2{
     position: absolute;
-    width: 23%;
     bottom: 41%;
     right: 39%;
 }
@@ -143,15 +164,10 @@ section[data-slidr="ppage-resultats"] {
 
 
 .modal-content {
-    top: 30% ;
     margin: 2px auto;
     z-index: 1100 !important;
-}
-
-.modal-content{
     color : #171EB1;
 }
 
-#modalResult i{
-    width : 10%;
-}
+
+
