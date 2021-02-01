@@ -62,14 +62,11 @@ section {
     cursor: pointer;
     outline: none;
     background-color: transparent;
+    opacity : 0.3 ;
 }
 
 .button:hover {
-    /* Only design change */
-    border: 3px solid #fff;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
+   opacity : 1 ; 
 }
 
 
@@ -77,11 +74,18 @@ section {
 
 .button_retour {
     /* Position */
-    left: 4%;
-    top: 5%;
+    left : 9%;
     cursor: pointer;
     border-radius: 5%;
     outline: none;
+}
+
+.home, .button_retour {
+    top: 5%;
+    cursor: pointer;
+}
+.home {
+    left: 3%;
 }
 
 #texte_question_precedente {
