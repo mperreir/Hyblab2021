@@ -78,6 +78,8 @@ registerSlide("page-credit", function () {
 });
 
 let button = function (idbutton, choice) {
+    d3.select(idbutton).style("transform", "scale(1)");
+
     d3.select(idbutton).on('click', function () {
         overrideAnim({
             targets: idbutton,

@@ -85,10 +85,11 @@ function updateResults(name, choice) {
 }
 
 function average(arr) {
-    return arr.reduce((a, b) => a + b) / arr.length;
+    return arr.length > 0 ? arr.reduce((a, b) => a + b) / arr.length : 0;
 }
+
 function constrain(value, min, max) {
-    return (value - min) / (max - min)
+    return (value - min) / (max - min);
 }
 
 function unique(...arr) {
