@@ -8,6 +8,7 @@ let initSearchingResults = function() {
 
 
     // ----------- AUDIO --------------
+    let buttonVol = document.getElementById("volumeResult2");
     document.getElementById('activities_audio').pause();
 
     if (isSonOn) {
@@ -16,7 +17,7 @@ let initSearchingResults = function() {
         document.getElementById('result1_audio').volume = 0.15;
 
     }
-    else buutonVol.setAttribute("src", "./img/common/volume_off.svg");
+    else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 
 
     d3.selectAll('.volume').on('click', function() {
