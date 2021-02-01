@@ -99,6 +99,7 @@ div#critere_page {
 
 .criteres{
     width: 200px !important;
+    cursor: grab;
     /* display:inline-block;  2 col parfois */
 }
 

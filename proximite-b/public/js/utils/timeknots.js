@@ -75,7 +75,7 @@ var TimeKnots = {
                 i++;
             });
             divContent.append(col1);
-            if (i >= 5) divContent.append(col2);
+            if (i > 5) divContent.append(col2);
             $("#otherItemsSingleModal").append(divContent)
 
         }
