@@ -334,6 +334,9 @@ function fetchData() {
             address1.innerHTML = '<img src="img/results_page/address.svg" alt="Icone d\'adresse">' + ' ' + top[0]['Adresse'];
             address2.innerHTML = '<img src="img/results_page/address.svg" alt="Icone d\'adresse">' + ' ' + top[1]['Adresse'];
             address3.innerHTML = '<img src="img/results_page/address.svg" alt="Icone d\'adresse">' + ' ' + top[2]['Adresse'];
+            address1.href = 'https://www.google.fr/maps/@' + top[0]['Géolocalisation'] + ',18z';
+            address2.href = 'https://www.google.fr/maps/@' + top[1]['Géolocalisation'] + ',18z';
+            address3.href = 'https://www.google.fr/maps/@' + top[2]['Géolocalisation'] + ',18z';
 
             const access1 = document.getElementById('result-one-access');
             const access2 = document.getElementById('result-two-access');
@@ -361,6 +364,13 @@ function fetchData() {
             location1.href = 'https://www.google.fr/maps/@' + top[0]['Géolocalisation'] + ',18z';
             location2.href = 'https://www.google.fr/maps/@' + top[1]['Géolocalisation'] + ',18z';
             location3.href = 'https://www.google.fr/maps/@' + top[2]['Géolocalisation'] + ',18z';
+
+            const moreInfo1 = document.getElementById('result-one-more-info-text');
+            const moreInfo2 = document.getElementById('result-two-more-info-text');
+            const moreInfo3 = document.getElementById('result-three-more-info-text');
+            moreInfo1.innerText = top[0]['Informations complémentaires'];
+            moreInfo2.innerText = top[1]['Informations complémentaires'];
+            moreInfo3.innerText = top[2]['Informations complémentaires'];
 
             let slider1 = document.getElementById("splide-one-inside");
             let slider2 = document.getElementById("splide-two-inside");
