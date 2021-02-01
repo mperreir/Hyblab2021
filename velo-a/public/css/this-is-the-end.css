@@ -175,3 +175,7 @@ button {
 #reinit:hover {
 	color: white;
 }
+
+button {
+	font-family: 'Montserrat', sans-serif;
+}
