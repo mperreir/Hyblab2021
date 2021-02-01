@@ -22,7 +22,7 @@ section[data-slidr="page-resultats"] {
     left: 3%;
 
 }
-#credits{
+#credits-b{
     right : 2%;
     bottom: 15%;
     cursor: pointer;
@@ -167,6 +167,27 @@ section[data-slidr="page-resultats"] {
     margin: 2px auto;
     z-index: 1100 !important;
     color : #171EB1;
+}
+
+#info1-pr {
+    position: absolute;
+    bottom: 25%;
+    right: 15%; 
+    z-index: 15;
+}
+
+#info2-pr {
+    position: absolute;
+    bottom: 25%;
+    right: 42%;
+    z-index: 15;
+}
+
+#info3-pr {
+    position: absolute;
+    bottom: 25%;
+    left:17%;
+    z-index: 15;
 }
 
 

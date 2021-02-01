@@ -50,7 +50,7 @@ function choixSlide(num, data) {
 
     if (num == 'resultats') { initSlideResultat(data) }
 
-    if (num == 'credit') { initSlideCredit(data) }
+    if (num == 'credits') { initSlideCredit(data) }
 
 }
 
@@ -404,8 +404,8 @@ let initSlideResultat = function(db) {
         nextSlide('2')
     });
 
-    d3.select('#credit').on('click', function() {
-        nextSlide('credit')
+    d3.select('#credits-b').on('click', function() {
+        nextSlide('credits')
     });
     
 
