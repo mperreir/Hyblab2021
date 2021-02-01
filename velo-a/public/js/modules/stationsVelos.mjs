@@ -22,13 +22,12 @@ export async function getStationsVelos() {
 
 		const html =
 			`<div>
-                <i class="fas fa-garage"></i>
-                <p>${record.fields.nom}</p>
-                <p><bold>Téléphone :</bold> ${record.fields.tel}</p>
-                <p><bold>Adresse :</bold> ${record.fields.adresse}</p>
-                <p><bold>Horaires :</bold> ${record.fields.ouverture}</p>
-                <p><bold>Capacité :</bold> ${record.fields.capacite}</p>
-                <p><bold>Accès :</bold> ${record.fields.conditions}</p>
+                <h4>${record.fields.nom}</h4>
+                <p><b>Téléphone :</b> ${record.fields.tel}</p>
+                <p><b>Adresse :</b> ${record.fields.adresse}</p>
+                <p><b>Horaires :</b> ${record.fields.ouverture}</p>
+                <p><b>Capacité :</b> ${record.fields.capacite}</p>
+                <p><b>Accès :</b> ${record.fields.conditions}</p>
             </div>`;
 
 		const marker = {

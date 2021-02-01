@@ -11,7 +11,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
-	margin-left: 50px;
+	margin-left: 160px;
 }
 
 #container-bicky {
@@ -35,24 +35,28 @@ input {
 
 	.container_map {
 		align-self: center;
+		margin: 0;
 	}
 
 	#container-bicky {
 		display: flex;
 	}
 
-	#bicky-savoir {
-		width: 150px;
+	.bicky-savoir {
+		display: none;
 	}
 
-	#bulle-savoir {
-		width: 250px;
+	#bicky-habille {
+		display: none;
 	}
 }
 
 @media (orientation: landscape) {
 	.bottom-right-nav-container {
 		align-items: flex-end;
+		position: fixed;
+		bottom: 0;
+		right: 0;
 	}
 }
 
@@ -71,4 +75,18 @@ input {
 
 h3 {
 	margin-top: 1em;
+}
+
+.bicky-habille {
+	z-index: 10;
+	height: 26px;
+	margin-bottom: 30px;
+	transform: scale(7);
+}
+
+.bicky-habille-pluie {
+	z-index: 10;
+	height: 26px;
+	margin-bottom: 50px;
+	transform: scale(6);
 }

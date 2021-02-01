@@ -4,7 +4,10 @@ import { autocompleteAddress } from "./modules/autocompleteAddress.js";
 import { getTraficData } from "./modules/roadMonitoring.js";
 import { slide } from "./modules/background.js";
 
-async function bootstrap() {
+function bootstrap() {
+	document.querySelectorAll("body > div").forEach((el) => {
+		el.setAttribute("style", "");
+	});
 	slide(velos, backgroundContinue, ["question_pane", "question_velo", "question_trajet"]);
 	togglePath();
 }
@@ -19,10 +22,15 @@ window.addEventListener('DOMContentLoaded', () => {
 	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
 
 	document.getElementById("validerTrajet").addEventListener("click", event => {
+
 		const adresseDepart = localStorage.getItem("adresseDepartCoord");
 		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
 
 		if (!adresseDepart || !adresseArrivee) return;
+
+		Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+			el.setAttribute("disabled", "true");
+		});
 
 		fetch(`https://api.mapbox.com/directions/v5/mapbox/cycling/${adresseDepart};${adresseArrivee}?steps=true&access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw`)
 			.then(res => res.json())
@@ -32,8 +40,10 @@ window.addEventListener('DOMContentLoaded', () => {
 				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
 
 				getTraficData({ roadNames, distance, duration }).then(() => {
+					Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+						el.setAttribute("disabled", "false");
+					});
 					document.location = 'starterPack.html';
-
 				});
 			})
 			.catch(err => {
@@ -81,11 +91,6 @@ function togglePath() {
 	});
 }
 
-function inRect(x, y, rect) {
-	return (x >= rect.left + 10 && x <= rect.right - 10)
-		&& (y >= rect.top + 10 && y <= rect.bottom - 10);
-}
-
 async function velos() {
 
 
@@ -93,8 +98,6 @@ async function velos() {
 	let isMovingClick = false;
 
 	document.querySelectorAll("#question_velo button").forEach((el) => {
-
-
 		el.addEventListener("click", async () => {
 			await sleep(
 				() => {

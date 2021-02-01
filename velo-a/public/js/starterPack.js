@@ -66,13 +66,26 @@ window.addEventListener('DOMContentLoaded', async () => {
 		textMeteo += `- Météo de la prochaine heure : `;
 		weather.forEach((e, i, l) => {
 			textMeteo += `${e.description}`;
-			if (l.length-1 !== i)
+			if (l.length - 1 !== i)
 				textMeteo += ",";
 		});
 		textMeteo += "\n";
 	}
 
 	document.getElementById("meteo").innerText = textMeteo;
+
+	////////////// Trafic //////////////
+
+	const typeVelo = localStorage.getItem("velo");
+
+	let calories;
+	if (typeVelo === "electrique") {
+		calories = 3.5 * (dureeTrajet / 60);
+	} else {
+		calories = 8 * (dureeTrajet / 60);
+	}
+
+	document.getElementById("sante").innerText = `- Tu vas dépenser environ ${Math.round(calories)} calories lors de ce vélotrajet !`;
 
 	////////////// Trafic //////////////
 
@@ -123,13 +136,18 @@ window.addEventListener('DOMContentLoaded', async () => {
 	let messageFin;
 
 	if (temperature > 20 && !pluie) { // Si soleil
-		messageFin = "C’est un temps idéal pour faire du vélo !"
+		document.getElementById("bicky-habille").src = "img/mascottes/styleMeteo/mascotte_soleil.svg"
+		messageFin = "C’est un temps idéal pour faire du vélo !";
 	} else if (pluie) { // Si pluie
-		messageFin = "Même s’il fait gris, prends ton vélo pour garder la pêche !"
-	} else if (temperature <= 3 || alerteGrave) { // Si verglas
-		messageFin = "Fais bien attention et ne prend pas de risque inconsidéré !"
+		document.getElementById("bicky-habille").src = "img/mascottes/styleMeteo/mascotte_pluie.svg"
+		document.getElementById("bicky-habille").className = "bicky-habille-pluie";
+		messageFin = "Même s’il fait gris, prends ton vélo pour garder la pêche !";
+	} else if (temperature <= 3 || alerteGrave) { // Si verglas ou alerte Météo France grave
+		document.getElementById("bicky-habille").src = "img/mascottes/styleMeteo/mascotte_alerte.svg"
+		messageFin = "Fais bien attention et ne prend pas de risque inconsidéré !";
 	} else if (temperature <= 13) { // Si froid
-		messageFin = "Un peu de vélo pour rester chaud !"
+		document.getElementById("bicky-habille").src = "img/mascottes/styleMeteo/mascotte_froid.svg"
+		messageFin = "Un peu de vélo pour rester chaud !";
 	} else {
 		messageFin = "Sur ce, bonne route !"
 	}

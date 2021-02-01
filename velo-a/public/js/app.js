@@ -89,13 +89,12 @@ async function bootstrap() {
 			el.style.backgroundImage = `url(${d.url})`;
 
 			let marker;
-			el.addEventListener("click", function (event) {
+			el.addEventListener("mouseover", function (event) {
 				// close the holde popup (if active)
 				if (openMarker) openMarker._popup.remove();
 				// open the popup
 				marker._popup.addTo(map)
 				openMarker = marker;
-				event.stopPropagation();
 			});
 
 			marker = new mapboxgl.Marker(el)
@@ -170,7 +169,26 @@ async function bootstrap() {
 
 }
 
+function closeOops() {
+	document.getElementById("oops").style.setProperty("display", "none");
+	document.getElementById("filtre_oops").style.setProperty("display", "none");
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+
+	if (document.getElementById("valider"))
+		document.getElementById("valider").addEventListener("click", () => {
+			if (localStorage.getItem("adresseDepart") && localStorage.getItem("adresseArrivee")) {
+				document.location = 'starterPack.html';
+			} else {
+				document.getElementById("oops").style.setProperty("display", "flex");
+				document.getElementById("filtre_oops").style.setProperty("display", "inherit");
+
+				document.getElementById("filtre_oops").addEventListener("click", closeOops);
+				document.getElementById("oops_ok").addEventListener("click", closeOops);
+
+			}
+		})
 	bootstrap();
 });
 
