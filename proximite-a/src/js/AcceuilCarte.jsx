@@ -110,7 +110,7 @@ class AcceuilCarte extends  React.Component {
     render() {
         console.log("state recu:")
         console.log(this.state)
-        const {nomPers} = this.props;
+        const {nomPers, onCreditPage} = this.props;
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
