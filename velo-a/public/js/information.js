@@ -15,6 +15,7 @@ function bootstrap() {
 window.addEventListener('DOMContentLoaded', () => {
 	bootstrap();
 
+	console.log(localStorage.getItem("adresseDepart"), localStorage.getItem("adresseArrivee"))
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
 
@@ -22,6 +23,9 @@ window.addEventListener('DOMContentLoaded', () => {
 	autocompleteAddress(document.getElementById("input_arrivee"), document.getElementById("input_arrivee_container"), "adresseArrivee");
 
 	document.getElementById("validerTrajet").addEventListener("click", event => {
+		Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+			el.setAttribute("disabled", "true");
+		});
 		const adresseDepart = localStorage.getItem("adresseDepartCoord");
 		const adresseArrivee = localStorage.getItem("adresseArriveeCoord");
 
@@ -35,8 +39,10 @@ window.addEventListener('DOMContentLoaded', () => {
 				const roadNames = steps.map(s => s.name).filter((value, index, self) => self.indexOf(value) === index && value.length > 0);
 
 				getTraficData({ roadNames, distance, duration }).then(() => {
+					Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+						el.setAttribute("disabled", "false");
+					});
 					document.location = 'starterPack.html';
-
 				});
 			})
 			.catch(err => {

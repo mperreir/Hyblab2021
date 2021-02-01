@@ -184,3 +184,11 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+
+.button-slide:disabled {
+	background: #F96D48;
+	border: 3px solid #FFFFFF;
+	color: white;
+	filter: grayscale(50%);
+}
