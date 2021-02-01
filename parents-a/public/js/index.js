@@ -1,3 +1,8 @@
+var element = document.querySelector("#container");
+
+
+
+
 //Mon objet stockant mes données 
 let data = []
 let route = []
@@ -67,6 +72,14 @@ let initSlide1 = function() {
     d3.select('#logo').on('click', function() {
         const s = new sound('sound/back.mp3', true, 0.1);
         s.play()
+            // make the element go to full-screen mode
+        element.requestFullscreen()
+            .then(function() {
+                // element has entered fullscreen mode successfully
+            })
+            .catch(function(error) {
+                // element could not enter fullscreen mode
+            });
         loadComponent(2);
         nextSlide('1-1');
 
