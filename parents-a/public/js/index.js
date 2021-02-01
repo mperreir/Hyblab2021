@@ -139,10 +139,6 @@ let initSlide2 = function() {
         route.push('2');
 
     });
-    //Retour arriere
-    d3.select('.button_retour').on('click', function() {
-        nextSlide('1')
-    });
 }
 
 //Age ?
@@ -173,6 +169,10 @@ let initSlide2_1 = function() {
         console.log(d3.event.target.id);
         nextSlide('2')
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 //Premiere question : aventurier ? 
@@ -201,6 +201,10 @@ let initSlide3 = function() {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide('2-1',data);
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 //Plein la vue 
@@ -224,6 +228,10 @@ let initSlide4 = function(db) {
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
+    });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -257,6 +265,10 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 
@@ -284,6 +296,10 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 
@@ -307,6 +323,10 @@ let initSlide7 = function(db) {
     });
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
+    });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -336,6 +356,10 @@ let initSlide8 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 let initSlide9 = function(db) {
@@ -362,6 +386,10 @@ let initSlide9 = function(db) {
     });
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
+    });
+     //Retour accueil
+     d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -433,8 +461,13 @@ let initSlide10 = function(db) {
         nextSlide('resultats', data);
         route.push('10');
     });
+    
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
+    });
+
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -450,6 +483,7 @@ let initSlideResultat = function(db) {
         nextSlide('10', data);
         console.log(data);
     });
+
     d3.select("#bouton-droite-p9").on('click', async function() {
         nextSlide('10', data);
         console.log(data);
@@ -544,11 +578,19 @@ let initSlideResultat = function(db) {
         giveInfo(podium, 3)
     });
 
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide(route.pop(), db);
+    });
+
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
+
 }
 
 let initSlideCredit = function(db) {
 
-    d3.selectAll('.accueil').on('click', function() {
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2')
     });
 
