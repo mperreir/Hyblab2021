@@ -22,13 +22,10 @@ class Attributs extends React.Component{
             let urlRue = this.state.adresse.rue.split(' ').join('+');
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
-            console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`);
-            this.setState({loading:true});
+            this.setState({loading:true})
         fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-            
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
-                    console.log(response)
                     return response.json();
                 }else {
                     console.log("err")
@@ -38,7 +35,6 @@ class Attributs extends React.Component{
                 }
             })
             .then((donnee) => {  //récupération des données JSON
-                console.log(donnee)
                 this.setState({
                     coords:[donnee.latitude,donnee.longitude],
                     validAdress:true,
@@ -56,7 +52,6 @@ class Attributs extends React.Component{
             fetch( 'https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
-                        console.log(response);
                         return response.json();
                     }else{
                         this.setState({
@@ -65,7 +60,6 @@ class Attributs extends React.Component{
                     }
                 })
                 .then((donnee) => {  //récupération des données JSON
-                    console.log(donnee)
                     this.setState({
                         adresse:{
                             codepostal:donnee.codepostal,

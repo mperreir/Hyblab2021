@@ -10,6 +10,6 @@ const request = async function(adresse, op={}){
     };
     console.log(adresse);
     return await fetch( adresse, options );
-}
+};
 
 exports.request = request;
