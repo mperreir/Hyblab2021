@@ -3,6 +3,7 @@ import logo1 from '../img/LOGO OK_logo bleu.png'
 import perso1 from '../img/Perso-hyblab-03.png'
 import maison from '../img/pictogrammes_maison.png'
 import '../css/attributs.css'
+import {Spinner} from "react-bootstrap";
 
 class Attributs extends React.Component{
     state = {
@@ -13,7 +14,8 @@ class Attributs extends React.Component{
             ville:'',
             validAdress:false
         },
-        choixCoordonnes: false //si l'utilisateur a décidé d'utiliser la géolocalisation
+        choixCoordonnes: false, //si l'utilisateur a décidé d'utiliser la géolocalisation
+        loading:false
     };
 
         getCoords = () =>{
@@ -22,24 +24,30 @@ class Attributs extends React.Component{
             let urlVille = this.state.adresse.ville.split(' ').join('+');
             console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
         fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+            this.setState({loading:true})
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     console.log(response)
                     return response.json();
                 }else {
                     console.log("err")
+                    this.setState({
+                        loading: false
+                    });
                 }
             })
             .then((donnee) => {  //récupération des données JSON
                 console.log(donnee)
                 this.setState({
                     coords:[donnee.latitude,donnee.longitude],
-                    validAdress:true
+                    validAdress:true,
+                    loading:false
                 })
             })
     }
 
     getLocalAdress = () =>{
+        this.setState({loading:true})
         navigator.geolocation.getCurrentPosition(function (position) {   //une fois la position récupérée
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
@@ -49,6 +57,10 @@ class Attributs extends React.Component{
                     if (response.ok) {
                         console.log(response);
                         return response.json();
+                    }else{
+                        this.setState({
+                            loading: false
+                        });
                     }
                 })
                 .then((donnee) => {  //récupération des données JSON
@@ -57,8 +69,9 @@ class Attributs extends React.Component{
                         adresse:{
                             codepostal:donnee.codepostal,
                             rue:donnee.rue,
-                            ville:donnee.ville
+                            ville:donnee.ville,
                         },
+                        loading:false,
                         validAdress:true
                     });
                 })
@@ -101,6 +114,13 @@ class Attributs extends React.Component{
         update(this.state.coords,this.state.adresse);
         NextPage();
     };
+
+    getSpinner() {
+        if(this.state.loading == true){
+            return <Spinner animation="border" role="status"></Spinner>
+        }
+    }
+
     render(){
         const { onNextPage, onPreviousPage, onSetAttributs} = this.props;
         return(
@@ -144,6 +164,7 @@ class Attributs extends React.Component{
                             <input type='button' class="border-0 bg-transparent mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
                             <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
                         </div>
+                        {this.getSpinner()}
                     </div>
                     <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
                 </div>
