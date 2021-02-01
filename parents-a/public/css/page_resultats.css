@@ -47,7 +47,7 @@ section[data-slidr="page-resultats"] {
 
 #contour-img-pr {
     position: absolute;
-    top: 0%;
+    bottom: 0%;
     left: 0%;
     width: 100%;
     z-index: -1 ;
@@ -181,6 +181,15 @@ section[data-slidr="page-resultats"] {
 .modal-dialog-centered{
     width: 40%;
     margin: auto;
+}
+
+.bouton-info{
+    width: 15%;
+    opacity: 0.5;
+}
+
+.bouton-info:hover{
+    opacity: 1;
 }
 
 #info1-pr {
