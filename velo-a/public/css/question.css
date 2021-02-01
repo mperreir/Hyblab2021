@@ -71,6 +71,10 @@ a:hover {
 	justify-self: start;
 }
 
+.button-question {
+	transition: opacity 0.5s, background 0.5s !important;
+}
+
 @media (orientation: portrait) {
 
 	#div-resultat {
@@ -90,11 +94,6 @@ a:hover {
 		font-size: 180%;
 		height: 100px !important;
 		border-radius: 100px !important;
-	}
-
-	#h2-question {
-		max-width: 70%;
-		font-size: 230%;
 	}
 
 	#div-page-2 {
@@ -236,6 +235,8 @@ header {
 	text-align: center;
 	align-self: end;
 	justify-self: center;
+
+	transition: all 0.5s;
 }
 
 #div-page-2 {

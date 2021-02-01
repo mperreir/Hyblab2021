@@ -1,25 +1,15 @@
 "use strict";
 
-import { slide } from "./modules/background.js";
-
-let lastPage = "";
-
 window.addEventListener('DOMContentLoaded', () => {
-
-	slide(() => {}, () => load(lastPage), null);
-
 	load("");
 });
 
+let answers = document.getElementsByClassName("button-question");
+let h2 = document.getElementById("h2-question");
 
 function load(page) {
 	let background = document.getElementById("background-resultat");
 	let container = document.getElementById("container-resultat");
-
-	background.style.background = "rgba(0, 0, 0, 0)";
-	background.style.zIndex = "-2";
-
-	container.style.bottom = "-200%";
 
 	let listP = [];
 	let p;
@@ -28,7 +18,8 @@ function load(page) {
 	switch (page) {
 		default:
 		case "météo" :
-			document.getElementById("h2-question").innerText = "Quelle est la température annuelle à Nantes ?";
+			h2.innerText = "Quelle est la température annuelle à Nantes ?";
+			h2.style.opacity = "1";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -44,6 +35,10 @@ function load(page) {
 			buttons.item(1).addEventListener("click", () => { bicky(true, "Bien joué l'artiste !"); });
 			buttons.item(2).addEventListener("click", () => { bicky(false, "Oh non !"); });
 			buttons.item(3).addEventListener("click", () => { bicky(false, "Oh non !"); });
+
+			for( let i = 0; i < answers.length; i++ ){
+				answers.item(i).style.opacity = "1";
+			}
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -77,14 +72,17 @@ function load(page) {
 			addTextIntoDiv(listP);
 
 			document.getElementById("button-next-question").addEventListener("click", () => {
-				lastPage = page;
-				load("pollution");
+				hideItems();
+				window.setTimeout(() => {
+					load("pollution");
+				}, 500);
 			}, { once: true });
 
 			break;
 
 		case "pollution" :
-			document.getElementById("h2-question").innerText = "Combien de CO2 par gramme permet de sauver un kilomètre parcouru en vélo ?";
+			h2.innerText = "Combien de CO2 par gramme permet de sauver un kilomètre parcouru en vélo ?";
+			h2.style.opacity = "1";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -100,6 +98,10 @@ function load(page) {
 			buttons.item(1).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
 			buttons.item(2).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
 			buttons.item(3).addEventListener("click", () => { bicky(true, "Tip top toi !"); });
+
+			for( let i = 0; i < answers.length; i++ ){
+				answers.item(i).style.opacity = "1";
+			}
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -123,14 +125,17 @@ function load(page) {
 			addTextIntoDiv(listP);
 
 			document.getElementById("button-next-question").addEventListener("click", () => {
-				lastPage = page;
-				load("activité");
+				hideItems();
+				window.setTimeout(() => {
+					load("activité");
+				}, 500);
 			}, { once: true });
 
 			break;
 
 		case "activité" :
-			document.getElementById("h2-question").innerText = "1h de vélo à 15 km/h permet d’éliminer :";
+			h2.innerText = "1h de vélo à 15 km/h permet d’éliminer :";
+			h2.style.opacity = "1";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -146,6 +151,10 @@ function load(page) {
 			buttons.item(1).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
 			buttons.item(2).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
 			buttons.item(3).addEventListener("click", () => { bicky(false, "La prochaine sera la bonne !"); });
+
+			for( let i = 0; i < answers.length; i++ ){
+				answers.item(i).style.opacity = "1";
+			}
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -166,15 +175,18 @@ function load(page) {
 			addTextIntoDiv(listP);
 
 			document.getElementById("button-next-question").addEventListener("click", () => {
-				lastPage = page;
-				load("VAE");
+				hideItems();
+				window.setTimeout(() => {
+					load("VAE");
+				}, 500);
 			}, { once: true });
 
 			break;
 
 		case "VAE" :
-			document.getElementById("h2-question").innerText = "Quel est le montant maximal du bonus à l’achat " +
+			h2.innerText = "Quel est le montant maximal du bonus à l’achat " +
 				"d’un VAE (Vélo à assistance électrique) versé par l’Etat en 2020 ?";
+			h2.style.opacity = "1";
 
 			buttons = document.getElementsByClassName("button-slide");
 			for (let i = 0; i < buttons.length; i++) {
@@ -190,6 +202,10 @@ function load(page) {
 			buttons.item(1).addEventListener("click", () => { bicky(false, "À quelques euros près..."); });
 			buttons.item(2).addEventListener("click", () => { bicky(false, "À quelques euros près..."); });
 			buttons.item(3).addEventListener("click", () => { bicky(true, "Yes, t'es un bon toi !"); });
+
+			for( let i = 0; i < answers.length; i++ ){
+				answers.item(i).style.opacity = "1";
+			}
 
 			document.getElementById("div-info-question").innerHTML = "";
 
@@ -243,6 +259,18 @@ function load(page) {
 		const bold = document.createElement('strong');
 		bold.appendChild(document.createTextNode(msg));
 		return bold
+	}
+
+	function hideItems() {
+		background.style.background = "rgba(0, 0, 0, 0)";
+		background.style.zIndex = "-2";
+
+		container.style.bottom = "-200%";
+
+		h2.style.opacity = "0";
+		for( let i = 0; i < answers.length; i++ ){
+			answers.item(i).style.opacity = "0";
+		}
 	}
 
 	function addTextIntoDiv(list) {
