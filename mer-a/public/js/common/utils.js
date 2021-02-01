@@ -5,7 +5,7 @@
  * @param {number} type 	the id of the wanted type.
  */
 function getCategorie(type) {
-	if(categories !== null) return categories.find(categorie => categorie.id === parseInt(type, ));
+	if(router.data.personnages !== null && router.data.personnages !== undefined) return router.data.personnages.find(categorie => categorie.id === parseInt(type, ));
 }
 
 /**
@@ -21,7 +21,7 @@ function getLegende(id) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getDepartement(id) {
-	if(departements !== null) return departements.find(dep => dep.id === id);
+	if(router.data.departements !== null && router.data.departements !== undefined) return router.data.departements.find(dep => dep.id === id);
 }
 
 /**

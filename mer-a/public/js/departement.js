@@ -1,31 +1,22 @@
 'use strict';
 
 /**
- * Specific constants definition
- */
-
-// map = getMapDepartement(router.data.department);
-
-// persoBox = document.querySelector('#character');
-
-
-/**
  * The main function in ASYNC.
  */
 (async () => {
 	let legendes = null;
 	let validRegions = null;
 	let persoBox = document.querySelector('#character');
-	if(!categories) await getTypesId(r => categories = r);
+	if(!router.data.categories) await getTypesId(r => router.data.categories = r);
 	await getRegionsId(r => validRegions = r);
-	if(!departements) departements = validRegions;
+	if(!router.data.departement) router.data.departement = validRegions;
 	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
 	globalLegendes = legendes;
 	
 	let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
 		{ title: $('#narration > span.title')[0] },
 		{ timeout: null },
-		{ baseText: null });
+		{ baseText: null, legendes: legendes });
 
 	let map = new Map(mapFusion, '#department', [validRegions.find(r => r.id === router.data.department)],
 	() => {
@@ -73,7 +64,9 @@
 				leaveDot(this, narrator, map);
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
-			.on('click', d => selectLegende(parseInt(d.id)));
+			.on('click', d => {
+				selectLegende(parseInt(d.id));
+			});
 
 		// Create the legends' title buttons elements
 		for(let l of legendes) {
@@ -97,7 +90,7 @@
 		}
 	});
 	categorie = getCategorie(router.data.personnage);
-	narrator.setText(categorie.phraseDep);
+	narrator.setText(getCategorie(router.data.personnage).phraseDep);
 	narrator.properties.baseText = categorie.phraseDep;
 	narrator.load();
 	map.generateMap();

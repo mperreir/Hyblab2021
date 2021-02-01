@@ -141,7 +141,7 @@ function loadBaseTextNarration(narrator) {
 function loadLegendNarration(narrator, id) {
 	narrator.reset();
 
-	let legende = getLegende(id);
+	let legende = narrator.properties.legendes.find(l => l.id === id);
 	narrator.html.custom.title.style.display = 'block';
 	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
 

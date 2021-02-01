@@ -30,7 +30,6 @@ const API_LEGENDE = 'legende/';
 /**
  * Variables definition
  */
-let categories = null;
 let mapFusion = null;
 
 /**
@@ -46,7 +45,6 @@ let mapFusion = null;
  */
 let categorie = null;
 let globalLegendes = null;
-let departements = null;
 
 /**
  * ====================================
@@ -59,4 +57,3 @@ let departements = null;
 /**
  * Constants definition
  */
-const ordreCategories = [1,2,3];

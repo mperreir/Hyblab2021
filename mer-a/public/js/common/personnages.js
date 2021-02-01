@@ -30,7 +30,7 @@ function loadCharacter(container) {
  * Used to sort the categories retrived from the API to the showing order.
  * @return the sorted categories.
  */
-function sortCategories() {
+function sortCategories(categories, ordreCategories) {
     if(ordreCategories == null || ordreCategories == undefined || ordreCategories.length !== categories.length) return null;
     let orderedCats = new Array(categories.length);
     for(let c of categories) {

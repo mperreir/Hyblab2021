@@ -6,7 +6,6 @@
 (async () => {
 	let validRegions = null;
 	await getRegionsId(r => validRegions = r);
-	departements = validRegions;
 	let map = new Map(mapFusion, '#bretagne', validRegions,
 	() => {
 		return d3.geoCentroid((() => {

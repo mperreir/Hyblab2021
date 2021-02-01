@@ -18,7 +18,9 @@ function selectLegende(idLegende){
 		router.loadRessources('legende', {
 			department: router.data.department,
 			personnage: router.data.personnage,
-			legende: idLegende
+			legende: idLegende,
+			departments: router.data.departments,
+
 		}, (router.data.personnage === 2) ? 2 : 1);
 	}
 }
@@ -41,7 +43,17 @@ function selectDepartment(codeDep, map){
 	if(id > 0) {
 		window.onresize = null;
 		router.loadRessources('personnages', {
-			department: id
+			department: id,
+			departments: map.validRegions
 		}, 1);
 	}
+}
+
+function selectCategorie(categorie, categories) {
+	router.loadRessources('departement', {
+		department: router.data.department,
+		personnage: categorie.id,
+		departements: router.data.departements,
+		personnages: categories
+	}, 3);
 }
