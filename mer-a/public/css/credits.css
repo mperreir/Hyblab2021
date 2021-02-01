@@ -1,7 +1,8 @@
 #relativ img{
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px;
+	max-width: 15vh;
+	max-height: 8vh;
 }
 
 #relativ body{
@@ -9,30 +10,63 @@
 }
 
 #relativ table{
+	border-radius: 1px solid yellow;
+}
+
+#relativ a{
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+#relativ #credits{
 	border-radius: 30px;
  	border-spacing: 0;
  	margin-top: 8%;
- 	margin-left: 10%;
+ 	margin-left: 6vh;
  	margin-right: 10%;
  	margin-bottom: 5%;
 	text-align: center;
-	width: 80%;
+	width: 60%;
+}
+
+#relativ #sources{
+	border-radius: 30px;
+ 	border-spacing: 0;
+ 	margin-top: -72vh;
+ 	margin-left: 150vh;
+	text-align: left;
+	width: 20%;
+	position: absolute;
 }
 
 #relativ .gauche{
-	padding-left: 5%;
 }
 
 #relativ .droite{
-	padding-right: 5%;
 }
 
 #relativ .haut{
-	padding-top: 2.5%;
+	padding-top: 4%;
+}
+
+#relativ .haut_sources{
+	padding-top: 1.7vh !important;
 }
 
 #relativ .bas{
-	padding-bottom: 2.5%;
+	padding-bottom: 4%;
+}
+
+#relativ .bas_sources{
+	padding-bottom: 1.8vh !important;
+}
+
+#relativ .td_sources{
+	padding-top: 0.7vh;
+	padding-bottom: 0.8vh;
+	padding-left: 6vh;
+	font-size: 1.5vh;
 }
 
 #relativ td{
@@ -48,8 +82,22 @@
 	background-color: #CFE0EC;
 }
 
+#relativ .tfoot_sources{
+	height: 11vh;
+}
+
 #relativ th{
-	padding: 1%;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+}
+
+#relativ .th_sources{
+	padding-top: 3.5vh;
+	padding-bottom: 3.5vh;
+	padding-left: 6vh;
+	border-radius: 30px 30px 0 0;
+	font-size: 2vh;
+	font-weight: bold;
 }
 
 #relativ #haut_gauche{
@@ -66,6 +114,10 @@
 
 #relativ #bas_gauche{
 	border-radius: 0 0 0 30px;
+}
+
+#relativ #bas_sources{
+	border-radius: 0 0 30px 30px;
 }
 
 #relativ tbody{
