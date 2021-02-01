@@ -70,10 +70,10 @@ var ProgressBar = {
         $(id).html("")
 
         if (SA1 >= SA2) {
-            $(id).html("<p>Le " + _app_stores.adresses.adresse1.label + "répond le mieux à vos attentes</p>")
+            $(id).html("<p>Le " + _app_stores.adresses.adresse1.label + " répond le mieux à vos attentes</p>")
         }
         else {
-            $(id).html("<p>Le " + _app_stores.adresses.adresse2.label + "répond le mieux à vos attentes</p>")
+            $(id).html("<p>Le " + _app_stores.adresses.adresse2.label + " répond le mieux à vos attentes</p>")
         }
 
         var prog = $('<div>');
