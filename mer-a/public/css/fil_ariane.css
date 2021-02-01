@@ -6,13 +6,10 @@
   position: fixed;
   display: flex;
   align-items: center;
-  padding-top: 2vh;
-  padding-left: 2vh;
-  left: 4vh;
-  top: 1vh;
+  left: 10vh;
+  top: 3vh;
   z-index: 50;
 }
-
 
 .trait {
 
@@ -24,7 +21,7 @@
   align-items: center;
 
   /* apparence du trait */
-  width: 10vw;
+  width: 8vw;
   border-top: white solid 2px;
   opacity: 0.4;
 }
@@ -75,7 +72,7 @@
   position: relative;
   top: 5vh;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5vh;
+  font-size: 0.95vw;
   min-width: 8vw;
   text-align: center;
 }
@@ -87,4 +84,19 @@ a:active {
   color: inherit;
   text-decoration: inherit;
   font-weight: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+  .fil_ariane {
+    left: 10%;
+  }
+
+	.text {
+    font-size: 0.75rem;
+    min-width: 30vw;
+  }
+
+  .trait {
+    width: 12.5vw;
+  }
 }

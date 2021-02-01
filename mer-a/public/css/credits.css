@@ -1,7 +1,8 @@
 #relativ img{
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px;
+	max-width: 15vh;
+	max-height: 8vh;
 }
 
 #relativ body{
@@ -9,35 +10,63 @@
 }
 
 #relativ table{
-	border-radius: 30px;
+	border-radius: 1px solid yellow;
+}
+
+#relativ a{
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+#relativ #credits{
+	border-radius: 5vh;
  	border-spacing: 0;
- 	margin-top: 5%;
- 	margin-left: 10%;
- 	margin-right: 10%;
- 	margin-bottom: 5%;
+ 	margin-top: 15vh;
+ 	margin-left: 6vh;
+ 	margin-right: 5vh;
+ 	margin-bottom: 5vh;
 	text-align: center;
-	width: 80%;
+	width: 130vh;
 }
 
-#relativ .gauche{
-	padding-left: 5%;
-}
-
-#relativ .droite{
-	padding-right: 5%;
+#relativ #sources{
+	border-radius: 5vh;
+ 	border-spacing: 0;
+ 	margin-top: -72.5vh;
+ 	margin-left: 150vh;
+	text-align: left;
+	width: 40vh;
+	position: absolute;
 }
 
 #relativ .haut{
-	padding-top: 2.5%;
+	padding-top: 5vh;
+}
+
+#relativ .haut_sources{
+	padding-top: 3.7vh !important;
 }
 
 #relativ .bas{
-	padding-bottom: 2.5%;
+	padding-bottom: 5vh;
+}
+
+#relativ .bas_sources{
+	padding-bottom: 2.6vh !important;
 }
 
 #relativ td{
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 1.5vh;
+	padding-bottom: 1.5vh;
+	font-size: 1.8vh;
+}
+
+#relativ .td_sources{
+	padding-top: 0.7vh;
+	padding-bottom: 0.8vh;
+	padding-left: 6vh;
+	font-size: 1.6vh;
 }
 
 #relativ thead{
@@ -48,24 +77,42 @@
 	background-color: #CFE0EC;
 }
 
+#relativ .tfoot_sources{
+	height: 12vh;
+}
+
 #relativ th{
-	padding: 1%;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+}
+
+#relativ .th_sources{
+	padding-top: 3.5vh;
+	padding-bottom: 3.5vh;
+	padding-left: 6vh;
+	border-radius: 5vh 5vh 0 0;
+	font-size: 2vh;
+	font-weight: bold;
 }
 
 #relativ #haut_gauche{
-	border-radius: 30px 0 0 0;
+	border-radius: 5vh 0 0 0;
 }
 
 #relativ #haut_droit{
-	border-radius: 0 30px 0 0;
+	border-radius: 0 5vh 0 0;
 }
 
 #relativ #bas_droit{
-	border-radius: 0 0 30px 0;
+	border-radius: 0 0 5vh 0;
 }
 
 #relativ #bas_gauche{
-	border-radius: 0 0 0 30px;
+	border-radius: 0 0 0 5vh;
+}
+
+#relativ #bas_sources{
+	border-radius: 0 0 5vh 5vh;
 }
 
 #relativ tbody{
@@ -76,13 +123,13 @@
 
 #relativ div#button {
 	position: absolute;
-	top: 80%;
+	top: 150vh;
 }
 
 #relativ div#content div#relativ {
 	position: relative;
 }
 
-#relativ .button{
-	background-color : #ABC4D5
+#back{
+	margin-top: 0;
 }

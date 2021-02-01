@@ -11,11 +11,11 @@
 /**
  * Function that add the character image to the page.
  */
-function loadCharacter() {
+function loadCharacter(container) {
 	let imgChar = document.createElement('img');
-	imgChar.src = ROOT + categorie.imageURI;
+	imgChar.src = router.ROOT + getCategorie(router.data.personnage).imageURI;
 	imgChar.id = 'character_image';
-	persoBox.appendChild(imgChar);
+	container.appendChild(imgChar);
 }
 
 /**
@@ -30,7 +30,7 @@ function loadCharacter() {
  * Used to sort the categories retrived from the API to the showing order.
  * @return the sorted categories.
  */
-function sortCategories() {
+function sortCategories(categories, ordreCategories) {
     if(ordreCategories == null || ordreCategories == undefined || ordreCategories.length !== categories.length) return null;
     let orderedCats = new Array(categories.length);
     for(let c of categories) {

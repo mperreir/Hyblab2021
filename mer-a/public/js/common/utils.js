@@ -5,7 +5,7 @@
  * @param {number} type 	the id of the wanted type.
  */
 function getCategorie(type) {
-	if(categories !== null) return categories.find(categorie => categorie.id === parseInt(type, ));
+	if(router.data.personnages !== null && router.data.personnages !== undefined) return router.data.personnages.find(categorie => categorie.id === parseInt(type, ));
 }
 
 /**
@@ -13,49 +13,15 @@ function getCategorie(type) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getLegende(id) {
-	for(let l of legendes) {
-		if(l.id === id) return l;
-	}
-}
-
-function getCodeDepartement(){
-	return router.data.department;
-}
-
-function getCodeType(){
-	return router.data.personnage;
+	if(router.data.legendes !== null && router.data.legendes !== undefined) return router.data.legendes.find(legende => legende.id === id);
 }
 
 /**
- * Function that extract the type id from the URL.
+ * Return the legend with the id 'id'.
+ * @param {number} id 	the id of the wanted legende.
  */
-function getCodeLegende(){
-	return router.data.legende;
-}
-
-/**
- * Variables definition
- */
-// transformer en classe TODO
-let deps = {
-	// regions
-	data: null,
-	// depart valide ?
-	isValid: (code) => {
-		if(deps.data !== null) return ((deps.data.find(data => data.id === code)) !== undefined) ? true : false;
-	},
-	// retourne depart depuis son code
-	get: (code) => {
-		if(deps.data !== null) return deps.data.find(data => data.id === code);
-	}
-};
-
-/**
- * Function that return the ID of a region from it's code.
- * @param {number} code 	the department code.
- */
-function getID(code){
-	return deps.isValid(code) ? code : -1;
+function getDepartement(id) {
+	if(router.data.departments !== null && router.data.departments !== undefined) return router.data.departments.find(dep => dep.id === id);
 }
 
 /**

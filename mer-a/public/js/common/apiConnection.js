@@ -13,7 +13,7 @@
  */
 async function getLegendes(region, type, callback) {
     // Retrieve data
-    let result = (await (await fetchAsync(ROOT + API_URL + encodeURI(region) + '/' + encodeURI(type), 'GET')).json());
+    let result = (await (await fetchAsync(router.ROOT + router.API_URL + encodeURI(region) + '/' + encodeURI(type), 'GET')).json());
     //Data manipulation
     let legendes = [];
     for(let l of result.data) {
@@ -31,7 +31,7 @@ async function getLegendes(region, type, callback) {
  */
 async function getRegionsId(callback) {
     // Retrieve data
-    let result = (await (await fetchAsync(ROOT + API_URL + API_REGIONS_ID, 'GET')).json());
+    let result = (await (await fetchAsync(router.ROOT + router.API_URL + router.API_REGIONS_ID, 'GET')).json());
     // Transmit data
     callback(result);
     return result;
@@ -44,7 +44,7 @@ async function getRegionsId(callback) {
  */
 async function getTypesId(callback) {
     // Retrieve data
-    let result = (await (await fetchAsync(ROOT + API_URL + API_TYPES_ID, 'GET')).json());
+    let result = (await (await fetchAsync(router.ROOT + router.API_URL + router.API_TYPES_ID, 'GET')).json());
     // Transmit data
     callback(result);
     return result;
@@ -58,7 +58,7 @@ async function getTypesId(callback) {
  */
 async function getLegendeById(id, callback) {
     // Retrieve data
-    let result = (await (await fetchAsync(ROOT + API_URL + API_LEGENDE + id, 'GET')).json());
+    let result = (await (await fetchAsync(router.ROOT + router.API_URL + router.API_LEGENDE + id, 'GET')).json());
     // Transmit data
     callback(result);
     return result;

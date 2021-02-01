@@ -32,16 +32,19 @@ div#legende {
 
 div#bubble {
 	display: block;
-	height: 100%;
-	max-height: 50vh;
-	width: 80%;
-	padding: 5%;
-	background: lightblue;
-	border-radius: 20px;
-	text-align: center;
-	font-size: 1.7vh;
-	text-overflow: ellipsis;
-	overflow: auto;
+    height: 100%;
+    color: #7D7FBC;
+    max-height: 50vh;
+    width: 80%;
+    padding: 5%;
+    line-height: 170%;
+    background: white;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: #7d7fbc 0px 0px 200px;
+    font-size: 1.7vh;
+    text-overflow: ellipsis;
+    overflow: auto;
 }
 
 /* width */
@@ -84,7 +87,7 @@ div#credits {
 div#information #modal-content {
 	min-height: 75vh;
 	color: #FFF;
-	border-radius: 4%;
+	border-radius: 3.5vh;
 	display: grid;
   grid-template-columns: 18% 40% 33% 10%;
   grid-template-rows: 14% 14% 43% 7% 7% 15%;
@@ -96,6 +99,10 @@ div#information #modal-content {
     ". . label-home ."
     ". localisation back-home ."
     ". . . .";
+}
+
+div#information #modal-content > * {
+	z-index: 2;
 }
 
 /* Ligne 1 */
@@ -119,6 +126,11 @@ div#information #modal-content {
 
 #quit div:hover {
 	color: #FFF !important;
+}
+
+#cross-quit{
+	padding: 0px !important;
+	line-height: 3vh !important;
 }
 
 /* Ligne 2 */
@@ -170,6 +182,7 @@ div#services {
 /* Ligne 4 */
 #label-home {
 	grid-area: label-home;
+	margin-bottom: 3vh;
 }
 
 #label-home p {
@@ -183,4 +196,93 @@ div#services {
 
 #back-home {
 	grid-area: back-home;
+}
+
+div#filter {
+	position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 3.5vh;
+	backdrop-filter: blur(1px);
+	background-color: rgba(0,0,0,0.25);
+	z-index: 1 !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#bubble {
+		width: 100%;
+		height: 100%;
+		margin-right: 5%;
+	}
+
+	div#content {
+		grid-template-columns: 35% 65%;
+		grid-template-rows: 16.5% 12.5% 58.5% 12.5%;
+		grid-template-areas:
+		 ". ."
+		 "title title"
+		 ". legende"
+		 "credits info";
+	}
+
+	div#title h2, #title-legende h2 {
+		font-size: 1.5rem;
+	}
+
+	div#information #modal-content {
+		padding: 2.5%;
+		max-height: 80vw;
+		grid-template-columns: 50% 42.5% 7.5%;
+	  grid-template-rows: 15% 35% 10% 20% 7.5% 12.5%;
+	  grid-template-areas:
+	    "title-legende title-legende quit"
+	    "text-legende text-legende text-legende"
+	    "title-info title-info title-info"
+	    "infos infos infos"
+	    ". label-home label-home"
+	    "localisation back-home back-home";
+	}
+
+	#quit div {
+		margin: 0 auto;
+	}
+
+	#title-legende, #title-info {
+		margin-right: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+		text-align: left;
+	}
+
+	#title-info h4 {
+		font-size: 1rem;
+	}
+
+	#label-home {
+		margin-top: 15%;
+		margin-bottom: 0
+	}
+
+	#label-home p {
+		width: 100%;
+		font-size: 0.5rem;
+	}
+
 }

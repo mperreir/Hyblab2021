@@ -1,10 +1,10 @@
 'use strict';
 
 (async () => {
-	const path = '/mer-a/assets/img/logo/';
+	const path = `${router.ROOT}assets/img/logo/`;
 	await getLegendeById(router.data.legende, data => {
-		document.querySelector('#personnage-s1').src = `/mer-a/${data.imageURI}`;
-		document.querySelector('#personnage-s2').src = `/mer-a/${data.imageURI}`;
+		document.querySelector('#personnage-s1').src = `${router.ROOT}${data.imageURI}`;
+		document.querySelector('#personnage-s2').src = `${router.ROOT}${data.imageURI}`;
 
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#bubble').innerHTML = data.histoire;
