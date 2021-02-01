@@ -14,6 +14,7 @@ import ChoixHumeur from "@/views/ChoixHumeur";
 import ChoixStyle from "@/views/ChoixStyle";
 import ChoixLieux from "@/views/ChoixLieux";
 import ShowMap from "@/views/ShowMap";
+import Credits from "@/views/Credits";
 import {routes} from "@/router";
 
 const Views = [
@@ -24,6 +25,7 @@ const Views = [
   {actif: 4, component: ChoixTheme},
   {actif: 5, component: ChoixLieux},
   {actif: 6, component: ShowMap},
+  {actif: 7, component: Credits}
 ]
 
 export default {
