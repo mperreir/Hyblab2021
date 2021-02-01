@@ -6,8 +6,8 @@
 
 .page{
   position: absolute;
-  right: 0%;
-  bottom: 0%;
+  right: 0;
+  bottom: 0;
 }
 
 .buisson-hour{
@@ -68,7 +68,6 @@
 
 #svg-slider{
   position: absolute;
-  top : 52%;
   top : 56%;
   left : 36%;
   width: 28%;

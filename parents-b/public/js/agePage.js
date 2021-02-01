@@ -254,9 +254,6 @@ let initAge = function() {
     });
     txt2
         .add({
-            opacity: 0,
-        })
-        .add({
             delay : 7500,
             opacity: 1,
             duration: 1000

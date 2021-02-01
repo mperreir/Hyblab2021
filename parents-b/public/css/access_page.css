@@ -42,7 +42,6 @@
     left: 35%;
     width: 40%;
     z-index: 2;
-    font-size:25%;
 }
 
 .picto-access-container{
@@ -225,7 +224,6 @@
 .titre-button{
     font-family: Comfortaa, serif;
     padding: 5% 0 5% 0;
-    font-size: 80%;
 }
 
 .ui-state-active{ /*À modifier mdr*/

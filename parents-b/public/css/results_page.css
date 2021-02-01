@@ -1,3 +1,4 @@
+/* ---------------------- Results ------------------ */
 #result-one{
     position: absolute;
     top: 52%;
@@ -6,6 +7,8 @@
     z-index: 2;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    vertical-align: center;
+    justify-content: center;
 }
 
 #result-two{
@@ -136,7 +139,7 @@
     z-index: 4;
     left: 50%;
     top: 27%;
-    width: 95%;
+    width: 90%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     position: absolute;
@@ -151,7 +154,7 @@
     top: 60%;
     position: absolute;
     text-align: left;
-    width: 95%;
+    width: 90%;
     text-decoration: none!important;
 }
 
@@ -166,7 +169,7 @@
     top: 68%;
     position: absolute;
     text-align: left;
-    width: 95%;
+    width: 90%;
 }
 
 .results-time > img{
@@ -179,7 +182,7 @@
     top: 74%;
     position: absolute;
     text-align: left;
-    width: 95%;
+    width: 90%;
 }
 
 .results-access > img{
