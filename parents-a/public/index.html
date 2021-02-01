@@ -306,12 +306,22 @@
                 <div id="parc1-pr" class="photo"></div>
                 <!-- Debut -->
                 <img data-src="img/slides/page_resultats/contour-img.png" alt="contour-img" id="contour-img-pr">
+
                 <img data-src="img/logo.png" alt="logo" class="logo-p10">
                 <img data-src="img/slides/page_resultats/titre.svg" alt="titre" id="titre-pr">
-                
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr">
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr">
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr">
+
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc1">
+                    <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr">
+                </button>
+
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc2">
+                    <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr">
+                </button>
+
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc3">
+                    <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr">
+                </button>
+            
                 
                 <!-- Add button (img) "revenir en arrière" -->
                 <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
@@ -327,13 +337,13 @@
                 <button class="button button_retour accueil"><i class="fas fa-arrow-left"></i>Retour à l'accueil</button>
 
 
-                <button type="button" data-toggle="modal" data-target="#modalResult">
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc1">
                     <div id="img1" class="img-result"></div>
                 </button>
-                <button type="button" data-toggle="modal" data-target="#modalResult">
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc2">
                     <div id="img2" class="img-result"></div>
                 </button>
-                <button type="button" data-toggle="modal" data-target="#modalResult">
+                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc3">
                     <div id="img3" class="img-result"></div>
                 </button>
 
@@ -431,7 +441,7 @@
     <div id="modDial"class="modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Comparaison des parcs</h5>
+                <h5 class="modal-title" id="compa-title">Comparaison des parcs</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
