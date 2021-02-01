@@ -15,7 +15,9 @@ class Legende {
         baignade,
         toilettes, 
         restaurant, 
-        photo) {
+        photo, 
+        site, 
+        resume_lieu) {
 
             this.id = id;
             this.nom = nom;
@@ -30,5 +32,7 @@ class Legende {
             this.toilettes = toilettes;
             this.restaurant = restaurant;
             this.photo = photo;
+            this.site = site;
+            this.resume_lieu = resume_lieu;
     }
 }

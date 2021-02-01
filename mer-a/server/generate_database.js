@@ -87,6 +87,8 @@ getPerso: (cat) => {
     toilettes BIT NOT NULL DEFAULT 0,
     restaurant BIT NOT NULL DEFAULT 0,
     photo VARCHAR(500),
+    site VARCHAR(100),
+    resume_lieu VARCHAR(1000) NOT NULL,
     FOREIGN KEY (departementId) REFERENCES Departement(id),
     FOREIGN KEY (categorieId) REFERENCES Categorie(id)
   );`;
@@ -148,7 +150,9 @@ getPerso: (cat) => {
           ${(row.baignade === 'TRUE' ? 1 : 0)},
           ${(row.toilettes === 'TRUE' ? 1 : 0)},
           ${(row.restaurant === 'TRUE' ? 1 : 0)},
-          '${(encodeURI(row.photo)).replace(/'/g, "`")}');\n`;
+          '${(encodeURI(row.photo)).replace(/'/g, "`")}', 
+          '${(encodeURI(row.site)).replace(/'/g, "`")}',
+          '${(encodeURI(row.resume_lieu)).replace(/'/g, "`")}');\n`;
       if(verbose)console.log(sql);
 
       countIdLeg++;
