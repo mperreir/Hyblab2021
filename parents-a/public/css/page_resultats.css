@@ -78,7 +78,7 @@ section[data-slidr="page-resultats"] {
     position: absolute;
     width: 3%;
     bottom: 34%;
-    right: 22%;
+    right: 23%;
 }
 /* #chart {
     position: absolute;
@@ -101,7 +101,7 @@ section[data-slidr="page-resultats"] {
     color: white;
     z-index: 14;
     top: 20%;
-    right: 44%;
+    right: 42%;
 }
 
 #random2 {
@@ -131,7 +131,7 @@ section[data-slidr="page-resultats"] {
     position: absolute;
     font-size: medium;
     color: white;
-    right: 70%;
+    right: 69%;
     top: 20%;
     z-index: 14;
 }
@@ -205,7 +205,7 @@ section[data-slidr="page-resultats"] {
 #info2-pr {
     position: absolute;
     bottom: 25%;
-    right: 42%;
+    right: 43%;
     z-index: 15;
 }
 
@@ -219,7 +219,7 @@ section[data-slidr="page-resultats"] {
 #compare-btn{
     bottom: 10%;
     width:16%;
-    left:42%;
+    left:41.5%;
     border-radius: 5%;
 
 }
@@ -227,6 +227,5 @@ section[data-slidr="page-resultats"] {
 #table-img{
     width: 20px;
 }
-
 
 
