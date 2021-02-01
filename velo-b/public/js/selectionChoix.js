@@ -67,10 +67,10 @@ registerSlide("page-arrivee", function () {
 registerSlide("page-arrivee-stats", function () {
     button( '#ic-rejouer-finale', 'rejouer');
     button( '#ic-credit-finale', 'credit');
-    progressBar('#pb-ecol', window.results.stats.ecologie);
+    progressBar('#pb-prix', window.results.stats.prix);
     progressBar('#pb-vit', window.results.stats.vitesse);
-    progressBar('#pb-econ', window.results.stats.economie);
-    progressBar('#pb-pol', window.results.stats.pollution);
+    progressBar('#pb-co2', window.results.stats["émission de CO2"]);
+    progressBar('#pb-kcal', window.results.stats["calories brûlés"]);
 });
 
 registerSlide("page-credit", function () {

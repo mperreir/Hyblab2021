@@ -76,16 +76,19 @@ function updateResults(name, choice) {
 
     if (name === 'page-arrivee') {
         window.results.stats = {
-            "economie": average(window.results.transports.map(name => statistics[name]["economie"])),
-            "vitesse": average(window.results.transports.map(name => statistics[name]["vitesse"])),
-            "ecologie": average(window.results.transports.map(name => statistics[name]["ecologie"])),
-            "pollution": average(window.results.transports.map(name => statistics[name]["pollution"])),
+            "prix": constrain(average(window.results.transports.map(name => statistics[name]["prix"])), statistics.min["prix"], statistics.max["prix"]),
+            "vitesse": constrain(average(window.results.transports.map(name => statistics[name]["vitesse"])), statistics.min["vitesse"], statistics.max["vitesse"]),
+            "émission de CO2": constrain(average(window.results.transports.map(name => statistics[name]["émission de CO2"])), statistics.min["émission de CO2"], statistics.max["émission de CO2"]),
+            "calories brûlés": constrain(average(window.results.transports.map(name => statistics[name]["calories brûlés"])), statistics.min["calories brûlés"], statistics.max["calories brûlés"]),
         };
     }
 }
 
 function average(arr) {
     return arr.reduce((a, b) => a + b) / arr.length;
+}
+function constrain(value, min, max) {
+    return (value - min) / (max - min)
 }
 
 function unique(...arr) {
