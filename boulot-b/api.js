@@ -77,11 +77,11 @@ function getEquidistantPoint(x1,y1,x2,y2){
 
     let aa = (a * a) + 1;
     let bb = (2 * a) * (b - my) - (2 * mx);
-    let cc = ((b - my) * (b - my)) - 9 + (mx * mx);
+    let cc = ((b - my) * (b - my)) - 0.01 + (mx * mx);
     let delta = (bb * bb) - (4 * aa * cc);
 
     let x = (- bb + Math.sqrt(delta)) / (2 * aa)
-    let y = Math.sqrt(9 - ((x - mx) * (x - mx))) + my;
+    let y = Math.sqrt(0.01 - ((x - mx) * (x - mx))) + my;
 
     let coord = [x,y];
     return coord;
@@ -106,6 +106,15 @@ async function pointInteret(coordonneeD, coordoneeA, theme, transport){
     let milieu = [-1,-1]
     milieu[0] = (depart[0] + arriver[0])/2
     milieu[1] = (depart[1] + arriver[1])/2
+
+
+/**
+ * 0: -1.583788
+1: 47.202481
+ * 
+ * 0: -1.577427
+1: 47.2401
+ */
 
 
     let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
@@ -217,7 +226,7 @@ async function getAll(req,res){
             }
           
             break;
-        case "culture":
+        default :
             let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
             // let randC = getRandomInt(0, listCulture.length)
             // let P_culture1 = listCulture[randC]
@@ -232,22 +241,6 @@ async function getAll(req,res){
                                 "distance": P_culture1.distance})
            }
 
-            
-            break;
-
-        default :
-        let themes = ["nature", "culture"]
-        let randomHasard = getRandomIntInclusive(0, 1);
-        let listHasard = await pointInteret(origin, arrivee, themes[randomHasard], transport)
-            
-        if(listHasard){
-            let randH = getRandomInt(0, listHasard.length)
-
-            let P_hasard1 = listHasard[randH]
-            let P_hasard = extractUtilsValue(P_hasard1)
-            list_POI.push({"Hasard": P_hasard,
-                            "distance": P_hasard1.distance})
-        }
         
     }
 
