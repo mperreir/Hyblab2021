@@ -398,6 +398,11 @@ let initSlide10 = function(db) {
         route.push('10');
         console.log(data);
     });
+    d3.select('#bouton-peu-importe-p10').on('click', async function() {
+        checkData(data, db, 3);
+        nextSlide('resultats', data);
+        route.push('10');
+    });
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
