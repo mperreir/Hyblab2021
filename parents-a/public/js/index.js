@@ -91,7 +91,7 @@ function muteBack() {
     const btn = document.getElementsByClassName('mute');
     for (const b of btn) {
         b.addEventListener('click', () => {
-            isPlayed === true ? soundBack.stop() : soundBack.play();
+            isPlayed === true ? soundBack.changeVolume(0) : soundBack.changeVolume(0.2);
             isPlayed = !isPlayed;
         });
     }
@@ -284,11 +284,11 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
-    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
+    muteBack();
 }
 
 
@@ -316,11 +316,11 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
+    muteBack();
 }
 
 
@@ -345,11 +345,11 @@ let initSlide7 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
+    muteBack();
 }
 
 // /Decouverte d'arbres différents 
@@ -410,11 +410,11 @@ let initSlide9 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-    muteBack();
     //Retour accueil
     d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
+    muteBack();
 }
 
 function getRandomInt(max) {
@@ -864,6 +864,9 @@ function sound(src, loop, volume) {
     }
     this.stop = function() {
         this.sound.pause();
+    }
+    this.changeVolume = function(vol) {
+        this.sound.volume = vol;
     }
 }
 
