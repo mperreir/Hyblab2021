@@ -12,9 +12,10 @@ class App extends React.Component {
     state = {
         nomPers: null,
         pageId: 0,
-        themeId: 0,
-        moyenId: 0,
-        coords: [47.215878, -1.55051],
+        themeId:0,
+        moyenId:0,
+        coords:[47.215878,-1.55051],
+        perimetre: [],
         adresse: {
             rue: '',
             codepostal: '',
@@ -73,11 +74,9 @@ class App extends React.Component {
     };
 
 
-
-
-    nextPage = () => {
-        const newPageId = this.state.pageId + 1;
-        this.setState({ pageId: newPageId })
+    nextPage = () =>{
+        const newPageId = this.state.pageId+1;
+        this.setState({pageId:newPageId })
     };
     previousPage = () => {
         const newPageId = this.state.pageId - 1;
@@ -96,11 +95,32 @@ class App extends React.Component {
         this.setState({ coords: e, adresse: f })
     };
 
-    updateMoyen = (e) => {
-        this.setState({ moyenId: e })
-        this.createSites()
+    updateMoyen=(e)=>{
+        this.setState({moyenId:e});
+
+        this.generatePerimetre();
     };
 
+    generatePerimetre = () => {
+        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+            .then(perimetre=> perimetre.json())
+            .then(perimetre => {
+                console.log(perimetre)
+                let abc=[];
+                perimetre[0].forEach((l) => {
+                    console.log(l)
+                    abc.push([l[1],l[0]])
+                });
+                console.log(abc)
+                this.setState({perimetre:abc});
+                this.createSites()
+            })
+    };
+
+
+
+    //changer url
     //changer url
     createSites = async function () {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
@@ -108,10 +128,6 @@ class App extends React.Component {
         let theme = equivalent.themeEquiv.get(this.state.themeId)
         console.log("appel de " + 'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme);
         let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
-        console.log(lieux)
-        console.log(lieux.length)
-        console.log(lieux.lieux.length)
-        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/`);
         let site1 = {
             id: '1',
             titre: 'Pas de titre disponible',
@@ -218,24 +234,26 @@ class App extends React.Component {
             if (typeof lieux.surprise.tags.description !== "undefined") {
                 descriptionS = lieux.surprise.tags.description
             }
+            let typeS = 0
+            if (typeof lieux.surprise.tags.amenity!== "undefined") {
+                typeS = equivalent.themeEquiv.get(lieux.surprise.tags.amenity)
+            }
             lieuSurprise = {
                 titre: nameSurp,
                 img: '',
                 adresse: adresseFS,
                 description: descriptionS,
                 coordonnes: [lieux.surprise.lat, lieux.surprise.lon],
-                type: 0 //todo mettre le bon theme
+                type: typeS
             }
         }
 
         this.setState({
             sites: [site1, site2, site3],
-            surprise: lieuSurprise
+            surprise: lieuSurprise,
+            pageId: 4
         });
-        console.log("nouveaux sites")
-        console.log([site1, site2, site3])
-        console.log(lieuSurprise)
-        this.setState({ pageId: 4 })
+
     }
 
     render() {

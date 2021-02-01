@@ -1,9 +1,9 @@
 var equiv = new Map();
 equiv.set("Musée" , "tourism=museum");
 equiv.set("Cinéma", "amenity=cinema");
-equiv.set("Arts", "amenity=arts_centre");
+equiv.set("Centre Artistique", "amenity=arts_centre");
 equiv.set("Théatre", "amenity=theatre");
-equiv.set("lieu de culte", "amenity=place_of_worship");
+equiv.set("Lieu de culte", "amenity=place_of_worship");
 equiv.set("Historique", "historic");
 equiv.set("Boîte de nuit", "amenity=nightclub");
 equiv.set("Bar", "amenity=bar");
@@ -25,7 +25,7 @@ equiv.set("Terrain de jeu", "leisure=playground");
 equiv.set("Give box", "amenity=give_box");
 equiv.set("Marché", "amenity=marketplace");
 equiv.set("Toilettes", "amenity=toilets");
-equiv.set("Hopital", "amenity=hospital");
+equiv.set("Hôpital", "amenity=hospital");
 equiv.set("Pâtisserie", "shop=pastry");
 equiv.set("Restaurant", "amenity=restaurant");
 
