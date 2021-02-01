@@ -67,7 +67,8 @@ section[data-slidr="page-resultats"] {
 
 #parc1-titre{
     position: absolute;
-    font-size: small;
+    font-size: medium;
+    color: white;
     right: 19%;
     top: 20%;
     z-index: 14;
@@ -96,7 +97,8 @@ section[data-slidr="page-resultats"] {
 
 #parc2-titre{
     position: absolute;
-    font-size: small;
+    font-size: medium;
+    color: white;
     z-index: 14;
     top: 20%;
     right: 44%;
@@ -127,7 +129,8 @@ section[data-slidr="page-resultats"] {
 
 #parc3-titre{
     position: absolute;
-    font-size: small;
+    font-size: medium;
+    color: white;
     right: 70%;
     top: 20%;
     z-index: 14;  
@@ -195,7 +198,7 @@ section[data-slidr="page-resultats"] {
 #info1-pr {
     position: absolute;
     bottom: 25%;
-    right: 15%; 
+    right: 17%; 
     z-index: 15;
 }
 

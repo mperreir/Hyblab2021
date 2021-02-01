@@ -309,7 +309,8 @@
 
                 <img data-src="img/logo.png" alt="logo" class="logo-p10">
                 <img data-src="img/slides/page_resultats/titre.svg" alt="titre" id="titre-pr">
-
+               
+                <!-- Boutons informations-->
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr" class="bouton-info parc1" type="button" data-toggle="modal" data-target="#modalResult" >
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr"class="bouton-info parc2" type="button" data-toggle="modal" data-target="#modalResult" >
                 <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr" class="bouton-info parc3" type="button" data-toggle="modal" data-target="#modalResult" >
@@ -383,48 +384,48 @@
         <div id="modcontent" class="modal-content bg-warning">
             <div class="modal-header">
                 <h5 class="modal-title" id="titre-parc"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="d-flex flex-row" id="divdesc">
                     <i class="fa fa-pencil mx-2"></i>
                     <p>Descriptif : </p>
-                    <p id="desc"></p>
+                    <p id="desc" class="mx-2"></p>
                 </div>
                 <div class="d-flex flex-row">
                     <i class="fas fa-map-marker-alt mx-2"></i>
                     <p>Adresse : </p>
-                    <p id="addr"></p>
+                    <p id="addr" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="fas fa-train mx-2"> </i>
                     <p>Accessibilité : </p>
-                    <p id="acces"></p>
+                    <p id="acces" class="mx-2" ></p>
                 </div>
 
                 <div class="d-flex flex-row ">
                     <i class="fas fa-restroom mx-2"></i>
                     <p>Toilettes :</p>
-                    <p id="wc"></p>
+                    <p id="wc" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row ">
                     <i class="fas fa-wheelchair mx-2"></i>
                     <p>Pour handicapé : </p>
-                    <p id="handi"></p>
+                    <p id="handi" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="fas fa-dog mx-2"></i>
                     <p>Chien autorisé : </p>
-                    <p id="dog"></p>
+                    <p id="dog" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="mx-2"><img src="img/page_resultats/table.png" alt="table" id="table-img"></i>
                     <p>Table de jardin : </p>
-                    <p id="table"></p>
+                    <p id="table" class="mx-2"></p>
                 </div>
             </div>
         </div>
@@ -439,7 +440,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="compa-title">Comparaison des parcs</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="col" id="chart">
