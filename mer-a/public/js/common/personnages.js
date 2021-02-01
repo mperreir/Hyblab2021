@@ -11,11 +11,11 @@
 /**
  * Function that add the character image to the page.
  */
-function loadCharacter() {
+function loadCharacter(container) {
 	let imgChar = document.createElement('img');
 	imgChar.src = ROOT + categorie.imageURI;
 	imgChar.id = 'character_image';
-	persoBox.appendChild(imgChar);
+	container.appendChild(imgChar);
 }
 
 /**

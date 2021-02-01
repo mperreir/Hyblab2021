@@ -13,11 +13,14 @@
  * @param {number} idLegende the id of the selected legend.
  */
 function selectLegende(idLegende){
-	if(idLegende > 0) router.loadRessources('legende', {
-		department: router.data.department,
-		personnage: router.data.personnage,
-		legende: idLegende
-	}, (router.data.personnage === 2) ? 2 : 1);
+	if(idLegende > 0) {
+		window.onresize = null;
+		router.loadRessources('legende', {
+			department: router.data.department,
+			personnage: router.data.personnage,
+			legende: idLegende
+		}, (router.data.personnage === 2) ? 2 : 1);
+	}
 }
 
 /**
@@ -33,8 +36,12 @@ function selectLegende(idLegende){
  * @param {number} codeDep	the department code.
  */
 function selectDepartment(codeDep, map){
-	let id = map.isValid(codeDep);
-	if(id > 0) router.loadRessources('personnages', {
-		department: id
-	}, 1);
+	let id = map.getID(codeDep);
+	console.log(id);
+	if(id > 0) {
+		window.onresize = null;
+		router.loadRessources('personnages', {
+			department: id
+		}, 1);
+	}
 }

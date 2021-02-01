@@ -61,6 +61,7 @@ class Narrator {
 	 * Fonction that display a text char by char.
 	 */
 	getNbRows() {
+		console.log(this.animation.text.length / (this.html.box.offsetWidth / (this.fontSize*0.6)) + 1);
 		return this.animation.text.length / (this.html.box.offsetWidth / (this.fontSize*0.6)) + 1;
 	}
 
@@ -144,8 +145,8 @@ function loadLegendNarration(narrator, id) {
 	narrator.html.custom.title.style.display = 'block';
 	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
 
-	let nbRows = narrator.getNbRows() + (narrator.html.custom.title.innerHTML.length) / (narrator.html.box.offsetWidth / (narrator.fontSize*0.6)) + 1;
 	narrator.setText(legende.resume);
+	let nbRows = narrator.getNbRows() + (legende.nom.length) / (narrator.html.box.offsetWidth / (narrator.fontSize*0.6)) + 1;
 	narrator.load(() => {
 			return nbRows;
 	});

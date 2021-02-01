@@ -19,13 +19,29 @@ class Map {
 	invalidStrokeWidth = '10px';
 	hoveredStrokeWidth = '3px';
 
-	constructor(featureCollection, container, validRegions, geoCenter, baseEvents, otherComponents) {
+	circlesSize = 14;
+	circlesSizeHovered = 20;
+
+	//Colors
+	circlesColor = 'white';
+
+	//Opacity
+	circlesOpacity = 1;
+	circlesHoveredOpacity = 0.6;
+
+	//Strokes
+	circlesStrokeWidth = '3px';
+
+	mapFontSize = 24;
+
+	constructor(featureCollection, container, validRegions, geoCenter, scaling, baseEvents, otherComponents) {
 		this.map = featureCollection;
 		this.geoCenter = geoCenter;
 		this.baseEvents = baseEvents;
 		this.generateOtherComponents = otherComponents;
 		this.containerSelector = container;
 		this.validRegions = validRegions;
+		this.scale = scaling;
 	}
 
 	generateMap() {
@@ -46,7 +62,7 @@ class Map {
 		// Projection des longitudes et latitudes
 		var projection = d3.geoMercator()
 			.center(this.geoCenter())
-			.scale(width*11)
+			.scale(width*this.scale)
 			.translate([ width /2, height/2 ])
 
 		var path = d3.geoPath().projection(projection);
@@ -60,7 +76,7 @@ class Map {
 				.attr('id',function(d) {return 'path_' + d.properties.code})
 				.attr('fill', function(d){return currentMap.setColor(d);})
 				.attr('d', path)
-				.style('stroke',strokeColor)
+				.style('stroke',this.strokeColor)
 				.style('stroke-opacity',function(d){return currentMap.setStrokeOpacity(d);})
 				.style('stroke-width', function(d){return currentMap.setStrokeWidth(d);});
 
@@ -69,7 +85,7 @@ class Map {
 			svg.selectAll('path').on(event.name, event.handler);
 		});
 
-		this.generateOtherComponents(svg, path);
+		this.generateOtherComponents(svg, path, projection);
 	}
 
 	/**
@@ -99,15 +115,19 @@ class Map {
 		if(this.validRegions !== null) return ((this.validRegions.find(data => data.id === code)) !== undefined) ? true : false;
 	}
 
+	/**
+	 * Function that return the ID of a region from it's code.
+	 * @param {number} code 	the department code.
+	 */
+	getID(code){
+		return this.isValid(code) ? code : -1;
+	}
 
-}
+	getMapDepartement(code){
+		return this.map.features.find(element => element.properties.code === code);
+	}
 
-/**
-* Function that extract the svg paths of the selected region.
-* @param {number} code 	the id of the selected region.
-*/
-function getMapDepartement(){
-	return mapFusion.features.find(element => element.properties.code === router.data.department);
+
 }
 
 /**
@@ -166,12 +186,12 @@ function leave(codeDep, t, map){
  * Function that handle the hover event of the circles.
  * @param {object} t		the hovered element.
  */
-function hoverDot(t, narrator){
+function hoverDot(t, narrator, map){
 	d3.select(t)
 		.transition().duration(350)
-		.attr("r", circlesSizeHovered)
+		.attr("r", map.circlesSizeHovered)
 		.style('cursor','pointer')
-		.style("fill-opacity", circlesHoveredOpacity);
+		.style("fill-opacity", map.circlesHoveredOpacity);
 	loadLegendNarration(narrator, parseInt(t.getAttribute('lbl-legende-id')));
 }
 
@@ -179,12 +199,12 @@ function hoverDot(t, narrator){
  * Function that handle the leave event of the circles.
  * @param {object} t		the hovered element.
  */
-function leaveDot(t, narrator){
+function leaveDot(t, narrator, map){
 	d3.select(t)
 		.transition().duration(350)
-		.attr("r", circlesSize)
+		.attr("r", map.circlesSize)
 		.style('cursor','initial')
-		.style("fill-opacity", circlesOpacity);
+		.style("fill-opacity", map.circlesOpacity);
 	//legendNarrator.animation.intervals.custom.timeout = setInterval(legendNarrator.hide, 3000, legendNarrator);
 	narrator.animation.intervals.custom.timeout = setInterval(loadBaseTextNarration, 2000, narrator);
 }

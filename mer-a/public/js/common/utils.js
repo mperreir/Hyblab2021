@@ -13,7 +13,7 @@ function getCategorie(type) {
  * @param {number} id 	the id of the wanted legende.
  */
 function getLegende(id) {
-	if(legendes !== null) return legendes.find(legende => legende.id === id);
+	if(globalLegendes !== null) return globalLegendes.find(legende => legende.id === id);
 }
 
 /**
@@ -22,14 +22,6 @@ function getLegende(id) {
  */
 function getDepartement(id) {
 	if(departements !== null) return departements.find(dep => dep.id === id);
-}
-
-/**
- * Function that return the ID of a region from it's code.
- * @param {number} code 	the department code.
- */
-function getID(code){
-	return Map.isValid(code) ? code : -1;
 }
 
 /**

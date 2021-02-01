@@ -1,11 +1,11 @@
 class FilAriane {
 	constructor() {}
 
-	#color(step) {
+	color(step) {
 		if(step !== null) step.style.background = "white";
 	}
 
-	#show(id_div, ressource, fond) {
+	show(id_div, ressource, fond) {
 		let step = document.querySelector(`#${id_div}`);
 		if(step !== null){
 			step.classList.add('active');
@@ -15,7 +15,7 @@ class FilAriane {
 		}
 	}
 
-	#reset() {
+	reset() {
 		var cercles = document.getElementsByClassName('cercle_outer');
 		for (let i = 0 ; i < cercles.length; i++){
 			cercles[i].classList.remove('active');
@@ -28,7 +28,7 @@ class FilAriane {
 		}
 	}
 
-	#ecrire(id_div, txt) {
+	ecrire(id_div, txt) {
 		let step = document.querySelector(`#${id_div}`);
 		if(step !== null) {
 			let textBox = step.querySelector('div.text');
@@ -42,7 +42,7 @@ class FilAriane {
 		}
 	}
 
-	#getIdByName(name) {
+	getIdByName(name) {
 		switch (name) {
 			case 'departements':
 				return 1;
@@ -64,22 +64,22 @@ class FilAriane {
 	}
 
 	updateAriane(name, dep, perso, legend){
-		this.#reset();
-		switch(this.#getIdByName(name)){
+		this.reset();
+		switch(this.getIdByName(name)){
 			case 4:
-				this.#show('trait3');
-				this.#show('cercle_outer4');
+				this.show('trait3');
+				this.show('cercle_outer4');
 			case 3:
-				this.#show('trait2');
-				this.#show('cercle_outer3', 'departement', 3);
-				this.#ecrire('cercle_outer3', legend);
+				this.show('trait2');
+				this.show('cercle_outer3', 'departement', 3);
+				this.ecrire('cercle_outer3', legend);
 			case 2 :
-				this.#show('trait1');
-				this.#show('cercle_outer2', 'personnages', 1);
-				this.#ecrire('cercle_outer2', perso);
+				this.show('trait1');
+				this.show('cercle_outer2', 'personnages', 1);
+				this.ecrire('cercle_outer2', perso);
 			case 1:
-				this.#show('cercle_outer1', 'departements', 3);
-				this.#ecrire('cercle_outer1', dep);
+				this.show('cercle_outer1', 'departements', 3);
+				this.ecrire('cercle_outer1', dep);
 		}
 	}
 }

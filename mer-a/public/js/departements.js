@@ -14,12 +14,13 @@
 			return {type: 'FeatureCollection', features: useful};
 		})());
 	},
+	11,
 	[
 		{name: 'mouseover', handler: d => {hover(d.properties.code,$(`#path_${d.properties.code}`)[0], map)}},
 		{name: 'mouseleave', handler: d => leave(d.properties.code,$(`#path_${d.properties.code}`)[0], map)},
 		{name: 'click', handler: d => selectDepartment(d.properties.code, map)}
 	],
-	(svg, path) => {
+	(svg, path, _) => {
 		svg.append('g')
 			.selectAll('labels')
 			.data(mapFusion.features)
@@ -34,16 +35,16 @@
 				.on('mouseover', function(d){
 					let codeDep = d.properties.code;
 					let path = document.getElementById('path_' + codeDep);
-					hover(codeDep,path);
+					hover(codeDep, path, map);
 				})
 				.on('mouseleave', function(d){
 					let codeDep = d.properties.code;
 					let path = document.getElementById('path_' + codeDep);
-					leave(codeDep,path);
+					leave(codeDep, path, map);
 				})
 				.on('click', function(d){
 					let codeDep = d.properties.code;
-					selectDepartment(codeDep);})
+					selectDepartment(codeDep, map);})
 				.style('cursor','pointer')
 				.style('font-size', map.mapFontSize)
 				.style('fill', map.fontColor)
@@ -53,7 +54,7 @@
 	/**
 	* When the window is resized, we reload the map.
 	*/
-	window.addEventListener("resize", function(e) {
+	window.onresize = () => {
 		map.generateMap();
-	});
+	};
 })();
