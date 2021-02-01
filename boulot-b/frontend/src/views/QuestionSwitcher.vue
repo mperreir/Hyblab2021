@@ -1,6 +1,6 @@
 <template>
   <keep-alive>
-    <transition name="fade" mode="out-in">
+    <transition name="slide" mode="out-in">
       <component  :actif="actif" :is="view"></component>
     </transition>
   </keep-alive>
@@ -50,13 +50,22 @@ export default {
 </script>
 
 <style scoped>
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-
+  .slide-enter {
+    transform: translateY(100%);
+  }
+  .slide-enter-to {
+    transform: translateY(0);
+  }
+  .slide-enter-active {
+    position: absolute;
+  }
+  .slide-leave {
+    transform: translateY(0);
+  }
+  .slide-leave-to {
+    transform: translateY(-100%);
+  }
+  .slide-enter-active, .slide-leave-active {
+    transition: all 1s ease-in;
+  }
 </style>
