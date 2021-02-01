@@ -41,7 +41,7 @@ module.exports = {
     },
 
     getParcPleinLaVue(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 1 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
     },
 
     getParcNonPleinLaVue(data) {
@@ -53,7 +53,7 @@ module.exports = {
     },
 
     getParcBeauPaysage(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
+        return data.filter(p => p['Nb arbre formidable'] > 40 && p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
     },
 
     getParcAvecAnimaux(data) {
@@ -81,12 +81,12 @@ module.exports = {
 
 
     getDecouvrirArbre(d) {
-        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 )
+        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 3 )
     },
 
 
     getDecouvrirParfum(d) {
-        return d.filter(p => p['Nb arbre formidable'] > 30 || p['Indice de Shanon plantes'] > 2 || p['Indice de Shanon arbres'] > 2)
+        return d.filter(p => p['Nb arbre formidable'] > 30 && p['Indice de Shanon plantes'] > 2 || p['Indice de Shanon arbres'] > 2)
     },
 
 

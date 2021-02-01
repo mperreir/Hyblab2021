@@ -66,6 +66,11 @@ let playSoundFlore = function() {
     s.play();
 }
 
+let playSoundEleph = function() {
+    const s = new sound('sound/elephant8.mp3', true, 0.2);
+    s.play();
+}
+
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
     d3.select('#logo').on('click', function() {
@@ -110,6 +115,10 @@ let initSlide2 = function() {
 
     d3.selectAll('.arbre').on('mouseover', function() {
         playSoundFlore();
+    });
+
+    d3.select('#mascotte-p2').on('mouseover', function() {
+        playSoundEleph();
     });
 
     d3.select('#button-p2').on('click', function() {
@@ -187,13 +196,10 @@ let initSlide3 = function() {
         nextSlide('4', data);
         route.push('3');
         console.log(data);
-        const s = new sound('sound/elephant8.mp3', false, 0.1);
-        s.play();
-
     });
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide('2-1', data);
     });
 }
 
@@ -439,6 +445,8 @@ let initSlideResultat = function(db) {
     const charts = ['chart', 'chart1', 'chart2', 'chart3'];
     const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
     const containers = ['parc1-pr', 'parc2-pr', 'parc3-pr'];
+    playSoundEleph();
+
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -620,7 +628,7 @@ function chooseimage(data, div) {
         div.firstChild.src = "img/parcs/lambda-2.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/parcs/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/download.jpeg"
     }
 }
 
