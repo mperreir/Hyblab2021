@@ -220,10 +220,6 @@ header .logo {
 	text-align: center;
 }
 
-.mapboxgl-popup {
-	margin-bottom: 10px;
-}
-
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
 	margin-top: 25px;
 	border-bottom-color: #F96D48 !important;
