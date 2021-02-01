@@ -17,7 +17,8 @@ body {
 	background-image: url('../img/background/cloud1.svg');
 	background-repeat: no-repeat;
 	background-size: contain;
-	min-width: 80%;
+	min-width: 605px;
+	width: 80%;
 	max-width: 80%;
 	min-height: 95%;
 	padding-top: 150px;
@@ -47,6 +48,7 @@ body {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	width: 70%;
+	min-width: 550px;
 	margin: 0 auto;
 	padding-left: 10px;
 }
