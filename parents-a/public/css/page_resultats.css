@@ -173,10 +173,14 @@ section[data-slidr="page-resultats"] {
 }
 
 
-.modal-content {
-    margin: 2px auto;
+#modcontent {
     z-index: 1100 !important;
     color : #171EB1;
+}
+
+.modal-dialog-centered{
+    width: 40%;
+    margin: auto;
 }
 
 #info1-pr {
