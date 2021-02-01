@@ -42,12 +42,8 @@ input {
 		display: flex;
 	}
 
-	#bicky-savoir {
-		width: 150px;
-	}
-
-	#bulle-savoir {
-		width: 250px;
+	.bicky-savoir {
+		display: none;
 	}
 }
 
@@ -75,4 +71,8 @@ input {
 
 h3 {
 	margin-top: 1em;
+}
+
+.bicky-habille {
+	z-index: 10;
 }
