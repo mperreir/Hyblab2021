@@ -221,7 +221,7 @@ let initAge = function() {
     anime({
         targets: '.age_yeux_cache',
         opacity: 0,
-        delay : 2750,
+        delay : 3500,
         loop: false
     });
 

@@ -454,6 +454,7 @@ async function fetchData() {
 
 
         new Splide( '#splide-one', {
+            width: "99%",
             type : 'loop',
             perPage: 5,
             perMove: 5,
@@ -471,6 +472,7 @@ async function fetchData() {
         }).mount();
 
         new Splide( '#splide-two', {
+            width: "99%",
             type : 'loop',
             perPage: 5,
             perMove: 5,
@@ -488,6 +490,7 @@ async function fetchData() {
         }).mount();
 
         new Splide( '#splide-three', {
+            width: "99%",
             type : 'loop',
             perPage: 5,
             perMove: 5,
