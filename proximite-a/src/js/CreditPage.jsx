@@ -15,10 +15,11 @@ import { useState } from 'react'
 
 class CereditPage extends React.Component {
     render() {
+        const {getBack}=this.props
         return (
                 <div id="creditContainer" class="d-flex justify-content-end justify-content-end">
                     <div id="rightPartCredit" class="d-flex justify-content-center">
-                        <button id="closeButton" type="button" class="btn-close" aria-label="Close" />
+                        <button id="closeButton" type="button" class="btn-close" aria-label="Close" onClick={getBack}/>
                         <div id="rightPartCreditCenter">
                             <br /> <br />
                             <img id="logoposition" src={logo} class="mb-3" width={200} height={130} />
