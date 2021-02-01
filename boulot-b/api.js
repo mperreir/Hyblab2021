@@ -54,16 +54,20 @@ function getRandomIntInclusive(min, max) {
 
 
 /** renvoie la liste des points d'interets */
-async function pointInteret(adresseDepart, adresseArriver, theme, transport){
+async function pointInteret(coordonneeD, coordoneeA, theme, transport){
   
 /* debut */
 
-    // let depart = coordonneeD
-    // let arriver = coordoneeA
+    let depart = coordonneeD
+    let arriver = coordoneeA
+
+    console.log("departttttttttttttttttt" + depart[1])
+    console.log("arriverrrrrrrrrrrrrrr" + arriver[1])
+
 
     
-    let depart = await adresse2coord(adresseDepart)
-    let arriver =  await adresse2coord(adresseArriver)
+    // let depart = await adresse2coord(adresseDepart)
+    // let arriver =  await adresse2coord(adresseArriver)
 
 /* fin */
 
@@ -84,7 +88,7 @@ async function pointInteret(adresseDepart, adresseArriver, theme, transport){
 /*     console.log(pointInteretAPI) */
 
     let pointInteret = pointInteretAPI.items
-  /*   console.log(pointInteret) */
+    console.log(pointInteret)
 
     return pointInteret;
 
@@ -127,8 +131,8 @@ function getStreetViewUrl(latitude,longitude){
 }
 
 async function getAll(req,res){
-    let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
-    let arrivee = req.params.arrivee;//"7 rue george berthome nantes"
+    // let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
+    // let arrivee = req.params.arrivee;//"7 rue george berthome nantes"
 
     let transport = req.params.transport;//"pedestrian"
     let style = req.params.style; // a voir comment le définir (parc/jardin)
@@ -138,20 +142,20 @@ async function getAll(req,res){
     let pharmacie = req.params.pharmacie;
 
     /** =================debut de modifications=================================*/
-    // let origin = [-1,-1]
-    // let arrivee = [-1,-1]
+    let origin = [-1,-1]
+    let arrivee = [-1,-1]
 
-    // origin[0] = req.params.departX
-    // origin[1] = req.params.departY
+    origin[0] = +req.params.departX
+    origin[1] = +req.params.departY
 
-    // arrivee[0] = req.params.arriveeX
-    // arrivee[1] = req.params.arriveeY
+    arrivee[0] = +req.params.arriveeX
+    arrivee[1] = +req.params.arriveeY
     /** ================= fin =================================*/
 
     /** tableau de coordonnee */ 
-    let originCordinat = await adresse2coord(origin)
+    // let originCordinat = await adresse2coord(origin)
 
-    let arriveeCordinat = await adresse2coord(arrivee)
+    // let arriveeCordinat = await adresse2coord(arrivee)
 
     /** la liste des coordonees des points d'interet interessant */
     let list_POI = [];
@@ -254,8 +258,8 @@ async function getAll(req,res){
 
     /** la reponse retourner */
     let reponseJSON = {
-        Depart : originCordinat ,//origin,
-        Arrivee : arriveeCordinat,//arrivee,
+        Depart : origin,
+        Arrivee : arrivee,
         POI : list_POI
     };
 
