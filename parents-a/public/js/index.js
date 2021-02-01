@@ -524,6 +524,10 @@ let initSlideCredit = function(db) {
     d3.selectAll('.accueil').on('click', function() {
         nextSlide('2')
     });
+
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('resultats')
+    });
 }
 
 let im_sources = {
