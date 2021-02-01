@@ -12,7 +12,7 @@ class App extends React.Component {
 
     state = {
         nomPers: null,
-        pageId: 0,
+        pageId: 2,
         themeId:0,
         moyenId:0,
         coords:[47.215878,-1.55051],
@@ -202,8 +202,8 @@ class App extends React.Component {
                     type: typeS
                 }
                 newSurprise=lieuSurprise
-            
-        }      
+
+        }
         console.log(lieux)
         console.log(newSites)
         console.log(newSurprise)
