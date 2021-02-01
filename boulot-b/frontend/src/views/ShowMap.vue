@@ -1,19 +1,30 @@
 <template>
-  <div>
-    <finalMap></finalMap>
-  </div>
+  <container>
+    <template #question>
+      <finalMap/>
+    </template>
+    <template #stepper>
+      <Stepper :actif=actif />
+    </template>
+  </container>
 </template>
 
 <script lang="js">
 import Vue from "vue";
-import axios from 'axios'
 import FinalMap from "../components/FinalMap.vue";
+import Container from "@/views/Container";
+import Stepper from "@/components/Stepper";
 
 export default Vue.extend({
     name: "Home",
     components: {
-    FinalMap
+      Container,
+      FinalMap,
+      Stepper,
     },
+    props: {
+      actif: Number
+    }
 });
 
 
