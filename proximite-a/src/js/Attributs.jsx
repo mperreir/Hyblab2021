@@ -14,6 +14,8 @@ class Attributs extends React.Component{
             ville:'',
             validAdress:false
         },
+        onSetAttributs : this.props.onSetAttributs,
+        onNextPage : this.props.onNextPage,
         choixCoordonnes: false, //si l'utilisateur a décidé d'utiliser la géolocalisation
         loading:false
     };
@@ -40,6 +42,7 @@ class Attributs extends React.Component{
                     validAdress:true,
                     loading:false
                 })
+                this.submitAttributs(this.state.onSetAttributs,this.state.onNextPage);
             })
     }
 
@@ -69,10 +72,11 @@ class Attributs extends React.Component{
                         loading:false,
                         validAdress:true
                     });
+                    this.submitAttributs(this.state.onSetAttributs,this.state.onNextPage);
                 })
 
         }.bind(this));
-    }
+    };
 
 
     handleChangeRue = (event) => {
@@ -112,7 +116,7 @@ class Attributs extends React.Component{
 
     getSpinner() {
         if(this.state.loading == true){
-            return <Spinner animation="border" role="status"></Spinner>
+            return <Spinner animation="border" variant="light"></Spinner>
         }
     }
 
@@ -125,7 +129,8 @@ class Attributs extends React.Component{
                         <div id="containerAttributLeftContent">
                             <img id="imgLogoAttribut" src={logo1} width={150}/>
                             <div id="blablaMadameAttribut">
-                                <img src={perso1}/>
+                                <img id="ThemeLogoCenter" src={perso1}/>
+                                <br></br><br></br>
                                 <p id="paragrapheBlablaMadameAttribut">Hello moi c’est Alex !
                                     Tu aimes rencontrer tes amis dans des bars, déguster  des planches apéros et sortir danser ? Alors, suis-moi !
                                     <br/>
@@ -147,6 +152,7 @@ class Attributs extends React.Component{
                             <input  type="button" className="btnAttribut btn" value="Activer la géolocalisation" onClick={ this.getLocalAdress}/>
                         </div>
                         <p class="text-white m-4"><b>OU</b></p>
+                    {this.getSpinner()}
                         <div className="search d-flex flex-column">
                             <div class="text-white">Adresse</div>
                             <input class="inputText" placeholder="ex: 23 rue Chopin" value={this.state.adresse.rue} onChange={this.handleChangeRue}/>
@@ -156,10 +162,8 @@ class Attributs extends React.Component{
                             <input class="inputText" placeholder="ex: 44100" value={this.state.adresse.codepostal} onChange={this.handleChangeCP}/>
                         </div>
                         <div>
-                            <input type='button' class="border-0 bg-transparent mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
-                            <input type='button' class="btnWhiteBgpurpleText mt-5" value="VALIDER" onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
+                            <input type='button' class="border-0 btnWhiteBgpurpleText mt-5 m-1" value="Vérifier l'adresse" onClick={()=>{this.getCoords()}} />
                         </div>
-                        {this.getSpinner()}
                     </div>
                     <button class="d-flex btn btnNavigationAttribut button fa fa-arrow-right"  onClick={()=>{this.submitAttributs(onSetAttributs,onNextPage)}} disabled={this.state.adresse.ville =='' || this.state.adresse.codepostal=='' || this.state.adresse.rue=='' || this.state.validAdress==false}/>
                 </div>

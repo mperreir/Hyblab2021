@@ -4,8 +4,9 @@ import Theme from './Theme';
 import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
+import CreditPage from './CreditPage';
 import equivalent from './equivalent.js'
-import imageDefault from '../img/image_pas_disponible.png'
+import imageDefault from '../img/LOGO OK_logo principal.png'
 import { indexOf } from 'leaflet/src/core/Util';
 
 class App extends React.Component {
@@ -62,8 +63,10 @@ class App extends React.Component {
 
     getPage = () => {
         switch (this.state.pageId) {
+            case 10:
+                return <CreditPage />;
             case 0:
-                return <Home onNextPage={this.nextPage} updateNom={this.updateName} />;
+                return <Home onNextPage={this.nextPage} updateNom={this.updateName} onCreditPage={this.creditPage} />;
             case 1:
                 return <Theme data={this.state} onNextPage={this.nextPage} onSetTheme={this.updateTheme} onPreviousPage={this.previousPage} />;
             case 2:
@@ -71,10 +74,13 @@ class App extends React.Component {
             case 3:
                 return <Moyen data={this.state} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
-                return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers} />;
+                return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers} onCreditPage={this.creditPage} />;
         }
     };
 
+    creditPage = ()=>{
+        this.setState({pageId: 10})
+    };
 
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
@@ -130,7 +136,7 @@ class App extends React.Component {
             let site = {
                 id: 1,
                 titre: 'Pas de titre disponible',
-                img: imageDefault,
+                img: '',
                 adresse: 'Pas d\'adresse disponible',
                 description: "Pas de description disponible",
                 coordonnes: [1, 2],    //latitude_longitude
@@ -202,8 +208,8 @@ class App extends React.Component {
                     type: typeS
                 }
                 newSurprise=lieuSurprise
-            
-        }      
+
+        }
         console.log(lieux)
         console.log(newSites)
         console.log(newSurprise)
