@@ -125,6 +125,7 @@ module.exports = () => {
                 delete ar.stop_coordinates;
                 return ar;
             });
+            addDescription(liste_arrets[k], 'arrets-tan.json');
         })
         fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
         res.status(200).send('Done');
@@ -158,24 +159,34 @@ module.exports = () => {
         } catch (e) {
             throw {message:"Une erreur inconnue est survenue.", code:500, error_content:e};
         }
-        return (await response.json()).records.map(r => r.fields);
+        let data = (await response.json()).records.map(r => r.fields)
+        if(Object.values(API_NANTES_ROUTES).includes(base_url)){
+            addDescription(data, base_url);
+        }
+        return data;
     }
 
-    function addDescription(data, fileName){
-        data.map(d => d.desc = generateDescription(d, fileName))
+    function addDescription(data, resourceName){
+        data.map(d => d.desc = generateDescription(d, resourceName));
     }
-    function generateDescription(data, fileName){
+    function generateDescription(data, resourceName){
         let desc = "Pas de description";
-        if(fileName === "abris-velo.json" && data.nom && data.adresse && data.descriptif && data.conditions)
+        if(resourceName === "abris-velo.json" && data.nom !== undefined && data.adresse !== undefined && data.descriptif !== undefined && data.conditions !== undefined)
             desc = data.nom+" - "+data.adresse+"\n"+data.descriptif+"\n"+data.conditions;
-        if(fileName === "arrets-tan.json" && data.stop_name && data.bicloo_near)
-            desc = "Arrêt " + data.stop_name + data.bicloo_near?"\nUne station bicloo est proche":"";
-        if(fileName === "gonfleurs-libre-service.json" && data.nom && data.adresse)
+        if(resourceName === "arrets-tan.json" && data.stop_name !== undefined && data.bicloo_near !== undefined)
+            desc = "Arrêt " + data.stop_name + (data.bicloo_near?"\nUne station bicloo est proche!":"");
+        if(resourceName === "gonfleurs-libre-service.json" && data.nom !== undefined && data.adresse !== undefined)
             desc = data.nom + "\n" +data.adresse;
-        if(fileName === "stations-velo-libre-service.json" && data.nom && data.adresse)
+        if(resourceName === "stations-velo-libre-service.json" && data.nom !== undefined && data.adresse !== undefined)
             desc = data.nom + "\n" +data.adresse;
-        if(fileName === "velocistes.json" && data.nom && data.adresse)
+        if(resourceName === "velocistes.json" && data.nom !== undefined && data.adresse !== undefined)
             desc = data.nom + "\n" +data.adresse;
+        if(resourceName === API_NANTES_ROUTES.places_parking && data.grp_nom !== undefined && data.grp_disponible !== undefined && data.grp_exploitation !== undefined)
+            desc = "Parking " + data.grp_nom + "\n" +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
+        if(resourceName === API_NANTES_ROUTES.disponibilites_bicloo && data.name !== undefined && data.available_bikes !== undefined && data.available_bike_stands !== undefined)
+            desc = data.name + "\n" +  data.available_bikes + " vélos disponibles\n" + data.available_bike_stands + " emplacements libres.";
+        if(resourceName === API_NANTES_ROUTES.parcs_relais && data.grp_nom !== undefined && data.grp_disponible !== undefined && data.grp_exploitation !== undefined)
+            desc = data.grp_nom + "\n" +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
         return desc;
     }
 
