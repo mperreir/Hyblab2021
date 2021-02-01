@@ -211,13 +211,13 @@ let initSlide5 = function() {
     loadComponent('10')
 
     //Plein la vue -> avec quoi 
-    d3.select("#bouton-gauche-p5").on('click', async function() {
+    d3.select("#button-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
         route.push('5');
         console.log(data);
     });
-    d3.select("#bouton-droite-p5").on('click', async function() {
+    d3.select("#button-droite-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('9', data);
         route.push('5');
