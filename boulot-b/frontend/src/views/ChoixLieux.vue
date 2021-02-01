@@ -64,10 +64,7 @@ export default {
         bar: this.bar,
         salleDeSport: this.salleDeSport})
         await this.$root.$data.fetchTrajet()
-      // timeout pour que l'utilisateur puisse avoir le temps de lire le message du canari
-      setTimeout(async () => {
         this.$root.$data.setActif(this.actif +1)
-      }, 2500)
     },
     checkPharmacie() {
       this.pharmacie = !this.pharmacie;

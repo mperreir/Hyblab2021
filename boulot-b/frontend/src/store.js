@@ -26,10 +26,8 @@ const store = {
         const bar = choices.lieux.bar;
         const boulangerie = choices.lieux.boulangerie;
         const pharmacie = choices.lieux.pharmacie;
-        http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
-            .then((res) =>  {
-                this.state.trajetData = res.data
-            })
+        this.state.trajetData = await http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
+            .then((res) =>   res.data )
     },
     subscribe(state,callback) {
         this.subscribers.push({[state]: callback})
