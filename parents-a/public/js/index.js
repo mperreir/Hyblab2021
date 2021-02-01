@@ -229,12 +229,16 @@ let initSlide5 = function(db) {
     //Plein la vue -> avec quoi 
     d3.select("#button-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        const stone = new sound('sound/stone.mp3', true, 0.2);
+        stone.play()
         nextSlide('10', data);
         route.push('5');
         console.log(data);
     });
     d3.select("#button-droite-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
+        const water = new sound('sound/water.mp3', true, 0.2);
+        water.play()
         nextSlide('9', data);
         route.push('5');
         console.log(data);
