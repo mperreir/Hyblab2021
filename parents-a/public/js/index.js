@@ -65,8 +65,11 @@ let loadComponent = function(p) {
 let initSlide1 = function() {
 
     d3.select('#logo').on('click', function() {
+        const s = new sound('sound/back.mp3', true, 0.1);
+        s.play()
         loadComponent(2);
         nextSlide('1-1');
+
     });
 }
 
@@ -170,7 +173,7 @@ let initSlide3 = function() {
         nextSlide('4', data);
         route.push('3');
         console.log(data);
-        const s = new sound('sound/elephant8.mp3');
+        const s = new sound('sound/elephant8.mp3', false, 0.1);
         s.play();
 
     });
@@ -730,12 +733,13 @@ function radar(parc1, parc2, parc3) {
     });
 }
 
-function sound(src, loop) {
+function sound(src, loop, volume) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
+    this.sound.volume = volume;
     document.body.appendChild(this.sound);
     this.play = function() {
         this.sound.play();
