@@ -22,8 +22,8 @@ class Attributs extends React.Component{
             let urlRue = this.state.adresse.rue.split(' ').join('+');
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
-            console.log(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-             fetch(`/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+         
+             fetch(`/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     return response.json();
