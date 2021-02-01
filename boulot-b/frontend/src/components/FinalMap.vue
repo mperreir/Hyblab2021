@@ -110,7 +110,7 @@ async function addMarkers(map, origin, destination, stops) {
 }
 
 
-async function iconFactory(namePOI) {
+function iconFactory(namePOI) {
   function createIcon(img) {
     const image = document.createElement('img');
     image.src = img
