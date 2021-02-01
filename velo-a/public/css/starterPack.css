@@ -35,6 +35,7 @@ input {
 
 	.container_map {
 		align-self: center;
+		margin: 0;
 	}
 
 	#container-bicky {
@@ -53,6 +54,9 @@ input {
 @media (orientation: landscape) {
 	.bottom-right-nav-container {
 		align-items: flex-end;
+		position: fixed;
+		bottom: 0;
+		right: 0;
 	}
 }
 
