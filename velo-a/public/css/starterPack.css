@@ -58,3 +58,16 @@ input {
 #map {
 	width: 100% !important;
 }
+
+#messageFin {
+	margin: 1em 0;
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+	color: #F96D48;
+	line-height: 1.5em;
+}
+
+h3 {
+	margin-top: 1em;
+}
