@@ -66,3 +66,9 @@ button#bouton_accueil {
     border-radius:50%;
 }
 
+
+@media screen and (min-resolution: 100dpi) {
+    #persona_background #rowDiv{
+        margin-top: -3em;
+    }
+}
