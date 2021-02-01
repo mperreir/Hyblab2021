@@ -330,44 +330,14 @@
                 <button type="button" data-toggle="modal" data-target="#modalResult">
                     <div id="img2" class="img-result"></div>
                 </button>
-                <button class data-toggle="modal" data-target="#modalResult">
-
+                <button type="button" data-toggle="modal" data-target="#modalResult">
                     <div id="img3" class="img-result"></div>
                 </button>
 
+                <button type ="button" data-toggle="modal" data-target="#compare" id="compare-btn" class="button">Comparer les parcs</button>
 
 
-                <!-- style="position: absolute; height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);z-index: 14;" -->
-
-                <div class="container" style="height:40vh; width:80vw"></div>
-                <div class="row">
-                    <div class="col" id="chart">
-                        <canvas id="myChart" class="mychart"></canvas>
-                    </div>
-                    <div class="col" id="chart1">
-                        <canvas id="myChart1" class="mychart"></canvas>
-                    </div>
-                    <div class="col" id="chart2">
-                        <canvas id="myChart2" class="mychart"></canvas>
-                    </div>
-                    <div class="col" id="chart3">
-                        <canvas id="myChart3" class="mychart"></canvas>
-                    </div>
-                </div>
-                </div>
-                <!-- <div id = "chart">
-                    <canvas id="myChart" ></canvas>
-                </div>
-                <div id = "chart1" >
-                    <canvas id="myChart1" ></canvas>
-                </div>
-                <div id="chart2" >
-                    <canvas id="myChart2" ></canvas>
-                </div>
-                <div id = "chart3" >
-                    <canvas id="myChart3" ></canvas>
-                </div> -->
-
+               
             </section>
 
             <!-- Page crédits -->
@@ -412,9 +382,6 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-
-
-
             <div class="modal-body">
                 <div class="d-flex flex-row">
                     <i class="fas fa-map-marker-alt"></i>
@@ -443,6 +410,58 @@
                     <i><img src="img/page_resultats/table.png" alt="table" id="table"></i>
                     <p>Table de jardin : </p>
                 </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal" id="compare" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <!-- style="position: absolute; height: 33%;width: 28%;bottom: 0%;right: 36%;background-color: rgba(0,0,0,0.5);z-index: 14;" -->
+
+              <div class="container" style="height:40vh; width:80vw"></div>
+              <div class="row">
+                  <div class="col" id="chart">
+                      <canvas id="myChart" class="mychart"></canvas>
+                  </div>
+                  <div class="col" id="chart1">
+                      <canvas id="myChart1" class="mychart"></canvas>
+                  </div>
+                  <div class="col" id="chart2">
+                      <canvas id="myChart2" class="mychart"></canvas>
+                  </div>
+                  <div class="col" id="chart3">
+                      <canvas id="myChart3" class="mychart"></canvas>
+                  </div>
+              </div>
+              </div>
+              <!-- <div id = "chart">
+                  <canvas id="myChart" ></canvas>
+              </div>
+              <div id = "chart1" >
+                  <canvas id="myChart1" ></canvas>
+              </div>
+              <div id="chart2" >
+                  <canvas id="myChart2" ></canvas>
+              </div>
+              <div id = "chart3" >
+                  <canvas id="myChart3" ></canvas>
+              </div> -->
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

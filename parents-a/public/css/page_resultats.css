@@ -8,6 +8,14 @@ section[data-slidr="page-resultats"] {
     z-index: -2;
 }
 
+.photo{
+    width: 23%;
+}
+
+.photo *{
+    width: 100% ;
+}
+
 #feuille-verte-pr{
     position: absolute;
     width: 18%;
@@ -52,8 +60,9 @@ section[data-slidr="page-resultats"] {
 #parc1-pr ,#img1 {
     position: absolute;
     width: 23%;
-    bottom: 43%;
     right: 14%;
+    bottom: 42%;
+
 }
 
 #parc1-titre{
@@ -80,7 +89,8 @@ section[data-slidr="page-resultats"] {
 } */
 #parc2-pr,#img2{
     position: absolute;
-    bottom: 41%;
+    width: 23%;
+    bottom: 42%;
     right: 39%;
 }
 
@@ -188,6 +198,14 @@ section[data-slidr="page-resultats"] {
     bottom: 25%;
     left:17%;
     z-index: 15;
+}
+
+#compare-btn{
+    bottom: 10%;
+    width:16%;
+    left:42%;
+    border-radius: 5%;
+
 }
 
 
