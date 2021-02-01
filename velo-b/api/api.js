@@ -155,7 +155,7 @@ module.exports = () => {
         }
         let response;
         try{
-            response = await fetch(url, config.env==='prod'?proxy:undefined);
+            response = await fetch(url, config.useProxy===true?proxy:undefined);
         } catch (e) {
             throw {message:"Une erreur inconnue est survenue.", code:500, error_content:e};
         }
