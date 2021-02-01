@@ -8,6 +8,7 @@
       router.loadData();
     })
   }
+  particlesJS.load('particles-js', 'assets/data/particles_persos.json', ()=>{});
   document.querySelector('#next').addEventListener('click', () => {
     router.loadRessources("departements", {}, 3);
     document.querySelector('#scene1').style.filter = 'brightness(100%)';

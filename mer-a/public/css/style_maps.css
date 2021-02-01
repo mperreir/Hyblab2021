@@ -102,7 +102,7 @@ p.narration {
 div#character > p.narration {
   top: 0vh;
   width: 100%;
-  word-break: break-word;
+  word-break: break-word;  
 }
 
 

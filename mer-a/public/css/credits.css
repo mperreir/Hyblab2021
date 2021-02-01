@@ -12,142 +12,240 @@
 	max-height: 8vh;
 }
 
-#relativ body{
-	font-family: 'Poppins', sans-serif;
+#relativ{
+	display: flex;
+	flex-direction: row;
 }
 
-#relativ table{
-	border-radius: 1px solid yellow;
+/* Définition du tableau crédits*/
+
+#relativ .credits{
+	margin-left: 8vh;
+	display: grid;
+	border-radius: 4vh;
+	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	grid-template-areas:
+	"haut-gauche haut-mid haut-droit"
+	"agr-a sc-a p-a"
+	"agr-b sc-b p-b"
+	"agr-c . p-c"
+	". . p-d"
+	". . p-e"
+	". . p-f"
+	"logo logo logo";
+	grid-template-columns: repeat(3, 20vw); /* 3 colonnes */
+  	grid-template-rows: repeat(10, auto); /* 10 lignes */
+  	text-align: center;
+  	align-self: center;
+  	width: 60vw;
 }
 
-#relativ a{
-  color: inherit;
-  text-decoration: inherit;
-  font-weight: inherit;
+#relativ #logos{
+	grid-area: logo;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding-left: 4vh;
+	padding-right: 4vh;
+	background-color: #CFE0EC;
+	border-radius: 0 0 4vh 4vh;
 }
 
-#relativ #credits{
-	border-radius: 5vh;
- 	border-spacing: 0;
-	text-align: center;
-	width: 70%;
-}
+/* Définition du header */
 
-#relativ #sources{
-	border-radius: 5vh;
- 	border-spacing: 0;
-	text-align: left;
-	width: 25%;
-}
-
-#relativ .haut{
-	padding-top: 5vh;
-}
-
-#relativ .haut_sources{
-	padding-top: 3.7vh !important;
-}
-
-#relativ .bas{
-	padding-bottom: 5vh;
-}
-
-#relativ .bas_sources{
-	padding-bottom: 2.6vh !important;
-}
-
-#relativ td{
-	padding-top: 1.5vh;
-	padding-bottom: 1.5vh;
-	font-size: 1.8vh;
-}
-
-#relativ .td_sources{
-	padding-top: 0.7vh;
-	padding-bottom: 0.8vh;
-	padding-left: 6vh;
-	font-size: 1.6vh;
-}
-
-#relativ thead{
+#relativ .head{
+	height: 8vh;
 	background-color: #CFE0EC;
 }
 
-#relativ tfoot{
-	background-color: #CFE0EC;
+#relativ .haut-gauche{
+	border-radius: 4vh 0 0 0;
+	grid-area: haut-gauche;
 }
 
-#relativ .tfoot_sources{
-	height: 12vh;
+#relativ .haut-mid{
+	grid-area: haut-mid;
 }
 
-#relativ th{
+#relativ .haut-droit{
+	border-radius: 0 4vh 0 0;
+	grid-area: haut-droit;
+
+}
+
+/* Définition du body */
+
+#relativ .body{
+	color: white;
+	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
 	padding-top: 2vh;
 	padding-bottom: 2vh;
 }
 
-#relativ .th_sources{
-	padding-top: 3.5vh;
-	padding-bottom: 3.5vh;
-	padding-left: 6vh;
-	border-radius: 5vh 5vh 0 0;
-	font-size: 2vh;
-	font-weight: bold;
+/* AGR */
+
+#relativ .AGR1{
+	grid-area: agr-a;
 }
 
-#relativ #haut_gauche{
-	border-radius: 5vh 0 0 0;
+#relativ .AGR2{
+	grid-area: agr-b;
 }
 
-#relativ #haut_droit{
-	border-radius: 0 5vh 0 0;
+#relativ .AGR3{
+	grid-area: agr-c;
 }
 
-#relativ #bas_droit{
-	border-radius: 0 0 5vh 0;
+/* SC */
+
+#relativ .SC1{
+	grid-area: sc-a;
 }
 
-#relativ #bas_gauche{
-	border-radius: 0 0 0 5vh;
+#relativ .SC2{
+	grid-area: sc-b;
 }
 
-#relativ #bas_sources{
-	border-radius: 0 0 5vh 5vh;
+/* Polytech */
+
+#relativ .P1{
+	grid-area: p-a;
 }
 
-#relativ tbody{
+#relativ .P2{
+	grid-area: p-b;
+}
+
+#relativ .P3{
+	grid-area: p-c;
+}
+
+#relativ .P4{
+	grid-area: p-d;
+}
+
+#relativ .P5{
+	grid-area: p-e;
+}
+
+#relativ .P6{
+	grid-area: p-f;
+}
+
+#relativ #prenom{
 	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
-	color: #ABC4D5;
-	font-weight: bold;
 }
 
-#relativ div#button {
+/* Définition du footer */
+#relativ .foot{
+	background-color: #CFE0EC;
+	height: 10vh;
+	margin: 0 auto;
+}
+
+#relativ img{
+	margin: 0 auto;
+}
+
+/* Définition du tableau de sources */
+
+#relativ .sources{
+	font-size: 1.5vh;
+	margin-left: 8vh;
+	display: flex;
+	flex-direction: column;
+  	text-align: left;
+  	width: 20vw;
+  	height: 50vh;
+}
+
+#relativ div#back {
 	position: absolute;
-	top: 150vh;
+	bottom: 8vh;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
-#relativ div#content div#relativ {
-	position: relative;
+#relativ .head-sources{
+	font-weight: bold;
+	border-radius: 4vh 4vh 0 0;
+	height: 8vh;
+	background-color: #CFE0EC;
+	padding-left: 3vw;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
 }
 
-#back{
-	margin-top: 0;
+#relativ .haut-sources{
+	padding-top: 2.5vh !important;
+}
+
+#relativ .bas-sources{
+	padding-bottom: 2.5vh !important;
+}
+
+#relativ .source{
+	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	padding-top: 0.5vh;
+	padding-bottom: 0.5vh;
+	padding-left: 3vw;
+	color: white;
+}
+
+#relativ .foot-source{
+	background-color: #CFE0EC;
+	height: 8vh;
+	border-radius: 0 0 4vh 4vh;
+	padding-top: 10vh;
+}
+
+a,
+a:link,
+a:hover,
+a:active{
+	color: inherit;
+	text-decoration: inherit;
+	font-weight: inherit;
 }
 
 @media only screen and (max-width: 768px) {
 
+#relativ {
+	font-size: 0.75rem;
+}
+
 #relativ .credits {
-	grid-template-columns: 5% 30% 30% 30fr 5fr;
-  grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-  gap: 0px 0px;
+	grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 17.5% 17.5% 17.5% 17.5% 30%;
+	width: 95%;
+	margin: 0 auto;
   grid-template-areas:
-    ". haut-gauche . . ."
-    ". agr-a agr-b agr-c ."
-    ". haut-mid . . ."
-    ". sc-a sc-b . ."
-    ". haut-droit . . ."
-    ". p-a p-b p-c ."
-    ". p-d p-e p-f ."
-    ". logo logo logo .";
+    "haut-gauche agr-a agr-b agr-c"
+    "haut-mid sc-a sc-b ."
+    "haut-droit p-a p-b p-c"
+    "p-d p-e p-f ."
+    "logo logo logo logo";
+	}
+
+	div.head img {
+		width: 90%;
+	}
+
+	div.head {
+		border-radius: 4vh 0 4vh 0 !important;
+	}
+
+	.AGR3 {
+		border-radius: 0 4vh 0 0;
+	}
+
+	div#logos div.foot {
+		height: 47.5%;
+	}
+
+	div.sources {
+		display: none !important;
 	}
 }

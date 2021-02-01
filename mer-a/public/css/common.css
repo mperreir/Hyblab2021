@@ -48,8 +48,8 @@
 
 .round-button:hover {
   cursor: pointer;
-	background-color: #000;
-	color: #FFF;
+  background-color: #7D7FBC;
+  color: #FFF;
 }
 
 .unselectable {
@@ -123,7 +123,7 @@ p{
 
 @media only screen and (max-width: 768px) {
   div#audio_control {
-    top: 12.5%;
+    top: 15%;
     padding: 4px 8px;
     font-size: 2vh;
 

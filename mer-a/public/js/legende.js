@@ -5,14 +5,14 @@
 	await getLegendeById(router.data.legende, data => {
 		document.querySelector('#personnage-s1').src = `${router.ROOT}${data.imageURI}`;
 		document.querySelector('#personnage-s2').src = `${router.ROOT}${data.imageURI}`;
-
+		console.log(data);
+		
 		document.querySelector('#nom').innerHTML = data.nom;
 		document.querySelector('#bubble').innerHTML = data.histoire;
 		document.querySelector('#modal-content').style.background = `url(${data.photo}) center center no-repeat`;
 		document.querySelector('#modal-content').style.backgroundSize = 'cover';
-		document.querySelector('#title-legende h2').innerHTML = data.nom;
+		document.querySelector('#title-legende h2').innerHTML = data.nom_lieu;
 		document.querySelector('#adresse').innerHTML = data.adresse;
-		document.querySelector('#website').innerHTML = data.site;
 		document.querySelector('#website').href = data.site;
 		document.querySelector('#text-legende').innerHTML = data.resume_lieu;
 		document.querySelector('#googlemaps').addEventListener('click', (event) => {
@@ -35,8 +35,5 @@
 			logo.src = (boolean) ? `${path}logo_${id}.png` : `${path}logo_${id}_crossed.png`;
 			logo.title = (boolean) ? alt : `pas de ${alt}`;
 		}
-	});
-	particlesJS.load('particles-js', 'assets/data/particles_legende.json', function() {
-	  console.log('callback - particles.js config loaded');
 	});
 })();

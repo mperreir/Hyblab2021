@@ -1,3 +1,5 @@
+'use strict';
+
 class Legende {
 
     constructor(
@@ -15,7 +17,7 @@ class Legende {
         restaurant, 
         photo, 
         site, 
-        resume_lieu,
+        resume_lieu, 
         nom_lieu) {
 
             this.id = id;
@@ -36,5 +38,3 @@ class Legende {
             this.nom_lieu = nom_lieu;
     }
 }
-
-module.exports = Legende;

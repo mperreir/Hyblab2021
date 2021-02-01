@@ -22,6 +22,11 @@ div#title h2 {
 	text-transform: uppercase;
 }
 
+div#infos p {
+	text-align: left;
+	margin-bottom : 7.5% !important;
+}
+
 /*===========
 	= Legende =
 	===========*/
@@ -86,17 +91,18 @@ div#credits {
 	=======================*/
 div#information #modal-content {
 	min-height: 75vh;
+	max-height: 90vh;
 	color: #FFF;
 	border-radius: 3.5vh;
 	display: grid;
-  grid-template-columns: 18% 40% 33% 10%;
-  grid-template-rows: 14% 14% 43% 7% 7% 15%;
+  grid-template-columns: 10% 48% 33% 10%;
+  grid-template-rows: 14% 14% 43% 7% 12% 10%;
   gap: 0px 0px;
   grid-template-areas:
-    "logo . . quit"
+    "logo logo . quit"
     ". title-legende title-info ."
     ". text-legende infos ."
-    ". . label-home ."
+    ". text-legende label-home ."
     ". localisation back-home ."
     ". . . .";
 }
@@ -107,13 +113,15 @@ div#information #modal-content > * {
 
 /* Ligne 1 */
 #logo {
+	margin-left: 5%;
+	max-height: 11vh;
 	grid-area: logo;
-	margin: 5%;
+	text-align: left;
 }
 
 #logo img {
-	width: 90%;
-	height: auto;
+	height: 80%;
+	width: auto;
 }
 
 #quit {
@@ -141,12 +149,18 @@ div#information #modal-content > * {
 
 #title-info {
 	grid-area: title-info;
+	justify-content: flex-start;
 }
 
-#title-legende h2, #title-info h4 {
+#title-legende h2 {
 	margin-block-end: inherit;
 	width: 100%;
 	height: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#title-info h4 {
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -156,6 +170,9 @@ div#information #modal-content > * {
 	grid-area: text-legende;
 	text-align: justify;
 	width: 90%;
+	overflow-y: auto;
+	height: 100%;
+	padding: 2vh;
 }
 
 #infos {
@@ -166,7 +183,18 @@ div#services {
 	display: flex;
 	flex-flow: row;
 	justify-content: space-around;
-	margin-top: 5%;
+	margin-bottom: 7.5%;
+}
+
+a#website {
+	color: inherit;
+	text-decoration: inherit;
+	font-weight: inherit;
+}
+
+a#website:hover {
+	cursor: pointer;
+	opacity: 0.5;
 }
 
 .logos {
@@ -201,11 +229,17 @@ div#services {
 	grid-area: back-home;
 }
 
+#but-back-home, but-localisation {
+	margin-top: 0;
+}
+
 div#filter {
 	position: absolute;
-  width: 100%;
-  height: 100%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  margin-left: -1px;
   border-radius: 3.5vh;
+  margin-top: -1px;
 	backdrop-filter: brightness(60%);
 	background-color: rgba(0,0,0,0.25);
 	z-index: 1 !important;
@@ -232,7 +266,6 @@ div#filter {
 	div#bubble {
 		width: 100%;
 		height: 100%;
-		margin-right: 5%;
 	}
 
 	div#content {
@@ -251,15 +284,13 @@ div#filter {
 
 	div#information #modal-content {
 		padding: 2.5%;
-		max-height: 80vw;
+		max-height: 95vw;
 		grid-template-columns: 50% 42.5% 7.5%;
-	  grid-template-rows: 15% 35% 10% 20% 7.5% 12.5%;
+	  grid-template-rows: 15% 35% 40% 10%;
 	  grid-template-areas:
 	    "title-legende title-legende quit"
 	    "text-legende text-legende text-legende"
-	    "title-info title-info title-info"
 	    "infos infos infos"
-	    ". label-home label-home"
 	    "localisation back-home back-home";
 	}
 
@@ -278,14 +309,28 @@ div#filter {
 		font-size: 1rem;
 	}
 
-	#label-home {
-		margin-top: 15%;
-		margin-bottom: 0
+	div#infos p {
+		margin-bottom: 2.5% !important;
 	}
 
-	#label-home p {
+	div#services {
+		margin-bottom: 2.5%;
+		text-overflow: ellipsis;
+	}
+
+	#text-legende {
 		width: 100%;
-		font-size: 0.5rem;
 	}
 
+	div#infos {
+		margin-top: 5%;
+	}
+
+	div#label-home {
+		display: none;
+	}
+
+	#title-info, #logo {
+		display: none;
+	}
 }
