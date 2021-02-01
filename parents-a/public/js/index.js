@@ -494,11 +494,6 @@ let initSlideResultat = function(db) {
     d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel'] });
     d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel'] });
 
-    d3.select('#home').on('click', function() {
-        clearElement(containers);
-        nextSlide('2')
-    });
-
     d3.select('#credits-b').on('click', function() {
         nextSlide('credits')
     });
@@ -586,6 +581,7 @@ let initSlideResultat = function(db) {
     });
 
     d3.selectAll('.home').on('click', function() {
+        clearElement(containers);
         nextSlide('2');
     });
 
