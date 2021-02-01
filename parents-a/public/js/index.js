@@ -54,7 +54,7 @@ function choixSlide(num, data) {
 
 }
 
-let loadComponent = function (p) {
+let loadComponent = function(p) {
     console.log(p);
     document.querySelectorAll(`#page-${p} > img`).forEach(elem => {
         elem.setAttribute("src", elem.getAttribute("data-src"));
@@ -158,7 +158,7 @@ let initSlide3 = function() {
     /* Chargements des images des slides 4 et 7 */
     loadComponent('4');
     loadComponent('7')
-    //Aventurier -> Plein la vue
+        //Aventurier -> Plein la vue
     d3.select('#bouton-droite-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
         nextSlide('7', data);
@@ -248,9 +248,10 @@ let initSlide6 = function(db) {
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide(route.pop(), db);
     });
 }
+
 
 //Preference entre animaux et bruits nature 
 let initSlide7 = function() {
@@ -271,17 +272,17 @@ let initSlide7 = function() {
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide(route.pop(), db);
     });
 }
 
 // /Decouverte d'arbres différents 
 
+
 let initSlide8 = function() {
     /* Chargements des images des slides 6 et 10 */
     loadComponent('6');
     loadComponent('10')
-
     d3.select("#bouton-gauche-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
@@ -295,7 +296,7 @@ let initSlide8 = function() {
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide(route.pop(), db);
     });
 }
 
@@ -305,19 +306,19 @@ let initSlide9 = function(db) {
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
-        checkData(data, db, 10);
+        checkData(data, db, 8);
         nextSlide('10', data);
         route.push('9');
         console.log(data);
     });
     d3.select("#bouton-droite-p9").on('click', async function() {
-        checkData(data, db, 10);
+        checkData(data, db, 8);
         nextSlide('10', data);
         route.push('9');
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide(route.pop(), db);
     });
 }
 
@@ -378,7 +379,7 @@ let initSlide10 = function(db) {
         console.log(data);
     });
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide(route.pop(), db);
     });
 }
 
@@ -396,9 +397,9 @@ let initSlideResultat = function(db) {
         nextSlide('10', data);
         console.log(data);
     });
-    d3.select('#parc1-titre').text(function(d) { return data[2]['Nom formel']});
-    d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel']});
-    d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel']});
+    d3.select('#parc1-titre').text(function(d) { return data[2]['Nom formel'] });
+    d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel'] });
+    d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel'] });
 
     d3.selectAll('.accueil').on('click', function() {
         nextSlide('2')
@@ -407,7 +408,7 @@ let initSlideResultat = function(db) {
     d3.select('#credits-b').on('click', function() {
         nextSlide('credits')
     });
-    
+
 
     d3.select('#random2').on('click', () => {
         console.log('random 2');
@@ -663,13 +664,13 @@ function radar(parc1, parc2, parc3) {
                 fontColor: '#fff',
                 position: 'bottom'
             }
-        
+
 
         }
     });
 }
 
-function sound(src) {
+function sound(src, loop) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
