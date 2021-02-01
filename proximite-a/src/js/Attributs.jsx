@@ -155,7 +155,7 @@ class Attributs extends React.Component{
                         <div id="containerAttributLeftContent">
                             <img id="logoCorner" src={this.getThemeLogo()} width={150} ></img>
                             <div id="blablaMadameAttribut">
-                                <img src={this.getThemePerso()} alt="fetard" />
+                                <img id="ThemeLogoCenter" src={this.getThemePerso()} alt="fetard" />
                                 <br/>
                                 <br/>
                                 <p id="paragrapheBlablaMadameAttribut">Hello moi c’est Alex !
