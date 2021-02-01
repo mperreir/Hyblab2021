@@ -16,20 +16,20 @@ section[data-slidr="page-resultats"] {
     width: 100% ;
 }
 
-#feuille-verte-pr{
+#feuille-verte-pr {
     position: absolute;
-    width: 18%;
-    bottom: 5%;
-    left: 6%;
+    width: 16%;
+    bottom: 11%;
+    left: 0%;
 }
 
-#fleurs-pr{
+#fleurs-pr {
     position: absolute;
     width: 9%;
-    bottom: 8%;
-    left: 3%;
-
+    bottom: 10%;
+    left: 9%;
 }
+
 #credits-b{
     right : 2%;
     bottom: 15%;
@@ -133,7 +133,7 @@ section[data-slidr="page-resultats"] {
     color: white;
     right: 70%;
     top: 20%;
-    z-index: 14;  
+    z-index: 14;
 }
 
 #random3 {
