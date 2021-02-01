@@ -229,8 +229,8 @@ let initSlide4 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -265,8 +265,8 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -296,8 +296,8 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -324,8 +324,8 @@ let initSlide7 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -356,8 +356,8 @@ let initSlide8 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -387,8 +387,8 @@ let initSlide9 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
-     //Retour accueil
-     d3.selectAll('.home').on('click', function() {
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2');
     });
 }
@@ -461,7 +461,7 @@ let initSlide10 = function(db) {
         nextSlide('resultats', data);
         route.push('10');
     });
-    
+
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
