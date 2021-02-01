@@ -387,7 +387,7 @@ let initSlide10 = function(db) {
 let initSlideResultat = function(db) {
     /* Chargements des images de la slide credits */
     loadComponent('credits');
-
+    const charts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": data }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -428,6 +428,7 @@ let initSlideResultat = function(db) {
         d3.select('#parc1-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
         podium[2] = podium[podium.length - 1];
         chooseimage(podium, div1);
+        clearElement(charts);
         new radar(podium[0], podium[1], podium[2]);
     });
     d3.select('#random3').on('click', () => {
@@ -683,6 +684,10 @@ function sound(src, loop) {
     this.stop = function() {
         this.sound.pause();
     }
+}
+
+function clearElement(list) {
+    list.forEach(p => document.getElementById(p).innerHTML = '');
 }
 
 initSlide1();
