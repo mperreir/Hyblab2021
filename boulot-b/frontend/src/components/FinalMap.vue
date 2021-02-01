@@ -12,6 +12,9 @@ import haltere from "@/assets/map/haltere.svg"
 import verre from "@/assets/map/verre.svg"
 import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
+import destination from '@/assets/map/destination.svg'
+import origin from '@/assets/map/origin.svg'
+
 
 export default Vue.component("finalMap", {
   name: "finalMap",
@@ -29,9 +32,11 @@ export default Vue.component("finalMap", {
     });
 
     window.addEventListener('resize', () => map.getViewPort().resize());
-
-    const choices = this.$root.$data.getChoices();
-    await createMap(platform, map, choices)
+    // Permet le zoom
+      new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+      H.ui.UI.createDefault(map, defaultLayers);
+      const choices = this.$root.$data.getChoices();
+      await createMap(platform, map, choices, this.$root.$data.state.trajetData)
     }
   },
   mounted: function () {
@@ -39,24 +44,9 @@ export default Vue.component("finalMap", {
   }
 });
 
-async function createMap(platform, map, choices) {
-    const datas = await getDatas(choices);
+async function createMap(platform, map, choices, data) {
     const transportType = choices.typeDeplacement;
-    await calculateRouteFromAtoB(platform, map, datas.data.Depart, datas.data.Arrivee, datas.data.POI, transportType);
-}
-
-async function getDatas(choices) {
-    const origin = choices.path.depart;
-    const destination = choices.path.arrivee;
-
-    const typeDeplacement = choices.typeDeplacement;
-    const theme = choices.theme
-
-    const salleSport = choices.lieux.salleDeSport;
-    const bar = choices.lieux.bar;
-    const boulangerie = choices.lieux.boulangerie;
-    const pharmacie = choices.lieux.pharmacie;
-    return  http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`);
+    await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType);
 }
 
 function calculateRouteFromAtoB (platform, map, origin, destination, stops, transportType) {
@@ -69,24 +59,22 @@ function calculateRouteFromAtoB (platform, map, origin, destination, stops, tran
       routeRequestParams = {
         routingMode: 'fast',
         transportMode: transportType,
-        origin: coordOrigin, 
-        destination: coordDestination,  
+        origin: coordOrigin,
+        destination: coordDestination,
         via: new H.service.Url.MultiValueQueryParameter(coordStops),
         return: 'polyline,travelSummary'
       };
 
   router.calculateRoute(
     routeRequestParams,
-    (result) => onSuccess(result, map, origin, destination, stops),
+    (result) => {
+      const route = result.routes[0];
+      addRouteShapeToMap(route, map, origin, destination, stops);
+    },
     (error) => {
-      alert('Can\'t reach the remote server');
+      console.log('Can\'t reach the remote server', error);
     }
   );
-}
-
-function onSuccess(result, map, origin, destination, stops) {
-  const route = result.routes[0];
-  addRouteShapeToMap(route, map, origin, destination, stops);
 }
 
 async function addRouteShapeToMap(route, map, origin, destination, stops){
@@ -107,23 +95,23 @@ async function addRouteShapeToMap(route, map, origin, destination, stops){
 }
 
 async function addMarkers(map, origin, destination, stops) {
-  const iconOrigin = await createIcon('origin.svg');
-  const iconDestination = await createIcon('destination.svg')
+  const iconOrigin = await iconFactory('Origine')
+  const iconDestination = await iconFactory('Destination')
 
   const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
   const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
-  
+
   map.addObject(markerOrigin);
   map.addObject(markerDestination);
 
   for (let i=0 ; i < stops.length; i++) {
-    const icon = await createIntermediaryIcon(Object.keys(stops[i])[0]);
+    const icon = await iconFactory(Object.keys(stops[i])[0]);
     const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
     map.addObject(markerStop);
   }
 }
 
-async function createIcon(img) {
+function createIcon(img) {
     const image = document.createElement('img');
     image.src = img
     image.width = 20;
@@ -131,18 +119,22 @@ async function createIcon(img) {
     return new H.map.DomIcon(image);
   }
 
-async function createIntermediaryIcon(namePOI) {
+async function iconFactory(namePOI) {
   switch(namePOI) {
     case 'Boulangerie':
-      return await createIcon(baguette);
+      return createIcon(baguette);
     case 'SalleSport':
-      return await createIcon(haltere);
+      return createIcon(haltere);
     case 'Bar':
-      return await createIcon(verre);
+      return createIcon(verre);
     case 'Pharmacie':
-      return await createIcon(medicament);
+      return createIcon(medicament);
+    case 'Origine':
+      return createIcon(origin);
+    case "Destination":
+      return createIcon(destination);
     default:
-      return await createIcon(point);
+      return createIcon(point);
   }
 }
 </script>
