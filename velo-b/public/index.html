@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/stats.css">
     <link rel="stylesheet" href="css/infosVehicules.css">
+    <link rel="stylesheet" href="css/map.css">
 
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -18,9 +19,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-    <script
-        src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <!-- fontawesome et leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" integrity="sha512-cUoWMYmv4H9TGP4hbm1mIjYo90WzIQFo/5jj+P5tQcDTf+iVR59RyIj/a9fRsBxzxt5Dnv/Ex7MzRIxcDwaOLw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js" integrity="sha512-Oj9plGLST4IMXFXDfqMdTP+gSInbodkyno117PSjo5R08eu6TdzY9WPnnwQZGx2O2lG/kN0MzQk95ulWsRFuLA==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js" integrity="sha512-UwcC/iaz5ziHX7V6LjSKaXgCuRRqbTp1QHpbOJ4l1nw2/boCfZ2KlFIqBUA/uRVF0onbREnY9do8rM/uT/ilqw==" crossorigin="anonymous"></script>
 
+
+    <script src="js/leafletMap.js" defer></script>
     <script src="js/globals.js" defer></script>
     <script src="js/splashscreen.js" defer></script>
     <script src="js/progressBar.js" defer></script>
@@ -518,23 +527,36 @@
 
                 <img class="background-index w-screen h-screen absolute bottom-0"
                      src="assets/finale/finale.svg"/>
-
-                <aside class="stats-aside justify-self-end">
-                    <p>Prix (€/km)</p>
-                    <div id="pb-prix"></div>
-                    <p>Vitesse (km/h)</p>
-                    <div id="pb-vit"></div>
-                    <p>Émission de CO2 (g/km)</p>
-                    <div id="pb-co2"></div>
-                    <p>Calories brûlées (kcal/km)</p>
-                    <div id="pb-kcal"></div>
-                </aside>
-
-                <div class="relative inset-y-3/4 flex justify-center content-center">
-                    <img src="assets/finale/rejouer.svg" class="image-button w-2/15 mx-10" id="ic-rejouer-finale"
-                        alt="Bouton rejouer">
-                    <img src="assets/finale/credit.svg" class="image-button w-2/15 mx-10" id="ic-credit-finale"
-                        alt="Bouton credit">
+                <div class="flex flex-col">
+                    <!-- row 1 -->
+                    <div class="flex flex-row px-72 pt-24 pb-10">
+                        <div class="flex-1">
+                            <div class="map-wrapper">
+                                <div id="map-large"></div>
+                            </div>
+                        </div>
+                        <div class="flex-grow-0 my-auto">
+                            <aside class="stats-aside justify-self-end">
+                                <p>Prix (€/km)</p>
+                                <div id="pb-prix"></div>
+                                <p>Vitesse (km/h)</p>
+                                <div id="pb-vit"></div>
+                                <p>Émission de CO2 (g/km)</p>
+                                <div id="pb-co2"></div>
+                                <p>Calories brûlées (kcal/km)</p>
+                                <div id="pb-kcal"></div>
+                            </aside>
+                        </div>
+                    </div>
+                    <!-- row 2 -->
+                    <div>
+                        <div class="relative inset-y-3/4 flex justify-center content-center">
+                            <img src="assets/finale/rejouer.svg" class="image-button w-2/15 mx-10" id="ic-rejouer-finale"
+                                 alt="Bouton rejouer">
+                            <img src="assets/finale/credit.svg" class="image-button w-2/15 mx-10" id="ic-credit-finale"
+                                 alt="Bouton credit">
+                        </div>
+                    </div>
                 </div>
             </section>
 

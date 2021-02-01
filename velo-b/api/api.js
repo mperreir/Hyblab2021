@@ -134,8 +134,8 @@ module.exports = () => {
     function IsBiclooNear(arret, stations_bicloos)
     {
         return (undefined !== stations_bicloos.find(station =>
-            (arret.stop_coordinates[1] - station.geo_shape.coordinates[0]) ** 2
-            +(arret.stop_coordinates[0] - station.geo_shape.coordinates[1]) ** 2 < 0.000001
+            (arret.stop_coordinates[1] - station.location[0]) ** 2
+            +(arret.stop_coordinates[0] - station.location[1]) ** 2 < 0.000001
         ))
     }
 
@@ -164,6 +164,15 @@ module.exports = () => {
                 r.location = r.position;
                 delete r.position;
             }
+            if(r.geo_shape && r.geo_shape.coordinates !== undefined){
+                r.location = r.geo_shape.coordinates;
+                if(base_url === 'https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_gonfleurs-libre-service-nantes-metropole&q=&lang=fr&facet=commune&facet=conditions&rows=-1'){
+                    const tmp = r.location[0];
+                    r.location[0] = r.location[1];
+                    r.location[1] = tmp;
+                }
+                delete r.geo_shape;
+            }
             return r;
         })
         if(Object.values(API_NANTES_ROUTES).includes(base_url)){
@@ -178,21 +187,21 @@ module.exports = () => {
     function generateDescription(data, resourceName){
         let desc = "Pas de description";
         if(resourceName === "abris-velo.json" && data.nom !== undefined && data.adresse !== undefined && data.descriptif !== undefined && data.conditions !== undefined)
-            desc = data.nom+" - "+data.adresse+"\n"+data.descriptif+"\n"+data.conditions;
+            desc = data.nom+" - "+data.adresse+" | "+data.descriptif+" | "+data.conditions;
         if(resourceName === "arrets-tan.json" && data.stop_name !== undefined && data.bicloo_near !== undefined)
-            desc = "Arrêt " + data.stop_name + (data.bicloo_near?"\nUne station bicloo est proche!":"");
+            desc = "Arrêt " + data.stop_name + (data.bicloo_near?" | Une station bicloo est proche!":"");
         if(resourceName === "gonfleurs-libre-service.json" && data.nom !== undefined && data.adresse !== undefined)
-            desc = data.nom + "\n" +data.adresse;
+            desc = data.nom + " | " +data.adresse;
         if(resourceName === "stations-velo-libre-service.json" && data.nom !== undefined && data.adresse !== undefined)
-            desc = data.nom + "\n" +data.adresse;
+            desc = data.nom + " | " +data.adresse;
         if(resourceName === "velocistes.json" && data.nom !== undefined && data.adresse !== undefined)
-            desc = data.nom + "\n" +data.adresse;
+            desc = data.nom + " | " +data.adresse;
         if(resourceName === API_NANTES_ROUTES.places_parking && data.grp_nom !== undefined && data.grp_disponible !== undefined && data.grp_exploitation !== undefined)
-            desc = "Parking " + data.grp_nom + "\n" +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
+            desc = "Parking " + data.grp_nom + " | " +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
         if(resourceName === API_NANTES_ROUTES.disponibilites_bicloo && data.name !== undefined && data.available_bikes !== undefined && data.available_bike_stands !== undefined)
-            desc = data.name + "\n" +  data.available_bikes + " vélos disponibles\n" + data.available_bike_stands + " emplacements libres.";
+            desc = data.name + " | " +  data.available_bikes + " vélos disponibles | " + data.available_bike_stands + " emplacements libres.";
         if(resourceName === API_NANTES_ROUTES.parcs_relais && data.grp_nom !== undefined && data.grp_disponible !== undefined && data.grp_exploitation !== undefined)
-            desc = data.grp_nom + "\n" +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
+            desc = data.grp_nom + " | " +  data.grp_disponible + " places disponibles sur " + data.grp_exploitation;
         return desc;
     }
 
