@@ -71,6 +71,17 @@ registerSlide("page-arrivee-stats", function () {
     progressBar('#pb-vit', window.results.stats.vitesse);
     progressBar('#pb-co2', window.results.stats["émission de CO2"]);
     progressBar('#pb-kcal', window.results.stats["calories brûlés"]);
+
+    //->leafletMap.js/displayData
+    displayData(
+        window.results.relevant.map(categorie => {
+            return{
+                "categorie":categorie,
+                "quartier":window.results.quartier
+            }
+        }),
+        window.results.quartier
+    )
 });
 
 registerSlide("page-credit", function () {
