@@ -332,9 +332,13 @@ function getRandomParc(target, source) {
     while (index < source.length && target.find(p => p.id === source[index].id)) {
         index++;
     }
-    if (index < source.length)
+    if (index < source.length) {
         target.push(source[index]);
-    else console.log('not found');
+        return true;
+    } else {
+        console.log('not found');
+        return false;
+    }
 }
 
 function checkData(d, db, max) {
@@ -414,47 +418,50 @@ let initSlideResultat = function(db) {
     d3.select('#random2').on('click', () => {
         console.log('random 2');
         console.log(db);
-        getRandomParc(podium, db);
-        d3.select('#parc2-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
-        podium[1] = podium[podium.length - 1];
-        chooseimage(podium, div2);
-        clearElement(charts);
-        addCanvas(charts, myCharts);
-        new radar(podium[0], podium[1], podium[2]);
+        if (getRandomParc(podium, db)) {
+            d3.select('#parc2-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+            podium[1] = podium[podium.length - 1];
+            chooseimage(podium, div2);
+            clearElement(charts);
+            addCanvas(charts, myCharts);
+            new radar(podium[0], podium[1], podium[2]);
+            d3.selectAll(".parc2").on("click", () => {
+                giveInfo(podium, 2)
+            });
+        }
     });
     d3.select('#random1').on('click', () => {
         console.log('random 2');
         console.log(db);
-        getRandomParc(podium, db);
-        d3.select('#parc1-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
-        podium[2] = podium[podium.length - 1];
-        chooseimage(podium, div1);
-        clearElement(charts);
-        addCanvas(charts, myCharts);
-        new radar(podium[0], podium[1], podium[2]);
+        if (getRandomParc(podium, db)) {
+            d3.select('#parc1-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+            podium[2] = podium[podium.length - 1];
+            chooseimage(podium, div1);
+            clearElement(charts);
+            addCanvas(charts, myCharts);
+            new radar(podium[0], podium[1], podium[2]);
+            d3.selectAll(".parc1").on("click", () => {
+                giveInfo(podium, 1)
+            });
+        }
     });
     d3.select('#random3').on('click', () => {
         console.log('random 3');
         console.log(db);
-        getRandomParc(podium, db);
-        d3.select('#parc3-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
-        podium[0] = podium[podium.length - 1];
-        chooseimage(podium, div3);
-        clearElement(charts);
-        addCanvas(charts, myCharts);
-        new radar(podium[0], podium[1], podium[2]);
+        if (getRandomParc(podium, db)) {
+            d3.select('#parc3-titre').text(function(d) { return podium[podium.length - 1]['Nom formel'] });
+            podium[0] = podium[podium.length - 1];
+            chooseimage(podium, div3);
+            clearElement(charts);
+            addCanvas(charts, myCharts);
+            new radar(podium[0], podium[1], podium[2]);
+            d3.selectAll(".parc3").on("click", () => {
+                giveInfo(podium, 3)
+            });
+        }
     });
     ////////////////////////////////////:
-    d3.selectAll(".parc1").on("click", () => {
-        console.log("parrrrrrc");
-        giveInfo(data,1)
-    });
-    d3.selectAll(".parc2").on("click", () => {
-        giveInfo(data,2)
-    });
-    d3.selectAll(".parc3").on("click", () => {
-        giveInfo(data,3)
-    });
+
     // d3.select('.parc1').on('click', () => {
 
     // });
@@ -474,6 +481,16 @@ let initSlideResultat = function(db) {
     chooseimage(data, div2);
     div3.appendChild(img3);
     chooseimage(data, div3);
+
+    d3.selectAll(".parc1").on("click", () => {
+        giveInfo(podium, 1)
+    });
+    d3.selectAll(".parc2").on("click", () => {
+        giveInfo(podium, 2)
+    });
+    d3.selectAll(".parc3").on("click", () => {
+        giveInfo(podium, 3)
+    });
 
 }
 
@@ -495,29 +512,31 @@ let im_sources = {
         "BLOTTEREAU": "img/parcs/parc-du-grand-bloterreau.jpg"
     }
     // parc 1 data[2]  // parc 2 data[1] // parc 3  data[0]
-function giveInfo(data,id) {
-    let num 
+function giveInfo(data, id) {
+    let num
     if (id === 1) {
         num = 2
-    } 
-    if (id === 2){
+    }
+    if (id === 2) {
         num = 1
     }
-    if (id === 3){
+    if (id === 3) {
         num = 0
     }
+    if (data[num]['Descriptif'] !== null) {
+        d3.select('#desc').text(function(d) { return data[num]['Descriptif'] });
+    } else {
+        // document.getElementById("divdesc").style.display = "none";
+        d3.select('#desc').text(function(d) { return "Bientôt disponible !!!" });
+    }
     d3.select('#titre-parc').text(function(d) { return data[num]['Nom formel'] });
-    d3.select('#addr').text(function(d) { return data[num]['Adresse'] +", " + data[num]['Code postal'] });
+    d3.select('#addr').text(function(d) { return data[num]['Adresse'] + ", " + data[num]['Code postal'] });
     d3.select('#acces').text(function(d) { return data[num]['Accès transports en commun'] });
     d3.select('#wc').text(function(d) { return data[num]['Sanitaires'] });
     d3.select('#handi').text(function(d) { return data[num]['Sanitaires pour handicapés'] });
     d3.select('#dog').text(function(d) { return data[num]['Chiens autorisés'] });
     d3.select('#table').text(function(d) { return data[num]['Table pique-nique'] });
-    if (data[num]['Descriptif'] !== null) {
-        d3.select('#desc').text(function(d) { return data[num]['Descriptif'] });
-    }else {
-        document.getElementById("divdesc").style.display = "none";
-    }
+
 }
 
 function chooseimage(data, div) {
@@ -547,7 +566,7 @@ function chooseimage(data, div) {
         div.firstChild.src = "img/parcs/lambda-1.jpg"
     }
     if (num[0] === "2" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/parcs/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/lambda-2.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
         div.firstChild.src = "img/parcs/lambda-1.jpg"
