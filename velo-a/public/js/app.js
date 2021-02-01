@@ -89,13 +89,12 @@ async function bootstrap() {
 			el.style.backgroundImage = `url(${d.url})`;
 
 			let marker;
-			el.addEventListener("click", function (event) {
+			el.addEventListener("mouseover", function (event) {
 				// close the holde popup (if active)
 				if (openMarker) openMarker._popup.remove();
 				// open the popup
 				marker._popup.addTo(map)
 				openMarker = marker;
-				event.stopPropagation();
 			});
 
 			marker = new mapboxgl.Marker(el)
