@@ -7,8 +7,7 @@
 }
 
 #map-large{
-    
-    min-height: 30rem;
+    min-height: 28rem;
     min-width: 45rem;
     border: .3rem solid gray;
     border-radius: .5rem;
