@@ -1,17 +1,27 @@
 // Use strict mode
 'use strict';
 
+var config = require('./config');
+
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
 
 var app = express();
 
+app.use((req, res, next) => {
+    res.cookie("dev", config.env==='dev');
+    next();
+});
+
 // Minimum routing: serve static content from the html directory
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
 // You can then add whatever routing code you need
+
+const api = require('./api/api.js');
+app.use('/api', api());
 
 // This module is exported and served by the main server.js located
 // at the root of this set of projects. You can access it by lanching the main

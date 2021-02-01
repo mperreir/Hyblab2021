@@ -1,0 +1,38 @@
+{
+  "velo": {
+    "prix": 0.1,
+    "vitesse": 20,
+    "émission de CO2": 0,
+    "calories brûlés": 15
+  },
+  "bicloo": {
+    "prix": 0.15,
+    "vitesse": 20,
+    "émission de CO2": 0,
+    "calories brûlés": 15
+  },
+  "transports": {
+    "prix": 0.3,
+    "vitesse": 30,
+    "émission de CO2": 50,
+    "calories brûlés": 0
+  },
+  "voiture": {
+    "prix": 0.5,
+    "vitesse": 30,
+    "émission de CO2": 150,
+    "calories brûlés": 0
+  },
+  "min": {
+    "prix": 0,
+    "vitesse": 15,
+    "émission de CO2": 0,
+    "calories brûlés": 0
+  },
+  "max": {
+    "prix": 0.5,
+    "vitesse": 35,
+    "émission de CO2": 150,
+    "calories brûlés": 15
+  }
+}
