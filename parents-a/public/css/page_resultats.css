@@ -24,72 +24,51 @@ section[data-slidr="ppage-resultats"] {
     width: 100%;
 }
 
-/* Vegétation gauche */
-#fleurs-pr {
-    position: absolute;
-    width: 18%;
-    bottom: 8%;
-    right: 82%;
-}
-#feuille-pr {
-    position: absolute;
-    width: 15%;
-    bottom: 2%;
-    right: 78%;
-}
-
-/* Sols */
-#pelouse_gauche-pr {
-    /* pelouse gauche */
-    position: absolute;
-    width: 30%;
-    bottom: 0%;
-    left: 0%;
-}
-#pelouse_droite-pr {
-    /* pelouse droite */
-    position: absolute;
-    width: 30%;
-    bottom: 0%;
-    right: 0%;
-}
-#dune-pr {
-    /* dune 1 */
-    position: absolute;
-    width: 100%;
-    bottom: 0%;
-    right: 0%;
-}
 
 /* Top Parcs */
 
-#parc1-pr {
+#parc1-pr,#img1 {
     position: absolute;
     width: 23%;
     bottom: 43%;
     right: 14%;
 }
 
-#parc2-pr {
+#parc1-titre{
     position: absolute;
-    width: 23%;
-    bottom: 42%;
-    right: 64%;
+    font-size: small;
+    right: 19%;
+    top: 20%;
+    z-index: 14;
 }
 
-#parc3-pr {
+#random1 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 22%;
+}
+/* #chart {
+    position: absolute;
+    bottom: 5%;
+    width: 20%;
+    height:15%;
+    right: 10%;
+    z-index: 14;
+} */
+#parc2-pr ,#img2{
     position: absolute;
     width: 23%;
     bottom: 41%;
     right: 39%;
 }
 
-
-#random1 {
+#parc2-titre{
     position: absolute;
-    width: 3%;
-    bottom: 34%;
-    right: 74%;
+    font-size: small;
+    z-index: 14;
+    top: 20%;
+    right: 44%;
 }
 
 #random2 {
@@ -99,9 +78,80 @@ section[data-slidr="ppage-resultats"] {
     right: 49%;
 }
 
+/* #chart1 {
+    position: absolute;
+    bottom: 5%;
+    width: 20%;
+    height:25%;
+    right: 30%;
+    z-index: 14;
+} */
+#parc3-pr, #img3 {
+    
+    position: absolute;
+    width: 23%;
+    bottom: 42%;
+    right: 64%;
+}
+
+#parc3-titre{
+    position: absolute;
+    font-size: small;
+    right: 70%;
+    top: 20%;
+    z-index: 14;  
+}
+
 #random3 {
     position: absolute;
     width: 3%;
     bottom: 34%;
-    right: 22%;
+    right: 74%;
+}
+/* #chart2 {
+    position: absolute;
+    margin:0%;
+    padding: 0%;
+    bottom: 5%;
+    width: 20%;
+    height:15%;
+    right: 50%;
+    z-index: 14;
+} */
+.mychart{
+    width: 10%;
+    height: 100%
+}
+
+.row {
+    position: absolute;
+    justify-content:center ;
+    background-color: aliceblue;
+    margin:0%;
+    padding: 0%;
+    bottom:5%;
+    width: 80%;
+    right:10%;
+    height:20%;
+    z-index: 14;
+}
+
+.img-result {
+    z-index: 100 !important; 
+    height: 30%;
+}
+
+
+.modal-content {
+    top: 30% ;
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
+
+.modal-content{
+    color : #171EB1;
+}
+
+#modalResult i{
+    width : 10%;
 }

@@ -3,6 +3,7 @@ section[data-slidr="page-10"] {
     /* fond */
     position: absolute;
     background: #171EB1;
+    overflow: hidden;
 }
 
 #logo-p10 {
@@ -20,32 +21,67 @@ section[data-slidr="page-10"] {
     left: 0%;
 }
 
+#gros-nuage-p10 {
+    position: absolute;
+    width: 25%;
+    top: 33%;
+    left: 15%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p10:hover {
+    transform: translateX(30%);
+}
+
+#petit-nuage-p10 {
+    position: absolute;
+    width: 17%;
+    top: 23%;
+    left: 5%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p10:hover {
+    transform: translateX(-30%);
+}
+
 #pelouse-droite-p10 {
     position: absolute;
-    width: 30%;
+    width: 27.5%;
     right: 0%;
     bottom: 0%;
 }
 
 #pelouse-gauche-p10 {
     position: absolute;
-    width: 30%;
+    width: 36.5%;
     left: 0%;
     bottom: 0%;
 }
 
 #arbre-jaune-p10 {
     position: absolute;
-    width: 20%;
-    bottom: 8%;
-    left: 0%;
+    width: 15%;
+    bottom: 13%;
+    left: 2%;
+}
+
+#arbre-jaune-p10:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 #arbuste-rouge-p10 {
     position: absolute;
     width: 18%;
     right: 0%;
-    bottom: 5%;
+    bottom: 8%;
 }
 
 #feuille-verte-p10 {
@@ -53,92 +89,144 @@ section[data-slidr="page-10"] {
     width: 15%;
     bottom: 9%;
     right: 2%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
 }
 
-#feuille-bleue-p10 {
+#feuille-verte-p10:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#feuille-bleue2-p10 {
     position: absolute;
-    width: 8%;
-    right: 1%;
-    bottom: 8%;
+    width: 11%;
+    right: 65%;
+    bottom: 3%;
 }
 
 #question-p10 {
     position: absolute;
     width: 25%;
-    top: 25%;
-    left: 25%;
+    top: 16%;
+    left: 34%;
 }
 
-#centre-p10 {
+#texte-ou-p10 {
     position: absolute;
-    width: 11%;
-    right: 25%;
-    top: 44%;
-    filter: brightness(80%);
-    -webkit-filter: brightness(80%);
+    width: 2.5%;
+    top: 50%;
+    left: 50%;
 }
 
-#centre-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
-}
-
-#nord-est-p10 {
+#centre-contour-p10 {
     position: absolute;
-    width: 20.5%;
-    right: 17.8%;
-    top: 15.2%;
-    transform: rotate(1deg);
-    filter: brightness(80%);
-    -webkit-filter: brightness(80%);
+    width: 12%;
+    right: 22.93%;
+    top: 46.4%;
+    transform: rotate(
+            1deg
+    );
 }
 
-#nord-est-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
-}
-
-#ouest-p10 {
+#centre-hover-p10 {
     position: absolute;
-    width: 13.8%;
-    right: 33.7%;
-    top: 42.3%;
-    transform: rotate(362deg);
-    filter: brightness(80%);
-    -webkit-filter: brightness(80%);
+    width: 12%;
+    right: 22.93%;
+    top: 46.4%;
+    transform: rotate(
+            1deg
+    );
+    opacity: 0;
 }
 
-#ouest-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
+#centre-hover-p10:hover {
+    opacity: 1;
 }
 
-#sud-p10 {
+#nord-est-contour-p10 {
+    position: absolute;
+    width: 20%;
+    right: 16%;
+    top: 20%;
+    transform: rotate(
+            1deg
+    );
+}
+
+#nord-est-hover-p10 {
+    position: absolute;
+    width: 27.1%;
+    right: 11.7%;
+    top: 20.3%;
+    transform: rotate(
+            1deg
+    );
+    opacity: 0;
+}
+
+#nord-est-hover-p10:hover {
+    opacity: 1;
+}
+
+#ouest-contour-p10 {
+    position: absolute;
+    width: 12.8%;
+    right: 33%;
+    top: 47.3%;
+    transform: rotate(
+            363deg
+    );
+}
+
+#ouest-hover-p10 {
+    position: absolute;
+    width: 13.6%;
+    right: 32.1%;
+    top: 48%;
+    transform: rotate(
+            363deg
+    );
+    opacity: 0;
+}
+
+#ouest-hover-p10:hover {
+    opacity: 1;
+}
+
+#sud-contour-p10 {
     position: absolute;
     width: 15%;
-    right: 23.5%;
-    top: 50.5%;
-    transform: rotate(362deg);
-    filter: brightness(80%);
-    -webkit-filter: brightness(80%);
-    rotate: revert;
+    right: 21.0%;
+    top: 55.9%;
+    transform: rotate(
+            362deg
+    );
 }
 
-#sud-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
+#sud-hover-p10 {
+    position: absolute;
+    width: 15%;
+    right: 21.0%;
+    top: 55.9%;
+    transform: rotate(
+            362deg
+    );
+    opacity: 0;
+}
+
+#sud-hover-p10:hover {
+    opacity: 1;
 }
 
 #bouton-peu-importe-p10 {
     position: absolute;
     width: 15%;
-    bottom: 50%;
-    left: 30%;
-    filter: brightness(50%);
-    -webkit-filter: brightness(50%);
+    bottom: 43%;
+    left: 27%;
+    opacity: 0.5;
 }
 
 #bouton-peu-importe-p10:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
+    opacity: 1;
 }
