@@ -23,6 +23,7 @@ function data_add_img(data, tab) {
 function add_min_max(data) {
     return [{
         "categorie": null,
+        "img": "./img/timeline/House.svg",
         "data": [
             { temps: 0 },
         ]
