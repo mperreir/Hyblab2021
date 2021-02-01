@@ -91,11 +91,6 @@ function togglePath() {
 	});
 }
 
-function inRect(x, y, rect) {
-	return (x >= rect.left + 10 && x <= rect.right - 10)
-		&& (y >= rect.top + 10 && y <= rect.bottom - 10);
-}
-
 async function velos() {
 
 
@@ -103,8 +98,6 @@ async function velos() {
 	let isMovingClick = false;
 
 	document.querySelectorAll("#question_velo button").forEach((el) => {
-
-
 		el.addEventListener("click", async () => {
 			await sleep(
 				() => {
