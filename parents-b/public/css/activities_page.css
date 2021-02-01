@@ -19,23 +19,23 @@
 
 .talking-bubble-activities{
     position: absolute;
-    top: 17%;
+    top: 14%;
     left: 25%;
-    width: 5%;
+    width: 7%;
     z-index: 2;
 }
 
-.text-dialog-activite {
+.text-dialog-activities {
   position: absolute;
   top: 70%;
   left: 12%;
-  width: 26%;
+  width: 22%;
 }
 
 .oya-activities-dialog{
     position: absolute;
-    top: 12%;
-    left: 32%;
+    top: 10%;
+    left: 35%;
     width: 40%;
     z-index: 2;
 }

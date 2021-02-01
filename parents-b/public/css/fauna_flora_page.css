@@ -43,20 +43,17 @@
 .oya-fauna-flora-dialog{
     position: absolute;
     top: 6%;
-    left: 34%;
-    width: 63%;
+    left: 36%;
+    width: 55%;
     z-index: 2;
-    font-size: 38%;
 }
 
 .oya-fauna-flora-dialog-indication{
     position: absolute;
     top: 12%;
-    left: 39%;
-    width: 35%;
+    left: 36%;
+    width: 55%;
     z-index: 2;
-    font-size: 20%;
-    text-align: center;
 }
 
 .picto-fauna-container{

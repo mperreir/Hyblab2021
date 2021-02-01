@@ -9,12 +9,21 @@
 }
 
 /* ---------------------- Font -------------------------- */
-.font-xs{font-size: 0.15em;}
-.font-s{font-size: 0.2em;}
-.font-sm{font-size: 0.25em;}
-.font-m{font-size: 0.3em;}
-.font-big-button{font-size: 0.15em;}
+@media (min-aspect-ratio: 16/9) {
+    .font-xs{font-size: 0.15em;}
+    .font-s{font-size: 0.2em;}
+    .font-sm{font-size: 0.25em;}
+    .font-m{font-size: 0.3em;}
+    .font-big-button{font-size: 0.15em;}
+}
 
+@media (max-aspect-ratio: 16/9) {
+    .font-xs{font-size: 0.125em;}
+    .font-s{font-size: 0.16em;}
+    .font-sm{font-size: 0.20em;}
+    .font-m{font-size: 0.25em;}
+    .font-big-button{font-size: 0.125em;}
+}
 /* -------------------------- Colors -------------------------------- */
 .white{color: white;}
 .background-white{background-color: #fbfbfb;}
