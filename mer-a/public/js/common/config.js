@@ -27,31 +27,8 @@ const API_LEGENDE = 'legende/';
  */
 
 /**
- * Constants definition
- */
-const url = window.location.href;
-
-//Colors
-const validDepColor = '#88cbce';
-const invalidDepColor = '#224255';
-const hoveredValidDepColor = '#73b7ba';
-const strokeColor = 'black';
-const invalidStrokeColor = 'none';
-const fontColor = 'white';
-
-//Opacity
-const validStrokeOpacity = 1;
-const invalidStrokeOpacity = 0.1;
-
-//Strokes
-const validStrokeWidth = '1px';
-const invalidStrokeWidth = '8px';
-const hoveredStrokeWidth = '2px';
-
-/**
  * Variables definition
  */
-let categories = null;
 let mapFusion = null;
 
 /**
@@ -63,48 +40,10 @@ let mapFusion = null;
  */
 
 /**
- * Constants definition
- */
-
-const circlesSize = 14;
-const circlesSizeHovered = 20;
-
-//Colors
-const circlesColor = 'white';
-
-//Opacity
-const circlesOpacity = 1;
-const circlesHoveredOpacity = 0.6;
-
-//Strokes
-const circlesStrokeWidth = '3px';
-
-/**
  * Variables definition
  */
-let perso = null;
 let categorie = null;
-let legendes = null;
-let codeType;
-
-let map;
-
-let persoBox;
-
-/**
- * ===================================
- * 
- *           PAGE CHOIX DEP
- * 
- * ===================================
- */
-
-/**
- * Constants definition
- */
-
-//Fonts
-const mapFontSize = 24;
+let globalLegendes = null;
 
 /**
  * ====================================
@@ -117,10 +56,3 @@ const mapFontSize = 24;
 /**
  * Constants definition
  */
-const ordreCategories = [1,2,3];
-
-/**
- * Variables definition
- */
-let persosBox;
-let codeDep;
