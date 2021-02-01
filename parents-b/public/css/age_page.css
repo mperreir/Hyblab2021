@@ -10,7 +10,7 @@
 .leaves-age{
     position: absolute;
     top: 0;
-    left: 70%;
+    left: 50%;
     height: auto;
     width: 100%;
     z-index: 2;
@@ -169,19 +169,16 @@
 
 .page2{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0.5%;
+    left: 0;
     width: 100%;
-    height: auto;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     z-index: 2;
 }
 
 .cascade_age{
     position: absolute;
-    top: 30.5%;
-    left : 68%;
+    top: 30.9%;
+    left: 67.85%;
     width: 32%;
     z-index: 1;
 }

@@ -12,7 +12,7 @@
 .planeteBeige {
     position: absolute;
     width: 19.5%;
-    right: 0%;
+    right: 0;
     bottom: 3%;
     z-index: 3;
 }
@@ -20,9 +20,9 @@
 .planet-fauna-flora{
     position: absolute;
     top: 32%;
-    left: 80%;
+    left: 82%;
     width: 17%;
-    z-index: 3;
+    z-index: 4;
 }
 .oya-fauna-flora{
     position: absolute;
