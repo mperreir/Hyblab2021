@@ -17,6 +17,8 @@
 	[
 		{name: 'mouseover', handler: d => {hover(d.properties.code,$(`#path_${d.properties.code}`)[0], map)}},
 		{name: 'mouseleave', handler: d => leave(d.properties.code,$(`#path_${d.properties.code}`)[0], map)},
+		{name: 'touchstart', handler: d => {hover(d.properties.code,$(`#path_${d.properties.code}`)[0], map)}},
+		{name: 'touchend', handler: d => leave(d.properties.code,$(`#path_${d.properties.code}`)[0], map)},
 		{name: 'click', handler: d => selectDepartment(d.properties.code, map)}
 	],
 	(svg, path, _) => {

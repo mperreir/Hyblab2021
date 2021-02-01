@@ -125,5 +125,20 @@ p{
   div#audio_control {
     top: 12.5%;
     padding: 4px 8px;
+    font-size: 2vh;
+
   }
+
+  .button {
+    padding: 4px 8px;
+    font-size: 2vh;
+  }
+}
+
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  position: fixed;
+  filter: blur(1px);
 }
