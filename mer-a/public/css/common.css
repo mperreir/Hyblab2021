@@ -125,5 +125,12 @@ p{
   div#audio_control {
     top: 12.5%;
     padding: 4px 8px;
+    font-size: 2vh;
+
+  }
+
+  .button {
+    padding: 4px 8px;
+    font-size: 2vh;
   }
 }

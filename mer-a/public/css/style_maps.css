@@ -205,8 +205,19 @@ a.legend_button:active {
 	}
 
 	div#department {
-    width: 100vw;
-    margin-bottom: 170%;
-    height: 60vh;
+		margin-bottom: 30%;
+	}
+
+	div#bretagne {
+		margin-bottom: 30%;
+	}
+
+	div#bretagne g {
+		transform: scale(1.25);
+	}
+
+	div#bretagne text {
+		font-size: 0.75rem !important;
+		width: 40% !important;
 	}
 }
