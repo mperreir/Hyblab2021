@@ -14,7 +14,7 @@ import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
 import destination from '@/assets/map/destination.svg'
 import origin from '@/assets/map/origin.svg'
-import * as http from "http";
+import {http} from "@/config";
 
 
 export default Vue.component("finalMap", {
@@ -47,7 +47,8 @@ export default Vue.component("finalMap", {
 
 async function createMap(platform, map, choices, data, divMap) {
   const provider = map.getBaseLayer().getProvider();
-  const style = new H.map.Style(http.defaults.baseURL + '/boulot-b/styles/normal.day.yaml');
+  console.log("http", http.defaults.baseURL)
+  const style = new H.map.Style(http.defaults.baseURL + 'boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
     await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
