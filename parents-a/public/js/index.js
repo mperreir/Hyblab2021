@@ -438,6 +438,7 @@ let initSlideResultat = function(db) {
     loadComponent('credits');
     const charts = ['chart', 'chart1', 'chart2', 'chart3'];
     const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
+    const containers = ['parc1-pr', 'parc2-pr', 'parc3-pr'];
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
@@ -451,7 +452,8 @@ let initSlideResultat = function(db) {
     d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel'] });
     d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel'] });
 
-    d3.selectAll('.accueil').on('click', function() {
+    d3.select('#home').on('click', function() {
+        clearElement(containers);
         nextSlide('2')
     });
 
