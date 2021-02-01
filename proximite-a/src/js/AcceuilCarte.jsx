@@ -31,7 +31,9 @@ class AcceuilCarte extends  React.Component {
         itineraire:[],
         };
 
-
+    toCreditPage=(c)=>{
+        c();
+    };
 
 
     getPhase(nom){
@@ -70,7 +72,7 @@ class AcceuilCarte extends  React.Component {
 
     render() {
         console.log(this.state.popupPhase)
-        const {nomPers} = this.props;
+        const {nomPers, onCreditPage} = this.props;
         const redOptions = { color: '#999999' }
         return (
             <div id="map">
@@ -88,7 +90,7 @@ class AcceuilCarte extends  React.Component {
                 <div id="containerButtonsMapNavigation">
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
-                    <input type="button" class="buttonMapNavigation" value="Crédits"/>
+                    <input type="button" class="buttonMapNavigation" value="Crédits" onClick={()=>{this.toCreditPage(onCreditPage)}} />
                 </div>
             </div>
         );
