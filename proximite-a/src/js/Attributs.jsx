@@ -23,7 +23,7 @@ class Attributs extends React.Component{
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
             console.log(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-             fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+             fetch(`/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     return response.json();
@@ -49,7 +49,7 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch('https://hyblab.polytech.univ-nantes.fr/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch('/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
                         return response.json();
