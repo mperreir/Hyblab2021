@@ -79,14 +79,14 @@ h3 {
 
 .bicky-habille {
 	z-index: 10;
-	scale: 40;
-	height: 5px;
-	margin-bottom: 12%;
+	height: 26px;
+	margin-bottom: 30px;
+	transform: scale(7);
 }
 
 .bicky-habille-pluie {
 	z-index: 10;
-	scale: 34;
-	height: 5px;
-	margin-bottom: 20%;
+	height: 26px;
+	margin-bottom: 50px;
+	transform: scale(6);
 }
