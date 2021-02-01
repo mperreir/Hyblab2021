@@ -8,6 +8,7 @@ let initHome = function(){
     function musicPlay() {
         document.getElementById('debut_audio').play();
         document.getElementById('debut_audio').loop = false;
+        document.getElementById('debut_audio').volume = 0.1;
         document.removeEventListener('click', musicPlay);
     }
 
@@ -246,5 +247,4 @@ let resetHome = function() {
         .style("transform", "")
         .style("opacity", 1);
 
-    mySlidr.slider("value", mySlidr.slider("option", "min"))
 };

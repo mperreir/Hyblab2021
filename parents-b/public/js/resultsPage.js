@@ -9,6 +9,7 @@ let initResults = function() {
     if (isSonOn) {
         document.getElementById('result2_audio').play();
         document.getElementById('result2_audio').loop = false;
+        document.getElementById('result2_audio').volume = 0.15;
     }
     else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 

@@ -10,6 +10,7 @@ let initAccess = function() {
     if (isSonOn) {
         document.getElementById('access_audio').play();
         document.getElementById('access_audio').loop = false;
+        document.getElementById('access_audio').volume = 0.15;
     }
     else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 

@@ -13,6 +13,8 @@ let initSearchingResults = function() {
     if (isSonOn) {
         document.getElementById('result1_audio').play();
         document.getElementById('result1_audio').loop = false;
+        document.getElementById('result1_audio').volume = 0.15;
+
     }
     else buutonVol.setAttribute("src", "./img/common/volume_off.svg");
 

@@ -9,6 +9,7 @@ let initHour = function() {
     if (isSonOn) {
         document.getElementById('hour_audio').play();
         document.getElementById('hour_audio').loop = false;
+        document.getElementById('hour_audio').volume = 0.15;
     }
     else x.setAttribute("src", "./img/common/volume_off.svg");
 
@@ -160,7 +161,6 @@ var bigCircle2 = null;
 function createSlider() {
     s = Snap("#svg-slider");
     rayon = document.querySelector("#svg-slider").clientWidth * 0.5;
-    console.log(rayon);
 
     bigCircle = s.circle(rayon, rayon, rayon);
     bigCircle.attr({

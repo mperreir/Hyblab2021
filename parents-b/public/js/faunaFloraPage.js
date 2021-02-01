@@ -11,6 +11,8 @@ let initFaunaFlora = function() {
     if (isSonOn) {
         document.getElementById('fauna_audio').play();
         document.getElementById('fauna_audio').loop = false;
+        document.getElementById('fauna_audio').volume = 0.15;
+
     }
     else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 

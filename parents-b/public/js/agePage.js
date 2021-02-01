@@ -16,6 +16,7 @@ let initAge = function() {
     if (isSonOn) {
         document.getElementById('age_audio').play();
         document.getElementById('age_audio').loop = false;
+        document.getElementById('age_audio').volume = 0.15;
     }
     else buttonVol.setAttribute("src", "./img/common/volume_off.svg");
 
@@ -212,7 +213,7 @@ let initAge = function() {
         translateY: '170%',
         easing: 'easeInOutQuad',
         direction: 'alternate',
-        delay : 4500,
+        delay : 2000,
         duration: 1500,
         loop: false
     });
@@ -220,13 +221,13 @@ let initAge = function() {
     anime({
         targets: '.age_yeux_cache',
         opacity: 0,
-        delay : 5750,
+        delay : 2750,
         loop: false
     });
 
     anime({
         targets: '.age_yeux_cache2',
-        delay : 3750,
+        delay : 1250,
         opacity: 0,
         duration: 1000
     });
@@ -234,7 +235,7 @@ let initAge = function() {
     anime({
         targets: '.age_yeux_cache2',
         translateY: '1000%',
-        delay : 4500
+        delay : 2000
     });
 
 
@@ -242,8 +243,8 @@ let initAge = function() {
     anime({
         targets: '#age_arrive',
         translateY: '-350%',
-        delay : 2500,
-        duration: 6000,
+        delay : 1500,
+        duration: 5000,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: false

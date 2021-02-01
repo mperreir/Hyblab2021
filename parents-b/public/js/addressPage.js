@@ -10,6 +10,8 @@ let initAddress = function() {
 
     if (isSonOn) {
         document.getElementById('adresse_audio').play();
+        document.getElementById('adresse_audio').loop = false;
+        document.getElementById('adresse_audio').volume = 0.15;
     }
     else x.setAttribute("src", "./img/common/volume_off.svg");
 

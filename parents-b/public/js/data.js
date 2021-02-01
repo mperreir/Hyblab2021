@@ -306,8 +306,6 @@ function fetchData() {
             // Récupération des 3 meilleurs
             const top = json.slice(0, 3);
 
-            console.log(top);
-
             const perc1 = document.getElementById('result-one-percentage');
             const perc2 = document.getElementById('result-two-percentage');
             const perc3 = document.getElementById('result-three-percentage');
