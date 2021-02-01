@@ -144,6 +144,8 @@ function iconFactory(namePOI, divMap) {
 
   function createElementP() {
     const p = document.createElement('p');
+    p.style.fontSize = 'small';
+    p.style.height = '10px';
     return p;
   }
 
@@ -155,23 +157,23 @@ function iconFactory(namePOI, divMap) {
 
       let group = document.createElement('div');
 
-      const title = document.createElement('p');
-      const address = document.createElement('p');
-      const phone = document.createElement('p');
-      const description = document.createElement('p');
-      const streetView = document.createElement('p');
+      const title = createElementP();
+      const address = createElementP();
+      const phone = createElementP();
+      const description = createElementP();
+      //const streetView = createElementP();
 
       title.appendChild(document.createTextNode(namePOI.datas.titre));
       address.appendChild(document.createTextNode(namePOI.datas.adresse));
       phone.appendChild(document.createTextNode(namePOI.datas.contact));
       description.appendChild(document.createTextNode(namePOI.datas.description));
-      streetView.appendChild(document.createTextNode(namePOI.datas.streetView));
+      //streetView.appendChild(document.createTextNode(namePOI.datas.streetView));
 
       group.appendChild(title);
       group.appendChild(address);
       group.appendChild(phone);
       group.appendChild(description);
-      group.appendChild(streetView);
+      //group.appendChild(streetView);
 
       divMap.appendChild(group);
     }
