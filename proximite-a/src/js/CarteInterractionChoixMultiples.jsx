@@ -154,9 +154,9 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <input type="button" class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
-                <Etiquette data={this.state.sites[0]} identifiant={"etiquette1"} numero={1}/>
-                <Etiquette data={this.state.sites[1]} identifiant={"etiquette2"} numero={2}/>
-                <Etiquette data={this.state.sites[2]} identifiant={"etiquette3"} numero={3}/>
+                {this.state.sites.slice(0,3).map((e) => {
+                    return <Etiquette data={e} identifiant={"etiquette"+e.id} numero={e.id} />
+                })}
             </div>
         );
     }

@@ -112,9 +112,9 @@ class AcceuilCarte extends  React.Component {
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
-                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0]+decallageMarqueur,this.state.currentPosition[1]]}></Marker>
+                    <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0],this.state.currentPosition[1]]}></Marker>
                     {this.state.sites.map( (e) => {
-                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0]+decallageMarqueur,(e.coordonnes[1])]}>
+                        return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0],(e.coordonnes[1])]}>
                             <Popup>
                                 <b>{e.titre}</b>
                                 <hr/>
@@ -133,6 +133,7 @@ class AcceuilCarte extends  React.Component {
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
                     <input type="button" class="buttonMapNavigation" value="Crédits"/>
+                    <input type="button" class="buttonReturn" className="input-hidden"/>
                 </div>
             </div>
         );
