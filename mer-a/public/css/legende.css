@@ -171,6 +171,7 @@ div#information #modal-content > * {
 	width: 90%;
 	overflow-y: scroll;
 	height: 100%;
+	padding: 2vh;
 }
 
 #infos {
