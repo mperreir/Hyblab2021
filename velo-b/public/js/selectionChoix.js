@@ -8,7 +8,7 @@ registerSlide("question-voiture-bicloo", function () {
     button( '#ic-non-voit-bicloo', 'non');
 });
 
-registerSlide("question-voiture-transport", function () {
+registerSlide("question-voiture-transports", function () {
     button( '#ic-oui-voit-transport', 'oui');
     button( '#ic-non-voit-transport', 'non');
 });
@@ -67,10 +67,10 @@ registerSlide("page-arrivee", function () {
 registerSlide("page-arrivee-stats", function () {
     button( '#ic-rejouer-finale', 'rejouer');
     button( '#ic-credit-finale', 'credit');
-    progressBar('#pb-ecol',75);
-    progressBar('#pb-vit',0);
-    progressBar('#pb-econ',50);
-    progressBar('#pb-pol',50);
+    progressBar('#pb-ecol', window.results.stats.ecologie);
+    progressBar('#pb-vit', window.results.stats.vitesse);
+    progressBar('#pb-econ', window.results.stats.economie);
+    progressBar('#pb-pol', window.results.stats.pollution);
 });
 
 registerSlide("page-credit", function () {
