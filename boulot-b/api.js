@@ -53,6 +53,41 @@ function getRandomIntInclusive(min, max) {
 }
 
 
+
+function getShortestExcursion(listPOIs){
+    let index = getRandomInt(0, listPOIs.length);
+    let minExcursionDistance = 1000;
+    listPOIs.forEach(function(element,i){
+        if (element.excursionDistance <= minExcursionDistance){
+            minExcursionDistance = element.excursionDistance;
+            index = i;
+        }
+    })
+    return index;
+}
+
+/** ===================== ========================================== */
+function getEquidistantPoint(x1,y1,x2,y2){
+    let mx = (x1 + x2)/2;
+    let my = (y1 + y2)/2;
+    let pente = (y2-y1)/(x2-x1);
+    let a = -1/pente; // a : pente de la médiatrice
+    let b = my - (a * mx); 
+    // y = a * x + b
+
+    let aa = (a * a) + 1;
+    let bb = (2 * a) * (b - my) - (2 * mx);
+    let cc = ((b - my) * (b - my)) - 9 + (mx * mx);
+    let delta = (bb * bb) - (4 * aa * cc);
+
+    let x = (- bb + Math.sqrt(delta)) / (2 * aa)
+    let y = Math.sqrt(9 - ((x - mx) * (x - mx))) + my;
+
+    let coord = [x,y];
+    return coord;
+}
+/** =============================================== */
+
 /** renvoie la liste des points d'interets */
 async function pointInteret(coordonneeD, coordoneeA, theme, transport){
   
@@ -61,13 +96,10 @@ async function pointInteret(coordonneeD, coordoneeA, theme, transport){
     let depart = coordonneeD
     let arriver = coordoneeA
 
-    console.log("departttttttttttttttttt" + depart[1])
-    console.log("arriverrrrrrrrrrrrrrr" + arriver[1])
 
 
-    
-    // let depart = await adresse2coord(adresseDepart)
-    // let arriver =  await adresse2coord(adresseArriver)
+    let optimal = getEquidistantPoint(depart[0], depart[1], arriver[0], arriver[1])
+
 
 /* fin */
 
@@ -75,24 +107,37 @@ async function pointInteret(coordonneeD, coordoneeA, theme, transport){
     milieu[0] = (depart[0] + arriver[0])/2
     milieu[1] = (depart[1] + arriver[1])/2
 
-    /* console.log('la route API est :')
-    console.log(routeAPI) */
 
     let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
 
     let routePolyline = routePolylineAPI.routes[0].sections[0].polyline
-    // console.log(routePolyline)
 
     let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=${milieu[0]},${milieu[1]}&limit=10&route=${routePolyline}&q=${theme}`
+    // let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=${optimal[0]},${optimal[1]}&limit=10&route=${routePolyline}&q=${theme}`
     let pointInteretAPI = await fetchAsync(URI) 
-/*     console.log(pointInteretAPI) */
 
+    if(!pointInteretAPI.items.length){
+        return undefined
+    }
     let pointInteret = pointInteretAPI.items
-    console.log(pointInteret)
 
     return pointInteret;
 
 };
+
+
+function listPOI (resume){
+    let POI = []
+    resume.POI.forEach(element => {
+        try{
+            element.Nature["type"] = "nature"
+            POI.push(element.Nature)
+        }
+        catch(e){
+
+        }
+    });
+}
 
 
 function extractUtilsValue(P_boulangerie1){
@@ -119,7 +164,7 @@ function extractUtilsValue(P_boulangerie1){
 
 
 /** la vrai api à tester
- * http://127.0.0.1:8080/trajet/3+rue+christian+pauc+nantes/7+rue+george+berthome+nantes/pedestrian/nature/false/false/true/false
+ trajet/47.221255/-1.572770/47.244038/-1.526411/pedestrian/nature/false/false/true/false
  *                      /trajet/:depart                   /:arrivee                    /:transport/:sty  /:sal /:bar /:blg/:pharmacie
  
  */
@@ -131,8 +176,6 @@ function getStreetViewUrl(latitude,longitude){
 }
 
 async function getAll(req,res){
-    // let origin = req.params.depart;//"3 rue christian Pauc" //req.params.depart;
-    // let arrivee = req.params.arrivee;//"7 rue george berthome nantes"
 
     let transport = req.params.transport;//"pedestrian"
     let style = req.params.style; // a voir comment le définir (parc/jardin)
@@ -152,12 +195,6 @@ async function getAll(req,res){
     arrivee[1] = +req.params.arriveeY
     /** ================= fin =================================*/
 
-    /** tableau de coordonnee */ 
-    // let originCordinat = await adresse2coord(origin)
-
-    // let arriveeCordinat = await adresse2coord(arrivee)
-
-    /** la liste des coordonees des points d'interet interessant */
     let list_POI = [];
 
 
@@ -165,96 +202,138 @@ async function getAll(req,res){
     switch(style){
         case "nature":
             let listNature = await pointInteret(origin, arrivee, "natural-geographical", transport)
-            let randN = getRandomInt(0, listNature.length)
+            
+            if(listNature){
+                  // let randN = getRandomInt(0, listNature.length)
+                // let P_nature1 = listNature[randN]
+                let indexResult = getShortestExcursion(listNature);
+                let P_nature1 = listNature[indexResult];
 
-            let P_nature1 = listNature[randN]
-            let P_nature = extractUtilsValue(P_nature1);
-            P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
-            P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
-            list_POI.push({"Nature": P_nature,
-                            "distance": P_nature.distance})
+                let P_nature = extractUtilsValue(P_nature1);
+                P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
+                P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
+                list_POI.push({"Nature": P_nature,
+                                "distance": P_nature1.distance})
+            }
+          
             break;
         case "culture":
             let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
-            let randC = getRandomInt(0, listCulture.length)
+            // let randC = getRandomInt(0, listCulture.length)
+            // let P_culture1 = listCulture[randC]
+           if(listCulture){
+                let indexResult1 = getShortestExcursion(listCulture);
+                let P_culture1 = listCulture[indexResult1]
 
-            let P_culture1 = listCulture[randC]
-            let P_culture = extractUtilsValue(P_culture1)
-            P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
-            P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
-            list_POI.push({"Culture": P_culture,
-                            "distance": P_culture.distance})
+                let P_culture = extractUtilsValue(P_culture1)
+                P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
+                P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
+                list_POI.push({"Culture": P_culture,
+                                "distance": P_culture1.distance})
+           }
+
+            
             break;
 
         default :
         let themes = ["nature", "culture"]
         let randomHasard = getRandomIntInclusive(0, 1);
         let listHasard = await pointInteret(origin, arrivee, themes[randomHasard], transport)
+            
+        if(listHasard){
             let randH = getRandomInt(0, listHasard.length)
 
             let P_hasard1 = listHasard[randH]
             let P_hasard = extractUtilsValue(P_hasard1)
             list_POI.push({"Hasard": P_hasard,
-                            "distance": P_hasard.distance})
+                            "distance": P_hasard1.distance})
+        }
+        
     }
 
 
     /** boulangerie */
     if(boulangerie == "true"){
         let listBoul = await pointInteret(origin, arrivee, "bakery", transport)
-        let randB = getRandomInt(0, listBoul.length)
+        // let randB = getRandomInt(0, listBoul.length)
+        // let P_boulangerie1 = listBoul[randB]
+        if(listBoul){
+            let indexResult2 = getShortestExcursion(listBoul);
+            let P_boulangerie1 = listBoul[indexResult2]
 
-        let P_boulangerie1 = listBoul[randB]
-        let P_boulangerie = extractUtilsValue(P_boulangerie1)
-        P_boulangerie["description"] = "Hmm on dirait qu’une boulangerie se trouve sur ton trajet retour. Plutôt baguette, viennoiserie ou pâtisserie ?"
-        P_boulangerie["streetView"] = getStreetViewUrl(P_boulangerie.coordonnees.lat,P_boulangerie.coordonnees.lng);
-        list_POI.push({"Boulangerie": P_boulangerie,
-                        "distance": P_boulangerie.distance})
+            let P_boulangerie = extractUtilsValue(P_boulangerie1)
+            P_boulangerie["description"] = "Hmm on dirait qu’une boulangerie se trouve sur ton trajet retour. Plutôt baguette, viennoiserie ou pâtisserie ?"
+            P_boulangerie["streetView"] = getStreetViewUrl(P_boulangerie.coordonnees.lat,P_boulangerie.coordonnees.lng);
+            list_POI.push({"Boulangerie": P_boulangerie,
+                            "distance": P_boulangerie1.distance})
+        }
+    
     }
 
     /** SALLES SPORT */
     if(sallesport == "true"){
         let listSalle = await pointInteret(origin, arrivee, "fitness-health-club", transport)
-        let randS = getRandomInt(0, listSalle.length)
-
-        let P_salle1 = listSalle[randS]
-        let P_salle = extractUtilsValue(P_salle1)
-        P_salle["description"] = "La salle de sport Basic Fit est sur ton chemin ! Une belle occasion de te défouler après ta journée."
-        P_salle["streetView"] = getStreetViewUrl(P_salle.coordonnees.lat,P_salle.coordonnees.lng);
-        list_POI.push({"SalleSport": P_salle,
-                        "distance": P_salle.distance})
+        // let randS = getRandomInt(0, listSalle.length)
+        // let P_salle1 = listSalle[randS]
+        if(listSalle){
+            let indexResult3 = getShortestExcursion(listSalle);
+            let P_salle1 = listSalle[indexResult3];
+    
+    
+            let P_salle = extractUtilsValue(P_salle1)
+            P_salle["description"] = "La salle de sport Basic Fit est sur ton chemin ! Une belle occasion de te défouler après ta journée."
+            P_salle["streetView"] = getStreetViewUrl(P_salle.coordonnees.lat,P_salle.coordonnees.lng);
+            list_POI.push({"SalleSport": P_salle,
+                            "distance": P_salle1.distance})
+        }
+       
     }
 
      /** bar */
      if(bar == "true"){
         let listBar = await pointInteret(origin, arrivee, "bar", transport)
-        let randBar = getRandomInt(0, listBar.length)
+        // let randBar = getRandomInt(0, listBar.length)
+        // let P_bar1 = listBar[randBar]
+        if(listBar){
+            let indexResult4 = getShortestExcursion(listBar);
+            let P_bar1 = listBar[indexResult4];
 
-        let P_bar1 = listBar[randBar]
-        let P_bar = extractUtilsValue(P_bar1)
-        P_bar["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
-        P_bar["streetView"] = getStreetViewUrl(P_bar.coordonnees.lat,P_bar.coordonnees.lng);
-        list_POI.push({"Bar": P_bar,
-                    "distance": P_bar.distance})
+
+            let P_bar = extractUtilsValue(P_bar1)
+            P_bar["description"] = "Ce bar se trouve sur ton chemin. De quoi profiter seul ou à plusieurs, d’un moment de détente en fin de journée."
+            P_bar["streetView"] = getStreetViewUrl(P_bar.coordonnees.lat,P_bar.coordonnees.lng);
+            list_POI.push({"Bar": P_bar,
+                        "distance": P_bar1.distance})
+        }
+        
     }
 
 
     /** pharmacie */
     if( pharmacie == "true"){
         let listpharmacie = await pointInteret(origin, arrivee, "pharmacie", transport)
-        let randP = getRandomInt(0, listpharmacie.length)
+        // let randP = getRandomInt(0, listpharmacie.length)
+        // let P_pharmacie1 = listpharmacie[randP]
 
-        let P_pharmacie1 = listpharmacie[randP]
-        let P_pharmacie = extractUtilsValue(P_pharmacie1)
-        P_pharmacie["description"] = "Tiens, au cas où tu en aurais besoin, une pharmacie se situe entre ton lieu de travail et ton domicile."
-        P_pharmacie["streetView"] = getStreetViewUrl(P_pharmacie.coordonnees.lat,P_pharmacie.coordonnees.lng);
-        list_POI.push({"Pharmacie": P_pharmacie,
-                        "distance": P_pharmacie.distance})
+        if(listpharmacie){
+                let indexResult5 = getShortestExcursion(listpharmacie);
+            let P_pharmacie1 = listpharmacie[indexResult5]
+
+
+            let P_pharmacie = extractUtilsValue(P_pharmacie1)
+            P_pharmacie["description"] = "Tiens, au cas où tu en aurais besoin, une pharmacie se situe entre ton lieu de travail et ton domicile."
+            P_pharmacie["streetView"] = getStreetViewUrl(P_pharmacie.coordonnees.lat,P_pharmacie.coordonnees.lng);
+            list_POI.push({"Pharmacie": P_pharmacie,
+                            "distance": P_pharmacie1.distance})
+        }
+
+        
     }
 
     list_POI = list_POI.sort(function(a, b){
         return a.distance-b.distance;
     })
+
 
     /** la reponse retourner */
     let reponseJSON = {
