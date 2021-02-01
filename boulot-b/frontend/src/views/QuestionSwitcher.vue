@@ -40,7 +40,7 @@ export default {
     this.$root.$data.subscribe("actif", (nextActif) => {
       this.actif = nextActif
       const indexView = Views.findIndex((view) => view.actif === this.actif)
-      this.view = Views[indexView].component
+      this.view = Views[indexView]?.component
       Views.forEach((view) => {
         if (view.actif >= this.actif){
           this.$root.$data.clearChoice(view.component.choice)

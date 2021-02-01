@@ -2,7 +2,6 @@
   <div id="map">
     <div  id="mapContainer" ref="mapCont"></div>
     <div id="textMap" ref="textMap"></div>
-    <ButtonCustom  @click="credits" text="Crédits" color="yellow"/>
   </div>
 </template>
 
@@ -15,15 +14,12 @@ import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
 import destination from '@/assets/map/destination.svg'
 import origin from '@/assets/map/origin.svg'
-import ButtonCustom from "@/components/ButtonCustom";
 
 
 export default Vue.component("finalMap", {
   name: "finalMap",
-  components: {
-    ButtonCustom
-  },
-  methods: { async showMap() {
+  methods: { 
+      async showMap() {
       const platform = new H.service.Platform({
         apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
       });
@@ -41,9 +37,6 @@ export default Vue.component("finalMap", {
       new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       H.ui.UI.createDefault(map, defaultLayers);
       await createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData, this.$refs.textMap)
-    },
-    credits() {
-      this.next();
     },
   },
   mounted: function () {

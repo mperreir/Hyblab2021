@@ -2,6 +2,7 @@
   <container>
     <template #question>
       <finalMap />
+      <ButtonCustom  @click="credits" text="Crédits" color="yellow"/>
     </template>
     <template #stepper>
       <Stepper :actif=actif />
@@ -14,6 +15,8 @@ import Vue from "vue";
 import FinalMap from "../components/FinalMap.vue";
 import Container from "@/views/Container";
 import Stepper from "@/components/Stepper";
+import ButtonCustom from "@/components/ButtonCustom";
+
 
 export default Vue.extend({
     name: "Home",
@@ -21,10 +24,19 @@ export default Vue.extend({
       Container,
       FinalMap,
       Stepper,
+      ButtonCustom
     },
     props: {
       actif: Number
-    }
+    },
+    methods: {
+      next() {
+        this.$root.$data.setActif(this.actif +1)
+      },
+      credits() {
+        this.next();
+    },
+  }
 });
 
 
