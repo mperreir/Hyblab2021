@@ -75,7 +75,6 @@ h3 {
 #themeSelector input[type=radio]:checked + label>img {
     background-size: 100%;
     opacity: 1;
-    transform: scale(1.1);
 }
 
 #themeSelector input[type=radio] + label>img {
@@ -90,9 +89,18 @@ h3 {
 
 #themeSelector input[type=radio] + label>img:hover{
      background-repeat : no-repeat;
-     transform: scale(1.1);
+     transform: scale(0.9);
      background-size: 100%;
      opacity: 1;
      transition: 400ms all;
 
+}
+
+#txttheme{
+    background-color: #C3C3FB;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+    margin: 10px 25px 10px 25px;
+    width: 500px;
+    text-align: center;
 }

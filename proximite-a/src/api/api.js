@@ -1,8 +1,6 @@
 'use strict';
 
 const express = require('express');
-const { lazy } = require('react');
-const { response } = require('../../server');
 
 const addresstocoordinates = require('./adresstocoordinates');
 const get15minzone = require('./get15mnZone');

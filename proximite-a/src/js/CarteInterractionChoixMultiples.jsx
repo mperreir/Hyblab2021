@@ -19,7 +19,8 @@ class CarteInterractionChoixMultiples extends  React.Component {
         moyenId:this.props.data.moyenId,
         sites:this.props.data.sites,
         adresse:this.props.data.adresse,
-        selected:[]
+        selected:[],
+        selectedSites:this.props.data.selectedSites
     };
 
     handleChange = (e) => {
@@ -38,6 +39,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
     handleCheck =(e)=>{
         let newSelected = this.state.selected
+        console.log(e)
         if(e.target.checked === true && !this.state.selected.includes(e.target.value)){
             newSelected.push(e.target.value)
         }
@@ -154,9 +156,9 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <input type="button" class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
-                <Etiquette data={this.state.sites[0]} identifiant={"etiquette1"} numero={1}/>
-                <Etiquette data={this.state.sites[1]} identifiant={"etiquette2"} numero={2}/>
-                <Etiquette data={this.state.sites[2]} identifiant={"etiquette3"} numero={3}/>
+                {this.state.selectedSites.slice(0,3).map((e) => {
+                    return <Etiquette data={e} identifiant={"etiquette"+e.id} numero={e.id} />
+                })}
             </div>
         );
     }

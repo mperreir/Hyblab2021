@@ -1,9 +1,9 @@
 var equiv = new Map();
 equiv.set("Musée" , "tourism=museum");
 equiv.set("Cinéma", "amenity=cinema");
-equiv.set("Arts", "amenity=arts_centre");
+equiv.set("Centre Artistique", "amenity=arts_centre");
 equiv.set("Théatre", "amenity=theatre");
-equiv.set("lieu de culte", "amenity=place_of_worship");
+equiv.set("Lieu de culte", "amenity=place_of_worship");
 equiv.set("Historique", "historic");
 equiv.set("Boîte de nuit", "amenity=nightclub");
 equiv.set("Bar", "amenity=bar");
@@ -25,7 +25,7 @@ equiv.set("Terrain de jeu", "leisure=playground");
 equiv.set("Give box", "amenity=give_box");
 equiv.set("Marché", "amenity=marketplace");
 equiv.set("Toilettes", "amenity=toilets");
-equiv.set("Hopital", "amenity=hospital");
+equiv.set("Hôpital", "amenity=hospital");
 equiv.set("Pâtisserie", "shop=pastry");
 equiv.set("Restaurant", "amenity=restaurant");
 
@@ -55,14 +55,14 @@ themePicto.set(4, require('../img/pictogrammes_culture.png'));
 themePicto.set(5, require('../img/pictogrammes_famille.png'));
 
 var themetxt = new Map();
-themetxt.set(0, "Qu'est-ce-qui vous intéresserait aujourd'hui ?");
+themetxt.set(0, "Qu'est-ce-qui t'intéresserait aujourd'hui ?");
 themetxt.set(1, "Fast Food, bars, boîtes...");
-themetxt.set(2, require('../img/pictogrammes_sport.png'));
-themetxt.set(3, require('../img/pictogrammes_gourmet.png'));
-themetxt.set(4, require('../img/pictogrammes_culture.png'));
-themetxt.set(5, require('../img/pictogrammes_famille.png'));
+themetxt.set(2, "Salle de sport, stade, piscine...");
+themetxt.set(3, "Restaurant, Pâtisseries...");
+themetxt.set(4, "Musée, cinéma, lieu de culte...");
+themetxt.set(5, "École, garde d'enfants, loisirs...");
 
-export default {equiv, moyenEquiv, themeEquiv, themePicto}
+export default {equiv, moyenEquiv, themeEquiv, themePicto, themetxt}
 
 
 

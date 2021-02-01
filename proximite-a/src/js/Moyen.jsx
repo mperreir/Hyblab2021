@@ -2,7 +2,6 @@ import React from 'react';
 import MoyenSelector from './MoyenSelector'
 import local from '../img/pictogrammes_maison.png'
 import '../css/moyen.css'
-
 //images logos
 import logo0 from '../img/LOGO OK_logo principal.png'
 import logo1 from '../img/LOGO OK_logo vert.png'
@@ -16,11 +15,13 @@ import sportif_img from '../img/Perso-hyblab-02.png'
 import gourmet_img from '../img/Perso-hyblab-04.png'
 import culture_img from '../img/Perso-hyblab-05.png'
 import famille_img from '../img/Perso-hyblab-06.png'
+import {Spinner} from "react-bootstrap";
 class Moyen extends  React.Component {
     state = {
         moyenId:null,
         buttonActivate:false,
-        themeId: this.props.data.themeId
+        themeId: this.props.data.themeId,
+        loading:false,
     };
     getThemePerso  = () =>{
         switch (this.state.themeId) {
@@ -61,7 +62,14 @@ class Moyen extends  React.Component {
             buttonActivate:true});
     }
     submitMoyen = (update) => {
+        this.setState({loading:true})
         update(this.state.moyenId);
+    }
+
+    getSpinner() {
+        if(this.state.loading == true){
+            return <Spinner animation="border" role="status"></Spinner>
+        }
     }
 
     render() {
@@ -72,6 +80,7 @@ class Moyen extends  React.Component {
                 <div id="Theme" class="d-flex flex-column justify-content-center align-items-center fixed-top">
                     <img id="logoCorner" src={this.getThemeLogo()} width={100} ></img>
                     <img src={this.getThemePerso()} alt="fetard" />
+                    <br></br><br></br>
                     <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
                 </div>
                 <div id="containerLocalisation">
@@ -89,6 +98,7 @@ class Moyen extends  React.Component {
                     </div>
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <h3>Choisis ton moyen de déplacement</h3>
+                        {this.getSpinner()}
                         <MoyenSelector data={this.state} updateSelect={this.handleChange}/>
                         <input type='button' class="btn btnValidatePurpleBackground" value='Valider' onClick={() => { this.submitMoyen(onSetMoyen) }} disabled={!this.state.buttonActivate}/>
                     </div>

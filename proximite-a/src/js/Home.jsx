@@ -11,6 +11,10 @@ class Home extends  React.Component {
         video:{fond}.fond
     }
 
+    toCreditPage=(c)=>{
+        c();
+    };
+
     updateName= (e)=>{
         this.setState({nomPers:e.target.value,
             buttonActivate:true})
@@ -37,7 +41,7 @@ class Home extends  React.Component {
     }
 
     render() {
-        const { updateNom,onNextPage} = this.props;
+        const { updateNom,onNextPage, onCreditPage} = this.props;
         return (
             <div id="homeContainer" class="container">
                 <video id="videoFond" src={this.state.video} role="presentation" muted autoPlay preload="auto" onEnded={() => this.nextVideo()}/>
@@ -51,7 +55,7 @@ class Home extends  React.Component {
                     </form>
                 </div>
                 <div class="d-flex justify-content-end mt-5">
-                    <input id="credits" type='button' value='Crédits' />
+                    <input id="credits" type='button' value='Crédits' onClick={()=>{this.toCreditPage(onCreditPage)}} />
                 </div>
             </div>
         );
