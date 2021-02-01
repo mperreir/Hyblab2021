@@ -112,7 +112,7 @@ class Narrator {
  */
 function loadCharacter() {
 	let imgChar = document.createElement('img');
-	imgChar.src = ROOT + categorie.imageURI;
+	imgChar.src = router.ROOT + categorie.imageURI;
 	imgChar.id = 'character_image';
 	persoBox.appendChild(imgChar);
 }
@@ -140,12 +140,12 @@ function loadBaseTextNarration(narrator) {
 function loadLegendNarration(narrator, id) {
 	narrator.reset();
 
-	let legende = getLegende(id);
+	let legende = narrator.properties.legendes.find(l => l.id === id);
 	narrator.html.custom.title.style.display = 'block';
 	narrator.html.custom.title.innerHTML = legende.nom + '<br/><br/>';
 
-	let nbRows = narrator.getNbRows() + (narrator.html.custom.title.innerHTML.length) / (narrator.html.box.offsetWidth / (narrator.fontSize*0.6)) + 1;
 	narrator.setText(legende.resume);
+	let nbRows = narrator.getNbRows() + (legende.nom.length) / (narrator.html.box.offsetWidth / (narrator.fontSize*0.6)) + 1;
 	narrator.load(() => {
 			return nbRows;
 	});

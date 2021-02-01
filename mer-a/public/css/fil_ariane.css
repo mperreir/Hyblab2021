@@ -6,10 +6,8 @@
   position: fixed;
   display: flex;
   align-items: center;
-  padding-top: 2vh;
-  padding-left: 2vh;
-  left: 8vh;
-  top: 1vh;
+  left: 10vh;
+  top: 3vh;
   z-index: 50;
 }
 

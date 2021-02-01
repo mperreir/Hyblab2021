@@ -1,9 +1,11 @@
 'use strict';
 
 (async () => {
+  const ordreCategories = [1,2,3];
+  let categories = null;
   await getTypesId(r => categories = r);
   // Sort the data
-  categories = sortCategories();
+  categories = sortCategories(categories, ordreCategories);
   // For each category we create the HTML component
   categories.forEach(categorie => {
     createHTMLComponent(categorie);
@@ -20,12 +22,7 @@
 
     const imagePerso = document.createElement('p');
     imagePerso.id = nom;
-    imagePerso.addEventListener('click', () => {
-      router.loadRessources('departement', {
-        department: router.data.department,
-        personnage: categorie.id
-      }, 3);
-    });
+    imagePerso.addEventListener('click', () => selectCategorie(categorie, categories));
     imagePerso.classList.add('perso');
     zone.appendChild(textZone);
     zone.appendChild(imagePerso);

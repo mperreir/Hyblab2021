@@ -2,6 +2,12 @@
 
 class Router {
 
+  ROOT = '/mer-a/';
+  API_URL = 'api/';
+	API_REGIONS_ID = 'all/regions';
+	API_TYPES_ID = 'all/types';
+	API_LEGENDE = 'legende/';
+
   constructor(fileAriane, loader, soundManager) {
     this.fileAriane = fileAriane;
     this.loader = loader;
@@ -25,13 +31,14 @@ class Router {
     this.fonds = [this.scene1, this.scene2, this.fondMer];
     this.fondActuel = this.scene1;
 
-    this.data = {}
+    this.data = {};
+    this.externData = {};
     this.stop = false;
     this.soundStop = true;
 
-    $(this.scene1.elmt).load(`/mer-a/html/fond/parallax1.html`, () => {
+    $(this.scene1.elmt).load(`${this.ROOT}html/fond/parallax1.html`, () => {
       this.loadParralax(1);
-      $(this.scene2.elmt).load(`/mer-a/html/fond/parallax2.html`, () => {
+      $(this.scene2.elmt).load(`${this.ROOT}html/fond/parallax2.html`, () => {
         this.initAnim();
       });
     });
@@ -42,24 +49,25 @@ class Router {
     if(fond !== undefined && this.fondActuel !== fond) this.loader.show();
     this.stopAnim();
 
+    this.data = data;
     $('#content').fadeOut('slow', () => {
       if(path === 'accueil' || fond !== undefined && this.fondActuel !== fond) loader.hide();
       this.deleteCharacter();
       this.changeFond(idFond);
-      $('#content').load(`/mer-a/html/${path}.html`).fadeIn('slow', () => {
+      $('#content').load(`${this.ROOT}html/${path}.html`).fadeIn('slow', () => {
         if(path === 'departements') {
           this.soundManager.startSound();
         }
         this.fileAriane.updateAriane(
           path,
-          (deps.get(router.data.department) !== undefined) ? deps.get(router.data.department).nomDepartement : 'Département',
-          (getCategorie(router.data.personnage) !== undefined) ? getCategorie(router.data.personnage).nomCategorie : 'Guide',
-          'Légende'
+          (path !== 'departements' && getDepartement(this.data.department) !== undefined) ? getDepartement(this.data.department).nomDepartement : 'Département',
+          (path !== 'personnages' && getCategorie(this.data.personnage) !== undefined) ? getCategorie(this.data.personnage).nomCategorie : 'Guide',
+          (path !== 'departement' && getLegende(this.data.legende) !== undefined) ? getLegende(this.data.legende).nom : 'Légende',
+          'Histoire'
         );
       });
 
     });
-    this.data = data;
     if(path !== 'accueil') {
       this.saveData(path, data, idFond);
       document.querySelector('.fil_ariane').style.display = "flex";
