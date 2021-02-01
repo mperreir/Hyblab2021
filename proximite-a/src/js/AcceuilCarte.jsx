@@ -79,7 +79,7 @@ class AcceuilCarte extends  React.Component {
     };
 
     generateItineraire = (dest) => {
-        fetch(`http://localhost:8080/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
+        fetch(`https://hyblab.polytech.univ-nantes.fr/proximite-a/api/getItinerary/${this.state.moyenId}/${this.props.data.coords}/${dest}`)
         .then(itineraire => {
             this.setState({itineraire});
         })
