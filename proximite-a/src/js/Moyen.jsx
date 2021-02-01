@@ -79,7 +79,7 @@ class Moyen extends  React.Component {
 
                 <div id="Theme" class="d-flex flex-column justify-content-center align-items-center fixed-top">
                     <img id="logoCorner" src={this.getThemeLogo()} width={100} ></img>
-                    <img src={this.getThemePerso()} alt="fetard" />
+                    <img id="logoCenter" src={this.getThemePerso()} alt="fetard" />
                     <br></br><br></br>
                     <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
                 </div>

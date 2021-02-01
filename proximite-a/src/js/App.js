@@ -14,9 +14,10 @@ class App extends React.Component {
     state = {
         nomPers: null,
         pageId: 0,
+        precedId:0,
         themeId:0,
         moyenId:0,
-        coords:[47.215878,-1.55051],
+        coords:[47.213878,-1.54051],
         perimetre: [],
         adresse: {
             rue: '',
@@ -25,38 +26,38 @@ class App extends React.Component {
         },
         sites: [{
             id: '1',
-            titre: 'squalala',
-            img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
-            adresse: 'nous sommes partis',
-            description: "blabla",
-            coordonnes: [1, 2],    //latitude_longitude
+            titre: 'Site exemple 1',
+            img: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Panorama_depuis_Butte_Sainte-Anne.jpg',
+            adresse: 'Nantes',
+            description: "Ceci est un exemple de site",
+            coordonnes: [47.213878, -1.54051],    //latitude_longitude
             type: 4,
         },
         {
             id: '2',
-            titre: 'squelele',
-            img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif',
-            adresse: 'nous sommes repartis',
-            description: "blabla",
-            coordonnes: [3, 4],    //latitude_longitude
+            titre: 'Site exemple 2',
+            img: 'https://s.france24.com/media/display/c2e36604-d271-11ea-be16-005056bf87d6/w:1280/p:16x9/NANTES%20CULTURE.webp',
+            adresse: 'Nantes',
+            description: "Ceci est un exemple de site",
+            coordonnes: [48.213878, -1.44051],    //latitude_longitude
             type: 1,
         },
         {
             id: '3',
-            titre: 'Oooo di',
-            img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
-            adresse: 'AAAAAAAAAAAAAHH',
-            description: "blabla",
-            coordonnes: [5, 6],    //latitude_longitude
+            titre: 'Site exemple 3',
+            img: 'https://www.campusfrance.org/sites/default/files/styles/mobile_visuel_principal_page/public/The%20Erdre%20River%20in%20Nantes_M.jpg?itok=AWmRDl7o',
+            adresse: 'Nantes',
+            description: "Ceci est un exemple de site",
+            coordonnes: [46.213878, -1.64051],    //latitude_longitude
             type: 2,
         }],
-        surprises: {
+        surprise: {
             id:'0',
-            titre: 'Oooo di',
-            img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
-            adresse: 'AAAAAAAAAAAAAHH',
-            description: "blabla",
-            coordonnes: [5, 6],    //latitude_longitude
+            titre: 'Exemple point surprise',
+            img: 'https://www.geipi-polytech.org/sites/default/files/photos/polytech-nantes_presentation.jpg',
+            adresse: 'Nantes',
+            description: "Ceci est un exemple de site surprise",
+            coordonnes: [47.282001084268046, - 1.5159819190544865],    //latitude_longitude
             type: 3
         }
     };
@@ -64,7 +65,7 @@ class App extends React.Component {
     getPage = () => {
         switch (this.state.pageId) {
             case 10:
-                return <CreditPage />;
+                return <CreditPage getBack={this.getBackFromCredit}/>;
             case 0:
                 return <Home onNextPage={this.nextPage} updateNom={this.updateName} onCreditPage={this.creditPage} />;
             case 1:
@@ -79,8 +80,12 @@ class App extends React.Component {
     };
 
     creditPage = ()=>{
-        this.setState({pageId: 10})
+        let preced = this.state.pageId
+        this.setState({pageId: 10, precedId:preced})
     };
+    getBackFromCredit = ()=>{
+        this.setState({ pageId: this.state.precedId })
+    }
 
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
@@ -169,7 +174,7 @@ class App extends React.Component {
                 newSites.push(site)
             }
         }
-        if (typeof lieux.surprise === "undefined") {
+        if (typeof lieux.surprise === "undefined"||lieux.surprise.length===0) {
             let surprise = {
                 id: 0,
                 titre: 'Pas de titre disponible',
@@ -215,7 +220,7 @@ class App extends React.Component {
         console.log(newSurprise)
         this.setState({
             sites: newSites,
-            surprises: newSurprise,
+            surprise: newSurprise,
             pageId: 4
         });
 

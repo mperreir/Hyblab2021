@@ -156,7 +156,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
                         <input type="button" class="btn btnPurple" onClick={onNextPhase} value="Réduire"/>
                     </div>
                 </div>
-                {this.state.selectedSites.slice(0,3).map((e) => {
+                {this.state.sites.slice(0,3).map((e) => {
                     return <Etiquette data={e} identifiant={"etiquette"+e.id} numero={e.id} />
                 })}
             </div>
