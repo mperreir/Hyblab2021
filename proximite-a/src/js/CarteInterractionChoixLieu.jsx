@@ -5,11 +5,30 @@ import personnage from '../img/Perso-hyblab-03.png'
 
 class CarteInterractionChoixLieu extends  React.Component {
     state={
-        sites:this.props.data.sites
+        sites:this.props.data.sites,
+        selectedSites:[]
+    }
+    handleCheck = (e) => {
+        console.log(e.target)
+        let newSelected = this.state.selectedSites
+        if (e.target.checked === true && !this.state.selectedSites.includes(this.state.sites[e.target.value])) {
+            newSelected.push(this.state.sites[e.target.value-1])
+        }
+        else if (e.target.checked === false && this.state.selectedSites.includes(this.state.sites[e.target.value])) {
+            newSelected.pop(this.state.sites[e.target.value])
+        }
+        this.setState({ selectedSites: newSelected })
+        console.log(this.state.sites[e.target.value-1])
+    }
+
+    submitCheck =(update,next) =>{
+        console.log(this.state.selectedSites)
+        update(this.state.selectedSites)
+        next()
     }
 
     render() {
-        const {onNextPhase} = this.props;
+        const { onNextPhase, onCheckSites} = this.props;
         return (
             <div id="containerInterraction" class="container containersInterraction">
                 <div class="row">
@@ -25,7 +44,6 @@ class CarteInterractionChoixLieu extends  React.Component {
                             <div class="row">
                                 {this.state.sites.map((e) => {
                                     return <div class="col containerChoice">
-                                        <h3 className="h3Purple">Le hasard...</h3>
                                         <div className="card">
                                             <img className="card-img-top" class="imgChoice" src={e.img} alt="Card image cap" />
                                             <div className="card-body">
@@ -34,12 +52,12 @@ class CarteInterractionChoixLieu extends  React.Component {
                                                 <p className="card-text">{e.description}</p>
                                             </div>
                                         </div>
-                                        <input type="checkbox" class="mt-3" name="choixLieux" />
+                                        <input type="checkbox" class="mt-3" value={e.id} name="choixLieux" onChange={this.handleCheck}/>
                                     </div>
                                 })}
                             </div>
                         </div>
-                            <input type='button' width="50" class="btn btnPurple" value="Valider" onClick={onNextPhase}/>
+                        <input type='button' width="50" class="btn btnPurple" value="Valider" onClick={() => { this.submitCheck(onCheckSites,onNextPhase)}}/>
                     </div>
                 </div>
             </div>

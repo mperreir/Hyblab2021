@@ -47,6 +47,7 @@ class AcceuilCarte extends  React.Component {
         nomPers:this.props.data.nomPers,
         perimetre: this.props.data.perimetre,
         itineraire: [],
+        selectedSites:[]
     };
 
 
@@ -57,7 +58,7 @@ class AcceuilCarte extends  React.Component {
             case 0:
                 return null;
             case 1:
-                return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase}/>;
+                return <CarteInterractionChoixLieu data={this.state} nomPers={nom.nomPers} onNextPhase={this.nextPhase} onCheckSites={this.checkSites}/>;
             case 2:
                 return <CarteInterractionChoixMultiples data={this.state} nomPers={nom.nomPers} onSetMoyen={this.updateMoyen} onNextPhase={this.nextPhase}/>;
             case 3:
@@ -105,6 +106,13 @@ class AcceuilCarte extends  React.Component {
         }
     }
 
+    checkSites=(e)=>{
+        this.setState({selectedSites:e})
+        console.log(e)
+        console.log(this.setState)
+    }
+
+
     render() {
         console.log("state recu:")
         console.log(this.state)
@@ -114,7 +122,7 @@ class AcceuilCarte extends  React.Component {
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
                     <TileLayer url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} />
                     <Marker icon={GetIcon(1,30)}  position={[this.state.currentPosition[0],this.state.currentPosition[1]]}></Marker>
-                    {this.state.sites.map( (e) => {
+                    {this.state.selectedSites.map( (e) => {
                         return <Marker icon={GetIcon(2,30, equivalent.themePicto.get(e.type))}  position={[e.coordonnes[0],(e.coordonnes[1])]}>
                             <Popup>
                                 <b>{e.titre}</b>

@@ -5,14 +5,14 @@ import Attributs from './Attributs';
 import Moyen from './Moyen';
 import AcceuilCarte from './AcceuilCarte';
 import equivalent from './equivalent.js'
-import imageDefault from '../img/image_pas_disponible.png'
+import imageDefault from '../img/LOGO OK_logo principal.png'
 import { indexOf } from 'leaflet/src/core/Util';
 
 class App extends React.Component {
 
     state = {
         nomPers: null,
-        pageId: 2,
+        pageId: 0,
         themeId:0,
         moyenId:0,
         coords:[47.215878,-1.55051],
@@ -130,7 +130,7 @@ class App extends React.Component {
             let site = {
                 id: 1,
                 titre: 'Pas de titre disponible',
-                img: imageDefault,
+                img: '',
                 adresse: 'Pas d\'adresse disponible',
                 description: "Pas de description disponible",
                 coordonnes: [1, 2],    //latitude_longitude
