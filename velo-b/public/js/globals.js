@@ -3,7 +3,7 @@ window.onhashchange = () => window.devMode && goToSlide(window.location.hash || 
 
 window.results = {
     quartier: null,
-    transport: null,
+    transports: [],
     relevant: []
 };
 
@@ -20,6 +20,11 @@ d3.json('data/slide-graph.json').then(slides => {
         };
     }
 });
+
+let statistics = null;
+
+// Chargement des statistiques.
+d3.json('data/statistics.json').then(data => statistics = data);
 
 function registerSlide(name, init) {
     window.slideGraph[name] = { ...window.slideGraph[name], init };
@@ -55,21 +60,40 @@ function goToSlide(name) {
 }
 
 function updateResults(name, choice) {
-    if (choice === 'ok') {
-        const relevant = window.slideGraph[name].relevant;
-        if (relevant) {
-            window.results.relevant = [...new Set([...window.results.relevant, ...relevant])];
-        }
+    const current = window.slideGraph[name];
+
+    if (choice === 'ok' && current.relevant) {
+        window.results.relevant = unique(window.results.relevant, current.relevant);
     }
 
     if (name === 'page-carte') {
         window.results.quartier = choice;
     }
 
-    const transport = name.match(/choix-transport-(\w+)/);
-    if (transport) {
-        window.results.transport = transport[1];
+    if ((choice === 'ok' || choice === 'oui') && current.transport) {
+        window.results.transports = unique(window.results.transports, [current.transport]);
     }
+
+    if (name === 'page-arrivee') {
+        window.results.stats = {
+            "prix": constrain(average(window.results.transports.map(name => statistics[name]["prix"])), statistics.min["prix"], statistics.max["prix"]),
+            "vitesse": constrain(average(window.results.transports.map(name => statistics[name]["vitesse"])), statistics.min["vitesse"], statistics.max["vitesse"]),
+            "émission de CO2": constrain(average(window.results.transports.map(name => statistics[name]["émission de CO2"])), statistics.min["émission de CO2"], statistics.max["émission de CO2"]),
+            "calories brûlés": constrain(average(window.results.transports.map(name => statistics[name]["calories brûlés"])), statistics.min["calories brûlés"], statistics.max["calories brûlés"]),
+        };
+    }
+}
+
+function average(arr) {
+    return arr.length > 0 ? arr.reduce((a, b) => a + b) / arr.length : 0;
+}
+
+function constrain(value, min, max) {
+    return (value - min) / (max - min);
+}
+
+function unique(...arr) {
+    return [...new Set([].concat(...arr))];
 }
 
 function overrideAnim(data) {

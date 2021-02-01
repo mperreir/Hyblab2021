@@ -8,7 +8,7 @@ registerSlide("question-voiture-bicloo", function () {
     button( '#ic-non-voit-bicloo', 'non');
 });
 
-registerSlide("question-voiture-transport", function () {
+registerSlide("question-voiture-transports", function () {
     button( '#ic-oui-voit-transport', 'oui');
     button( '#ic-non-voit-transport', 'non');
 });
@@ -67,10 +67,10 @@ registerSlide("page-arrivee", function () {
 registerSlide("page-arrivee-stats", function () {
     button( '#ic-rejouer-finale', 'rejouer');
     button( '#ic-credit-finale', 'credit');
-    progressBar('#pb-ecol',75);
-    progressBar('#pb-vit',0);
-    progressBar('#pb-econ',50);
-    progressBar('#pb-pol',50);
+    progressBar('#pb-prix', window.results.stats.prix);
+    progressBar('#pb-vit', window.results.stats.vitesse);
+    progressBar('#pb-co2', window.results.stats["émission de CO2"]);
+    progressBar('#pb-kcal', window.results.stats["calories brûlés"]);
 });
 
 registerSlide("page-credit", function () {
@@ -78,6 +78,8 @@ registerSlide("page-credit", function () {
 });
 
 let button = function (idbutton, choice) {
+    d3.select(idbutton).style("transform", "scale(1)");
+
     d3.select(idbutton).on('click', function () {
         overrideAnim({
             targets: idbutton,
