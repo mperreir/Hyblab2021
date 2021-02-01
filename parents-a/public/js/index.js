@@ -618,7 +618,7 @@ function chooseimage(data, div) {
         div.firstChild.src = "img/parcs/lambda-2.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/parcs/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/download.jpeg"
     }
 }
 
