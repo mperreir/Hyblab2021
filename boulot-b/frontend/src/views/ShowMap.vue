@@ -1,7 +1,7 @@
 <template>
   <container>
     <template #question>
-      <finalMap/>
+      <finalMap />
     </template>
     <template #stepper>
       <Stepper :actif=actif />

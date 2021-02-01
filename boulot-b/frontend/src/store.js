@@ -1,7 +1,10 @@
+import {http} from "@/config";
+
 const store = {
     debug: true,
     subscribers: [],
     state: {
+        trajetData: undefined,
         actif: 1,
         choice: {
             typeDeplacement: undefined,
@@ -11,6 +14,20 @@ const store = {
             humeur: undefined,
             path: {depart: undefined, arrivee: undefined}
         }
+    },
+    async fetchTrajet() {
+        if (this.debug) console.log("fetching data")
+        const choices = this.state.choice;
+        const origin = choices.path.depart;
+        const destination = choices.path.arrivee;
+        const typeDeplacement = choices.typeDeplacement;
+        const theme = choices.theme
+        const salleSport = choices.lieux.salleDeSport;
+        const bar = choices.lieux.bar;
+        const boulangerie = choices.lieux.boulangerie;
+        const pharmacie = choices.lieux.pharmacie;
+        this.state.trajetData = await http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
+            .then((res) =>   res.data )
     },
     subscribe(state,callback) {
         this.subscribers.push({[state]: callback})
@@ -64,8 +81,8 @@ const Humeur = Object.freeze({
 })
 
 const TypeDeplacement = Object.freeze({
-    VELO: "velo",
-    PIED: "pied"
+    VELO: "bicycle",
+    PIED: "pedestrian"
 })
 
 const Styles = Object.freeze({

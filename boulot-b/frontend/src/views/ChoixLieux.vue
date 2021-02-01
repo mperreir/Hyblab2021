@@ -17,7 +17,7 @@
         <Checkbox v-model="bar" color="blue" >Bar</Checkbox>
         <Checkbox v-model="boulangerie" color="yellow" >Boulangerie</Checkbox>
         <Checkbox v-model="salleDeSport" color="blue" >Salle de sport</Checkbox>-->
-        <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" /> 
+        <ButtonCustom class="button-launch" @click="next" text="Afficher la carte !" color="blue" />
       </Question>
     </template>
     <template #buildings>
@@ -57,13 +57,14 @@ export default {
     }
   },
   methods : {
-    next() {
+    async next() {
       this.message = " Merci pour tes réponses ! Je génère ton trajet, plus que quelques secondes à patienter avant de pouvoir prendre ton envol !"
-      this.$root.$data.setActif(this.actif +1)
       this.$root.$data.setLieux({pharmacie: this.pharmacie,
-                                boulangerie: this.boulangerie,
-                                bar: this.bar, 
-                                salleDeSport: this.salleDeSport})
+        boulangerie: this.boulangerie,
+        bar: this.bar,
+        salleDeSport: this.salleDeSport})
+        await this.$root.$data.fetchTrajet()
+        this.$root.$data.setActif(this.actif +1)
     },
     checkPharmacie() {
       this.pharmacie = !this.pharmacie;
