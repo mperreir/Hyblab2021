@@ -52,8 +52,10 @@ module.exports = {
         return data.filter(p => p['Nb arbre formidable'] > 40 || p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null && (p['Elements atypiques'] !== null && (p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture')))))
     },
 
-    getParcBeauPaysage(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 40 || p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
+
+    getParcBeauPaysage(db) {
+        return db.filter(p => p['Nb arbre formidable'] > 40 && p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || (p['Elements atypiques'] !== null && p['Elements atypiques'].split(',').find(m => m === 'Charme naturel')))
+
     },
 
     getParcAvecAnimaux(data) {
