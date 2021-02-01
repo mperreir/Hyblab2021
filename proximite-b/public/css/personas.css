@@ -8,14 +8,14 @@
 }
 
 #persona_titre {
-    font-size: 3.5em;
+    font-size: 2em;
     font-family: ArchitectDaughter;
     background-color: transparent;
     border: none;
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2.5em;
 }
 
 #bouton_accueil {
