@@ -101,7 +101,7 @@ export default {
     },
     onBlurArrive(value) {
       if (value) {
-        this.message = "Parfait, j'attend ton signal"
+        this.message = "Parfait, j'attends ton signal"
       }
     },
     launch() {
@@ -111,7 +111,7 @@ export default {
         this.message = "Je ne peux t'aider si tu ne me dis pas où tu veux aller, mon ami";
         return;
       }
-      const path = {depart: this.departlabel, arrivee: this.arriveelabel};
+      const path = {depart: this.depart.geometry.coordinates, arrivee: this.arrive.geometry.coordinates};
       this.$root.$data.setPath(path);
       this.message = "Allons-y !";
       setTimeout(() => {

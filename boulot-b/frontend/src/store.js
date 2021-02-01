@@ -18,15 +18,17 @@ const store = {
     async fetchTrajet() {
         if (this.debug) console.log("fetching data")
         const choices = this.state.choice;
-        const origin = choices.path.depart;
-        const destination = choices.path.arrivee;
+        const originX = choices.path.depart[1];
+        const originY = choices.path.depart[0];
+        const destinationX = choices.path.arrivee[1];
+        const destinationY = choices.path.arrivee[0];
         const typeDeplacement = choices.typeDeplacement;
         const theme = choices.theme
         const salleSport = choices.lieux.salleDeSport;
         const bar = choices.lieux.bar;
         const boulangerie = choices.lieux.boulangerie;
         const pharmacie = choices.lieux.pharmacie;
-        this.state.trajetData = await http.get(`/boulot-b/trajet/${origin}/${destination}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
+        this.state.trajetData = await http.get(`/boulot-b/trajet/${originX}/${originY}/${destinationX}/${destinationY}/${typeDeplacement}/${theme}/${salleSport}/${bar}/${boulangerie}/${pharmacie}`)
             .then((res) =>   res.data )
     },
     subscribe(state,callback) {

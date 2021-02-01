@@ -106,7 +106,7 @@ export default {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(300%);
+    transform: translateX(400%);
   }
 }
   .hide {

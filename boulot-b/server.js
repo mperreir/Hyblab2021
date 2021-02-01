@@ -20,7 +20,8 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+// app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+app.get('/trajet/:departX/:departY/:arriveeX/:arriveeY/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
 
 
 // This module is exported and served by the main server.js located
