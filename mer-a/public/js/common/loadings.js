@@ -12,7 +12,7 @@
  * Function that handle the selection of a legend.
  * @param {number} idLegende the id of the selected legend.
  */
-function selectLegende(idLegende){
+function selectLegende(idLegende, legendes){
 	if(idLegende > 0) {
 		window.onresize = null;
 		router.loadRessources('legende', {
@@ -20,6 +20,8 @@ function selectLegende(idLegende){
 			personnage: router.data.personnage,
 			legende: idLegende,
 			departments: router.data.departments,
+			personnages: router.data.personnages,
+			legendes: legendes
 
 		}, (router.data.personnage === 2) ? 2 : 1);
 	}

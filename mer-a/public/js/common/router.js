@@ -25,7 +25,8 @@ class Router {
     this.fonds = [this.scene1, this.scene2, this.fondMer];
     this.fondActuel = this.scene1;
 
-    this.data = {}
+    this.data = {};
+    this.externData = {};
     this.stop = false;
     this.soundStop = true;
 

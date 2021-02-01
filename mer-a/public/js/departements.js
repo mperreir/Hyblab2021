@@ -6,10 +6,10 @@
 (async () => {
 	let validRegions = null;
 	await getRegionsId(r => validRegions = r);
-	let map = new Map(mapFusion, '#bretagne', validRegions,
+	let map = new Map(router.externData.map, '#bretagne', validRegions,
 	() => {
 		return d3.geoCentroid((() => {
-			let useful = mapFusion.features.filter(feature => map.isValid(feature.properties.code));
+			let useful = router.externData.map.features.filter(feature => map.isValid(feature.properties.code));
 			return {type: 'FeatureCollection', features: useful};
 		})());
 	},
@@ -22,7 +22,7 @@
 	(svg, path, _) => {
 		svg.append('g')
 			.selectAll('labels')
-			.data(mapFusion.features)
+			.data(router.externData.map.features)
 			.enter()
 			.append('text')
 				.attr('id', function(d) { return 'text_' + d.properties.code})

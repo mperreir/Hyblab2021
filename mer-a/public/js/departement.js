@@ -11,14 +11,13 @@
 	await getRegionsId(r => validRegions = r);
 	if(!router.data.departement) router.data.departement = validRegions;
 	await getLegendes(router.data.department, router.data.personnage, r => legendes = r);
-	globalLegendes = legendes;
 	
 	let narrator = new Narrator($('#narration')[0], $('#narration > span.to-narrate')[0], $('#narration > button.pass_narration')[0], 45,
 		{ title: $('#narration > span.title')[0] },
 		{ timeout: null },
 		{ baseText: null, legendes: legendes });
 
-	let map = new Map(mapFusion, '#department', [validRegions.find(r => r.id === router.data.department)],
+	let map = new Map(router.externData.map, '#department', [validRegions.find(r => r.id === router.data.department)],
 	() => {
 		let validPath = map.getMapDepartement(router.data.department);
 		let center = d3.geoCentroid(validPath);
@@ -65,7 +64,7 @@
 				document.getElementById('label_legende_' + this.getAttribute('lbl-legende-id')).style.display = 'none';
 			})
 			.on('click', d => {
-				selectLegende(parseInt(d.id));
+				selectLegende(parseInt(d.id), legendes);
 			});
 
 		// Create the legends' title buttons elements
@@ -89,7 +88,7 @@
 			document.getElementById('department').appendChild(lButton);
 		}
 	});
-	categorie = getCategorie(router.data.personnage);
+	let categorie = getCategorie(router.data.personnage);
 	narrator.setText(getCategorie(router.data.personnage).phraseDep);
 	narrator.properties.baseText = categorie.phraseDep;
 	narrator.load();
