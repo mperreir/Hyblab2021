@@ -34,7 +34,7 @@ export async function getTraficData(trajet) {
 	});
 
 	let indice = Math.round(trafic / sum);
-	if(isNaN(indice)) indice = 1;
+	if (isNaN(indice)) indice = 1;
 	let traficFluidity;
 
 	for (const [k, v] of Object.entries(types)) {

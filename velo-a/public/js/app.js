@@ -176,8 +176,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 if (document.getElementById("btn-menu-nav"))
 	document.getElementById("btn-menu-nav").onclick = () => {
-		let nav_visible = window.getComputedStyle(document.getElementById("left-nav"), null).getPropertyValue('left');
-		if (nav_visible === "-1920px") {
+		let nav_visible = document.getElementById("left-nav").style.getPropertyValue('left');
+		if (nav_visible === "-100%") {
 			document.getElementById("left-nav").setAttribute("style", "left: 0");
 			document.getElementById("btn-menu-nav").classList.remove("button-menu");
 			document.getElementById("btn-menu-nav").classList.add("button-cross");

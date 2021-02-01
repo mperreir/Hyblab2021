@@ -1,206 +1,206 @@
 body {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
 
-    background-color: #fcd2cf;
+	background-color: #fcd2cf;
 }
 
 #montagne_droite, #montagne_gauche {
-    z-index: -1;
+	z-index: -1;
 
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
 }
 
 #montagne_droite {
-    right: 0;
+	right: 0;
 }
 
 #montagne_gauche {
-    left: 0;
+	left: 0;
 }
 
 #ciel {
-    z-index: -5;
+	z-index: -5;
 
-    height: 20%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 15%;
-    right: -15%;
-    animation: anim_ciel 75s linear infinite;
-    animation-direction: alternate;
+	height: 20%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 15%;
+	right: -15%;
+	animation: anim_ciel 75s linear infinite;
+	animation-direction: alternate;
 }
 
 
 @keyframes anim_ciel {
-    100% {
-        right: 100vw;
-    }
+	100% {
+		right: 100vw;
+	}
 }
 
 
 #batiment {
-    z-index: -3;
+	z-index: -3;
 
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
 
 }
 
 .batiment_move1 {
-    animation: ease-in-out anim_batiment1 2s;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment1 2s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes anim_batiment1 {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-20%);
-    }
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-20%);
+	}
 }
 
 .batiment_move2 {
-    animation: ease-in-out anim_batiment2 2s;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment2 2s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes anim_batiment2 {
-    0% {
-        transform: translateX(-20%);
-    }
-    100% {
-        transform: translateX(-40%);
-    }
+	0% {
+		transform: translateX(-20%);
+	}
+	100% {
+		transform: translateX(-40%);
+	}
 }
 
 .batiment_move3 {
-    animation: ease-in-out anim_batiment3 2s;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment3 2s;
+	animation-fill-mode: forwards;
 }
 
 @keyframes anim_batiment3 {
-    0% {
-        transform: translateX(-40%);
-    }
-    100% {
-        transform: translateX(-60%);
-    }
+	0% {
+		transform: translateX(-40%);
+	}
+	100% {
+		transform: translateX(-60%);
+	}
 }
 
 .batiment_pause1 {
-    transform: translateX(-20%);
+	transform: translateX(-20%);
 }
 
 .batiment_pause2 {
-    transform: translateX(-40%);
+	transform: translateX(-40%);
 }
 
 .batiment_pause3 {
-    transform: translateX(-60%);
+	transform: translateX(-60%);
 }
 
 .batiment_back1 {
-    animation: ease-in-out anim_batiment1 2s reverse;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment1 2s reverse;
+	animation-fill-mode: forwards;
 }
 
 .batiment_back2 {
-    animation: ease-in-out anim_batiment2 2s reverse;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment2 2s reverse;
+	animation-fill-mode: forwards;
 }
 
 .batiment_back3 {
-    animation: ease-in-out anim_batiment3 2s reverse;
-    animation-fill-mode: forwards;
+	animation: ease-in-out anim_batiment3 2s reverse;
+	animation-fill-mode: forwards;
 }
 
 #background_velos {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .background_velo {
-    transform: scale(0.5) translate(0, 50%) translateX(-100vw);
-    position: absolute;
-    bottom: 12%;
-    z-index: -2;
+	transform: scale(0.5) translate(0, 50%) translateX(-100vw);
+	position: absolute;
+	bottom: 12%;
+	z-index: -2;
 }
 
 .background_velo.move0 {
-    animation: move_velo 10s forwards;
+	animation: move_velo 10s forwards;
 }
 
 @keyframes move_velo {
-    0% {
-        transform: scale(0.5) translate(0, 45%) translateX(-100vw);
-    }
-    100% {
-        transform: scale(0.5) translate(0, 45%) translateX(100vw);
-    }
+	0% {
+		transform: scale(0.5) translate(0, 45%) translateX(-100vw);
+	}
+	100% {
+		transform: scale(0.5) translate(0, 45%) translateX(100vw);
+	}
 }
 
 .background_velo.move1 {
-    animation: move_velo_reverse 10s forwards;
+	animation: move_velo_reverse 10s forwards;
 }
 
 @keyframes move_velo_reverse {
-    0% {
-        transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
-    }
-    100% {
-        transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
-    }
+	0% {
+		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
+	}
+	100% {
+		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
+	}
 }
 
 #background_nuages {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .background_nuage {
-    position: absolute;
-    z-index: -4;
+	position: absolute;
+	z-index: -4;
 }
 
 .background_nuage.move0 {
-    --nuage-top: 25%;
-    --nuage-size: 5%;
-    top: var(--nuage-top);
-    width: var(--nuage-size);
-    animation: move_nuage 35s linear forwards;
+	--nuage-top: 25%;
+	--nuage-size: 5%;
+	top: var(--nuage-top);
+	width: var(--nuage-size);
+	animation: move_nuage 35s linear forwards;
 }
 
 @keyframes move_nuage {
-    0% {
-        transform: translateX(calc(-50vw - var(--nuage-size)));
-    }
-    100% {
-        transform: translateX(calc(50vw + var(--nuage-size)));
-    }
+	0% {
+		transform: translateX(calc(-50vw - var(--nuage-size)));
+	}
+	100% {
+		transform: translateX(calc(50vw + var(--nuage-size)));
+	}
 }
 
 .background_nuage.move1 {
-    --nuage-top: 25%;
-    --nuage-size: 5%;
-    top: var(--nuage-top);
-    width: var(--nuage-size);
-    animation: move_nuage 35s linear forwards reverse;
+	--nuage-top: 25%;
+	--nuage-size: 5%;
+	top: var(--nuage-top);
+	width: var(--nuage-size);
+	animation: move_nuage 35s linear forwards reverse;
 }
