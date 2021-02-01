@@ -106,7 +106,8 @@ const go_to = (page, data, callback) => {
 
                 $(function () {
                     $("#sortable1, #sortable2, #sortable3").sortable({
-                        connectWith: ".connectedSortable"
+                        connectWith: ".connectedSortable",
+                        cursor: "grabbing"
                     }).disableSelection();
                 });
 
