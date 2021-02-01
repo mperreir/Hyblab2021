@@ -6,7 +6,6 @@
 
 <script lang="js">
 import Vue from "vue";
-import {http} from "@/config"
 import baguette from "@/assets/map/baguette.svg"
 import haltere from "@/assets/map/haltere.svg"
 import verre from "@/assets/map/verre.svg"
@@ -35,8 +34,7 @@ export default Vue.component("finalMap", {
     // Permet le zoom
       new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       H.ui.UI.createDefault(map, defaultLayers);
-      const choices = this.$root.$data.getChoices();
-      await createMap(platform, map, choices, this.$root.$data.state.trajetData)
+      await createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData)
     }
   },
   mounted: function () {
@@ -111,15 +109,15 @@ async function addMarkers(map, origin, destination, stops) {
   }
 }
 
-function createIcon(img) {
+
+async function iconFactory(namePOI) {
+  function createIcon(img) {
     const image = document.createElement('img');
     image.src = img
     image.width = 20;
     image.height = 20;
     return new H.map.DomIcon(image);
   }
-
-async function iconFactory(namePOI) {
   switch(namePOI) {
     case 'Boulangerie':
       return createIcon(baguette);
@@ -137,6 +135,7 @@ async function iconFactory(namePOI) {
       return createIcon(point);
   }
 }
+
 </script>
 
 <style scoped>
@@ -147,4 +146,5 @@ async function iconFactory(namePOI) {
     width: 100%;
     height: 500px;
   }
+
 </style>
