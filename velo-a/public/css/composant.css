@@ -90,6 +90,7 @@ input {
 	bottom: 2%;
 	left: 2%;
 	transition: background 0.5s;
+	z-index: 1000;
 }
 
 .button-return:hover {

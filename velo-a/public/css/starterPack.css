@@ -11,7 +11,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
-	margin-left: 50px;
+	margin-left: 160px;
 }
 
 #container-bicky {
@@ -45,6 +45,10 @@ input {
 	.bicky-savoir {
 		display: none;
 	}
+
+	#bicky-habille {
+		display: none;
+	}
 }
 
 @media (orientation: landscape) {
@@ -75,4 +79,14 @@ h3 {
 
 .bicky-habille {
 	z-index: 10;
+	scale: 40;
+	height: 5px;
+	margin-bottom: 12%;
+}
+
+.bicky-habille-pluie {
+	z-index: 10;
+	scale: 34;
+	height: 5px;
+	margin-bottom: 20%;
 }

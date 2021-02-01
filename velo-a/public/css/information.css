@@ -144,9 +144,28 @@
 	margin-top: 20px;
 }
 
-.mascotte {
-	position: absolute;
-	left: 0;
+@media screen and (min-width:1700px) {
+	.mascotte {
+		position: absolute;
+		left: 350px;
+		top: 80px;
+	}
+}
+
+@media screen and (min-width:1500px) and (max-width:1700px) {
+	.mascotte {
+		position: absolute;
+		left: 300px;
+		top: 50px;
+	}
+}
+
+@media screen and (max-width:1500px) {
+	.mascotte {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
 }
 
 .mascotte > div {
