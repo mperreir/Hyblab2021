@@ -444,6 +444,7 @@ let initSlideResultat = function(db) {
     loadComponent('credits');
     const charts = ['chart', 'chart1', 'chart2', 'chart3'];
     const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
+    playSoundEleph();
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
