@@ -13,7 +13,7 @@ import verre from "@/assets/map/verre.png"
 import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
 import destination from '@/assets/map/destination.svg'
-import origin from '@/assets/map/origin.svg'
+import origine from '@/assets/map/origin.svg'
 import {http} from "@/config";
 
 
@@ -47,8 +47,7 @@ export default Vue.component("finalMap", {
 
 async function createMap(platform, map, choices, data, divMap) {
   const provider = map.getBaseLayer().getProvider();
-  console.log("http", http.defaults.baseURL)
-  const style = new H.map.Style(http.defaults.baseURL + 'boulot-b/styles/normal.day.yaml');
+  const style = new H.map.Style(origin + '/boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
     await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
@@ -201,7 +200,7 @@ function iconFactory(namePOI, divMap) {
     case 'Pharmacie':
       return createIcon(medicament, divMap);
     case 'Origine':
-      return createIcon(origin, divMap);
+      return createIcon(origine, divMap);
     case "Destination":
       return createIcon(destination, divMap);
     default:
