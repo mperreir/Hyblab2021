@@ -80,6 +80,7 @@ async function bootstrap() {
 	let openMarker = undefined;
 
 	let markers = {};
+	let hover = false;
 
 	function points(data) {
 
@@ -96,9 +97,21 @@ async function bootstrap() {
 				marker._popup.addTo(map)
 				openMarker = marker;
 
-				document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseleave", function () {
-					if (openMarker) openMarker._popup.remove();
-				})
+				el.addEventListener("mouseleave", function () {
+					setTimeout(() => {
+						if (!hover) openMarker._popup.remove();
+					}, 200);
+				});
+
+				if (document.getElementsByClassName("mapboxgl-popup")[0]) {
+					document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseover", function () {
+						hover = true;
+					});
+					document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseleave", function () {
+						if (openMarker) openMarker._popup.remove();
+						hover = false
+					});
+				}
 			});
 
 			marker = new mapboxgl.Marker(el)
