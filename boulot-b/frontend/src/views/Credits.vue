@@ -30,7 +30,7 @@
                 <a href="https://fr.wikipedia.org/">fr.wikipedia.org</a>
                 <a href="https://metropole.nantes.fr/">metropole.nantes.fr</a>
             </div>
-            <img @click="goBack" id="retour" src="@/assets/retour.svg" alt="retour">
+            <img @click="goBack" id="retour" title="Retour à la carte" src="@/assets/retour.svg" alt="retour">
         </section>
         <div id="logos">
             <img class="logo" src="@/assets/hyblab.svg" alt="hyblab">
@@ -136,6 +136,7 @@ a {
     text-decoration: none;
 }
 #retour {
+    cursor: pointer;
     width: 3%;
     margin-top: 2%;
     margin-bottom: 2%;

@@ -57,12 +57,12 @@ export default {
     },
     bof() {
       this.$root.$data.setHumeur(Humeur.BOF)
-      this.message = "Moi aussi je suis un peu fatigué"
+      this.message = "Moi aussi je suis un peu fatigué."
       this.next();
     },
     pasDuTout() {
       this.$root.$data.setHumeur(Humeur.PAS_DU_TOUT)
-      this.message = "Après ta journée, je te comprends"
+      this.message = "Après ta journée, je te comprends."
       this.next();
     }
   },

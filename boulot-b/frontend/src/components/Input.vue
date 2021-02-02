@@ -22,7 +22,7 @@ export default {
 $yellow: #ffdb27;
 
 .input {
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: $yellow;
   padding: 10px;
   max-width: 400px;
