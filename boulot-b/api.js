@@ -77,11 +77,11 @@ function getEquidistantPoint(x1,y1,x2,y2){
 
     let aa = (a * a) + 1;
     let bb = (2 * a) * (b - my) - (2 * mx);
-    let cc = ((b - my) * (b - my)) - 0.01 + (mx * mx);
+    let cc = ((b - my) * (b - my)) - 9 + (mx * mx);
     let delta = (bb * bb) - (4 * aa * cc);
 
     let x = (- bb + Math.sqrt(delta)) / (2 * aa)
-    let y = Math.sqrt(0.01 - ((x - mx) * (x - mx))) + my;
+    let y = Math.sqrt(9 - ((x - mx) * (x - mx))) + my;
 
     let coord = [x,y];
     return coord;
@@ -106,15 +106,6 @@ async function pointInteret(coordonneeD, coordoneeA, theme, transport){
     let milieu = [-1,-1]
     milieu[0] = (depart[0] + arriver[0])/2
     milieu[1] = (depart[1] + arriver[1])/2
-
-
-/**
- * 0: -1.583788
-1: 47.202481
- * 
- * 0: -1.577427
-1: 47.2401
- */
 
 
     let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
@@ -187,149 +178,7 @@ function getStreetViewUrl(latitude,longitude){
     return `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${latitude},${longitude}`
 }
 
-<<<<<<< HEAD
-async function getAll(req,res){
-
-    let transport = req.params.transport;//"pedestrian"
-    let style = req.params.style; // a voir comment le définir (parc/jardin)
-    let sallesport = req.params.sallesport;
-    let bar = req.params.bar;
-    let boulangerie = req.params.boulangerie;
-    let pharmacie = req.params.pharmacie;
-
-    /** =================debut de modifications=================================*/
-    let origin = [-1,-1]
-    let arrivee = [-1,-1]
-
-    origin[0] = +req.params.departX
-    origin[1] = +req.params.departY
-
-    arrivee[0] = +req.params.arriveeX
-    arrivee[1] = +req.params.arriveeY
-    /** ================= fin =================================*/
-
-    let list_POI = [];
-
-
-    /** definition du style : nature/culture/aleatoire */
-    switch(style){
-        case "nature":
-            let listNature = await pointInteret(origin, arrivee, "natural-geographical", transport)
-            
-            if(listNature){
-                  // let randN = getRandomInt(0, listNature.length)
-                // let P_nature1 = listNature[randN]
-                let indexResult = getShortestExcursion(listNature);
-                let P_nature1 = listNature[indexResult];
-
-                let P_nature = extractUtilsValue(P_nature1);
-                P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
-                P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
-                list_POI.push({"Nature": P_nature,
-                                "distance": P_nature1.distance})
-            }
-          
-            break;
-        default :
-            let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
-            // let randC = getRandomInt(0, listCulture.length)
-            // let P_culture1 = listCulture[randC]
-           if(listCulture){
-                let indexResult1 = getShortestExcursion(listCulture);
-                let P_culture1 = listCulture[indexResult1]
-
-                let P_culture = extractUtilsValue(P_culture1)
-                P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
-                P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
-                list_POI.push({"Culture": P_culture,
-                                "distance": P_culture1.distance})
-           }
-
-        
-    }
-
-
-||||||| a20bf3a
-async function getAll(req,res){
-
-    let transport = req.params.transport;//"pedestrian"
-    let style = req.params.style; // a voir comment le définir (parc/jardin)
-    let sallesport = req.params.sallesport;
-    let bar = req.params.bar;
-    let boulangerie = req.params.boulangerie;
-    let pharmacie = req.params.pharmacie;
-
-    /** =================debut de modifications=================================*/
-    let origin = [-1,-1]
-    let arrivee = [-1,-1]
-
-    origin[0] = +req.params.departX
-    origin[1] = +req.params.departY
-
-    arrivee[0] = +req.params.arriveeX
-    arrivee[1] = +req.params.arriveeY
-    /** ================= fin =================================*/
-
-    let list_POI = [];
-
-
-    /** definition du style : nature/culture/aleatoire */
-    switch(style){
-        case "nature":
-            let listNature = await pointInteret(origin, arrivee, "natural-geographical", transport)
-            
-            if(listNature){
-                  // let randN = getRandomInt(0, listNature.length)
-                // let P_nature1 = listNature[randN]
-                let indexResult = getShortestExcursion(listNature);
-                let P_nature1 = listNature[indexResult];
-
-                let P_nature = extractUtilsValue(P_nature1);
-                P_nature["description"] = "Tu passes juste à côté de ce petit coin vert, voici l'occasion parfaite pour admirer la végétation et respirer le grand air !";
-                P_nature["streetView"] = getStreetViewUrl(P_nature.coordonnees.lat,P_nature.coordonnees.lng);
-                list_POI.push({"Nature": P_nature,
-                                "distance": P_nature1.distance})
-            }
-          
-            break;
-        case "culture":
-            let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
-            // let randC = getRandomInt(0, listCulture.length)
-            // let P_culture1 = listCulture[randC]
-           if(listCulture){
-                let indexResult1 = getShortestExcursion(listCulture);
-                let P_culture1 = listCulture[indexResult1]
-
-                let P_culture = extractUtilsValue(P_culture1)
-                P_culture["description"] = "Petite halte culturelle, ce lieu historique se trouve sur ton trajet. Il s'agit d'un élément incournable du patrimoine culturel nantais !"
-                P_culture["streetView"] = getStreetViewUrl(P_culture.coordonnees.lat,P_culture.coordonnees.lng);
-                list_POI.push({"Culture": P_culture,
-                                "distance": P_culture1.distance})
-           }
-
-            
-            break;
-
-        default :
-        let themes = ["nature", "culture"]
-        let randomHasard = getRandomIntInclusive(0, 1);
-        let listHasard = await pointInteret(origin, arrivee, themes[randomHasard], transport)
-            
-        if(listHasard){
-            let randH = getRandomInt(0, listHasard.length)
-
-            let P_hasard1 = listHasard[randH]
-            let P_hasard = extractUtilsValue(P_hasard1)
-            list_POI.push({"Hasard": P_hasard,
-                            "distance": P_hasard1.distance})
-        }
-        
-    }
-
-
-=======
 async function choixLieux(boulangerie, origin, arrivee, transport, list_POI, sallesport, bar, pharmacie) {
->>>>>>> map
     /** boulangerie */
     if (boulangerie == "true") {
         let listBoul = await pointInteret(origin, arrivee, "bakery", transport)
@@ -518,8 +367,4 @@ async function getAll(req,res){
 // ************* fin ************************
 
 module.exports = getAll;
-
-
-
-
 
