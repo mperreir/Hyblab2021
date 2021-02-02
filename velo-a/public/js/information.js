@@ -175,8 +175,15 @@ function backgroundContinue(el, slides, plus) {
 	if (parent.id === "pane")
 		parent = parent.parentElement;
 	parent.setAttribute("class", "hide");
-	if (plus)
-		document.getElementById(slides[slides.indexOf(parent.id) + 1]).setAttribute("class", "show");
-	else
-		document.getElementById(slides[slides.indexOf(parent.id) - 1]).setAttribute("class", "show");
+	if (plus) {
+		document.getElementById(slides[slides.indexOf(parent.id) + 1]).setAttribute("class", "");
+		setTimeout(() => {
+			document.getElementById(slides[slides.indexOf(parent.id) + 1]).setAttribute("class", "show");
+		},50)
+	}	else {
+		document.getElementById(slides[slides.indexOf(parent.id) - 1]).setAttribute("class", "");
+		setTimeout(() => {
+			document.getElementById(slides[slides.indexOf(parent.id) - 1]).setAttribute("class", "show");
+		},50)
+	}
 }
