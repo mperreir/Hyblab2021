@@ -39,6 +39,9 @@ async function bootstrap() {
 	});
 
 	map.on('load', function () {
+		document.getElementById("map").style.visibility = "visible";
+		document.getElementById("static").style.display = "none";
+
 		if (localStorage.getItem("adresseDepart")) directions.setOrigin(localStorage.getItem("adresseDepart"));
 		else if (localStorage.getItem("adresseDepartCoord")) directions.setOrigin(localStorage.getItem("adresseDepartCoord").split(','));
 

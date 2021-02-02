@@ -14,9 +14,6 @@ body {
 	overflow: hidden; /* pour slidr dans certains navigateurs */
 }
 
-#container {
-	position: relative; /* pour permettre le positionnement en absolu des autres éléments */
-}
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 #slidr, #slidr section {
