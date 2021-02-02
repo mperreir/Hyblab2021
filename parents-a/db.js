@@ -41,7 +41,7 @@ module.exports = {
     },
 
     getParcPleinLaVue(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 1 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
+        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'] !== null)
     },
 
     getParcNonPleinLaVue(data) {
@@ -52,8 +52,10 @@ module.exports = {
         return data.filter(p => p['Nb arbre formidable'] > 40 || p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null && (p['Elements atypiques'] !== null && (p['Elements atypiques'].split(',').find(m => m === 'Art' || p['Elements atypiques'].split(',').find(m => m === 'Architecture')))))
     },
 
-    getParcBeauPaysage(data) {
-        return data.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 || p['Nb plantes'] !== null || p['Elements atypiques'].split(',').find(m => m === 'Charme naturel'))
+
+    getParcBeauPaysage(db) {
+        return db.filter(p => p['Nb arbre formidable'] > 40 && p['Indice de Shanon arbres'] > 3 || p['Nb plantes'] !== null || (p['Elements atypiques'] !== null && p['Elements atypiques'].split(',').find(m => m === 'Charme naturel')))
+
     },
 
     getParcAvecAnimaux(data) {
@@ -81,28 +83,28 @@ module.exports = {
 
 
     getDecouvrirArbre(d) {
-        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 2 )
+        return d.filter(p => p['Nb arbre formidable'] > 20 || p['Indice de Shanon arbres'] > 3)
     },
 
 
     getDecouvrirParfum(d) {
-        return d.filter(p => p['Nb arbre formidable'] > 30 || p['Indice de Shanon plantes'] > 2 || p['Indice de Shanon arbres'] > 2)
+        return d.filter(p => p['Nb arbre formidable'] > 30 && p['Indice de Shanon plantes'] > 2 || p['Indice de Shanon arbres'] > 2)
     },
 
 
     getCentre(d) {
-        return d.filter(p => p['Code postal'] === 44000 )
+        return d.filter(p => p['Code postal'] === 44000)
     },
 
     getOuest(d) {
-        return d.filter(p => p['Code postal'] === 44200 )
+        return d.filter(p => p['Code postal'] === 44200)
     },
     getNord(d) {
-        return d.filter(p => p['Code postal'] === 44300 )
+        return d.filter(p => p['Code postal'] === 44300)
     },
     getSud(d) {
-        return d.filter(p => p['Code postal'] === 44100 )
+        return d.filter(p => p['Code postal'] === 44100)
     },
-    
+
 
 }

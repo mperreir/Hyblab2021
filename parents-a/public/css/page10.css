@@ -122,18 +122,16 @@ section[data-slidr="page-10"] {
 
 #centre-contour-p10 {
     position: absolute;
-    width: 12%;
-    right: 22.93%;
-    top: 46.4%;
-    transform: rotate( 1deg);
+    width: 12.2%;
+    right: 22.8%;
+    top: 46.2%;
 }
 
 #centre-hover-p10 {
     position: absolute;
-    width: 12%;
-    right: 22.93%;
-    top: 46.4%;
-    transform: rotate( 1deg);
+    width: 12.2%;
+    right: 22.8%;
+    top: 46.2%;
     opacity: 0;
 }
 
@@ -144,17 +142,15 @@ section[data-slidr="page-10"] {
 #nord-est-contour-p10 {
     position: absolute;
     width: 20%;
-    right: 16%;
+    right: 16.2%;
     top: 20%;
-    transform: rotate( 1deg);
 }
 
 #nord-est-hover-p10 {
     position: absolute;
-    width: 27.1%;
-    right: 11.7%;
-    top: 20.3%;
-    transform: rotate( 1deg);
+    width: 27.4%;
+    right: 11.8%;
+    top: 20%;
     opacity: 0;
 }
 
@@ -166,16 +162,14 @@ section[data-slidr="page-10"] {
     position: absolute;
     width: 12.8%;
     right: 33%;
-    top: 47.3%;
-    transform: rotate( 363deg);
+    top: 47.8%;
 }
 
 #ouest-hover-p10 {
     position: absolute;
-    width: 13.6%;
-    right: 32.1%;
-    top: 48%;
-    transform: rotate( 363deg);
+    width: 13.9%;
+    right: 31.7%;
+    top: 48.1%;
     opacity: 0;
 }
 
@@ -185,18 +179,16 @@ section[data-slidr="page-10"] {
 
 #sud-contour-p10 {
     position: absolute;
-    width: 15%;
-    right: 21.0%;
-    top: 55.9%;
-    transform: rotate( 362deg);
+    width: 17%;
+    right: 19.2%;
+    top: 54.8%;
 }
 
 #sud-hover-p10 {
     position: absolute;
-    width: 15%;
-    right: 21.0%;
-    top: 55.9%;
-    transform: rotate( 362deg);
+    width: 17%;
+    right: 19.1%;
+    top: 54.9%;
     opacity: 0;
 }
 

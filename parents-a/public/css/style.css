@@ -50,7 +50,9 @@ section {
     height: 100%;
 }
 
+
 /* Boutons */
+
 .button {
     position: absolute;
     border-radius: 50%;
@@ -60,27 +62,33 @@ section {
     cursor: pointer;
     outline: none;
     background-color: transparent;
+    opacity: 0.3;
 }
 
-.button:hover{
-  /* Only design change */
-  border: 3px solid #fff;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
+.button:hover {
+    opacity: 1;
 }
 
 
 /* Bouton question precédente */
+
 .button_retour {
     /* Position */
-    left: 4%;
-    top: 5%;
+    left: 9%;
     cursor: pointer;
     border-radius: 5%;
     outline: none;
 }
 
+.home,
+.button_retour {
+    top: 5%;
+    cursor: pointer;
+}
+
+.home {
+    left: 3%;
+}
 
 #texte_question_precedente {
     position: absolute;
@@ -89,7 +97,9 @@ section {
     left: 9%;
 }
 
+
 /* Bouton retour acceuil*/
+
 #button_acceuil {
     /* Position */
     left: 37%;
@@ -98,6 +108,7 @@ section {
     cursor: pointer;
     outline: none;
 }
+
 #button_accueil:hover {
     /* Only design change */
     left: 37%;
@@ -106,12 +117,14 @@ section {
     cursor: pointer;
     outline: none;
 }
+
 #texte_retour_accueil {
     position: absolute;
     width: 13%;
     bottom: 11%;
     right: 45%;
 }
+
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
 
@@ -173,4 +186,11 @@ dessus de l'apect ratio 16/9 */
     body {
         font-size: 16vh;
     }
+}
+
+.mute {
+    position: absolute;
+    width: 3%;
+    top: 5.2%;
+    right: 69%;
 }

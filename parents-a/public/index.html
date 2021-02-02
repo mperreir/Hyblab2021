@@ -59,7 +59,7 @@
 
             <!-- Page une bis - Transition -->
             <section data-slidr="page-1-1" id="t">
-                <img src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p1-1">
+                <img src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p1-1" class="arbre">
                 <img src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p1-1">
                 <img src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p1-1">
                 <img src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p1-1">
@@ -71,11 +71,11 @@
             <!-- Page deux - Introduction -->
             <section data-slidr="page-2" id="page-2">
                 <img data-src="img/logo.png" alt="logo" id="logo-p2">
-                <img data-src="img/decors/arbres/arbre-bleu.png" alt="arbre-bleu" id="arbre-bleu-p2">
+                <img data-src="img/decors/arbres/arbre-bleu.png" alt="arbre-bleu" id="arbre-bleu-p2" class="arbre">
                 <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p2">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p2">
                 <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p2">
-                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p2">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p2" class="arbre">
                 <img data-src="img/decors/sols/dune1.png" alt="dune1" id="dune1-p2">
                 <img data-src="img/decors/sols/petite-pelouse-gauche.png" alt="petite-pelouse-gauche" id="petite-pelouse-gauche-p2">
                 <img data-src="img/slides/page2/chaise.png" alt="chaise" id="chaise-p2">
@@ -113,9 +113,13 @@
                 <img data-src="img/slides/page_age/mascotte.png" alt="neuf-ans-mascotte" id="neuf-ans-mascotte-p2-1" class="eleph">
                 <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p2-1">
                 <img data-src="img/decors/ciel/petit-nuage.png" alt="petit_nuage" id="petit_nuage-p2-1">
-
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour d-inline-block"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
+
             </section>
 
             <!-- Page 3 : T'es un aventurier ? -->
@@ -126,8 +130,8 @@
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p3">
                 <!-- CSS à faire -->
                 <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p3">
-                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p3">
-                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p3">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p3" class="arbre">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p3" class="arbre">
                 <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-p3">
                 <img data-src="img/slides/page3/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p3">
                 <img data-src="img/slides/page3/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p3">
@@ -137,10 +141,12 @@
                 <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p3">
                 <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p3">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p3">
-
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
-
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
             </section>
 
             <!-- Page 4 : Plein la vue ? -->
@@ -159,8 +165,12 @@
                 <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-p4">
                 <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p4">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p4">
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
 
             </section>
 
@@ -182,9 +192,12 @@
                 <img data-src="img/slides/page7/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p7">
                 <img data-src="img/slides/page7/texte-droite.svg" alt="texte-droite" id="texte-droite-p7">
                 <img data-src="img/slides/page7/question.svg" alt="question" id="question-p7">
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
-
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
             </section>
 
             <!-- Page 5 : Preference entre beau décor et paysages ? -->
@@ -193,7 +206,7 @@
                 <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p5">
                 <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p5">
                 <img data-src="img/decors/vegetation/arbuste-bleu-nuage.png" alt="arbuste-bleu-nuage" id="arbuste-bleu-nuage-p5">
-                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p5">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p5" class="arbre">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p5">
                 <img data-src="img/decors/sols/dune4.png" alt="dune4" id="dune4-p5">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p5">
@@ -203,8 +216,12 @@
                 <img data-src="img/slides/page5/button-droite.gif" alt="button-droite" id="button-droite-p5">
                 <img data-src="img/slides/page5/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p5">
                 <img data-src="img/slides/page5/texte-droite.svg" alt="texte-droite" id="texte-droite-p5">
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
 
             </section>
 
@@ -213,7 +230,7 @@
                 <img data-src="img/slides/page8/question.svg" alt="question" id="question-p8">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p8">
                 <img data-src="img/decors/sols/dune5.png" alt="dune5" id="dune5-p8">
-                <img data-src="img/decors/arbres/arbre-carotte.png" alt="arbre-carotte" id="arbre-carotte-p8">
+                <img data-src="img/decors/arbres/arbre-carotte.png" alt="arbre-carotte" id="arbre-carotte-p8" class="arbre">
                 <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p8">
                 <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p8">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p8">
@@ -224,15 +241,18 @@
                 <img data-src="img/slides/page8/texte-droite.svg" alt="texte-droite" id="texte-droite-p8">
                 <img data-src="img/slides/page8/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p8">
                 <img data-src="img/logo.png" alt="logo" id="logo-p8">
-
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
             </section>
 
             <!-- Page 9 : Voir des animaux -->
             <section data-slidr="page-9" id="page-9">
                 <img data-src="img/logo.png" alt="logo" id="logo-p9">
-                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p9">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p9" class="arbre">
                 <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p9">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p9">
                 <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue2" id="feuille-bleue2-p9">
@@ -247,14 +267,21 @@
                 <img data-src="img/slides/page9/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p9">
                 <img data-src="img/slides/page9/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p9">
                 <img data-src="img/slides/page9/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p9">
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
+
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
+
             </section>
 
             <!-- Page 6 : Sentir de nouveaux parfums ? -->
             <section data-slidr="page-6" id="page-6">
                 <img data-src="img/slides/page6/question.svg" alt="question" id="question-p6">
                 <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p6">
-                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p6">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p6" class="arbre">
                 <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-p6">
                 <img data-src="img/slides/page6/texte-droite.svg" alt="texte-droite" id="texte-droite-p6">
                 <img data-src="img/slides/page6/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p6">
@@ -262,12 +289,17 @@
                 <img data-src="img/slides/page6/bouton-gauche.gif" alt="boutton-gauche" id="boutton-gauche-p6">
                 <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p6">
                 <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p6">
-                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p6">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p6" class="arbre">
                 <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p6">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p6">
                 <img data-src="img/logo.png" alt="logo" id="logo-p6">
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
                 <!-- Bouttons retours arriere -->
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
+
             </section>
 
             <!-- Page 10 : Ou dans Nantes -->
@@ -278,7 +310,7 @@
                 <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
                 <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p10">
                 <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p10">
-                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p10">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p10" class="arbre">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p10">
                 <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue2" id="feuille-bleue2-p10">
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
@@ -293,7 +325,14 @@
                 <img data-src="img/slides/page10/ouest-hover.svg" alt="ouest-hover" id="ouest-hover-p10">
                 <img data-src="img/slides/page10/centre-hover.svg" alt="centre-hover" id="centre-hover-p10">
                 <img data-src="img/slides/page10/bouton-peu-importe.svg" alt="bouton-peu-importe" id="bouton-peu-importe-p10">
-                <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
+
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
+
             </section>
 
             <!-- Page de résultats -->
@@ -310,11 +349,11 @@
 
                 <img data-src="img/logo.png" alt="logo" class="logo-p10">
                 <img data-src="img/slides/page_resultats/titre.svg" alt="titre" id="titre-pr">
-               
+
                 <!-- Boutons informations-->
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr" class="bouton-info parc1" type="button" data-toggle="modal" data-target="#modalResult" >
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr"class="bouton-info parc2" type="button" data-toggle="modal" data-target="#modalResult" >
-                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr" class="bouton-info parc3" type="button" data-toggle="modal" data-target="#modalResult" >
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr" class="bouton-info parc1" type="button" data-toggle="modal" data-target="#modalResult">
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr" class="bouton-info parc2" type="button" data-toggle="modal" data-target="#modalResult">
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr" class="bouton-info parc3" type="button" data-toggle="modal" data-target="#modalResult">
 
 
                 <!-- Add button (img) "revenir en arrière" -->
@@ -323,27 +362,22 @@
                 <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
                 <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-pr">
                 <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-pr">
-                <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random1">
-                <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random2">
-                <img data-src="img/slides/page_resultats/random.svg" alt="random" id="random3">
+                <button class='button' id="random1"><i class="fas fa-sync"></i></button>
+                <button class='button' id="random2"><i class="fas fa-sync"></i></button>
+                <button class='button' id="random3"><i class="fas fa-sync"></i></button>
 
                 <button id="credits-b" class="button">Crédits</button>
-                <button class="button button_retour accueil"><i class="fas fa-arrow-left"></i>Retour à l'accueil</button>
-
-
-                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc1">
-                    <div id="img1" class="img-result"></div>
-                </button>
-                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc2">
-                    <div id="img2" class="img-result"></div>
-                </button>
-                <button type="button" data-toggle="modal" data-target="#modalResult" class="parc3">
-                    <div id="img3" class="img-result"></div>
-                </button>
+                <div id="img1" class="img-result parc1" type="button" data-toggle="modal" data-target="#modalResult"> </div>
+                <div id="img2" class="img-result parc2" type="button" data-toggle="modal" data-target="#modalResult"></div>
+                <div id="img3" class="img-result parc3" type="button" data-toggle="modal" data-target="#modalResult"></div>
 
                 <button type="button" data-toggle="modal" data-target="#compare" id="compare-btn" class="button">Comparer les parcs</button>
 
-
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
 
             </section>
 
@@ -372,6 +406,12 @@
                 <img data-src="img/credits/logo_UN.svg" alt="logo_UN" id="logo_UN-credits">
                 <img data-src="img/credits/logo_opensource.svg" alt="logo_opensource" id="logo_opensource-credits">
                 <img data-src="img/credits/logo_cc.svg" alt="logo_cc" id="logo_cc-credits">
+                <button class="button mute"><i class="fas fa-volume-mute"></i></button>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row">
+                    <button class="button home"><i class="fas fa-home"></i></button>
+                    <button class="button button_retour"><i class="fas fa-arrow-left"></i>  Question précédente</button>
+                </div>
             </section>
 
         </main>
@@ -390,42 +430,42 @@
             <div class="modal-body">
                 <div class="d-flex flex-row" id="divdesc">
                     <i class="fa fa-pencil mx-2"></i>
-                    <p>Descriptif : </p>
+                    <p>Descriptif: </p>
                     <p id="desc" class="mx-2"></p>
                 </div>
                 <div class="d-flex flex-row">
                     <i class="fas fa-map-marker-alt mx-2"></i>
-                    <p>Adresse : </p>
+                    <p>Adresse: </p>
                     <p id="addr" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="fas fa-train mx-2"> </i>
-                    <p>Accessibilité : </p>
-                    <p id="acces" class="mx-2" ></p>
+                    <p>Accessibilité: </p>
+                    <p id="acces" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row ">
                     <i class="fas fa-restroom mx-2"></i>
-                    <p>Toilettes :</p>
+                    <p>Toilettes: </p>
                     <p id="wc" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row ">
                     <i class="fas fa-wheelchair mx-2"></i>
-                    <p>Pour handicapé : </p>
+                    <p>Pour handicapé: </p>
                     <p id="handi" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="fas fa-dog mx-2"></i>
-                    <p>Chien autorisé : </p>
+                    <p>Chien autorisé: </p>
                     <p id="dog" class="mx-2"></p>
                 </div>
 
                 <div class="d-flex flex-row">
                     <i class="mx-2"><img src="img/page_resultats/table.png" alt="table" id="table-img"></i>
-                    <p>Table de jardin : </p>
+                    <p>Table de jardin: </p>
                     <p id="table" class="mx-2"></p>
                 </div>
             </div>
@@ -444,9 +484,6 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="col" id="chart">
-                    <canvas id="myChart"></canvas>
-                </div>
                 <div class="col" id="chart1">
                     <canvas id="myChart1"></canvas>
                 </div>
@@ -455,6 +492,9 @@
                 </div>
                 <div class="col" id="chart3">
                     <canvas id="myChart3"></canvas>
+                </div>
+                <div class="col" id="chart">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>

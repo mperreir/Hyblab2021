@@ -55,6 +55,7 @@ router.post('/parc/aventurier/plein-la-vue/beau-decor', body_parser.json(), (req
 
 
 router.post('/parc/aventurier/plein-la-vue/beau-paysage', body_parser.json(), (req, res) => {
+    console.log(req.body.data);
     res.json(db.getParcBeauPaysage(req.body.data))
 });
 

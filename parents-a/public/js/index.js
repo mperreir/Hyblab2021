@@ -1,14 +1,12 @@
-var element = document.querySelector("#container");
-
-
-
-
 //Mon objet stockant mes données 
 let data = []
 let route = []
-    // init du slider (qui peut aussi faire des fondus enchainé)
+let soundBack;;
+
+
+// init du slider (qui peut aussi faire des fondus enchainé)
 let mySlidr = slidr.create('slidr', {
-    breadcrumbs: true,
+    breadcrumbs: false,
     controls: 'none',
     direction: 'horizontal',
     fade: false,
@@ -66,28 +64,45 @@ let loadComponent = function(p) {
     });
 }
 
+let playSoundFlore = function() {
+    const s = new sound('sound/bruitFeuille.mp3', true, 0.2);
+    s.play();
+}
+
+let playSoundEleph = function() {
+    const s = new sound('sound/elephant8.mp3', true, 0.2);
+    s.play();
+}
+
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
-
     d3.select('#logo').on('click', function() {
-        const s = new sound('sound/back.mp3', true, 0.1);
-        s.play()
-            // make the element go to full-screen mode
-        element.requestFullscreen()
-            .then(function() {
-                // element has entered fullscreen mode successfully
-            })
-            .catch(function(error) {
-                // element could not enter fullscreen mode
-            });
+        soundBack = new sound('sound/back.mp3', true, 0.1);
+        soundBack.play();
+        isPlayed = true;
+        muteBack();
         loadComponent(2);
         nextSlide('1-1');
-
     });
+}
+
+
+function muteBack() {
+    const btn = document.getElementsByClassName('mute');
+    for (const b of btn) {
+        b.addEventListener('click', () => {
+            isPlayed === true ? soundBack.changeVolume(0) : soundBack.changeVolume(0.2);
+            isPlayed = !isPlayed;
+        });
+    }
 }
 
 //Slide de transi 
 let initSlide1_1 = function() {
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
 
     //Transi 1.2 vers 2(Camille)
     d3.select('#t').on('click', function() {
@@ -114,6 +129,14 @@ function appear(id) {
 let initSlide2 = function() {
     //Transi Camille to Pret a démarrer 
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
+
+    d3.select('#mascotte-p2').on('mouseover', function() {
+        playSoundEleph();
+    });
+
     d3.select('#button-p2').on('click', function() {
 
         //Disparition de la 1 bulle 
@@ -132,11 +155,6 @@ let initSlide2 = function() {
         route.push('2');
 
     });
-    //Retour arriere
-    d3.select('.button_retour').on('click', function() {
-        nextSlide('1')
-    });
-
 }
 
 //Age ?
@@ -161,11 +179,15 @@ let initSlide2_1 = function() {
 
     });
 
-
+    muteBack();
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function(e) {
         console.log(d3.event.target.id);
         nextSlide('2')
+    });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -173,8 +195,12 @@ let initSlide2_1 = function() {
 let initSlide3 = function() {
     /* Chargements des images des slides 4 et 7 */
     loadComponent('4');
-    loadComponent('7')
-        //Aventurier -> Plein la vue
+    loadComponent('7');
+    //Aventurier -> Plein la vue
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select('#bouton-droite-p3').on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier", { mode: 'no-cors' }).then(response => response.json()).then(d => { return d });
         nextSlide('7', data);
@@ -186,13 +212,16 @@ let initSlide3 = function() {
         nextSlide('4', data);
         route.push('3');
         console.log(data);
-        const s = new sound('sound/elephant8.mp3', false, 0.1);
-        s.play();
-
     });
     //Retour arriere
     d3.selectAll('.button_retour').on('click', function() {
-        nextSlide(route.pop());
+        nextSlide('2-1', data);
+    });
+
+    muteBack();
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -218,14 +247,22 @@ let initSlide4 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
+    muteBack();
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 //Okey mais Avec quoi
 let initSlide5 = function(db) {
     /* Chargements des images des slides 9 et 10 */
     loadComponent('9');
-    loadComponent('10')
+    loadComponent('10');
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     //Plein la vue -> avec quoi 
     d3.select("#button-gauche-p5").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-decor", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -247,12 +284,21 @@ let initSlide5 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop());
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
+    muteBack();
 }
 
 
 let initSlide6 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#boutton-gauche-p6").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/nature/parfums", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 10);
@@ -270,6 +316,11 @@ let initSlide6 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
+    muteBack();
 }
 
 
@@ -294,6 +345,11 @@ let initSlide7 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
+    muteBack();
 }
 
 // /Decouverte d'arbres différents 
@@ -302,7 +358,11 @@ let initSlide7 = function(db) {
 let initSlide8 = function(db) {
     /* Chargements des images des slides 6 et 10 */
     loadComponent('6');
-    loadComponent('10')
+    loadComponent('10');
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#bouton-gauche-p8").on('click', async function() {
         data = await fetch("/parents-a/parc/non-aventurier/animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('6', data);
@@ -318,11 +378,21 @@ let initSlide8 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    muteBack();
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
 }
 
 let initSlide9 = function(db) {
     /* Chargements des images de la slide 10 */
     loadComponent('10');
+
+
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
 
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
@@ -340,6 +410,11 @@ let initSlide9 = function(db) {
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
     });
+    //Retour accueil
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
+    });
+    muteBack();
 }
 
 function getRandomInt(max) {
@@ -374,6 +449,9 @@ let initSlide10 = function(db) {
     /* Chargements des images de la slide resultats */
     loadComponent('resultats');
 
+    d3.selectAll('.arbre').on('mouseover', function() {
+        playSoundFlore();
+    });
     d3.select("#sud-hover-p10").on('click', async function() {
         data = await fetch("/parents-a/parc/Sud", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         checkData(data, db, 3);
@@ -407,8 +485,13 @@ let initSlide10 = function(db) {
         nextSlide('resultats', data);
         route.push('10');
     });
+    muteBack();
     d3.selectAll('.button_retour').on('click', function() {
         nextSlide(route.pop(), db);
+    });
+
+    d3.selectAll('.home').on('click', function() {
+        nextSlide('2');
     });
 }
 
@@ -418,11 +501,15 @@ let initSlideResultat = function(db) {
     loadComponent('credits');
     const charts = ['chart', 'chart1', 'chart2', 'chart3'];
     const myCharts = ['myChart', 'myChart1', 'myChart2', 'myChart3'];
+    const containers = ['parc1-pr', 'parc2-pr', 'parc3-pr'];
+    playSoundEleph();
+
     d3.select("#bouton-gauche-p9").on('click', async function() {
         data = await fetch("/parents-a/parc/aventurier/plein-la-vue/beau-paysage/avec-animaux", { method: "POST", body: JSON.stringify({ "data": db }), headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' } }).then(response => response.json()).then(d => { return d });
         nextSlide('10', data);
         console.log(data);
     });
+
     d3.select("#bouton-droite-p9").on('click', async function() {
         nextSlide('10', data);
         console.log(data);
@@ -431,15 +518,11 @@ let initSlideResultat = function(db) {
     d3.select('#parc2-titre').text(function(d) { return data[1]['Nom formel'] });
     d3.select('#parc3-titre').text(function(d) { return data[0]['Nom formel'] });
 
-    d3.selectAll('.accueil').on('click', function() {
-        nextSlide('2')
-    });
-
     d3.select('#credits-b').on('click', function() {
         nextSlide('credits')
     });
 
-
+    muteBack();
     d3.select('#random2').on('click', () => {
         console.log('random 2');
         console.log(db);
@@ -517,12 +600,25 @@ let initSlideResultat = function(db) {
         giveInfo(podium, 3)
     });
 
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide(route.pop(), db);
+    });
+
+    d3.selectAll('.home').on('click', function() {
+        clearElement(containers);
+        nextSlide('2');
+    });
+
 }
 
 let initSlideCredit = function(db) {
 
-    d3.selectAll('.accueil').on('click', function() {
+    d3.selectAll('.home').on('click', function() {
         nextSlide('2')
+    });
+
+    d3.selectAll('.button_retour').on('click', function() {
+        nextSlide('resultats')
     });
 }
 
@@ -594,7 +690,7 @@ function chooseimage(data, div) {
         div.firstChild.src = "img/parcs/lambda-2.jpg"
     }
     if (num[0] === "3" && div.firstChild.src === "" || div.firstChild.src === undefined) {
-        div.firstChild.src = "img/parcs/lambda-1.jpg"
+        div.firstChild.src = "img/parcs/download.jpeg"
     }
 }
 
@@ -768,6 +864,9 @@ function sound(src, loop, volume) {
     }
     this.stop = function() {
         this.sound.pause();
+    }
+    this.changeVolume = function(vol) {
+        this.sound.volume = vol;
     }
 }
 
