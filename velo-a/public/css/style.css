@@ -234,6 +234,35 @@ header .logo {
 	border-top-color: #F96D48 !important;
 }
 
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+	margin-right: 25px;
+	border-left-color: #F96D48 !important;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+	margin-left: 25px;
+	border-right-color: #F96D48 !important;
+}
+
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+	margin: 25px 0 0 25px;
+	border-bottom-color: #F96D48 !important;
+}
+
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+	margin-: 25px 25px 0 0;
+	border-bottom-color: #F96D48 !important;
+}
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+	margin: 0 0 25px 25px;
+	border-top-color: #F96D48 !important;
+}
+
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+	margin: 0 25px 25px 0;
+	border-top-color: #F96D48 !important;
+}
+
 .mapboxgl-popup-content {
 	border: 4px solid #F96D48;
 	padding: 20px;
