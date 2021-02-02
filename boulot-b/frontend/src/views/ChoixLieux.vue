@@ -63,8 +63,12 @@ export default {
         boulangerie: this.boulangerie,
         bar: this.bar,
         salleDeSport: this.salleDeSport})
+      try {
         await this.$root.$data.fetchTrajet()
         this.$root.$data.setActif(this.actif +1)
+      } catch(e) {
+        this.message = "Désolé, je n'ai pas trouvé de chemin"
+      }
     },
     checkPharmacie() {
       this.pharmacie = !this.pharmacie;
