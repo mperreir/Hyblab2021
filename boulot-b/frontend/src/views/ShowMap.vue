@@ -1,13 +1,13 @@
 <template>
-  <container>
-    <template #question>
-      <finalMap />
-      <ButtonCustom  @click="credits" text="Crédits" color="yellow"/>
-    </template>
-    <template #stepper>
-      <Stepper :actif=actif />
-    </template>
-  </container>
+    <container>
+      <template #question>
+        <finalMap />
+      </template>
+      <template #stepper>
+        <Stepper :actif=actif />
+      </template>
+      <ButtonCustom class="credit"  @click="credits" text="Crédits" color="yellow"/>
+    </container>
 </template>
 
 <script lang="js">
@@ -43,5 +43,11 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+
+.credit {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
 
 </style>

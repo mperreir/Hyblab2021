@@ -1,6 +1,6 @@
 <template>
   <keep-alive>
-    <transition :name="transition" mode="out-in">
+    <transition name="fade" mode="out-in">
       <component  :actif="actif" :is="view"></component>
     </transition>
   </keep-alive>
@@ -32,14 +32,12 @@ export default {
   name: "QuestionnaireContainer",
   data() {
     return {
-      transition: "slide_bas",
       actif: 0,
       view: ChoixDestination
     }
   },
   mounted() {
     this.$root.$data.subscribe("actif", (nextActif) => {
-      this.transition =  nextActif < this.actif ?  "slide_haut" : "slide_bas"
       this.actif = nextActif
       const indexView = Views.findIndex((view) => view.actif === this.actif)
       this.view = Views[indexView]?.component
@@ -54,42 +52,12 @@ export default {
 </script>
 
 <style scoped>
-  .slide_bas-enter {
-    transform: translateY(100%);
-  }
-  .slide_bas-enter-to {
-    transform: translateY(0);
-  }
-  .slide_bas-enter-active {
-    position: absolute;
-  }
-  .slide_bas-leave {
-    transform: translateY(0);
-  }
-  .slide_bas-leave-to {
-    transform: translateY(-100%);
-  }
-  .slide_bas-enter-active, .slide_bas-leave-active {
-    transition: all 1s ease-in;
-  }
 
-  .slide_haut-enter {
-    transform: translateY(-100%);
-  }
-  .slide_haut-enter-to {
-    transform: translateY(0);
-  }
-  .slide_haut-enter-active {
-    position: absolute;
-  }
-  .slide_haut-leave {
-    transform: translateY(0);
-  }
-  .slide_haut-leave-to {
-    transform: translateY(100%);
-  }
-  .slide_haut-enter-active, .slide_haut-leave-active {
-    transition: all 1s ease-in;
-  }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
 </style>
