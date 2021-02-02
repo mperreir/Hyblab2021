@@ -108,11 +108,12 @@ async function pointInteret(coordonneeD, coordoneeA, theme, transport){
     milieu[1] = (depart[1] + arriver[1])/2
 
 
-    let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI)
+    let routePolylineAPI = await fetchAsync(`https://router.hereapi.com/v8/routes?alternatives=0&origin=${depart[0]},${depart[1]}&transportMode=${transport}&destination=${arriver[0]},${arriver[1]}&return=polyline,summary,routeHandle&apikey=-2tUjsluW_sYRxJK8MewPG0ug4AfXEUC7I1aPAd5RV4`)//routeAPI) 
+
+    const routePolyline = routePolylineAPI.routes[0].sections[0].polyline
     if (!routePolylineAPI.routes.length) {
-        throw new Error("Aucune chemin trouvé")
+        throw new Error("Aucun chemin trouvé")
     }
-    let routePolyline = routePolylineAPI.routes[0].sections[0].polyline
 
     let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=${milieu[0]},${milieu[1]}&limit=10&route=${routePolyline}&q=${theme}`
     // let URI = ` https://discover.search.hereapi.com/v1/discover?apiKey=joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto&at=${optimal[0]},${optimal[1]}&limit=10&route=${routePolyline}&q=${theme}`
@@ -284,7 +285,6 @@ async function choixStyle(style, origin, arrivee, transport, list_POI) {
                 "distance": P_nature1.distance
             })
         }
-
     } else if (style === "culture") {
         let listCulture = await pointInteret(origin, arrivee, "tourist-attraction", transport)
         // let randC = getRandomInt(0, listCulture.length)
@@ -301,6 +301,7 @@ async function choixStyle(style, origin, arrivee, transport, list_POI) {
                 "distance": P_culture1.distance
             })
         }
+
     } else {
         let themes = ["nature", "culture"]
         let randomHasard = getRandomIntInclusive(0, 1);
@@ -343,30 +344,27 @@ async function getAll(req,res){
     try {
         await choixStyle(style, origin, arrivee, transport, list_POI);
         await choixLieux(boulangerie, origin, arrivee, transport, list_POI, sallesport, bar, pharmacie);
+
         list_POI = list_POI.sort(function(a, b){
             return a.distance-b.distance;
         })
 
 
         /** la reponse retourner */
-        const reponseJSON = {
+        let reponseJSON = {
             Depart : origin,
             Arrivee : arrivee,
             POI : list_POI
         };
-        res.status(200).json(reponseJSON);
-    } catch (error) {
-        res.status(404).json(error.message)
-    }
 
+        res.status(200).json(reponseJSON);
+    } catch (e) {
+        res.status(404).json(e.message)
+    }
 
 };
 
 // ************* fin ************************
 
 module.exports = getAll;
-
-
-
-
 

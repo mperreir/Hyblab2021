@@ -124,7 +124,7 @@ function iconFactory(namePOI, divMap) {
   console.log(namePOI)
   console.log('ref div')
   console.log(divMap)
-  function createIcon(img, divMap, width = 20, height = 20) {
+  function createIcon(img, divMap, width = 25, height = 25) {
     const image = document.createElement('img');
     image.src = img
     image.width = width;
@@ -197,7 +197,7 @@ function iconFactory(namePOI, divMap) {
     case 'SalleSport':
       return createIcon(haltere, divMap);
     case 'Bar':
-      return createIcon(verre, divMap, 10, 20);
+      return createIcon(verre, divMap, 15, 25);
     case 'Pharmacie':
       return createIcon(medicament, divMap);
     case 'Origine':
