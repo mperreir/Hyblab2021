@@ -31,10 +31,10 @@ function load(page) {
 			buttons.item(2).innerText = "15°C";
 			buttons.item(3).innerText = "19.3°C";
 
-			buttons.item(0).addEventListener("click", () => { bicky(false, "Oh non !"); });
-			buttons.item(1).addEventListener("click", () => { bicky(true, "Bien joué l'artiste !"); });
-			buttons.item(2).addEventListener("click", () => { bicky(false, "Oh non !"); });
-			buttons.item(3).addEventListener("click", () => { bicky(false, "Oh non !"); });
+			buttons.item(0).addEventListener("click", () => { bicky(false, "Oh non !"); });
+			buttons.item(1).addEventListener("click", () => { bicky(true, "Bien joué l'artiste !"); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "Oh non !"); });
+			buttons.item(3).addEventListener("click", () => { bicky(false, "Oh non !"); });
 
 			for( let i = 0; i < answers.length; i++ ){
 				answers.item(i).style.opacity = "1";
@@ -61,7 +61,7 @@ function load(page) {
 			p = document.createElement("p");
 			p.appendChild(document.createTextNode("D’ailleurs le savais-tu ?"));
 			p.appendChild(br());
-			p.appendChild(bold("Le vêtement de pluie est un incontournable du cycliste quotidien nantais !"));
+			p.appendChild(bold("Le vêtement de pluie est un incontournable du cycliste quotidien nantais !"));
 			listP.push(p);
 
 			p = document.createElement("p");
@@ -94,10 +94,10 @@ function load(page) {
 			buttons.item(2).innerText = "22 grammes";
 			buttons.item(3).innerText = "30 grammes";
 
-			buttons.item(0).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
-			buttons.item(1).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
-			buttons.item(2).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
-			buttons.item(3).addEventListener("click", () => { bicky(true, "Tip top toi !"); });
+			buttons.item(0).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(1).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(2).addEventListener("click", () => { bicky(false, "Pas de bol !"); });
+			buttons.item(3).addEventListener("click", () => { bicky(true, "Tip top toi !"); });
 
 			for( let i = 0; i < answers.length; i++ ){
 				answers.item(i).style.opacity = "1";
@@ -114,7 +114,7 @@ function load(page) {
 			listP.push(p);
 
 			p = document.createElement("p");
-			p.appendChild(document.createTextNode("Allez, sors ton maillot de cycliste pour le bien de la planète !"));
+			p.appendChild(document.createTextNode("Allez, sors ton maillot de cycliste pour le bien de la planète !"));
 			listP.push(p);
 
 			p = document.createElement("p");
@@ -164,7 +164,7 @@ function load(page) {
 			p.appendChild(document.createTextNode(", faire du vélo améliore l’endurance, mais aussi l’équilibre. " +
 				"Il permet de se muscler, notamment au niveau des mollets, cuisses et fessiers. De plus, il n’a pas de " +
 				"contre-indication, autrement dit tout le monde peut l’utiliser même pour de la rééducation. Alors, " +
-				"plus aucune excuse !"));
+				"plus aucune excuse !"));
 			listP.push(p);
 
 			p = document.createElement("p");
@@ -219,7 +219,7 @@ function load(page) {
 
 			p = document.createElement("p");
 			p.appendChild(document.createTextNode("Une initiative qui donne un vrai coup de guidon à l’utilisation du " +
-				"vélo dans la vie de tous les jours, comme une solide alternative à la voiture !"));
+				"vélo dans la vie de tous les jours, comme une solide alternative à la voiture !"));
 			listP.push(p);
 
 			p = document.createElement("p");

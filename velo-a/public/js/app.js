@@ -95,6 +95,10 @@ async function bootstrap() {
 				// open the popup
 				marker._popup.addTo(map)
 				openMarker = marker;
+
+				document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseleave", function () {
+					if (openMarker) openMarker._popup.remove();
+				})
 			});
 
 			marker = new mapboxgl.Marker(el)
