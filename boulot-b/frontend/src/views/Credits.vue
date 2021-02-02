@@ -25,7 +25,7 @@
                 <p>Tran Mickaël Lumière</p>
             </div>
             <div id="liens">
-                <p>données et informations</p>
+                <p>Données et informations</p>
                 <a href="https://www.nantes-tourisme.com/fr">www.nantes-tourisme.com</a>
                 <a href="https://fr.wikipedia.org/">fr.wikipedia.org</a>
                 <a href="https://metropole.nantes.fr/">metropole.nantes.fr</a>
@@ -64,7 +64,7 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     bottom: 0;
     top: 0;
     left: 0;
@@ -74,12 +74,13 @@ export default {
 }
 #logo_wazzo {
     width: 100%;
+    height: 20%;
     display: flex;
     align-content: center;
     justify-content: center;
 }
 #wazzo {
-    width: 12%;
+    width: 30%;
     padding-top: 3%;
     padding-bottom: 2%;
     cursor: pointer;
@@ -91,7 +92,7 @@ h1 {
 #auteurs {
     display: flex;
     flex-wrap: wrap;
-    min-height: 15%;
+    min-width: 615px;
     justify-content: center;
     align-content: center;
 }
@@ -99,6 +100,7 @@ h1 {
     text-align: center;
     padding: 25px;
     width: 20%;
+    min-width: 355px;
 }
 #devs {
     display: flex;
@@ -113,15 +115,22 @@ h1 {
     width: 100%;
 }
 #devs p {
-    width: 45%;
     padding-right: 5px;
 }
 #liens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     text-align: center;
 }
+#liens a, #liens p {
+    width: 20%;
+    min-width: 280px;
+}
 a {
-    display: block;
+    display: inline-block;
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -136,7 +145,7 @@ a {
     align-content: center;
     justify-content: space-between;
     background: white;
-    min-height: 10vh;
+    /* min-height: 10%; */
     padding: 15px;
 }
 .logo {
