@@ -9,7 +9,7 @@
             :error="error.depart"
             v-model="departlabel"
             class="depart"
-            placeholder="Point de départ..."
+            placeholder="Adresse du lieu de travail..."
           />
           <ul class="depart-result-list" >
             <li
@@ -29,7 +29,7 @@
             @input="getAddressArrive"
             v-model="arriveelabel"
             class="arrive"
-            placeholder="Point d'arrivée..."
+            placeholder="Adresse du domicile..."
           />
           <ul class="arrivee-result-list">
             <li
@@ -78,7 +78,7 @@ export default {
       arriveelabel: undefined,
       suggestionsdepart: [],
       suggestionarrivee: [],
-      message: "Très bien, d’où pars-tu ?",
+      message: "Tout d'abord, d’où pars-tu ?",
       error: { depart: false, arrivee: false },
     };
   },

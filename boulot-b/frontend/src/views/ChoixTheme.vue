@@ -11,7 +11,7 @@
       <Buildings/>
     </template>
     <template #canari>
-      <Oiseau message="Je te propose plusieurs thèmes pour ton trajet, lequel préfères-tu ?"/>
+      <Oiseau message="Je te propose plusieurs thèmes pour adapter ton trajet, lequel préfères-tu ?"/>
     </template>
     <img id="nuage1" src="@/assets/nuages_svg/nuage3.svg" alt="nuage"/>
     <template #stepper>
