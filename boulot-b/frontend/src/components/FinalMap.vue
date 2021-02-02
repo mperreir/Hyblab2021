@@ -14,7 +14,6 @@ import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
 import destination from '@/assets/map/destination.svg'
 import origine from '@/assets/map/origin.svg'
-import {http} from "@/config";
 
 
 export default Vue.component("finalMap", {
@@ -36,7 +35,8 @@ export default Vue.component("finalMap", {
       window.addEventListener('resize', () => map.getViewPort().resize());
     // Permet le zoom
       new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-      H.ui.UI.createDefault(map, defaultLayers);
+      const ui = H.ui.UI.createDefault(map, defaultLayers);
+      addInfoBubble(map, ui, this.$root.$data.state.trajetData)
       await createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData, this.$refs.textMap)
     },
   },
@@ -45,9 +45,46 @@ export default Vue.component("finalMap", {
   }
 });
 
+function addMarkerToGroup(group, coordinate, html) {
+  const marker = new H.map.Marker(coordinate);
+  // add custom data to the marker
+  marker.setData(html);
+  group.addObject(marker);
+}
+
+/**
+ * Add two markers showing the position of Liverpool and Manchester City football clubs.
+ * Clicking on a marker opens an infobubble which holds HTML content related to the marker.
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addInfoBubble(map, ui, data) {
+  const group = new H.map.Group();
+
+  map.addObject(group);
+  const stops = data.POI
+  for (let i=0 ; i < stops.length; i++) {
+    const lieu = Object.values(stops[i])[0]
+    // add 'tap' event listener, that opens info bubble, to the group
+    group.addEventListener('tap', function (evt) {
+      // event target is the marker itself, group is a parent event target
+      // for all objects that it contains
+      const bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
+        // read custom data
+        content: evt.target.getData()
+      });
+      // show info bubble
+      ui.addBubble(bubble);
+    }, false);
+
+    addMarkerToGroup(group, {lat: lieu.coordonnees.lat, lng: lieu.coordonnees.lng},
+        "<div>"+ lieu.titre + "</div>")
+  }
+}
+
 async function createMap(platform, map, choices, data, divMap) {
   const provider = map.getBaseLayer().getProvider();
-  const style = new H.map.Style(origin + '/boulot-b/styles/normal.day.yaml');
+  const base = process.env.NODE_ENV === "development" ? "http://localhost:8080"  : origin
+  const style = new H.map.Style(base + '/boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
     await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
@@ -108,8 +145,6 @@ async function addMarkers(map, origin, destination, stops, divMap) {
   map.addObject(markerOrigin);
   map.addObject(markerDestination);
 
-  console.log('stops');
-  console.log(stops)
 
   for (let i=0 ; i < stops.length; i++) {
     const icon = await iconFactory({name: Object.keys(stops[i])[0], datas: Object.values(stops[i])[0]}, divMap);
@@ -120,23 +155,13 @@ async function addMarkers(map, origin, destination, stops, divMap) {
 
 
 function iconFactory(namePOI, divMap) {
-  console.log(namePOI)
-  console.log('ref div')
-  console.log(divMap)
   function createIcon(img, divMap, width = 25, height = 25) {
     const image = document.createElement('img');
     image.src = img
     image.width = width;
     image.height = height;
-    console.log('ref div ic')
-    console.log(divMap)
     return new H.map.DomIcon(image, {
       onAttach: function(clonedElement, domIcon, domMarker) {
-        console.log(clonedElement)
-        console.log(domIcon)
-        console.log(domMarker)
-        console.log('good div')
-        console.log(divMap)
         clonedElement.addEventListener('mouseover', (evt) => showDescription(evt, divMap, namePOI));
         clonedElement.addEventListener('mouseout', (evt) => deleteDescription(evt, divMap, namePOI));
       },
@@ -153,35 +178,6 @@ function iconFactory(namePOI, divMap) {
     return p;
   }
 
-  function showDescription(evt, divMap, namePOI) {
-    if (namePOI.name !== 'Origine' && namePOI.name !== 'Destination') {
-      evt.target.style.opacity = 0.5;
-
-      console.log(namePOI);
-
-      let group = document.createElement('div');
-
-      const title = createElementP();
-      const address = createElementP();
-      const phone = createElementP();
-      const description = createElementP();
-      //const streetView = createElementP();
-
-      title.appendChild(document.createTextNode(namePOI.datas.titre));
-      address.appendChild(document.createTextNode(namePOI.datas.adresse));
-      phone.appendChild(document.createTextNode(namePOI.datas.contact));
-      description.appendChild(document.createTextNode(namePOI.datas.description));
-      //streetView.appendChild(document.createTextNode(namePOI.datas.streetView));
-
-      group.appendChild(title);
-      group.appendChild(address);
-      group.appendChild(phone);
-      group.appendChild(description);
-      //group.appendChild(streetView);
-
-      divMap.appendChild(group);
-    }
-  }
 
   function deleteDescription(evt, divMap, namePOI) {
     if (namePOI.name !== 'Origine' && namePOI.name !== 'Destination') {
@@ -221,7 +217,7 @@ function iconFactory(namePOI, divMap) {
   #textMap {
     display: block;
     width: 100%;
-    height: 50px;
+    height: 100px;
   }
 
 </style>
