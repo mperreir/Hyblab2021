@@ -1,0 +1,209 @@
+/* PAGE 10 */
+
+section[data-slidr="page-10"] {
+    /* fond */
+    position: absolute;
+    background: linear-gradient(90.42deg, #0574CF 13.84%, #6FB5EF 76.59%);
+    overflow: hidden;
+}
+
+.logo-p10 {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+.dune2-p10 {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#gros-nuage-p10 {
+    position: absolute;
+    width: 25%;
+    top: 33%;
+    left: 15%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p10:hover {
+    transform: translateX(30%);
+}
+
+#petit-nuage-p10 {
+    position: absolute;
+    width: 17%;
+    top: 23%;
+    left: 5%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p10:hover {
+    transform: translateX(-30%);
+}
+
+.pelouse-droite-p10 {
+    position: absolute;
+    width: 27.5%;
+    right: 0%;
+    bottom: 0%;
+}
+
+.pelouse-gauche-p10 {
+    position: absolute;
+    width: 36.5%;
+    left: 0%;
+    bottom: 0%;
+}
+
+#arbre-jaune-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 13%;
+    left: 2%;
+}
+
+#arbre-jaune-p10:hover {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#arbuste-rouge-p10 {
+    position: absolute;
+    width: 18%;
+    right: 0%;
+    bottom: 8%;
+}
+
+#feuille-verte-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 9%;
+    right: 2%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#feuille-verte-p10:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#feuille-bleue2-p10 {
+    position: absolute;
+    width: 11%;
+    right: 65%;
+    bottom: 3%;
+}
+
+#question-p10 {
+    position: absolute;
+    width: 25%;
+    top: 16%;
+    left: 34%;
+}
+
+#texte-ou-p10 {
+    position: absolute;
+    width: 2.5%;
+    top: 50%;
+    left: 50%;
+}
+
+#centre-contour-p10 {
+    position: absolute;
+    width: 12.2%;
+    right: 22.8%;
+    top: 46.2%;
+}
+
+#centre-hover-p10 {
+    position: absolute;
+    width: 12.2%;
+    right: 22.8%;
+    top: 46.2%;
+    opacity: 0;
+}
+
+#centre-hover-p10:hover {
+    opacity: 1;
+}
+
+#nord-est-contour-p10 {
+    position: absolute;
+    width: 20%;
+    right: 16.2%;
+    top: 20%;
+}
+
+#nord-est-hover-p10 {
+    position: absolute;
+    width: 27.4%;
+    right: 11.8%;
+    top: 20%;
+    opacity: 0;
+}
+
+#nord-est-hover-p10:hover {
+    opacity: 1;
+}
+
+#ouest-contour-p10 {
+    position: absolute;
+    width: 12.8%;
+    right: 33%;
+    top: 47.8%;
+}
+
+#ouest-hover-p10 {
+    position: absolute;
+    width: 13.9%;
+    right: 31.7%;
+    top: 48.1%;
+    opacity: 0;
+}
+
+#ouest-hover-p10:hover {
+    opacity: 1;
+}
+
+#sud-contour-p10 {
+    position: absolute;
+    width: 17%;
+    right: 19.2%;
+    top: 54.8%;
+}
+
+#sud-hover-p10 {
+    position: absolute;
+    width: 17%;
+    right: 19.1%;
+    top: 54.9%;
+    opacity: 0;
+}
+
+#sud-hover-p10:hover {
+    opacity: 1;
+}
+
+#bouton-peu-importe-p10 {
+    position: absolute;
+    width: 15%;
+    bottom: 43%;
+    left: 27%;
+    opacity: 0.5;
+}
+
+#bouton-peu-importe-p10:hover {
+    opacity: 1;
+}

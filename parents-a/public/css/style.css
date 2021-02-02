@@ -1,169 +1,196 @@
-/* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
-/* contraindre le format des slides affichés sur la page web */
-
-
 /* normalisation des marges et padding pour simplifier le positionnement des éléments */
-*{
-    padding:0;
-    margin:0;
+
+* {
+    padding: 0;
+    margin: 0;
 }
 
-body{
-    background-color: black;
-    color: white;
-    overflow: hidden;   /* pour slidr dans certains navigateurs */
+html,
+body {
+    height: 100%;
 }
 
-#container{
-    position: relative; /* pour permettre le positionnement en absolu des autres éléments */
+body {
+    overflow: hidden;
+    /* pour slidr dans certains navigateurs */
 }
+
+#container {
+    position: relative;
+    height: 100%;
+    /* pour permettre le positionnement en absolu des autres éléments */
+}
+
+section {
+    position: relative;
+}
+
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
-#slidr, #slidr section{
-    background-color: dodgerblue;
+
+#slidr2,
+#slidr2 section {
     width: 100%;
     height: 100%;
 }
 
-/* pour le positionnement facile, on place tout en absolue et on exprime tout en % */
-#titre{
+#slidr2 section[data-slidr="page-3"] {
+    background-color: #171EB1;
+    height: 100%;
+    width: 100%;
     text-align: center;
-    width: 20%;
-    left: 30%;
-    top: 10%;
-    position: absolute;
-    font-size: 30%;
 }
 
-#logo-hyblab{
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left:-25%;
-    margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
+
+/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
+
+#slidr,
+#slidr section {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Boutons */
+
+.button {
     position: absolute;
-    font-size: 50%;
+    border-radius: 50%;
+    padding: 0.3% 0.55%;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    opacity: 0.3;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+
+/* Bouton question precédente */
+
+.button_retour {
+    /* Position */
+    left: 9%;
+    cursor: pointer;
+    border-radius: 5%;
+    outline: none;
+}
+
+.home,
+.button_retour {
+    top: 5%;
     cursor: pointer;
 }
 
-#background-video{
-    position: relative; /* on doit positionner un éléments pour pouvoir ajuster sont z-index */
-    z-index: -1;
+.home {
+    left: 3%;
 }
 
-/* on centre l'image de fin */
-#img-fini{
-    width: 50%;
-    left: 50%;
-    top: 40%;
+#texte_question_precedente {
     position: absolute;
-    margin-left:-25%;
-    margin-top:calc(-25% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
+    width: 14%;
+    bottom: 91%;
+    left: 9%;
 }
 
-/* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
-section[data-slidr="page-1"] footer{
-    width: 100%;
-    bottom: 5%;
+
+/* Bouton retour acceuil*/
+
+#button_acceuil {
+    /* Position */
+    left: 37%;
+    bottom: 10%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+#button_accueil:hover {
+    /* Only design change */
+    left: 37%;
+    bottom: 10%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+#texte_retour_accueil {
     position: absolute;
-    font-size: 20%;
-    text-align: center;
+    width: 13%;
+    bottom: 11%;
+    right: 45%;
 }
 
-/* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
-.vjs-tech { object-fit: cover; }
-
-/* dernier slide sur fond blanc */
-section[data-slidr="page-2"]{
-    background-color: white;
-}
-
-/* ---------- mise en forme du bandeau des logos ----------------- */
-/* ici comme on doit contraindre la hauteur des images (et non leur largeur) */
-/* on ne peut pas utiliser de taille en % on utilise donc des em (qui sont définis */
-/* comme proportiels à la tailles des slides grace à nos règles plus bas */
-/* (cf. fondt-size du body) */
-
-#bandeau {
-    padding-top: 3%;
-    width:100%;
-    height:17%;
-    position: absolute;
-    bottom: 0;
-    background-color: white;
-    font-size: 20%;
-    z-index: -1;
-  }
-
-  #bandeau li{
-    list-style-type: none;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 0.5em;
-  }
-
-
-  #bandeau img{
-    height: 2em;
-  }
-
-  #bandeau #hyblab{
-    margin: 0.5em 3em;
-    height: 3em;
-    float: left;
-  }
-
-  #bandeau #cc, #bandeau #opensource
-  {
-    height: 1em;
-  }
-
-  #bandeau .stacked{
-    display:block;
-  }
-
-  #bandeau ul{
-    text-align: center;
-    padding: 0 0;
-  }
-
-  #bandeau .institutionnel
-  {
-    height: 2em;
-  }
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
+
+
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
 
-/* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre, 
+
+/* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
 tant qu'on est en dessous de l'apect ratio 16/9 */
-@media screen and (max-aspect-ratio: 16/9){
-    #container{
+
+@media screen and (max-aspect-ratio: 16/9) {
+    #container {
         margin-top: calc((100vh - 100 * 9vw / 16) / 2);
         width: 100vw;
         height: calc(100 * 9vw / 16);
     }
-
-    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-    body{
+    body {
         font-size: 9vw;
     }
 }
 
-/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
+
+/* ---------- media queries importantes pour le responsive facile :-D ----------------- */
+
+
+/* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
+
+
+/* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
+tant qu'on est en dessous de l'apect ratio 16/9 */
+
+@media screen and (max-aspect-ratio: 16/9) {
+    #container {
+        margin-top: calc((100vh - 100 * 9vw / 16) / 2);
+        width: 100vw;
+        height: calc(100 * 9vw / 16);
+    }
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
+    les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
+    body {
+        font-size: 9vw;
+    }
+}
+
+
+/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
 dessus de l'apect ratio 16/9 */
-@media screen and (min-aspect-ratio: 16/9){
-    #container{
+
+@media screen and (min-aspect-ratio: 16/9) {
+    #container {
         margin-left: calc((100vw - 100 * 16vh / 9) / 2);
         width: calc(100 * 16vh / 9);
         height: 100vh;
     }
-
-    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
-    body{
+    body {
         font-size: 16vh;
     }
+}
+
+.mute {
+    position: absolute;
+    width: 3%;
+    top: 5.2%;
+    right: 69%;
 }

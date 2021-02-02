@@ -1,0 +1,189 @@
+/* PAGE CREDITS */
+section[data-slidr="page-credits"] {
+    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#logo-credits {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#texte-credits {
+    position: absolute;
+    width: 7%;
+    top: 12%;
+    left: 42%;
+}
+
+#fond-blanc {
+    position: absolute;
+    width: 74%;
+    top: 19%;
+    left: 10%;
+}
+
+#pelouse-droite-credits {
+    position: absolute;
+    width: 27.5%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#pelouse-gauche-credits {
+    position: absolute;
+    width: 36.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#feuille-verte-credits {
+    position: absolute;
+    width: 14%;
+    bottom: 10%;
+    left: 5%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#feuille-verte-credits:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#fleurs-credits {
+    position: absolute;
+    width: 9%;
+    bottom: 8%;
+    left: 10%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#fleurs-credits:hover {
+    transform: scale(0.9) translateY(5%);
+}
+
+#arbre-jaune-credits {
+    position: absolute;
+    width: 15%;
+    bottom: 6%;
+    right: 10%;
+}
+
+#arbre-jaune-credits:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#arbuste-vert-credits {
+    position: absolute;
+    width: 17%;
+    bottom: 7%;
+    right: 4%;
+}
+
+#logo_audencia-credits {
+    position: absolute;
+    width: 15%;
+    top: 27%;
+    left: 18%;
+}
+
+#logo_agr-credits {
+    position: absolute;
+    width: 15%;
+    top: 30%;
+    left: 41%;
+}
+
+#logo_polytech-credits {
+    position: absolute;
+    width: 15%;
+    top: 19%;
+    right: 23%;
+}
+
+#texte_audencia-credits {
+    position: absolute;
+    width: 8%;
+    top: 41%;
+    left: 21%;
+}
+
+#texte_agr-credits {
+    position: absolute;
+    width: 13%;
+    top: 41%;
+    left: 41%;
+}
+
+#texte_polytech-credits {
+    position: absolute;
+    width: 8%;
+    top: 41%;
+    right: 27%;
+}
+
+#noms_audencia-credits {
+    position: absolute;
+    width: 8%;
+    top: 50%;
+    left: 21%;
+}
+
+#noms_agr-credits {
+    position: absolute;
+    width: 9%;
+    top: 50%;
+    left: 42%;
+}
+
+#noms_polytech-credits {
+    position: absolute;
+    width: 10%;
+    top: 47%;
+    right: 26%;
+}
+
+#logo_hyblab-credits {
+    position: absolute;
+    width: 12%;
+    bottom: 24%;
+    left: 23%;
+}
+
+#logo_OML-credits {
+    position: absolute;
+    width: 10%;
+    bottom: 23%;
+    left: 37%;
+}
+
+#logo_UN-credits {
+    position: absolute;
+    width: 7%;
+    bottom: 21%;
+    left: 49%;
+}
+
+#logo_opensource-credits {
+    position: absolute;
+    width: 4%;
+    bottom: 22%;
+    right: 37%;
+}
+
+#logo_cc-credits {
+    position: absolute;
+    width: 4%;
+    bottom: 24%;
+    right: 30%;
+}

@@ -1,0 +1,151 @@
+/* PAGE 8 */
+section[data-slidr="page-8"] {
+    /* fond */
+    background: linear-gradient(0deg, #0574CF, #0574CF);
+    overflow: hidden;
+}
+
+#logo-p8 {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+/* Ciel */
+#petit-nuage-p8 {
+    position: absolute;
+    width: 19%;
+    bottom: 65%;
+    right: 79%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p8:hover {
+    transform: translateX(-30%);
+}
+
+/* Végétation droite */
+#arbre-carotte-p8 {
+    position: absolute;
+    width: 15%;
+    bottom: 7%;
+    right: 5%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-carotte-p8:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#arbuste-bleu-p8 {
+    position: absolute;
+    width: 22%;
+    bottom: -5%;
+    right: 18%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbuste-bleu-p8:hover {
+    transform: scale(0.9) translateY(5%);
+}
+
+/* Végétation gauche */
+#feuille-verte-p8 {
+    position: absolute;
+    width: 18%;
+    bottom: 8%;
+    right: 82%;
+}
+
+#feuille-orange-p8 {
+    position: absolute;
+    width: 13%;
+    bottom: 9%;
+    right: 79%;
+}
+
+#feuille-orange-p8:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Sols */
+#pelouse-gauche-p8 {
+    /* pelouse gauche */
+    position: absolute;
+    width: 36.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse-droite-p8 {
+    /* pelouse droite */
+    position: absolute;
+    width: 27.5%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#dune5-p8 {
+    /* dune 1 */
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    right: 0%;
+}
+
+/*  Question */
+#question-p8 {
+    position: absolute;
+    width: 45%;
+    bottom: 68%;
+    right: 28%;
+}
+
+#texte-gauche-p8 {
+    position: absolute;
+    width: 10%;
+    bottom: 25%;
+    right: 60%;
+}
+
+#texte-droite-p8 {
+    position: absolute;
+    width: 12%;
+    bottom: 25%;
+    right: 33%;
+}
+
+#bouton-gauche-p8 {
+    position: absolute;
+    width: 24%;
+    bottom: 27%;
+    right: 52%;
+    opacity: 0.7;
+}
+
+#bouton-gauche-p8:hover {
+    opacity: 1;
+}
+
+#bouton-droite-p8 {
+    position: absolute;
+    width: 23%;
+    bottom: 30%;
+    left: 49%;
+    opacity: 0.7;
+}
+
+#bouton-droite-p8:hover {
+    opacity: 1;
+}
