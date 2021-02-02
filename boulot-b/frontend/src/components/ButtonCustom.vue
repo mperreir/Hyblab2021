@@ -34,7 +34,7 @@ $yellow: #ffdb27;
     color: white;
     font-weight: bold;
     font-size: 1.2em;
-    padding: 3%;
+    padding: min(20px, 3%);
     cursor: pointer;
     text-align: center;
   }
