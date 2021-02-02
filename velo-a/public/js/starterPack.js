@@ -166,4 +166,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 		bickySavoir.style.visibility = "hidden";
 	}
 
+	document.getElementById("starter_pack_container").setAttribute("class", "container_map")
+
 });

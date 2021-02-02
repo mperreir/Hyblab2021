@@ -92,3 +92,8 @@ h3 {
 	transform: scale(6);
 	pointer-events: none;
 }
+
+.charging p {
+	color: gray;
+	letter-spacing: -0.2em;
+}
