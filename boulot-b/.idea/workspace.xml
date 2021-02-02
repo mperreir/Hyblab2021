@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71b4055d-59eb-4408-9729-ebab2f7f2a21" name="Default Changelist" comment="" />
+    <list default="true" id="71b4055d-59eb-4408-9729-ebab2f7f2a21" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/ChoixLieux.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/ChoixLieux.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +37,7 @@
       <updated>1612217109453</updated>
       <workItem from="1612217113305" duration="1130000" />
       <workItem from="1612218260672" duration="4000" />
+      <workItem from="1612223914180" duration="749000" />
     </task>
     <servers />
   </component>
