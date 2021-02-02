@@ -82,6 +82,7 @@ h3 {
 	height: 26px;
 	margin-bottom: 30px;
 	transform: scale(7);
+	pointer-events: none;
 }
 
 .bicky-habille-pluie {
@@ -89,4 +90,5 @@ h3 {
 	height: 26px;
 	margin-bottom: 50px;
 	transform: scale(6);
+	pointer-events: none;
 }

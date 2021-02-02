@@ -6,14 +6,22 @@ html, body {
 	height: 100%;
 }
 
-#map {
+#container, #map, #static {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	width: 100%;
 	right: 0;
 	z-index: auto;
+}
 
+#map {
+	visibility: hidden;
+}
+
+#static {
+	background: no-repeat center center fixed url("https://api.mapbox.com/styles/v1/djovannifouin/ckk45pdua52v317qwdq0ijclv/static/-1.5512347469335737,47.21611304880233,12.3/1280x1280?access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw");
+	background-size: cover;
 }
 
 #left-nav {

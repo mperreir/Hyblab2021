@@ -14,6 +14,11 @@
 	position: absolute;
 	z-index: -3;
 	opacity: 0;
+	display: none !important;
+}
+
+#question_pane {
+	opacity: 0;
 }
 
 .hide {
@@ -26,11 +31,12 @@
 	100% {
 		position: absolute;
 		z-index: -3;
+		display: none;
 	}
 }
 
 .show {
-	opacity: 1;
+	opacity: 1 !important;
 	transition: opacity 1s 1s linear;
 }
 
@@ -44,6 +50,7 @@
 }
 
 #question_trajet {
+	opacity: 0;
 	display: flex;
 	width: 100%;
 	flex-direction: column;
@@ -54,6 +61,7 @@
 }
 
 #question_velo {
+	opacity: 0;
 	position: absolute;
 	width: 100%;
 	min-height: 30%;

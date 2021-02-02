@@ -39,6 +39,9 @@ async function bootstrap() {
 	});
 
 	map.on('load', function () {
+		document.getElementById("map").style.visibility = "visible";
+		document.getElementById("static").style.display = "none";
+
 		if (localStorage.getItem("adresseDepart")) directions.setOrigin(localStorage.getItem("adresseDepart"));
 		else if (localStorage.getItem("adresseDepartCoord")) directions.setOrigin(localStorage.getItem("adresseDepartCoord").split(','));
 
@@ -80,6 +83,7 @@ async function bootstrap() {
 	let openMarker = undefined;
 
 	let markers = {};
+	let hover = false;
 
 	function points(data) {
 
@@ -95,6 +99,22 @@ async function bootstrap() {
 				// open the popup
 				marker._popup.addTo(map)
 				openMarker = marker;
+
+				el.addEventListener("mouseleave", function () {
+					setTimeout(() => {
+						if (!hover) openMarker._popup.remove();
+					}, 200);
+				});
+
+				if (document.getElementsByClassName("mapboxgl-popup")[0]) {
+					document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseover", function () {
+						hover = true;
+					});
+					document.getElementsByClassName("mapboxgl-popup")[0].addEventListener("mouseleave", function () {
+						if (openMarker) openMarker._popup.remove();
+						hover = false
+					});
+				}
 			});
 
 			marker = new mapboxgl.Marker(el)
