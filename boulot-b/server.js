@@ -22,7 +22,14 @@ app.use(express.static('public'));
 app.use('/styles', express.static(__dirname +'/frontend/src/style'));
 
 // app.get('/trajet/:depart/:arrivee/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
-app.get('/trajet/:departX/:departY/:arriveeX/:arriveeY/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie', async (req, res) => getAll(req, res))
+app.get('/trajet/:departX/:departY/:arriveeX/:arriveeY/:transport/:style/:sallesport/:bar/:boulangerie/:pharmacie',
+    async (req, res) => {
+    try {
+        await getAll(req, res)
+    } catch (e) {
+        res.status(404).json(e)
+    }
+})
 
 
 // This module is exported and served by the main server.js located

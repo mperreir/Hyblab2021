@@ -5,6 +5,7 @@ const {extractUtilsValue, getRandomInt, pointInteret,
 class AleaStyle extends Choice {
     name = "Hasard"
     theme = ["nature", "culture"]
+
     async addPOI(origin, arrivee, transport, list_POI) {
         const randomHasard = getRandomIntInclusive(0, 1);
         let listHasard = await pointInteret(origin, arrivee, this.theme[randomHasard], transport)
