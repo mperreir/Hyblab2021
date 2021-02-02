@@ -5,6 +5,7 @@ const Pharmacie = require("./choices/Pharmacie");
 const NatureStyle = require("./choices/NatureStyle");
 const CultureStyle = require("./choices/CultureStyle");
 const AleaStyle = require("./choices/AleaStyle");
+const Lieux = require("./choices/Lieux");
 
 function styleFactory(style){
     if (style === "nature")
@@ -16,16 +17,16 @@ function styleFactory(style){
 }
 
 function lieuxFactory(boulangerie, sallesport, bar, pharmacie) {
-    const lieux = []
+    const listLieux = [];
     if (boulangerie === 'true')
-        lieux.push(new Boulangerie())
+        listLieux.push(new Boulangerie());
     if (sallesport === 'true')
-        lieux.push(new SalleDeSport())
+        listLieux.push(new SalleDeSport());
     if (bar === 'true')
-        lieux.push(new Bar())
+        listLieux.push(new Bar());
     if (pharmacie === 'true')
-        lieux.push(new Pharmacie())
-    return lieux
+        listLieux.push(new Pharmacie());
+    return new Lieux(listLieux);
 }
 
 module.exports = {

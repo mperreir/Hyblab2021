@@ -11,10 +11,8 @@ async function getAll(req, res) {
     /** definition du style : nature/culture/aleatoire */
     const styleChoose = styleFactory(style)
     await styleChoose.addPOI(origin, arrivee, transport, list_POI);
-    const listLieuxChoose = lieuxFactory(boulangerie, sallesport, bar, pharmacie)
-    for (const lieux of listLieuxChoose) {
-        await lieux.addPOI(origin, arrivee, transport, list_POI);
-    }
+    const lieuxChoose = lieuxFactory(boulangerie, sallesport, bar, pharmacie)
+    await lieuxChoose.addPOI(origin, arrivee, transport, list_POI);
 
     list_POI = list_POI.sort(function(a, b){
         return a.distance-b.distance;
