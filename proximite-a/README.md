@@ -2,8 +2,9 @@
 - Go on the working directory ``proximite-a``
 - Install all dependencies with command ```npm install```  (once)
 - Build script with : ``npm run-script build``
+- Go back at the root of the project Hyblab2021 : `cd ..`
 - Start the server with  ```npm start```
-- Then, you can access the index file on your browser at the adress ```localhost:3000```
+- Then, you can access the index file on your browser at the adress ```localhost:8080/proximite-a```
 
 
 
