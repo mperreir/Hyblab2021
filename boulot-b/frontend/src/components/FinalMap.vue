@@ -62,22 +62,22 @@ function addInfoBubble(map, ui, data) {
 
   map.addObject(group);
   const stops = data.POI
+  group.addEventListener('tap', function (evt) {
+    // event target is the marker itself, group is a parent event target
+    // for all objects that it contains
+    const bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
+      content: evt.target.getData()
+    });
+    // show info bubble
+    bubble.addClass("bubble")
+    ui.addBubble(bubble);
+  }, false);
   for (let i=0 ; i < stops.length; i++) {
     const lieu = Object.values(stops[i])[0]
     // add 'tap' event listener, that opens info bubble, to the group
-    group.addEventListener('tap', function (evt) {
-      // event target is the marker itself, group is a parent event target
-      // for all objects that it contains
-      const bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
-        // read custom data
-        content: evt.target.getData()
-      });
-      // show info bubble
-      ui.addBubble(bubble);
-    }, false);
 
     addMarkerToGroup(group, {lat: lieu.coordonnees.lat, lng: lieu.coordonnees.lng},
-        "<div>"+ lieu.titre + "</div>")
+        "<div >"+ lieu.titre + "</div>")
   }
 }
 
@@ -160,15 +160,7 @@ function iconFactory(namePOI, divMap) {
     image.src = img
     image.width = width;
     image.height = height;
-    return new H.map.DomIcon(image, {
-      onAttach: function(clonedElement, domIcon, domMarker) {
-        clonedElement.addEventListener('mouseover', (evt) => showDescription(evt, divMap, namePOI));
-        clonedElement.addEventListener('mouseout', (evt) => deleteDescription(evt, divMap, namePOI));
-      },
-      // onDetach: function(ClonedElement, domIcon, domMarker) {
-      //   clonedElement.addEventListener('mouseover', (evt) => changeOpacity(evt, 1));
-      // }
-    });
+    return new H.map.DomIcon(image)
   }
 
   function createElementP() {
@@ -212,6 +204,11 @@ function iconFactory(namePOI, divMap) {
     position: relative;
     width: 100%;
     height: 500px;
+  }
+
+  .bubble {
+    width: 20%;
+    background-color: black;
   }
 
   #textMap {

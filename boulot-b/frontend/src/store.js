@@ -1,7 +1,7 @@
 import {http} from "@/config";
 
 const store = {
-    debug: true,
+    debug: false,
     subscribers: [],
     state: {
         trajetData: undefined,
