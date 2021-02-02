@@ -1,0 +1,69 @@
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+#creditContainer{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1150px)
+{
+    #creditContainer{
+        flex-direction: column ;
+    }
+
+    #rightPartCredit{
+        width: 100% !important;
+    }
+}
+
+/*Right Part*/
+#rightPartCredit{
+    width: 63%;
+    height: 93%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    margin-right: 30px;
+    margin-top: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #756EFF;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 54px;
+}
+
+#rightPartCreditCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#paragrapheCredit{
+    max-width: 520px;
+    text-align: center;
+
+    color: #000000;
+}
+
+#closeButton{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #756EFF;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    background-color: #756EFF;
+    right: 45px;
+}
+
+#logoEcole{
+    margin: 15px;
+}

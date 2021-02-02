@@ -1,9 +1,9 @@
 'use strict';
 
 // general routing framework
-var express = require('express')
+var express = require('express');
 //var basicAuth = require('basic-auth-connect');
-var app = express()
+var app = express();
 
 // password protection
 //app.use(basicAuth('story2020', 'ilovestory'));
@@ -38,9 +38,9 @@ app_names.forEach( function( element, index, array) {
 var port = 'PORT' in process.env ? process.env.PORT : 8080;
 var server = app.listen(port, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+  var host = server.address().address;
+  var port = server.address().port;
 
-  console.log('Hyblab routing app listening at http://%s:%s', host, port)
+  console.log('Hyblab routing app listening at  http://localhost:8080/proximite-a/')
 
-})
+});

@@ -1,0 +1,52 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+#mainContainer{
+    height: 100%;
+}
+#root{
+    height: 100%;
+}
+
+
+.fondEtiquetteDefault{
+    background-color: #C3C3FB;
+}
+.fondEtiquetteFetard{
+    background-color: #5cff9e;
+}
+.fondEtiquetteSportif{
+    background-color: #69f9de;
+}
+.fondEtiquetteGourmet{
+    background-color: #ffe400;
+}
+.fondEtiquetteFamilial{
+    background-color: #ff66ff;
+}
+
+
+.textPurple{
+    color: #756EFF;
+}
+.btnWhiteBgpurpleText{
+    background-color: white;
+    border: 2px solid #756EFF;
+    padding: 10px 25px 10px 25px;
+    color: #756EFF;
+    border-radius: 10px;
+    transition: .1s;
+}
+.btnWhiteBgpurpleText:hover{
+    background-color: #e6e1e5;
+    transition: .2s;
+}
+
+
+.btnValidatePurpleBackground{
+    background-color: #756EFF;
+    color: white;
+}
+
+

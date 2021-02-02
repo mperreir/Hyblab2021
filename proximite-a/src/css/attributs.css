@@ -1,0 +1,135 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+
+#attributContainer{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 1280px)
+{
+    #attributContainer{
+        flex-direction: column;
+    }
+    #leftPartAttribut{
+        width: 100% !important;
+    }
+    #rightPartAttribut{
+        width: 100% !important;
+    }
+    #leftPurpleContainerAttribut{
+        border-radius: 0 0 74px 74px !important;
+    }
+}
+
+
+#leftPartAttribut{
+    width: 40%;
+    height: 100%;
+    background-color: #756EFF;
+}
+#leftPurpleContainerAttribut{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 74px 74px 0;
+    background-color: white;
+    box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgLogoAttribut{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+}
+#blablaMadameAttribut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#paragrapheBlablaMadameAttribut{
+    max-width: 500px;
+    text-align: center;
+}
+
+/*Right Part*/
+#rightPartAttribut{
+    width: 60%;
+    height: 100%;
+    background-color: #756EFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#rightPartAttributCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.search {
+    position: relative;
+    color: #aaa;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    width: 350px;
+    height: 50px;
+    background-color: white;
+    color: #756EFF;
+    text-align: center;
+}
+
+.search input { text-indent: 32px;}
+.search .fa {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    font-size: 30px;
+    color: #756EFF;
+}
+
+
+#textChoisi{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+.btnNavigationAttribut{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 35px;
+}
+
+.btnNavigationAttribut:hover{
+    border: none;
+    color: white;
+    transition: .5s;
+}
+
+.inputText{
+    border: none;
+    background-color: white;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+#ThemeLogoCenter {
+    width: 58%;
+}

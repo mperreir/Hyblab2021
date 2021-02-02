@@ -1,0 +1,106 @@
+#themeContainer{
+    height: 100%;
+}
+
+
+.btnNavigation{
+    width: 50px;
+}
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+
+/* Stuff after this is only to make things more pretty */
+#themeContainer {
+    padding-bottom: 100px;
+}
+
+h3 {
+    color:#756EFF;
+    font-weight: bold;
+    padding-bottom: 50px;
+}
+
+#themeContainer div + span {
+    border-radius: 20px;
+    background-color: #BCBEFF;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 575px;
+    text-align: center;
+}
+
+#themeContainer span + input {
+    border: none;
+    border-radius: 10px;
+    background-color: #756EFF;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+#themeSelector  img {
+    width: 250px;
+    height: 250px;
+    transition: 500ms all;
+}
+
+#themeSelector label img[class="img_hte"] {
+    margin-bottom: 150px;
+}
+
+#themeSelector label img[class="img_bas"] {
+    margin-top: 150px;
+}
+
+.col {
+    padding: 0;
+}
+
+#themeSelector {
+    margin-bottom: 50px;
+}
+
+#themeSelector input[type=radio]:checked + label>img {
+    background-size: 100%;
+    opacity: 1;
+}
+
+#themeSelector input[type=radio] + label>img {
+    transition: 500ms all;
+    padding: 10px;
+    background-size:0%;
+    background-position: center;
+    background-repeat : no-repeat;
+    opacity: 0.5;
+
+}
+
+#themeSelector input[type=radio] + label>img:hover{
+     background-repeat : no-repeat;
+     transform: scale(0.9);
+     background-size: 100%;
+     opacity: 1;
+     transition: 400ms all;
+
+}
+
+#txttheme{
+    background-color: #C3C3FB;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+    margin: 10px 25px 10px 25px;
+    width: 500px;
+    text-align: center;
+}
