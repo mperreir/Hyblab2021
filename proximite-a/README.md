@@ -27,7 +27,7 @@ Participants :
     - Morgane Carreno
     
 - Polytech :  
-    - Ioan Savoiu premier du nom
+    - Ioan Savoiu
     - Théo Bouas 
     - Théo Berard
     - Andréa Gugole
