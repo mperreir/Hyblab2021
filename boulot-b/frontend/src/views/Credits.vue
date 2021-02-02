@@ -25,7 +25,7 @@
                 <p>Tran Mickaël Lumière</p>
             </div>
             <div id="liens">
-                <p>données et informations</p>
+                <p>Données et informations</p>
                 <a href="https://www.nantes-tourisme.com/fr">www.nantes-tourisme.com</a>
                 <a href="https://fr.wikipedia.org/">fr.wikipedia.org</a>
                 <a href="https://metropole.nantes.fr/">metropole.nantes.fr</a>
