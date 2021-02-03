@@ -15,6 +15,7 @@ import sportif_img from '../img/Perso-hyblab-02.png'
 import gourmet_img from '../img/Perso-hyblab-04.png'
 import culture_img from '../img/Perso-hyblab-05.png'
 import famille_img from '../img/Perso-hyblab-06.png'
+import equivalent from './equivalent.js'
 
 class Attributs extends React.Component{
     state = {
@@ -178,13 +179,13 @@ class Attributs extends React.Component{
                             <div id="blablaMadameAttribut">
                                 <img id="ThemeLogoCenter" src={this.getThemePerso()} alt="fetard" />
                                 <br></br><br></br>
-                                <p id="paragrapheBlablaMadameAttribut">Hello moi c’est Alex !
-                                    Tu aimes rencontrer tes amis dans des bars, déguster  des planches apéros et sortir danser ? Alors, suis-moi !
+                                <div id="paragrapheBlablaMadameAttribut">
+                                    {equivalent.txtattribut.get(this.state.themeId)}
                                     <br/>
                                     <br/>
                                     C’est moi qui vais t’accompagner tout au long  de ton parcours. <b>Et pour te guider au mieux,
                                         peux-tu me donner ton adresse ou ta géolocalisation ?</b>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>
