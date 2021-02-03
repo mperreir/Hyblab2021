@@ -55,9 +55,6 @@ section {
 
 .button {
     position: absolute;
-    border-radius: 50%;
-    padding: 0.3% 0.55%;
-    border: 2px solid #fff;
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -69,60 +66,64 @@ section {
     opacity: 1;
 }
 
+.circle_btn{
+    border: 2px solid #fff;
+    vertical-align: middle;
+    width: 30px; 
+    height: 30px; 
+    border-radius: 15px; 
+    text-align: center; 
+}
+
+.circle_back
+{
+    padding-right: 2px ; 
+}
+
+
+.circle_next
+{
+    padding-left: 2px ; 
+}
+
 
 /* Bouton question precédente */
 
-.button_retour {
-    /* Position */
-    left: 9%;
-    cursor: pointer;
-    border-radius: 5%;
-    outline: none;
-}
-
-.home,
-.button_retour {
+.div_retour {
     top: 5%;
     cursor: pointer;
+    left: 5%;
 }
 
-.home {
-    left: 3%;
+/*Position bouton retour */
+.button_circle_retour {
+    top: 5%;
+    left: 4%;
+    cursor: pointer;
 }
 
-#texte_question_precedente {
+
+.texte_retour{
     position: absolute;
     width: 14%;
-    bottom: 91%;
-    left: 9%;
+    bottom: 92%;
+    left: 8%;
 }
 
 
-/* Bouton retour acceuil*/
-
-#button_acceuil {
-    /* Position */
-    left: 37%;
-    bottom: 10%;
-    color: #fff;
+/*Position bouton accueil */
+.button_circle_accueil {
+    bottom: 12%;
+    left: 45%;
     cursor: pointer;
-    outline: none;
 }
 
-#button_accueil:hover {
-    /* Only design change */
-    left: 37%;
-    bottom: 10%;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-}
 
-#texte_retour_accueil {
+.texte_accueil{
     position: absolute;
-    width: 13%;
-    bottom: 11%;
-    right: 45%;
+    width: 14%;
+    bottom: 13%;
+    left: 49%;
 }
 
 
@@ -190,7 +191,6 @@ dessus de l'apect ratio 16/9 */
 
 .mute {
     position: absolute;
-    width: 3%;
-    top: 5.2%;
-    right: 69%;
+    top: 5%;
+    left : 25%;
 }

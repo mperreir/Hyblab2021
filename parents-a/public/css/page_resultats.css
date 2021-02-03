@@ -217,11 +217,12 @@ section[data-slidr="page-resultats"] {
 }
 
 #compare-btn{
-    bottom: 10%;
-    width:16%;
-    left:41.5%;
+    font: "Intro Bold";
+    right : 2%;
+    bottom: 18%;
+    cursor: pointer;
     border-radius: 5%;
-
+    outline: none;
 }
 
 #table-img{
