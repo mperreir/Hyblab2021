@@ -2,11 +2,12 @@ import React from 'react';
 import '../css/AcceuilCarte.css'
 import logo from '../img/LOGO OK_logo principal.png'
 import personnage from '../img/Perso-hyblab-03.png'
-
+import equivalent from './equivalent.js'
 class CarteInterractionChoixLieu extends  React.Component {
     state={
         sites:this.props.data.sites,
-        selectedSites:[]
+        selectedSites:[],
+        themeId:this.props.data.themeId
     }
     handleCheck = (e) => {
         console.log(e.target)
@@ -34,9 +35,9 @@ class CarteInterractionChoixLieu extends  React.Component {
                 <div class="row">
                     <div id="containerInterractionLeftSection" class="col-xl-4">
                         <div id="containerInterractionLeftUpperSection">
-                            <img src={logo} id="containerInterractionLogoP1"/>
+                            <img src={equivalent.themeLogo.get(this.state.themeId)} id="containerInterractionLogoP1"/>
                         </div>
-                        <img src={personnage} className="mt-4" width={200}/>
+                        <img src={equivalent.themePerso.get(this.state.themeId)} className="mt-4" width={200}/>
                         <div id="textInterractionIntro">Voyons ce qu’il y a autour de toi ! Voici des lieux qui pourraient t’intéresser. Le(s)quel(s) as-tu envie de visiter ?</div>
                     </div>
                     <div id="containerInterractionRightSection" class="col-xl-8 mt-5">
