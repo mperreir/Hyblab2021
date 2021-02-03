@@ -88,7 +88,7 @@ export default {
   opacity: 0;
 }
 
-#wazo-anim, {
+#wazo-anim {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
