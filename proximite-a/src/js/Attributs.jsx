@@ -2,19 +2,8 @@ import React from 'react';
 import maison from '../img/pictogrammes_maison.png'
 import '../css/attributs.css'
 import {Spinner} from "react-bootstrap";
-//images logos
-import logo0 from '../img/LOGO OK_logo principal.png'
-import logo1 from '../img/LOGO OK_logo vert.png'
-import logo2 from '../img/LOGO OK_logo bleu.png'
-import logo3 from '../img/LOGO OK_logo jaune.png'
-import logo4 from '../img/LOGO OK_logo orange.png'
-import logo5 from '../img/LOGO OK_logo rose.png'
-//images persos
-import fetard_img from '../img/Perso-hyblab-03.png'
-import sportif_img from '../img/Perso-hyblab-02.png'
-import gourmet_img from '../img/Perso-hyblab-04.png'
-import culture_img from '../img/Perso-hyblab-05.png'
-import famille_img from '../img/Perso-hyblab-06.png'
+
+
 import equivalent from './equivalent.js'
 
 class Attributs extends React.Component{
@@ -38,7 +27,7 @@ class Attributs extends React.Component{
         let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
         let urlVille = this.state.adresse.ville.split(' ').join('+');
         console.log(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
-        fetch(`http://localhost:8080/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+        fetch(`/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     return response.json();
@@ -64,7 +53,7 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch('http://localhost:8080/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch('/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
                         return response.json();

@@ -118,7 +118,7 @@ class App extends React.Component {
 
     generatePerimetre = (e) => {
         let moyenTransport = equivalent.moyenEquiv.get(e);
-       fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
+       fetch(`/proximite-a/api/get15minzone/${this.state.coords[1]}_${this.state.coords[0]}/${moyenTransport}`)
             .then(perimetre=> perimetre.json())
             .then(perimetre => {
                 let abc=[];
@@ -135,7 +135,7 @@ class App extends React.Component {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
         let moyen = equivalent.moyenEquiv.get(e)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
-        let lieux = await (await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
+        let lieux = await (await fetch('/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
         let newSites = []
         let newSurprise;
         if (typeof lieux.lieux === "undefined" || lieux.lieux.length === 0){
@@ -152,7 +152,7 @@ class App extends React.Component {
         }
         else{
             for (let i of lieux.lieux) {
-                let adresse = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${i.lat}_${i.lon}`)).json();
+                let adresse = await (await fetch(`/proximite-a/api/coordinates/${i.lat}_${i.lon}`)).json();
                 let adresseF = adresse.rue + " " + adresse.codepostal + " " + adresse.ville
                 let name = 'Pas de titre disponible'
                 if (typeof i.tags.name !== "undefined") {
@@ -188,7 +188,7 @@ class App extends React.Component {
         }
         else {
             let s = lieux.surprise
-                let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${s.lat}_${s.lon}`)).json();
+                let adresseSurp = await (await fetch(`/proximite-a/api/coordinates/${s.lat}_${s.lon}`)).json();
                 let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
                 let nameSurp = 'Pas de titre disponible'
                 if (s.tags.name) {
