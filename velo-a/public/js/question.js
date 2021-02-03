@@ -1,6 +1,10 @@
 "use strict";
 
+import {slide} from "./modules/background.js";
+
 window.addEventListener('DOMContentLoaded', () => {
+	slide(() => {}, () => {}, null);
+
 	load("");
 });
 

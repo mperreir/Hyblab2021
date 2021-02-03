@@ -187,6 +187,10 @@ async function bootstrap() {
 			}
 		});
 
+	document.querySelectorAll("#left-nav > p").forEach(() => {
+
+	})
+
 }
 
 function closeOops() {

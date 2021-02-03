@@ -14,12 +14,22 @@ export async function reverseGeocoding(input) {
 }
 
 async function getAddress(input) {
-	return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(input)}.json?access_token=${mapboxAPIKEY}&autocomplete=true&bbox=-1.7951350420290169%2C47.116367346841514%2C-1.3050286308555314%2C47.33902195868899&limit=10`)
+	const bb = {
+		ix :- 1.7951350420290169,
+		iy: 47.116367346841514,
+		ax: -1.3050286308555314,
+		ay: 47.33902195868899
+	}
+
+	return fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURI(input)}&lat=47.21611304880233&lon=-1.5512347469335737&autocomplete=1`)
 		.then(response => response.json())
 		.then(data => {
 			const tmp = {};
 			data.features.forEach(value => {
-				tmp[value.place_name] = value.geometry.coordinates;
+				const p = value.geometry.coordinates;
+				if( bb.ix <= p[0] && p[0] <= bb.ax && bb.iy <= p[1] && p[1] <= bb.ay ) {
+					tmp[value.properties.label] = value.geometry.coordinates;
+				}
 			});
 			return tmp;
 		})
@@ -46,20 +56,18 @@ export async function autocompleteAddress(inp, container, type) {
 		a.setAttribute("class", "autocomplete-items");
 		container.appendChild(a);
 		for (i = 0; i < arr.length; i++) {
-			if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
-				b = document.createElement("DIV");
-				b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-				b.innerHTML += arr[i].substr(val.length);
-				b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-				b.addEventListener("click", function (e) {
-					inp.value = this.getElementsByTagName("input")[0].value;
-					localStorage.setItem(type, inp.value);
-					localStorage.setItem(type + "Coord", data[inp.value]);
+			b = document.createElement("DIV");
+			b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+			b.innerHTML += arr[i].substr(val.length);
+			b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+			b.addEventListener("click", function (e) {
+				inp.value = this.getElementsByTagName("input")[0].value;
+				localStorage.setItem(type, inp.value);
+				localStorage.setItem(type + "Coord", data[inp.value]);
 
-					closeAllLists();
-				});
-				a.appendChild(b);
-			}
+				closeAllLists();
+			});
+			a.appendChild(b);
 		}
 	});
 	inp.addEventListener("keydown", function (e) {

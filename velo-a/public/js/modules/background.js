@@ -1,3 +1,8 @@
+let veloClass = " background_velo";
+if (typeof WebKitNamespace !== 'undefined') {
+	veloClass += " safari";
+}
+
 export function slide(onStart, onContinue, slides) {
 
 	velosSlide();
@@ -73,10 +78,12 @@ function _velosSlide(velos, i) {
 
 		const background_velos = document.getElementById("background_velos");
 		background_velos.insertAdjacentHTML('beforeend',
-			"<img id='background_velo" + i + "' class='background_velo move" + Math.round(Math.random()) + "' " + velos[rand] + "/>"
+			"<img id='background_velo" + i + "' class='move" + Math.round(Math.random()) + veloClass +"' " + velos[rand] + "/>"
 		);
+
+		const img = background_velos.lastElementChild;
 		setTimeout(function () {
-			background_velos.firstChild.remove();
+			img.remove();
 		}, 10000);
 		_velosSlide(velos, ++i);
 	}, time);
@@ -104,10 +111,11 @@ function _nuagesSlide(nuages, i) {
 			+ "/>"
 		);
 
-		background_nuages.lastElementChild.style.setProperty("--nuage-top", Math.floor(Math.random() * 35) + "%");
-		background_nuages.lastElementChild.style.setProperty("--nuage-size", (Math.floor(Math.random() * 100) + 100) + "px");
+		const img = background_nuages.lastElementChild;
+		img.style.setProperty("--nuage-top", Math.floor(Math.random() * 35) + "%");
+		img.style.setProperty("--nuage-size", (Math.floor(Math.random() * 100) + 100) + "px");
 		setTimeout(function () {
-			background_nuages.firstChild.remove();
+			img.remove();
 		}, 35000);
 		_nuagesSlide(nuages, ++i);
 	}, time);

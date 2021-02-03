@@ -214,55 +214,35 @@ body {
 }
 
 .background_velo.move0 {
-	-webkit-animation: move_velo 10s forwards;
 	animation: move_velo 10s forwards;
 }
 
-@-webkit-keyframes move_velo {
-	0% {
-		-webkit-transform: scale(0.5) translate(0, 45%) translateX(-100vw);
-		transform: scale(0.5) translate(0, 45%) translateX(-100vw);
-	}
-	100% {
-		-webkit-transform: scale(0.5) translate(0, 45%) translateX(100vw);
-		transform: scale(0.5) translate(0, 45%) translateX(100vw);
-	}
+.background_velo.move0.safari {
+	-webkit-transform-origin: bottom;
 }
 
 @keyframes move_velo {
 	0% {
-		-webkit-transform: scale(0.5) translate(0, 45%) translateX(-100vw);
 		transform: scale(0.5) translate(0, 45%) translateX(-100vw);
 	}
 	100% {
-		-webkit-transform: scale(0.5) translate(0, 45%) translateX(100vw);
 		transform: scale(0.5) translate(0, 45%) translateX(100vw);
 	}
 }
 
 .background_velo.move1 {
-	-webkit-animation: move_velo_reverse 10s forwards;
 	animation: move_velo_reverse 10s forwards;
 }
 
-@-webkit-keyframes move_velo_reverse {
-	0% {
-		-webkit-transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
-		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
-	}
-	100% {
-		-webkit-transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
-		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
-	}
+.background_velo.move1.safari {
+	-webkit-transform-origin: bottom;
 }
 
 @keyframes move_velo_reverse {
 	0% {
-		-webkit-transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
 		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(-100vw);
 	}
 	100% {
-		-webkit-transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
 		transform: scale(-0.5, 0.5) translate(0, 45%) translateX(100vw);
 	}
 }
@@ -286,28 +266,14 @@ body {
 	--nuage-size: 5%;
 	top: var(--nuage-top);
 	width: var(--nuage-size);
-	-webkit-animation: move_nuage 35s linear forwards;
 	animation: move_nuage 35s linear forwards;
-}
-
-@-webkit-keyframes move_nuage {
-	0% {
-		-webkit-transform: translateX(calc(-50vw - var(--nuage-size)));
-		transform: translateX(calc(-50vw - var(--nuage-size)));
-	}
-	100% {
-		-webkit-transform: translateX(calc(50vw + var(--nuage-size)));
-		transform: translateX(calc(50vw + var(--nuage-size)));
-	}
 }
 
 @keyframes move_nuage {
 	0% {
-		-webkit-transform: translateX(calc(-50vw - var(--nuage-size)));
 		transform: translateX(calc(-50vw - var(--nuage-size)));
 	}
 	100% {
-		-webkit-transform: translateX(calc(50vw + var(--nuage-size)));
 		transform: translateX(calc(50vw + var(--nuage-size)));
 	}
 }
