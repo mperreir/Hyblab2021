@@ -2,7 +2,6 @@ function data_add_img(data, tab) {
     var interests = _app_stores['criteres']['interests'];
     var disinterests = _app_stores['criteres']['disinterests'];
 
-    console.log("addimesdsq")
     for (const [key, value] of Object.entries(data)) {
         var preference = 'interests'
 
@@ -39,8 +38,6 @@ function clean_data(d1, d2) {
     var tab = []
     data_add_img(d1, tab);
     data_add_img(d2, tab);
-    console.log("max")
-    console.log(tab);
     max = Math.max(...tab)
     return [add_min_max(d1), add_min_max(d2)]
 }

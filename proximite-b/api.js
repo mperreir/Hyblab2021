@@ -191,6 +191,7 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
         }
     });
     
+    console.log("Fin de la requete");
     return res;
 };
 

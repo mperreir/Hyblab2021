@@ -20,8 +20,8 @@ var ProgressBar = {
         var interests = _app_stores['criteres']['interests'];
         var disinterests = _app_stores['criteres']['disinterests'];
         if (data.length >= 1) {
-            var time = data[0].temps; //TODO : au cas ou l'arrondi 0 marche pas : c'est le cas pour l'instant
-            if (time == 0) { time = 1 }
+            var time = data[0].temps; 
+            if (time == 0) { time = 1 } 
             if (interests.includes(critere)) {
                 return (interests.length - interests.indexOf(critere) + 1) / time;
             }

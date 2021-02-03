@@ -1,6 +1,5 @@
 function animation_background(){
     persona = read_store('personas').chosen;
-    console.log('ici')
     if (persona == "jeune"){
         $('.contain_persona').append("<img id ='animation_img' src='/proximite-b/img/animation/jeune_banc.svg#svgView(preserveAspectRatio(none))'/>")
     }
@@ -10,7 +9,6 @@ function animation_background(){
     }
     else if (persona == "senior"){
         $('.contain_persona').append("<img id = 'animation_img' src='/proximite-b/img/animation/mamie_banc.svg#svgView(preserveAspectRatio(none))'/>")
-
     }
 }
 
