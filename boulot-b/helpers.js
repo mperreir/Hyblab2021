@@ -39,19 +39,19 @@ function  getShortestExcursion(listPOIs){
 }
 
 
-function extractUtilsValue(P_boulangerie1) {
-    const P_boulangerie = {
-        titre: P_boulangerie1.title,
-        adresse: P_boulangerie1.address.label,
-        coordonnees: P_boulangerie1.position
+function extractUtilsValue(data) {
+    const POI = {
+        titre: data.title,
+        adresse: data.address.label,
+        coordonnees: data.position
     }
-    if (P_boulangerie1.contacts && P_boulangerie1.contacts[0].phone) {
-        P_boulangerie["contact"] = P_boulangerie1.contacts[0].phone[0].value
+    if (data.contacts && data.contacts[0].phone) {
+        POI["contact"] = data.contacts[0].phone[0].value
     }
-    if (P_boulangerie1.contacts && P_boulangerie1.contacts[0].www) {
-        P_boulangerie["lien"] = P_boulangerie1.contacts[0].www[0].value
+    if (data.contacts && data.contacts[0].www) {
+        POI["lien"] = data.contacts[0].www[0].value
     }
-    return P_boulangerie
+    return POI
 }
 
 /** renvoie la liste des points d'interets */
