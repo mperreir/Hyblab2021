@@ -79,7 +79,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped >
 .fade {
   transition: opacity 0.3s;
 }
@@ -88,10 +88,15 @@ export default {
   opacity: 0;
 }
 
-#wazo-anim,
-#canari-come {
+#wazo-anim, {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+#canari-come {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 </style>
