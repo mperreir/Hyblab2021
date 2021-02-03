@@ -191,7 +191,6 @@ dessus de l'apect ratio 16/9 */
 
 .mute {
     position: absolute;
-    width: 3%;
-    top: 5.2%;
-    right: 69%;
+    top: 5%;
+    left : 25%;
 }
