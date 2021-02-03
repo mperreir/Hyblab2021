@@ -80,6 +80,13 @@ section {
     padding-right: 2px ; 
 }
 
+
+.circle_next
+{
+    padding-left: 2px ; 
+}
+
+
 /* Bouton question precédente */
 
 .div_retour {
@@ -99,7 +106,7 @@ section {
 .texte_retour{
     position: absolute;
     width: 14%;
-    bottom: 91%;
+    bottom: 92%;
     left: 8%;
 }
 

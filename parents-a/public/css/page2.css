@@ -156,11 +156,9 @@ section[data-slidr="page-2"] {
 #button-p2 {
     /* Position */
     position: absolute;
-    width: 3%;
     left: 52%;
     top: 46%;
     /* Design */
-    border-radius: 100%;
     outline: none;
 }
 
