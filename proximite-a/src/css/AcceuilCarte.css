@@ -112,10 +112,10 @@ h5{
 
 }
 .buttonReturn{
-    background-image: url('../img/hover réitérer l\'exploration-02.png');
     opacity: 0.5;
     border: none;
-    width: 100;
+    width: 100px;
+    
 }
 .buttonReturn:hover{
     opacity: 1;

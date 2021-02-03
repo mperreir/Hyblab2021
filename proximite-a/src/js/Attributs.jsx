@@ -43,7 +43,6 @@ class Attributs extends React.Component{
                 if (response.ok) {
                     return response.json();
                 }else {
-                    console.log("err")
                     this.setState({
                         loading: false
                     });
@@ -133,39 +132,6 @@ class Attributs extends React.Component{
         }
     }
 
-    getThemeLogo = () => {
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { logo0 }.logo0;
-            case 1://fêtard(vert)
-                return { logo1 }.logo1;
-            case 2://sportif(cyan)
-                return { logo2 }.logo2;
-            case 3://gourmet(jaune)
-                return { logo3 }.logo3;
-            case 4://curieux/culture(orange)
-                return { logo4 }.logo4;
-            case 5://famille(rose)
-                return { logo5 }.logo5;
-        }
-    };
-
-    getThemePerso  = () =>{
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { fetard_img }.fetard_img;
-            case 1://fêtard(vert)
-                return { fetard_img }.fetard_img;
-            case 2://sportif(cyan)
-                return { sportif_img }.sportif_img;
-            case 3://gourmet(jaune)
-                return { gourmet_img }.gourmet_img;
-            case 4://curieux/culture(orange)
-                return { culture_img }.culture_img;
-            case 5://famille(rose)
-                return { famille_img }.famille_img;
-        }
-    }
 
 
     render(){
@@ -175,9 +141,9 @@ class Attributs extends React.Component{
                 <div id="leftPartAttribut">
                     <div id="leftPurpleContainerAttribut">
                         <div id="containerAttributLeftContent">
-                            <img id="logoCorner" src={this.getThemeLogo()} width={150} ></img>
+                            <img id="logoCorner" src={equivalent.themeLogo.get(this.state.themeId)} width={150} ></img>
                             <div id="blablaMadameAttribut">
-                                <img id="ThemeLogoCenter" src={this.getThemePerso()} alt="fetard" />
+                                <img id="ThemeLogoCenter" src={equivalent.themePerso.get(this.state.themeId)} alt="personnage" />
                                 <br></br><br></br>
                                 <div id="paragrapheBlablaMadameAttribut">
                                     {equivalent.txtattribut.get(this.state.themeId)}

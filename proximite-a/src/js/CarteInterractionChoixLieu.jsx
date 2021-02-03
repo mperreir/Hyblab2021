@@ -5,12 +5,11 @@ import personnage from '../img/Perso-hyblab-03.png'
 import equivalent from './equivalent.js'
 class CarteInterractionChoixLieu extends  React.Component {
     state={
-        sites:this.props.data.sites,
+        sites: this.props.data.sites,
         selectedSites:[],
         themeId:this.props.data.themeId
     }
     handleCheck = (e) => {
-        console.log(e.target)
         let newSelected = this.state.selectedSites
         if (e.target.checked === true && !this.state.selectedSites.includes(this.state.sites[e.target.value])) {
             newSelected.push(this.state.sites[e.target.value-1])
@@ -19,11 +18,9 @@ class CarteInterractionChoixLieu extends  React.Component {
             newSelected.pop(this.state.sites[e.target.value])
         }
         this.setState({ selectedSites: newSelected })
-        console.log(this.state.sites[e.target.value-1])
     }
 
     submitCheck =(update,next) =>{
-        console.log(this.state.selectedSites)
         update(this.state.selectedSites)
         next()
     }

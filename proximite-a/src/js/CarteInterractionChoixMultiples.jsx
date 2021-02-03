@@ -14,12 +14,12 @@ import equivalent from './equivalent.js'
 
 class CarteInterractionChoixMultiples extends  React.Component {
     state={
-        themeId:this.props.data.themeId,
-        moyenId:this.props.data.moyenId,
-        sites:this.props.data.sites,
-        adresse:this.props.data.adresse,
+        themeId: this.props.data.themeId,
+        moyenId: this.props.data.moyenId,
+        sites: this.props.data.sites,
+        adresse: this.props.data.adresse,
         selected:[],
-        selectedSites:this.props.data.selectedSites
+        selectedSites: this.props.data.selectedSites
     };
 
     handleChange = (e) => {
@@ -38,7 +38,6 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
     handleCheck =(e)=>{
         let newSelected = this.state.selected
-        console.log(e)
         if(e.target.checked === true && !this.state.selected.includes(e.target.value)){
             newSelected.push(e.target.value)
         }

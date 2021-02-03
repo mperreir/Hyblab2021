@@ -8,6 +8,8 @@ import CarteInterractionChoixMultiplesReduit from './CarteInterractionChoixMulti
 import L from "leaflet"
 import {getPosition} from "leaflet/src/dom/DomUtil";
 import equivalent from './equivalent.js'
+import returnButton from '../img/hover réitérer l\'exploration-02.png';
+
 const decallageCentrageCarte = 0.004;
 const decallageMarqueur = 0.0005;
 const redOptions = { color: '#37ff42' }
@@ -50,7 +52,8 @@ class AcceuilCarte extends  React.Component {
         selectedSites:[],
         popupSurpriseState: false,
         surprise: this.props.data.surprise,
-        surpriseEnabled: false
+        surpriseEnabled: false,
+        themeId:this.props.data.themeId
     };
 
     toCreditPage=(c)=>{
@@ -113,8 +116,6 @@ class AcceuilCarte extends  React.Component {
 
     checkSites=(e)=>{
         this.setState({selectedSites:e})
-        console.log(e)
-        console.log(this.setState)
     }
 
     afficherPopupSurprise = () => {
@@ -123,7 +124,7 @@ class AcceuilCarte extends  React.Component {
 
     getPopupSurprise = () =>{
         if (this.state.popupSurpriseState){
-            return <PopupAnnonce affiche={this.state.popupSurpriseState} valider={this.updateSurpriseState}/>
+            return <PopupAnnonce affiche={this.state.popupSurpriseState} valider={this.updateSurpriseState} data={this.state}/>
         }
     };
     updateSurpriseState = () =>{
@@ -149,7 +150,7 @@ class AcceuilCarte extends  React.Component {
         if (this.state.popupPhase>1){
             setTimeout(this.afficherPopupSurprise,20000);
         }
-        const {nomPers, onCreditPage} = this.props;
+        const { nomPers, onCreditPage, restart} = this.props;
         return (
             <div id="map">
                 <MapContainer center={[this.state.currentPosition[0],this.state.currentPosition[1]-decallageCentrageCarte]} zoom={16} scrollWheelZoom={true}>
@@ -176,7 +177,7 @@ class AcceuilCarte extends  React.Component {
                     <a href="https://www.google.com/" class="buttonMapNavigation">Ouvrir l’itinéraire avec GoogleMaps</a>
                     <input type="button" class="buttonMapNavigation" value="Télécharger la carte en PDF"/>
                     <input type="button" class="buttonMapNavigation" value="Crédits" onClick={()=>{this.toCreditPage(onCreditPage)}} />
-                    <input type="button" class="buttonReturn" className="input-hidden"/>
+                    <input type="image" class="buttonReturn" onClick={restart} src={returnButton}/>
                 </div>
             </div>
         );
