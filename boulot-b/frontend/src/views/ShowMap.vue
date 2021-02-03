@@ -1,13 +1,10 @@
 <template>
-    <container>
-      <template #question>
-        <finalMap />
-      </template>
-      <template #stepper>
-        <Stepper :actif=actif />
-      </template>
+  <div>
+    <finalMap />
+    <img @click="backHome" class="wazo_icon" src="@/assets/wazzo.svg"/>
+        <Stepper class="stepper" :actif=actif />
       <ButtonCustom class="credit"  @click="credits" text="Crédits" color="yellow"/>
-    </container>
+  </div>
 </template>
 
 <script lang="js">
@@ -30,6 +27,9 @@ export default Vue.extend({
       actif: Number
     },
     methods: {
+      backHome() {
+        this.$root.$data.setActif(0)
+      },
       next() {
         this.$root.$data.setActif(this.actif +1)
       },
@@ -43,7 +43,22 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.wazo_icon {
+  cursor: pointer;
+  margin-left: 100px;
+  margin-top: 40px;
+  z-index: 12;
+  position:absolute;
+  margin-right: 10px;
+  top: 0;
+  left: 0;
+}
 
+.stepper {
+  position:absolute;
+  bottom:0;
+  left:0;
+}
 .credit {
   position:absolute;
   bottom:0;

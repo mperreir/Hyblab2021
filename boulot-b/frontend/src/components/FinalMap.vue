@@ -18,7 +18,7 @@ import origine from '@/assets/map/origin.svg'
 
 export default Vue.component("finalMap", {
   name: "finalMap",
-  methods: { 
+  methods: {
       async showMap() {
       const platform = new H.service.Platform({
         apikey: 'joMJEQ1I4K91vF4CAijYMD-cvtabfFAY-iHttZRSnto'
@@ -47,7 +47,6 @@ export default Vue.component("finalMap", {
 
 function addMarkerToGroup(group, coordinate, html) {
   const marker = new H.map.Marker(coordinate);
-  // add custom data to the marker
   marker.setData(html);
   group.addObject(marker);
 }
@@ -69,7 +68,6 @@ function addInfoBubble(map, ui, data) {
       content: evt.target.getData()
     });
     // show info bubble
-    bubble.addClass("bubble")
     ui.addBubble(bubble);
   }, false);
   for (let i=0 ; i < stops.length; i++) {
@@ -77,7 +75,8 @@ function addInfoBubble(map, ui, data) {
     // add 'tap' event listener, that opens info bubble, to the group
 
     addMarkerToGroup(group, {lat: lieu.coordonnees.lat, lng: lieu.coordonnees.lng},
-        "<div >"+ lieu.titre + "</div>")
+        "<p class='title' >"+ lieu.titre + "</p>  <p>"+ lieu.description + "</p>" +
+          `<p> <a class='link' href='${lieu.streetView}'  target="_blank"> StreetView </a> </p> `   )
   }
 }
 
@@ -197,18 +196,38 @@ function iconFactory(namePOI, divMap) {
 }
 </script>
 
-<style scoped>
+<style >
 
   #mapContainer {
+    z-index: 0;
     display: block;
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 100vh;
   }
 
-  .bubble {
-    width: 20%;
-    background-color: black;
+  .H_ib_content {
+    color: white ;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .H_ib_body {
+    background: #ffdb27;
+    width: 250px;
+    position: absolute;
+    right: -100px;
+    border-radius: 20px;
+    box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);
+  }
+
+  .link {
+    color: white;
+    text-decoration: none;
   }
 
   #textMap {
