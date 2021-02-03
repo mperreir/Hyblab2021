@@ -221,3 +221,16 @@ Style global des modals
     width: 10em;
     position: absolute;
 }
+
+
+
+
+
+/*
+
+Modal gmap icons
+
+*/
+#timeline .gmapLink img{
+    width: 1.5em;
+}

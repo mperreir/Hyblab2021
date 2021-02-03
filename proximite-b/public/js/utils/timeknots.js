@@ -36,7 +36,7 @@ var TimeKnots = {
 
                 '<div class="row"><h3>' +
                 firstAdress.nom +
-                '</h3></div>' +
+                '</h3>'+'<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + firstAdress.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>'+'</div>' +
                 '<div class="row headerAddTemps">' +
                 '<div class="col-6 text-left">' +
                 '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
@@ -67,10 +67,10 @@ var TimeKnots = {
 
             otherAdress.forEach(element => {
                 if (i >= 5) {
-                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + element.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</p></li>');
                 }
                 else {
-                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + element.adresse + '</p></li>');
+                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + element.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</p></li>');
                 }
                 i++;
             });
@@ -111,12 +111,12 @@ var TimeKnots = {
 
             var li = $('<li>');
             var p = $('<p>');
-            p.attr('class',"clickablepMultiple")
+            p.attr('class', "clickablepMultiple")
             var img = $('<img>'); //Equivalent: $(document.createElement('img'))
-            img.css('margin-right','1em');
+            img.css('margin-right', '1em');
             img.attr("width", 50);
             img.attr("height", 50);
-            
+
             img.attr('src', element.img);
             p.append(img)
             p.append('<b>' + element.categorie + ' : </b>' + element.data[0].adresse)
