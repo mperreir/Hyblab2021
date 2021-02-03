@@ -93,7 +93,6 @@ export default {
   margin-right: auto;
   width: 50%;
 }
-
 #canari-come {
   margin-left: auto;
   margin-right: auto;
