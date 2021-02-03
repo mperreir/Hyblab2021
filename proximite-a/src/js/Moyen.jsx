@@ -2,20 +2,8 @@ import React from 'react';
 import MoyenSelector from './MoyenSelector'
 import local from '../img/pictogrammes_maison.png'
 import '../css/moyen.css'
-//images logos
-import logo0 from '../img/LOGO OK_logo principal.png'
-import logo1 from '../img/LOGO OK_logo vert.png'
-import logo2 from '../img/LOGO OK_logo bleu.png'
-import logo3 from '../img/LOGO OK_logo jaune.png'
-import logo4 from '../img/LOGO OK_logo orange.png'
-import logo5 from '../img/LOGO OK_logo rose.png'
-//images persos
-import fetard_img from '../img/Perso-hyblab-03.png'
-import sportif_img from '../img/Perso-hyblab-02.png'
-import gourmet_img from '../img/Perso-hyblab-04.png'
-import culture_img from '../img/Perso-hyblab-05.png'
-import famille_img from '../img/Perso-hyblab-06.png'
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
+import equivalent from './equivalent.js'
 class Moyen extends  React.Component {
     state = {
         moyenId:null,
@@ -23,38 +11,6 @@ class Moyen extends  React.Component {
         themeId: this.props.data.themeId,
         loading:false,
     };
-    getThemePerso  = () =>{
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { fetard_img }.fetard_img;
-            case 1://fêtard(vert)
-                return { fetard_img }.fetard_img;
-            case 2://sportif(cyan)
-                return { sportif_img }.sportif_img;
-            case 3://gourmet(jaune)
-                return { gourmet_img }.gourmet_img;
-            case 4://curieux/culture(orange)
-                return { culture_img }.culture_img;
-            case 5://famille(rose)
-                return { famille_img }.famille_img;
-        }
-    }
-    getThemeLogo = () => {
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { logo0 }.logo0;
-            case 1://fêtard(vert)
-                return { logo1 }.logo1;
-            case 2://sportif(cyan)
-                return { logo2 }.logo2;
-            case 3://gourmet(jaune)
-                return { logo3 }.logo3;
-            case 4://curieux/culture(orange)
-                return { logo4 }.logo4;
-            case 5://famille(rose)
-                return { logo5 }.logo5;
-        }
-    }
 
     handleChange = (e) => {
         this.setState({
@@ -78,8 +34,8 @@ class Moyen extends  React.Component {
             <div id="MoyenContainer" class="d-flex justify-content-center align-items-center">
 
                 <div id="Theme" class="d-flex flex-column justify-content-center align-items-center fixed-top">
-                    <img id="logoCorner" src={this.getThemeLogo()} width={100} ></img>
-                    <img id="logoCenter" src={this.getThemePerso()} alt="fetard" />
+                    <img id="logoCorner" src={equivalent.themeLogo.get(this.state.themeId)} width={100} ></img>
+                    <img id="logoCenter" src={equivalent.themePerso.get(this.state.themeId)} alt="fetard" />
                     <br></br><br></br>
                     <span class="text-center align-middle">Très bien, maintenant que je sais où tu te situes, comment souhaites-tu te déplacer ?</span>
                 </div>

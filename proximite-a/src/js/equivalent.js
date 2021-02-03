@@ -1,3 +1,28 @@
+//images logos
+import logo0 from '../img/LOGO OK_logo principal.png'
+import logo1 from '../img/LOGO OK_logo vert.png'
+import logo2 from '../img/LOGO OK_logo bleu.png'
+import logo3 from '../img/LOGO OK_logo jaune.png'
+import logo4 from '../img/LOGO OK_logo orange.png'
+import logo5 from '../img/LOGO OK_logo rose.png'
+//images persos
+import fetard_img from '../img/Perso-hyblab-03.png'
+import sportif_img from '../img/Perso-hyblab-02.png'
+import gourmet_img from '../img/Perso-hyblab-04.png'
+import culture_img from '../img/Perso-hyblab-05.png'
+import famille_img from '../img/Perso-hyblab-06.png'
+import { Spinner } from "react-bootstrap";
+
+//images fonds
+import fond0 from '../img/HOVER-moyen de transport-tache-01.png'
+import fond1 from '../img/HOVER-moyen de transport-tache-02.png'
+import fond2 from '../img/HOVER-moyen de transport-tache-03.png'
+import fond3 from '../img/HOVER-moyen de transport-tache-04.png'
+import fond4 from '../img/HOVER-moyen de transport-tache-05.png'
+import fond5 from '../img/HOVER-moyen de transport-tache-06.png'
+
+
+
 var equiv = new Map();
 equiv.set("Musée" , "tourism=museum");
 equiv.set("Cinéma", "amenity=cinema");
@@ -62,7 +87,40 @@ themetxt.set(3, "Restaurant, Pâtisseries...");
 themetxt.set(4, "Musée, cinéma, lieu de culte...");
 themetxt.set(5, "École, garde d'enfants, loisirs...");
 
-export default {equiv, moyenEquiv, themeEquiv, themePicto, themetxt}
+
+var themePerso = new Map();
+themePerso.set(0, { fetard_img }.fetard_img)
+themePerso.set(1,{fetard_img}.fetard_img)
+themePerso.set(2, {sportif_img}.sportif_img)
+themePerso.set(3, {gourmet_img}.gourmet_img)
+themePerso.set(4, { culture_img }.culture_img)
+themePerso.set(5, { famille_img }.famille_img)
+
+var themeLogo = new Map();
+themeLogo.set(0, {logo0}.logo0 )
+themeLogo.set(1, {logo1}.logo1 )
+themeLogo.set(2, {logo2}.logo2 )
+themeLogo.set(3, {logo3}.logo3 )
+themeLogo.set(4, {logo4}.logo4 )
+themeLogo.set(5, {logo5}.logo5 )
+
+var themeFond = new Map();
+themeFond.set(0, { fond0}.fond0)
+themeFond.set(1, { fond1}.fond1)
+themeFond.set(2, { fond2}.fond2)
+themeFond.set(3, { fond3}.fond3)
+themeFond.set(4, { fond4}.fond4)
+themeFond.set(5, { fond5}.fond5)
+
+var txtattribut = new Map();
+txtattribut.set(0, "Salut, je m’appelle Alex ! Tu aimes rencontrer tes amis dans des bars, déguster des planches apéros et sortir danser ? Alors, suis-moi !?");
+txtattribut.set(1, "Salut, je m’appelle Alex ! Tu aimes rencontrer tes amis dans des bars, déguster des planches apéros et sortir danser ? Alors, suis-moi !");
+txtattribut.set(2, "Moi, c’est Camille. Tu aimes relever des défis, te surpasser, ou même prendre soin de toi ? Alors suis-moi ! Je vais te faire découvrir des endroits où tu pourras t’exercer.");
+txtattribut.set(3, "Moi, c’est François ! Tu aimes les plaisirs de la table ? Je connais tous les restaurants du coin !");
+txtattribut.set(4, "Moi, c’est Zoé ! Tu es féru d’arts et de culture, curieux ? Tu as envie de découvrir le patrimoine qui t’entoure ? Allez, viens avec moi !");
+txtattribut.set(5, "Salut ! Moi, c’est Mehdi. Elle, c’est Lina et lui, c’est notre chien Spike. Je connais plein de coins sympas où se rendre en famille ! Ça te dit de venir avec nous ?");
+
+export default { equiv, moyenEquiv, themeEquiv, themePicto, themetxt, txtattribut, themeLogo, themeFond, themePerso}
 
 
 

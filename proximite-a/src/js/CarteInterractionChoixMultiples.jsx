@@ -11,16 +11,15 @@ import trottinette from '../img/picto moyen de transport-trotinette.png'
 import skate from '../img/picto moyen de transport-skate.png'
 import roller from '../img/picto moyen de transport-roller.png'
 import equivalent from './equivalent.js'
-import fond from '../img/HOVER-moyen de transport-tache-02.png'
 
 class CarteInterractionChoixMultiples extends  React.Component {
     state={
-        themeId:this.props.data.themeId,
-        moyenId:this.props.data.moyenId,
-        sites:this.props.data.sites,
-        adresse:this.props.data.adresse,
+        themeId: this.props.data.themeId,
+        moyenId: this.props.data.moyenId,
+        sites: this.props.data.sites,
+        adresse: this.props.data.adresse,
         selected:[],
-        selectedSites:this.props.data.selectedSites
+        selectedSites: this.props.data.selectedSites
     };
 
     handleChange = (e) => {
@@ -39,7 +38,6 @@ class CarteInterractionChoixMultiples extends  React.Component {
 
     handleCheck =(e)=>{
         let newSelected = this.state.selected
-        console.log(e)
         if(e.target.checked === true && !this.state.selected.includes(e.target.value)){
             newSelected.push(e.target.value)
         }
@@ -54,14 +52,14 @@ class CarteInterractionChoixMultiples extends  React.Component {
         equivalent.equiv.forEach((l, r) => selectable.push(this.addSelect(l, r)))
         const { onNextPhase, nomPers} = this.props;
         const hoverStyle = {
-            backgroundImage: `url(${fond})`
+            backgroundImage: `url(${equivalent.themeFond.get(this.state.themeId)})`
         };
         return (
             <div id="mainContainerInterraction">
                 <div id="containerInterraction2" class="containersInterraction">
                     <div class="phase2Top">
                         <div class="phase2TopLeft">
-                            <img src={logo} id="containerInterractionLogoP2"/>
+                            <img src={equivalent.themeLogo.get(this.state.themeId)} id="containerInterractionLogoP2"/>
                             <div id="textContainerTopLeft">
                                 <span id="helloText"><b>Hello</b> {nomPers}</span>
                                 <div class="d-flex align-items-center">
@@ -74,7 +72,7 @@ class CarteInterractionChoixMultiples extends  React.Component {
                             </div>
                         </div>
                         <div class="phase2TopRight">
-                            <img src={personnage} width={190}/>
+                            <img src={equivalent.themePerso.get(this.state.themeId)} width={190}/>
                         </div>
                     </div>
                     <hr/>

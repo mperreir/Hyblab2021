@@ -2,19 +2,9 @@ import React from 'react';
 import maison from '../img/pictogrammes_maison.png'
 import '../css/attributs.css'
 import {Spinner} from "react-bootstrap";
-//images logos
-import logo0 from '../img/LOGO OK_logo principal.png'
-import logo1 from '../img/LOGO OK_logo vert.png'
-import logo2 from '../img/LOGO OK_logo bleu.png'
-import logo3 from '../img/LOGO OK_logo jaune.png'
-import logo4 from '../img/LOGO OK_logo orange.png'
-import logo5 from '../img/LOGO OK_logo rose.png'
-//images persos
-import fetard_img from '../img/Perso-hyblab-03.png'
-import sportif_img from '../img/Perso-hyblab-02.png'
-import gourmet_img from '../img/Perso-hyblab-04.png'
-import culture_img from '../img/Perso-hyblab-05.png'
-import famille_img from '../img/Perso-hyblab-06.png'
+
+
+import equivalent from './equivalent.js'
 
 class Attributs extends React.Component{
     state = {
@@ -33,17 +23,18 @@ class Attributs extends React.Component{
     };
 
 
+
         getCoords = () =>{
             let urlRue = this.state.adresse.rue.split(' ').join('+');
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
          
              fetch(`/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
                     return response.json();
                 }else {
-                    console.log("err")
                     this.setState({
                         loading: false
                     });
@@ -65,7 +56,9 @@ class Attributs extends React.Component{
             this.setState({
                 coords: [position.coords.latitude, position.coords.longitude],
             });
-            fetch('proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+          
+            fetch('/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
                         return response.json();
@@ -133,39 +126,6 @@ class Attributs extends React.Component{
         }
     }
 
-    getThemeLogo = () => {
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { logo0 }.logo0;
-            case 1://fêtard(vert)
-                return { logo1 }.logo1;
-            case 2://sportif(cyan)
-                return { logo2 }.logo2;
-            case 3://gourmet(jaune)
-                return { logo3 }.logo3;
-            case 4://curieux/culture(orange)
-                return { logo4 }.logo4;
-            case 5://famille(rose)
-                return { logo5 }.logo5;
-        }
-    };
-
-    getThemePerso  = () =>{
-        switch (this.state.themeId) {
-            case 0://défaut(bleu)
-                return { fetard_img }.fetard_img;
-            case 1://fêtard(vert)
-                return { fetard_img }.fetard_img;
-            case 2://sportif(cyan)
-                return { sportif_img }.sportif_img;
-            case 3://gourmet(jaune)
-                return { gourmet_img }.gourmet_img;
-            case 4://curieux/culture(orange)
-                return { culture_img }.culture_img;
-            case 5://famille(rose)
-                return { famille_img }.famille_img;
-        }
-    }
 
 
     render(){
@@ -175,17 +135,17 @@ class Attributs extends React.Component{
                 <div id="leftPartAttribut">
                     <div id="leftPurpleContainerAttribut">
                         <div id="containerAttributLeftContent">
-                            <img id="logoCorner" src={this.getThemeLogo()} width={150} ></img>
+                            <img id="logoCorner" src={equivalent.themeLogo.get(this.state.themeId)} width={150} ></img>
                             <div id="blablaMadameAttribut">
-                                <img id="ThemeLogoCenter" src={this.getThemePerso()} alt="fetard" />
+                                <img id="ThemeLogoCenter" src={equivalent.themePerso.get(this.state.themeId)} alt="personnage" />
                                 <br></br><br></br>
-                                <p id="paragrapheBlablaMadameAttribut">Hello moi c’est Alex !
-                                    Tu aimes rencontrer tes amis dans des bars, déguster  des planches apéros et sortir danser ? Alors, suis-moi !
+                                <div id="paragrapheBlablaMadameAttribut">
+                                    {equivalent.txtattribut.get(this.state.themeId)}
                                     <br/>
                                     <br/>
                                     C’est moi qui vais t’accompagner tout au long  de ton parcours. <b>Et pour te guider au mieux,
                                         peux-tu me donner ton adresse ou ta géolocalisation ?</b>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>
