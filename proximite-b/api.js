@@ -166,9 +166,10 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     });
 
     // Calculer les adresses
-    for(let cat_obj of res) {
-        for(let poi of cat_obj.data) {
-            poi.adresse = await get_adresse(poi.lon, poi.lat);
+    for (let cat_obj of res) {
+        cat_obj.data[0].adresse = await get_adresse(cat_obj.data[0].lon, cat_obj.data[0].lat);
+        for (let i = 1; i < cat_obj.data.length; i++) {
+            cat_obj.data[i].adresse = "https://www.google.fr/maps/dir/" + latitude + "+" + longitude + "/" + cat_obj.data[i].lat + "+" + cat_obj.data[i].lon;
         }
     }
     let t4 = performance.now();
