@@ -1,0 +1,204 @@
+{
+  "splash-screen": {
+    "next": {
+      "timeout": "page-accueil"
+    }
+  },
+  "page-accueil": {
+    "next": {
+      "ok": "page-carte"
+    }
+  },
+  "page-carte": {
+    "next": {
+      "nord": "choix-transport-velo",
+      "sud": "choix-transport-velo",
+      "est": "choix-transport-velo",
+      "ouest": "choix-transport-velo"
+    }
+  },
+  "info-choix-carte": {
+    "next": {
+      "ok": "choix-transport-transports"
+    }
+  },
+  "choix-transport-transports": {
+    "next": {
+      "ok": "question-transports-velo",
+      "info": "info-choix-transports",
+      "gauche": "choix-transport-bicloo",
+      "droite": "choix-transport-voiture",
+      "retour": "page-carte"
+    },
+    "relevant": [
+      "arrets-tan"
+    ],
+    "transport": "transports"
+  },
+  "info-choix-transports": {
+    "next": {
+      "ok": "choix-transport-transports"
+    },
+    "question-voiture-transports": {
+      "ok": "page-arrivee"
+    },
+    "question-velo-autres-transports": {
+      "ok": "page-arrivee"
+    },
+    "question-bicloo-autres-transports": {
+      "ok": "page-arrivee"
+    }
+  },
+  "choix-transport-velo": {
+    "next": {
+      "ok": "question-velo-autres-transports",
+      "info": "info-choix-velo",
+      "gauche": "choix-transport-voiture",
+      "droite": "choix-transport-bicloo",
+      "retour": "page-carte"
+    },
+    "relevant": [
+      "velocistes",
+      "gonfleurs-libre-service",
+      "abris-velo"
+    ],
+    "transport": "velo"
+  },
+  "info-choix-velo": {
+    "next": {
+      "ok": "choix-transport-velo"
+    },
+    "question-transports-velo": {
+      "ok": "page-arrivee"
+    },
+    "question-voiture-velo": {
+      "ok": "page-arrivee"
+    }
+  },
+  "choix-transport-bicloo": {
+    "next": {
+      "ok": "question-bicloo-autres-transports",
+      "info": "info-choix-bicloo",
+      "gauche": "choix-transport-velo",
+      "droite": "choix-transport-transports",
+      "retour": "page-carte"
+    },
+    "relevant": [
+      "stations-velo-libre-service",
+      "abris-velo"
+    ],
+    "transport": "bicloo"
+  },
+  "info-choix-bicloo": {
+    "next": {
+      "ok": "choix-transport-bicloo"
+    },
+    "question-transports-bicloo": {
+      "ok": "page-arrivee"
+    },
+    "question-voiture-bicloo": {
+      "ok": "page-arrivee"
+    }
+  },
+  "choix-transport-voiture": {
+    "next": {
+      "ok": "question-voiture-velo",
+      "info": "info-choix-voiture",
+      "gauche": "choix-transport-transports",
+      "droite": "choix-transport-velo",
+      "retour": "page-carte"
+    },
+    "relevant": [
+      "disponibilites-parcs-relais",
+      "disponibilites-places-parking"
+    ],
+    "transport": "voiture"
+  },
+  "info-choix-voiture": {
+    "next": {
+      "ok": "choix-transport-voiture"
+    }
+  },
+  "question-transports-velo": {
+    "next": {
+      "oui": "info-choix-velo",
+      "non": "question-transports-bicloo"
+    },
+    "transport": "velo"
+  },
+  "question-transports-bicloo": {
+    "next": {
+      "oui": "info-choix-bicloo",
+      "non": "page-arrivee"
+    },
+    "transport": "bicloo"
+  },
+  "question-velo-autres-transports": {
+    "next": {
+      "oui": "info-choix-transports",
+      "non": "question-garer-velo"
+    },
+    "transport": "transports"
+  },
+  "question-bicloo-autres-transports": {
+    "next": {
+      "oui": "info-choix-transports",
+      "non": "question-garer-velo"
+    },
+    "transport": "transports"
+  },
+  "question-garer-velo": {
+    "next": {
+      "consigne": "info-abonnements-consignes",
+      "sauvage": "page-arrivee"
+    }
+  },
+  "question-voiture-velo": {
+    "next": {
+      "oui": "info-choix-velo",
+      "non": "question-voiture-bicloo"
+    },
+    "transport": "velo"
+  },
+  "question-voiture-bicloo": {
+    "next": {
+      "oui": "info-choix-bicloo",
+      "non": "question-voiture-transports"
+    },
+    "transport": "bicloo"
+  },
+  "question-voiture-transports": {
+    "next": {
+      "oui": "info-choix-transports",
+      "non": "question-voiture-parking"
+    },
+    "transport": "transports"
+  },
+  "question-voiture-parking": {
+    "next": {
+      "gratuit": "page-arrivee",
+      "payant": "page-arrivee"
+    }
+  },
+  "info-abonnements-consignes": {
+    "next": {
+      "ok": "page-arrivee"
+    }
+  },
+  "page-arrivee": {
+    "next": {
+      "continuer": "page-arrivee-stats"
+    }
+  },
+  "page-arrivee-stats": {
+    "next": {
+      "rejouer": "page-accueil",
+      "credit": "page-credit"
+    }
+  },
+  "page-credit": {
+    "next": {
+      "retour": "page-arrivee-stats"
+    }
+  }
+}
