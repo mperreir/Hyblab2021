@@ -1,5 +1,8 @@
 
 
+/**
+ * Fonction pour supprimer le popup du papy sur la page timeline
+ */
 function closePapy() {
     $('#timeline_Papy').remove();
 }

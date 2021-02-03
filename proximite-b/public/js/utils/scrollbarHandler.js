@@ -1,3 +1,16 @@
+/*
+*
+* SOURCE : 
+* https://stackoverflow.com/users/203773/tfe
+*
+*/
+
+
+
+
+/**
+ * Fonction pour verouiller la scrollbar
+ */
 function lockScroll() {
     $html = $('html');
     $body = $('body');
@@ -18,6 +31,9 @@ function lockScroll() {
     $body.css({ 'margin-right': marginR, 'margin-bottom': marginB });
 }
 
+/**
+ * Fonction pour déverouiller la scrollbar
+ */
 function unlockScroll() {
     $html = $('html');
     $body = $('body');

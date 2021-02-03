@@ -1,3 +1,9 @@
+
+/**
+ * Permet d'ajouter les images aux données pour la timeline
+ * @param {*} data 
+ * @param {*} tab 
+ */
 function data_add_img(data, tab) {
     var interests = _app_stores['criteres']['interests'];
     var disinterests = _app_stores['criteres']['disinterests'];
@@ -19,6 +25,10 @@ function data_add_img(data, tab) {
     }
 }
 
+/**
+ * Ajoute les valeurs maximale et minimale
+ * @param {*} data 
+ */
 function add_min_max(data) {
     return [{
         "categorie": null,
@@ -34,6 +44,11 @@ function add_min_max(data) {
     }].concat(data)
 }
 
+/**
+ * Permet d'uniformiser les données pour les timelines
+ * @param {*} d1 
+ * @param {*} d2 
+ */
 function clean_data(d1, d2) {
     var tab = []
     data_add_img(d1, tab);

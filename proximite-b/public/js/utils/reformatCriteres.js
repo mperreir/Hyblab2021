@@ -1,3 +1,7 @@
+/**
+ * reformatter un id vers un nom de critere valide pour l'api
+ * @param {*} name 
+ */
 function reformatCriteres(name) {
     if (name == "pharmacie") return 'Pharmacie';
     if (name == "boulangerie") return 'Boulangerie';
