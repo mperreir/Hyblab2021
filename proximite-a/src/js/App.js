@@ -13,7 +13,7 @@ class App extends React.Component {
 
     state = {
         nomPers: null,
-        pageId: 4,
+        pageId: 0,
         precedId:0,
         themeId:0,
         moyenId:0,
