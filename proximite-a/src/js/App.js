@@ -135,6 +135,7 @@ class App extends React.Component {
         let stringAdresse = this.state.adresse.rue.split(' ').join('+') + '+' + this.state.adresse.codepostal.split(' ').join('+') + '+' + this.state.adresse.ville.split(' ').join('+')
         let moyen = equivalent.moyenEquiv.get(e)
         let theme = equivalent.themeEquiv.get(this.state.themeId)
+
         let lieux = await (await fetch('/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
         let newSites = []
         let newSurprise;

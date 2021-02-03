@@ -11,7 +11,6 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, '../__common-logos__')));
 
-console.log('brie2');
 app.use('/api', api(app));
 
 // You can then add whatever routing code you need
