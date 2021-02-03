@@ -4,7 +4,6 @@ const Bar = require("./choices/Bar");
 const Pharmacie = require("./choices/Pharmacie");
 const NatureStyle = require("./choices/NatureStyle");
 const CultureStyle = require("./choices/CultureStyle");
-const AleaStyle = require("./choices/AleaStyle");
 const Lieux = require("./choices/Lieux");
 
 function styleFactory(style){
