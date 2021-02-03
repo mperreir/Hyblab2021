@@ -112,7 +112,15 @@ themeFond.set(3, { fond3}.fond3)
 themeFond.set(4, { fond4}.fond4)
 themeFond.set(5, { fond5}.fond5)
 
-export default { equiv, moyenEquiv, themeEquiv, themePicto, themetxt, themeLogo, themeFond, themePerso}
+var txtattribut = new Map();
+txtattribut.set(0, "Salut, je m’appelle Alex ! Tu aimes rencontrer tes amis dans des bars, déguster des planches apéros et sortir danser ? Alors, suis-moi !?");
+txtattribut.set(1, "Salut, je m’appelle Alex ! Tu aimes rencontrer tes amis dans des bars, déguster des planches apéros et sortir danser ? Alors, suis-moi !");
+txtattribut.set(2, "Moi, c’est Camille. Tu aimes relever des défis, te surpasser, ou même prendre soin de toi ? Alors suis-moi ! Je vais te faire découvrir des endroits où tu pourras t’exercer.");
+txtattribut.set(3, "Moi, c’est François ! Tu aimes les plaisirs de la table ? Je connais tous les restaurants du coin !");
+txtattribut.set(4, "Moi, c’est Zoé ! Tu es féru d’arts et de culture, curieux ? Tu as envie de découvrir le patrimoine qui t’entoure ? Allez, viens avec moi !");
+txtattribut.set(5, "Salut ! Moi, c’est Mehdi. Elle, c’est Lina et lui, c’est notre chien Spike. Je connais plein de coins sympas où se rendre en famille ! Ça te dit de venir avec nous ?");
+
+export default { equiv, moyenEquiv, themeEquiv, themePicto, themetxt, txtattribut, themeLogo, themeFond, themePerso}
 
 
 
