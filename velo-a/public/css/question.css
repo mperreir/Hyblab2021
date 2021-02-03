@@ -277,3 +277,27 @@ button {
 #button-next-question {
 	justify-self: center;
 }
+
+@media (max-width: 1000px) and (orientation: landscape){
+	#div-resultat {
+		width: 85%;
+		grid-template-rows: unset;
+	}
+
+	#expression-bicky {
+		display: none;
+	}
+
+	#button-next-question {
+		grid-row: 3 / 4;
+		margin: 0;
+	}
+
+	.text-question {
+		margin: 2% 0;
+	}
+
+	#logo_header {
+		z-index: -1 !important;
+	}
+}

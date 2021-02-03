@@ -8,6 +8,8 @@ function bootstrap() {
 	document.querySelectorAll("body > div").forEach((el) => {
 		el.setAttribute("style", "");
 	});
+
+
 	slide(velos, backgroundContinue, ["question_pane", "question_velo", "question_trajet"]);
 	togglePath();
 }

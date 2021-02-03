@@ -130,6 +130,7 @@ input[type=checkbox]:checked + label {
 
 .button-cross {
 	background: white url("../img/utils/cross_orange.png") no-repeat center;
+	background-size: 50% 50%;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
@@ -141,10 +142,12 @@ input[type=checkbox]:checked + label {
 
 .button-cross:hover {
 	background: #F96D48 url("../img/utils/cross_blanc.png") no-repeat center;
+	background-size: 50% 50%;
 }
 
 .button-menu {
 	background: white url("../img/utils/menu_orange.png") no-repeat center;
+	background-size: 50% 50%;
 	width: 100px;
 	height: 57px;
 	border: 2px solid #F96D48;
@@ -156,6 +159,7 @@ input[type=checkbox]:checked + label {
 
 .button-menu:hover {
 	background: #F96D48 url("../img/utils/menu_blanc.png") no-repeat center;
+	background-size: 50% 50%;
 }
 
 .mapboxgl-ctrl-geocoder .suggestions {
@@ -214,4 +218,61 @@ input[type=checkbox]:checked + label {
 	left: 0;
 	right: 0;
 	z-index: 99;
+}
+
+#left-nav > p {
+	display: inline;
+}
+
+
+@media (orientation: portrait) {
+	.button-menu, .button-cross {
+		width: 200px;
+		height: 100px;
+	}
+
+	.button-return {
+		width: 341px;
+		height: 68px;
+		font-size: 3em;
+	}
+
+	#left-nav {
+		width: 80%;
+		padding-top: 200px;
+	}
+
+	#left-nav, #left-nav #mapbox-controllers input {
+		font-size: 2em !important;
+	}
+
+	#left-nav > br {
+		display: block;
+		content: "";
+		margin-top: 30px;
+	}
+
+	#btn-recalculer {
+		font-size: 1.5em !important;
+		height: 68px;
+	}
+
+	.mapboxgl-ctrl-geocoder ul > li > a {
+		font-size: 2em;
+	}
+
+	.mapboxgl-ctrl-geocoder .suggestions {
+		top: 40px;
+	}
+
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+	#btn-recalculer {
+		margin: 0 !important;
+	}
+
+	#left-nav #mapbox-controllers input {
+		margin: 0 !important;
+	}
 }

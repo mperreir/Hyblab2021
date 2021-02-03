@@ -8,8 +8,6 @@ body {
 }
 
 .container_map {
-	display: flex;
-	flex-direction: column;
 	padding: 20px;
 	margin-left: 160px;
 }
@@ -36,6 +34,19 @@ input {
 	.container_map {
 		align-self: center;
 		margin: 0;
+		width: 80%;
+	}
+
+	.container_map h2 {
+		font-size: 3em !important;
+	}
+
+	.container_map h3 {
+		font-size: 2.5em;
+	}
+
+	.container_map p {
+		font-size: 2em !important;
 	}
 
 	#container-bicky {
@@ -48,6 +59,19 @@ input {
 
 	#bicky-habille {
 		display: none;
+	}
+
+	.button-slide {
+		font-size: 1.5em !important;
+	}
+
+	#container-bicky {
+		display: none;
+	}
+
+	.button-slide:not(.button-return) {
+		width: 450px !important;
+		font-size: 2em !important;
 	}
 }
 
@@ -96,4 +120,56 @@ h3 {
 .charging p {
 	color: gray;
 	letter-spacing: -0.2em;
+}
+
+.div-button-slide {
+	text-align: center;
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+	.container_map img {
+		display: none;
+	}
+
+	.container_map {
+		display: flex;
+		max-height: 60%;
+		width: 100%;
+		flex-flow: column wrap;
+		margin: 0;
+	}
+
+	.container_map > * {
+		width: 33%;
+	}
+
+	h3 {
+		margin: 0;
+	}
+
+	#div-messageFin {
+		text-align: center;
+		text-align: -webkit-center;
+	}
+
+	.div-button-slide input {
+		width: 200px;
+		font-size: 0.8em;
+	}
+
+	#messageFin {
+		width: 70%;
+	}
+
+	body {
+		justify-content: start;
+	}
+
+	.bottom-right-nav-container {
+		flex-direction: row;
+	}
+
+	#container-bicky {
+		display: none;
+	}
 }

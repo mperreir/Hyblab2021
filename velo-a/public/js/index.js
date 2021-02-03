@@ -13,9 +13,7 @@ async function bootstrap() {
 		}
 	})
 
-	console.log('ici1')
 	animation.addEventListener("DOMLoaded", () => {
-		console.log('ici2')
 		animation.play();
 
 		animation.addEventListener('complete', () => {

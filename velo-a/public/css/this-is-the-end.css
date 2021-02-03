@@ -203,3 +203,49 @@ a {
 	text-decoration: none !important;
 	color: black;
 }
+
+@media (orientation: portrait) {
+	a, span, p {
+		font-size: 2em !important;
+	}
+
+	h3 {
+		font-size: 2.5em !important;
+	}
+
+	h2 {
+		font-size: 3em !important;
+	}
+
+	ul, .schools > div {
+		width: unset;
+		height: unset;
+	}
+
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+	.content {
+		padding-top: 75px;
+	}
+
+	.schools {
+		width: unset;
+	}
+
+	.content > span {
+		margin: 0;
+	}
+
+	.schools h2 {
+		margin: 0;
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	.bg-right, .citation, .logo {
+		display: none;
+	}
+}

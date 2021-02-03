@@ -5,9 +5,10 @@
 #pane {
 	position: absolute;
 
-	max-height: 80vh;
+	height: 80vh;
 	bottom: 11%;
-	right: 30%;
+	right: 10%;
+	width: auto;
 }
 
 .hide_start {
@@ -58,6 +59,7 @@
 	justify-content: space-around;
 	position: absolute;
 	top: 20%;
+	flex-wrap: wrap;
 }
 
 #question_velo {
@@ -70,7 +72,7 @@
 	flex-wrap: wrap;
 	align-items: center;
 	bottom: 50%;
-	top: 200px;
+	top: 20%;
 }
 
 #velos {
@@ -186,9 +188,13 @@
 }
 
 #question_velo > .mascotte {
-	top: -150px;
+	min-width: 15em;
+	top: -50%;
 }
 
+#question_pane > .mascotte {
+	min-width: 10em;
+}
 
 #question_pane > .mascotte > div {
 	left: 20px;
@@ -197,6 +203,11 @@
 #question_velo > .mascotte > div {
 	right: -400px;
 	bottom: 0;
+}
+
+#question_trajet > .mascotte {
+	min-width: 15em;
+	top: 10%;
 }
 
 #question_trajet > .mascotte > div {
@@ -250,3 +261,78 @@
 		width: 100%;
 	}
 }
+
+@media (max-width: 1000px) and (orientation: landscape){
+	.velo {
+		display: none;
+	}
+	#question_velo {
+		top: unset;
+		bottom: 15%;
+	}
+
+	#question_velo > .mascotte {
+		top: -100px;
+	}
+
+	#question_trajet > .mascotte {
+		top: unset;
+		bottom: 0;
+	}
+
+	#question_trajet {
+		flex-direction: row;
+		justify-content: center;
+	}
+	#question_trajet > :not(.mascotte) {
+		margin: 10px;
+	}
+}
+@media (orientation: portrait) {
+	#question_velo > :not(.mascotte), #question_trajet > :not(.mascotte).button-slide  {
+		font-size: 3em;
+		line-height: 1em;
+		height: 2.5em;
+		width: 15em;
+		padding: 0.3em;
+		margin-top: 50px;
+	}
+
+	.input-adresse, .autocomplete-items{
+		font-size: 3em !important;
+		line-height: 1em !important;
+		height: 2.5em !important;
+		width: 15em !important;
+		padding: 0.3em !important;
+		margin-top: 50px !important;
+	}
+
+	.mascotte > div {
+		font-size: 3em;
+	}
+
+	#question_velo > .mascotte > div {
+		width: unset;
+	}
+
+	#question_velo > .mascotte > div {
+		right: -550px !important;
+	}
+
+	.button-slide.batiment_button i {
+		font-size: smaller;
+	}
+
+	#question_trajet > .mascotte > div {
+		top: -200px;
+		width: 15em;
+	}
+
+	#question_trajet > .mascotte {
+		top: -10% !important;
+	}
+}
+.mascotte > img {
+	max-height: 20vh;
+}
+
