@@ -3,7 +3,7 @@
     <finalMap />
     <img @click="backHome" class="wazo_icon" src="@/assets/wazzo.svg"/>
         <Stepper class="stepper" color="blue"  :actif=actif />
-      <ButtonCustom class="credit"  @click="credits" text="Crédits" color="yellow"/>
+      <ButtonCustom class="credit"  @click="credits" text="Crédits" color="dark-blue"/>
   </div>
 </template>
 

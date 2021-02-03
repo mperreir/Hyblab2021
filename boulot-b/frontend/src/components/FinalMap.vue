@@ -204,6 +204,7 @@ function iconFactory(namePOI, divMap) {
     position: relative;
     width: 100%;
     height: 100vh;
+    cursor: url("~@/assets/mouse.png") 16 16, auto;
   }
 
   .H_ib_content {

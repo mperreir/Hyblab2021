@@ -21,6 +21,7 @@ export default Vue.component("buttonCustom", {
 </script>
 
 <style scoped lang="scss">
+$darkBlue: #1e6aff;
 $blue:  #0ec0ec;
 $yellow: #ffdb27;
   .button {
@@ -37,6 +38,13 @@ $yellow: #ffdb27;
     padding: min(20px, 3%);
     cursor: pointer;
     text-align: center;
+  }
+
+  .dark-blue {
+    background-color: $darkBlue;
+  }
+  .dark-blue:hover {
+    background-color: darken($darkBlue, 20%);
   }
 
   .yellow {
