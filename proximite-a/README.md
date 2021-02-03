@@ -19,7 +19,7 @@ Nom d'équipe : Proximeet
 Participants : 
 
 - Sciencescom :
-    - Judith Serrruya
+    - Judith Serruya
     - Hély Lemarié
 
 - AGR :
