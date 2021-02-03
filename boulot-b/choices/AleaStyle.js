@@ -3,8 +3,11 @@ const {extractUtilsValue, getRandomInt, pointInteret,
     getRandomIntInclusive} = require("../helpers");
 
 class AleaStyle extends Choice {
-    name = "Hasard"
-    theme = ["nature", "culture"]
+    constructor() {
+        super();
+        this.name = "Hasard"
+        this.theme = ["nature", "culture"]
+    }
 
     async addPOI(origin, arrivee, transport, list_POI) {
         const randomHasard = getRandomIntInclusive(0, 1);
