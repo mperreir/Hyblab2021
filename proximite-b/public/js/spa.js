@@ -117,6 +117,8 @@ const go_to = (page, data, callback) => {
             else if (page === 'criteres') {
                 criteres_background();
 
+
+                // Fonction pour attribuer le plugin de drag and drop avec possibilité de tri
                 $(function () {
                     $("#sortable1, #sortable2, #sortable3").sortable({
                         connectWith: ".connectedSortable",
@@ -124,6 +126,7 @@ const go_to = (page, data, callback) => {
                     }).disableSelection();
                 });
 
+                // Verification du nombre de critères souhaité pour ne pas dépasser 5
                 $(function () {
                     $("#sortable2").on("sortreceive", function (event, ui) {
                         if ($("#sortable2 li").length > 5)
@@ -138,6 +141,7 @@ const go_to = (page, data, callback) => {
                     });
                 });
 
+                //Fonctions gerer la numérotation des critères
                 $("#sortable2").sortable({
                     update: function (event, ui) {
                         var sort = document.getElementById('sortable2');
