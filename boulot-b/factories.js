@@ -12,8 +12,10 @@ function styleFactory(style){
         return new NatureStyle()
     if (style === "culture")
         return new CultureStyle()
-    if (style === "alea")
-        return new AleaStyle()
+    if (style === "alea"){
+        let random = Math.floor(Math.random() * 2);
+        return (random ? new NatureStyle() : new CultureStyle());
+    }
 }
 
 function lieuxFactory(boulangerie, sallesport, bar, pharmacie) {
