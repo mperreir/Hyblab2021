@@ -20,8 +20,8 @@ var ProgressBar = {
         var interests = _app_stores['criteres']['interests'];
         var disinterests = _app_stores['criteres']['disinterests'];
         if (data.length >= 1) {
-            var time = data[0].temps; 
-            if (time == 0) { time = 1 } 
+            var time = data[0].temps;
+            if (time == 0) { time = 1 }
             if (interests.includes(critere)) {
                 return (interests.length - interests.indexOf(critere) + 1) / time;
             }
@@ -127,8 +127,8 @@ var ProgressBar = {
             }
             b1.css('width', (S1 / (Somme)) * 100 + '%').attr('aria-valuenow', S1).attr('aria-valuemax', Somme);
             b2.css('width', (S2 / (Somme)) * 100 + '%').attr('aria-valuenow', S2).attr('aria-valuemax', Somme);
-            b1.text(_app_stores['adresses']['adresse1']['label'] +" ("+ Math.round((S1 / (Somme)) * 100)+"%)");
-            b2.text(_app_stores['adresses']['adresse2']['label'] +" ("+ Math.round((S2 / (Somme)) * 100)+"%)");
+            b1.text(_app_stores['adresses']['adresse1']['label'] + " (" + Math.round((S1 / (Somme)) * 100) + "%)");
+            b2.text(_app_stores['adresses']['adresse2']['label'] + " (" + Math.round((S2 / (Somme)) * 100) + "%)");
 
         }
     }

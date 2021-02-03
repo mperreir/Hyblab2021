@@ -13,7 +13,7 @@ router.post('/api/:longitude/:latitude', async function (req, res) {
         await api.all_positions(
             paramCriteres,
             req.body.personas.chosen,
-            req.params.longitude, req.params.latitude); 
+            req.params.longitude, req.params.latitude);
     res.header("Content-Type", 'application/json');
     return res.send(JSON.stringify(results, null, 4));
 });

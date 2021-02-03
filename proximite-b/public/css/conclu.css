@@ -32,7 +32,7 @@
 #conclu_adresse_text {
     position: relative;
     display: inline-block;
-    color:  #BFE3EE;
+    color: #BFE3EE;
     top: 0;
 }
 
@@ -41,14 +41,13 @@
     border-radius: 10px;
     width: 20px;
     height: 20px;
-    background-color:  #BFE3EE;
+    background-color: #BFE3EE;
 }
 
 #conclu_adresse_button:hover {
     cursor: pointer;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
-
 
 #conclu_persona_button {
     position: absolute;
@@ -59,7 +58,7 @@
 
 #conclu_persona_text {
     display: inline-block;
-    color:  #BFE3EE;
+    color: #BFE3EE;
 }
 
 #conclu_persona_cercle {
@@ -67,14 +66,13 @@
     border-radius: 10px;
     width: 20px;
     height: 20px;
-    background-color:  #BFE3EE;
+    background-color: #BFE3EE;
 }
 
 #conclu_persona_button:hover {
     cursor: pointer;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
-
 
 #conclu_criteres_button {
     position: absolute;
@@ -85,7 +83,7 @@
 
 #conclu_criteres_text {
     display: inline-block;
-    color:  #BFE3EE;
+    color: #BFE3EE;
 }
 
 #conclu_criteres_cercle {
@@ -93,14 +91,13 @@
     border-radius: 10px;
     width: 20px;
     height: 20px;
-    background-color:  #BFE3EE;
+    background-color: #BFE3EE;
 }
 
 #conclu_criteres_button:hover {
     cursor: pointer;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
-
 
 #conclu_credits_button {
     position: absolute;
@@ -111,7 +108,7 @@
 
 #conclu_credits_text {
     display: inline-block;
-    color:  #BFE3EE;
+    color: #BFE3EE;
 }
 
 #conclu_credits_cercle {
@@ -119,12 +116,12 @@
     border-radius: 10px;
     width: 20px;
     height: 20px;
-    background-color:  #BFE3EE;
+    background-color: #BFE3EE;
 }
 
 #conclu_credits_button:hover {
     cursor: pointer;
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 }
 
 #button_credit {
@@ -139,7 +136,6 @@
     margin-right: auto;
 }
 
-
 /*p#conclu_text {
     position: absolute;
     bottom: 350px;
@@ -150,4 +146,3 @@
     color: white;
     font-family: Montserrat;
 }*/
-

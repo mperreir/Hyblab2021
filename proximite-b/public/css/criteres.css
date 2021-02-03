@@ -7,17 +7,17 @@ div#critere_page {
     background-size: 100vw 100vh;
 }
 
-#container_custom{
+#container_custom {
     margin-left: 4em;
     margin-right: 4em;
     margin-top: 4em;
 }
 
-#container_persos .row{
+#container_persos .row {
     margin: 0;
 }
 
-#greeters{
+#greeters {
     width: 16vw;
     height: auto;
     bottom: 0;
@@ -25,7 +25,7 @@ div#critere_page {
     right: 15em;
 }
 
-#jeune{
+#jeune {
     width: 19vw;
     height: auto;
     bottom: 0;
@@ -33,39 +33,39 @@ div#critere_page {
     left: 10em;
 }
 
-#famille{
+#famille {
     width: 30vw;
     height: auto;
     bottom: 0;
     position: fixed;
-    left:10em;
+    left: 10em;
 }
 
-#senior{
+#senior {
     width: 15vw;
     height: auto;
     bottom: 0;
     position: fixed;
-    left:10em;
+    left: 10em;
 }
 
-#sortable1, #sortable2, #sortable3{
+#sortable1, #sortable2, #sortable3 {
     position: relative;
     border-radius: 45px;
     width: 100%;
 }
 
-#sortable1{
+#sortable1 {
     height: 5em;
     min-height: 70%;
     padding-top: 2em;
 }
+
 #sortable2 {
     background-color: #0C7AA0;
     height: 100%;
     min-height: 15em;
     padding: 15px;
-
 }
 
 #sortable3 {
@@ -74,7 +74,7 @@ div#critere_page {
     padding: 15px;
 }
 
-#sort2, #sort3{
+#sort2, #sort3 {
     width: 100%;
     margin: 0;
     padding: 15px 0px 0px 0px;
@@ -92,44 +92,40 @@ div#critere_page {
     margin-right: 10px;
 }
 
-#sort3{
+#sort3 {
     background-color: #ffdf8f;
     height: 60%;
 }
 
-.criteres{
+.criteres {
     width: 200px !important;
     cursor: grab;
     /* display:inline-block;  2 col parfois */
 }
 
-#sortable3 .criteres, #sortable2 .criteres  {
+#sortable3 .criteres, #sortable2 .criteres {
     width: 70% !important;
-
 }
 
-
-#sortable1 li,#sortable2 li, #sortable3 li{
+#sortable1 li, #sortable2 li, #sortable3 li {
     text-align: center;
     padding: 10px;
     font-size: 1.2em;
 }
 
-#sortable2 li, #sortable3 li{
+#sortable2 li, #sortable3 li {
     border-radius: 45px;
     background-color: rgba(255, 255, 255, 0.8);
-    display:table;
+    display: table;
     margin: 10px auto 10px auto;
 }
 
-
-#sortable1 li{
-    display:inline-block;
+#sortable1 li {
+    display: inline-block;
     margin: 5px 0px 5px 0px;
-
 }
 
-#consigne{
+#consigne {
     padding: 20px 5px 20px 5px;
     background-color: #E3572C;
     width: 100%;
@@ -137,19 +133,18 @@ div#critere_page {
     border-radius: 30px;
 }
 
-#consigne p{
+#consigne p {
     color: white;
     margin-bottom: 0;
 }
 
-
-#proche, #loin{
+#proche, #loin {
     padding-bottom: 0;
     font-family: ArchitectDaughter;
 }
 
-#loin{
-    width:100%;
+#loin {
+    width: 100%;
 }
 
 .critere_button {
@@ -159,11 +154,11 @@ div#critere_page {
     font-family: ArchitectDaughter;
 }
 
-ul#sortable1{
+ul#sortable1 {
     padding: 0;
 }
 
-#critere_page #valider{
+#critere_page #valider {
     width: 200px;
     position: relative;
     height: 50px;
@@ -178,72 +173,59 @@ ul#sortable1{
     margin-right: 5px;
     vertical-align: text-top;
     background-color: transparent;
-    background-position : center center;
-    background-repeat:no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-
-.div_sort2{
+.div_sort2 {
     background-color: #2a325a;
     border-radius: 15px;
     z-index: 100;
     position: relative;
 }
 
-#criteres li{
+#criteres li {
     border-radius: 45px;
     background-color: rgba(255, 255, 255, 0.8);
-    display:table;
+    display: table;
     margin: 10px auto 10px auto;
 }
 
-
-#min3{
+#min3 {
     width: 12%;
     left: 12%;
     position: relative;
 }
 
-
-
-
-
-
-
-
-
 @media screen and (min-resolution: 100dpi) {
-    #greeters{
+    #greeters {
         width: 13vw;
         height: auto;
         bottom: 0;
         position: fixed;
         right: 19em;
     }
-    
-    #jeune{
+    #jeune {
         width: 13vw;
         height: auto;
         bottom: 0;
         position: fixed;
     }
-    
-    #famille{
+    #famille {
         width: 20vw;
         height: auto;
         bottom: 0;
         position: fixed;
         /* left:10em; */
     }
-    
-    #senior{
+    #senior {
         width: 11vw;
         height: auto;
         bottom: 0;
         position: fixed;
         /* left:10em; */
     }
-    #sort2, #sort3{
+    #sort2, #sort3 {
         width: 100%;
         margin: 0;
         padding: 15px 0px 0px 0px;
@@ -253,16 +235,13 @@ ul#sortable1{
         margin-right: 10px;
         margin-top: 3em;
     }
-    
-  }
+}
 
-
-
-  @media screen and (max-resolution: 99dpi) {
+@media screen and (max-resolution: 99dpi) {
     #sort2div {
-      padding-left: 8em;
+        padding-left: 8em;
     }
     #sort3div {
         padding-right: 8em;
-      }
-  }
+    }
+}

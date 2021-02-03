@@ -1,4 +1,4 @@
-#adresses_background{
+#adresses_background {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -7,14 +7,13 @@
     z-index: -3;
 }
 
-
-#body_popup_adresse{
+#body_popup_adresse {
     background-color: #BFE3EE;
 }
 
 #pop-up-adresse .modal-content {
     border: none;
-    background-color:transparent;
+    background-color: transparent;
 }
 
 #head_popup_adresse {
@@ -32,7 +31,6 @@
     height: 25em;
     border: none;
     background-image: url('/proximite-b/img/adresses/feuilles-bottom.svg') !important;
-
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: 70%;
@@ -46,8 +44,9 @@
     background-size: 1.5em;
     background-position-y: center;
     background-position-x: 0.2em;
-    margin-top : 4.5em;
+    margin-top: 4.5em;
 }
+
 #adresse2 {
     width: 50%;
     background-image: url('/proximite-b/img/adresses/picto-local.svg');
@@ -58,7 +57,7 @@
     margin-top: 2.5em;
 }
 
-#papi_bulle{
+#papi_bulle {
     position: absolute;
     left: -7%;
     width: 17vw;
@@ -71,14 +70,14 @@
     border-radius: 15px;
     z-index: 9999;
 }
-#adresses1, #adresses2{
+
+#adresses1, #adresses2 {
     position: absolute;
     width: 50%;
     right: 25%;
-
 }
 
-#go_bouton{
+#go_bouton {
     margin-top: 5em;
 }
 
@@ -92,8 +91,7 @@
 }
 
 @media screen and (min-resolution: 100dpi) {
-    #papi_bulle{
+    #papi_bulle {
         width: 22vw;
     }
 }
-    

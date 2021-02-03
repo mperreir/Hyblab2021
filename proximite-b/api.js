@@ -1,15 +1,15 @@
 'use strict';
 
-const {performance} = require('perf_hooks');
+const { performance } = require('perf_hooks');
 const fetch = require('node-fetch');
 
 var path = require('path');
 const env = require('dotenv');
-env.config({path : path.resolve(process.cwd(), 'proximite-b/.env')});
+env.config({ path: path.resolve(process.cwd(), 'proximite-b/.env') });
 
-let HttpsProxyAgent = require( 'https-proxy-agent' );
+let HttpsProxyAgent = require('https-proxy-agent');
 let options = process.env.PROXY === 'false' ? {} : {
-    agent: new HttpsProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+    agent: new HttpsProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
 };
 
 const TIMEOUT_MS = 8000;  // == 8 SECONDES
@@ -41,25 +41,25 @@ const config = {
         attributes: ['place_of_worship']
     },
     // LES SECONDAIRES
-    'Coiffeur':{
+    'Coiffeur': {
         type: 'shop',
         attributes: ['hairdresser']
     },
-    'Musee':{
+    'Musee': {
         type: 'tourism',
         attributes: ['museum']
     },
-    'Bibliotheque':{
+    'Bibliotheque': {
         type: 'amenity',
         attributes: ['library']
     },
-    'Salle de sport':{
+    'Salle de sport': {
         type: 'leisure',
         attributes: ['fitness_centre', 'sports_centre', 'fitness_station']
     },
 }
 
-async function all_positions(liste_criteres, persona, longitude, latitude){
+async function all_positions(liste_criteres, persona, longitude, latitude) {
     let t0 = performance.now();
     const vitesses = {
         jeune: 5.5,  // average speed / one quarter
@@ -69,30 +69,30 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
 
     let polygon;
     do {
-        polygon = await timeout(TIMEOUT_MS, fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking", 
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': process.env.OPENROUTE_SERVICE_KEY
-            },
-            body: JSON.stringify({
-                "locations": [
-                    [
-                        longitude,
-                        latitude
-                    ]
-                ],
-                "range": [vitesses[persona] / 4 * 1000],
-                "range_type": "distance",
-                "options": {
-                    avoid_features: ["ferries", "fords"]
-                }
-            }),
-            ...options
-        }));
+        polygon = await timeout(TIMEOUT_MS, fetch("https://api.openrouteservice.org/v2/isochrones/foot-walking",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': process.env.OPENROUTE_SERVICE_KEY
+                },
+                body: JSON.stringify({
+                    "locations": [
+                        [
+                            longitude,
+                            latitude
+                        ]
+                    ],
+                    "range": [vitesses[persona] / 4 * 1000],
+                    "range_type": "distance",
+                    "options": {
+                        avoid_features: ["ferries", "fords"]
+                    }
+                }),
+                ...options
+            }));
         polygon = await polygon.json();
-    } while(!polygon.features);
+    } while (!polygon.features);
 
     let t1 = performance.now();
     console.log("POLYGON CALL : " + Math.round(t1 - t0) + " ms");
@@ -101,52 +101,52 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
     let minLat = 100;
     let maxLon = -100;
     let maxLat = -100;
-    for(let i = 0; i < polygon.length; i++) {
-        if(polygon[i][0] < minLon)
+    for (let i = 0; i < polygon.length; i++) {
+        if (polygon[i][0] < minLon)
             minLon = polygon[i][0];
-        if(polygon[i][1] < minLat)
+        if (polygon[i][1] < minLat)
             minLat = polygon[i][1];
-        if(polygon[i][0] > maxLon)
+        if (polygon[i][0] > maxLon)
             maxLon = polygon[i][0];
-        if(polygon[i][1] > maxLat)
+        if (polygon[i][1] > maxLat)
             maxLat = polygon[i][1];
     }
-    
+
     console.log("centre :", longitude, latitude);
-    console.log("carré :",minLat, minLon, maxLat, maxLon);
+    console.log("carré :", minLat, minLon, maxLat, maxLon);
     let request = buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat);
     do {
-        request = await timeout(TIMEOUT_MS , fetch("http://overpass-api.de/api/interpreter?data=" + request, options));
+        request = await timeout(TIMEOUT_MS, fetch("http://overpass-api.de/api/interpreter?data=" + request, options));
         request = await request.json();
     } while (!request);
     let t2 = performance.now();
     console.log("OVERPASS CALL : " + Math.round(t2 - t0) + " ms");
-    
+
     let elements = request.elements.filter(el => inside([el.lon, el.lat], polygon));
 
     // On classe tout dans les catégories
     let res = [];
     liste_criteres.forEach(critere => {
         config[critere] !== undefined && res.push(
-        {
-            'categorie': critere,
-            'data': elements.filter(el => {
-                    return el.type === 'node' 
-                    && config[critere].attributes.includes(el.tags[config[critere].type]);
+            {
+                'categorie': critere,
+                'data': elements.filter(el => {
+                    return el.type === 'node'
+                        && config[critere].attributes.includes(el.tags[config[critere].type]);
                 })
-        });
+            });
     });
 
     // Ajout des parcs
-    if(liste_criteres.includes('Parc')) res.push({categorie: 'Parc', data: await api_parc(polygon)});
+    if (liste_criteres.includes('Parc')) res.push({ categorie: 'Parc', data: await api_parc(polygon) });
     // Ajout des arrets de bus
-    if(liste_criteres.includes('Arrêt de bus')) res.push({categorie: 'Arrêt de bus', data: await api_bus(polygon)});
+    if (liste_criteres.includes('Arrêt de bus')) res.push({ categorie: 'Arrêt de bus', data: await api_bus(polygon) });
     let t3 = performance.now();
     console.log("PARCS ET ARRETS DE BUS : " + Math.round(t3 - t0) + " ms");
-    
+
     // Calculer les distances
-    for(let cat_obj of res) {
-        for(let poi of cat_obj.data) {
+    for (let cat_obj of res) {
+        for (let poi of cat_obj.data) {
             poi.temps = temps_de_trajet(poi.lon, poi.lat, longitude, latitude, vitesses[persona]);
         }
     }
@@ -162,13 +162,13 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
 
     // Limiter à 10
     res = res.map(cat_obj => {
-        return {categorie: cat_obj.categorie, data: cat_obj.data.slice(0, 10)}
+        return { categorie: cat_obj.categorie, data: cat_obj.data.slice(0, 10) }
     });
 
     // Calculer les adresses
     for (let cat_obj of res) {
         cat_obj.data[0].adresse = await get_adresse(cat_obj.data[0].lon, cat_obj.data[0].lat);
-        
+
         for (let i = 0; i < cat_obj.data.length; i++) {
             cat_obj.data[i].gmap = "https://www.google.fr/maps/dir/" + latitude + "+" + longitude + "/" + cat_obj.data[i].lat + "+" + cat_obj.data[i].lon;
         }
@@ -190,23 +190,23 @@ async function all_positions(liste_criteres, persona, longitude, latitude){
             })
         }
     });
-    
+
     console.log("Fin de la requete");
     return res;
 };
 
 function timeout(ms, promise) {
-    return new Promise(function(resolve, reject) {
-      setTimeout(function() {
-        reject(new Error("timeout"))
-      }, ms)
-      promise.then(resolve, reject)
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            reject(new Error("timeout"))
+        }, ms)
+        promise.then(resolve, reject)
     })
-  }
+}
 
 function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
     const rayon_terre = 6378;
-    const distance = rayon_terre * Math.acos(Math.sin(dtr(lat1)) * Math.sin(dtr(lat2)) + Math.cos(dtr(lat1)) * Math.cos(dtr(lat2)) * Math.cos(dtr(lon2)-dtr(lon1)));
+    const distance = rayon_terre * Math.acos(Math.sin(dtr(lat1)) * Math.sin(dtr(lat2)) + Math.cos(dtr(lat1)) * Math.cos(dtr(lat2)) * Math.cos(dtr(lon2) - dtr(lon1)));
     const temps = Math.round(distance / vitesse * 60);
     if (temps == 0) return 1;
     if (temps > 15) return 15;
@@ -215,7 +215,7 @@ function temps_de_trajet(lon1, lat1, lon2, lat2, vitesse) {
 
 // Degree to radian
 function dtr(degrees) {
-  return degrees * (Math.PI/180);
+    return degrees * (Math.PI / 180);
 }
 
 async function api_parc(polygon) {
@@ -267,19 +267,19 @@ async function api_bus(polygon) {
 }
 
 function inside(point, polygon) {
-    
+
     var x = point[0], y = point[1];
-    
+
     var inside = false;
     for (var i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
         var xi = polygon[i][0], yi = polygon[i][1];
         var xj = polygon[j][0], yj = polygon[j][1];
-        
+
         var intersect = ((yi > y) != (yj > y))
             && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
         if (intersect) inside = !inside;
     }
-    
+
     return inside;
 };
 
@@ -306,20 +306,20 @@ function buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat) {
     (`;
     let subqueries = {};
     liste_criteres.forEach(critere => {
-        if(config[critere]) {
-            if(!subqueries[config[critere].type])
+        if (config[critere]) {
+            if (!subqueries[config[critere].type])
                 subqueries[config[critere].type] = [];
             config[critere].attributes.forEach(attr => subqueries[config[critere].type].push(attr));
         }
     });
-    for(const [key, value] of Object.entries(subqueries)) {
+    for (const [key, value] of Object.entries(subqueries)) {
         let attributes = "";
-        for(let i = 0; i < value.length - 1; i++) {
+        for (let i = 0; i < value.length - 1; i++) {
             attributes += value[i] + '|';
         }
         attributes += value[value.length - 1];
         query += `node[${key}~"${attributes}"](${minLat},${minLon},${maxLat},${maxLon});\n`;
-    }    
+    }
     query += `);
     out;`;
     return query;

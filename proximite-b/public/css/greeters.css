@@ -1,4 +1,4 @@
-#greeter_background{
+#greeter_background {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -6,41 +6,49 @@
     background-size: 100vw 100vh;
 }
 
-#nantes_panel{
+#nantes_panel {
     width: 100%;
     position: relative;
 }
-#greeter_img{
+
+#greeter_img {
     width: auto;
     height: 65vh;
 }
-#etu_img{
+
+#etu_img {
     width: auto;
     height: 65vh;
 }
-#mamie_img{
+
+#mamie_img {
     width: auto;
     height: 65vh;
 }
-#family_img{
+
+#family_img {
     width: auto;
     height: 65vh;
 }
-#banc_img{
+
+#banc_img {
     width: 30vw;
     height: 20vh;
 }
-.bulle_img{
+
+.bulle_img {
     position: relative;
     width: 100%;
 }
 
-#bulle_greeter{
+#bulle_greeter {
     left: 20%;
 }
-#test{
+
+#test {
     position: absolute;
 }
+
 .bulle {
     width: 75%;
     text-align: justify;
@@ -51,32 +59,26 @@
     background-size: contain;
 }
 
-.text_bulle{
+.text_bulle {
     position: relative;
-    top:-10%;
+    top: -10%;
     margin: auto;
 }
 
-#greeter_suivant_button{
+#greeter_suivant_button {
     position: absolute;
     width: 10%;
     height: 5%;
-    left : 45%;
-    top : 30%
+    left: 45%;
+    top: 30%
 }
 
-
-
-
-
 @media screen and (min-resolution: 100dpi) {
-
-    #rowPersonnages{
+    #rowPersonnages {
         position: relative;
         top: -2em;
     }
     .bulle {
         width: 65%;
     }
-    
 }

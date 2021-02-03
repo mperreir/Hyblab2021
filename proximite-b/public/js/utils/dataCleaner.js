@@ -5,16 +5,16 @@ function data_add_img(data, tab) {
     for (const [key, value] of Object.entries(data)) {
         var preference = 'interests'
 
-        if(disinterests.includes(value.categorie)){preference = 'disinterests'};
+        if (disinterests.includes(value.categorie)) { preference = 'disinterests' };
         if (value.data.length >= 1) tab.push((value.data)[0].temps);
-        if (value.categorie == "Arrêt de bus") value["img"] = "./img/timeline/icons/"+preference+"/bus.svg";
-        if (value.categorie == "Boulangerie") value["img"] = "./img/timeline/icons/"+preference+"/boulangerie.svg";
-        if (value.categorie == "Pharmacie") value["img"] = "./img/timeline/icons/"+preference+"/pharmacie.svg";
-        if (value.categorie == "Ecole") value["img"] = "./img/timeline/icons/"+preference+"/ecole.svg";
-        if (value.categorie == "Supermarché") value["img"] = "./img/timeline/icons/"+preference+"/supermarche.svg";
-        if (value.categorie == "Médecin") value["img"] = "./img/timeline/icons/"+preference+"/medecin.svg";
-        if (value.categorie == "Parc") value["img"] = "./img/timeline/icons/"+preference+"/parc.svg";
-        if (value.categorie == "Lieu de culte") value["img"]= "./img/timeline/icons/"+preference+"/culte.svg";
+        if (value.categorie == "Arrêt de bus") value["img"] = "./img/timeline/icons/" + preference + "/bus.svg";
+        if (value.categorie == "Boulangerie") value["img"] = "./img/timeline/icons/" + preference + "/boulangerie.svg";
+        if (value.categorie == "Pharmacie") value["img"] = "./img/timeline/icons/" + preference + "/pharmacie.svg";
+        if (value.categorie == "Ecole") value["img"] = "./img/timeline/icons/" + preference + "/ecole.svg";
+        if (value.categorie == "Supermarché") value["img"] = "./img/timeline/icons/" + preference + "/supermarche.svg";
+        if (value.categorie == "Médecin") value["img"] = "./img/timeline/icons/" + preference + "/medecin.svg";
+        if (value.categorie == "Parc") value["img"] = "./img/timeline/icons/" + preference + "/parc.svg";
+        if (value.categorie == "Lieu de culte") value["img"] = "./img/timeline/icons/" + preference + "/culte.svg";
 
     }
 }

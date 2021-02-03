@@ -63,19 +63,19 @@ const css_dyn_loader = (filename) => {
     head.appendChild(style);
 }
 
-function audioVolumeFadeOut(q){
-    if(q.volume){
-       var InT = 0.4;
-       var setVolume = 0;  // Target volume level for old song 
-       var speed = 0.020;  // Rate of volume decrease
-       q.volume = InT;
-       var fAudio = setInterval(function(){
-           InT -= speed;
-           q.volume = InT.toFixed(1);
-           if(InT.toFixed(1) <= setVolume){
-              clearInterval(fAudio);
-           };
-       },50);
+function audioVolumeFadeOut(q) {
+    if (q.volume) {
+        var InT = 0.4;
+        var setVolume = 0;  // Target volume level for old song 
+        var speed = 0.020;  // Rate of volume decrease
+        q.volume = InT;
+        var fAudio = setInterval(function () {
+            InT -= speed;
+            q.volume = InT.toFixed(1);
+            if (InT.toFixed(1) <= setVolume) {
+                clearInterval(fAudio);
+            };
+        }, 50);
     };
 };
 
@@ -91,15 +91,15 @@ const go_to = (page, data, callback) => {
 
     make_page_from_template(page)
         .then(() => {
-            if(page === 'animation') {
+            if (page === 'animation') {
                 const son_gare = document.getElementById("son-gare");
                 son_gare.volume = 0.2;
                 son_gare.play();
             }
 
-            if(page === 'adresses') {
-                 const son_gare = document.getElementById("son-gare");
-                 audioVolumeFadeOut(son_gare);
+            if (page === 'adresses') {
+                const son_gare = document.getElementById("son-gare");
+                audioVolumeFadeOut(son_gare);
             }
 
             if (page === 'timeline') {
@@ -138,28 +138,28 @@ const go_to = (page, data, callback) => {
                     });
                 });
 
-                $( "#sortable2" ).sortable({
-                    update: function( event, ui ) {
+                $("#sortable2").sortable({
+                    update: function (event, ui) {
                         var sort = document.getElementById('sortable2');
                         for (let child of sort.children) {
                             var number = child.firstChild;
-                            number.innerHTML =  $(child).index()+1 + ". ";
+                            number.innerHTML = $(child).index() + 1 + ". ";
                         }
                     }
                 });
 
-                $( "#sortable3" ).sortable({
-                    update: function( event, ui ) {
+                $("#sortable3").sortable({
+                    update: function (event, ui) {
                         var sort = document.getElementById('sortable3');
                         for (let child of sort.children) {
                             var number = child.firstChild;
-                            number.innerHTML =  $(child).index()+1 + ". ";
+                            number.innerHTML = $(child).index() + 1 + ". ";
                         }
                     }
                 });
 
-                $( "#sortable1" ).sortable({
-                    update: function( event, ui ) {
+                $("#sortable1").sortable({
+                    update: function (event, ui) {
                         var sort = document.getElementById('sortable1');
                         for (let child of sort.children) {
                             var number = child.firstChild;

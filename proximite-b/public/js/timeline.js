@@ -1,6 +1,6 @@
 
 
-function closePapy(){
+function closePapy() {
     $('#timeline_Papy').remove();
 }
 

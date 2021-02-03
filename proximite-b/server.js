@@ -3,7 +3,7 @@
 
 var path = require('path');
 const env = require('dotenv');
-env.config({path : path.resolve(process.cwd(), 'proximite-b/.env')});
+env.config({ path: path.resolve(process.cwd(), 'proximite-b/.env') });
 
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');

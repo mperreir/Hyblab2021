@@ -7,13 +7,14 @@ div#index_content {
     background-size: cover;
 }
 
-#img_son{
+#img_son {
     width: 1.5vw;
     height: auto;
 }
-#img_logo{
+
+#img_logo {
     position: relative;
-    width : 25em;
+    width: 25em;
     height: auto;
     padding-bottom: 3em;
 }
@@ -24,11 +25,12 @@ div#body {
     padding-top: 7em;
     padding-left: 8em;
 }
-#sous_titre_accueil{
+
+#sous_titre_accueil {
     font-size: 1.5em;
     padding-bottom: 0.5em;
-
 }
+
 button#start_button {
     height: 2em;
     width: 11em;
@@ -36,14 +38,15 @@ button#start_button {
     margin-bottom: 2em;
     margin-left: auto;
     margin-right: auto;
-
 }
-#element_sonore{
+
+#element_sonore {
     position: absolute;
     bottom: 0.5em;
     left: 2em;
     font-size: small;
 }
+
 img#index_logo {
     width: 10%;
     position: absolute;
@@ -55,7 +58,6 @@ div#index_text {
     position: relative;
 }
 
-
 .font-architect {
     font-family: ArchitectDaughter;
 }
@@ -64,20 +66,17 @@ div#index_text {
     font-family: Montserrat;
 }
 
-
 @media screen and (min-resolution: 100dpi) {
-    #img_logo{
-        width : 18em;
+    #img_logo {
+        width: 18em;
         height: auto;
         padding-bottom: 3em;
-
     }
-    div#index_text{
-        width : 32em;
+    div#index_text {
+        width: 32em;
     }
-    div#body{
+    div#body {
         padding-top: 5em;
         padding-left: 5em;
     }
-
 }

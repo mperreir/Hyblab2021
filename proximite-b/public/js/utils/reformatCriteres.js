@@ -1,4 +1,4 @@
-function reformatCriteres(name){
+function reformatCriteres(name) {
     if (name == "pharmacie") return 'Pharmacie';
     if (name == "boulangerie") return 'Boulangerie';
     if (name == "supermarche") return 'Supermarché';

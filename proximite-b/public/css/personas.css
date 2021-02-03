@@ -18,11 +18,9 @@
     margin-top: 2.5em;
 }
 
-
-#persona_background .row{
+#persona_background .row {
     position: relative;
     top: 5em;
-   
 }
 
 #persona_background .row button {
@@ -31,15 +29,13 @@
     height: 3em;
 }
 
-
 #persona_background img:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius:50%;
+    border-radius: 50%;
 }
 
-
 @media screen and (min-resolution: 100dpi) {
-    #persona_background #rowDiv{
+    #persona_background #rowDiv {
         margin-top: -3em;
     }
 }

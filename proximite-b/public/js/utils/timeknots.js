@@ -36,7 +36,7 @@ var TimeKnots = {
 
                 '<div class="row"><h3>' +
                 firstAdress.nom +
-                '</h3>'+'<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + firstAdress.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>'+'</div>' +
+                '</h3>' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + firstAdress.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</div>' +
                 '<div class="row headerAddTemps">' +
                 '<div class="col-6 text-left">' +
                 '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
