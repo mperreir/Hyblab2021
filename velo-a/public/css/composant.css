@@ -200,3 +200,8 @@ body {
 	color: white;
 	filter: grayscale(50%);
 }
+
+* {
+	-webkit-appearance: none;
+	-webkit-border-radius: unset;
+}
