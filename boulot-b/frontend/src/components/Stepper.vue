@@ -2,7 +2,7 @@
   <div id="nav">
     <img @click="backHome" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
 
-    <ul class="progressbar">
+    <ul class="progressbar" :class="color">
         <li id="1" v-on="actif>1 ? {click: () => clickMethod(1)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>1}"></li>
         <li id="2" v-on="actif>2 ? {click: () => clickMethod(2)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>2}"></li>
         <li id="3" v-on="actif>3 ? {click: () => clickMethod(3)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>3}"></li>
@@ -19,6 +19,9 @@ import Vue from "vue";
 export default Vue.extend({
   name: "stepper",
   props: {
+      color: {
+        default: "yellow"
+      },
       actif: {
           type: Number,
           default: 0
@@ -70,23 +73,32 @@ export default Vue.extend({
         position: relative;
         text-align: center;
     }
+
+    .yellow {
+      --color: #FFDB27;
+    }
+
+    .blue {
+      --color: #1e6aff;
+    }
+
     .progressbar li:before {
         content: '';
         width: 17px;
         height: 17px;
-        border: 1px solid #FFDB27;
+        border: 1px solid var(--color);
         border-radius: 50%;
         display: block;
         text-align: center;
         margin: 0 auto 0 auto;
-        background-color: #FFDB27;
+        background-color: var(--color);
     }
     .progressbar li:after {
         content: '';
         position: absolute;
         width: 100%;
         height: 4px;
-        background-color: #FFDB27;
+        background-color: var(--color);
         top: 7.5px;
         left: -50%;
         z-index: -1;
