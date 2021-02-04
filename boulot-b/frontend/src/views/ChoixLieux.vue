@@ -4,12 +4,12 @@
       <Question question="Sélectionne les lieux qui t'intéressent!">
         <div id="choix">
           <img id="haltere" src="@/assets/map/haltere.svg" alt="haltere">
-          <ButtonCustom @click="checkSalle" v-model="salleDeSport" :class="{checkedYellow: salleDeSport}" text="Salle de Sport" color="yellow" />
-          <ButtonCustom @click="checkBar" v-model="bar" :class="{checkedBlue: bar}" text="Bar" color="blue" />
+          <ButtonCustom id="sport" @click="checkSalle" v-model="salleDeSport" :class="{checkedYellow: salleDeSport}" text="Salle de Sport" color="yellow" />
+          <ButtonCustom id="bar" @click="checkBar" v-model="bar" :class="{checkedBlue: bar}" text="Bar" color="blue" />
           <img id="verre" src="@/assets/map/verre.png" alt="verre">
           <img id="pain" src="@/assets/map/baguette.svg" alt="pain">
-          <ButtonCustom @click="checkBoulangerie" v-model="boulangerie" :class="{checkedBlue: boulangerie}" text="Boulangerie" color="blue" />
-          <ButtonCustom @click="checkPharmacie" v-model="pharmacie" :class="{checkedYellow: pharmacie}" text="Pharmacie" color="yellow"/>
+          <ButtonCustom id="boulangerie" @click="checkBoulangerie" v-model="boulangerie" :class="{checkedBlue: boulangerie}" text="Boulangerie" color="blue" />
+          <ButtonCustom id="pharmacie" @click="checkPharmacie" v-model="pharmacie" :class="{checkedYellow: pharmacie}" text="Pharmacie" color="yellow"/>
           <img id="meds" src="@/assets/map/medicament.svg" alt="medicament">
         </div>
       <!-- <Question>
@@ -82,6 +82,40 @@ export default {
     checkSalle() {
       this.salleDeSport = !this.salleDeSport;
 
+    },
+    hover() {
+      const sport = document.getElementById('sport');
+      const bar = document.getElementById('bar');
+      const boulang = document.getElementById('boulangerie');
+      const pharma = document.getElementById('pharmacie');
+      const haltere = document.getElementById('haltere');
+      sport.addEventListener("mouseover", function () {
+        haltere.style.display = "block";
+      })
+      sport.addEventListener("mouseleave", function () {
+        haltere.style.display = "none";
+      })    
+      const verre = document.getElementById('verre');
+      bar.addEventListener("mouseover", function () {
+        verre.style.display = "block";
+      })
+      bar.addEventListener("mouseleave", function () {
+        verre.style.display = "none";
+      })
+      const pain = document.getElementById('pain');
+      boulang.addEventListener("mouseover", function () {
+        pain.style.display = "block";
+      })
+      boulang.addEventListener("mouseleave", function () {
+        pain.style.display = "none";
+      })
+      const meds = document.getElementById('meds');
+      pharma.addEventListener("mouseover", function () {
+        meds.style.display = "block";
+      })
+      pharma.addEventListener("mouseleave", function () {
+        meds.style.display = "none";
+      })
     }
   },
   components: {
@@ -92,6 +126,9 @@ export default {
     Stepper,
     Oiseau,
     Buildings
+  },
+  mounted: function () {
+    this.hover();
   }
 }
 </script>
@@ -134,12 +171,16 @@ export default {
     border: solid 3px  #0ec0ec;
   }
   #haltere {
+    pointer-events: none;
+    display: none;
     position: absolute;
     left: -5%;
     top: -10%;
     z-index: 12;
   }
   #verre {
+    pointer-events: none;
+    display: none;
     position: absolute;
     width: 8%;
     right: 5%;
@@ -147,12 +188,16 @@ export default {
     z-index: 12;
   }
   #pain {
+    pointer-events: none;
+    display: none;
     position: absolute;
     left: -9%;
     bottom: 10%;
     z-index: 12;
   }
   #meds {
+    pointer-events: none;
+    display: none;
     position: absolute;
     right: 0%;
     bottom: 10%;

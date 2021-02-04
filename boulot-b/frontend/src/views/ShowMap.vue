@@ -1,8 +1,8 @@
 <template>
   <div>
     <finalMap />
-    <img @click="backHome" class="wazo_icon" src="@/assets/wazzo.svg"/>
-        <Stepper class="stepper" color="blue"  :actif=actif />
+    <img @click="backHome" class="wazo_icon" src="@/assets/blue_wazzo.svg"/>
+        <Stepper class="stepper" color="blue"  :actif=actif home_path="blue_home.svg"/>
       <ButtonCustom class="credit"  @click="credits" text="Crédits" color="dark-blue"/>
   </div>
 </template>

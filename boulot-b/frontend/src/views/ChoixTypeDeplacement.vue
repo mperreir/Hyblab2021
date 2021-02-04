@@ -60,6 +60,7 @@ export default {
      const audio = new Audio(sonVelo);
      audio.volume=0.2;
      audio.play();
+     velo.style.display = "block";
       velo.classList.add("slide-lr");
       velo.addEventListener("animationend", () => {
         this.$root.$data.setTypeDeplacement(TypeDeplacement.VELO)
@@ -119,10 +120,11 @@ export default {
     display: none;
   }
   #velo-anim {
+    display: none;
     position: absolute;
     width: 30%;
     bottom: -19%;
-    left: -8%;
+    left: -20%;
     z-index: -1;
   }
    #pied-anim {
@@ -136,7 +138,7 @@ export default {
   .slide-lr {
     display: block;
     width: 30%;
-    animation: slide-lr 1s ease-in both;
+    animation: slide-lr 2s ease-in both;
   }
   #nuage1, #nuage2, #nuage3, #nuage4 {
     position: absolute;
