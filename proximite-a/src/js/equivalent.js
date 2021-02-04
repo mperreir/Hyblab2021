@@ -72,7 +72,7 @@ themeEquiv.set(4, "culture");
 themeEquiv.set(5, "famille");
 
 var themePicto = new Map();
-themePicto.set(0, require('../img/pictogrammes_fete.png'));
+themePicto.set(0, require('../img/pictogrammes_position.png'));
 themePicto.set(1, require('../img/pictogrammes_fete.png'));
 themePicto.set(2, require('../img/pictogrammes_sport.png'));
 themePicto.set(3, require('../img/pictogrammes_gourmet.png'));

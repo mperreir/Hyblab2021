@@ -209,7 +209,7 @@ class App extends React.Component {
                     adresse: adresseFS,
                     description: descriptionS,
                     coordonnes: [s.lat, s.lon],
-                    type: typeS
+                    type: 0
                 }
                 newSurprise=lieuSurprise
 
