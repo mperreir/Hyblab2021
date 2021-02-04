@@ -7,6 +7,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+#div-bicky-habille {
+	text-align: center;
+}
+
 .container_map {
 	padding: 20px;
 	margin-left: 160px;
@@ -27,6 +31,10 @@ input {
 
 
 @media (orientation: portrait) {
+	#div-bicky-habille {
+		display: none;
+	}
+
 	.bottom-right-nav-container {
 		align-items: center;
 	}
@@ -57,10 +65,6 @@ input {
 		display: none;
 	}
 
-	#bicky-habille {
-		display: none;
-	}
-
 	.button-slide {
 		font-size: 1.5em !important;
 	}
@@ -75,7 +79,11 @@ input {
 	}
 }
 
-@media (max-width: 900px) and (orientation: portrait) {
+@media (max-width: 1000px) and (orientation: portrait) {
+	#div-bicky-habille {
+		display: none;
+	}
+
 	.container_map h2 {
 		font-size: 2em !important;
 	}
@@ -90,6 +98,29 @@ input {
 
 	#messageFin {
 		font-size: 1.5em !important;
+	}
+
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+	#div-bicky-habille {
+		display: none;
+	}
+
+	.container_map h2 {
+		font-size: 1.5em !important;
+	}
+
+	.container_map h3 {
+		font-size: 1.1em;
+	}
+
+	.container_map p {
+		font-size: 0.8em !important;
+	}
+
+	#messageFin {
+		font-size: 1.1em !important;
 	}
 
 }
@@ -145,7 +176,7 @@ h3 {
 	text-align: center;
 }
 
-@media (max-width: 1000px) and (orientation: landscape){
+@media (max-width: 1000px) and (max-height: 65vw) and (orientation: landscape){
 	.container_map img {
 		display: none;
 	}
