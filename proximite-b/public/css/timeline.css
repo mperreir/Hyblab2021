@@ -223,3 +223,43 @@ Modal gmap icons
 #timeline .gmapLink img {
     width: 1.5em;
 }
+#timeline .gmapLink {
+    /* haut | droit | bas | gauche */
+    padding: 0em 1em 0em 1em !important;
+    display: inline;
+}
+
+#timeline #interestsLinkHeader{
+    color: white;
+    background-color: #2a325a;
+    font-size: 0.8em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+
+}
+
+#timeline #disinterestsLinkHeader{
+    background-color: #F19143;
+    color: white;
+    font-size: 0.8em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+}
+
+#timeline .whiteGmap{
+    background-color: white;
+    font-family: ArchitectDaughter;
+    font-size: 1.1em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+}
+
+#timeline .interestsLink{
+    color: #2a325a
+}
+#timeline  .disinterestsLink{
+    color: #F19143
+}

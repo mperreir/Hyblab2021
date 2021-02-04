@@ -36,7 +36,7 @@ var TimeKnots = {
 
                 '<div class="row"><h3>' +
                 firstAdress.nom +
-                '</h3>' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + firstAdress.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</div>' +
+                '</h3>' + '<a id="'+preference+'LinkHeader" target="_blank" rel="noopener noreferrer" class="btn" href=' + firstAdress.gmap + 'role="button">'+"Voir l'itinéraire"+'</a>' + '</div>' +
                 '<div class="row headerAddTemps">' +
                 '<div class="col-6 text-left">' +
                 '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
@@ -67,10 +67,10 @@ var TimeKnots = {
 
             otherAdress.forEach(element => {
                 if (i >= 5) {
-                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + element.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</p></li>');
+                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href=' + firstAdress.gmap + 'role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
                 }
                 else {
-                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink" href=' + element.gmap + '>Lien google maps<img src="/proximite-b/img/timeline/Google_Maps_icon.svg"></a>' + '</p></li>');
+                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href=' + firstAdress.gmap + 'role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
                 }
                 i++;
             });
