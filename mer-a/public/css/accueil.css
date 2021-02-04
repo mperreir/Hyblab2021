@@ -33,6 +33,7 @@ div#accueil p {
 @media only screen and (max-width: 768px) {
   div#accueil {
     width: 80%;
+    height: 80%;
   }
 
   div#accueil h4 {

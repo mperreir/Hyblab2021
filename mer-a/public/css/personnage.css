@@ -197,6 +197,8 @@
   }
 
   .indication {
+    margin: 0;
+    bottom: 3vh;
 		width: 80%;
 		left: 50%;
 		transform: translateX(-50%);
