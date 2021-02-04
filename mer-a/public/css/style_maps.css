@@ -83,7 +83,7 @@ div#character > img#character_image {
 	animation: waveUp 2s ease-in-out infinite;
 }
 
-p.narration {
+p#narration {
 	z-index: 2;
 	position: absolute;
     /* aspect du texte */
@@ -96,13 +96,14 @@ p.narration {
     padding: 0.8vh 1.2vh;
     background-color: rgba(255,255,255,0.9);
     border-radius: 25px;
+		overflow: hidden;
 }
 
 
 div#character > p.narration {
   top: 0vh;
   width: 100%;
-  word-break: break-word;  
+  word-break: break-word;
 }
 
 
@@ -219,5 +220,19 @@ a.legend_button:active {
 	div#bretagne text {
 		font-size: 0.75rem !important;
 		width: 40% !important;
+	}
+
+	button.pass_narration {
+		display: none !important;
+	}
+
+	div#department a {
+		user-select: none;
+	  -webkit-touch-callout: none;
+	  -webkit-user-select: none;
+	  -khtml-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  -o-user-select: none;
 	}
 }
