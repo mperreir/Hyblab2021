@@ -167,11 +167,13 @@ async function all_positions(liste_criteres, persona, longitude, latitude) {
 
     // Calculer les adresses
     for (let cat_obj of res) {
-        cat_obj.data[0].adresse = await get_adresse(cat_obj.data[0].lon, cat_obj.data[0].lat);
-
-        for (let i = 0; i < cat_obj.data.length; i++) {
-            cat_obj.data[i].gmap = "https://www.google.fr/maps/dir/" + latitude + "+" + longitude + "/" + cat_obj.data[i].lat + "+" + cat_obj.data[i].lon;
+        if (cat_obj.data.length !== 0) {
+            cat_obj.data[0].adresse = await get_adresse(cat_obj.data[0].lon, cat_obj.data[0].lat);
+            for (let i = 0; i < cat_obj.data.length; i++) {
+                cat_obj.data[i].gmap = "https://www.google.fr/maps/dir/" + latitude + "+" + longitude + "/" + cat_obj.data[i].lat + "+" + cat_obj.data[i].lon;
+            }
         }
+        
     }
     let t4 = performance.now();
     console.log("ADDRESSES CALL : " + Math.round(t4 - t0) + " ms");
