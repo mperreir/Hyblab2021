@@ -36,6 +36,8 @@ export default Vue.component("finalMap", {
     // Permet le zoom
       new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       const ui = H.ui.UI.createDefault(map, defaultLayers);
+
+      addOriginDestination(this.$root.$data.state.trajetData.Depart, this.$root.$data.state.trajetData.Arrivee, map);
       addInfoBubble(map, ui, this.$root.$data.state.trajetData)
       await createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData, this.$refs.textMap)
     },
@@ -45,10 +47,50 @@ export default Vue.component("finalMap", {
   }
 });
 
-function addMarkerToGroup(group, coordinate, html) {
-  const marker = new H.map.Marker(coordinate);
+
+function addOriginDestination(origin, destination, map) {
+  const iconOrigin = iconFactory('Origine');
+  const iconDestination = iconFactory('Destination')
+
+  const markerOrigin = new H.map.Marker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
+  const markerDestination = new H.map.Marker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
+
+  map.addObject(markerOrigin);
+  map.addObject(markerDestination);
+}
+
+function addMarkerToGroup(group, coordinates, html, typePlace) {
+  const imageIcon = iconFactory(typePlace);
+  const marker = new H.map.Marker(coordinates, {icon: imageIcon});
+
   marker.setData(html);
   group.addObject(marker);
+}
+
+function createIcon(imageIcon, width = 25, height = 25) {
+  const image = document.createElement('img');
+  image.src = imageIcon;
+
+  return new H.map.Icon(image, {size: {w: width, h: height}});
+}
+
+function iconFactory(typePlace) {
+  switch (typePlace) {
+    case 'Origine':
+      return createIcon(origine);
+    case "Destination":
+      return createIcon(destination);
+    case 'Boulangerie':
+      return createIcon(baguette);
+    case 'SalleSport':
+      return createIcon(haltere);
+    case 'Bar':
+      return createIcon(verre, 15, 25);
+    case 'Pharmacie':
+      return createIcon(medicament);
+    default:
+      return createIcon(point);
+  }
 }
 
 /**
@@ -70,13 +112,14 @@ function addInfoBubble(map, ui, data) {
     // show info bubble
     ui.addBubble(bubble);
   }, false);
+
   for (let i=0 ; i < stops.length; i++) {
     const lieu = Object.values(stops[i])[0]
     // add 'tap' event listener, that opens info bubble, to the group
 
     addMarkerToGroup(group, {lat: lieu.coordonnees.lat, lng: lieu.coordonnees.lng},
         "<p class='title' >"+ lieu.titre + "</p>  <p>"+ lieu.description + "</p>" +
-          `<p> <a class='link' href='${lieu.streetView}'  target="_blank"> StreetView </a> </p> `   )
+          `<p> <a class='link' href='${lieu.streetView}'  target="_blank"> StreetView </a> </p> `, Object.keys(stops[i])[0])
   }
 }
 
@@ -86,7 +129,7 @@ async function createMap(platform, map, choices, data, divMap) {
   const style = new H.map.Style(base + '/boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
-    await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
+  await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
 }
 
 function calculateRouteFromAtoB (platform, map, origin, destination, stops, transportType, divMap) {
@@ -135,65 +178,48 @@ async function addRouteShapeToMap(route, map, origin, destination, stops, divMap
 }
 
 async function addMarkers(map, origin, destination, stops, divMap) {
-  const iconOrigin = await iconFactory({name: 'Origine', datas: {}}, divMap)
-  const iconDestination = await iconFactory({name: 'Destination', datas: {}}, divMap)
+  // const iconOrigin = await iconFactory({name: 'Origine', datas: {}}, divMap)
+  // const iconDestination = await iconFactory({name: 'Destination', datas: {}}, divMap)
 
-  const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
-  const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
+  // const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
+  // const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
 
-  map.addObject(markerOrigin);
-  map.addObject(markerDestination);
+  // map.addObject(markerOrigin);
+  // map.addObject(markerDestination);
 
-
-  for (let i=0 ; i < stops.length; i++) {
-    const icon = await iconFactory({name: Object.keys(stops[i])[0], datas: Object.values(stops[i])[0]}, divMap);
-    const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
-    map.addObject(markerStop);
-  }
+  // for (let i=0 ; i < stops.length; i++) {
+  //   const icon = await iconFactory({name: Object.keys(stops[i])[0], datas: Object.values(stops[i])[0]}, divMap);
+  //   const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
+  //   map.addObject(markerStop);
+  // }
 }
 
+// function iconFactory(namePOI, divMap) {
+//   function createIcon(img, divMap, width = 25, height = 25) {
+//     const image = document.createElement('img');
+//     image.src = img
+//     image.width = width;
+//     image.height = height;
+//     return new H.map.DomIcon(image)
+//   }
 
-function iconFactory(namePOI, divMap) {
-  function createIcon(img, divMap, width = 25, height = 25) {
-    const image = document.createElement('img');
-    image.src = img
-    image.width = width;
-    image.height = height;
-    return new H.map.DomIcon(image)
-  }
-
-  function createElementP() {
-    const p = document.createElement('p');
-    p.style.fontSize = 'small';
-    p.style.height = '10px';
-    return p;
-  }
-
-
-  function deleteDescription(evt, divMap, namePOI) {
-    if (namePOI.name !== 'Origine' && namePOI.name !== 'Destination') {
-      evt.target.style.opacity = 1;
-      divMap.removeChild(divMap.lastChild)
-    }
-  }
-
-  switch(namePOI.name) {
-    case 'Boulangerie':
-      return createIcon(baguette, divMap);
-    case 'SalleSport':
-      return createIcon(haltere, divMap);
-    case 'Bar':
-      return createIcon(verre, divMap, 15, 25);
-    case 'Pharmacie':
-      return createIcon(medicament, divMap);
-    case 'Origine':
-      return createIcon(origine, divMap);
-    case "Destination":
-      return createIcon(destination, divMap);
-    default:
-      return createIcon(point, divMap);
-  }
-}
+//   switch(namePOI.name) {
+//     case 'Boulangerie':
+//       return createIcon(baguette, divMap);
+//     case 'SalleSport':
+//       return createIcon(haltere, divMap);
+//     case 'Bar':
+//       return createIcon(verre, divMap, 15, 25);
+//     case 'Pharmacie':
+//       return createIcon(medicament, divMap);
+//     case 'Origine':
+//       return createIcon(origine, divMap);
+//     case "Destination":
+//       return createIcon(destination, divMap);
+//     default:
+//       return createIcon(point, divMap);
+//   }
+// }
 </script>
 
 <style >
