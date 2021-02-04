@@ -96,7 +96,6 @@ p#narration {
     padding: 0.8vh 1.2vh;
     background-color: rgba(255,255,255,0.9);
     border-radius: 25px;
-		overflow: hidden;
 }
 
 
@@ -235,4 +234,9 @@ a.legend_button:active {
 	  -ms-user-select: none;
 	  -o-user-select: none;
 	}
+
+  p#narration {
+    overflow: hidden;
+  }
+
 }
