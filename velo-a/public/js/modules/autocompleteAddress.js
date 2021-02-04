@@ -2,6 +2,11 @@
 
 const mapboxAPIKEY = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
 
+/**
+ * Get the place name from coordinates
+ * @param {String} input Longitude and Latitude
+ * @return {Promise<String | void>}
+ */
 export async function reverseGeocoding(input) {
 	return fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(input)}.json?access_token=${mapboxAPIKEY}&autocomplete=false`)
 		.then(response => response.json())
@@ -13,7 +18,12 @@ export async function reverseGeocoding(input) {
 		});
 }
 
-async function getAddress(input) {
+/**
+ * Get the address mapped with its coordinates
+ * @param {String} address
+ * @return {Promise<{}>} {address : coordinates} format
+ */
+async function getAddress(address) {
 	const bb = {
 		ix :- 1.7951350420290169,
 		iy: 47.116367346841514,
@@ -21,7 +31,7 @@ async function getAddress(input) {
 		ay: 47.33902195868899
 	}
 
-	return fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURI(input)}&lat=47.21611304880233&lon=-1.5512347469335737&autocomplete=1`)
+	return fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURI(address)}&lat=47.21611304880233&lon=-1.5512347469335737&autocomplete=1`)
 		.then(response => response.json())
 		.then(data => {
 			const tmp = {};
@@ -37,7 +47,13 @@ async function getAddress(input) {
 		});
 }
 
-
+/**
+ * Creates an autocomplete address list under an input
+ * @param {HTMLInputElement} inp
+ * @param {HTMLDivElement} container
+ * @param {String} type
+ * @return {Promise<void>}
+ */
 export async function autocompleteAddress(inp, container, type) {
 	let currentFocus;
 	inp.addEventListener("input", async function (e) {
@@ -46,6 +62,10 @@ export async function autocompleteAddress(inp, container, type) {
 		if (!val || val.length <= 3) {
 			return false;
 		}
+
+		localStorage.removeItem(type);
+		localStorage.removeItem(type + "Coord");
+
 		currentFocus = -1;
 
 		const data = await getAddress(val);

@@ -4,7 +4,7 @@ const ABRIS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/sear
 
 /**
  * Fetch "abris velo" of Nantes Metropole and return them
- * @return {Promise<any>} - Abris velo
+ * @return {Promise<Response>} Abris
  */
 const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
 	.then(response => {
@@ -16,9 +16,8 @@ const abrisVeloFetchData = () => fetch(ABRIS_VELO_API_URL)
 let data;
 
 /**
- * Display "abris velo" of Nantes Metropole on the map
- * @param {Object} mapboxgl - The Mapbox Map
- * @param {Map} map - The Mapbox Map
+ * Give "abris velo" markers in Nantes Metropole
+ * @return {Promise<[]>} Markers
  */
 export async function abrisVeloDisplayData() {
 	if (!data) data = await abrisVeloFetchData();

@@ -2,16 +2,13 @@
 
 import {slide} from "./modules/background.js";
 
-window.addEventListener('DOMContentLoaded', () => {
-	slide(() => {}, () => {}, null);
-
-	load("");
-});
 
 let answers = document.getElementsByClassName("button-question");
 let h2 = document.getElementById("h2-question");
 
 function load(page) {
+	slide(() => {}, () => {}, null);
+
 	let background = document.getElementById("background-resultat");
 	let container = document.getElementById("container-resultat");
 
@@ -248,6 +245,12 @@ function load(page) {
 
 	}
 
+	/**
+	 * Creates a link
+	 * @param {String} link
+	 * @param {String} text
+	 * @return {HTMLAnchorElement}
+	 */
 	function link(link, text) {
 		const a = document.createElement("a");
 		a.href = link;
@@ -255,15 +258,25 @@ function load(page) {
 		return a;
 	}
 
+	/**
+	 * Creates a br
+	 * @return {HTMLBRElement}
+	 */
 	function br() {
 		return document.createElement('br');
 	}
 
+	/**
+	 * Creates a bold msg
+	 * @param {String} msg
+	 * @return {HTMLElement}
+	 */
 	function bold(msg) {
 		const bold = document.createElement('strong');
 		bold.appendChild(document.createTextNode(msg));
 		return bold
 	}
+
 
 	function hideItems() {
 		background.style.background = "rgba(0, 0, 0, 0)";
@@ -284,6 +297,11 @@ function load(page) {
 		});
 	}
 
+	/**
+	 * Handles question result
+	 * @param {boolean} response
+	 * @param {String} msg
+	 */
 	function bicky(response, msg) {
 		let background = document.getElementById("background-resultat");
 		let container = document.getElementById("container-resultat");
@@ -310,3 +328,7 @@ function load(page) {
 	}
 
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+	load("");
+});

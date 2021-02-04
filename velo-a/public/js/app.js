@@ -8,6 +8,35 @@ import { reverseGeocoding } from "./modules/autocompleteAddress.js";
 
 async function bootstrap() {
 
+	if (document.getElementById("btn-menu-nav"))
+		document.getElementById("btn-menu-nav").onclick = () => {
+			let nav_visible = document.getElementById("left-nav").style.getPropertyValue('left');
+			if (nav_visible === "-100%") {
+				document.getElementById("left-nav").setAttribute("style", "left: 0");
+				document.getElementById("btn-menu-nav").classList.remove("button-menu");
+				document.getElementById("btn-menu-nav").classList.add("button-cross");
+			} else {
+				document.getElementById("left-nav").setAttribute("style", "left: -100%");
+				document.getElementById("btn-menu-nav").classList.add("button-menu");
+				document.getElementById("btn-menu-nav").classList.remove("button-cross");
+			}
+		};
+
+
+	if (document.getElementById("valider"))
+		document.getElementById("valider").addEventListener("click", () => {
+			if (localStorage.getItem("adresseDepart") && localStorage.getItem("adresseArrivee")) {
+				document.location = 'starterPack.html';
+			} else {
+				document.getElementById("oops").style.setProperty("display", "flex");
+				document.getElementById("filtre_oops").style.setProperty("display", "inherit");
+
+				document.getElementById("filtre_oops").addEventListener("click", closeOops);
+				document.getElementById("oops_ok").addEventListener("click", closeOops);
+
+			}
+		});
+
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw';
 	const map = new mapboxgl.Map({
 		container: 'map', // container id
@@ -85,6 +114,10 @@ async function bootstrap() {
 	let markers = {};
 	let hover = false;
 
+	/**
+	 * Handle interactivity in map markers
+	 * @param {[]} data
+	 */
 	function points(data) {
 
 		data.forEach((d) => {
@@ -193,39 +226,15 @@ async function bootstrap() {
 
 }
 
+/**
+ * Close "oops" modal
+ */
 function closeOops() {
 	document.getElementById("oops").style.setProperty("display", "none");
 	document.getElementById("filtre_oops").style.setProperty("display", "none");
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-
-	if (document.getElementById("valider"))
-		document.getElementById("valider").addEventListener("click", () => {
-			if (localStorage.getItem("adresseDepart") && localStorage.getItem("adresseArrivee")) {
-				document.location = 'starterPack.html';
-			} else {
-				document.getElementById("oops").style.setProperty("display", "flex");
-				document.getElementById("filtre_oops").style.setProperty("display", "inherit");
-
-				document.getElementById("filtre_oops").addEventListener("click", closeOops);
-				document.getElementById("oops_ok").addEventListener("click", closeOops);
-
-			}
-		})
 	bootstrap();
 });
 
-if (document.getElementById("btn-menu-nav"))
-	document.getElementById("btn-menu-nav").onclick = () => {
-		let nav_visible = document.getElementById("left-nav").style.getPropertyValue('left');
-		if (nav_visible === "-100%") {
-			document.getElementById("left-nav").setAttribute("style", "left: 0");
-			document.getElementById("btn-menu-nav").classList.remove("button-menu");
-			document.getElementById("btn-menu-nav").classList.add("button-cross");
-		} else {
-			document.getElementById("left-nav").setAttribute("style", "left: -100%");
-			document.getElementById("btn-menu-nav").classList.add("button-menu");
-			document.getElementById("btn-menu-nav").classList.remove("button-cross");
-		}
-	};

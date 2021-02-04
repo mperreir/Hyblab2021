@@ -2,6 +2,10 @@
 
 const TRAFIC_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_fluidite-axes-routiers-nantes-metropole&q=&rows=1000&facet=couleur_tp&exclude.etat_trafic=Ind%C3%A9termin%C3%A9";
 
+/**
+ * Fetch "Trafic" of Nantes Metropole and return them
+ * @return {Promise<any>} - Monuments
+ */
 const traficFetchData = () => fetch(TRAFIC_API_URL)
 	.then(response => {
 		return response.json();
@@ -11,6 +15,10 @@ const traficFetchData = () => fetch(TRAFIC_API_URL)
 
 let data;
 
+/**
+ * Put "Trafic" in Nantes Metropole data in the local storage
+ * @return {Promise<[]>} Markers
+ */
 export async function getTraficData(trajet) {
 	if (!data) data = await traficFetchData();
 

@@ -12,10 +12,6 @@ function bootstrap() {
 
 	slide(velos, backgroundContinue, ["question_pane", "question_velo", "question_trajet"]);
 	togglePath();
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-	bootstrap();
 
 	if (localStorage.getItem("adresseDepart")) document.getElementById("input_depart").value = localStorage.getItem("adresseDepart");
 	if (localStorage.getItem("adresseArrivee")) document.getElementById("input_arrivee").value = localStorage.getItem("adresseArrivee");
@@ -49,6 +45,9 @@ window.addEventListener('DOMContentLoaded', () => {
 				});
 			})
 			.catch(err => {
+				Array.from(document.getElementsByClassName("button-slide")).forEach((el) => {
+					el.setAttribute("disabled", "false");
+				});
 			});
 	});
 
@@ -74,9 +73,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	document.getElementById("bicloo").addEventListener("click", () => {
 		localStorage.setItem("velo", "bicloo");
 	});
+}
 
-});
-
+/**
+ * Handles hover on the pane
+ */
 function togglePath() {
 	Array.from(document.getElementsByClassName("base")).forEach((el, index) => {
 		el.addEventListener("mouseenter", () => {
@@ -93,8 +94,11 @@ function togglePath() {
 	});
 }
 
+/**
+ * Handles changing the bikes
+ * @return {Promise<void>}
+ */
 async function velos() {
-
 
 	let isMovingMouseEnter = false;
 	let isMovingClick = false;
@@ -141,7 +145,11 @@ async function velos() {
 	});
 }
 
-
+/**
+ * Starting bikes
+ * @param {number} i
+ * @return {Promise<void>}
+ */
 async function startVelos(i) {
 	let e = Array.from(document.querySelectorAll(".velo"))[i];
 	if (e != null) {
@@ -156,6 +164,11 @@ async function startVelos(i) {
 	}
 }
 
+/**
+ * Moving bikes
+ * @param {number} i
+ * @return {Promise<void>}
+ */
 async function goVelos(i) {
 
 	let e = Array.from(document.querySelectorAll(".velo"))[i];
@@ -166,12 +179,24 @@ async function goVelos(i) {
 		}, 200);
 }
 
+/**
+ * Sleep with timeout
+ * @param {function} callback
+ * @param {number} time
+ * @return {Promise<*>}
+ */
 function sleep(callback, time) {
 	return new Promise((resolve) => {
 		setTimeout(() => resolve(callback()), time)
 	})
 }
 
+/**
+ * Slide the background
+ * @param {HTMLElement} el
+ * @param {[String]} slides
+ * @param {boolean} plus
+ */
 function backgroundContinue(el, slides, plus) {
 	let parent = el.parentElement;
 	if (parent.id === "pane")
@@ -189,3 +214,8 @@ function backgroundContinue(el, slides, plus) {
 		},50)
 	}
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+	bootstrap();
+});
+
