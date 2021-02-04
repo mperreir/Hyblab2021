@@ -177,7 +177,7 @@ class App extends React.Component {
         }
         if (typeof lieux.surprise === "undefined"||lieux.surprise.length===0) {
             let surprise = {
-                id: 0,
+                id: -1,
                 titre: 'Pas de titre disponible',
                 img: imageDefault,
                 adresse: 'Pas d\'adresse disponible',
@@ -204,13 +204,13 @@ class App extends React.Component {
                     typeS = equivalent.themeEquiv.get(s.tags.amenity)
                 }
                 let lieuSurprise = {
-                    id: 0,
+                    id: 0, //TODO remettre à 0
                     titre: nameSurp,
                     img: imageDefault,
                     adresse: adresseFS,
                     description: descriptionS,
                     coordonnes: [s.lat, s.lon],
-                    type: typeS
+                    type: 0
                 }
                 newSurprise=lieuSurprise
 
