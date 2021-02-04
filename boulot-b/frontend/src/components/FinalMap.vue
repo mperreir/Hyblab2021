@@ -68,7 +68,7 @@ function addMarkerToGroup(group, coordinates, html, typePlace) {
   group.addObject(marker);
 }
 
-function createIcon(imageIcon, width = 25, height = 25) {
+function createIcon(imageIcon, width = 30, height = 30) {
   const image = document.createElement('img');
   image.src = imageIcon;
 
@@ -86,13 +86,13 @@ function iconFactory(typePlace) {
     case 'SalleSport':
       return createIcon(haltere);
     case 'Bar':
-      return createIcon(verre, 15, 25);
+      return createIcon(verre, 20, 30);
     case 'Pharmacie':
       return createIcon(medicament);
     case 'Culture':
       return createIcon(monument);
     case 'Nature':
-      return createIcon(parc);
+      return createIcon(parc, 35, 35);
     default:
       return createIcon(point);
   }
