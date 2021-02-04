@@ -53,7 +53,7 @@ var TimeKnots = {
 
         $("#otherItemsSingleModal").attr('class', 'modal-body ' + preference + 'ColorModal');
         $("#otherItemsSingleModal").html("")
-        var divContent = $('<div>').css('padding-bottom', "4em").attr('class', 'row');
+        var divContent = $('<div>').css('padding-bottom', "4em").css('padding-top', "1em").attr('class', 'row');
 
         if (otherAdress.length >= 1) {
             var i = 0;
