@@ -1,40 +1,12 @@
+var audioMer = new Audio('sound/400632__inspectorj__ambience-seaside-waves-close-a.wav');
+
 let initSlide1 = function(){
-
-  d3.select('#logo-hyblab').on('click', function(){
-    anime({
-        targets: '#logo-hyblab',
-        scale: 0
-      });
+  d3.select('#boutonGoSlide2').on('click', function(){
+    audioMer.play();
+    audioMer.loop = true;
+	audioMer.volume = volumeGeneral;
+    setActif(2);
+    document.getElementById("topLeftLogo").style.display='block';
     mySlidr.slide('page-2');
-    initSlide2();
   });
-
-  d3.select('#logo-hyblab').on('mouseover', function(){
-    anime({
-        targets: '#logo-hyblab',
-        scale: 1.2
-      });
-  });
-
-  d3.select('#logo-hyblab').on('mouseout', function(){
-    anime({
-        targets: '#logo-hyblab',
-        scale: 1
-      });
-  });
-
-  anime({
-    targets: '#titre',
-    translateX: '100%',
-    easing: 'easeInOutQuad',
-    direction: 'alternate',
-    loop: true
-  });
-
-  d3.json('data/dummy.json')
-    .then(function(data) {
-        d3.select('footer')
-            .html('p')
-            .text(data.message);
-    });
 };

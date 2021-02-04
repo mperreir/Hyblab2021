@@ -12,57 +12,327 @@
   <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
   <script src="js/slide1.js" defer></script>
   <script src="js/slide2.js" defer></script>
+  <script src="js/slideFin.js" defer></script>
+  <script src="js/slideQuestion.js" defer></script>
+
   <script src="js/index.js" defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/ctrlAffichage.js"></script>
+
+  <!-- Script pour p5.js -->
+  <script src="js/p5.js"></script>
+  <script src="js/sketch.js"></script>
+
+    <!-- Ajout des font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
+
 <body>
+    <!-- Affichage de l'arrière plan (la plage) -->
+    <div id="containerBackground">
+        <!-- Affichage de notre canvas de ciel en arrière plan -->
+        <div id="displayCanvas"></div>
+        <img class="plante" id="planteJour" src="img/Plante/jour.gif" />
+        <img class="plante" id="planteNuit" src="img/Plante/nuit.gif" />
+        <img class="plante" id="planteSoleil" src="img/Plante/soleil.gif" />
+    </div>
+    <div class="logo">
+        <img id="topLeftLogo" src="img/logo-bleu.png" style = "display:none;" />
+    </div>
+    <div class="containerChemin align-center-vertical">
+        <div>
+            <div class="materialBouton" id="boutonSon"><i class="material-icons" id="volumeSon">volume_up</i></div>
+            <div class="chemin ">
+                <img src="img/chemin.png" />
+                <div class="breadcrumbs">
+                    <div class="breadcrumb" id="breadcrumb-page-1"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-2"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-3"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-4"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-5"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-6"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-7"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-8"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-9"></div>
+                    <div class="breadcrumb" id="breadcrumb-page-fin"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
-                
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
-
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
-
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
+            <section data-slidr="page-1" id="page-1">
+                <div class="align-center-vertical">
+                    <div class="containerAcceuil">
+                        <div class="logoContainer">
+                            <img src="img/logo-bleu.png" />
+                        </div>  
+                        <h1>Bienvenue</h1>
+                        <div class="presentation">
+                            <b>“La voix de la mer parle à l’âme. Le contact de la mer est sensuel, 
+                            et enlace le corps dans une douce et secrète étreinte.” Kate Chopin</b>
+                            <br /><br />
+                            Où trouver l’inspiration ? En remuant sans cesse dans le salon ? En regardant par la fenêtre ? En scrutant l’horizon ?<br />
+                            Question inutile, les artistes le savent bien : la créativité n'arrive jamais quand on la demande. <br />
+                            Elle va-et-vient, comme une marée, sans cesse, inévitable. Elle reflète nos émotions.<br />
+                            “Mais oui ! Il me faut une plage ! Quelle merveilleuse idée !”<br />
+                            <br />
+                            <b>Vous avez une âme d’artiste et cherchez une plage pour vous inspirer ? </b> 
+                            <br /><br />
+                            <b>Amare est un site web qui vous aidera à trouver l’inspiration !</b> 
+                            <br /><br />
+                            Rentrez vos critères (période de la journée, météo, type de plages, port,...) 
+                            à travers une expérience sensorielle unique et naviguez à travers Amare.
+                        </div>
+                        <div id="boutonGoSlide2" class="bouton">Commencer l'aventure</div>
+                    </div>
+                </div>
             </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                            </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
+
+            <section data-slidr="page-2" id="page-2">
+                <img src="img/carte.png" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index : 1"/>
+                <div class="align-center-vertical">
+                    <div class="containerAcceuil">
+                        <h1>Entrez votre localisation</h1>
+                        <h3>(Ex : 99 rue des Dunes 35400 SAINT-MALO)</h3>
+                        <div class="imgLocalisation" style="margin-right: 50px;">
+                            <img src="img/pointlocalisation.png" />
+                        </div>
+                        <div style="width: max-content;
+                        margin-left: auto;
+                        margin-right: auto;">
+                            <input type="text" class="form-control" name="name" id="adresse" list="huge_list" placeholder="Votre adresse...">
+                            <datalist id="huge_list">
+                            </datalist>
+                    
+                            <div class="materialBouton disable" id="boutonBegin"><i class="material-icons">east</i></div>
+                            <div class="distanceContainer">
+                                <h3 style="margin-bottom:20px;margin-top: 20px;"> Quelle est la distance maximale que vous êtes prêt à parcourir ?</h3>
+                                <input type="range" id="distance" name="distance"
+                                min="0" max="200">
+                                <div class="distanceDisplay">
+                                    <span class="min" >0 km </span>
+                                    <span class="actuel" id="distanceActuel">100 km</span>
+                                    <span class="max">200km</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-3" id="page-3">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 1
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-4" id="page-4">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 2
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-5" id="page-5">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 3
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-6" id="page-6">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 4
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-7" id="page-7">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 5
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-8" id="page-8">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 6
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-9" id="page-9">
+                <div class="align-center-vertical">
+                    <div id="citation"></div>
+                    <div id="containerQuestion">
+                        <h1 id="questionText">
+                            Question 7
+                        </h1>
+                        <div id="containerReponses"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-slidr="page-fin" id="page-fin">
+                <div class="bouton credit" id="boutonCredit">Crédits</div>
+                <div class="credits">
+                    <div id="closeCredit"><i class="material-icons" id="volumeSon">close</i></div>
+                    <table>
+                        <tr>
+                            <td><img src="img/Credits/AGR.png" 
+                                style="height: 101px;
+                                width: 94px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Directeurs Artistiques</b><br />
+                                Élodie DEVANT <br />
+                                Ryan BENNOUR <br />
+                                Tanguy AULAGNON 
+                            </td>
+                            <td><img src="img/Credits/HYBLAB.png" 
+                                style="width: 440px;" /></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/Credits/Polytetech.png" style="width: 63px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Développeurs</b><br />
+                                Lucille GALLET<br />
+                                Tudual QUINIO<br />
+                                Virgile GHAZI<br />
+                                Guillaume CORONEL<br />
+                                Guillaume HUTIN<br />
+                                Noémie HENRY<br />
+                                Omaïma SAHNOUR<br />
+                                Paul BERTIN
+                            </td>
+                            <td><img src="img/Credits/OpenSource.png" style="width: 90px;" /> <img src="img/Credits/UN.jpg" style="width: 155px; margin-left: 50px;" /></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/Credits/audencia.jpg" style="width: 113px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Story-telling</b><br />
+                                Logan BARRÉ<br />
+                                Charles JOUANNO
+                            </td>
+                            <td><img src="img/Credits/logoCC.png" style="width: 82px;" /> <img src="img/Credits/OML.png" style="width: 223px; margin-left: 50px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="containerFin align-center-vertical">
+                    <div style="width: 100%;">
+                        <div class="cartesPostales">
+                        <div class="cartePostaleContainer" style="transform: rotate(-2deg);">
+                            <div class="cartePostale cp1" id="cp1">
+                                <div class="imgCarte">
+                                </div>
+                                <div class="texte">
+                                    <div class="informations">
+                                        <span class="nomPlage">Nom de la plage</span><br />
+                                        <span class="nomVille">Nom de la ville</span><br />
+                                        Température : <span class="temperatureRelle">2°C</span><br />
+                                        Lever du soleil : <span class="leverSoleil">8:00</span><br />
+                                        Coucher du soleil : <span class="coucherSoleil">16:00</span><br />
+                                        <span class="phareNom"></span><br />
+                                        <span><a class="itineraire" href="/" target="_blank">Vous y rendre...</a></span>
+                                    </div>
+                                    <div class="horaire">
+                                        Nous vous conseillons de vous y rendre le <span id="date">25/06</span> à <span id="heure">00:05</span>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cartePostaleContainer" style="transform : rotate(10deg);">
+                            <div class="cartePostale cp2" id="cp2">
+                                <div class="imgCarte">
+                                </div>
+                                <div class="texte">
+                                    <div class="informations">
+                                        <span class="nomPlage">Nom de la plage</span><br />
+										<span class="nomVille"></span><br />
+                                        Température : <span class="temperatureRelle">2°C</span><br />
+                                        Lever du soleil : <span class="leverSoleil">8:00</span><br />
+                                        Coucher du soleil : <span class="coucherSoleil">16:00</span><br />
+                                        <span class="phareNom"></span><br />
+                                        <span><a class="itineraire" href="/" target="_blank">Vous y rendre...</a></span>
+                                    </div>
+                                    <div class="horaire">
+                                        Nous vous conseillons de vous y rendre le <span id="date">25/06</span> à <span id="heure">00:05</span>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cartePostaleContainer">
+                            <div class="cartePostale cp3" id="cp3">
+                                <div class="imgCarte">
+                                </div>
+                                <div class="texte">
+                                    <div class="informations">
+                                        <span class="nomPlage">Nom de la plage</span><br />
+										<span class="nomVille">Nom de la ville</span><br />
+                                        Température : <span class="temperatureRelle">2°C</span><br />
+                                        Lever du soleil : <span class="leverSoleil">8:00</span><br />
+                                        Coucher du soleil : <span class="coucherSoleil">16:00</span><br />
+                                        <span class="phareNom"></span><br />
+                                        <span><a class="itineraire" href="/" target="_blank">Vous y rendre...</a></span>
+    
+                                    </div>
+                                    <div class="horaire">
+                                        Nous vous conseillons de vous y rendre le <span id="date">25/06</span> à <span id="heure">00:05</span>.  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="align-center-vertical">
+                            <div id="loading">
+                                <img src="img/chargementecran.gif" />
+                                <h2>Un instant, nous cherchons la plage de vos rêves...</h2>
+                            </div>
+                        </div>
+                        <div id="goback" class="bouton">Retour début</div>
+                    </div>
+                </div>    
             </section>
         </main>
     </div>

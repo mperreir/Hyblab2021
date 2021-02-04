@@ -1,18 +1,30 @@
 /* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
 /* contraindre le format des slides affichés sur la page web */
-
+html, body {
+    width: 100%;
+    height: 100%;
+}
 
 /* normalisation des marges et padding pour simplifier le positionnement des éléments */
 *{
     padding:0;
     margin:0;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 body{
-    background-color: black;
     color: white;
     overflow: hidden;   /* pour slidr dans certains navigateurs */
+    background-image: url("../img/FondsTextures/fonddebut.png");
+    background-size: cover;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
 }
+
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
+    content:url("../img/FondsTextures/fonddebut.png") url("../img/FondsTextures/fondnuit.png") url("../img/FondsTextures/fondjour.png") url("../img/FondsTextures/fondsoleil.png");
+ }
 
 #container{
     position: relative; /* pour permettre le positionnement en absolu des autres éléments */
@@ -20,7 +32,6 @@ body{
 
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
 #slidr, #slidr section{
-    background-color: dodgerblue;
     width: 100%;
     height: 100%;
 }
@@ -32,19 +43,6 @@ body{
     left: 30%;
     top: 10%;
     position: absolute;
-    font-size: 30%;
-}
-
-#logo-hyblab{
-    text-align: center;
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-left:-25%;
-    margin-top:calc(-7.5% * 9 / 16 ); /* les marges sont exprimées en % de la largeur... :-( */
-    position: absolute;
-    font-size: 50%;
-    cursor: pointer;
 }
 
 #background-video{
@@ -65,25 +63,18 @@ body{
 /* le footer de la slide 1 est positionné en bas de la slide et son texte est centré */
 section[data-slidr="page-1"] footer{
     width: 100%;
-    bottom: 5%;
-    position: absolute;
-    font-size: 20%;
     text-align: center;
 }
 
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 .vjs-tech { object-fit: cover; }
 
-/* dernier slide sur fond blanc */
-section[data-slidr="page-2"]{
-    background-color: white;
-}
-
 /* ---------- mise en forme du bandeau des logos ----------------- */
 /* ici comme on doit contraindre la hauteur des images (et non leur largeur) */
 /* on ne peut pas utiliser de taille en % on utilise donc des em (qui sont définis */
 /* comme proportiels à la tailles des slides grace à nos règles plus bas */
 /* (cf. fondt-size du body) */
+
 
 #bandeau {
     padding-top: 3%;
@@ -92,7 +83,6 @@ section[data-slidr="page-2"]{
     position: absolute;
     bottom: 0;
     background-color: white;
-    font-size: 20%;
     z-index: -1;
   }
 
@@ -140,30 +130,719 @@ section[data-slidr="page-2"]{
 tant qu'on est en dessous de l'apect ratio 16/9 */
 @media screen and (max-aspect-ratio: 16/9){
     #container{
-        margin-top: calc((100vh - 100 * 9vw / 16) / 2);
         width: 100vw;
-        height: calc(100 * 9vw / 16);
+        height: 100%;
     }
 
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-    body{
-        font-size: 9vw;
-    }
 }
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
 dessus de l'apect ratio 16/9 */
 @media screen and (min-aspect-ratio: 16/9){
     #container{
-        margin-left: calc((100vw - 100 * 16vh / 9) / 2);
-        width: calc(100 * 16vh / 9);
+        /*margin-left: calc((100vw - 100 * 16vh / 9) / 2);*/
+        width: 100%;
         height: 100vh;
     }
 
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
-    body{
-        font-size: 16vh;
+}
+
+
+
+/*Notre CSS*/
+div#displayCanvas {
+    position: absolute;
+}
+
+/***général***/
+:root { 
+    --primary-color: #203443; 
+    --question-color: #203443
+    --secondary-color: white;
+    --citation-color: #203443;
+    --bouton-texte-color: #203443;
+    --bouton-bg-color: #203443;
+    --breadcrumb-color: #6E889B;
+    --bouton-bg-slider: #203443;
+}
+
+* {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.logo {
+    background: none;
+    width: 200px;
+    position: absolute;
+    padding: 10px;
+    z-index: 20;
+}
+
+.logo img {
+    width: 200px;
+}
+
+#boutonSon {
+    z-index: 99;
+    margin-bottom: 10px;
+    margin-left: -10px;
+}
+	
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 45px;
+    line-height: 61px;
+    /* identical to box height */
+    color:var(--question-color, #203443);
+    max-width: 761px;
+}
+
+.bouton {
+    display: inline-block;
+    padding: 10px;
+    background: var(--secondary-color, white);
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 10px;
+    
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--bouton-texte-color, #203443);
+    transition: all 0.5s ease;
+}
+
+.boutonVisited {
+    display: inline-block;
+    padding: 10px;
+    background: var(--bouton-bg-color, #203443);
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    color: var(--secondary-color, white);
+    transition: all 0.5s ease;
+}
+
+.bouton:hover {
+    cursor: pointer;
+    background-color: var(--bouton-bg-color, #203443);
+    color: var(--secondary-color, white);
+}
+
+.boutonVisited:hover{
+    cursor: pointer;
+}
+
+.align-center-vertical {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+   
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+  
+.material-icons:hover{
+    color: var(--bouton-bg-color, #203443);
+}
+
+.materialBouton {
+    width: fit-content;
+    padding: 7px;
+    border-radius: 100px;
+    border: 3px white solid;
+    color: var(--secondary-color, white); 
+    margin-top: 5px;
+    height: 45px;
+    width: 45px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.materialBouton:hover {
+    cursor: pointer;
+    color: var(--bouton-bg-color, #203443);
+    border-color: var(--bouton-bg-color, #203443);
+}
+
+.materialBouton:hover .material-icons {
+    color: var(--bouton-bg-color, #203443);
+}
+
+.disable {
+    color: #ffffff5c !important;
+    border: 3px solid;
+}
+
+.disable:hover{
+    color: #ffffff5c !important;
+    border: 3px solid;
+}
+
+.disable:hover .material-icons:hover{
+    color: #ffffff5c !important;
+}
+
+.disable:hover .material-icons{
+    color: #ffffff5c !important;
+}
+
+.containerChemin {
+    position: absolute;
+    height: 100%;
+    left: 20px;
+    z-index: 99;
+    width: 50px;
+    flex-wrap: wrap;
+}
+
+.chemin img {
+    height: 300px;
+}
+
+.chemin {
+    position: relative;
+  }
+
+.breadcrumbs {
+    position: absolute;
+    top: 0;
+}
+
+.breadcrumb {
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+    background-color: var(--breadcrumb-color, #6e889b);
+    border-radius: 50px;
+    position: absolute;
+}
+
+.breadcrumb.breadcrumb-active {
+    background-color: white;
+}
+
+.breadcrumb:hover {
+    cursor: pointer;
+}
+
+div#breadcrumb-page-1 {
+    left: 5px;
+}
+
+div#breadcrumb-page-2 {
+    top: 30px;
+    left: -4px;
+}
+
+div#breadcrumb-page-3 {
+    top: 60px;
+    left: 4px;
+}
+
+div#breadcrumb-page-4 {
+    top: 100px;
+    left: 15px;
+}
+
+div#breadcrumb-page-5 {
+    left: 3px;
+    top: 130px;
+}
+
+div#breadcrumb-page-6 {
+    top: 160px;
+    left: -5px;
+}
+
+div#breadcrumb-page-7 {
+    top: 190px;
+    left: 14px;
+}
+
+div#breadcrumb-page-8 {
+    top: 225px;
+    left: 12px;
+}
+
+div#breadcrumb-page-9 {
+    left: -2px;
+    top: 257px;
+}
+
+div#breadcrumb-page-fin {
+    top: 294px;
+    left: 9px;
+}
+
+.plante {
+    position: absolute;
+    height: 316px;
+    bottom: 0;
+    left: 20px;
+    display: none;
+}
+
+/***Acceuil***/
+.containerAcceuil {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(--citation-color, #203443);
+}
+
+.containerAcceuil h1 {
+    text-align: center;
+    max-width: 1000px;
+}
+
+.containerAcceuil img {
+    width: 400px;
+    margin-bottom: 40px;
+}
+
+.presentation {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+#containerBackground {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div#boutonGoSlide2 {
+    margin-top: 20px;
+}
+
+/** slide adresse**/
+input#adresse {
+    height: 45px;
+    width: 360px;
+    font-size: 18px;
+    border: 0px;
+    border-radius: 50px;
+    padding-left: 10px;
+    margin-right: 15px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    color: #203443;
+}
+
+input#adresse:focus {
+    outline: none;
+}
+
+.imgLocalisation {
+    text-align: center;
+}
+
+.imgLocalisation img {
+    height: 45px !important;
+    width: auto;
+}
+
+input#distance {
+    width: 360px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    border-radius: 12px;
+    opacity: 0.7;
+    height: 6px;
+}
+
+input#distance:hover {
+    opacity: 1;
+}
+
+input#distance::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #203443;
+    cursor: pointer;
+}
+
+
+.distanceContainer {
+    margin-top: 30px;
+    width: 360px;
+}
+
+.distanceContainer h3 {
+    margin-bottom: 10px;
+}
+
+.distanceDisplay {
+    display: flex;
+    justify-content: space-between;
+    width: 360px;
+}
+
+/***slide questions***/
+#containerQuestion {
+    padding: 20px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+#containerQuestion h1 {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    position: relative;
+    top:-110px;
+}
+
+section#page-1 h1{ 
+    margin-top:-45px;
+}
+    
+    section#page-2 h1{
+    margin-top:-100px;}
+    
+    section#page-2 h3{
+    margin-bottom:50px;}
+    
+    section#page-3 #containerReponses{
+    margin-top:-115px;
+    color: #203443;}
+
+    section#page-3 h1{
+        color: #203443;
     }
+    
+    
+    section#page-4 #containerReponses{
+    margin-top:-100px;}
+    
+    section#page-5 #containerReponses{
+    margin-top:-115px;}
+    
+    section#page-6 #containerReponses{
+    margin-top:-115px;}
+    
+    section#page-7 #containerReponses{
+    margin-top:-115px;}
+    
+    section#page-8 #containerReponses{
+    margin-top:-115px;}
+    
+    section#page-9 #containerReponses{
+    margin-top:-115px;}
+    
+
+.citation {
+    font-family: Abril Fatface;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    opacity: 0;
+    color: var(--citation-color, #203443);
+    transition: all 0.5s ease;
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div#containerReponses {
+    max-width: 850px;
+    margin-left: 20px;
+}
+
+.containerReponse .bouton:hover + .citation {
+    opacity: 1;
+}
+
+.containerReponse {
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+    position: relative;
+    margin-left: 30px;
+}
+
+.containerReponse img {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stepper {
+    height: 45px;
+    width: 600px;
+    background-color: white;
+    border-radius: 30px;
+    padding-top: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.stepperSpace {
+    width: 500px;
+    margin-left: 45px;
+    position: relative;
+}
+
+.stepperBouton {
+    height: 41px;
+    width: 41px;
+    background: var(--bouton-bg-slider, #203443);
+    border-radius: 45px;
+    position: absolute;
+}
+
+img.stepperBoutonImg {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.containerStepperReponse {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-top: 15px;
+    font-weight: 700;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+/***slide fin***/
+.containerFin {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    background-color: rgb(255 255 255 / 80%);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 100;
+}
+
+#loading {
+    width: 100%;
+    color: #203443;
+}
+
+.cartesPostales {
+    display: none;
+}
+
+#loading img {
+    width: 200px;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .cartePostaleContainer {
+    color: black;
+    width: 35%;
+    height: 23vw;
+    text-align: left;
+    display: inline-block;
+    transform: rotate(4deg);
+    margin-left: 50px;
+    margin-bottom: -48px;
+    perspective: 1400px;
+    margin-top: 25px;
+    display: none;
+}
+
+.cartePostale
+{
+    position: relative;
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+    /*transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    perspective: 1400px;
+    -webkit-perspective: 1400px;*/
+
+}
+
+.imgCarte {
+position: absolute;
+    background-size: cover;
+    border: 5px solid white;
+    box-sizing: border-box;
+    /* -webkit-filter: sepia(1); */
+    transform: rotate(3deg);
+    width: 8vw;
+    height: 5vw;
+    z-index: 99;
+    right: 3vw;
+    top: 3vw;
+}
+
+.cartePostale.cp1 {
+    transform: rotate(-11deg);
+    margin-top: 49px;
+}
+
+.cartePostale.cp2 {
+    transform: rotate(10deg);
+    margin-top: 50px;
+}
+
+div#goback {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+.cartePostale .texte {
+    background-image: url('../img/lettrefinal.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* transform: rotateY(180deg); */
+    color: black !important;
+}
+
+
+.informations {
+    margin-left: 3vw;
+    margin-top: 9.8vw;
+    width: 12vw;
+    line-height: 1.8vw;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.informations span {
+    font-size: 14px;
+}
+
+.horaire {
+    display: inline-block;
+    width: 160px;
+    margin-left: 4vw;
+    margin-top: 11vw;
+    text-align: center;
+    vertical-align: top;
+}
+
+.credit {
+    position: absolute;
+    z-index: 99;
+    right: 10px;
+    top: 10px;
+}
+
+.credits {
+    position: absolute;
+    z-index: 99;
+    color: black;
+    right: 10px;
+    top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 6px 17px rgb(32 52 67 / 20%);
+    display: none;
+}
+
+div#closeCredit {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+div#closeCredit:hover {
+    cursor: pointer;
+}
+
+table {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    padding-right: 10px;
 }
