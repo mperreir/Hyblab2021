@@ -1,0 +1,251 @@
+body {
+	background-color: #fdd3d1;
+	height: 100%;
+	font-family: 'Montserrat', sans-serif
+}
+
+.logo-veli-good {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-image: url('../img/background/cloud1.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	min-width: 605px;
+	width: 80%;
+	max-width: 80%;
+	min-height: 95%;
+	padding-top: 150px;
+	margin: 10px auto 0 auto;
+}
+
+.content > h3 {
+	text-align: center;
+	font-weight: 700;
+	font-size: 11px;
+	font-style: normal;
+	padding: 0;
+	margin: 0 0 5px;
+}
+
+.content > span {
+	text-align: center;
+	font-weight: 400;
+	font-size: 13px;
+	font-style: normal;
+	margin: 0 0 15px;
+}
+
+.schools {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 70%;
+	min-width: 550px;
+	margin: 0 auto;
+	padding-left: 10px;
+}
+
+.schools img {
+	margin: 0 auto;
+}
+
+.schools h2 {
+	margin-bottom: 10px;
+}
+
+.schools > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 190px;
+	margin: 0 auto;
+}
+
+.schools .center {
+	width: 270px;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 15px;
+	font-style: normal;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.content > h2 {
+	margin-bottom: 5px;
+}
+
+ul {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	list-style-type: none;
+	height: 90px;
+	padding: 0;
+
+	margin-bottom: 35px;
+}
+
+li {
+	font-weight: 400;
+	font-size: 13px;
+	font-style: normal;
+	padding: 0;
+	margin-bottom: 5px;
+	margin-right: 15px;
+}
+
+li:hover {
+	font-weight: bolder;
+}
+
+.citation {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 15px;
+}
+
+.citation > p {
+	font-weight: 400;
+	font-size: 15px;
+	font-style: italic;
+	padding: 0;
+	margin: 0 10px 0 auto;
+}
+
+.citation > span {
+	font-weight: 500;
+	font-size: 14px;
+	font-style: normal;
+	margin-right: auto;
+}
+
+.logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.logo img {
+	margin: auto 5px;
+}
+
+.bg-left {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+	width: 40%;
+}
+
+.bg-right {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+	width: 40%;
+}
+
+button {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	z-index: 2;
+	height: 56px;
+	width: 100px;
+	border-radius: 33px;
+}
+
+#reinit {
+	left: unset;
+	right: 2%;
+	width: auto;
+	background-image: none;
+	color: #F76D48;
+}
+
+#reinit:hover {
+	color: white;
+}
+
+button {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#logo_header:hover::before{
+	content: "";
+	background-image: url("../img/mascottes/styleMeteo/mascotte_Jul.svg");
+	height: 50px;
+}
+
+@keyframes bicky_jul {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(500%);
+	}
+}
+
+a {
+	text-decoration: none !important;
+	color: black;
+}
+
+@media (orientation: portrait) {
+	a, span, p {
+		font-size: 2em !important;
+	}
+
+	h3 {
+		font-size: 2.5em !important;
+	}
+
+	h2 {
+		font-size: 3em !important;
+	}
+
+	ul, .schools > div {
+		width: unset;
+		height: unset;
+	}
+
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+	.content {
+		padding-top: 75px;
+	}
+
+	.schools {
+		width: unset;
+	}
+
+	.content > span {
+		margin: 0;
+	}
+
+	.schools h2 {
+		margin: 0;
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	.bg-right, .citation, .logo {
+		display: none;
+	}
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8"/>
+	<title>Véli Good</title>
+
+	<!-- Libraries-->
+	<script defer src="js/lib/mapbox-sdk.js"></script>
+	<script defer src="js/lib/mapbox-gl.js"></script>
+	<script defer src="js/lib/mapbox-gl-directions.js"></script>
+
+	<link href="css/lib/mapbox-gl.css" rel="stylesheet"/>
+	<link href="css/lib/mapbox-gl-directions.css" rel="stylesheet"/>
+
+	<!-- Scripts -->
+	<script defer src="js/app.js" type="module"></script>
+	<script defer src="js/modules/monuments.js" type="module"></script>
+	<script defer src="js/starterPack.js" type="module"></script>
+
+	<!-- Styles-->
+	<link href="css/app.css" rel="stylesheet"/>
+	<link href="css/style.css" rel="stylesheet"/>
+	<link href="css/starterPack.css" rel="stylesheet"/>
+	<link href="css/composant.css" rel="stylesheet"/>
+
+	<script defer src="js/lib/prefixfree.js"></script>
+
+	<!-- Fonts -->
+	<link as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="preload">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link href="img/icon.png" rel="icon" type="image/png"/>
+
+</head>
+<body>
+
+<img alt="Véli Good : Pour un trajet Véli Bien" id="logo_header" src="img/logos/Logo.png">
+
+<div class="container_map charging" id="starter_pack_container">
+	<img alt="Bicky habillé" class="bicky-habille" id="bicky-habille"
+		 src="img/mascottes/styleMeteo/mascotte_default.svg">
+
+	<div>
+		<h2 style="margin-bottom: 8px;">Pour ton trajet, je te recommande de prendre :</h2>
+		<p id="instruction">
+			█████████ █████████ █████████
+			<br/>
+			█████████ █████████
+			█████████ █████████ █████████ █████████ █████████
+		</p>
+	</div>
+
+	<div>
+		<h3>Infos météo :</h3>
+		<p id="meteo">
+			█████████
+			<br/>
+			█████████ █████████
+			<br/>
+			█████████ █████████
+			<br/>
+			█████████ █████████
+		</p>
+	</div>
+
+	<div>
+		<h3>Infos santé :</h3>
+		<p id="sante">█████████ █████████ █████████ █████████ █████████ █████████</p>
+	</div>
+
+	<div>
+		<h3>Infos trafic :</h3>
+		<p id="traffic">
+			█████████ █████████ █████████
+			<br/>
+			█████████ █████████
+			<br/>
+			█████████ █████████
+			<br/>
+			█████████ █████████ █████████
+		</p>
+	</div>
+
+	<div>
+		<h3>Infos qualité de l’air :</h3>
+		<p id="qualiteAir">
+			█████████ █████████
+		</p>
+	</div>
+
+	<div id="div-messageFin">
+		<p id="messageFin">
+			█████████ █████████ █████████ █████████
+		</p>
+	</div>
+
+	<div class="div-button-slide">
+		<input class="button-slide" onclick="window.location = 'app.html'" type="submit" value="Changer les paramètres">
+	</div>
+</div>
+
+<div id="container">
+	<div id="map"></div>
+	<div id="static"></div>
+</div>
+
+<input class="button-slide button-return bottom-left-nav" onclick="document.location = 'information.html'" type="submit"
+	   value="">
+
+<div class="bottom-right-nav-container">
+	<div id="container-bicky">
+		<img alt="Bicky" class="bicky-savoir" id="bicky-savoir" src="img/mascottes/bicky_savoir.svg">
+		<img alt="Bulle" class="bicky-savoir" id="bulle-savoir" src="img/bulle_savoir.svg">
+	</div>
+	<input class="button-slide" id="button-question" onclick="document.location = 'question.html'" type="submit"
+		   value="Testons ton vélosavoir !">
+	<input class="button-slide" id="btn-veli-fin" onclick="document.location = 'this-is-the-end.html'" type="submit"
+		   value="C'est la Véli Fin">
+</div>
+
+</body>
+</html>

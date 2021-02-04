@@ -1,0 +1,278 @@
+html, body {
+	font-family: 'Montserrat', sans-serif;
+	background: #b7d5ed;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#container, #map, #static {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	right: 0;
+	z-index: auto;
+}
+
+#map {
+	visibility: hidden;
+}
+
+#static {
+	background: no-repeat center center fixed url("https://api.mapbox.com/styles/v1/djovannifouin/ckk45pdua52v317qwdq0ijclv/static/-1.5512347469335737,47.21611304880233,12.3/1280x1280?access_token=pk.eyJ1IjoiZGpvdmFubmlmb3VpbiIsImEiOiJja2szdGpvMHQxZW1sMm9vNWp0eHJ6ZXR1In0.KJzAGbwYjUS20dFd37YZgw");
+	background-size: cover;
+}
+
+#left-nav {
+	width: 457px;
+	background-color: white;
+	height: 100%;
+	color: black;
+	font-size: 13px;
+	position: absolute;
+	z-index: 2;
+	padding-top: 100px;
+	padding-left: 35px;
+	left: -100%;
+
+	transition: all 0.5s;
+}
+
+.marker {
+	width: 28px;
+	height: 35px;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.marker-monuments {
+	width: 40px;
+	height: 50px;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.mapboxgl-ctrl-directions {
+	width: auto !important;
+	min-width: 0 !important;
+	max-width: 300% !important;
+}
+
+/*header*/
+header h1, header h2 {
+	display: none;
+}
+
+header img {
+	width: 380px;
+}
+
+/*Bicky Question*/
+.bicky-question {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+
+.bicky-question h2 {
+	color: black;
+	position: absolute;
+	left: calc(50% - 80px);
+}
+
+/*Style des boutons*/
+
+.button:hover p:after {
+	opacity: 1;
+	right: 0;
+}
+
+.button-panel-right {
+	height: 80px;
+	width: 200px;
+	border-radius: 34px 120px 120px 34px;
+}
+
+.button-panel-left {
+	height: 80px;
+	width: 200px;
+	border-radius: 120px 34px 34px 120px;
+}
+
+input[type=checkbox] {
+	display: none;
+}
+
+input[type=checkbox] + label {
+	width: 42px;
+	height: 22px;
+	display: inline-block;
+	padding: 0 0 0 0;
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 14px;
+	cursor: pointer;
+	transition: background 0.5s;
+}
+
+input[type=checkbox]:checked + label {
+	border: 2px solid #000000;
+	box-sizing: border-box;
+	border-radius: 14px;
+	width: 42px;
+	height: 22px;
+	display: inline-block;
+	padding: 0 0 0 0;
+	background: #2EAD72 url("../img/utils/checked.png") no-repeat center;
+
+}
+
+.button-cross {
+	background: white url("../img/utils/cross_orange.png") no-repeat center;
+	background-size: 50% 50%;
+	width: 100px;
+	height: 57px;
+	border: 2px solid #F96D48;
+	box-sizing: border-box;
+	border-radius: 34px;
+	cursor: pointer;
+	transition: background 0.5s;
+}
+
+.button-cross:hover {
+	background: #F96D48 url("../img/utils/cross_blanc.png") no-repeat center;
+	background-size: 50% 50%;
+}
+
+.button-menu {
+	background: white url("../img/utils/menu_orange.png") no-repeat center;
+	background-size: 50% 50%;
+	width: 100px;
+	height: 57px;
+	border: 2px solid #F96D48;
+	box-sizing: border-box;
+	border-radius: 34px;
+	cursor: pointer;
+	transition: background 0.5s;
+}
+
+.button-menu:hover {
+	background: #F96D48 url("../img/utils/menu_blanc.png") no-repeat center;
+	background-size: 50% 50%;
+}
+
+.mapboxgl-ctrl-geocoder .suggestions {
+	top: 30px;
+}
+
+.geocoder-pin-right {
+	visibility: hidden;
+}
+
+.button-return {
+	left: unset;
+	right: 2%;
+	background-image: none;
+}
+
+.button-return:hover {
+	background-image: none;
+}
+
+#oops {
+	z-index: 100;
+	display: none;
+	text-align: center;
+	border: 2px solid #F96D48;
+	border-radius: 3em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 50%;
+	width: 25em;
+	background-color: white;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#oops p {
+	color: black;
+}
+
+#oops img {
+	height: 50%;
+}
+
+#oops button {
+	width: 20%;
+}
+
+#filtre_oops {
+	position: absolute;
+	display: none;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+#left-nav > p {
+	display: inline;
+}
+
+
+@media (orientation: portrait) {
+	.button-menu, .button-cross {
+		width: 200px;
+		height: 100px;
+	}
+
+	.button-return {
+		width: 341px;
+		height: 68px;
+		font-size: 3em;
+	}
+
+	#left-nav {
+		width: 80%;
+		padding-top: 200px;
+	}
+
+	#left-nav, #left-nav #mapbox-controllers input {
+		font-size: 2em !important;
+	}
+
+	#left-nav > br {
+		display: block;
+		content: "";
+		margin-top: 30px;
+	}
+
+	#btn-recalculer {
+		font-size: 1.5em !important;
+		height: 68px;
+	}
+
+	.mapboxgl-ctrl-geocoder ul > li > a {
+		font-size: 2em;
+	}
+
+	.mapboxgl-ctrl-geocoder .suggestions {
+		top: 40px;
+	}
+
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+	#btn-recalculer {
+		margin: 0 !important;
+	}
+
+	#left-nav #mapbox-controllers input {
+		margin: 0 !important;
+	}
+}

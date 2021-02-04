@@ -1,0 +1,125 @@
+{
+  "monuments": [
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/tour-lu.svg",
+      "longitude": "-1.5462473",
+      "latitude": "47.2154345",
+      "text": "<div><h3>Tour LU</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/anneaux.svg",
+      "longitude": "-1.57347",
+      "latitude": "47.20134",
+      "text": "<div><h3>Les Anneaux</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/cathédral-foch.svg",
+      "longitude": "-1.5506373",
+      "latitude": "47.2183889",
+      "text": "<div><h3>Cathédrale Saint-Pierre-et-Saint-Paul de Nantes</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/chateau-duc.svg",
+      "longitude": "-1.5489317",
+      "latitude": "47.2162405",
+      "text": "<div><h3>Château des ducs de Bretagne</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/gare.svg",
+      "longitude": "-1.5420893",
+      "latitude": "47.2174678",
+      "text": "<div><h3>Gare de Nantes</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/graslin.svg",
+      "longitude": "-1.5623401",
+      "latitude": "47.2136490",
+      "text": "<div><h3>Graslin</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/grue.svg",
+      "longitude": "-1.56974",
+      "latitude": "47.20510",
+      "text": "<div><h3>Grue Titan Jaune</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/manège.svg",
+      "longitude": "-1.56776",
+      "latitude": "47.20590",
+      "text": "<div><h3>Carrousel des Mondes Marins</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/nef.svg",
+      "longitude": "-1.5641103",
+      "latitude": "47.2053193",
+      "text": "<div><h3>Nefs</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/talensac.svg",
+      "longitude": "-1.5580884",
+      "latitude": "47.2212453",
+      "text": "<div><h3>Marché de Talensac</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/tjn.svg",
+      "longitude": "-1.5614631",
+      "latitude": "47.2076652",
+      "text": "<div><h3>Tribunal Judiciaire de Nantes</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/tour-bretagne.svg",
+      "longitude": "-1.5586546",
+      "latitude": "47.2169186",
+      "text": "<div><h3>Tour Bretagne</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/jardin-plantes.svg",
+      "longitude": "-1.5427672",
+      "latitude": "47.2195755",
+      "text": "<div><h3>Jardin des Plantes</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/eglise-notre-dame.svg",
+      "longitude": "-1.5689834",
+      "latitude": "47.210446",
+      "text": "<div><h3>Église Notre-Dame de Bon Port</h3></div>"
+    },
+    {
+      "type": "monuments",
+      "class": "marker-monuments",
+      "url": "img/monuments/musee-jules-verne.svg",
+      "longitude": "-1.5774964",
+      "latitude": "47.2016157",
+      "text": "<div><h3>Musée Jules Verne</h3></div>"
+    }
+  ]
+}

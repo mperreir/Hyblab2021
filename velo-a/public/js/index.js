@@ -1,17 +1,28 @@
-// init du slider (qui peut aussi dfaire des fondus enchainé)
-let mySlidr = slidr.create('slidr',{
-    breadcrumbs: false,
-    controls: 'none',
-    direction: 'vertical',
-    fade: true,
-    keyboard: true,
-    overflow: true,
-    pause: false,
-    theme: '#222',
-    timing: { 'fade': '0.5s ease-in' },
-    touch: true,
-    transition: 'fade'
-  }).start();
+"use strict";
 
-// on s'occupe de la 1ère slide
-initSlide1();
+async function bootstrap() {
+	const animation = bodymovin.loadAnimation({
+		container: document.getElementById('lottie'), // Required
+		path: 'resources/home.json', // Required
+		renderer: 'svg', // Required
+		loop: false, // Optional
+		autoplay: false, // Optional
+		name: "home page", // Name for future reference. Optional.
+		rendererSettings: {
+			preserveAspectRatio: "xMaxYMax meet"
+		}
+	})
+
+	animation.addEventListener("DOMLoaded", () => {
+		animation.play();
+
+		animation.addEventListener('complete', () => {
+			document.location = 'information.html';
+		});
+
+	})
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+	bootstrap();
+});
