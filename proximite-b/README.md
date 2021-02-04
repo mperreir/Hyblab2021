@@ -2,14 +2,29 @@
 
 Porteur de projet :
 
-Sujet :
+Sujet : rester à décider
 
-Nom d'équipe :
+Nom d'équipe : Hyb2Lab Gang
 
-Participants : 
+Participants :
 
 - Sciencescom
+    - Nina Minotto
+    - Louise Delage
+- AGR
+    - Margot Lebreton
+    - Martin Rio
+    - Charlotte Bouchereau
+- Polytech
+    - Louis Roussel
+    - Lysa Corcuff
+    - Alexandre Plateau
+    - Hadrien Willemot
+    - Manon Baillet
+    - Florine Germond
+    - Irénée Poncet
+    - Romain Özden
 
-- AGR :
-- Polytech :  
 
+
+Procédure pour avoir la clé : 

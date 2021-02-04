@@ -1,0 +1,84 @@
+#greeter_background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+
+#nantes_panel {
+    width: 100%;
+    position: relative;
+}
+
+#greeter_img {
+    width: auto;
+    height: 65vh;
+}
+
+#etu_img {
+    width: auto;
+    height: 65vh;
+}
+
+#mamie_img {
+    width: auto;
+    height: 65vh;
+}
+
+#family_img {
+    width: auto;
+    height: 65vh;
+}
+
+#banc_img {
+    width: 30vw;
+    height: 20vh;
+}
+
+.bulle_img {
+    position: relative;
+    width: 100%;
+}
+
+#bulle_greeter {
+    left: 20%;
+}
+
+#test {
+    position: absolute;
+}
+
+.bulle {
+    width: 75%;
+    text-align: justify;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.text_bulle {
+    position: relative;
+    top: -10%;
+    margin: auto;
+}
+
+#greeter_suivant_button {
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left: 45%;
+    top: 30%
+}
+
+@media screen and (min-resolution: 100dpi) {
+    #rowPersonnages {
+        position: relative;
+        top: -2em;
+    }
+    .bulle {
+        width: 65%;
+    }
+}

@@ -1,0 +1,26 @@
+﻿<img id="adresses_background" src="/proximite-b/img/adresses/fond_pop_up.svg#svgView(preserveAspectRatio(none))" />
+
+<div class="modal d-block" id="pop-up-adresse" role="dialog">
+    <div class="modal-dialog modal-dialog-centered  modal-lg">
+        <div class="modal-content">
+            <img id="papi_bulle" src="/proximite-b/img/adresses/papi-bulle.svg#svgView(preserveAspectRatio(none))" />
+            <div id="head_popup_adresse" class="modal-header"></div>
+            <div id="body_popup_adresse" class="modal-body text-center align-middle">
+
+                <input class="figma_input_txt" type="text" id="adresse1" required placeholder="Adresse 1"
+                    oninput="adresses_autocompletion(this.value, 1)" autocomplete="off">
+                <div id="adresses1" class="liste_adresses">
+                </div>
+
+                <input class="figma_input_txt" type="text" id="adresse2" required placeholder="Adresse 2"
+                    oninput="adresses_autocompletion(this.value, 2)" autocomplete="off">
+                <div id="adresses2" class="liste_adresses">
+                </div>
+                </br>
+                <button class="figma_button figma_bg_darkblue" id="go_bouton"
+                    onclick="adresses_validation()">Valider</button>
+
+            </div>
+        </div>
+    </div>
+</div>

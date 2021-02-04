@@ -8,6 +8,7 @@
     "test-velo-b": "mocha ./velo-b/api/test/ --timeout 60000 --exit"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "https-proxy-agent": "^5.0.0",
     "node-fetch": "^2.6.1"

@@ -1,70 +1,74 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/index.js" defer></script>
-</head>
-<body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
-        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
-                
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
 
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
-            </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                            </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
-            </section>
-        </main>
-    </div>
-</body>
+        <title>Avoisi’Nantes</title>
+
+        <!-- styles -->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- external style -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- SPA.js handles the single page application and must be included before anything else -->
+        <script src="./js/spa.js"></script>
+
+        <!-- external js code -->
+        <script defer src="https://d3js.org/d3.v3.min.js"></script>
+        <script defer src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+        
+        <!-- our js code goes here -->
+        <script defer src="./js/criteres.js"               type="application/javascript"></script>
+        <script defer src="./js/adresses.js"               type="application/javascript"></script>
+        <script defer src="./js/utils/scrollbarHandler.js" type="application/javascript"></script>
+        <script defer src="./js/utils/reformatCriteres.js" type="application/javascript"></script>
+        <script defer src="./js/utils/dataCleaner.js"      type="application/javascript"></script>
+        <script defer src="./js/utils/timeknots.js"        type="application/javascript"></script>
+        <script defer src="./js/utils/progressBar.js"      type="application/javascript"></script>
+        <script defer src="./js/utils/timeknots.js"        type="application/javascript"></script>
+        <script defer src="./js/timeline.js"               type="application/javascript"></script>
+        <script defer src="./js/greeters.js"               type="application/javascript"></script>
+        <script defer src="./js/animation.js"              type="application/javascript"></script>
+
+    </head>
+
+    <body>
+        <!-- here goes nothing -->
+        <div id="app">
+        </div>
+
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-architect"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body font-montserrat">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.get('page') !== null)
+                go_to(urlParams.get('page'));
+            else
+                make_page_from_template("index");
+        </script>
+        <audio id="son-gare" src="/proximite-b/sound/son_gare.mp3" preload="auto"></audio>
+    </body>
+
 </html>

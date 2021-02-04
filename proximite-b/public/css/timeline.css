@@ -1,0 +1,265 @@
+#timeline_Papy {
+    background-color: rgba(43, 37, 37, 0.6);
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    z-index: 499;
+}
+
+#timeline_Papy div {
+    position: absolute;
+    bottom: 0;
+    left: 50vw;
+}
+
+#timeline_Papy_button {
+    position: absolute;
+    margin-top: 2em;
+    top: 0vh;
+    margin-left: 2em;
+    padding: 1em 2em 1em 2em;
+    left: 0vw;
+    z-index: 500;
+}
+
+#timeline_Papy img {
+    width: 35vw;
+}
+
+#closePapy {
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/croix.svg') !important;
+    background-repeat: no-repeat;
+    width: 4em;
+    height: 4em;
+    opacity: 1;
+}
+
+#flecheGauche {
+    position: relative;
+    margin-right: 1em;
+    width: 3em;
+    top: 0.5em;
+}
+
+#flecheDroite {
+    position: relative;
+    margin-left: 1em;
+    width: 3em;
+    top: 0.5em;
+}
+
+/* Couleurs pour les progress bars */
+
+#timeline .bar-T1 {
+    background-color: #2a315b !important;
+}
+
+#timeline .bar-T2 {
+    background-color: #eead1c !important;
+}
+
+#timeline2 {
+    margin-top: -2em;
+}
+
+#progressDiv {
+    margin-top: -4em;
+}
+
+#timeline {
+    overflow: hidden;
+}
+
+/* fond de la page */
+
+#timeline_background {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    z-index: -10;
+}
+
+/* Titre de la page */
+
+#timeline h2 {
+    font-family: ArchitectDaughter;
+}
+
+/*
+ 
+
+Style global des modals
+ 
+ 
+*/
+
+#timeline ul {
+    list-style-type: none;
+}
+
+#timeline .interestsColorModal {
+    background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
+    background-color: #2a325a !important;
+}
+
+#timeline .disinterestsColorModal {
+    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
+    background-color: #F19143 !important;
+}
+
+/* Modal Plus */
+
+#timeline #multipleModal .clickablepMultiple:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#timeline #multipleModal .modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+#timeline #headerMultipleModal {
+    border: none;
+    height: 10em;
+    background-image: url('/proximite-b/img/timeline/modal/buissons.svg') !important;
+    background-repeat: no-repeat;
+    border-radius: 0 none;
+    background-position-x: center;
+}
+
+#timeline #bodyMultipleModal {
+    background-color: white;
+    border-radius: 5em !important;
+    border: none;
+}
+
+#timeline #closeMultipleModal {
+    width: 3em;
+    height: 3em;
+    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg') !important;
+    background-repeat: no-repeat;
+    opacity: 1;
+    position: absolute;
+    top: 6em;
+    right: -1em;
+    z-index: 1;
+}
+
+#timeline #closeMultipleModal:hover {
+    cursor: pointer;
+}
+
+/* Single MODAL  */
+
+#timeline #singleModal .modal-content {
+    border-radius: 5em !important;
+    border: none;
+}
+
+#timeline #firstItemSingleModal {
+    border: none;
+}
+
+#timeline #otherItemsSingleModal {
+    border-radius: 5em !important;
+    color: white;
+    border: none;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: 70%;
+    background-position-x: center;
+}
+
+#singleModal #closeModal {
+    width: 3em;
+    height: 3em;
+    background-repeat: no-repeat;
+    opacity: 1;
+    position: absolute;
+    top: 0em;
+    right: -1em;
+    z-index: 1;
+}
+
+#singleModal #closeModal:hover {
+    cursor: pointer;
+}
+
+/* Css pour texte header modal simple */
+
+#timeline #singleModal .headerAddTemps {
+    font-size: 0.8em;
+}
+
+#timeline #singleModal .iconModal {
+    width: 1.5em;
+}
+
+#singleModal #firstItemSingleModal {
+    color: #2a325a;
+    font-family: ArchitectDaughter;
+}
+
+#singleModal #firstItemSingleModal #imgCat {
+    left: -9em;
+    z-index: 1;
+    width: 10em;
+    position: absolute;
+}
+
+/*
+
+Modal gmap icons
+
+*/
+
+#timeline .gmapLink img {
+    width: 1.5em;
+}
+#timeline .gmapLink {
+    /* haut | droit | bas | gauche */
+    padding: 0em 1em 0em 1em !important;
+    display: inline;
+}
+
+#timeline #interestsLinkHeader{
+    color: white;
+    background-color: #2a325a;
+    font-size: 0.8em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+
+}
+
+#timeline #disinterestsLinkHeader{
+    background-color: #F19143;
+    color: white;
+    font-size: 0.8em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+}
+
+#timeline .whiteGmap{
+    background-color: white;
+    font-family: ArchitectDaughter;
+    font-size: 1.1em;
+    margin-left: 1em;
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+}
+
+#timeline .interestsLink{
+    color: #2a325a
+}
+#timeline  .disinterestsLink{
+    color: #F19143
+}

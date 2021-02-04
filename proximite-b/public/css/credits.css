@@ -1,0 +1,42 @@
+#credits_background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    z-index: -10;
+}
+
+#credits_pointilles {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 0vw;
+}
+
+#credits_adresse_button {
+    position: absolute;
+    right: 88px;
+    top: 80px;
+    height: 25px;
+}
+
+#credits_adresse_text {
+    position: relative;
+    display: inline-block;
+    color: #BFE3EE;
+    top: 0;
+}
+
+#credits_adresse_cercle {
+    display: inline-block;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #BFE3EE;
+}
+
+#credits_adresse_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}

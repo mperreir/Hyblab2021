@@ -111,3 +111,4 @@ dist
 .idea/
 
 ecosystem.config.js
+.vs

@@ -1,0 +1,82 @@
+div#index_content {
+    background-image: url('/proximite-b/img/index/background.svg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#img_son {
+    width: 1.5vw;
+    height: auto;
+}
+
+#img_logo {
+    position: relative;
+    width: 25em;
+    height: auto;
+    padding-bottom: 3em;
+}
+
+div#body {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 7em;
+    padding-left: 8em;
+}
+
+#sous_titre_accueil {
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+button#start_button {
+    height: 2em;
+    width: 11em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#element_sonore {
+    position: absolute;
+    bottom: 0.5em;
+    left: 2em;
+    font-size: small;
+}
+
+img#index_logo {
+    width: 10%;
+    position: absolute;
+    z-index: 999;
+}
+
+div#index_text {
+    width: 35em;
+    position: relative;
+}
+
+.font-architect {
+    font-family: ArchitectDaughter;
+}
+
+.font-montserrat {
+    font-family: Montserrat;
+}
+
+@media screen and (min-resolution: 100dpi) {
+    #img_logo {
+        width: 18em;
+        height: auto;
+        padding-bottom: 3em;
+    }
+    div#index_text {
+        width: 32em;
+    }
+    div#body {
+        padding-top: 5em;
+        padding-left: 5em;
+    }
+}
