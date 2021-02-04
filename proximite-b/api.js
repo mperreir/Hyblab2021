@@ -287,12 +287,6 @@ function inside(point, polygon) {
 
 module.exports.all_positions = all_positions;
 
-function retourner(poly) {
-    const res = []
-    poly.forEach(point => res.push([point[1], point[0]]));
-    return res;
-}
-
 async function get_adresse(lon, lat) {
     var lien = "https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat;
     let resultAPI;
@@ -325,9 +319,4 @@ function buildRequest(liste_criteres, config, minLon, minLat, maxLon, maxLat) {
     query += `);
     out;`;
     return query;
-    // node[shop~"bakery|greengrocer|supermarket|mall|hairdresser"](${minLat},${minLon},${maxLat},${maxLon});
-    // node[amenity~"pharmacy|clinic|doctors|hospital|bus_station|kindergarten college|school|university|library|place_of_worship"](${minLat},${minLon},${maxLat},${maxLon});
-    // node[leisure~"fitness_centre|sports_centre|fitness_station"](${minLat},${minLon},${maxLat},${maxLon});
-    // node[tourism~"museum"](${minLat},${minLon},${maxLat},${maxLon});
-    // node[highway~"bus_stop"](${minLat},${minLon},${maxLat},${maxLon});
 }

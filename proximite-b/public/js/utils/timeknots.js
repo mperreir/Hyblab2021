@@ -67,10 +67,10 @@ var TimeKnots = {
 
             otherAdress.forEach(element => {
                 if (i >= 5) {
-                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href="' + firstAdress.gmap + '" role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
+                    ul2.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href="' + element.gmap + '" role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
                 }
                 else {
-                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href="' + firstAdress.gmap + '" role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
+                    ul1.append('<li><p><b>' + element.nom + '</b></p>' + '<p style="font-size:10px">' + element.temps + ' min - ' + '<a target="_blank" rel="noopener noreferrer" class="gmapLink btn whiteGmap '+preference +'Link" href="' + element.gmap + '" role="button">'+"Voir l'itinéraire"+'</a>' + '</p></li>');
                 }
                 i++;
             });

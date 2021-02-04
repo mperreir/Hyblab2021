@@ -45,6 +45,8 @@
     background-position-y: center;
     background-position-x: 0.2em;
     margin-top: 4.5em;
+    z-index: 100;
+    position: inherit;
 }
 
 #adresse2 {
@@ -55,6 +57,8 @@
     background-position-y: center;
     background-position-x: 0.2em;
     margin-top: 2.5em;
+    z-index: 100;
+    position: inherit;
 }
 
 #papi_bulle {
