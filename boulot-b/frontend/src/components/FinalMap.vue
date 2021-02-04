@@ -1,7 +1,6 @@
 <template>
   <div id="map">
     <div  id="mapContainer" ref="mapCont"></div>
-    <div id="textMap" ref="textMap"></div>
   </div>
 </template>
 
@@ -14,6 +13,8 @@ import medicament from '@/assets/map/medicament.svg'
 import point from '@/assets/map/point.svg'
 import destination from '@/assets/map/destination.svg'
 import origine from '@/assets/map/origin.svg'
+import parc from '@/assets/map/parc.svg'
+import monument from '@/assets/map/monument.svg'
 
 
 export default Vue.component("finalMap", {
@@ -39,7 +40,7 @@ export default Vue.component("finalMap", {
 
       addOriginDestination(this.$root.$data.state.trajetData.Depart, this.$root.$data.state.trajetData.Arrivee, map);
       addInfoBubble(map, ui, this.$root.$data.state.trajetData)
-      await createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData, this.$refs.textMap)
+      createMap(platform, map, this.$root.$data.getChoices(), this.$root.$data.state.trajetData)
     },
   },
   mounted: function () {
@@ -88,16 +89,15 @@ function iconFactory(typePlace) {
       return createIcon(verre, 15, 25);
     case 'Pharmacie':
       return createIcon(medicament);
+    case 'Culture':
+      return createIcon(monument);
+    case 'Nature':
+      return createIcon(parc);
     default:
       return createIcon(point);
   }
 }
 
-/**
- * Add two markers showing the position of Liverpool and Manchester City football clubs.
- * Clicking on a marker opens an infobubble which holds HTML content related to the marker.
- * @param  {H.Map} map      A HERE Map instance within the application
- */
 function addInfoBubble(map, ui, data) {
   const group = new H.map.Group();
 
@@ -123,16 +123,16 @@ function addInfoBubble(map, ui, data) {
   }
 }
 
-async function createMap(platform, map, choices, data, divMap) {
+function createMap(platform, map, choices, data) {
   const provider = map.getBaseLayer().getProvider();
   const base = process.env.NODE_ENV === "development" ? "http://localhost:8080"  : origin
   const style = new H.map.Style(base + '/boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
-  await calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType, divMap);
+  calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType);
 }
 
-function calculateRouteFromAtoB (platform, map, origin, destination, stops, transportType, divMap) {
+function calculateRouteFromAtoB (platform, map, origin, destination, stops, transportType) {
   const coordOrigin = origin[0] + ',' + origin[1];
   const coordDestination = destination[0] + ',' + destination[1];
   const coordStops = stops.map((object) => {
@@ -152,7 +152,7 @@ function calculateRouteFromAtoB (platform, map, origin, destination, stops, tran
     routeRequestParams,
     (result) => {
       const route = result.routes[0];
-      addRouteShapeToMap(route, map, origin, destination, stops, divMap);
+      addRouteShapeToMap(route, map, origin, destination, stops);
     },
     (error) => {
       console.log('Can\'t reach the remote server', error);
@@ -160,7 +160,7 @@ function calculateRouteFromAtoB (platform, map, origin, destination, stops, tran
   );
 }
 
-async function addRouteShapeToMap(route, map, origin, destination, stops, divMap){
+async function addRouteShapeToMap(route, map, origin, destination, stops){
   route.sections.forEach((section) => {
     // decode LineString from the flexible polyline
     const linestring = H.geo.LineString.fromFlexiblePolyline(section.polyline);
@@ -174,52 +174,7 @@ async function addRouteShapeToMap(route, map, origin, destination, stops, divMap
     // Add the polyline to the map
     map.addObject(polyline);
   });
-  await addMarkers(map, origin, destination, stops, divMap);
 }
-
-async function addMarkers(map, origin, destination, stops, divMap) {
-  // const iconOrigin = await iconFactory({name: 'Origine', datas: {}}, divMap)
-  // const iconDestination = await iconFactory({name: 'Destination', datas: {}}, divMap)
-
-  // const markerOrigin = new H.map.DomMarker({lat: origin[0], lng: origin[1]}, {icon: iconOrigin});
-  // const markerDestination = new H.map.DomMarker({lat: destination[0], lng: destination[1]}, {icon: iconDestination});
-
-  // map.addObject(markerOrigin);
-  // map.addObject(markerDestination);
-
-  // for (let i=0 ; i < stops.length; i++) {
-  //   const icon = await iconFactory({name: Object.keys(stops[i])[0], datas: Object.values(stops[i])[0]}, divMap);
-  //   const markerStop = new H.map.DomMarker({lat: Object.values(stops[i])[0].coordonnees['lat'], lng: Object.values(stops[i])[0].coordonnees['lng']}, {icon: icon});
-  //   map.addObject(markerStop);
-  // }
-}
-
-// function iconFactory(namePOI, divMap) {
-//   function createIcon(img, divMap, width = 25, height = 25) {
-//     const image = document.createElement('img');
-//     image.src = img
-//     image.width = width;
-//     image.height = height;
-//     return new H.map.DomIcon(image)
-//   }
-
-//   switch(namePOI.name) {
-//     case 'Boulangerie':
-//       return createIcon(baguette, divMap);
-//     case 'SalleSport':
-//       return createIcon(haltere, divMap);
-//     case 'Bar':
-//       return createIcon(verre, divMap, 15, 25);
-//     case 'Pharmacie':
-//       return createIcon(medicament, divMap);
-//     case 'Origine':
-//       return createIcon(origine, divMap);
-//     case "Destination":
-//       return createIcon(destination, divMap);
-//     default:
-//       return createIcon(point, divMap);
-//   }
-// }
 </script>
 
 <style >
