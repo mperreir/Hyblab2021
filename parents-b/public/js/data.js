@@ -220,7 +220,7 @@ async function fetchData() {
                                     if (validDistance) {
                                         json[25 * i + j]["nbElemCorrect"]++;
                                         json[25 * i + j]["listElemMatch"].push("Distances");
-                                    }
+                                    } else json[25 * i + j]["nbElemCorrect"] = -100;
                                 }
                             }
                         }
