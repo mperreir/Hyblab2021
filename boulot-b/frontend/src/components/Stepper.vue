@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <img @click="backHome" id="home" src="@/assets/home.svg" alt="home" title="Accueil"/>
+    <img @click="backHome" id="home" :src="require('@/assets/' + home_path + '')" alt="home" title="Accueil"/>
 
     <ul class="progressbar" :class="color">
         <li id="1" v-on="actif>1 ? {click: () => clickMethod(1)} : { click: ($event) => $event.preventDefault()}" :class="{clickable: actif>1}"></li>
@@ -25,6 +25,10 @@ export default Vue.extend({
       actif: {
           type: Number,
           default: 0
+      },
+      home_path: {
+          type: String,
+          default: "home.svg"
       }
   },
   methods: {
