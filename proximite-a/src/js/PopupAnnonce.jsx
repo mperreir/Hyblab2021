@@ -2,12 +2,13 @@ import React from 'react';
 import '../css/AcceuilCarte.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import personnage from '../img/Perso-hyblab-03.png'
+import equivalent from './equivalent.js'
 
 class PopupAnnonce extends  React.Component {
 
     state={
-        show: this.props.affiche
+        show: this.props.affiche,
+        themeId:this.props.data.themeId
     };
     closeModal(){
         this.setState({show: false})
@@ -16,7 +17,6 @@ class PopupAnnonce extends  React.Component {
         this.setState({show: true})
     };
     render() {
-        console.log(this.state)
         return (<Modal show={this.state.show}>
             <Modal.Body>
                 <div id="containerPopup">
@@ -29,7 +29,7 @@ class PopupAnnonce extends  React.Component {
                         </div>
                     </div>
                     <div id="rightSidePopup">
-                        <img src={personnage} width={120}/>
+                        <img src={equivalent.themePerso.get(this.state.themeId)} width={120}/>
                     </div>
                 </div>
                 <input type="button" id="croixPopup" value="x" onClick={()=>{this.closeModal()}}/>

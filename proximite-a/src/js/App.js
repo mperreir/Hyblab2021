@@ -75,7 +75,7 @@ class App extends React.Component {
             case 3:
                 return <Moyen data={this.state} onSetMoyen={this.updateMoyen} onPreviousPage={this.previousPage} />;
             case 4:
-                return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers} onCreditPage={this.creditPage} />;
+                return <AcceuilCarte data={this.state} onSetMoyen={this.updateMoyen} nomPers={this.state.nomPers} onCreditPage={this.creditPage} restart={this.backToHome}/>;
         }
     };
 
@@ -86,6 +86,9 @@ class App extends React.Component {
     getBackFromCredit = ()=>{
         this.setState({ pageId: this.state.precedId })
     }
+    backToHome = () => {
+        this.setState({ pageId: 0})
+    };
 
     nextPage = () =>{
         const newPageId = this.state.pageId+1;
@@ -134,7 +137,6 @@ class App extends React.Component {
         let theme = equivalent.themeEquiv.get(this.state.themeId)
 
         let lieux = await (await fetch('/proximite-a/api/getlocationsforprofile/' + stringAdresse + '/' + moyen + '/' + theme)).json();
-        console.log(lieux)
         let newSites = []
         let newSurprise;
         if (typeof lieux.lieux === "undefined" || lieux.lieux.length === 0){
@@ -170,7 +172,6 @@ class App extends React.Component {
                     coordonnes: [i.lat, i.lon],
                     type: this.state.themeId
                 };
-                console.log(site)
                 newSites.push(site)
             }
         }
@@ -190,7 +191,6 @@ class App extends React.Component {
             let s = lieux.surprise
                 let adresseSurp = await (await fetch(`/proximite-a/api/coordinates/${s.lat}_${s.lon}`)).json();
                 let adresseFS = adresseSurp.rue + " " + adresseSurp.codepostal + " " + adresseSurp.ville
-                console.log(adresseSurp)
                 let nameSurp = 'Pas de titre disponible'
                 if (s.tags.name) {
                     nameSurp = lieux.surprise.tags.name
@@ -215,14 +215,11 @@ class App extends React.Component {
                 newSurprise=lieuSurprise
 
         }
-        console.log(lieux)
-        console.log(newSites)
-        console.log(newSurprise)
         this.setState({
             sites: newSites,
             surprise: newSurprise,
-            pageId: 4
         });
+        this.nextPage()
 
     }
 
