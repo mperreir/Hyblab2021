@@ -27,8 +27,7 @@ app.get('/trajet/:departX/:departY/:arriveeX/:arriveeY/:transport/:style/:salles
     try {
         await getAll(req, res)
     } catch (e) {
-        console.log('erreur')
-        console.log(e)
+        console.log('erreur', e)
         res.status(404).json(e)
     }
 })
