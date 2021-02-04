@@ -2,6 +2,10 @@
 
 const STATIONS_VELO_API_URL = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_stations-velos-libre-service-nantes-metropole&q=&rows=1000&facet=commune&facet=descriptif";
 
+/**
+ * Fetch "Stations velo" of Nantes Metropole and return them
+ * @return {Promise<any>} - Monuments
+ */
 const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
 	.then(response => {
 		return response.json();
@@ -11,6 +15,10 @@ const stationsVeloFetchData = () => fetch(STATIONS_VELO_API_URL)
 
 let data;
 
+/**
+ * Give "Stations velo" markers in Nantes Metropole
+ * @return {Promise<[]>} Markers
+ */
 export async function getStationsVelos() {
 	if (!data) data = await stationsVeloFetchData();
 

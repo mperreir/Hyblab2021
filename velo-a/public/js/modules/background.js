@@ -1,8 +1,17 @@
+"use strict";
+
+// For safari support
 let veloClass = " background_velo";
 if (typeof WebKitNamespace !== 'undefined') {
 	veloClass += " safari";
 }
 
+/**
+ * Sliding background
+ * @param {function} onStart
+ * @param {function} onContinue
+ * @param {[String] | null} slides
+ */
 export function slide(onStart, onContinue, slides) {
 
 	velosSlide();
@@ -62,6 +71,9 @@ export function slide(onStart, onContinue, slides) {
 
 }
 
+/**
+ * Make "velos" slide
+ */
 function velosSlide() {
 
 	_velosSlide([
@@ -71,6 +83,12 @@ function velosSlide() {
 	], 0);
 }
 
+/**
+ * Make "velos" slide
+ * @param {[String]} velos
+ * @param {number} i number of the "velo"
+ * @private
+ */
 function _velosSlide(velos, i) {
 	const time = Math.floor(Math.random() * 10000);
 	setTimeout(function () {
@@ -89,7 +107,9 @@ function _velosSlide(velos, i) {
 	}, time);
 }
 
-
+/**
+ * Make "nuages" slide
+ */
 function nuagesSlide() {
 
 	_nuagesSlide([
@@ -98,6 +118,13 @@ function nuagesSlide() {
 	], 0);
 }
 
+
+/**
+ * Make "velos" slide
+ * @param {[String]} nuages
+ * @param i number of the "nuage"
+ * @private
+ */
 function _nuagesSlide(nuages, i) {
 	const time = Math.floor(Math.random() * 20000);
 	setTimeout(function () {

@@ -18,9 +18,8 @@ const monumentsFetchData = () => fetch(MONUMENTS_API_URL)
 let data;
 
 /**
- * Display "abris velo" of Nantes Metropole on the map
- * @param {Object} mapboxgl - The Mapbox Map
- * @param {Map} map - The Mapbox Map
+ * Give "Monuments" markers in Nantes Metropole
+ * @return {Promise<[]>} Markers
  */
 export async function monumentsDisplayData() {
 	if (!data) data = await monumentsFetchData();
