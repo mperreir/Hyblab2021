@@ -1,12 +1,16 @@
 window.devMode = document.cookie.indexOf('dev=true') > -1;
 window.onhashchange = () => window.devMode && goToSlide(window.location.hash || "splash-screen");
 
-window.results = {
-    quartier: null,
-    transports: [],
-    relevant: []
-};
+function reset() {
+    window.results = {
+        quartier: null,
+        transports: [],
+        relevant: []
+    };
+}
 
+reset();
+    
 window.slideGraph = {};
 window.currentSlide = null;
 window.lastSlide = null;
