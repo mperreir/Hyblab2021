@@ -160,9 +160,9 @@ section[data-slidr="page-10"] {
 
 #ouest-contour-p10 {
     position: absolute;
-    width: 12.8%;
-    right: 33%;
-    top: 47.8%;
+    width: 12.7%;
+    right: 32.95%;
+    top: 47.9%;
 }
 
 #ouest-hover-p10 {
@@ -187,7 +187,7 @@ section[data-slidr="page-10"] {
 #sud-hover-p10 {
     position: absolute;
     width: 17%;
-    right: 19.1%;
+    right: 19.25%;
     top: 54.9%;
     opacity: 0;
 }

@@ -59,11 +59,12 @@ section {
     cursor: pointer;
     outline: none;
     background-color: transparent;
-    opacity: 0.3;
+    opacity: 0.8;
 }
 
 .button:hover {
     opacity: 1;
+
 }
 
 .circle_btn{
@@ -113,8 +114,8 @@ section {
 
 /*Position bouton accueil */
 .button_circle_accueil {
-    bottom: 12%;
-    left: 45%;
+    bottom: 13%;
+    left: 41%;
     cursor: pointer;
 }
 
@@ -123,7 +124,7 @@ section {
     position: absolute;
     width: 14%;
     bottom: 13%;
-    left: 49%;
+    left: 45%;
 }
 
 
