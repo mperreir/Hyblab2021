@@ -48,13 +48,13 @@ function load(page) {
 			p.appendChild(bold("11.6°C."));
 			p.appendChild(br());
 			p.appendChild(document.createTextNode("Le climat à Nantes est dit tempéré chaud et est de type Cfb, " +
-				"c’est-à-dire qu’il est tempéré chaud sans saison sèche et à été tempéré, selon la classification " +
+				"c’est-à-dire qu’il est tempéré chaud sans saison sèche et a été tempéré, selon la classification " +
 				"Köppen-Geiger qui est la classification des climats fondée sur les précipitations et températures."));
 			listP.push(p);
 
 			p = document.createElement("p");
 			p.appendChild(document.createTextNode("Mais attention ! A " +
-				"Nantes, la pluie est assez fréquente puisque de fortes averses s’abattent tout l’année sur Nantes, " +
+				"Nantes, la pluie est assez fréquente puisque de fortes averses s’abattent toute l’année sur Nantes, " +
 				"même lors des mois les plus secs où les précipitations restent importantes. En tout, les " +
 				"précipitations annuelles moyennes sont de 786 mm."));
 			listP.push(p);
