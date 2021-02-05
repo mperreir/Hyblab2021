@@ -61,16 +61,12 @@ section[data-slidr="page-resultats"] {
     position: absolute;
     width: 23%;
     right: 14%;
-    bottom: 42%;
-
+    bottom: 46%;
 }
 
 #parc1-titre{
-    position: absolute;
-    font-size: medium;
+    position: relative;
     color: white;
-    right: 19%;
-    top: 20%;
     z-index: 14;
 }
 
@@ -80,28 +76,25 @@ section[data-slidr="page-resultats"] {
     bottom: 34%;
     right: 23%;
 }
-/* #chart {
-    position: absolute;
-    bottom: 5%;
-    width: 20%;
-    height:15%;
-    right: 10%;
-    z-index: 14;
-} */
+/*!* #chart {*/
+/*    position: absolute;*/
+/*    bottom: 5%;*/
+/*    width: 20%;*/
+/*    height:15%;*/
+/*    right: 10%;*/
+/*    z-index: 14;*/
+/*} *!*/
 #parc2-pr,#img2{
     position: absolute;
     width: 23%;
-    bottom: 42%;
+    bottom: 47%;
     right: 39%;
 }
 
 #parc2-titre{
-    position: absolute;
-    font-size: medium;
+    position: relative;
     color: white;
     z-index: 14;
-    top: 20%;
-    right: 43%;
 }
 
 #random2 {
@@ -111,28 +104,25 @@ section[data-slidr="page-resultats"] {
     right: 49%;
 }
 
-/* #chart1 {
-    position: absolute;
-    bottom: 5%;
-    width: 20%;
-    height:25%;
-    right: 30%;
-    z-index: 14;
-} */
+/*!* #chart1 {*/
+/*    position: absolute;*/
+/*    bottom: 5%;*/
+/*    width: 20%;*/
+/*    height:25%;*/
+/*    right: 30%;*/
+/*    z-index: 14;*/
+/*} *!*/
 #parc3-pr, #img3 {
-    
+
     position: absolute;
     width: 23%;
-    bottom: 42%;
+    bottom: 47%;
     right: 64%;
 }
 
 #parc3-titre{
-    position: absolute;
-    font-size: medium;
+    position: relative;
     color: white;
-    right: 69%;
-    top: 20%;
     z-index: 14;
 }
 
@@ -227,6 +217,17 @@ section[data-slidr="page-resultats"] {
 
 #table-img{
     width: 20px;
+}
+
+/* Conteneur */
+#conteneur{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 15%;
+    padding-top: 31%;
+    padding-right: 15%;
+    align-items: center;
 }
 
 
