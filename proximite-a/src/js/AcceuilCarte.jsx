@@ -147,7 +147,7 @@ class AcceuilCarte extends  React.Component {
 
 
     render() {
-        if (this.state.popupPhase>1){
+        if (this.state.popupPhase>1 && this.state.surprise.id!==-1){
             setTimeout(this.afficherPopupSurprise,20000);
         }
         const { nomPers, onCreditPage, restart} = this.props;

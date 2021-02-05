@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 			textQualiteAir = "- La qualité de l'air est moyenne !"
 			break;
 		case "degradé":
-			textQualiteAir = "- La qualité de l'air est degradée !"
+			textQualiteAir = "- La qualité de l'air est dégradée !"
 			break;
 		case "mauvais":
 			textQualiteAir = "- La qualité de l'air est mauvaise !"

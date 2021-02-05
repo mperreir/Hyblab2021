@@ -26,7 +26,7 @@ class CereditPage extends React.Component {
                             <br /> <br />
                             <img id="logoposition" src={logo} class="mb-3" width={200} height={130} />
                             <p id="paragrapheCredit">
-                                Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+                            Participants : Judith Serruya Hély Lemarié, Julie Pondevy, Morgane Carreno, Ioan Savoiu, Théo Bouas, Théo Berard, Andréa Gugole, Paul Blanloeil, Tristan Desgranges, Ayoub Najim, Yunzhe GUO
                             </p> <br />
                             <div class="d-flex justify-content-around" >
                                 <img id="logoEcole" src={logohyblab} width={214} height={41} />

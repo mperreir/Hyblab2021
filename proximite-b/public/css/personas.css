@@ -34,6 +34,10 @@
     border-radius: 50%;
 }
 
+#persona_background span{
+    font-size: 0.8em;
+}
+
 @media screen and (min-resolution: 100dpi) {
     #persona_background #rowDiv {
         margin-top: -3em;

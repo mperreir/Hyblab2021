@@ -1,10 +1,10 @@
 # Descriptif du projet
 
-Porteur de projet :
+Porteur de projet : Ouest Media Lab
 
-Sujet :
+Sujet : Creer une info-service sur le theme de la mer
 
-Nom d'équipe :
+Nom d'équipe : Orizone
 
 Participants : 
 
