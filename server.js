@@ -35,6 +35,8 @@ app_names.forEach( function( element, index, array) {
 
 // launch main server app
 
+//Pour ipv6 : http://[@IPv6]:port
+
 //warning:  do not change the port, it will be automatically taken from env en dev and prod servers ...
 var port = 'PORT' in process.env ? process.env.PORT : 8080;
 var server = app.listen(port, function () {

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "type": "global",
+    "joke": "Pourquoi le ciel est si haut ?",
+    "answer": "Pour que les oiseaux ne se cognent pas la tête."
+  },
+  {
+    "id": 2,
+    "type": "global",
+    "joke": "Quel oiseau est attiré par le miel ?",
+    "answer": "L'autruche car à coter il y a une aut'ruche."
+  },
+  {
+    "id": 3,
+    "type": "global",
+    "joke": "Comment fait-on pour allumer un barbecue breton ?",
+    "answer": "On utilise des breizh."
+  },
+  {
+    "id": 4,
+    "type": "global",
+    "joke": "Que fait un hibou dans une bibliotheque ?",
+    "answer": "Hibouqine !"
+  },
+  {
+    "id": 5,
+    "type": "global",
+    "joke": "Que fait un hibou dans une casserole ?",
+    "answer": "Hi-bou"
+  }
+]

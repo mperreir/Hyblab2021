@@ -13,7 +13,10 @@
     "https-proxy-agent": "^5.0.0",
     "autocomplete-js": "^2.7.1",
     "node-fetch": "^2.6.1",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "lottie-web": "^5.7.6",
   },
   "author": "MPDS",
   "license": "MIT",
