@@ -26,8 +26,8 @@ function getPlagesSlideFin(){
   let loading = document.getElementById("loading");
   loading.innerHTML = `<img src="img/chargementecran.gif" />`;
   loading.innerHTML += `<h2>Un instant, nous cherchons la plage de vos rêves...</h2>`;
-  loading.innerHTML += `</br><h3>Comment vos plages sont choisis ?</h3>`;
-  loading.innerHTML += `</br><p>Pour trouver les plage, nous utilisons plusieurs base de données :`;
+  loading.innerHTML += `</br><h3>Comment vos plages sont choisies ?</h3>`;
+  loading.innerHTML += `</br><p>Pour trouver les plages, nous utilisons plusieurs base de données :`;
   loading.innerHTML += `1) <b>OpenStreetMap</b> qui recueille des informations sur les lieux`;
   loading.innerHTML += `</br>2) <b>OpenWeatherMap</b> qui recueille des informations sur la météo`;
   loading.innerHTML += `</br>3) <b>Nominatism</b> qui trouve l'adresse de la plage</p>`;
