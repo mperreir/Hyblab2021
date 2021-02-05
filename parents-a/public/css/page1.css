@@ -1,0 +1,22 @@
+
+/* Slide 1 logo */
+#slidr section[data-slidr="page-1"]{
+    background-color: #171EB1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#slidr section[data-slidr="page-1"] #logo{
+    width: 20%;
+    background-repeat: no-repeat;
+}
+
+section[data-slidr="page-1-1"] {
+    background:  linear-gradient(90.42deg,
+    #1F2BB6 13.84%,
+    #4166CF 22.53%,
+    #5A91E0 37.19%,
+    #69ABEB 56.01%,
+    #6FB5EF 78.06%);
+}

@@ -1,340 +1,197 @@
 /* normalisation des marges et padding pour simplifier le positionnement des éléments */
-*{
-    padding:0;
-    margin:0;
+
+* {
+    padding: 0;
+    margin: 0;
 }
-html, body
-{
+
+html,
+body {
     height: 100%;
 }
 
-body{
-    overflow: hidden;   /* pour slidr dans certains navigateurs */
+body {
+    overflow: hidden;
+    /* pour slidr dans certains navigateurs */
 }
 
-#container{
+#container {
     position: relative;
-    height: 100% ;
+    height: 100%;
     /* pour permettre le positionnement en absolu des autres éléments */
 }
 
-section{
+section {
     position: relative;
 }
 
+
 /* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
-#slidr, #slidr section{
+
+#slidr2,
+#slidr2 section {
     width: 100%;
     height: 100%;
 }
-/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
-#slidr, #slidr section{
-    height: 100%;
 
-
-}
-
-#slidr section[data-slidr="page-1"]{
+#slidr2 section[data-slidr="page-3"] {
     background-color: #171EB1;
     height: 100%;
     width: 100%;
     text-align: center;
 }
 
-section[data-slidr="page-2"] {
-    background:  linear-gradient(90.42deg,
-    #1F2BB6 13.84%,
-    #4166CF 22.53%,
-    #5A91E0 37.19%,
-    #69ABEB 56.01%,
-    #6FB5EF 78.06%);
+
+/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
+
+#slidr,
+#slidr section {
+    width: 100%;
+    height: 100%;
 }
 
 
-/* PAGE 2.1 */
-section[data-slidr="page-2.1"] {
-    background: linear-gradient(90.42deg,
-    #6FB5EF 13.84%,
-    #69ABEB 22.53%,
-    #5A91E0 37.19%,
-    #4166CF 56.01%,
-    #1F2BB6 78.06%);
-}
+/* Boutons */
 
-#arbre-bleu-p2-1 {
+.button {
     position: absolute;
-    bottom: 15%;
-    right: 10%;
-    width: 40%;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    opacity: 0.8;
 }
 
-#mascotte-p2-1 {
-    position: absolute;
-    bottom: 4%;
-    left: 10%;
-    width: 25%;
+.button:hover {
+    opacity: 1;
+
 }
 
-#nuage-p2-1 {
-    position: absolute;
-    top: 25%;
-    width: 15%;
+.circle_btn{
+    border: 2px solid #fff;
+    vertical-align: middle;
+    width: 30px; 
+    height: 30px; 
+    border-radius: 15px; 
+    text-align: center; 
 }
 
-#gros_nuage-p2-1 {
-    position: absolute;
-    top: -5%;
-    width: 30%;
-    left: 15%;
+.circle_back
+{
+    padding-right: 2px ; 
 }
 
-#pelouse-p2-1 {
-    position: absolute;
-    width: 30%;
-    right: 0%;
-    bottom: 0%;
+
+.circle_next
+{
+    padding-left: 2px ; 
 }
 
-#arbuste_bleu-p2-1 {
-    position: absolute;
-    bottom: 9%;
-    right: 12%;
-    transform: rotate(355deg);
-    width: 45%;
+
+/* Bouton question precédente */
+
+.div_retour {
+    top: 5%;
+    cursor: pointer;
+    left: 5%;
 }
 
-#double_feuille_verte-p2-1 {
+/*Position bouton retour */
+.button_circle_retour {
+    top: 5%;
+    left: 4%;
+    cursor: pointer;
+}
+
+
+.texte_retour{
     position: absolute;
+    width: 14%;
+    bottom: 92%;
+    left: 8%;
+}
+
+
+/*Position bouton accueil */
+.button_circle_accueil {
     bottom: 13%;
-    right: 36%;
-    width: 15%;
-    transform: rotate(350deg);
+    left: 41%;
+    cursor: pointer;
 }
 
-#arbuste_vert-p2-1 {
+
+.texte_accueil{
     position: absolute;
-    bottom: 10%;
-    right: 11%;
-    width: 35%;
+    width: 14%;
+    bottom: 13%;
+    left: 45%;
 }
-
-#arbre_jaune-p2-1 {
-    position: absolute;
-    bottom: 10%;
-    right: 0%;
-    width: 25%;
-}
-
-#chaise-p2-1 {
-    position: absolute;
-    bottom: 3%;
-    left: 42%;
-    width: 15%;
-}
-
-#vector-p2-1 {
-    position: absolute;
-    width: 25%;
-    bottom: 40%;
-    left: 25%;
-}
-
-#texte-p2-1 {
-    position: absolute;
-    width: 20%;
-    left: 23%;
-    top: 42%;
-}
-
-#button-p2-1 {
-    position: absolute;
-    width: 4%;
-    left: 44%;
-    top: 46%;
-}
-
-#logo-p2-1 {
-    position: absolute;
-    width: 6%;
-    bottom: 85%;
-    right: 5%;
-}
-
-#dune-p2-1 {
-    position: absolute;
-    width: 100%;
-    bottom: 0%;
-}
-
-/* PAGE 3 */
-
-section[data-slidr="page-3"] {
-    background: linear-gradient(90.42deg, #6FB5EF 26.39%, #3391DE 82.69%);
-}
-
-#logo-p3 {
-    position: absolute;
-    width: 6%;
-    bottom: 85%;
-    right: 5%;
-}
-
-#oui-p3 {
-    position: absolute;
-    width: 5%;
-    bottom: 25%;
-    right: 60%;
-}
-
-#non-p3 {
-    position: absolute;
-    width: 5%;
-    bottom: 25%;
-    right: 33%;
-}
-
-#bouton_aventurier-p3 {
-    position: absolute;
-    width: 22%;
-    bottom: 32%;
-    right: 51%;
-}
-
-#bouton_non_aventurier-p3 {
-    position: absolute;
-    width: 18%;
-    bottom: 32%;
-    right: 28%;
-}
-
-#aventurier-p3 {
-    position: absolute;
-    width: 45%;
-    bottom: 68%;
-    right: 28%;
-}
-
-#arbuste_vert-p3 {
-    position: absolute;
-    width: 35%;
-    bottom: 8%;
-    right: 9%;
-}
-
-#arbuste_bleu-p3 {
-    position: absolute;
-    width: 58%;
-    bottom: 2%;
-    right: -11%;
-}
-
-#arbre_jaune-p3 {
-    position: absolute;
-    width: 24%;
-    bottom: 12%;
-    right: 3%;
-}
-
-#arbre_rouge-p3 {
-    position: absolute;
-    width: 20%;
-    bottom: 10%;
-    right: 80%;
-}
-
-#gros_nuage-p3 {
-    position: absolute;
-    width: 30%;
-    bottom: 58%;
-    right: 62%;
-}
-
-#dune-p3 {
-    position: absolute;
-    width: 100%;
-    bottom: 0%;
-}
-
-#feuille_rouge-p3 {
-    position: absolute;
-    width: 11%;
-    bottom: 10%;
-    right: 4%;
-}
-
-#feuille_bleue-p3 {
-    position: absolute;
-    width: 10%;
-    bottom: 7%;
-    right: 76%;
-}
-
-#pelouse_gauche-p3 {
-    position: absolute;
-    width: 30%;
-    bottom: 0%;
-    left: 0%;
-}
-
-#pelouse_droite-p3 {
-    position: absolute;
-    width: 30%;
-    bottom: 0%;
-    right: 0%;
-}
-
 
 
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
+
+
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
+
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
 tant qu'on est en dessous de l'apect ratio 16/9 */
-@media screen and (max-aspect-ratio: 16/9){
-    #container{
+
+@media screen and (max-aspect-ratio: 16/9) {
+    #container {
         margin-top: calc((100vh - 100 * 9vw / 16) / 2);
         width: 100vw;
         height: calc(100 * 9vw / 16);
     }
-
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-    body{
+    body {
         font-size: 9vw;
     }
 }
 
+
 /* ---------- media queries importantes pour le responsive facile :-D ----------------- */
+
+
 /* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
+
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
 tant qu'on est en dessous de l'apect ratio 16/9 */
-@media screen and (max-aspect-ratio: 16/9){
-    #container{
+
+@media screen and (max-aspect-ratio: 16/9) {
+    #container {
         margin-top: calc((100vh - 100 * 9vw / 16) / 2);
         width: 100vw;
         height: calc(100 * 9vw / 16);
     }
-
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-    body{
+    body {
         font-size: 9vw;
     }
 }
+
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
 dessus de l'apect ratio 16/9 */
-@media screen and (min-aspect-ratio: 16/9){
-    #container{
+
+@media screen and (min-aspect-ratio: 16/9) {
+    #container {
         margin-left: calc((100vw - 100 * 16vh / 9) / 2);
         width: calc(100 * 16vh / 9);
         height: 100vh;
     }
-
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
-    body{
+    body {
         font-size: 16vh;
     }
+}
+
+.mute {
+    position: absolute;
+    top: 5%;
+    left : 25%;
 }

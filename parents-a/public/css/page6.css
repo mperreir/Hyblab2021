@@ -1,0 +1,144 @@
+/* PAGE 6 */
+section[data-slidr="page-6"] {
+    /* fond */
+    position: absolute;
+    background: linear-gradient(0deg, #0574CF, #0574CF);
+    overflow: hidden;
+}
+
+#logo-p6 {
+    /* logo */
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+/* Vegétation droite */
+#arbre-jaune-p6 {
+    position: absolute;
+    width: 17%;
+    bottom: 11%;
+    right: 2%;
+}
+
+#arbre-jaune-p6:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#feuille-rouge-p6 {
+    position: absolute;
+    width: 12%;
+    bottom: 11%;
+    right: 1%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#feuille-rouge-p6:hover {
+    transform: scale(0.9) translateY(5%);
+}
+
+#arbuste-bleu-p6 {
+    position: absolute;
+    width: 25%;
+    bottom: 8%;
+    right: 3%;
+}
+
+/* Vegétation gauche */
+#arbuste-vert-p6 {
+    position: absolute;
+    width: 18%;
+    bottom: 2%;
+    right: 75%;
+}
+
+#arbre-rouge-p6 {
+    position: absolute;
+    width: 15%;
+    bottom: 10%;
+    right: 82%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#arbre-rouge-p6:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+/* Sols */
+#pelouse-gauche-p6 {
+    /* pelouse gauche */
+    position: absolute;
+    width: 36.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse-droite-p6 {
+    /* pelouse droite */
+    position: absolute;
+    width: 27.5%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#dune2-p6 {
+    /* dune 1 */
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    right: 0%;
+}
+
+/*  Question */
+#question-p6 {
+    position: absolute;
+    width: 45%;
+    bottom: 68%;
+    right: 28%;
+}
+
+#texte-droite-p6 {
+    position: absolute;
+    width: 12%;
+    bottom: 25%;
+    right: 33%;
+}
+
+#texte-gauche-p6 {
+    position: absolute;
+    width: 10%;
+    bottom: 25%;
+    right: 60%;
+}
+
+#boutton-gauche-p6 {
+    position: absolute;
+    width: 22%;
+    bottom: 28%;
+    right: 54%;
+    opacity: 0.7;
+}
+
+#boutton-gauche-p6:hover {
+    opacity: 1;
+}
+
+#bouton-droite-p6 {
+    position: absolute;
+    width: 20%;
+    bottom: 30%;
+    left: 50%;
+    opacity: 0.7;
+}
+
+#bouton-droite-p6:hover {
+    opacity: 1;
+}
