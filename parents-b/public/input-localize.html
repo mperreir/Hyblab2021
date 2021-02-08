@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hyblab</title>
+</head>
+<body>
+    <label for="address1">Entrez l'adresse ci-dessous</label><br/>
+    <input type="text" id="address1" name="address1" style="width:300px"/>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlg5BCTUfKKA9Vz1-gz0dFtRrQ2MjpJM4&libraries=places"></script>
+    <script src="js/google-address-autocomplete.min.js"></script>
+    <script>
+
+        // Now you can use the library as you normally would
+        new AddressAutocomplete('#address1', function (result) {
+            console.log(result);
+        });
+
+    </script>
+</body>
+</html>

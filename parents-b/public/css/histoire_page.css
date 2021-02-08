@@ -1,0 +1,37 @@
+.robot_histoire{
+    position: absolute;
+    top: 21%;
+    left: -1%;
+    width: 30%;
+    z-index: 2;
+}
+
+.oya-histoire-dialog{
+    position: absolute;
+    top: 21%;
+    left: 30%;
+    width: 50%;
+    text-align: justify;
+    font-size: 16%;
+}
+
+.accueil{
+        position: absolute;
+        cursor: pointer;
+        top: 2%;
+        left: 13%;
+        width: 3%;
+        z-index: 4;
+}
+
+.button-histoire-font{
+    font-size: 23%;
+}
+
+.suivant_histoire{
+    position: absolute;
+    top: 84%;
+    left: 74%;
+    width: 4%;
+    z-index: 4;
+}

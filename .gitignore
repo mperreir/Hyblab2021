@@ -113,3 +113,6 @@ dist
 
 ecosystem.config.js
 .vs
+
+# Api keys
+parents-b/public/js/config/parameters.js

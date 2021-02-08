@@ -1,0 +1,203 @@
+/* ------------------------- Page Age ---------------------------- */
+.image_age{
+    position: absolute;
+    top: 19%;
+    left : 41%;
+    width: 21%;
+    z-index: 2;
+}
+
+.leaves-age{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: auto;
+    width: 100%;
+    z-index: 2;
+}
+
+.yeux_cache{
+    position: absolute;
+    top: 8%;
+    left : 0;
+    width: 30%;
+    z-index: 1;
+}
+
+.vague_age{
+    position: absolute;
+    top: 14%;
+    left : 23%;
+    width: 5%;
+    transform: rotate(16deg);
+    z-index: 1;
+}
+
+.text_rbt_age{
+    position: absolute;
+    top: 10%;
+    left : 29%;
+    z-index: 1;
+}
+
+.arrive_age{
+    position: absolute;
+    top: 181%;
+    left : 10%;
+    width: 20%;
+    z-index: 1;
+}
+
+.vague_chut{
+    position: absolute;
+    top: 74%;
+    left : 31%;
+    width: 4%;
+    z-index: 1;
+    opacity: 0;
+    transform: rotate(16deg);
+}
+
+.age_chut{
+    position: absolute;
+    top: 72%;
+    left : 37%;
+    width: 26%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.txt_explication{
+    position: absolute;
+    text-align: center;
+    top: 33.5%;
+    left : 34%;
+    width: 38%;
+    z-index: 2;
+}
+
+.fleche_gauche{
+    position: absolute;
+    top: 50%;
+    left : 38%;
+    width: 3%;
+    z-index: 3;
+}
+
+.fleche_droite{
+    position: absolute;
+    top: 50%;
+    left : 62%;
+    width: 3%;
+    z-index: 3;
+}
+
+.button_add{
+    position: absolute;
+    top: 62%;
+    left : 50%;
+    width: 3%;
+    z-index: 3;
+}
+
+.bb{
+    position: absolute;
+    top: 28%;
+    left : 10%;
+    width: 6%;
+    z-index: 3;
+}
+.supp_bb{
+    position: absolute;
+    top: 26%;
+    left : 14.5%;
+    width: 3%;
+    z-index: 3;
+}
+
+.nounours{
+    position: absolute;
+    top: 28%;
+    left : 20%;
+    width: 6%;
+    z-index: 3;
+}
+.supp_nounours{
+    position: absolute;
+    top: 26%;
+    left : 24.5%;
+    width: 3%;
+    z-index: 3;
+}
+
+.lego{
+    position: absolute;
+    top: 46.5%;
+    left : 10%;
+    width: 6%;
+    z-index: 3;
+}
+
+.supp_lego{
+    position: absolute;
+    top: 43%;
+    left : 14.5%;
+    width: 3%;
+    z-index: 3;
+}
+
+.ballon{
+    position: absolute;
+    top: 45%;
+    left : 20%;
+    width: 6%;
+    z-index: 3;
+}
+
+.supp_ballon{
+    position: absolute;
+    top: 43%;
+    left : 24.5%;
+    width: 3%;
+    z-index: 3;
+}
+
+.button-suivant-age{
+    top: 87%;
+    left: 44%;
+}
+
+.page2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.cascade_age{
+    position: absolute;
+    top: 30.9%;
+    left: 67.85%;
+    width: 32%;
+    z-index: 1;
+}
+
+.ariane-1-age{
+    top: 0.5%;
+}
+.ariane-2-age{
+    top: 14.5%;
+}
+.ariane-4-age{
+    top: 62%;
+}
+.ariane-5-age{
+    top: 77.5%;
+}
+.ariane-6-age{
+    top: 93%;
+}

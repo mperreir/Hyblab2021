@@ -1,0 +1,64 @@
+/* ----------------- Header buttons --------------- */
+.logo{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 4%;
+    z-index: 2;
+}
+
+.logo-name{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 6%;
+    z-index: 4;
+}
+
+.volume-on{
+    position: absolute;
+    top: 2%;
+    left: 9%;
+    width: 3%;
+    z-index: 4;
+}
+
+.more-info{
+    position: absolute;
+    cursor:pointer;
+    top:2%;
+    left: 13%;
+    width: 17%;
+}
+
+.volume-off{
+    position: absolute;
+    top: 2%;
+    left: 12%;
+    width: 3%;
+    z-index: -5;
+}
+
+.go-back{
+    position: absolute;
+    top: 2%;
+    left: 15%;
+    width: 3%;
+    z-index: 2;
+}
+
+.volume-on-credits{
+    position: absolute;
+    top: 2%;
+    left: 12.5%;
+    width: 3%;
+    z-index: 4;
+}
+
+.more-info-credits{
+    position: absolute;
+    cursor:pointer;
+    top: 2%;
+    left: 16%;
+    width: 17%;
+}

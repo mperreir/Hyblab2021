@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "lottie-web": "^5.7.6",
+    "google-address-autocomplete": "^1.4.0"
   },
   "author": "MPDS",
   "license": "MIT",

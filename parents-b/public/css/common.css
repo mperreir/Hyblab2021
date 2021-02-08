@@ -1,0 +1,195 @@
+/* ------- Important ! Regardez bien à la fin de ce CSS pour des règles permettant de ----------- */
+/* contraindre le format des slides affichés sur la page web */
+
+
+/* normalisation des marges et padding pour simplifier le positionnement des éléments */
+*{
+    padding:0;
+    margin:0;
+}
+
+/* ---------------------- Font -------------------------- */
+@media (min-aspect-ratio: 16/9) {
+    .font-xs{font-size: 0.15em;}
+    .font-s{font-size: 0.2em;}
+    .font-sm{font-size: 0.25em;}
+    .font-m{font-size: 0.3em;}
+    .font-l{font-size: 0.8em}
+    .font-big-button{font-size: 0.15em;}
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .font-xs{font-size: 0.125em;}
+    .font-s{font-size: 0.16em;}
+    .font-sm{font-size: 0.20em;}
+    .font-m{font-size: 0.25em;}
+    .font-l{font-size: 0.6em}
+    .font-big-button{font-size: 0.125em;}
+}
+/* -------------------------- Colors -------------------------------- */
+.white{color: white;}
+.background-white{background-color: #fbfbfb;}
+
+.black{color: black;}
+.background-black{background-color: black;}
+
+.beige{color: #FFCDB6;}
+.background-beige{background-color: #FFCDB6;}
+
+.dark-beige{color:#ffa584;}
+.background-dark-beige{background-color:#ffa584;}
+
+.dark-purple{color: #45396D;}
+.background-dark-purple{background-color: #45396D;}
+
+/* ----------------------------------------------------------------------- */
+/* button default style */
+button{
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.5em;
+    transition-duration: 0.3s;
+    font-family: Comfortaa, serif;
+}
+
+input{
+    outline: none;
+}
+
+.button-non{
+    padding: 0 3% 0 3%;
+    left: 17%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 10%;
+    z-index: 4;
+    cursor: default;
+    text-align: center
+}
+
+.button-oui{
+    padding: 0 3% 0 3%;
+    left: 78%;
+    top: 68%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 10%;
+    z-index: 4;
+    cursor: default;
+    text-align: center
+}
+
+.button-suivant{
+    position: absolute;
+    width: 14%;
+    height: 8%;
+    left: 43%;
+    top: 87%;
+    z-index: 4;
+    border: 0.2em solid #ffe9de;
+    font-weight: bold;
+}
+
+.button-suivant:hover{
+    color: #FFCDB6;
+    background-color: #45396D;
+    border: 0.2em solid #aba3ca;
+}
+
+/*default page */
+.page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.fil-ariane{
+    position: absolute;
+    top: 5%;
+    left: 96%;
+    width: 1.5%;
+    height: 34%;
+    z-index: 7;
+}
+.fil-ariane-img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+
+.button-fil-ariane{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 8;
+}
+
+.hidden{
+    display:none;
+}
+/* ----------------------------------------------------------------- */
+body{
+    overflow: hidden;   /* pour slidr dans certains navigateurs */
+    font-family: Comfortaa, serif;
+}
+
+#container{
+    position: absolute; /* pour permettre le positionnement en absolu des autres éléments */
+}
+
+/* on fait en sorte que le slidr et les slides remplissent tout notre conteneur */
+#slidr, #slidr section{
+    width: 100%;
+    height: 100%;
+}
+
+/* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
+.vjs-tech { object-fit: cover; }
+
+/* ---------- media queries importantes pour le responsive facile :-D ----------------- */
+/* Vous pouvez bien sûr l'adapter pour d'autres ratio que 16:9 */
+
+/* Cette media query permet de s'assurer qu'on remplit toujours la largeur de la fenêtre,
+tant qu'on est en dessous de l'apect ratio 16/9 */
+@media screen and (max-aspect-ratio: 16/9){
+    #container{
+        margin-top: calc((100vh - 100 * 9vw / 16) / 2);
+        width: 100vw;
+        height: calc(100 * 9vw / 16);
+    }
+
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
+    les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
+    body{
+        font-size: 9vw;
+    }
+}
+
+/* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au
+dessus de l'apect ratio 16/9 */
+@media screen and (min-aspect-ratio: 16/9){
+    #container{
+        margin-left: calc((100vw - 100 * 16vh / 9) / 2);
+        width: calc(100 * 16vh / 9);
+        height: 100vh;
+    }
+
+    /* On fixe une taille de police par défaut pour le body qui servira de base à toutes
+    les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
+    body{
+        font-size: 12vh;
+    }
+}

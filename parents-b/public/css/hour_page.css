@@ -1,0 +1,159 @@
+/* ------------------------- Page Hour ---------------------------- */
+
+.page{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.buisson-hour{
+    z-index: 4;
+}
+
+.pink-planet-hour{
+    z-index: 1;
+}
+.green-planet-hour{
+    z-index: 4;
+}
+
+.oya-hour{
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    width: 23%;
+    z-index: 2;
+}
+
+.talking-bubble-hour{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 5%;
+    z-index: 2;
+}
+
+.oya-hour-dialog{
+    position: absolute;
+    top: 15%;
+    left: 33%;
+    width: 40%;
+    z-index: 2;
+}
+
+.leaves-hour{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.button-suivant-hour{
+    top: 87%;
+    z-index: 6;
+}
+
+.oya-hour-dialog-bas{
+    position: absolute;
+    left: 33%;
+    top: 20.5%;
+}
+
+#svg-slider{
+    position: absolute;
+    top : 56%;
+    left : 36%;
+    width: 28%;
+    z-index: 2;
+}
+
+.hour-9{
+    position: absolute;
+    width: 4.5%;
+    top:60%;
+    left:30%;
+    z-index: 3;
+    transform: rotate(10deg);
+}
+
+.hour-17{
+    position: absolute;
+    width: 4.5%;
+    top:61%;
+    left:66%;
+    z-index: 3;
+    transform: rotate(-6deg);
+}
+
+.hour-aprem{
+    position: absolute;
+    width: 18%;
+    top:46%;
+    left:41%;
+    z-index: 3;
+    transform: rotate(2deg);
+}
+
+.violet{
+    z-index: 4;
+}
+
+.sol{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.buissonGrandGauche{
+    position: absolute;
+    bottom: 9%;
+    left: 1%;
+    width: 8%;
+    z-index: 4;
+}
+
+.buissonPetitGauche{
+    position: absolute;
+    bottom: 7%;
+    left: 10%;
+    width: 5%;
+    z-index: 4;
+}
+
+.buissonPetitDroit{
+    position: absolute;
+    bottom: 3%;
+    left: 70%;
+    width: 5%;
+    z-index: 4;
+}
+
+.buissonGrandDroit{
+    position: absolute;
+    bottom: 6%;
+    left: 78%;
+    width: 8%;
+    z-index: 4;
+}
+
+
+.ariane-1-hour{
+    top: 0.5%;
+}
+.ariane-3-hour{
+    top: 50.5%;
+}
+.ariane-4-hour{
+    top: 64.5%;
+}
+.ariane-5-hour{
+    top: 79%;
+}
+.ariane-6-hour{
+    top: 93%;
+}

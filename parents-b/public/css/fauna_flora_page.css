@@ -1,0 +1,258 @@
+/* -------------------------- Fauna Flora -------------------- */
+.leaves-fauna-flora{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    text-align: center;
+    z-index: 3;
+}
+
+.planeteBeige {
+    position: absolute;
+    width: 19.5%;
+    right: 0;
+    bottom: 3%;
+    z-index: 3;
+}
+
+.planet-fauna-flora{
+    position: absolute;
+    top: 32%;
+    left: 82%;
+    width: 17%;
+    z-index: 4;
+}
+.oya-fauna-flora{
+    position: absolute;
+    top: 14%;
+    left: 16%;
+    width: 17%;
+    z-index: 2;
+}
+
+.talking-bubble-fauna-flora{
+    position: absolute;
+    top: 11%;
+    left: 30%;
+    width: 3%;
+    z-index: 2;
+}
+
+.oya-fauna-flora-dialog{
+    position: absolute;
+    top: 6%;
+    left: 36%;
+    width: 55%;
+    z-index: 2;
+}
+
+.oya-fauna-flora-dialog-indication{
+    position: absolute;
+    top: 12%;
+    left: 36%;
+    width: 55%;
+    z-index: 2;
+}
+
+.picto-fauna-container{
+    position: absolute;
+    width: 100%!important;
+    padding-top: 100%!important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 8;
+}
+
+.picto-fauna-flora{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    opacity: 1;
+    transition: .5s ease;
+}
+
+.picto-fauna-hover{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    opacity: 0;
+    transition: .5s ease;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent;
+    color: #45396D;
+    font-size: 0.15em;
+}
+
+.picto-fauna-container:hover .picto-fauna-flora{
+    opacity: 0.2;
+}
+
+.picto-fauna-container:hover .picto-fauna-hover{
+    opacity: 1;
+}
+
+.button-non-fauna-flora .picto-fauna-hover{
+    width: 75%!important;
+    height: 75%!important;
+    font-size: 0.5em;
+    color: #ffa584;
+}
+
+.button-non-fauna-flora .picto-fauna-container{
+    width: 100%!important;
+    padding-top: 100%!important;
+}
+
+.button-non-fauna-flora .picto-fauna-flora{
+    width: 75%!important;
+}
+
+.button-oui-fauna-flora .picto-fauna-hover{
+    width: 75%!important;
+    height: 75%!important;
+    font-size: 0.5em;
+    color: #ffa584;
+}
+
+.button-oui-fauna-flora .picto-fauna-container{
+    width: 100%!important;
+    padding-top: 100%!important;
+}
+
+.button-oui-fauna-flora .picto-fauna-flora{
+    width: 75%!important;
+}
+
+.dog-picto{
+    top: 30%;
+}
+
+.animals-picto{
+    top: 39%;
+}
+
+.pond-picto{
+    top: 48%;
+}
+
+.grass-picto{
+    top: 57%;
+}
+
+.tree-picto{
+    top: 66%;
+}
+
+.button-non-fauna-flora{
+    position: absolute;
+    width: 20%;
+    height: 25%;
+    left: 22%;
+    z-index: 3;
+}
+
+.button-oui-fauna-flora{
+    position: absolute;
+    width: 20%;
+    height: 25%;
+    z-index: 3;
+}
+
+.column-faune{
+    float: left;
+    padding: 2%;
+    width: 21%;
+    height: 30%;
+    z-index: 5;
+}
+
+.droppableCell .column-faune{
+    margin-left: 20%;
+    margin-bottom: 1%;
+    background-color:red;
+}
+
+.images-base-fauna{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width : 15%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.images-base-fauna .column-faune{
+    width: 25%;
+}
+
+.image-drop, .image-drop-fauna{
+     z-index: 9999;
+}
+
+.droppableCell-fauna img{
+    width: 80%;
+}
+
+.planet-saturn{
+    position: absolute;
+}
+
+.button-non-fauna-flora .column-faune {
+    height: 25%;
+}
+
+.button-oui-fauna-flora .column-faune {
+    height: 25%;
+}
+
+.button-non-fauna-flora .picto-fauna-container div{
+    width: 20%;
+    height: 30%;
+    padding: 1%!important;
+}
+
+.button-oui-fauna-flora .picto-fauna-container div{
+    width: 20%;
+    height: 30%;
+    padding: 1%!important;
+}
+
+.titre-button-fauna{
+    font-family: Comfortaa, serif;
+    padding: 5% 0 5% 0;
+}
+
+.ariane-1-fauna-flora{
+    top: 0.5%;
+}
+.ariane-2-fauna-flora{
+    top: 14.5%;
+}
+.ariane-3-fauna-flora{
+    top: 30%;
+}
+.ariane-4-fauna-flora{
+    top: 45.5%;
+}
+.ariane-6-fauna-flora{
+    top: 93%;
+}
+

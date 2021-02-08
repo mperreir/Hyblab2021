@@ -2,69 +2,883 @@
 
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/index.js" defer></script>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="./img/common/logo.svg"/>
+    <title>Hyblab 2020</title>
+    <link href="https://fonts.googleapis.com/css?family=Mulish" rel='stylesheet'>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/more_infos.css">
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="js/config/parameters.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" integrity="sha512-Gk+uNk8NWN235mIkS6B7/424TsDuPDaoAsUekJCKTWLKP6wlaPv+PBGfO7dbvZeibVPGW+mYidz0vL0XaWwz4w==" crossorigin="anonymous"></script>
+    <script src="js/audio.js" defer></script>
+    <script src="js/creditsPage.js" defer></script>
+    <script src="js/resultsPage.js" defer></script>
+    <script src="js/searchingResultsPage.js" defer></script>
+    <script src="js/activitiesPage.js" defer></script>
+    <script src="js/homePage.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/histoirePage.js" defer></script>
+    <script src="js/more_infos.js" defer></script>
+    <script src="js/chargement.js" defer></script>
+
+    <!-- For address page -->
+    <script id="google_maps"></script>
+    <script>
+        document.getElementById('google_maps').src = 'https://maps.googleapis.com/maps/api/js?key='+GOOGLE_API_KEY+'&libraries=places';
+    </script>
+    <script src="js/google-address-autocomplete.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
 </head>
-<body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
-        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
-                
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
+<body class="background-white">
+<!-- Le conteneur sert à verrouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
+<div id="container">
+    <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
+    <main id="slidr">
 
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
+        <section id="chargementI" data-slidr="chargement">
+            <img src="img/chargement.gif" alt="chargement" class="chargementC">
+        </section>
 
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
-            </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
+        <section id="home" data-slidr="home-page" style="display:none">
+
+            <audio id="debut_audio" loop autoplay><source src="son/Home_page.mp3" type="audio/mp3"></audio>
+
+            <img class="page" src="img/home_page/background.svg" alt="Page d'accueil">
+            <img class="trees-planet-home" src="img/home_page/arbres_homes_cropped.gif" alt="Arbres en mouvement et Planète">
+            <img class="planet-home" src="img/home_page/planet.svg" alt="Planete">
+
+            <img class="shooting-stars" src="img/home_page/shooting_stars.svg" alt="Étoiles filantes">
+            <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
+
+            <img class="logo-name" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeDebut" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <button id="more-info" class="more-info font-s dark-purple background-beige">Qui sommes-nous ?</button>
+
+            <img class="oya-hello" src="img/robot/oya_home.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+            <img class="rocket-hello" src="img/home_page/rocket.svg" alt="Fusée">
+            <button id="button-begin" class="button-begin font-m dark-purple background-beige">Go</button>
+            <img class="talking-bubble-home" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+
+            <button id ="button-histoire" class="button-histoire font-s dark-purple background-beige"> Sequ’oya, c’est quoi ? </button>
+
+            <p class="catch-phrase font-xs dark-purple">Envie de prendre l’air avec tes enfants et de découvrir de nouveaux parcs dans la région ? Sequ’oya est là pour t’aider à faire le meilleur choix en fonction de tes envies du moment !</p>
+            <p class="oya-home-go dark-purple font-s">Bonjour ! Je m’appelle Oya. Je vais t’aider à trouver le parc idéal pour ta sortie !</p>
+        </section>
+
+        <section data-slidr="histoire-page" style="display:none">
+            <img class="page" src="img/histoire/histoire_page.svg" alt="Page de renseignement sur Sequ'Oya">
+
+            <input type="image" class="logo-name logoAccueil" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <input type="image" id="accueil" class="accueil back-menu" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+
+            <img class="robot_histoire" id="robot_histoire" src="./img/robot/Robot_histoire.gif" alt="Oya">
+            <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
+            <p id="dialog" class="oya-histoire-dialog dark-purple font-s">
+                Bonjour petit humain et bienvenue dans mon univers… galactique !
+                </br></br>
+                Je suis très heureux que tu me rejoignes ! Tu ne me connais peut-être pas encore… Je me présente : je me nomme <b class="term">Oya</b> et je suis un robot intergalactique !
+                </br></br>
+                Tout petit, j’ai profité d’un moment où ma maman s’occupait de mon petit frère pour m’approcher du bord de notre planète et je suis tombé dans les nuages. Je me souviendrai toute ma vie de ce jour qui m’a permis de découvrir Gaïa. Oui, oui, Gaia, cette planète bleue, existant depuis 4,54 milliards d’années et que tu explores quotidiennement. J’ai été très rapidement séduit et émerveillé par sa taille et  ses vastes océans. J’ai donc décidé de l’observer tous les soirs, après que ma famille se soit endormie.
+                </br></br>
+                Après plusieurs années d'observation, je me suis surtout intéressé à la ville de Nantes, cette fourmilière géante regroupant <b class="term">309 346 êtres humains</b> protégés par le majestueux Grand Éléphant des Machines de l'île. </p>
+            <p id="dialog2" class="oya-histoire-dialog dark-purple font-s" hidden>
+                Je me suis principalement attaché aux jeunes parents
+                et j’ai remarqué qu’ils découvraient l’intérêt des parcs lorsqu’ils commençaient à avoir des enfants. Ils ne connaissaient peut-être pas si bien Nantes lorsqu’il s’agit de trouver des lieux ludiques et intéressants et se sentent surtout un peu perdus face aux <b class="term">91 parcs et jardins</b> que comporte la ville...
+                </br></br>
+                C’est à ce moment-là que j'interviens !
+                </br></br>
+                J’ai décidé de mettre toutes mes compétences et mon expertise au service des êtres humains et plus précisément de ces parents, grands-parents, babysitters, frères et sœurs (comme toi !), qui peinent à intéresser les enfants aux parcs. Pour cela, j’ai créé cette plateforme en ligne, du même nom que ma planète, afin de t’aider à trouver le parc idéal pour ta sortie à Nantes. En effet, grâce à des critères prédéfinis, je pourrai faire fonctionner mes méninges et surtout mon importante mémoire afin de te fournir une liste non exhaustive de parcs pouvant correspondre à tes besoins et surtout à ceux des petits bambins. Quel <b class="term">gain de temps et d’énergie</b>, n’est-ce pas ?
+                </br></br>
+                Tu es prêt ? Alors… C’est parti !
+
+            </p>
+            <input type="image"id="suivant_histoire" class="suivant_histoire" alt="Volume" src="img/histoire/fleche_suivant.svg">
+        </section>
+
+        <section data-slidr="address-page" style="display:none">
+
+            <input type="image" id="logoAccueil1"class="logo-name logoAccueil1" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeAdresse" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="adresse_audio" autoplay><source src="son/Adress_page.mp3" type="audio/mp3"></audio>
+
+            <img class="page" src="img/address_page/address_page.svg" alt="Page de renseignement de votre location">
+            <img class="sol" src="img/address_page/sol.svg" alt="sol">
+            <img class="address-robot" id="address-robot" src="./img/address_page/Robot_09.gif" alt="Oya">
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/address_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-2-address" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-address" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-address" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-address" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-address" title="Activités"></button>
+            </div>
+
+            <div class="address-zone">
+                <button for="address1" class="label-address no-click font-big-button white background-beige" disabled>Votre adresse :</button>
+                <input type="text" class="input-address" id="address1" name="address1"/>
+            </div>
+
+            <input type="hidden" id="lat" name="lat" value="">
+            <input type="hidden" id="lng" name="lat" value="">
+
+            <div class="addresses-main-buttons">
+                <button id="localization-button" class="button-addresses button-first font-big-button white background-beige">
+                    <span>
+                        Localise-moi
+                        <img class="loading-icon-white hidden" id="address-localize-loading" src="./img/loading_white.svg" alt="Chargement">
+                        <img class="localize-icon" id="address-localize" src="./img/localisation.svg" alt="Localisation">
+                    </span>
+                </button>
+                <button id="removeGeo" class="button-addresses button-next-address-from-nevermind button-second font-big-button white background-beige">Peu importe</button>
+            </div>
+            <div class="addresses-slider">
+                <div class="range-value" id="rangeValue"></div>
+                <input type="range" id="localize-range" min="5" max="15" value="10">
+            </div>
+            <button class="button-next-address-from-continue button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="hour-page" style="display:none">
+
+            <input type="image" id="logoAccueil2" class="logo-name logoAccueil2" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeHour" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="hour_audio" loop autoplay><source src="son/Horaire_page.mp3" type="audio/mp3"></audio>
+
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/hour_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-hour" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-3-hour" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-hour" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-hour" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-hour" title="Activités"></button>
+            </div>
+
+            <img class="page" src="img/hour_page/background_hour.svg" alt="Page Horaire">
+            <img class="leaves-hour" src="img/common/leaves/leaves_top_right.gif" alt="Feuilles">
+            <img class="sol" src="img/hour_page/sol.svg" alt="sol">
+            <img class="buissonGrandGauche" src="img/hour_page/buissonGrand.svg" alt="buisson1">
+            <img class="buissonPetitGauche" src="img/hour_page/buissonPetit.svg" alt="buisson2">
+            <img class="buissonPetitDroit" src="img/hour_page/buissonPetit.svg" alt="buisson3">
+            <img class="buissonGrandDroit" src="img/hour_page/buissonGrand.svg" alt="buisson4">
+
+            <img class="oya-hour" src="img/robot/oya_hour.gif" alt="Robot horaire">
+            <img class="talking-bubble-hour" src="img/hour_page/bubble.svg" alt="Bulles de dialogue">
+            <p class="oya-hour-dialog dark-purple font-m">Quand veux-tu t'y rendre ?</p>
+            <p class="oya-hour-dialog-bas dark-purple font-s">Clique sur le moment de la journée qui te convient le mieux !</p>
+
+            <img class="hour-17 violet" src="img/hour_page/17hViolet.svg" alt="17h violet" style="opacity:0">
+            <img class="hour-aprem violet" src="img/hour_page/apremViolet.svg" alt="aprem violet" style="opacity:1">
+            <img class="hour-9 violet" src="img/hour_page/9hViolet.svg" alt="9h violet" style="opacity:0">
+            <img class="hour-17 orange" src="img/hour_page/17hOrange.svg" alt="17h orange">
+            <img class="hour-aprem orange" src="img/hour_page/apremOrange.svg" alt="aprem orange">
+            <img class="hour-9 orange" src="img/hour_page/9hOrange.svg" alt="9h orange">
+            <img class="leaves-hour" src="img/common/leaves/leaves_top_right.gif" alt="Feuilles">
+            <div class="round-slider">
+                <svg width=100% height=100% id="svg-slider"></svg>
+            </div>
+
+            <button class="button-suivant-hour button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="age-page" style="display:none">
+            <input type="image" id="logoAccueil3" class="logo-name logoAccueil3" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeAge" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="age_audio" loop autoplay><source src="son/Age_page.mp3" type="audio/mp3"></audio>
+
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/age_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-age"></button>
+                <button class="button-fil-ariane ariane-2-age"></button>
+                <button class="button-fil-ariane ariane-4-age"></button>
+                <button class="button-fil-ariane ariane-5-age"></button>
+                <button class="button-fil-ariane ariane-6-age"></button>
+            </div>
+            <img class="page" src="img/age_page/fond.svg" alt="Page de renseignement de la catégorie d'âge de votre/vos enfant(s)">
+            <img class="sol" src="img/age_page/sol.svg" alt="sol">
+
+            <p id="age_yeux_cache_txt" class="text_rbt_age font-m dark-purple age_yeux_cache3">Quel âge ont les enfants ?</p>
+            <img id="age_yeux_cache_image_robot" class="yeux_cache age_yeux_cache" src="img/robot/oya_age.gif" alt="Oya se cache les yeux">
+            <img id="age_yeux_cache_image_vague" class="vague_age age_yeux_cache2" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+
+            <input type="image" id="fleche_gauche" class="fleche_gauche" alt="Fleche vers la gauche" src="img/age_page/flecheG.svg">
+            <img id="image_age" class="image_age" src="img/age_page/agebb.svg" alt="Oya arrive">
+            <input type="image" id="fleche_droite" class="fleche_droite" alt="Fleche vers la droite" src="img/age_page/flecheD.svg">
+            <input type="image" id="button_add" class="button_add" alt="bouton_add" src="img/age_page/boutton_add.svg">
+
+            <img id="bb" class="bb" src="img/age_page/bb.svg" alt="Image pour bébé" hidden>
+            <p id="txt_explication" class="txt_explication font-s dark-purple"> Une seule sélection suffit, peu importe
+                le nombre d’enfants de la tranche d’âge ! </p>
+            <input type="image" id="supp_bb" class="supp_bb" alt="button_supp" src="img/age_page/supp_boutton.svg" hidden>
+            <img id="nounours" class="nounours" src="img/age_page/nounours.svg" alt="Image pour jeune enfant" hidden>
+            <input type="image" id="supp_nounours" class="supp_nounours" alt="button_supp" src="img/age_page/supp_boutton.svg" hidden>
+            <img id="lego" class="lego" src="img/age_page/lego.svg" alt="Image pour enfant" hidden>
+            <input type="image" id="supp_lego" class="supp_lego" alt="button_supp" src="img/age_page/supp_boutton.svg" hidden>
+            <img id="ballon" class="ballon" src="img/age_page/ballon.svg" alt="Image pour pré ado" hidden>
+            <input type="image" id="supp_ballon" class="supp_ballon" alt="button_supp" src="img/age_page/supp_boutton.svg" hidden>
+
+            <p id="txt_chut" class="age_chut font-s dark-purple txt2">Sélectionne le symbole correspondant à la génération.</p>
+            <img id="age_arrive" class="arrive_age" src="img/robot/oya_age_tronque.gif" alt="Oya arrive">
+            <img id="vague_chut" class="vague_chut txt2" src="img/common/talking_bubble.svg" alt="Oya parle">
+
+            <img class="cascade_age" src="img/age_page/cascade.svg" alt="Feuilles">
+            <img class="leaves-age" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
+            <button class="button-suivant-age button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="access-page" style="display:none">
+            <input type="image" id="logoAccueil4" class="logo-name logoAccueil4" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeAccess"  class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="access_audio" loop autoplay><source src="son/Acess_page.mp3" type="audio/mp3"></audio>
+
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/access_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-access" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-access" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-access" title="Âge"></button>
+                <button class="button-fil-ariane ariane-5-access" title="Faune"></button>
+                <button class="button-fil-ariane ariane-6-access" title="Activités"></button>
+            </div>
+
+            <img class="page" src="img/access_page/background.svg" alt="Page de renseignement de l'accès au parc">
+            <img class="tree-access" src="./img/access_page/tree.svg" alt="Arbre">
+            <img class="leaves-access" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
+            <img class="sol" src="img/access_page/sol.svg" alt="sol">
+
+            <img class="oya-access" src="img/robot/oya_home.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+            <img class="talking-bubble-access" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+            <p class="oya-access-dialog font-m dark-purple">Glisse les icônes dans les bulles en fonction de tes préférences</p>
+
+            <div id="null-access" class="images-base">
+                <div id="Accessibilité Handicapé" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/disabled_picto.svg" alt="Handicapé Pictogramme">
+                        <div class="picto-access-hover">Accès Handicapé</div>
+                    </div>
+                </div>
+                <div id="Table pique-nique" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/table_picto.svg" alt="Pique-Nique Pictogramme">
+                        <div class="picto-access-hover">Table de pique-nique</div>
+                    </div>
+                </div>
+                <div id="Sanitaires" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/wc_picto.svg" alt="Toilettes Pictogramme">
+                        <div class="picto-access-hover">Toilettes</div>
+                    </div>
+                </div>
+                <div id="Accès Parking" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/parking_picto.svg" alt="Parking Pictogramme">
+                        <div class="picto-access-hover">Accès Parking</div>
+                    </div>
+                </div>
+                <div id="Restauration" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/restaurant_picto.svg" alt="Restaurant Pictogramme">
+                        <div class="picto-access-hover">Restauration proche</div>
+                    </div>
+                </div>
+                <div id="Bancs" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/bench_picto.svg" alt="Banc Pictogramme">
+                        <div class="picto-access-hover">Banc</div>
+                    </div>
+                </div>
+                <div id="Accès transports en commun" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/tram_picto.svg" alt="Tram Pictogramme">
+                        <div class="picto-access-hover">Accès Transports en commun</div>
+                    </div>
+                </div>
+                <div id="Poubelles" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/bin_picto.svg" alt="Poubelle Pictogramme">
+                        <div class="picto-access-hover">Poubelles</div>
+                    </div>
+                </div>
+                <div id="Jardin clos" class="column image-drop">
+                    <div class="picto-access-container">
+                        <img class="picto-access" src="img/common/pictograms/fence_picto.svg" alt="Clôture Pictogramme">
+                        <div class="picto-access-hover">Parc clôturé</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-information">
+                <p class="information-critere-text font-s">Pour les critères n’ayant pas d’importance pour toi, laisse-les à leur emplacement initial</p>
+            </div>
+
+            <div id="yes-access" class="droppableCell button-oui button-oui-access font-m white background-dark-purple">
+                <p class="titre-button font-l">Oui, il me le faut absolument !</p>
+            </div>
+
+            <div id="no-access" class="droppableCell button-non button-non-access font-m white background-dark-purple">
+                <p class="titre-button font-l">Non, je souhaite un lieu sans cet élément !</p>
+            </div>
+
+            <button class="button-suivant-access button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="fauna-flora-page" style="display:none">
+
+            <img class="planet-fauna-flora" src="img/fauna_flora_page/planete.gif" alt="Planete">
+            <input type="image" id="logoAccueil5" class="logo-name logoAccueil5" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeFaune" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="fauna_audio" loop autoplay><source src="son/FaunaFlora_page.mp3" type="audio/mp3"></audio>
+
+            <img class="planeteBeige" src="img/fauna_flora_page/planeteBeige.svg" alt="PlaneteBeige">
+
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/fauna_flora_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-fauna-flora" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-fauna-flora" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-fauna-flora" title="Âge" ></button>
+                <button class="button-fil-ariane ariane-4-fauna-flora" title="Accès"></button>
+                <button class="button-fil-ariane ariane-6-fauna-flora" title="Activités"></button>
+            </div>
+            <img class="page" src="img/fauna_flora_page/background.svg" alt="Page de renseignement de la faune et la flore">
+            <img class="leaves-fauna-flora" src="img/common/leaves/leaves_bottom_right_corner.gif" alt="Feuilles">
+
+            <img class="oya-fauna-flora" src="img/robot/oya_hour.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+            <img class="talking-bubble-fauna-flora" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+            <p class="oya-fauna-flora-dialog dark-purple font-m">Parlons faune et flore maintenant.</p>
+            <p class="oya-fauna-flora-dialog-indication dark-purple font-sm">De la même manière que précédemment, place les icônes en fonction de tes préférences !</p>
+
+            <div id="null-flora" class="images-base-fauna">
+                <div id="Chiens autorisés" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/dog_picto.svg" alt="Chien Pictogramme">
+                        <div class="picto-fauna-hover">Chiens autorisés</div>
+                    </div>
+                </div>
+
+                <div id="Présence d'animaux" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/animals_picto.svg" alt="Animaux Pictogramme">
+                        <div class="picto-fauna-hover">Animaux dans le parc</div>
+                    </div>
+                </div>
+
+                <div id="Point d'eau" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/pond_picto.svg" alt="Etang Pictogramme">
+                        <div class="picto-fauna-hover">Point d'eau</div>
+                    </div>
+                </div>
+
+                <div id="Herbe (un minimum) / Sable" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/grass_picto.svg" alt="Herbe Pictogramme">
+                        <div class="picto-fauna-hover">Herbe</div>
+                    </div>
+                </div>
+
+                <div id="Verdure / Plante Espace Vert" class="column-faune image-drop-fauna">
+                    <div class="picto-fauna-container">
+                        <img class="picto-fauna-flora" src="img/common/pictograms/tree_picto.svg" alt="Arbre Pictogramme">
+                        <div class="picto-fauna-hover">Arbres</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="no-flora" class="droppableCell-fauna button-non button-non-fauna-flora font-m white background-dark-purple">
+                <p class="titre-button-fauna font-l">Non, je souhaite un lieu sans cet élément !</p>
+            </div>
+
+            <div id="yes-flora" class="droppableCell-fauna button-oui button-oui-fauna-flora font-m white background-dark-purple">
+                <p class="titre-button-fauna font-l">Oui, il me le faut absolument !</p>
+            </div>
+            <button class="button-suivant-fauna-flora button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="activities-page" style="display:none">
+            <input type="image" id="logoAccueil6" class="logo-name logoAccueil6" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeActivities" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="activities_audio" loop autoplay><source src="son/Activities_page.mp3" type="audio/mp3"></audio>
+
+            <div class="fil-ariane">
+                <img class="fil-ariane-img" src="img/activities_page/fil_ariane.svg" alt="Fil d'Ariane">
+                <button class="button-fil-ariane ariane-1-activities" title="Localisation"></button>
+                <button class="button-fil-ariane ariane-2-activities" title="Horaire"></button>
+                <button class="button-fil-ariane ariane-3-activities" title="Âge"></button>
+                <button class="button-fil-ariane ariane-4-activities" title="Accès"></button>
+                <button class="button-fil-ariane ariane-5-activities" title="Faune"></button>
+            </div>
+
+            <img class="page" src="img/activities_page/background.svg" alt="Page de renseignement de la faune et la flore">
+            <img class="leaves-activities" src="img/common/leaves/leaves_top_left_corner.gif" alt="Feuilles">
+
+            <img class="oya-activities" src="img/robot/oya_activities.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+            <img class="talking-bubble-activities" src="img/common/talking_bubble.svg" alt="Bulles de dialogue">
+            <p class="oya-activities-dialog dark-purple font-m">Faisons le plein d'énergie !</p>
+
+            <label class="switch picto-activities crapa-picto">
+                <input type="checkbox" id="crapa-input">
+                <span class="slider round "><span class="picto-activities-hover">Crapa : Parcours de sport</span></span>
+            </label>
+            <label class="switch picto-activities games-picto">
+                <input type="checkbox" id="games-input">
+                <span class="slider round"><span class="picto-activities-hover">Jeux pour enfants</span></span>
+            </label>
+            <label class="switch picto-activities sport-field-picto">
+                <input type="checkbox" id="sport-field-input">
+                <span class="slider round"><span class="picto-activities-hover">Terrain de sport</span></span>
+            </label>
+            <label class="switch picto-activities activities-picto">
+                <input type="checkbox" id="activities-input">
+                <span class="slider round"><span class="picto-activities-hover">Activités organisées</span></span>
+            </label>
+            <label class="switch picto-activities statue-picto">
+                <input type="checkbox" id="statue-input">
+                <span class="slider round"><span class="picto-activities-hover">Éléments culturels</span></span>
+            </label>
+            <p class="text-dialog-activities dark-purple font-s">  Si cela est important pour toi, clique pour glisser le bouton vers la droite. Sinon, laisse le bouton à son emplacement initial !</p>
+            <button id="searchData" class="button-suivant-activities button-suivant font-sm dark-purple background-beige">Suivant</button>
+        </section>
+
+        <section data-slidr="searching-results-page" style="display:none">
+            <img class="page" src="img/searching_results_page/searching_results_page.svg" alt="Page d'animation de recherche des résultats">
+            <img id="oya-searching-results" id="volumeResult1" src="img/searching_results_page/robot_searching_results.gif" alt="Robot qui recherche les résultats">
+            <audio id="result1_audio" loop autoplay><source src="son/Result_page1.mp3" type="audio/mp3"></audio>
+        </section>
+
+        <section data-slidr="results-page" style="display:none">
+
+            <input type="image" id="logoAccueil7" class="logo-name logoAccueil7" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image" id="volumeResult2" class="volume-on volume" alt="Volume" src="./img/common/volume_on.svg">
+            <audio id="result2_audio" loop autoplay><source src="son/Result_page2.mp3" type="audio/mp3"></audio>
+            <img class="page" src="img/results_page/background.svg" alt="Page des résultats">
+            <img class="leaves-results" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
+
+            <div id="result-one" class="results-card">
+                <div class="percentage-circle">
+                    <div id="result-one-percentage" class="results-percentage font-m dark-beige"></div>
+                    <img src="img/results_page/percentage_circle.svg" alt="Pourcentage d'affinité du parc 1">
+                </div>
+                <img class="background-card" src="img/results_page/result_card_one.svg" alt="Résultats n°1">
+                <a id="result-one-name" class="results-name dark-purple font-sm" target="_blank"></a>
+                <img class="image-result-card" src="img/results_page/image_result_card_one.svg" alt="Illustration pour le résultat n°1">
+                <a id="result-one-address" class="results-address font-xs dark-purple" target="_blank"></a>
+                <div id="result-one-access" class="results-access font-xs dark-purple"></div>
+                <div id="result-one-time" class="results-time font-xs dark-purple"></div>
+                <a id="result-one-location" class="results-location font-xs dark-purple" target="_blank">
+                    <img src="img/results_page/location.svg" alt="Localisation le parc 1">
+                </a>
+                <img src="img/results_page/plus.svg" id="result-one-more-info" class="results-more-info" alt="Obtenir plus d'informations sur le parc 3">
+                <div id="result-one-more-info-text" class="results-more-info-text white font-xs">Le jardin ne ferme jamais !</div>
+
+                <div class="result-icon-slider">
+                    <img src="img/results_page/background_icon_result_1.svg">
+                    <div class="splide" id="splide-one">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="splide-one-inside">
                             </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
-            </section>
-        </main>
-    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="result-two" class="results-card">
+                <div class="percentage-circle">
+                    <div id="result-two-percentage" class="results-percentage font-m dark-beige"></div>
+                    <img src="img/results_page/percentage_circle.svg" alt="Pourcentage d'affinité du parc 2">
+                </div>
+                <img class="background-card" src="img/results_page/result_card_two.svg" alt="Résultats n°2">
+                <a id="result-two-name" class="results-name dark-purple font-sm" target="_blank"></a>
+                <img class="image-result-card" src="img/results_page/image_result_card_two.svg" alt="Illustration pour le résultat n°2">
+                <a id="result-two-address" class="results-address font-xs dark-purple" target="_blank"></a>
+                <div id="result-two-access" class="results-access font-xs dark-purple"></div>
+                <div id="result-two-time" class="results-time font-xs dark-purple"></div>
+                <a id="result-two-location" class="results-location font-xs dark-purple" target="_blank">
+                    <img src="img/results_page/location.svg" alt="Localisation le parc 1">
+                </a>
+                <img src="img/results_page/plus.svg" id="result-two-more-info" class="results-more-info" alt="Obtenir plus d'informations sur le parc 3">
+                <div id="result-two-more-info-text" class="results-more-info-text white font-xs">Jusqu'en 1998, la partie nord-ouest du parc était occupé par une piscine municipale appelé « piscine de la Roche » qui fut détruite cette année-là par un incendie. Il ne reste plus rien de cet équipement qui fut remplacé en 2007 par la piscine de la Petite Amazonie.</div>
+
+                <div class="result-icon-slider">
+                    <img src="img/results_page/background_icon_result_1.svg">
+                    <div class="splide" id="splide-two">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="splide-two-inside">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="result-three" class="results-card">
+                <div class="percentage-circle">
+                    <div id="result-three-percentage" class="results-percentage font-m dark-beige"></div>
+                    <img src="img/results_page/percentage_circle.svg" alt="Pourcentage d'affinité du parc 3">
+                </div>
+                <img class="background-card" src="img/results_page/result_card_three.svg" alt="Résultats n°3">
+                <a id="result-three-name" class="results-name dark-purple font-sm" target="_blank"></a>
+                <img class="image-result-card" src="img/results_page/image_result_card_three.svg" alt="Illustration pour le résultat n°3">
+                <a id="result-three-address" class="results-address font-xs dark-purple" target="_blank"></a>
+                <div id="result-three-access" class="results-access font-xs dark-purple"></div>
+                <div id="result-three-time" class="results-time font-xs dark-purple"></div>
+                <a id="result-three-location" class="results-location font-xs dark-purple" target="_blank">
+                    <img src="img/results_page/location.svg" alt="Localisation le parc 1">
+                </a>
+                <img src="img/results_page/plus.svg" id="result-three-more-info" class="results-more-info" alt="Obtenir plus d'informations sur le parc 3">
+                <div id="result-three-more-info-text" class="results-more-info-text white font-xs"></div>
+
+                <div class="result-icon-slider">
+                    <img src="img/results_page/background_icon_result_1.svg">
+                    <div class="splide" id="splide-three">
+                        <div class="splide__track">
+                            <ul class="splide__list" id="splide-three-inside">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="robot_showing_results" src="img/results_page/robot_showing_results.gif" alt="Oya, le petit robot, l'ami d'Ulysse">
+            <button class="button-suivant-results button-end font-sm dark-purple background-beige">Voir les crédits</button>
+        </section>
+
+        <section data-slidr="credits-page" style="display:none">
+            <img class="page" src="img/credits_page/credits_page.svg" alt="Page des crédits">
+            <input type="image" id="logoAccueil9" class="logo-name logoAccueil9" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <input type="image"  class="volume-on-credits volume" alt="Volume" src="./img/common/volume_on.svg">
+            <!--<input type="image" class="more-info-credits" src="./img/common/more_info.svg" alt="Plus d'informations">-->
+            <img class="leaves-home" src="img/common/leaves/leaves_top_left.gif" alt="Feuilles">
+            <img class="go-back-end" src="./img/common/go_back.svg" alt="Retour vers la page de fin">
+            <img class="credits-robot" src="./img/robot/oya_home.gif" alt="Oya">
+
+            <a href="https://sciencescom.audencia.com/" target="_blank"><img class="logo-credits logo-audencia" src="./img/credits_page/audencia.jpg" alt="Logo Audencia"></a>
+            <a href="https://polytech.univ-nantes.fr/" target="_blank"><img class="logo-credits logo-polytech" src="./img/credits_page/polytech.png" alt="Logo Polytech"></a>
+            <a href="https://www.agrnantes.fr/" target="_blank"><img class="logo-credits logo-agr" src="./img/credits_page/agr.png" alt="Logo AGR"></a>
+            <a href="https://www.hyblab.fr/" target="_blank"><img class="logo-credits logo-hyblab" src="./img/credits_page/hyblab.png" alt="Logo Hyblab"></a>
+            <a href="https://www.ouestmedialab.fr/" target="_blank"><img class="logo-credits logo-medialab" src="./img/credits_page/medialab.png" alt="Logo Ouest Medialab"></a>
+            <a href="https://www.univ-nantes.fr/" target="_blank"><img class="logo-credits logo-univnantes" src="./img/credits_page/universitedenantes.png" alt="Logo Université de Nantes"></a>
+            <a href="https://opensource.org/" target="_blank"><img class="logo-credits logo-opensource" src="./img/credits_page/opensource.png" alt="Logo Open Source"></a>
+            <a href="https://creativecommons.org/licenses/?lang=fr-FR" target="_blank"><img class="logo-credits logo-cc" src="./img/credits_page/cc.png" alt="Logo CC"></a>
+
+            <div class="zone-texte zone-texte-1 font-s">
+                <a href="https://www.instagram.com/laurineleguern/?hl=fr" class="credits-link" target="_blank">Laurine Le Guern</a></br>
+                <a href="https://www.linkedin.com/in/marine-prime/" class="credits-link" target="_blank">Marine Prime</a>
+            </div>
+
+            <div class="zone-texte zone-texte-2 font-s">
+                <a href="https://www.linkedin.com/in/camille-barthez-3407a81a0/" class="credits-link" target="_blank">Camille Barthez</a></br>
+                <a href="https://loic.pro/7ReDGg" class="credits-link" target="_blank">Loïc BOURSIN</a></br>
+                <a href="https://www.linkedin.com/in/nathan-genaudeau/" class="credits-link" target="_blank">Nathan Genaudeau</a></br>
+                <a href="https://www.linkedin.com/in/guillaume-moles-6818641ab/" class="credits-link" target="_blank">Guillaume Moles</a></br>
+                <a href="https://www.linkedin.com/in/thibaut-perrouin-727a1a1a1/" class="credits-link" target="_blank">Thibaut Perrouin</a></br>
+                <a href="https://www.linkedin.com/in/soline-ponsard-2843391a3/" class="credits-link" target="_blank">Soline Ponsard</a></br>
+                <a href="https://www.linkedin.com/in/colin-renaud/" class="credits-link" target="_blank">Colin Renaud</a>
+            </div>
+
+            <div class="zone-texte zone-texte-3 font-s">
+                <a href="https://www.instagram.com/lucamaillet/?hl=fr" class="credits-link" target="_blank">Luca Maillet</a></br>
+                <a href="https://www.instagram.com/ar_studio_abi/" class="credits-link" target="_blank">Abigaëlle Rontard</a></br>
+                <a href="https://www.instagram.com/mael.srt/?hl=fr" class="credits-link" target="_blank">Maël Sortant</a>
+            </div>
+
+            <div class="zone-texte zone-texte-4 font-sm">
+                <p>Données extraites de :</p>
+            </div>
+            <a href="https://metropole.nantes.fr/sortir/vie-locale/nature/parcs-jardins" target="_blank"><img class="logo-credits logo-NM" src="./img/credits_page/nm-logo.svg" alt="Logo Nantes Métropole"></a>
+            <a href="https://jardins.nantes.fr/" target="_blank"><img class="logo-credits logo-PJN" src="./img/credits_page/parcs-jardins-nantes.png" alt="Logo Parcs Jardins"></a>
+        </section>
+
+        <section data-slidr="more-infos-page"  style="display:none">
+            <img class="logo-name" src="./img/common/logo_name.svg" alt="Logo Sequ'Oya">
+            <img id="back-menu" class="go-back-more-infos" src="./img/common/go_back.svg" alt="Retour vers les autres pages">
+            <img class="page" src="img/more-infos/more_infos.svg" alt="Page de présentation des membres">
+            <p class="notre-equipe">Notre équipe : </p>
+
+            <div class="row">
+                <div class="equipe">
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Thibaut.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Thibaut Perrouin
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/thibaut-perrouin/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Soline.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Soline Ponsard
+                                    </p>
+                                    <p class="role">
+                                        Développeuse Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en ingénierie informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/soline-ponsard-2843391a3/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Luca.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Luca Maillet
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.instagram.com/lucamaillet/?hl=fr" target="_blank"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <!-- <a href="https://github.com/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Camille.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Camille Barthez
+                                    </p>
+                                    <p class="role">
+                                        Développeuse Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/camille-barthez-3407a81a0/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Colin.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Colin Renaud
+                                    </p>
+                                    <p class="role">
+                                        Développeur web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/colin-renaud/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Logo de Linkedin" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Abi.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Abigaëlle Rontard
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.instagram.com/abi_rontard/?hl=fr" target="_blank"><img src="./img/photos/svg/insta.svg" alt="Logo de instagram" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Nathan.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Nathan Genaudeau
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/nathan-genaudeau/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Marine.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Marine Prime
+                                    </p>
+                                    <p class="role">
+                                        Chargée de communication
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en communication & médias
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/marine-prime/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de Linkedin" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Loic.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Loïc Boursin
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://loic.pro/7ReDGg" target="_blank"><img src="./img/photos/svg/loic.svg" alt="Log de Loic bousin" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Mael.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Maël Sortant
+                                    </p>
+                                    <p class="role">
+                                        Designer graphique
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en direction artistique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.instagram.com/mael.srt/?hl=fr" target="_blank"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Laurine.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Laurine Le Guern
+                                    </p>
+                                    <p class="role">
+                                        Chargée de communication
+                                    </p>
+                                    <p class="etude">
+                                        Étudiante en communication & médias
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.instagram.com/laurineleguern/?hl=fr" target="_blank"><img src="./img/photos/svg/insta.svg" alt="Log de instagram" class="logo-presentation"></a>
+                                        <a href="https://www.linkedin.com/in/laurine-le-guern-8267a5196/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-info">
+                        <div class="container">
+                            <img src="./img/more-infos/Guillaume.png" alt="Avatar" class="image">
+                            <div class="middle">
+                                <div class="text">
+                                    <p class="nom">
+                                        Guillaume Moles
+                                    </p>
+                                    <p class="role">
+                                        Développeur Web
+                                    </p>
+                                    <p class="etude">
+                                        Étudiant en Ingénierie Informatique
+                                    </p>
+
+                                    <div class="réseaux">
+                                        <a href="https://www.linkedin.com/in/guillaume-moles-6818641ab/" target="_blank"><img src="./img/photos/svg/linkedin.svg" alt="Log de instagram" class="logo-presentation" href="https://github.com/"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
+<script src="js/data.js" defer></script>
+<script src="js/addressPage.js" defer></script>
+<script src="js/agePage.js" defer></script>
+<script src="js/hourPage.js" defer></script>
+<script src="js/faunaFloraPage.js" defer></script>
+<script src="js/accessPage.js" defer></script>
 </html>
