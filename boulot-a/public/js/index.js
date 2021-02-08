@@ -1,17 +1,17 @@
 // init du slider (qui peut aussi dfaire des fondus enchainé)
-let mySlidr = slidr.create('slidr',{
+const mySlidr = slidr.create('slidr', {
     breadcrumbs: false,
     controls: 'none',
     direction: 'vertical',
     fade: true,
-    keyboard: true,
+    keyboard: false,
     overflow: true,
     pause: false,
     theme: '#222',
-    timing: { 'fade': '0.5s ease-in' },
+    timing: { 'fade': '0.2s ease-in' },
     touch: true,
     transition: 'fade'
-  }).start();
+}).start();
 
-// on s'occupe de la 1ère slide
+// on s'occupe de la 1ère slide;
 initSlide1();
