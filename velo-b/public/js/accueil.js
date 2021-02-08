@@ -1,5 +1,7 @@
 registerSlide("page-accueil", function () {
 
+    reset();
+
     d3.select('#startButton').on('click', function () {
         overrideAnim({
             targets: '#startButton',
