@@ -1,0 +1,151 @@
+.button, #audio_control {
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-size: 1.5vh;
+  text-decoration: none;
+  color: #7D7FBC;
+  background-color: #FFF;
+  border: none;
+  margin-top: 2.5%;
+  transition: all 300ms;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
+.button:hover, #audio_control.active {
+  background-color: #7D7FBC;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.button a,
+.button a:link,
+.button a:hover,
+.button a:active {
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.round-button {
+  text-shadow: inherit !important;
+  display: flex;
+  padding-bottom: 0.5vh;
+  justify-content: center;
+	border-radius: 50%;
+	background-color: #FFF;
+	width: 3vh;
+	height: 3vh;
+}
+
+.round-button:hover {
+  cursor: pointer;
+  background-color: #7D7FBC;
+  color: #FFF;
+}
+
+.unselectable {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
+#loading {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgb(35,139,134);
+  background: radial-gradient(circle, rgba(35,139,134,1) 0%, rgba(29,82,79,1) 60%, rgba(19,51,49,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 16px solid rgb(55, 159, 154); /* Light grey */
+  border-top: 16px solid white; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+div#audio_control {
+  position: absolute;
+  top: 3vh;
+  right: 3vh;
+  z-index: 1001;
+  margin: 0;
+  display: none;
+}
+
+div#change {
+	position: absolute;
+	top: calc(3.5vh + 20px);
+  right: 1vh;
+  margin: 0;
+}
+
+.inactive {
+  cursor: pointer;
+}
+
+div#go-back {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  display: none;
+}
+
+p{
+  margin-bottom: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  div#audio_control {
+    top: 15%;
+    padding: 4px 8px;
+    font-size: 2vh;
+
+  }
+
+  .button {
+    padding: 4px 8px;
+    font-size: 2vh;
+  }
+}
+
+#particles-js {
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
+  position: fixed;
+  filter: blur(1px);
+}

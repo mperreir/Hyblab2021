@@ -116,3 +116,8 @@ ecosystem.config.js
 
 # Api keys
 parents-b/public/js/config/parameters.js
+
+.vscode/
+mer-a/public/assets/img/personnage/image_Creatures_Fantastiques_hover.gif
+mer-a/public/assets/img/personnage/nuage_magique.gif
+backup/*

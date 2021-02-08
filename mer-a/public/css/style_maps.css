@@ -1,0 +1,242 @@
+@font-face {
+	font-family: "Poppins";
+	src: url("../assets/fonts/Poppins-Regular.ttf") format("ttf");
+}
+
+body{
+	background-color: black;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+div#department{
+	width: 100vw;
+	height: 100vh;
+}
+
+text, .texte{
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently*/
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2vh;
+
+}
+
+div#character{
+	width: 20vw;
+	height: 50vh;
+	position: fixed;
+	right: 2vw;
+	bottom: 4vh;
+}
+/* Animation des vagues */
+
+@keyframes waveUp {
+
+	/* position basse */
+    0%, 100% {
+		bottom: -1vh;
+	}
+
+	/* position haute */
+	50% {
+		bottom: -2vh;
+	}
+
+    /* position basse */
+    /* 0%, 20%, 80%, 100% {
+      top: 24.5vh;
+    } */
+
+    /* position haute */
+    /* 10%, 30%, 70%, 90% {
+      top: 25.5vh;
+    } */
+
+    /* position haute */
+    /* 30%, 70% {
+		transform: rotate(0deg) translateX(0vw);
+    } */
+
+    /* position haute */
+    /* 40%, 60% {
+      top: 25vh;
+      transform: rotate(-10deg) translateX(-1vw);
+    } */
+
+    /* position haute */
+    /* 50% {
+      top: 25vh;
+      transform: rotate(-5deg) translateX(-1vw);
+    } */
+}
+div#character > img#character_image {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	bottom: 0;
+	animation: waveUp 2s ease-in-out infinite;
+}
+
+p#narration {
+	z-index: 2;
+	position: absolute;
+    /* aspect du texte */
+    text-align: center;
+    font-size: 2.3vh;
+    font-family: 'Poppins', sans-serif;
+    color: #7D7FBC;
+
+    /* aspect de l'arrière-plan */
+    padding: 0.8vh 1.2vh;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 25px;
+}
+
+
+div#character > p.narration {
+  top: 0vh;
+  width: 100%;
+  word-break: break-word;
+}
+
+
+div#instructions > p.narration {
+  font-size: 2vh;
+	bottom: 4vh;
+	left: 4vh;
+	padding: 15px 20px;
+	width: auto;
+}
+
+.narration > span.title {
+  font-weight: bold;
+  margin-bottom: 0.5vh;
+  display: none;
+}
+
+#cercle_outer1 {
+    opacity: 1;
+}
+
+#cercle_inner1 {
+    opacity: 1;
+}
+
+button.pass_narration {
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  width: 40%;
+  font-size: 1.5vh;
+  height: 26px;
+  bottom: -20px;
+  right: 0;
+  border-radius: 12px;
+  background-color: #7D7FBC;
+  color: white;
+  border: none;
+}
+
+a.legend_button,
+a.legend_button:link,
+a.legend_button:hover,
+a.legend_button:active {
+  padding: 7px 20px;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5vh;
+  text-decoration: none;
+  background-color: #95ABE2;
+  cursor: pointer;
+  color: #FFF;
+  position: absolute;
+  text-decoration: none;
+  display: none;
+  font-weight: bold;
+  border: none;
+  margin-top: 2.5%;
+  transition: all 300ms;
+}
+
+/* Affichage de l'indication */
+
+.indication {
+  position: absolute;
+  width: 33vw;
+  bottom: 3vh;
+  left: 3vw;
+  font-size: 1.2vw;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.texte {
+
+  /* aspect du texte */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #7D7FBC;
+
+  /* aspect de l'arrière-plan */
+  background-color: white;
+  border-radius: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#department {
+		margin-bottom: 30%;
+	}
+
+	div#bretagne {
+		margin-bottom: 30%;
+	}
+
+	div#bretagne g {
+		transform: scale(1.25);
+	}
+
+	div#bretagne text {
+		font-size: 0.75rem !important;
+		width: 40% !important;
+	}
+
+	button.pass_narration {
+		display: none !important;
+	}
+
+	div#department a {
+		user-select: none;
+	  -webkit-touch-callout: none;
+	  -webkit-user-select: none;
+	  -khtml-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  -o-user-select: none;
+	}
+
+  p#narration {
+    overflow: hidden;
+  }
+
+}

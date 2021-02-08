@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/mer-a/css/legende.css">
+<div id="legende" class="center">
+  <div id="bubble"></div>
+</div>
+<div id="title" class="center">
+  <h2 id="nom"></h2>
+</div>
+<div id="credits" class="center">
+  <div id="but-credits" class="button">Cr&eacute;dits</div>
+</div>
+<div id="info" class="center">
+  <div data-toggle="modal" data-target="#information" id="but-info" class="button">D&eacute;couvrir le lieu</div>
+</div>
+
+<!-- Le Modal D'Information -->
+<div class="modal fade" id="information">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div id="modal-content" class="modal-content">
+      <div id="filter"></div>
+      <div id="logo"><img src="/mer-a/assets/img/logo/logo.png" alt="logo"></div>
+      <div id="quit" class="center"><div id="cross-quit" class="close round-button" data-dismiss="modal">&times;</div></div>
+      <div id="title-legende"><h2></h2></div>
+      <div id="title-info" class="center"><h4>Information Utiles :</h4></div>
+      <div id="text-legende"><p></p></div>
+      <div id="infos">
+        <p><span class="info-span">Adresse :</span><span id="adresse"></span></p>
+        <p><span class="info-span">Services :</span></p>
+        <div id="services">
+          <img id="swim" class="logos" alt="baignade">
+          <img id="food" class="logos" alt="nourriture">
+          <img id="wc" class="logos" alt="toilettes">
+        </div>
+	<p><span class="info-span"><a id="website" target="_blank">Lien Site Web </a></span></p>
+      </div>
+      <div id="label-home" class="center">
+        <p>Pas satisfait ? Nous avons beaucoup d'autres l&eacute;gendes à vous conter !</p>
+      </div>
+      <div id="localisation" class="center">
+        <div id="googlemaps" class="button">Se rendre au lieu de légende</div>
+      </div>
+      <div id="back-home" data-dismiss="modal" class="center">
+        <div class="button" id="but-back-home">Revenir &agrave; l'accueil</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/mer-a/js/legende.js" defer></script>

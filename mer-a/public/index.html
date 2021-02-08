@@ -1,70 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/index.js" defer></script>
+  <title>M&eacute;dia & Sea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="icon" href="assets/img/logo/favicon.ico"/>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fond.css">
+  <link href="/mer-a/css/fil_ariane.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+  <script src="/mer-a/js/common/router.js" defer></script>
+  <script src="/mer-a/js/common/filAriane.js" defer></script>
+  <script src="/mer-a/js/common/utils.js" defer></script>
+  <script src="/mer-a/js/common/apiConnection.js" defer></script>
+  <script src="/mer-a/js/common/loadings.js" defer></script>
+  <script src="/mer-a/js/common/loader.js" defer></script>
+  <script src="/mer-a/js/common/loadMaps.js" defer></script>
+  <script src="/mer-a/js/common/soundManager.js" defer></script>
+  <script src="/mer-a/js/common/narration.js" defer></script>
+  <script src="/mer-a/js/common/personnages.js" defer></script>
+  <script src="/mer-a/js/common/particles.min.js" defer></script>
+
+  <script src="/mer-a/js/classes/Legende.js"></script>
+  <script src="/mer-a/js/script.js" defer></script>
 </head>
 <body>
-    <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
-        <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
-                
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
-
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
-
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
-            </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                            </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
-            </section>
-        </main>
+  <div id="scene1" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="scene2" class="scene unselectable" data-friction-x="0.2" data-friction-y="0.2" ></div>
+  <div id="fond-mer"></div>
+  <div id="loading"><div class="loader"></div></div>
+  <div id="particles-js"></div>
+  <div id="content" class="center"></div>
+  <audio id="vagues_sound" >
+    <source src="/mer-a/assets/sound/vagues.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="fil_ariane">
+      <div class="cercle_outer" id="cercle_outer1">
+        <div class="cercle_inner" id="cercle_inner1"></div>
+      </div>
+      <div class="trait" id="trait1"></div>
+      <div class="cercle_outer" id="cercle_outer2">
+        <div class="cercle_inner" id="cercle_inner2"></div>
+      </div>
+      <div class="trait" id="trait2"></div>
+      <div class="cercle_outer" id="cercle_outer3">
+        <div class="cercle_inner" id="cercle_inner3"></div>
+      </div>
+      <div class="trait" id="trait3"></div>
+      <div class="cercle_outer" id="cercle_outer4">
+        <div class="cercle_inner" id="cercle_inner4"></div>
+      </div>
     </div>
-</body>
-</html>
+    <div id="audio_control" class="inactive">Activer le son</div>
+    <div data-audio="stop" class="button" id="go-back">Revenir où vous étiez</div>
+  </body>
+  </html>

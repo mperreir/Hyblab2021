@@ -1,0 +1,335 @@
+div#content {
+	display: grid;
+  grid-template-columns: 5% 40% 10% 40% 5%;
+	grid-template-rows: 20% 50% 30%;
+  gap: 0px 0px;
+  grid-template-areas:
+		". . title title ."
+    ". . legende legende ."
+    ". . credits info .";
+}
+
+/*=========
+	= Title =
+	=========*/
+div#title {
+	grid-area: title;
+}
+
+div#title h2 {
+	color: white;
+	text-transform: uppercase;
+}
+
+div#infos p {
+	text-align: left;
+	margin-bottom : 7.5% !important;
+}
+
+/*===========
+	= Legende =
+	===========*/
+div#legende {
+	grid-area: legende;
+	max-height: 100%;
+}
+
+div#bubble {
+	display: block;
+    height: 100%;
+    color: #7D7FBC;
+    max-height: 50vh;
+    width: 80%;
+    padding: 5%;
+    line-height: 170%;
+    background: white;
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: #7d7fbc 0px 0px 200px;
+    font-size: 1.7vh;
+    text-overflow: ellipsis;
+    overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+	border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #0e0e0e;
+border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+/*==========
+	= Bouton =
+	==========*/
+div#info {
+	grid-area: info;
+}
+
+div#credits {
+	grid-area: credits;
+}
+
+/*=======================
+	= Information (Modal) =
+	=======================*/
+div#information #modal-content {
+	min-height: 75vh;
+	max-height: 90vh;
+	color: #FFF;
+	border-radius: 3.5vh;
+	display: grid;
+  grid-template-columns: 10% 48% 33% 10%;
+  grid-template-rows: 14% 14% 43% 7% 12% 10%;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo logo . quit"
+    ". title-legende title-info ."
+    ". text-legende infos ."
+    ". text-legende label-home ."
+    ". localisation back-home ."
+    ". . . .";
+}
+
+div#information #modal-content > * {
+	z-index: 2;
+}
+
+/* Ligne 1 */
+#logo {
+	margin-left: 5%;
+	max-height: 11vh;
+	grid-area: logo;
+	text-align: left;
+}
+
+#logo img {
+	height: 80%;
+	width: auto;
+}
+
+#quit {
+	grid-area: quit;
+}
+
+#quit div {
+	opacity: 1;
+}
+
+#quit div:hover {
+	color: #FFF !important;
+}
+
+#cross-quit{
+	padding: 0px !important;
+	line-height: 3vh !important;
+}
+
+/* Ligne 2 */
+#title-legende {
+	grid-area: title-legende;
+	margin-right: 10%;
+}
+
+#title-info {
+	grid-area: title-info;
+	justify-content: flex-start;
+}
+
+#title-legende h2 {
+	margin-block-end: inherit;
+	width: 100%;
+	height: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#title-info h4 {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* Ligne 3 */
+#text-legende {
+	grid-area: text-legende;
+	text-align: justify;
+	width: 90%;
+	overflow-y: auto;
+	height: 100%;
+	padding: 2vh;
+}
+
+#infos {
+	grid-area: infos;
+}
+
+div#services {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+	margin-bottom: 7.5%;
+}
+
+a#website {
+	color: inherit;
+	text-decoration: inherit;
+	font-weight: inherit;
+}
+
+a#website:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.logos {
+    max-width: 40px;
+    max-height: 40px;
+    width: auto;
+    height: auto;
+}
+
+.info-span {
+	text-decoration: underline;
+	font-weight: bold;
+	margin-right: 5%;
+}
+
+/* Ligne 4 */
+#label-home {
+	grid-area: label-home;
+	margin-bottom: 3vh;
+}
+
+#label-home p {
+	width: 70%;
+}
+
+/* Ligne 5 */
+#localisation {
+	grid-area: localisation;
+}
+
+#back-home {
+	grid-area: back-home;
+}
+
+#but-back-home, but-localisation {
+	margin-top: 0;
+}
+
+div#filter {
+	position: absolute;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  margin-left: -1px;
+  border-radius: 3.5vh;
+  margin-top: -1px;
+	backdrop-filter: brightness(60%);
+	background-color: rgba(0,0,0,0.25);
+	z-index: 1 !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.indication {
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 1rem;
+	}
+
+	div#character{
+		width: 42.5vw;
+	}
+
+	div#character > p.narration {
+	  left: -40vw;
+		top: 10vh !important;
+	}
+
+	div#bubble {
+		width: 100%;
+		height: 100%;
+	}
+
+	div#content {
+		grid-template-columns: 35% 65%;
+		grid-template-rows: 16.5% 12.5% 58.5% 12.5%;
+		grid-template-areas:
+		 ". ."
+		 "title title"
+		 ". legende"
+		 "credits info";
+	}
+
+	div#title h2, #title-legende h2 {
+		font-size: 1.5rem;
+	}
+
+	div#information #modal-content {
+		padding: 2.5%;
+		max-height: 95vw;
+		grid-template-columns: 50% 42.5% 7.5%;
+	  grid-template-rows: 15% 35% 40% 10%;
+	  grid-template-areas:
+	    "title-legende title-legende quit"
+	    "text-legende text-legende text-legende"
+	    "infos infos infos"
+	    "localisation back-home back-home";
+	}
+
+	#quit div {
+		margin: 0 auto;
+	}
+
+	#title-legende, #title-info {
+		margin-right: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+		text-align: left;
+	}
+
+	#title-info h4 {
+		font-size: 1rem;
+	}
+
+	div#infos p {
+		margin-bottom: 2.5% !important;
+	}
+
+	div#services {
+		margin-bottom: 2.5%;
+		text-overflow: ellipsis;
+	}
+
+	#text-legende {
+		width: 100%;
+	}
+
+	div#infos {
+		margin-top: 5%;
+	}
+
+	div#label-home {
+		display: none;
+	}
+
+	#title-info, #logo {
+		display: none;
+	}
+}

@@ -1,0 +1,56 @@
+div#accueil {
+  width: 43.75%;
+  top: 100%;
+  left: 100%;
+  flex-direction: column;
+}
+
+div#accueil h4 {
+  font-weight: bold;
+  color: #FFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+div#accueil img#logo {
+  width: 50%;
+  height: auto;
+  margin-bottom: 2.5%;
+}
+
+div#accueil p {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#scene1 {
+  filter: brightness(50%);
+  transition: filter 0.5s;
+}
+
+@media only screen and (max-width: 768px) {
+  div#accueil {
+    width: 80%;
+    height: 80%;
+  }
+
+  div#accueil h4 {
+    font-size: 1.5rem;
+  }
+
+  div#accueil img#logo {
+    width: 75%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+
+  div#accueil p {
+    margin-top : 5%;
+  }
+
+  div#accueil div.button {
+    margin-top: 5%;
+  }
+}
