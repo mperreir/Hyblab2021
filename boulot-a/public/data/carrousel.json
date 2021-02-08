@@ -1,0 +1,35 @@
+{
+  "carousel" : {
+    "culinaire" :{
+      "titre": "Pause Gourmande",
+      "description" : "Cafés, boulangeries, sandwicheries, salons de thé... \nUne collation ne serait pas de refus avant une journée productive ! ",
+      "question" : "Veux-tu te restaurer sur le trajet ?",
+      "color" :  "#FFB57C",
+      "image" : "data/ILLUSTRATION SVG/CAROUSEL/Illu_culinary.svg",
+      "reponse1" : "Non ne t’inquiète pas, j’ai déjà tout prévu. ",
+      "reponse2" : "Carrément, j’ai même le temps pour prendre un café ! ",
+      "reponse3" : "Tu me connais bien, j’ai toujours un petit creux !"
+    },
+    "culture" :{
+      "titre": "Minute Culture",
+      "description" : "Street-art, grafitis, musées, skate park, monuments, galeries d’art, sculptures, parc... La ville ne manque pas de lieux inspirants ! ",
+      "question" : "Partant pour des découvertes artistiques et culturelles ?",
+      "color" :  "#31CFFF",
+      "image" : "data/ILLUSTRATION SVG/CAROUSEL/Illu_cultural.svg",
+      "reponse1" : "Ça ne m'intéresse pas vraiment… il faut faire vite \n",
+      "reponse2" : "Pourquoi pas, mais faisons ca rapidement! ",
+      "reponse3" : "Volontier, j’adore prendre du temps pour découvrir de beaux endroits."
+    },
+    "insolite" :{
+      "titre": "Un plaisir pour la rétine",
+      "description" : "Coucher de soleil, parc florissant, bâtisse charmantes, une superbe vue... Levons les yeux ! La nature et l’architecture nous offrent parfois de jolis spectacles ! ",
+      "question" : "As-tu le temps d’admirer de jolis spots?",
+      "color" :  "#333E9E",
+      "image" : "data/ILLUSTRATION SVG/CAROUSEL/Illu_pointofinterest.svg",
+      "reponse1" : "Désolé, ce n’est pas vraiment ce dont j’ai envie ce matin.",
+      "reponse2" : "Si c’est sur mon trajet pourquoi pas...Mais je ne dois vraiment pas trainer!",
+      "reponse3" : "Bingo! Et si je peux prendre une photo en plus… "
+    }
+    
+  }
+}
