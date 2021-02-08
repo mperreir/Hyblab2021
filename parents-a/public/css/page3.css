@@ -13,9 +13,9 @@ section[data-slidr="page-3"] {
 
 #texte-gauche-p3 {
     position: absolute;
-    width: 5%;
+    width: 11%;
     bottom: 25%;
-    right: 60%;
+    right: 57%;
 }
 #texte-gauche-p3:hover {
     position: absolute;
@@ -37,9 +37,9 @@ section[data-slidr="page-3"] {
 
 #texte-droite-p3 {
     position: absolute;
-    width: 6%;
+    width: 11%;
     bottom: 25%;
-    right: 36%;
+    right: 33%;
 }
 #bouton-droite-p3 {
     position: absolute;

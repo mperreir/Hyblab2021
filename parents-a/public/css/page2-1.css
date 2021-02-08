@@ -90,7 +90,7 @@ section[data-slidr="page-2-1"] {
 .age {
     position: absolute;
     width: 10%;
-    bottom: 17%;
+    bottom: 20%;
 }
 
 #texte-0-3-ans-p2-1 {
@@ -110,7 +110,7 @@ section[data-slidr="page-2-1"] {
 
 .eleph {
     position: absolute;
-    bottom: 25%;
+    bottom: 28%;
     opacity: 0.3;
 }
 
@@ -125,19 +125,19 @@ section[data-slidr="page-2-1"] {
 
 #six-ans-mascotte-p2-1 {
     left: 39%;
-    bottom: 23%;
+    bottom: 26%;
     width: 17%;
 }
 
 #neuf-ans-mascotte-p2-1 {
     width: 20%;
     right: 20%;
-    bottom: 23%;
+    bottom: 26%;
 }
 
 #question-p2-1 {
     position: absolute;
     width: 20%;
-    top: 25%;
+    top: 22%;
     left: 40%;
 }

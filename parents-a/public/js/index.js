@@ -76,15 +76,23 @@ let playSoundEleph = function() {
 
 //Transition quand appuie sur logo page 1
 let initSlide1 = function() {
-    d3.select('#logo').on('click', function() {
-        soundBack = new sound('sound/back.mp3', true, 0.1);
-        soundBack.play();
-        isPlayed = true;
-        muteBack();
-        loadComponent(2);
-        nextSlide('1-1');
-    });
+    // d3.select('#logo').on('click', function() {
+    //Traitement
+    setTimeout(fonctionAExecuter, 3000); //On attend 5 secondes avant d'exécuter la fonction
 }
+function fonctionAExecuter()
+{
+    soundBack = new sound('sound/back.mp3', true, 0.1);
+    soundBack.play();
+    isPlayed = true;
+    muteBack();
+    loadComponent(2);
+    nextSlide('1-1');
+    //Le code écrit dans cette fonction ne sera exécuté qu'au bout de 5 secondes
+}
+
+    // });
+
 
 
 function muteBack() {
@@ -104,11 +112,14 @@ let initSlide1_1 = function() {
         playSoundFlore();
     });
 
-    //Transi 1.2 vers 2(Camille)
-    d3.select('#t').on('click', function() {
-        nextSlide('2');
-    });
+
+    setTimeout(fonctionAExecuter2, 2000); //On attend 5 secondes avant d'exécuter la fonction
 }
+function fonctionAExecuter2()
+{
+    nextSlide('2');
+}
+
 
 function disappear(id) {
     d3.select(id)
