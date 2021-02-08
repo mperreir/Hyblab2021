@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test-velo-b": "mocha ./velo-b/api/test/ --timeout 60000 --exit"
   },
   "dependencies": {
     "dotenv": "^8.2.0",

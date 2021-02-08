@@ -1,0 +1,162 @@
+/* Stylesheet page 7 */
+section[data-slidr="page-7"] {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90.42deg, #6FB5EF 13.84%, #0574CF 76.59%);
+    overflow: hidden;
+}
+
+#logo-p7 {
+    position: absolute;
+    width: 6%;
+    bottom: 85%;
+    right: 5%;
+}
+
+#dune3-p7 {
+    position: absolute;
+    width: 100%;
+    bottom: -6%;
+}
+
+#pelouse-gauche-p7 {
+    position: absolute;
+    width: 36.5%;
+    bottom: 0%;
+    left: 0%;
+}
+
+#pelouse-droite-p7 {
+    position: absolute;
+    width: 27.5%;
+    bottom: 0%;
+    right: 0%;
+}
+
+#arbuste-bleu-nuage-p7 {
+    position: absolute;
+    width: 20%;
+    bottom: -4%;
+    right: 14%;
+}
+
+#feuille-rouge-p7 {
+    position: absolute;
+    width: 18%;
+    bottom: -5%;
+    right: 6%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+#feuille-rouge-p7:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#arbuste-vert-p7 {
+    position: absolute;
+    width: 20%;
+    bottom: 6%;
+    left: 10%;
+    transform: rotate(10deg);
+}
+
+#feuille-orange-p7 {
+    position: absolute;
+    width: 15%;
+    bottom: 10%;
+    left: 3%;
+}
+
+#feuille-orange-p7:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+#feuille-bleue-p7 {
+    position: absolute;
+    width: 13%;
+    bottom: 0%;
+    left: 27%;
+    transform: scale(1) translateY(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+#feuille-bleue-p7:hover {
+    transform: scale(1.1) translateY(-5%);
+}
+
+#petit-nuage-p7 {
+    position: absolute;
+    width: 15%;
+    top: 20%;
+    left: 8%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#petit-nuage-p7:hover {
+    transform: translateX(-30%);
+}
+
+#gros-nuage-p7 {
+    position: absolute;
+    width: 25%;
+    top: 10%;
+    right: 20%;
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1000ms;
+}
+
+#gros-nuage-p7:hover {
+    transform: translateX(30%);
+}
+
+#bouton-gauche-p7 {
+    position: absolute;
+    width: 22%;
+    left: 25%;
+    bottom: 30%;
+    opacity: 0.7;
+}
+
+#bouton-gauche-p7:hover {
+    opacity: 1;
+}
+
+#texte-gauche-p7 {
+    position: absolute;
+    width: 11%;
+    bottom: 21%;
+    left: 33%;
+}
+
+#bouton-droite-p7{
+    position: absolute;
+    width: 22%;
+    right: 29%;
+    bottom: 30%;
+    opacity: 0.7;
+}
+
+#bouton-droite-p7:hover {
+    opacity: 1;
+}
+
+#texte-droite-p7 {
+    position: absolute;
+    width: 15%;
+    bottom: 22%;
+    right: 31%;
+}
+
+#question-p7 {
+    position: absolute;
+    width: 32%;
+    top: 26%;
+    left: 33%;
+}

@@ -1,0 +1,233 @@
+/* PAGE 6 */
+section[data-slidr="page-resultats"] {
+    /* fond */
+    position: absolute;
+}
+
+.photo, .photo *{
+    z-index: -2;
+}
+
+.photo{
+    width: 23%;
+}
+
+.photo *{
+    width: 100% ;
+}
+
+#feuille-verte-pr {
+    position: absolute;
+    width: 16%;
+    bottom: 11%;
+    left: 0%;
+}
+
+#fleurs-pr {
+    position: absolute;
+    width: 9%;
+    bottom: 10%;
+    left: 9%;
+}
+
+#credits-b{
+    right : 2%;
+    bottom: 15%;
+    cursor: pointer;
+    border-radius: 5%;
+    outline: none;
+}
+
+#titre-pr {
+    position: absolute;
+    width: 38%;
+    bottom: 83%;
+    right: 29%;
+}
+
+#contour-img-pr {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: -1 ;
+}
+
+
+/* Top Parcs */
+
+
+#parc1-pr ,#img1 {
+    position: absolute;
+    width: 23%;
+    right: 14%;
+    bottom: 46%;
+}
+
+#parc1-titre{
+    position: relative;
+    color: white;
+    z-index: 14;
+}
+
+#random1 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 23%;
+}
+/*!* #chart {*/
+/*    position: absolute;*/
+/*    bottom: 5%;*/
+/*    width: 20%;*/
+/*    height:15%;*/
+/*    right: 10%;*/
+/*    z-index: 14;*/
+/*} *!*/
+#parc2-pr,#img2{
+    position: absolute;
+    width: 23%;
+    bottom: 47%;
+    right: 39%;
+}
+
+#parc2-titre{
+    position: relative;
+    color: white;
+    z-index: 14;
+}
+
+#random2 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 49%;
+}
+
+/*!* #chart1 {*/
+/*    position: absolute;*/
+/*    bottom: 5%;*/
+/*    width: 20%;*/
+/*    height:25%;*/
+/*    right: 30%;*/
+/*    z-index: 14;*/
+/*} *!*/
+#parc3-pr, #img3 {
+
+    position: absolute;
+    width: 23%;
+    bottom: 47%;
+    right: 64%;
+}
+
+#parc3-titre{
+    position: relative;
+    color: white;
+    z-index: 14;
+}
+
+#random3 {
+    position: absolute;
+    width: 3%;
+    bottom: 34%;
+    right: 74%;
+}
+/* #chart2 {
+    position: absolute;
+    margin:0%;
+    padding: 0%;
+    bottom: 5%;
+    width: 20%;
+    height:15%;
+    right: 50%;
+    z-index: 14;
+} */
+.mychart{
+    width: 10%;
+    height: 100%
+}
+
+.row {
+    position: absolute;
+    justify-content:center ;
+    background-color: aliceblue;
+    margin:0%;
+    padding: 0%;
+    bottom:5%;
+    width: 80%;
+    right:10%;
+    height:20%;
+    z-index: 14;
+}
+
+.img-result {
+    z-index: 100 !important; 
+    height: 30%;
+}
+
+
+#modcontent {
+    z-index: 1100 !important;
+    color : #171EB1;
+}
+
+.modal-dialog-centered{
+    width: 40%;
+    margin: auto;
+}
+
+.bouton-info{
+    width: 15%;
+    opacity: 0.5;
+}
+
+.bouton-info:hover{
+    opacity: 1;
+}
+
+#info1-pr {
+    position: absolute;
+    bottom: 25%;
+    right: 17%; 
+    z-index: 15;
+}
+
+#info2-pr {
+    position: absolute;
+    bottom: 25%;
+    right: 43%;
+    z-index: 15;
+}
+
+#info3-pr {
+    position: absolute;
+    bottom: 25%;
+    left:17%;
+    z-index: 15;
+}
+
+#compare-btn{
+    font: "Intro Bold";
+    right : 2%;
+    bottom: 18%;
+    cursor: pointer;
+    border-radius: 5%;
+    outline: none;
+}
+
+#table-img{
+    width: 20px;
+}
+
+/* Conteneur */
+#conteneur{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 15%;
+    padding-top: 31%;
+    padding-right: 15%;
+    align-items: center;
+}
+
+

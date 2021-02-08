@@ -1,70 +1,577 @@
 <!doctype html>
 
 <html lang="fr">
+
 <head>
-  <meta charset="utf-8">
-  <title>Hyblab 2020</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
-  <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
-  <script src="js/slide1.js" defer></script>
-  <script src="js/slide2.js" defer></script>
-  <script src="js/index.js" defer></script>
+    <meta charset="utf-8">
+    <title>Nantes à vue de nez</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page1.css">
+    <link rel="stylesheet" href="css/page1-1.css">
+    <link rel="stylesheet" href="css/page2.css">
+    <link rel="stylesheet" href="css/page2-1.css">
+    <link rel="stylesheet" href="css/page3.css">
+    <link rel="stylesheet" href="css/page4.css">
+    <link rel="stylesheet" href="css/page5.css">
+    <link rel="stylesheet" href="css/page6.css">
+    <link rel="stylesheet" href="css/page7.css">
+    <link rel="stylesheet" href="css/page8.css">
+    <link rel="stylesheet" href="css/page9.css">
+    <link rel="stylesheet" href="css/page10.css">
+    <link rel="stylesheet" href="css/page_resultats.css">
+    <link rel="stylesheet" href="css/credits.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png" />
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
+    <script src="https://kit.fontawesome.com/65cff0531a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/index.js" defer></script>
 </head>
+
 <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
-    <div id="container">
+    <main id="container">
+
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
-        <main id = "slidr">
-            <section data-slidr="page-1">
-                <header>
-                    <h1 id="titre">Welcome to</h1>
-                </header>
+        <main id="slidr">
+
+            <!-- Page une - gif logo sur fond bleu -->
+            <section data-slidr="page-1" id="page-1">
+                <div class="cover-container d-flex h-100 mx-auto w-100 flex-column">
+                    <header class="masthead mb-auto"></header>
+                    <main role="main" class="inner cover">
+                        <img src="img/slides/page1/logo.gif" class="img-fluid " id="logo">
+                    </main>
+                    <footer class="mastfoot mt-auto"></footer>
+                </div>
+            </section>
+
+            <!-- Page une bis - Transition -->
+            <section data-slidr="page-1-1" id="t">
+                <img src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p1-1" class="arbre">
+                <img src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p1-1">
+                <img src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p1-1">
+                <img src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p1-1">
+                <img src="img/decors/ciel/petit-nuage-droite.png" alt="petit-nuage-droite" id="petit-nuage-droite-p1-1">
+                <img src="img/decors/sols/grande-pelouse-droite.png" alt="grande-pelouse-droite" id="grande-pelouse-droite-p1-1">
+                <img src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p1-1">
+            </section>
+
+            <!-- Page deux - Introduction -->
+            <section data-slidr="page-2" id="page-2">
+                <img data-src="img/logo.png" alt="logo" id="logo-p2">
+                <img data-src="img/decors/arbres/arbre-bleu.png" alt="arbre-bleu" id="arbre-bleu-p2" class="arbre">
+                <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p2">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p2">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p2">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p2" class="arbre">
+                <img data-src="img/decors/sols/dune1.png" alt="dune1" id="dune1-p2">
+                <img data-src="img/decors/sols/petite-pelouse-gauche.png" alt="petite-pelouse-gauche" id="petite-pelouse-gauche-p2">
+                <img data-src="img/slides/page2/chaise.png" alt="chaise" id="chaise-p2">
+                <img data-src="img/slides/page2/mascotte.gif" alt="mascotte" id="mascotte-p2">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p2">
+                <img data-src="img/decors/ciel/petit-nuage-gauche.png" alt="petit-nuage-gauche" id="petit-nuage-gauche-p2">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p2">
+                <img data-src="img/slides/page2/vector.svg" alt="vector" id="vector-p2">
+
+                <div id="disappear">
+                    <img src="img/slides/page2/texte-salut.svg" alt="texte-salut" id="texte-salut-p2">
+                    <button id="button-p2" class="button circle_btn circle_next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div id="appear">
+                    <img src="img/slides/page2/texte-intro.svg" alt="texte-intro" id="texte-intro-p2">
+                    <img src="img/slides/page2/deb_quest.png" alt="deb_quest" class=" button deb_quest" id="button2-p2">
+
+                </div>
+            </section>
+
+            <!-- Page 2-1 : Age -->
+            <section data-slidr="page-2-1" id="page-2-1">
+                <img data-src="img/logo.png" alt="logo" id="logo-p2-1">
+                <img data-src="img/slides/page_age/question.svg" alt="question" id="question-p2-1">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p2-1">
+                <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue" id="feuille-bleue-p2-1">
+                <img data-src="img/slides/page_age/texte-0-3-ans.svg" alt="texte-0-3-ans" id="texte-0-3-ans-p2-1" class="age">
+                <img data-src="img/slides/page_age/texte-4-8-ans.svg" alt="texte-4-8-ans" id="texte-4-8-ans-p2-1" class="age">
+                <img data-src="img/slides/page_age/texte-plus-9-ans.svg" alt="texte-plus-9-ans" id="texte-plus-9-ans-p2-1" class="age">
+                <img data-src="img/decors/sols/dune3.png" alt="dune3" id="dune3-p2-1">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p2-1">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p2-1">
+                <img data-src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p2-1">
+                <img data-src="img/slides/page_age/3-ans-mascotte.png" alt="trois-ans-mascotte" id="trois-ans-mascotte-p2-1" class="eleph">
+                <img data-src="img/slides/page_age/6-ans-mascotte.png" alt="six-ans-mascotte" id="six-ans-mascotte-p2-1" class="eleph">
+                <img data-src="img/slides/page_age/mascotte.png" alt="neuf-ans-mascotte" id="neuf-ans-mascotte-p2-1" class="eleph">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p2-1">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit_nuage" id="petit_nuage-p2-1">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
                 
-                <img src="img/logo_hyblab.png" id="logo-hyblab"></img>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
 
-                <video id="background-video" class="video-js" data-setup='{"autoplay": true, "loop" : true, "fill": true, "muted": true}'>
-                    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                </video>
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
 
-                <!-- le footer sera remplir à partir de données lues dans un fichier Json-->
-                <footer></footer>
             </section>
-            <section data-slidr="page-2">
-                <img id="img-fini" src="https://www.tri-d-aix.com/media/bilder/fini_55c9f_2e319.png">
-                <footer id="bandeau">
-                        <!-- Logo Hyblab -->
-                          <a href="http://www.hyblab.fr/"><img id="hyblab" src="logo_hyblab.png" alt="Hyblab DataSport"></a>
-                      
-                          <!-- Les organisateurs -->
-                          <ul>
-                            <li><a href="http://www.ouestmedialab.fr/"><img src="logo_oml.png" alt="Ouest Médialab"></a></li>
-                            <li><a href="http://www.agrnantes.fr"><img src="ecoles/logo_agr.png" alt="AGR école de l'image"></a></li>
-                            <li><a href="http://www.univ-nantes.fr/"><img src="ecoles/logo_universitenantes.jpg" alt="Université de Nantes"></a></li>
-                            <li><a href="http://www.polytech.univ-nantes.fr/"><img src="ecoles/logo_polytech.png" alt="Polytech Nantes"></a></li>
-                            <li><a href="http://sciencescom.audencia.com/"><img src="ecoles/logo_sciencescom.jpg" alt="SciencesCom"></a></li>
-                          </ul>
-                          <!-- Les autres logos -->
-                          <ul>
-                            <!-- Logos CC et opensource -->
-                            <li>
-                            <ul>
-                              <li class="stacked"><img id="cc" src="logo_cc.png" alt="Creative commons"></li>
-                              <li class="stacked"><img id="opensource" src="logo_opensource.png" alt="Open source"></li>
-                            </ul>
-                            </li>
-                            <!-- Logo de votre porteur de projet -->
-                            <li><a href="http://www.mon-porteur-de-projet.org"><img src="no-logo.png" alt="Logo de mon porteur de projet"></a></li>
-                            <!-- Partenaires institutionnels -->
-                            <li><a href="http://www.paysdelaloire.fr/"><img class="institutionnel" src="institutionnels/logo_pdl.png" alt="Pays de La Loire"></a></li>
-                            <li><a href="http://www.nantesmetropole.fr/"><img class="institutionnel" src="institutionnels/logo_nantesmetropole.png" alt="Nantes Métropole"></a></li>
-                          </ul>
-                </footer>
+
+            <!-- Page 3 : T'es un aventurier ? -->
+            <section data-slidr="page-3" id="page-3">
+                <img data-src="img/logo.png" alt="logo" id="logo-p3">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p3">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p3">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p3">
+                <!-- CSS à faire -->
+                <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p3">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p3" class="arbre">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p3" class="arbre">
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-p3">
+                <img data-src="img/slides/page3/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p3">
+                <img data-src="img/slides/page3/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p3">
+                <img data-src="img/slides/page3/texte-droite.svg" alt="texte-droite" id="texte-droite-p3">
+                <img data-src="img/slides/page3/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p3">
+                <img data-src="img/slides/page3/question.png" alt="question" id="question-p3">
+                <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p3">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p3">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p3">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                 <!-- Bouttons retours arriere -->
+                 <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
             </section>
+
+            <!-- Page 4 : Plein la vue ? -->
+            <section data-slidr="page-4" id="page-4">
+                <img data-src="img/logo.png" alt="logo" id="logo-p4">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p4">
+                <img data-src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p4">
+                <img data-src="img/decors/sols/dune3.png" alt="dune3" id="dune3-p4">
+                <img data-src="img/decors/vegetation/arbuste-bleu-petales.png" alt="arbuste-bleu-petales" id="arbuste-bleu-petales-p4">
+                <img data-src="img/slides/page4/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p4">
+                <img data-src="img/slides/page4/texte-droite.svg" alt="texte-droite" id="texte-droite-p4">
+                <img data-src="img/slides/page4/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p4">
+                <img data-src="img/slides/page4/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p4">
+                <img data-src="img/slides/page4/question.svg" alt="question" id="question-p4">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p4">
+                <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-p4">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p4">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p4">
+                <button class="button circle_btn"><i class="fas fa-volume-mute"></i></button>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+
+            </section>
+
+            <!-- Page 7 : Preference entre animaux et bruits nature -->
+            <section data-slidr="page-7" id="page-7">
+                <img data-src="img/logo.png" alt="logo" id="logo-p7">
+                <img data-src="img/decors/sols/dune3.png" alt="dune3" id="dune3-p7">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p7">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p7">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p7">
+                <img data-src="img/decors/vegetation/arbuste-bleu-nuage.png" alt="arbuste-bleu-nuage" id="arbuste-bleu-nuage-p7">
+                <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p7">
+                <img data-src="img/decors/vegetation/feuille-orange.png" alt="feuille-orange" id="feuille-orange-p7">
+                <img data-src="img/decors/vegetation/feuille-bleue.png" alt="feuille-bleue" id="feuille-bleue-p7">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p7">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p7">
+                <img data-src="img/slides/page7/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p7">
+                <img data-src="img/slides/page7/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p7">
+                <img data-src="img/slides/page7/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p7">
+                <img data-src="img/slides/page7/texte-droite.svg" alt="texte-droite" id="texte-droite-p7">
+                <img data-src="img/slides/page7/question.svg" alt="question" id="question-p7">
+                <button class="button  circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+            </section>
+
+            <!-- Page 5 : Preference entre beau décor et paysages ? -->
+            <section data-slidr="page-5" id="page-5">
+                <img data-src="img/logo.png" alt="logo" id="logo-p5">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p5">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p5">
+                <img data-src="img/decors/vegetation/arbuste-bleu-nuage.png" alt="arbuste-bleu-nuage" id="arbuste-bleu-nuage-p5">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p5" class="arbre">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p5">
+                <img data-src="img/decors/sols/dune4.png" alt="dune4" id="dune4-p5">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p5">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p5">
+                <img data-src="img/slides/page5/question.svg" alt="question" id="question-p5">
+                <img data-src="img/slides/page5/button-gauche.gif" alt="button-gauche" id="button-gauche-p5">
+                <img data-src="img/slides/page5/button-droite.gif" alt="button-droite" id="button-droite-p5">
+                <img data-src="img/slides/page5/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p5">
+                <img data-src="img/slides/page5/texte-droite.svg" alt="texte-droite" id="texte-droite-p5">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                 <!-- Bouttons retours arriere -->
+                 <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+            </section>
+
+            <!-- Page 8 : Decouverte d'arbres différents -->
+            <section data-slidr="page-8" id="page-8">
+                <img data-src="img/slides/page8/question.svg" alt="question" id="question-p8">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p8">
+                <img data-src="img/decors/sols/dune5.png" alt="dune5" id="dune5-p8">
+                <img data-src="img/decors/arbres/arbre-carotte.png" alt="arbre-carotte" id="arbre-carotte-p8" class="arbre">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p8">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p8">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p8">
+                <img data-src="img/decors/vegetation/feuille-orange.png" alt="feuille-orange" id="feuille-orange-p8">
+                <img data-src="img/decors/vegetation/arbuste-bleu-nuage.png" alt="arbuste-bleu" id="arbuste-bleu-p8">
+                <img data-src="img/slides/page8/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p8">
+                <img data-src="img/slides/page8/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p8">
+                <img data-src="img/slides/page8/texte-droite.svg" alt="texte-droite" id="texte-droite-p8">
+                <img data-src="img/slides/page8/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p8">
+                <img data-src="img/logo.png" alt="logo" id="logo-p8">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+            </section>
+
+            <!-- Page 9 : Voir des animaux -->
+            <section data-slidr="page-9" id="page-9">
+                <img data-src="img/logo.png" alt="logo" id="logo-p9">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p9" class="arbre">
+                <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p9">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p9">
+                <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue2" id="feuille-bleue2-p9">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p9">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p9">
+                <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p9">
+                <img data-src="img/decors/sols/dune6.png" alt="dune6" id="dune6-p9">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p9">
+                <img data-src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p9">
+                <img data-src="img/slides/page9/question.svg" alt="question" id="question-p9">
+                <img data-src="img/slides/page9/texte-droite.svg" alt="texte-droite" id="texte-droite-p9">
+                <img data-src="img/slides/page9/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p9">
+                <img data-src="img/slides/page9/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p9">
+                <img data-src="img/slides/page9/bouton-gauche.gif" alt="bouton-gauche" id="bouton-gauche-p9">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+
+            </section>
+
+            <!-- Page 6 : Sentir de nouveaux parfums ? -->
+            <section data-slidr="page-6" id="page-6">
+                <img data-src="img/slides/page6/question.svg" alt="question" id="question-p6">
+                <img data-src="img/decors/vegetation/arbuste-bleu.png" alt="arbuste-bleu" id="arbuste-bleu-p6">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p6" class="arbre">
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" id="dune2-p6">
+                <img data-src="img/slides/page6/texte-droite.svg" alt="texte-droite" id="texte-droite-p6">
+                <img data-src="img/slides/page6/bouton-droite.gif" alt="bouton-droite" id="bouton-droite-p6">
+                <img data-src="img/slides/page6/texte-gauche.svg" alt="texte-gauche" id="texte-gauche-p6">
+                <img data-src="img/slides/page6/bouton-gauche.gif" alt="boutton-gauche" id="boutton-gauche-p6">
+                <img data-src="img/decors/vegetation/feuille-rouge.png" alt="feuille-rouge" id="feuille-rouge-p6">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-p6">
+                <img data-src="img/decors/arbres/arbre-rouge.png" alt="arbre-rouge" id="arbre-rouge-p6" class="arbre">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-p6">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-p6">
+                <img data-src="img/logo.png" alt="logo" id="logo-p6">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                <!-- Bouttons retours arriere -->
+                <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+
+            </section>
+
+            <!-- Page 10 : Ou dans Nantes -->
+            <section data-slidr="page-10" id="page-10">
+                <img data-src="img/logo.png" alt="logo" class="logo-p10">
+                <img data-src="img/decors/vegetation/arbuste-rouge.png" alt="arbuste-rouge" id="arbuste-rouge-p10">
+                <img data-src="img/slides/page10/ou.svg" alt="texte-ou" id="texte-ou-p10">
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
+                <img data-src="img/decors/ciel/gros-nuage.png" alt="gros-nuage" id="gros-nuage-p10">
+                <img data-src="img/decors/ciel/petit-nuage.png" alt="petit-nuage" id="petit-nuage-p10">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-p10" class="arbre">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-p10">
+                <img data-src="img/decors/vegetation/feuille-bleue2.png" alt="feuille-bleue2" id="feuille-bleue2-p10">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" class="pelouse-gauche-p10">
+                <img data-src="img/slides/page10/question.svg" alt="question" id="question-p10">
+                <img data-src="img/slides/page10/ouest-contour.svg" alt="ouest-contour" id="ouest-contour-p10">
+                <img data-src="img/slides/page10/nord-est-contour.svg" alt="nord-est-contour" id="nord-est-contour-p10">
+                <img data-src="img/slides/page10/sud-contour.svg" alt="sud-contour" id="sud-contour-p10">
+                <img data-src="img/slides/page10/centre-contour.svg" alt="centre-contour" id="centre-contour-p10">
+                <img data-src="img/slides/page10/nord-est-hover.svg" alt="nord-est-hover" id="nord-est-hover-p10">
+                <img data-src="img/slides/page10/sud-hover.svg" alt="sud-hover" id="sud-hover-p10">
+                <img data-src="img/slides/page10/ouest-hover.svg" alt="ouest-hover" id="ouest-hover-p10">
+                <img data-src="img/slides/page10/centre-hover.svg" alt="centre-hover" id="centre-hover-p10">
+                <img data-src="img/slides/page10/bouton-peu-importe.svg" alt="bouton-peu-importe" id="bouton-peu-importe-p10">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+
+                  <!-- Bouttons retours arriere -->
+                  <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+
+            </section>
+
+            <!-- Page de résultats -->
+            <section data-slidr="page-resultats" id="page-resultats">
+                <!-- Test Image de fond -->
+                <div id="conteneur">
+                    <div class="element 1">
+                        <div id="parc3-pr" class="photo"></div>
+                        <h3 id="parc3-titre"></h3>
+                    </div>
+                    <div class="element 2">
+                        <div id="parc2-pr" class="photo"></div>
+                        <h3 id="parc2-titre"></h3>
+                    </div>
+                    <div class="element 3">
+                        <div id="parc1-pr" class="photo"></div>
+                        <h3 id="parc1-titre"></h3>
+                    </div>
+                </div>
+
+                <!-- Debut -->
+                <img data-src="img/slides/page_resultats/contour-img.png" alt="contour-img" id="contour-img-pr">
+
+                <img data-src="img/logo.png" alt="logo" class="logo-p10">
+                <img data-src="img/slides/page_resultats/titre.svg" alt="titre" id="titre-pr">
+
+                <!-- Boutons informations-->
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-1" id="info1-pr" class="bouton-info parc1" type="button" data-toggle="modal" data-target="#modalResult">
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-2" id="info2-pr" class="bouton-info parc2" type="button" data-toggle="modal" data-target="#modalResult">
+                <img data-src="img/slides/page_resultats/bouton-info-pratique.svg" alt="info-3" id="info3-pr" class="bouton-info parc3" type="button" data-toggle="modal" data-target="#modalResult">
+
+
+                <!-- Add button (img) "revenir en arrière" -->
+                <img data-src="img/decors/sols/dune2.png" alt="dune2" class="dune2-p10">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-pr">
+                <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-pr">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" class="pelouse-gauche-p10">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" class="pelouse-droite-p10">
+
+                <button class='button circle_btn' id="random1"><i class="fas fa-sync"></i></button>
+                <button class='button circle_btn' id="random2"><i class="fas fa-sync"></i></button>
+                <button class='button circle_btn' id="random3"><i class="fas fa-sync"></i></button>
+
+                <img data-src="img/slides/page_resultats/text-credits.svg"  id="credits-b" class="button">
+                <p data-toggle="modal" data-target="#compare" id="compare-btn" class="button">Comparer</p>
+
+                <div id="img1" class="img-result parc1" type="button" data-toggle="modal" data-target="#modalResult"> </div>
+                <div id="img2" class="img-result parc2" type="button" data-toggle="modal" data-target="#modalResult"></div>
+                <div id="img3" class="img-result parc3" type="button" data-toggle="modal" data-target="#modalResult"></div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+
+
+            </section>
+
+            <!-- Page crédits -->
+            <section data-slidr="page-credits" id="page-credits">
+                <img data-src="img/logo.png" alt="logo" id="logo-credits">
+                <img data-src="img/credits/texte_credits.svg" alt="texte-credits" id="texte-credits">
+                <img data-src="img/credits/fond_blanc.svg" alt="fond-blanc" id="fond-blanc">
+                <img data-src="img/decors/vegetation/arbuste-vert.png" alt="arbuste-vert" id="arbuste-vert-credits">
+                <img data-src="img/decors/arbres/arbre-jaune.png" alt="arbre-jaune" id="arbre-jaune-credits">
+                <img data-src="img/decors/sols/pelouse-droite.png" alt="pelouse-droite" id="pelouse-droite-credits">
+                <img data-src="img/decors/sols/pelouse-gauche.png" alt="pelouse-gauche" id="pelouse-gauche-credits">
+                <img data-src="img/decors/vegetation/feuille-verte.png" alt="feuille-verte" id="feuille-verte-credits">
+                <img data-src="img/decors/vegetation/fleurs.png" alt="fleurs" id="fleurs-credits">
+                <img data-src="img/credits/logo_audencia.svg" alt="logo_audencia" id="logo_audencia-credits">
+                <img data-src="img/credits/logo_agr.svg" alt="logo_agr" id="logo_agr-credits">
+                <img data-src="img/credits/logo_polytech.png" alt="logo_polytech" id="logo_polytech-credits">
+                <img data-src="img/credits/texte_audencia.svg" alt="texte_audencia" id="texte_audencia-credits">
+                <img data-src="img/credits/texte_agr.svg" alt="texte_agr" id="texte_agr-credits">
+                <img data-src="img/credits/texte_polytech.svg" alt="texte_polytech" id="texte_polytech-credits">
+                <img data-src="img/credits/noms_audencia.svg" alt="noms_audencia" id="noms_audencia-credits">
+                <img data-src="img/credits/noms_agr.svg" alt="noms_agr" id="noms_agr-credits">
+                <img data-src="img/credits/noms_polytech.svg" alt="noms_polytech" id="noms_polytech-credits">
+                <img data-src="img/credits/logo_hyblab.svg" alt="logo_hyblab" id="logo_hyblab-credits">
+                <img data-src="img/credits/logo_OML.svg" alt="logo_OML" id="logo_OML-credits">
+                <img data-src="img/credits/logo_UN.svg" alt="logo_UN" id="logo_UN-credits">
+                <img data-src="img/credits/logo_opensource.svg" alt="logo_opensource" id="logo_opensource-credits">
+                <img data-src="img/credits/logo_cc.svg" alt="logo_cc" id="logo_cc-credits">
+                <button class="button circle_btn mute"><i class="fas fa-volume-mute"></i></button>
+                  <!-- Bouttons retours arriere -->
+                  <div class="d-flex flex-row div_retour">
+                    <button class="button button_circle_retour circle_btn circle_back button_retour"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_retour.png" alt="texte_retour" class=" button texte_retour button_retour">
+                </div>
+
+                <!-- Bouton accueil-->
+                <div class="d-flex flex-row div_accueil">
+                    <button class="button button_circle_accueil circle_btn circle_back home"><i class="fas fa-chevron-left"></i></button>
+                    <img src="img/texte_accueil.png" alt="texte_accueil" class=" button texte_accueil home">
+                </div>
+            </section>
+
         </main>
-    </div>
+    </main>
 </body>
+
+<!-- Modal -->
+
+<div class="modal" id="modalResult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog-centered" role="document">
+        <div id="modcontent" class="modal-content bg-warning">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titre-parc"></h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-row" id="divdesc">
+                    <i class="fa fa-pencil mx-2"></i>
+                    <p>Descriptif: </p>
+                    <p id="desc" class="mx-2"></p>
+                </div>
+                <div class="d-flex flex-row">
+                    <i class="fas fa-map-marker-alt mx-2"></i>
+                    <p>Adresse: </p>
+                    <p id="addr" class="mx-2"></p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <i class="fas fa-train mx-2"> </i>
+                    <p>Accessibilité: </p>
+                    <p id="acces" class="mx-2"></p>
+                </div>
+
+                <div class="d-flex flex-row ">
+                    <i class="fas fa-restroom mx-2"></i>
+                    <p>Toilettes: </p>
+                    <p id="wc" class="mx-2"></p>
+                </div>
+
+                <div class="d-flex flex-row ">
+                    <i class="fas fa-wheelchair mx-2"></i>
+                    <p>Pour handicapé: </p>
+                    <p id="handi" class="mx-2"></p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <i class="fas fa-dog mx-2"></i>
+                    <p>Chien autorisé: </p>
+                    <p id="dog" class="mx-2"></p>
+                </div>
+
+                <div class="d-flex flex-row">
+                    <i class="mx-2"><img src="img/page_resultats/table.png" alt="table" id="table-img"></i>
+                    <p>Table de jardin: </p>
+                    <p id="table" class="mx-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal" id="compare" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="modDial" class="modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="compa-title">Comparaison des parcs</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col" id="chart1">
+                    <canvas id="myChart1"></canvas>
+                </div>
+                <div class="col" id="chart2">
+                    <canvas id="myChart2"></canvas>
+                </div>
+                <div class="col" id="chart3">
+                    <canvas id="myChart3"></canvas>
+                </div>
+                <div class="col" id="chart">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </html>
