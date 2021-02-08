@@ -13,5 +13,5 @@ poi:
 * "name": "Chez Maurice",
 * "name": "Le lieu Unique",
 
-L'ordre original des sciencecom etait Lieu Unique, Chateau et Chez maurice.
+L'ordre original des sciencecom e   tait Lieu Unique, Chateau et Chez maurice.
 L'algo qui genere le chemin a reordoné pour opti le temps de trajet

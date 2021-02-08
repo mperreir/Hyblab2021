@@ -198,53 +198,45 @@ const SetupRoutes = function (api_app, config) {
                     };
 
                     let ordonatedPlaces;
-                    if (request.body.startFromHome) {
+                    if (!request.body.startFromHome) {
                         ordonatedPlaces = utils.getShortestPath(home, work, places);
                     }
                     else {
                         ordonatedPlaces = utils.getShortestPath(work, home, places);
                     }
 
-                    let pathPromises = [];
-                    for (let i = 0; i < ordonatedPlaces.length - 1; i++) {
-                        pathPromises.push(queryModule.route(ordonatedPlaces[i].coord, ordonatedPlaces[i + 1].coord, request.body.transport, config));
-                    }
-                    Promise.all(pathPromises)
-                        .then((datas) => Promise.all(datas.map(data => data.json())))
-                        .then(results => {
-                            let resultsParsed = results.map(result => ({
-                                'distance': result.properties.distance,
-                                'traveltime': result.properties.traveltime,
-                                'coordinates': result.coordinates.map(coords => coords.reverse())
-                            }));
-                            let initialObject = { 'distance': 0, 'traveltime': 0, 'coordinates': [] };
-                            const path = resultsParsed.reduce((accumulator, currentValue) => {
-                                accumulator.distance += Number(currentValue.distance);
-                                accumulator.traveltime += Number(currentValue.traveltime);
-                                accumulator.coordinates.push(...currentValue.coordinates);
-                                return accumulator;
-                            }, initialObject);
+					queryModule.route(ordonatedPlaces.map(place => place.coord), request.body.transport, config)
+					.then(data => data.json())
+					.then(result => {
+						console.log(result);
+						let path = {
+							'distance': result.routes[0].distance,
+							'traveltime': result.routes[0].duration,
+							'coordinates': result.routes[0].geometry.coordinates.map(coordinate => [coordinate[1], coordinate[0]]),
+						};
 
-                            for (let i = 0; i < resultsParsed.length; i++) {
-                                ordonatedPlaces[i].path = resultsParsed[i];
-                                delete ordonatedPlaces[i].path.coordinates;
-                            }
+						for (let i = 0; i < result.routes[0].legs.length; i++) {
+							ordonatedPlaces[i].path = {
+								'distance' : result.routes[0].legs[i].distance,
+								'traveltime' : result.routes[0].legs[i].duration,
+							};
+						}
 
-                            const responseAPI = {
-                                'places': ordonatedPlaces,
-                                'path': path
-                            };
-                            BuildResponse(response, Status.Success.Ok, [/* err*/], responseAPI);
-                            console.log('New response : ' + JSON.stringify(responseAPI, (key, value) => {
-                                if (key === 'coordinates') {
-                                    return value.length;
-                                }
-                                return value;
-                            }, 2));
-                        }).catch((err) => {
-                            console.log(err);
-                            BuildResponse(response, Status.Fail.BadRequest, [err], {});
-                        });
+						const responseAPI = {
+							'places': ordonatedPlaces,
+							'path': path
+						};
+						BuildResponse(response, Status.Success.Ok, [/* err*/], responseAPI);
+						console.log('New response : ' + JSON.stringify(responseAPI, (key, value) => {
+							if (key === 'coordinates') {
+								return value.length;
+							}
+							return value;
+						}, 2));
+					}).catch((err) => {
+						console.log(err);
+						BuildResponse(response, Status.Fail.BadRequest, [err], {});
+					});
                 }).catch((err) => {
                     console.log(err);
                     BuildResponse(response, Status.Fail.BadRequest, [err], {});

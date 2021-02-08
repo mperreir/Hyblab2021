@@ -13,10 +13,36 @@ const a_filter = 'node[{{filter}}](around:{{radius}}, {{coords}});';
 
 // //////////////////////////////////////////////////////////////////////////////
 
-module.exports.route = function (start, end, transport, config) {
-	return fetch_module(new URL(config.route_query,
+module.exports.route = function (coords, transport, config) {
+	let transportApi;
+	switch (transport) {
+		case 'motorcar':
+			transportApi = 'car';
+			break;
+		case 'bicycle':
+			transportApi = 'bike';
+			break;
+		case 'foot':
+			transportApi = 'foot';
+			break;
+	
+		default:
+			transportApi = 'car';
+			break;
+	}
+
+	const parsedCoord = coords.reduce((accumulator, currentValue) => {
+		accumulator += currentValue[1] + ',' + currentValue[0] + ';';
+		return accumulator;
+	}, '').slice(0, -1);
+
+	const url = new URL(`/routed-${transportApi}/route/v1/driving/${parsedCoord}?`,
 		config.route_api_base).href +
-        `flat=${start[0]}&flon=${start[1]}&tlat=${end[0]}&tlon=${end[1]}&v=${transport}&fast=1&format=geojson`, {
+        `overview=full&geometries=geojson`
+
+	console.log(url);
+
+	return fetch_module(url, {
 		method: 'GET',
 		agent: config.proxy !== null ? config.proxy : null
 	});

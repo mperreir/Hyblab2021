@@ -9,8 +9,8 @@ let https_proxy = require('https-proxy-agent');
 module.exports.osm_api_base = 'https://overpass-api.de/';
 module.exports.osm_interpreter = 'api/interpreter';
 
-module.exports.route_api_base = 'http://www.yournavigation.org/';
-module.exports.route_query = 'api/dev/route.php?';
+module.exports.route_api_base = 'https://routing.openstreetmap.de';
+module.exports.route_query = '';
 
 /**
  * Amenities for a given menu

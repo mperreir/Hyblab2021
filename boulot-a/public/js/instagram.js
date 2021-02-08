@@ -1,13 +1,19 @@
 
-const instaslide = function(section,data) {
+const instaslide = function(section,data,texte) {
 
   var instaPicture = section.querySelector("#instaPicture");
   var description = section.querySelector("#description");
   var instagram = section.querySelector("#instagram");
-  var category = section.querySelector("#category");
-
+  var lapin   = section.querySelector(".lapin");
+  var category =section.querySelector("#category");
+  console.log(data.image);
+  if(data.image===""){
+    instaPicture.src = "data/ILLUSTRATION SVG/CAROUSEL/Illu_"+data.type+".svg";
+  }else{
+    instaPicture.src = data.image;
+  }
   instagram.style.transform = "scale(1)";
-  instaPicture.src = data.image;
   category.innerText= data.name;
-  description.innerText = data.shortDescr;
+  description.innerText = texte;
+  lapin.src = 'data/LAPIN%20SVG/Lapin_' +data.type +'.svg'
 }

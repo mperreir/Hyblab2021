@@ -18,56 +18,60 @@ async function getPlaceholder() {
 
 
 const initSlide3 = async function (user) {
-    //let user = await getPlaceholder();
+    console.log(user)
     setupCarousel();
-    /*.then( elem =>{
-            setupCarousel();
-            let ret = JSON.stringify(elem.response);
-            return ret;
-        }
-    );*/
-
-    //user_infos = user;
 
     d3.select('#submit-questions').on('click', function () {
-
         mySlidr.slide('page-7.5');
-        let new_user = user
-        let homeCoords = Object.values(new_user.home.latlng);
-        let workCoords = Object.values(new_user.work.latlng);
-        let schoolCoords = null;
-        if (new_user.school)
-            schoolCoords = Object.values(new_user.school.latlng);
-        let startFromHome = new_user.startFromHome;
+        let new_user = user;
+        if (!new_user.demo){
+            console.log(new_user)
+            let homeCoords = Object.values(new_user.home.latlng);
+            let workCoords = Object.values(new_user.work.latlng);
+            let schoolCoords = null;
+            if (new_user.school) schoolCoords = Object.values(new_user.school.latlng);
+            let startFromHome = new_user.startFromHome;
 
-        let request = {
-            "homeCoords": homeCoords,
-            "workCoords": workCoords,
-            "schoolCoords": schoolCoords,
-            "startFromHome": startFromHome,
-            "transport": new_user.transport,
-            "menu": {
-                "culinary": new_user.culinaire,
-                "cultural": new_user.culture,
-                "pointofinterest": new_user.insolite
+            let request = {
+                "homeCoords": homeCoords,
+                "workCoords": workCoords,
+                "schoolCoords": schoolCoords,
+                "startFromHome": startFromHome,
+                "transport": new_user.transport,
+                "menu": {
+                    "culinary": new_user.culinaire,
+                    "cultural": new_user.culture,
+                    "pointofinterest": new_user.insolite
+                }
             }
-        }
-
-        /// Utilisation de l'API
-        // fetch('api/generate_story/', {
-        //     method: 'POST', headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(request)
-        // })
-
-        /// Utilisation du chemin pré fait
-        fetch('data/fake_path/path01.json')
-            .then(response => { return response.json() })
-            .then(myReceivedObject => {
-                console.log(myReceivedObject);
-                mySlidr.slide('page-8');
-                customMap(myReceivedObject, request);
+            //Utilisation de l'API
+            fetch('api/generate_story/', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(request)
             })
+                .then(response => { return response.json() })
+                .then(myReceivedObject => {
+                    mySlidr.slide('page-8');
+                    customMap(myReceivedObject, request);
+                })
+        }
+        else{
+            /// Utilisation du chemin pré fait
+            setTimeout(function(){
+            fetch('data/fake_path/path01.json')
+                .then(response => { return response.json() })
+                .then(myReceivedObject => {
+                    console.log(myReceivedObject);
+                    myReceivedObject.Demo = true;
+                    mySlidr.slide('page-8');
+                    customMap(myReceivedObject, null);
+                })
+            },4000)
+        }
     });
+
+
+    /// Utilisation du chemin pré fait
 
 
     function setupCarousel() {
@@ -77,6 +81,7 @@ const initSlide3 = async function (user) {
         carousel.innerHTML = "";
         carousel.appendChild(svg1);
         carousel.appendChild(svg2);
+        console.log(carousel);
 
         createItems();
         createEventListeners();
@@ -117,7 +122,7 @@ const initSlide3 = async function (user) {
         document.querySelector('#retour-carousel')
             .addEventListener('click', function () {
                 // mySlidr.slide('page-' + (currentSlide - 1));
-                mySlidr.slide('page-8');
+                mySlidr.slide('page-6');
             });
 
         document.querySelector('#checkbox-home-container')
@@ -216,14 +221,14 @@ const initSlide3 = async function (user) {
                         bt.addEventListener('click', addEventAnswer);
                     }
 
-                    divButton.append(question);
+                    //divButton.append(question);
                     divButton.append(yesButton);
                     divButton.append(noButton);
                     divButton.append(otherButton);
 
                     item_infos.append(title);
                     item_infos.append(description);
-                    //item_infos.append(question);
+                    item_infos.append(question);
                     item_infos.append(divButton);
 
                     item.append(image);
@@ -231,55 +236,53 @@ const initSlide3 = async function (user) {
                     carousel.append(item);
                 })
             })
-    }
 
-    function addEventAnswer(event) {
-        let button = event.target;
-        let re = /-/g;
-        let str = button.id;
-        let split = re[Symbol.split](str);
+        function addEventAnswer(event) {
+            let button = event.target;
+            let re = /-/g;
+            let str = button.id;
+            let split = re[Symbol.split](str);
 
-        let value = parseInt(button.getAttribute("answer"));
+            let value = parseInt(button.getAttribute("answer"));
 
-        switch (split[3]) {
-            case 'culinaire':
-                user.culinaire = value;
-                break;
-            case 'culture':
-                user.culture = value;
-                break;
-            case 'insolite':
-                user.insolite = value;
-                break;
-        }
-
-        let test = !(user.culinaire != null && user.culture != null && user.insolite != null);
-        document.querySelector('#submit-questions').disabled = test;
-
-
-        let parent = button.parentNode;
-        parent.childNodes.forEach(function (elem) {
-
-            if (elem.nodeName === "INPUT") {
-                if (elem.id === button.id)
-                    elem.style.backgroundColor = "rgba(255,255,255,1)";
-                else
-                    elem.style.backgroundColor = "rgba(255,255,255,0.7)";
+            switch (split[3]) {
+                case 'culinaire':
+                    user.culinaire = value;
+                    break;
+                case 'culture':
+                    user.culture = value;
+                    break;
+                case 'insolite':
+                    user.insolite = value;
+                    break;
             }
-        })
 
-        let previous = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex - 1) + '"]');
-        let current = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex) + '"]');
-        let next = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex + 1) + '"]');
+            let test = !(user.culinaire != null && user.culture != null && user.insolite != null);
+            document.querySelector('#submit-questions').disabled = test;
 
-        currentIndex = getIndex(currentIndex + 1);
 
-        current.setAttribute('idx', getIndex(currentIndex));
-        next.setAttribute('idx', getIndex(currentIndex + 1));
-        previous.setAttribute('idx', getIndex(currentIndex - 1));
+            let parent = button.parentNode;
+            parent.childNodes.forEach(function (elem) {
 
+                if (elem.nodeName === "INPUT") {
+                    if (elem.id === button.id)
+                        elem.style.backgroundColor = "rgba(255,255,255,1)";
+                    else
+                        elem.style.backgroundColor = "rgba(255,255,255,0.7)";
+                }
+            })
+
+            let previous = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex - 1) + '"]');
+            let current = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex) + '"]');
+            let next = document.querySelector('.carousel-item[idx="' + getIndex(currentIndex + 1) + '"]');
+
+            currentIndex = getIndex(currentIndex + 1);
+
+            current.setAttribute('idx', getIndex(currentIndex));
+            next.setAttribute('idx', getIndex(currentIndex + 1));
+            previous.setAttribute('idx', getIndex(currentIndex - 1));
+
+
+        }
     }
-
-};
-
-
+}

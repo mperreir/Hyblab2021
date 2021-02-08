@@ -1,0 +1,63 @@
+{
+  "culinary":
+  {
+    "fast_food":
+    [
+      "Je crois que nous y sommes ! Voici la boulangerie …. Et si tu t'arrêtais pour prendre une viennoiserie ? Peut-être que cela ferait aussi plaisir à tes collègues! \n\nReconnu comme une spécialité Française, le croissant n’est pas vraiment né ici ! Il est né à Vienne ! Ce serait Marie-Antoinette d’Autriche, originaire de Vienne donc, qui aurait officiellement introduit et popularisé le croissant à Paris.\n",
+      "Sens-tu cette odeur de pain chaud ? Une pause gourmande ne serait pas de refus avant cette journée de travail. Si tu prends du pain… laisse-moi le croûton ! \n\nDans certaines familles, il ne faut pas retourner le pain car cela porterait malheur ! Connais-tu l’origine de cette superstition ? \nElle vient du Moyen-Age : les jours d'exécution, le boulanger réservait un pain au bourreau en le retournant. Le pain retourné est donc, malgré lui, associé à la mort et au malheur !",
+      "Une petite faim sur le trajet? J’ai trouvé l’endroit parfait pour toi. Une pause s’impose! Si tu souhaites te régaler sans perdre du temps pour autant, ce fast-food sera l'étape idéale de ton trajet.\nD’ailleurs, sais-tu que la restauration rapide existe depuis des années. Eh oui, ce qui semble être l’ancêtre de nos fast-foods préférés est appelé “thermopolia» et existe depuis l’antiquité.\n"
+    ],
+    "cafe":
+    [
+      "Et si on prenait le temps de s'asseoir en terrasse ou bien de s’installer au bar… Vous prendrez un thé ou un café? ",
+      "Du mal à se réveiller? Et si on se posait pour prendre un café ou une boisson chaude ? ",
+      "Voici un endroit pour te restaurer ! Change ta routine du matin ! On s’arrête un instant, on échange avec les propriétaires, on commence la journée avec une boisson chaude, ou un jus d’orange vitaminé…"
+    ],
+    "bar":
+    [
+      "Voici un endroit pour te restaurer ! Change ta routine du matin ! On s’arrête un instant, on échange avec les propriétaires, on commence la journée avec une boisson chaude, ou un jus d’orange vitaminé… "
+    ],
+    "ice_cream":
+    [
+      "Une petite glace pour te rafraîchir ? Quel est ton parfum de glace préféré? Moi c’est carotte ! "
+    ],
+    "pub":
+    [
+      "Regarde, voici un Pub. Cette institution sacrée en Irlande est l’endroit idéal pour aller boire un verre après le boulot et passer un moment agréable. Qu’en penses-tu?"
+    ],
+    "biergarten":
+    [
+      "Pendant les beaux jours, rien de mieux que de se poser à une terrasse pour manger un bout au soleil. Alors ça te tente?"
+    ]
+  },
+  "cultural":
+  {
+    "statue":
+    [
+      "Bravo ! Tu es arrivé devant une statue. Prends le temps de la regarder : sa couleur, ses formes, sa taille, son expression. \n\nLe petit challenge du jour : prends-toi en photo en essayant de reproduire la même posture que la statue ! \n"
+    ],
+    "theatre":
+    [
+      "Quel plaisir de passer devant ce théâtre. Les théâtres sont des lieux culturels regorgeant d’histoire. Le lieu s’anime à chaque représentation. Le savais-tu? Il existe plusieurs superstitions au théâtre dont une méconnue. Il faut éviter de prononcer le mot « lapin » au théâtre. Cette superstition remonte du temps de la Marine à voile où il n’était pas recommandé d’avoir un lapin à bord du bateau car il rongeait tout sur son passage.\nIntéressant non? Et dire que c’est un lapin qui te l’a appris celle-ci!\n"
+    ],
+    "memorial":
+    [
+      "Bravo ! tu es arrivé(e) devant ce monument classé historique ! Va donc admirer son potentiel, son histoire, sa beauté !"
+    ],
+    "monastery":
+    [
+      "Magnifique ! Lèves les yeux et contemple cette œuvre architecturale. Et dire que des hommes ont taillé la pierre de ce monument. Prenons le temps d’apprécier cette prouesse. Ce n’est pas moi qui soulèverait ces gros parpaings!! ",
+      "Bingo, on est arrivé devant …..* ! As-tu déjà pris le temps d’admirer ce monument ? Ce monastère n’a pas trouvé lieu par hasard. On l’a construit car ici il était positionné au centre de la ville ! "
+    ],
+    "museum":
+    [
+      "Voici un musée! Il est vrai que l’on ne prend pas toujours le temps de visiter les musées près de chez nous pourtant chaque musée vaut le détour! Ici sont conservées des œuvres uniques que je t’invite à découvrir."
+    ]
+  },
+  "pointofinterest":
+  [
+    "Voici, un super spot photos! Je te conseille de t’arrêter pour l’immortaliser",
+    "Wow, regarde ce lieu! Idéal pour faire une photo Instagram",
+    "Tu dois déjà le connaître, c’est un classique! A toi de jouer, prends-le en photo et n’hésite pas à le partager"
+  ]
+}

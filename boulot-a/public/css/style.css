@@ -85,6 +85,28 @@ section[data-slidr="page-1"] footer{
     font-size: 20%;
     text-align: center;
 }
+#clique-debut{
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#clique-debut a{
+    justify-self: center;
+    font-size: 0.2em;
+    font-weight: bold;
+    font-family: Roboto;
+}
+#arrows{
+    display: flex;
+    justify-content: center;
+}
+#arrows > svg{
+    margin-top: 150%;
+    transform: scale(3);
+}
 
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 .vjs-tech { object-fit: cover; }
@@ -135,7 +157,7 @@ section[data-slidr="page-4"]{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: left;
-    width: 40%;
+    width: 35%;
 }
 #form{
     padding: 0;
@@ -172,6 +194,10 @@ section[data-slidr="page-4"]{
 .button[disabled]{
     background: #cccccc;
     color: #666666;
+}
+
+#submit-form{
+    margin-top: 5%;
 }
 
 #submit-form:enabled:hover { transform: scale(1.1); }
@@ -211,7 +237,32 @@ section[data-slidr="page-4"]{
     width: 25%;
 }
 
+#demo-button{
+    margin-top: 3%;
+}
+#bulle-svg-itineraire{
+    position: absolute;
+    transform: translate(-25%, 0px);
+    right: 0;
+    top: 100%;
+}
 
+#bulle-itineraire{
+    text-align:left;
+    position: absolute;
+    width:28%;
+    bottom: 23%;
+    display: flex;
+    flex-direction: column;
+    right: 1%;
+}
+
+#lapin-itineraire{
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    width: 7%;
+}
 /*--- SLIDE 3 QUESTIONS  --------*/
 
 section[data-slidr="page-7"]{
@@ -256,16 +307,30 @@ section[data-slidr="page-7"]{
     -webkit-backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
 }
+
+.carousel-item > * {
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-backface-visibility: hidden;
+    -moz-font-smoothing: subpixel-antialiased;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+
 .carousel-item[idx="0"]{
     transform: translate3d(-30%, 0px, 0px);
+    -webkit-transform: translate3d(-30%, 0px, 0px);;
 }
 
 .carousel-item[idx="1"]{
     transform: translate3d(0, 0px, 200px);
+    -webkit-transform: translate3d(0, 0px, 200px);
 }
 
 .carousel-item[idx="2"]{
     transform: translate3d(30%, 0px, 0px);
+    -webkit-transform: translate3d(30%, 0px, 0px);;
 }
 
 .item-image{
@@ -294,7 +359,7 @@ section[data-slidr="page-7"]{
 }
 
 .item-title{
-    font-size: 30%;
+    font-size: 22%;
     font-family: Roboto;
     font-weight: bold;
     /*border-bottom: 0.2vw solid white;*/
@@ -302,12 +367,12 @@ section[data-slidr="page-7"]{
 }
 
 .item-description{
-    font-size: 8%;
+    font-size: 12%;
     font-family: Roboto;
     color: white;
 }
 .item-question{
-    font-size: 8%;
+    font-size: 19%;
     font-family: Roboto;
     color: white;
 }
@@ -330,6 +395,7 @@ section[data-slidr="page-7"]{
 
 #carousel-next:hover, #carousel-previous:hover{
     transform: scale(1.5);
+    -moz-transform: scale(1.5);
     cursor: pointer;
 }
 
@@ -354,6 +420,9 @@ section[data-slidr="page-7"]{
     height: 30%;
     transition: transform .1s;
     outline:none;
+
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .item-button:hover{
@@ -400,6 +469,7 @@ section[data-slidr="page-7"]{
 .checkbox-container >label{
     margin-right: 0.5em;
     font-family: Roboto;
+    border-radius: 25px;
 }
 
 .carousel-checkbox{
@@ -500,6 +570,65 @@ section[data-slidr="page-7"]{
     left: 2%;
 }
 
+#bulle-svg-questions{
+    position: absolute;
+    transform: translate(-25%, 0px);
+    right: 0;
+    top: 100%;
+}
+
+#bulle-questions{
+    text-align:left;
+    position: absolute;
+    width:28%;
+    top: 5%;
+    height: 14%;
+    display: flex;
+    flex-direction: row;
+    right: 10%;
+    padding-bottom: 0;
+}
+
+#lapin-questions {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    width: 7%;
+}
+
+
+
+/* CHARGEMENT */
+
+#bulle-svg-questions{
+    position: absolute;
+    right: 40%;
+    top: 100%;
+}
+
+#bulle-chargment{
+    text-align: left;
+    position: absolute;
+    top: 5%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    transform: translate(-50%, 0px);
+}
+
+#Jumpyloading{
+    text-align: center;
+    font-size :50px;
+    font-style: Roboto;
+}
+
+#lapinAttend{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* ---------- mise en forme du bandeau des logos ----------------- */
 /* ici comme on doit contraindre la hauteur des images (et non leur largeur) */
@@ -587,27 +716,24 @@ dessus de l'apect ratio 16/9 */
         font-size: 16vh;
     }
 }
-
 #map{
-    margin:10px;
     position:absolute;
     width:100%;
     height:100%;
     z-index:0;
 }
-.header_template{
-    border-radius: 15px;
-}
-.header_template{
+.header_template {
     position: absolute;
     width: 90%;
     height: 70px;
     background: white;
-    opacity: 80%;
     top: 15px;
     left: 5%;
     z-index: 1;
+    border-radius: 150px;
+    box-shadow: rgb(0 0 0 / 50%) 0px 4px 5px;
 }
+
 .line_header{
     width: 90%;
     position: absolute;
@@ -638,8 +764,10 @@ dessus de l'apect ratio 16/9 */
 
 .leaflet-control-zoom {
     position : absolute;
+    top : -100px;
     width : 20px;
     height : 20px;
+    border-radius:20px;
 
 }
 .leaflet-control-zoom-in,
@@ -667,14 +795,6 @@ dessus de l'apect ratio 16/9 */
     width: 7%;
     height: 5%;
     z-index:1;
-    position: absolute;
-    right: 5%;
-    bottom: 3%;
-}
-#buttonValidate{
-    width: 15%;
-    height: 5%;
-    z-index: 1;
     position: absolute;
     right: 5%;
     bottom: 3%;
@@ -718,8 +838,8 @@ dessus de l'apect ratio 16/9 */
     position:absolute;
     right:0;
     bottom:0;
-    width:40%;
-    height:40%;
+    width:20%;
+    height:20%;
 
 }
 .textPopup{
@@ -736,7 +856,7 @@ dessus de l'apect ratio 16/9 */
 }
 .text {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
     padding-left: 20px;
     max-width: 500px;
 }
@@ -959,16 +1079,7 @@ button {
     opacity: 0; 
   }
 }
-#Jumpyloading{
-    position:relative;
-    top: 10%;
-    left :30%;
-    width:100%; 
-    height:10%;
-    font-size :50px;
-    font-style: Roboto;
 
-}
 #transport-list {
 	display: block;
 	font-size: 16px;
@@ -1031,11 +1142,7 @@ button {
 .home, .work{
     width: 5%;
 }
-#lapinAttend{
-    position: relative;
-    width:40%;
-    height:40%;
-}
+
 .img_start{
     top:33%;
     position: relative;
@@ -1075,6 +1182,7 @@ button {
 }
 
 #buttonValidate{
+    
     width: 15%;
     height: 5%;
     z-index: 1;
@@ -1082,15 +1190,19 @@ button {
     right: 5%;
     bottom: 3%;
 }
+#buttonValidate:enabled:hover { transform: scale(1.1); }
 
 #regenerate{
     width: 15%;
     height: 5%;
     z-index: 1;
     position: absolute;
-    right: 20%;
+    right: 23%;
     bottom: 3%;
 }
+
+#regenerate:enabled:hover { transform: scale(1.1); }
+
 .pointofinterest{
     display: flex;
 }
@@ -1104,12 +1216,21 @@ button {
     width: 90%;
     text-align: center;
 }
+#map-logo{
+    position:absolute;
+    top:0;
+    left:10px;
+    width:80px;
+    height:100px;
+    z-index:1;
+    color:black;
+}
 .bulle_slide_10{
     display: flex;
 }
 .bulle_slide_10 > .bulle{
     display: flex;
-    width: 40%;
+    width: 55%;
 }
 .footer_slide_10{
     left:30%;
@@ -1121,7 +1242,7 @@ button {
 }
 .credit{
     position: relative;
-    left: 25%;
+    left: 20%;
     top:50px;
     display: flex;
 }
@@ -1135,7 +1256,7 @@ button {
 }
 #logonantes{
     position: relative;
-    top: 30px;
+        top: 20px;
 }
 .lapin_credit{
     position: relative;
@@ -1148,11 +1269,74 @@ button {
     margin-bottom: 50px;
 }
 #credit_logo_ecole{
-    top:-10px;
+    position: relative;
+    top:-30px;
 }
 #credit_logo_ecole > a{
     margin-right: 100px;
 }
-#agr > img,#polytech > img,#OML > img,#logonantes > img{
+
+#email{
+    border-radius: 15px;
+    border: none;
+    height: 1.8em;
+    padding-left: 8px;
+}
+#logo_mail{
+    margin-right: 3em;
+}
+#logo_mail:hover{
+    cursor: pointer;
+}
+#logo_mail:active{
+    transform: scale(0.3);
+}
+
+
+#itineraryBulle{
+   text-align:left;
+    position: absolute;
+    top:65%;
+    left:55%;
+    width:30%;
+    height : 15%;
+    display: flex;
+    flex-direction: row;
+    z-index :1;
+}
+#bulle_trajet{
+    text-align:left;
+    position: absolute;
+    top:75%;
+    left:55%;
+    width:30%;
+    height : 5%;
+    display: flex;
+    flex-direction: row;
+    z-index :1;
+}
+
+
+#agr > img,#polytech > img,#OML > img,#logonantes > img,#Audencia > img{
+    width: 100px;
     cursor:pointer;
 }
+
+#svgItinerary{
+    position: relative;
+    left:35px;
+}
+
+#divHeaderP{
+    position:relative;
+    display: flex;
+    justify-content: space-around;
+    left:3%;
+    top:60%;
+
+
+}
+
+
+
+

@@ -3,16 +3,16 @@
     "data": {
         "places": [
             {
-                "name": "home",
+                "name": "2 rue de strasbourg",
                 "coord": [
                     47.2154,
                     -1.55059
                 ],
                 "type": "home",
                 "image": "",
-                "text": "",
+                "shortDescr": "Maison",
                 "path": {
-                    "distance": "0.661384",
+                    "distance": "661.384",
                     "traveltime": "816"
                 }
             },
@@ -23,10 +23,10 @@
                     -1.549221
                 ],
                 "type": "cultural",
-                "shortDescr": "Avant de commencer notre voyage, prend le temps d’admirer le château des Ducs de Bretagne, classé monument historique depuis 1840 ! Il a été construit à l’origine pour défendre la ville. Datant de la Renaissance, sa construction a commencé au XV siècle par les ducs de Bretagne. \n\nLorsque tu auras du temps, je te conseille d’aller au musée d’histoire qui se trouve juste à côté ! Rien de mieux pour enrichir ses connaissance",
-                "image": "https://i.imgur.com/iBLRNAe.jpeg",
+                "shortDescr": "Avant de commencer notre voyage, prends le temps d’admirer le château des Ducs de Bretagne, classé monument historique depuis 1840 ! Il a été construit à l’origine pour défendre la ville. Datant de la Renaissance, sa construction a commencé au XVe siècle par les ducs de Bretagne. \n\nLorsque tu auras du temps, je te conseille d’aller au musée d’histoire qui se trouve juste à côté ! Rien de mieux pour enrichir ses connaissances.",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Ch%C3%A2teau_des_ducs_de_bretagne.jpg",
                 "path": {
-                    "distance": "1.77568",
+                    "distance": "1775.68",
                     "traveltime": "1118"
                 }
             },
@@ -37,10 +37,10 @@
                     -1.552051
                 ],
                 "type": "culinary",
-                "image": "https://i.imgur.com/9Kuz4xr.jpeg",
-                "shortDescr": "Voici un endroit pour te restaurer ! Change ta routine du matin ! On s’arrête un instant, on échange avec les propriétaires, on commence la journée avec une boisson chaude, ou un jus d’orange vitaminé… La brasserie Chez Maurice est idéalement situé à coté de l’île de Versailles c’est l’endroit parfait pour faire une pause. La brasserie est agréable et accueillante et propose une carte 100% maison avec des produits de saisons.",
+                "image": "https://www.espacio.fr/wp-content/uploads/2019/03/Portfolio-Store-Banne-Madrid-Chez-Maurice-Nantes-Web-1-min-1080x720.jpg",
+                "shortDescr": "Voici un endroit pour te restaurer ! Change ta routine du matin ! On s’arrête un instant, on échange avec les propriétaires, on commence la journée avec une boisson chaude, ou un jus d’orange vitaminé… La brasserie Chez Maurice est idéalement située à coté de l’île de Versailles c’est l’endroit parfait pour faire une pause. La brasserie est agréable et accueillante et propose une carte 100% maison avec des produits de saisons.",
                 "path": {
-                    "distance": "1.507166",
+                    "distance": "1507.166",
                     "traveltime": "375"
                 }
             },
@@ -51,26 +51,26 @@
                     -1.545559
                 ],
                 "type": "pointofinterest",
-                "shortDescr": "Stop ! Une minute culture s’impose ! Connais-tu le lieu unique ? Il s’agit en réalité de l’ex-usine LU. Depuis le 1 janvier 2000, le Lieu Unique est un centre d’arts atypique mêlant convivialité, genres artistiques, culture populaire et public différent. Renseigne-toi sur la programmation ! Il y a pleins de spectacles à découvrir..",
-                "image": "https://i.imgur.com/wzZK9fE.jpeg",
+                "shortDescr": "Stop ! Une minute culture s’impose ! Connais-tu le Lieu Unique ? Il s’agit en réalité de l’ex-usine LU. Depuis le 1er janvier 2000, le Lieu Unique est un centre d’arts atypique mêlant convivialité, genres artistiques, culture populaire et public différent. Renseigne-toi sur la programmation ! Il y a plein de spectacles à découvrir..",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Nantes_lieu_unique_tour.JPG",
                 "path": {
-                    "distance": "0.366611",
+                    "distance": "366.611",
                     "traveltime": "107"
                 }
             },
             {
-                "name": "work",
+                "name": "Cité des congrès",
                 "coord": [
                     47.2131,
                     -1.5427
                 ],
                 "type": "work",
                 "image": "",
-                "text": ""
+                "shortDescr": ""
             }
         ],
         "path": {
-            "distance": 4.310841,
+            "distance": 4310.841,
             "traveltime": 2416,
             "coordinates": [
                 [

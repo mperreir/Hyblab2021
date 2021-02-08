@@ -14,7 +14,7 @@ class User{
         this.insolite = null;
 
         this.transport = "motorcar";
-
+        this.demo = false;
     }
     updateHome(home){
         this.home = home;

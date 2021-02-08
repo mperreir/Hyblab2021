@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Hyblab 2020</title>
+    <title>Jump</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
     <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
@@ -12,8 +12,7 @@
     <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
     <script src="https://rawcdn.githack.com/bchanx/slidr/397004f7acc338b112a9e1dc2481acc1446e0209/slidr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-    <script src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js"></script>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 
 
 
@@ -21,7 +20,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="js/slide1.js" defer></script>
     <script src="js/slide2.js" defer></script>
     <script src="js/slide3.js" defer></script>
@@ -30,16 +30,27 @@
     <script src="js/index.js" defer></script>
     <script src="js/User.js" defer></script>
     <script src="js/instagram.js" defer></script>
+    <script src="js/resume.js" defer></script>
     <script src="js/template_map.js" defer></script>
     <script src="js/tutoriel.js" defer></script>
-    <script src="js/resume.js" defer></script>
+
+    <link rel="icon" type="image/png" href="data/CURSEUR/Group.svg" />
 </head>
 <body>
     <!-- Le conteneur sert à vérouiller les proportions (aspect ratio) du contenu de la page (ici des slides) -->
     <div id="container">
         <!-- le main est aussi le conteneur des différents slides (contenus à chaque fois dans des sections-->
         <main id = "slidr">
-            <section data-slidr="page-1">
+            <section data-slidr="page-1" style="visibility: hidden">
+                <div id="clique-debut">
+                    <a>Clique pour lancer l'aventure !</a>
+                    <div id="arrows">
+                        <svg width="24" height="24" fill-rule="evenodd" clip-rule="evenodd">
+                            <path d="M11 21.883l-6.235-7.527-.765.644 7.521
+                              9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/>
+                        </svg>
+                    </div>
+                </div>
                 <img src="data/LOGO SVG/Logo_jump.svg" id="logo-hyblab"/>
                 <div class="bulle" id="text_opening" >
                     <p>Transforme ta routine</br>
@@ -53,7 +64,7 @@
                     </p>
                 </div>
             </section>
-            <section data-slidr="page-2">
+            <section data-slidr="page-2" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
                 <div id="bulle_slide2">
                     <div class="bulle" >
@@ -74,7 +85,7 @@
                 <img class="StateTuto" src="data/LAPIN%20SVG/Lapin%20content%20assis.svg">
                 <button class="button_tuto" >Suivant</button>
             </section>
-            <section data-slidr="page-3">
+            <section data-slidr="page-3" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
                 <div class="container_tuto">
                     <img class="StateTuto" src="data/TUTO/étape%201.svg">
@@ -87,16 +98,16 @@
 
                         <p><strong>Etape 1 :</strong></p>
                         <br>
-                        <p>Enregistre ton lieu de départ, ainsi que ton lieu d’arrivé.
+                        <p>Enregistre ton lieu de départ, ainsi que ton lieu d’arrivée.
                             (domicile ou lieu de travail)</p>
                     </div>
                     <svg width="100px"><rect x="50" y="50" fill="rgb(49, 207, 255)" width="30" height="30" transform="rotate(45)" /></svg>
                 </div>
                 <img class="lapinTuto" src="data/TUTO/lapin%20tuto.svg">
-                    <button class="button_tuto_precedent" >Precedent</button>
+                    <button class="button_tuto_precedent" >Précédent</button>
                     <button class="button_tuto" >Suivant</button>
             </section>
-            <section data-slidr="page-4">
+            <section data-slidr="page-4" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
                 <div  class="container_tuto">
                     <img class="StateTuto" src="data/TUTO/étape%201.svg">
@@ -117,7 +128,7 @@
                         <p><strong>Etape 2 :</strong></p>
                         <br>
                         <p>Prépare ton trajet. Commence par remplir les points d’intérêts auxquels
-                            tu souhaiterai t’arrêter, je te guiderai il te suffit de
+                            tu souhaiterais t’arrêter, je te guiderai ! Pour cela,il te suffit de
                             répondre aux questions posées.
                         </p>
                     </div>
@@ -125,9 +136,9 @@
                 </div>
                 <img class="lapinTuto" src="data/TUTO/lapin%20tuto.svg">
                 <button class="button_tuto" >Suivant</button>
-                <button class="button_tuto_precedent" >Precedent</button>
+                <button class="button_tuto_precedent" >Précédent</button>
             </section>
-            <section data-slidr="page-5">
+            <section data-slidr="page-5" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
                 <div  class="container_tuto">
                     <img class="StateTuto" src="data/TUTO/étape%201.svg">
@@ -161,21 +172,22 @@
                     <svg width="100px"><rect x="50" y="50" fill="rgb(49, 207, 255)" width="30" height="30" transform="rotate(45)" /></svg>
                 </div>
                 <img class="lapinTuto" src="data/TUTO/lapin%20tuto.svg">
-                <button class="button_tuto_precedent" >Precedent</button>
+                <button class="button_tuto_precedent" >Précédent</button>
                 <button class="button_tuto" >Suivant</button>
             </section>
-            <section data-slidr="page-6">
+            <section data-slidr="page-6" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
                 <img src="data/ILLUSTRATION SVG/ITINERAIRE/Illu droite.svg" id="form-illustration-right"/>
                 <img src="data/ILLUSTRATION SVG/ITINERAIRE/Illu gauche.svg" id="form-illustration-left"/>
                 <div id="form-div">
                     <div id="form" class="form-addresses">
                         <span class="form-addresses-title" style="font-size: 0.3em">
-                            Informations utilisateur
+                            Itinéraire
+                            <img src="data/stars.svg" />
                         </span>
                         <input id="home-input" class="address-input" type="text" name="home" placeholder="Domicile" required>
                         <input id="work-input" class="address-input"  type="text" name="work" placeholder="Travail" required>
-                        <input id="school-input" class="address-input" type="text" name="school" placeholder="École (optionnel)">
+                        <input id="school-input" class="address-input" type="text" name="school" placeholder="Étape (optionnel)">
                         <div id="select-transport">
                             <label for="transport-list">Moyen de transport:</label>
                             <select name="transports" id="transport-list">
@@ -184,14 +196,35 @@
                                 <option value="foot">A pieds</option>
                             </select>
                         </div>
-                        <div class="form-addresses-submit">
+                        <input class="button" id="demo-button" type="submit" value="Remplissage automatique (démo)" >
+
                             <input class="button" id="submit-form" type="submit" value="Étape suivante" >
-                        </div>
                     </div>
                 </div>
+                <div id="bulle-itineraire">
+                    <div class="bulle">
+
+                        <p> Entre l’adresse de ton domicile puis celle de ton lieu de travail.
+                            Si tu dois passer à l’école, récupérer des courses ou bien si tu as une étape,
+                            indique-la dans la case “Etape” ! Pour terminer, choisis ton moyen de transport.
+                        </p>
+                    </div>
+                    <svg id ="bulle-svg-itineraire" width="100px"><rect x="0" y="0" fill="rgb(49, 207, 255)" width="30" height="30"  transform="rotate(-45)"/></svg>
+                </div>
+                <img id="lapin-itineraire" src="data/TUTO/lapin%20tuto.svg">
             </section>
-            <section data-slidr="page-7">
+            <section data-slidr="page-7" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" id="carousel-logo"/>
+                <div id="bulle-questions">
+                    <div class="bulle">
+
+                        <p> C’est parti ! Commençons par faire connaissance.
+                            A toi de remplir tes préférences pour ce trajet. Je t’invite à répondre aux 3 questions.
+                        </p>
+                    </div>
+                    <svg width="100px"><rect x="50" y="50" fill="rgb(49, 207, 255)" width="30" height="30" transform="rotate(45)" /></svg>
+                </div>
+                <img id="lapin-questions" src="data/LAPIN%20SVG/Lapin%20content%20assis.svg">
                 <div id="carousel">
                     <!-- <input id="carousel-next" type="button" value="next">
                     <input id="carousel-previous" type="button" value="previous"> -->
@@ -225,20 +258,23 @@
                 </div>
                 
             </section>
-            <section data-slidr="page-7.5">
-                <p id="Jumpyloading" >Jumpy a besoin de réfléchir un peu...</p>
-                <div class="sk-folding-cube">
-                    <div class="sk-cube1 sk-cube"></div>
-                    <div class="sk-cube2 sk-cube"></div>
-                    <div class="sk-cube4 sk-cube"></div>
-                    <div class="sk-cube3 sk-cube"></div>
-                    
+            <section data-slidr="page-7.5" style="visibility: hidden">
+                <div id="bulle-chargment" >
+                    <div class="bulle">
+                        <p id="Jumpyloading" >Tic Tac Tic Tac, vite nous avons une aventure !</p>
+                        <svg id ="bulle-svg-questions" width="100px"><rect x="0" y="0" fill="rgb(49, 207, 255)" width="30" height="30"  transform="rotate(-45)"/></svg>
+                    </div>
                 </div>
 
-                <img id="lapinAttend" src="img/lapinpascontenthorloge.svg">
+                <img id="lapinAttend" src="img/Animationlapin.gif" visibility="hidden">
+
             </section>
-            <section data-slidr="page-8">
+
+            <section data-slidr="page-8" style="visibility: hidden">
+                <img src="data/LOGO SVG/Logo_jump.svg" id="map-logo"/>
                 <header class="header_template">
+
+                <div id="divHeaderP"></div>
                     <svg class="line_header">
                         <line id="main_line" x1="0" y1="12.5" x2="2000" y2="12.5" style="stroke:black;stroke-width:3" />
                         <line id="start"x1="0" y1="0" x2="0" y2="25" style="stroke:black;stroke-width:5"> </line>
@@ -246,17 +282,31 @@
                     </svg>
                 </header>
 
-                <div id ="map">
-                </div>
-                <img class="lapin"id="reveil" src="img/LAPIN%20CONTENT%20.svg">
+                <div id="itineraryBulle" class="bulle">
 
-                <button class="button" id="buttonValidate">Valider votre itinéraire</button>
-                <button class="button" id="regenerate">Régénérer votre itinéraire</button>
+                    <p id="titleItinerary" ><strong>Voici ton itinéraire ! </strong> </p>
+                    <br>
+                    <svg id="svgItinerary" width="50px"><rect x="20" y="-40" fill="rgb(49, 207, 255)" width="30" height="30" transform="rotate(135)" /></svg>
+
+                <button class="button" id="buttonValidate">Oui</button>
+                <button class="button" id="regenerate">Non</button>
+                </div>
+                <div id="bulle_trajet" class="bulle" style="visibility: hidden">
+
+                    <p id="titletrajet" >Partons à la découverte du prochain lieu ! </p>
+                    <svg id="svgItinerary" width="50px"><rect x="20" y="-40" fill="rgb(49, 207, 255)" width="30" height="30" transform="rotate(135)" /></svg>
+                </div>
+
+                <div id ="map">
+
+                </div>
+                <img class="lapin"id="carotte" src="img/lapincontentcarotte.svg">
+
                 <button class="button" id="button_suivant" style="visibility: hidden">Suivant</button>
-                <button class="button_tuto_precedent" id="precedentMap" >Precedent</button>
-                <button class="button_tuto_precedent" id="precedentWay" style="visibility: hidden">Precedent</button>
+                <button class="button_tuto_precedent" id="precedentMap" >Précédent</button>
+                <button class="button_tuto_precedent" id="precedentWay" style="visibility: hidden">Précédent</button>
             </section>
-            <section data-slidr="page-9">
+            <section data-slidr="page-9" style="visibility: hidden">
                 <div id="instagram" class="container">
                     <img src ="" id="instaPicture" class="image">
                     <div class="text">
@@ -265,15 +315,14 @@
                         <p id="description"> </p>
                     </div>
                 </div>
-                <button class="button_tuto_precedent" >Precedent</button>
+                <img src="data/LAPIN%20SVG/Lapin_culinary.svg" class="lapin">
+                <button class="button_tuto_precedent" >Précédent</button>
                 <button class="button" id="button_suivant">Suivant</button>
-
             </section>
-            <section data-slidr="page-10">
+            <section data-slidr="page-10" style="visibility: hidden">
                 <img src="data/LOGO SVG/Logo_jump.svg" class="form-logo"/>
-                <div class="resume_bar">
+                <div class="resume_bar" id="not_modify">
                     <div class="bodyResumeBar">
-
                     </div>
                 </div>
                 <div class="footer_slide_10">
@@ -285,20 +334,19 @@
                                 <p> Pour retrouver ton trajet facilement, enregistre-le.
                                     Tu peux l’envoyer par mail pour le recevoir sur ton portable et te
                                     déplacer sans difficulté. </p>
-                                </br>
                                 <label for="email">Ton Email:</label>
                                 <input type="email" id="email" size="30">
-                                </br>
                             </div>
-                            <img class="mail_end" src="data/PICTO%20SVG/Mail.svg">
+                            <img class="mail_end" id="tick_mail" style="visibility:hidden" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
+                            <img class="mail_end" id="logo_mail" src="data/PICTO%20SVG/Mail.svg">
                         </div>
                     </div>
                 </div>
                 <button class="button_tuto" >Fin</button>
-                <button class="button_tuto_precedent" >Precedent</button>
+                <button class="button_tuto_precedent" >Précédent</button>
             </section>
-            <section data-slidr="page-11">
-                <img class="credit" id="credit_logo" style="left:23% " src="data/LOGO%20SVG/Logo%20HYBLAB%20couleur%20transparent.svg">
+            <section data-slidr="page-11" style="visibility: hidden">
+                <img class="credit" id="credit_logo" style="left:18.5% " src="data/LOGO%20SVG/Logo%20HYBLAB%20couleur%20transparent.svg">
                 <div class="credit" id="credit_nom">
                     <p style="font-size: 25px">
                         <strong>AUDENCIA - SCIENCE COM</strong><br>
@@ -308,13 +356,13 @@
                         <br>
                         <br>
                         <strong>POLYTECH</strong><br>
+                        Ulysse Oliveri<br>
                         Maxence Lavergne<br>
                         Théo Sallou<br>
                         François Gendre<br>
                         Étienne Malaboeuf<br>
                         Annouamane El Kasri<br>
                         Manal El Jlaidi<br>
-                        <br>
                         <br>
                         <strong>AGR - L’ÉCOLE DE L’IMAGE</strong><br>
                             Romane Murzeau<br>
@@ -333,10 +381,12 @@
                     <a href="https://www.agrnantes.fr/" id="agr"><img src="data/LOGO%20SVG/logo_agr_nantes_rennes_retina.svg"></a>
                     <a href="https://www.ouestmedialab.fr/" id="OML"><img src="data/LOGO%20SVG/LogoOML-300x101.svg"></a>
                     <a href="https://polytech.univ-nantes.fr/" id="polytech"><img src="data/LOGO%20SVG/logopolytech.svg"></a>
+                    <a href="https://polytech.univ-nantes.fr/" id="Audencia"><img src="data/LOGO%20SVG/Audencia.png"></a>
                     <a href="https://www.univ-nantes.fr/"id="logonantes"><img src=   "data/LOGO%20SVG/logouniversitenantes.svg"></a>
                 </div>
+                <button class="button_tuto" style="bottom: 50px;"onclick="window.location.href = 'http://hyblab.polytech.univ-nantes.fr/boulot-a/';">Recommencez l'aventure</button>
             </section>
-            <section data-slidr="template">
+            <section data-slidr="template"style="visibility: hidden">
                 <div class="resume_bar">
                     <div class ="home">
                             <img class="img_start" src="img/HyblabPictoHabitat.svg">
@@ -389,9 +439,6 @@
                         <img class="img_start" src="img/HyblabPictoboulot.svg">
                     </div>
                 </div>
-            </section>
-            <section data-slidr="page-20">
-
             </section>
         </main>
     </div>

@@ -8,7 +8,19 @@ const initSlide2 =  function () {
         user.transport = document.querySelector('#transport-list').value;
         console.log(user)
         mySlidr.slide('page-7');
+        
         await initSlide3(user);
+    });
+
+    d3.select('#demo-button').on('click',  function () {
+        let start = "2 Rue de Strasbourg, Nantes, Pays-de-la-Loire, France";
+        let finish = "5 Rue de Valmy, Nantes, Pays-de-la-Loire, France";
+        user.updateWork("demo");
+        user.updateHome("demo");
+        document.getElementById('work-input').value = finish;
+        document.getElementById('school-input').value = "";
+        document.getElementById('home-input').value = start;
+        user.demo = true;
     });
 };
 
@@ -39,6 +51,7 @@ function initAutocomplete(user){
     work.on('clear', e => user.updateWork(null));
     home.on('clear', e =>user.updateHome(null));
     school.on('clear', e => user.updateSchool(null));
+
 }
 
 

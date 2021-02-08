@@ -8,7 +8,7 @@ const initSlide1 = function () {
         mySlidr.slide('page-2');
     });
 
-    d3.select('#logo-hyblab').on('mouseover', function () { 
+    d3.select('#logo-hyblab').on('mouseover', function () {
         anime({
             targets: '#logo-hyblab',
             scale: 1.1
@@ -23,8 +23,8 @@ const initSlide1 = function () {
     });
 
     anime({
-        targets: '#titre',
-        translateX: '100%',
+        targets: '#clique-debut',
+        scale: 1.2,
         easing: 'easeInOutQuad',
         direction: 'alternate',
         loop: true
