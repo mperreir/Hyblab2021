@@ -1,5 +1,5 @@
 div#critere_page {
-    background-image: url('/proximite-b/img/criteres/fond.svg#svgView(preserveAspectRatio(none))');
+    background-image: url('../img/criteres/fond.svg#svgView(preserveAspectRatio(none))');
     width: 100vw;
     height: 100vh;
     position: fixed;

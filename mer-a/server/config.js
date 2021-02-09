@@ -1,6 +1,6 @@
 const CONFIG = {
     API_URL: '/api/',
-    ROOT: './mer-a/',
+    ROOT: './nantes2021/mer-a/',
     DB_PATH: 'server/db/database.db'
 };
 

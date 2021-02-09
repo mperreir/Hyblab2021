@@ -126,7 +126,7 @@ function addInfoBubble(map, ui, data) {
 function createMap(platform, map, choices, data) {
   const provider = map.getBaseLayer().getProvider();
   const base = process.env.NODE_ENV === "development" ? "http://localhost:8080"  : origin
-  const style = new H.map.Style(base + '/boulot-b/styles/normal.day.yaml');
+  const style = new H.map.Style(base + '/nantes2021/boulot-b/styles/normal.day.yaml');
   provider.setStyle(style);
   const transportType = choices.typeDeplacement;
   calculateRouteFromAtoB(platform, map, data.Depart, data.Arrivee, data.POI, transportType);

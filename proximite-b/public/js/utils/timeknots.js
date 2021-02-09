@@ -23,7 +23,7 @@ var TimeKnots = {
 
         var preference = 'interests';
         if (disinterests.includes(d.categorie)) { var preference = 'disinterests' };
-        $('#closeModal').css("background-image", "url(" + '/proximite-b/img/timeline/modal/' + preference + '/croix.svg' + ")");
+        $('#closeModal').css("background-image", "url(" + 'img/timeline/modal/' + preference + '/croix.svg' + ")");
 
 
         $("#firstItemSingleModal")
@@ -39,11 +39,11 @@ var TimeKnots = {
                 '</h3>' + '<a id="'+preference+'LinkHeader" target="_blank" rel="noopener noreferrer" class="btn" href="' + firstAdress.gmap + '" role="button">'+"Voir l'itinéraire"+'</a>' + '</div>' +
                 '<div class="row headerAddTemps">' +
                 '<div class="col-6 text-left">' +
-                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/point.svg">' +
+                '<img class="iconModal" src="img/timeline/modal/' + preference + '/point.svg">' +
                 firstAdress.adresse +
                 '</div>' +
                 '<div class="col-6 text-left">' +
-                '<img class="iconModal" src="/proximite-b/img/timeline/modal/' + preference + '/personnage.svg">' +
+                '<img class="iconModal" src="img/timeline/modal/' + preference + '/personnage.svg">' +
 
                 'Temps à pied : ' +
                 firstAdress.temps +

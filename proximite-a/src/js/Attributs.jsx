@@ -29,7 +29,7 @@ class Attributs extends React.Component{
             let urlCodepostal = this.state.adresse.codepostal.split(' ').join('+');
             let urlVille = this.state.adresse.ville.split(' ').join('+');
          
-             fetch(`/proximite-a/api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
+             fetch(`api/adresse/${urlRue}+${urlCodepostal}+${urlVille}+france`)
 
             .then((response) => {   //récupération de la réponse
                 if (response.ok) {
@@ -57,7 +57,7 @@ class Attributs extends React.Component{
                 coords: [position.coords.latitude, position.coords.longitude],
             });
           
-            fetch('/proximite-a/api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
+            fetch('api/coordinates/'+position.coords.latitude+'_'+position.coords.longitude)
 
                 .then((response) => {   //récupération de la réponse
                     if (response.ok) {
@@ -143,7 +143,7 @@ class Attributs extends React.Component{
                                     {equivalent.txtattribut.get(this.state.themeId)}
                                     <br/>
                                     <br/>
-                                    C’est moi qui vais t’accompagner tout au long  de ton parcours. <b>Et pour te guider au mieux,
+                                    C’est moi qui vais t’accompagner tout au long de ton parcours. <b>Et pour te guider au mieux,
                                         peux-tu me donner ton adresse ou ta géolocalisation ?</b>
                                 </div>
                             </div>

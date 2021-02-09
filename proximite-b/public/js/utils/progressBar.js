@@ -70,10 +70,10 @@ var ProgressBar = {
         $(id).html("")
 
         if (SA1 >= SA2) {
-            $(id).html("<p><img id='flecheGauche' src='/proximite-b/img/timeline/fleche_vers_gauche.svg'>Le " + _app_stores.adresses.adresse1.label + " répond le mieux à vos attentes</p>")
+            $(id).html("<p><img id='flecheGauche' src='img/timeline/fleche_vers_gauche.svg'>Le " + _app_stores.adresses.adresse1.label + " répond le mieux à vos attentes</p>")
         }
         else {
-            $(id).html("<p>Le " + _app_stores.adresses.adresse2.label + " répond le mieux à vos attentes<img id='flecheDroite' src='/proximite-b/img/timeline/fleche_vers_droite.svg'></p>")
+            $(id).html("<p>Le " + _app_stores.adresses.adresse2.label + " répond le mieux à vos attentes<img id='flecheDroite' src='img/timeline/fleche_vers_droite.svg'></p>")
         }
 
         var prog = $('<div>');

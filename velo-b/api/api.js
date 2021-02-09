@@ -21,7 +21,7 @@ const API_NANTES_ROUTES = {
 const QUARTIERS = ["nord","sud","est","ouest","centre", undefined]
 
 function loadJSONFile(file_name){
-    let rawdata = fs.readFileSync(`./velo-b/api/data/${file_name}`);
+    let rawdata = fs.readFileSync(`./nantes2021/velo-b/api/data/${file_name}`);
     let jsondata = JSON.parse(rawdata);
     return jsondata
 }
@@ -115,7 +115,7 @@ module.exports = () => {
             else if(o.fileName === 'stations-velo-libre-service.json'){
                 liste_bicloo = Object.values(data).flat();
             }
-            fs.writeFileSync(`./velo-b/api/data/${o.fileName}`, JSON.stringify(data));
+            fs.writeFileSync(`./nantes2021/velo-b/api/data/${o.fileName}`, JSON.stringify(data));
         }
         // for each key get the value and map it to add bicloo_near
         Object.keys(liste_arrets).forEach(k => {
@@ -127,7 +127,7 @@ module.exports = () => {
             });
             addDescription(liste_arrets[k], 'arrets-tan.json');
         })
-        fs.writeFileSync(`./velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
+        fs.writeFileSync(`./nantes2021/velo-b/api/data/arrets-tan.json`, JSON.stringify(liste_arrets));
         res.status(200).send('Done');
     }
 

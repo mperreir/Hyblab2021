@@ -2,7 +2,7 @@
 
 class Router {
 
-  ROOT = '/mer-a/';
+  ROOT = '';
   API_URL = 'api/';
 	API_REGIONS_ID = 'all/regions';
 	API_TYPES_ID = 'all/types';

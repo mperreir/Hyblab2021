@@ -29,10 +29,10 @@ const read_store = (name) => _app_stores[name];
 
 const make_page_from_template = (page_name) => {
     // load the correct css
-    css_dyn_loader(`/proximite-b/css/${page_name}.css`);
+    css_dyn_loader(`css/${page_name}.css`);
 
     const app = document.getElementById('app');
-    return fetch(`/proximite-b/templates/${page_name}.html`)
+    return fetch(`templates/${page_name}.html`)
         .then(res => res.text())
         .then(text => {
             app.innerHTML = text;

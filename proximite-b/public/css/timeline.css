@@ -30,7 +30,7 @@
 }
 
 #closePapy {
-    background-image: url('/proximite-b/img/timeline/modal/disinterests/croix.svg') !important;
+    background-image: url('../img/timeline/modal/disinterests/croix.svg') !important;
     background-repeat: no-repeat;
     width: 4em;
     height: 4em;
@@ -104,12 +104,12 @@ Style global des modals
 }
 
 #timeline .interestsColorModal {
-    background-image: url('/proximite-b/img/timeline/modal/interests/nuage.svg') !important;
+    background-image: url('../img/timeline/modal/interests/nuage.svg') !important;
     background-color: #2a325a !important;
 }
 
 #timeline .disinterestsColorModal {
-    background-image: url('/proximite-b/img/timeline/modal/disinterests/nuage.svg') !important;
+    background-image: url('../img/timeline/modal/disinterests/nuage.svg') !important;
     background-color: #F19143 !important;
 }
 
@@ -128,7 +128,7 @@ Style global des modals
 #timeline #headerMultipleModal {
     border: none;
     height: 10em;
-    background-image: url('/proximite-b/img/timeline/modal/buissons.svg') !important;
+    background-image: url('../img/timeline/modal/buissons.svg') !important;
     background-repeat: no-repeat;
     border-radius: 0 none;
     background-position-x: center;
@@ -143,7 +143,7 @@ Style global des modals
 #timeline #closeMultipleModal {
     width: 3em;
     height: 3em;
-    background-image: url('/proximite-b/img/timeline/modal/interests/croix.svg') !important;
+    background-image: url('../img/timeline/modal/interests/croix.svg') !important;
     background-repeat: no-repeat;
     opacity: 1;
     position: absolute;

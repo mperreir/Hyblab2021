@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: "/boulot-b",
+    publicPath: "/nantes2021/boulot-b",
     devServer: {
         port: 8000
     }

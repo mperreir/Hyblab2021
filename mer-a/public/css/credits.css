@@ -23,7 +23,7 @@
 	margin-left: 8vh;
 	display: grid;
 	border-radius: 4vh;
-	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	background-image: url("../assets/img/fonds/FOND_2.png");
 	grid-template-areas:
 	"haut-gauche haut-mid haut-droit"
 	"agr-a sc-a p-a"
@@ -79,7 +79,7 @@
 
 #relativ .body{
 	color: white;
-	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	background-image: url("../assets/img/fonds/FOND_2.png");
 	padding-top: 2vh;
 	padding-bottom: 2vh;
 }
@@ -135,7 +135,7 @@
 }
 
 #relativ #prenom{
-	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	background-image: url("../assets/img/fonds/FOND_2.png");
 }
 
 /* Définition du footer */
@@ -187,7 +187,7 @@
 }
 
 #relativ .source{
-	background-image: url("/mer-a/assets/img/fonds/FOND_2.png");
+	background-image: url("../assets/img/fonds/FOND_2.png");
 	padding-top: 0.5vh;
 	padding-bottom: 0.5vh;
 	padding-left: 3vw;

@@ -90,7 +90,7 @@ class AcceuilCarte extends  React.Component {
 
     generateItineraire = (dest) => {
         let moyenTransport = equivalent.moyenEquiv.get(this.state.moyenId);
-        fetch(`/proximite-a/api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
+        fetch(`api/getItinerary/${moyenTransport}/${[this.props.data.coords[1],this.props.data.coords[0]]}/${[dest[1],dest[0]]}`)
         .then(itineraire=> itineraire.json())
 
         .then(itineraire => {

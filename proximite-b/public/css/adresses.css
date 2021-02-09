@@ -17,7 +17,7 @@
 }
 
 #head_popup_adresse {
-    background-image: url('/proximite-b/img/adresses/pop-up-feuilles.svg') !important;
+    background-image: url('../img/adresses/pop-up-feuilles.svg') !important;
     background-repeat: no-repeat;
     border-radius: 0 none;
     background-position-x: center;
@@ -30,7 +30,7 @@
     color: white;
     height: 25em;
     border: none;
-    background-image: url('/proximite-b/img/adresses/feuilles-bottom.svg') !important;
+    background-image: url('../img/adresses/feuilles-bottom.svg') !important;
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: 70%;
@@ -39,7 +39,7 @@
 
 #adresse1 {
     width: 50%;
-    background-image: url('/proximite-b/img/adresses/picto-local.svg');
+    background-image: url('../img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-position-y: center;
@@ -51,7 +51,7 @@
 
 #adresse2 {
     width: 50%;
-    background-image: url('/proximite-b/img/adresses/picto-local.svg');
+    background-image: url('../img/adresses/picto-local.svg');
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-position-y: center;

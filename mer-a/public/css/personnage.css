@@ -37,14 +37,14 @@
 .perso#creatures-fantastiques {
     margin-top: 8vh;
     margin-left: -6vw;
-    background: url("/mer-a/assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
+    background: url("../assets/img/personnage/image_Créatures_Fantastiques.png") no-repeat top 32% left 36.5%;
     clip-path: polygon(36% 0, 57% 21%, 90% 34%, 100% 66%, 97% 99%, 19% 100%, 19% 78%, 23% 58%, 6% 39%, 0 4%);
     background-size: contain;
 }
 
 .perso#histoires-maritimes {
     margin-left: -4vw;
-    background: url("/mer-a/assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
+    background: url("../assets/img/personnage/image_Histoires_Maritimes.png") no-repeat top 31% left 52%;
     clip-path: polygon(50% 0%, 79% 0, 100% 13%, 100% 62%, 88% 77%, 100% 100%, 28% 100%, 23% 60%, 0 40%, 13% 12%);
     background-size: contain;
 }
@@ -53,7 +53,7 @@
     height: 45vh;
     width: 10vw;
     margin-top: 16vh;
-    background: url("/mer-a/assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
+    background: url("../assets/img/personnage/image_Croyances_Religion.png") no-repeat top 39% left 63%;
     clip-path: polygon(31% 13%, 34% 0, 78% 0, 100% 28%, 100% 100%, 10% 100%, 13% 56%, 0 52%, 0 35%, 12% 19%);
     background-size: contain;
 }
@@ -82,15 +82,15 @@
 }
 
 .perso#creatures-fantastiques:hover {
-    background-image: url("/mer-a/assets/img/personnage/image_Créatures_Fantastiques_hover.png");
+    background-image: url("../assets/img/personnage/image_Créatures_Fantastiques_hover.png");
 }
 
 .perso#histoires-maritimes:hover {
-    background-image: url("/mer-a/assets/img/personnage/image_Histoires_Maritimes_hover.png");
+    background-image: url("../assets/img/personnage/image_Histoires_Maritimes_hover.png");
 }
 
 .perso#croyances-religion:hover {
-    background-image: url("/mer-a/assets/img/personnage/image_Croyances_Religion_hover.png");
+    background-image: url("../assets/img/personnage/image_Croyances_Religion_hover.png");
 }
 
 
