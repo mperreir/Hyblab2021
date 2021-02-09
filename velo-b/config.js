@@ -1,4 +1,4 @@
 module.exports = {
-    env: process.env.NODE_ENV || 'dev', // dev | prod
-    useProxy: process.env.USE_PROXY === 'true',
+    env: process.env.NODE_ENV || 'prod', // dev | prod
+    useProxy: process.env.USE_PROXY === 'false',
 }

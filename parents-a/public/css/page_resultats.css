@@ -163,6 +163,7 @@ section[data-slidr="page-resultats"] {
 .img-result {
     z-index: 100 !important; 
     height: 30%;
+    -webkit-appearance: unset !important;
 }
 
 
@@ -179,6 +180,7 @@ section[data-slidr="page-resultats"] {
 .bouton-info{
     width: 15%;
     opacity: 0.5;
+    -webkit-appearance: unset !important;
 }
 
 .bouton-info:hover{
