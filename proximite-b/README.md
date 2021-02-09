@@ -1,8 +1,6 @@
 # Descriptif du projet
 
-Porteur de projet :
-
-Sujet : rester à décider
+Sujet : la ville du quart d'heure
 
 Nom d'équipe : Hyb2Lab Gang
 
@@ -24,7 +22,3 @@ Participants :
     - Florine Germond
     - Irénée Poncet
     - Romain Özden
-
-
-
-Procédure pour avoir la clé : 
