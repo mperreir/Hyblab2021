@@ -23,4 +23,4 @@ This year, all 10 projects where proposed by Ouest Médialab for his partner med
 - Install a recent version of nodejs
 - Type `npm install` at the root of the code folder
 - Type `npm start` to launch a local server at 127.0.0.1 on port 8080
-- You can now visit any project at http://127.0.0.1:8080/name_of_the_projet. For example: http://127.0.0.1:8080/simple-example
+- You can now visit any project at http://127.0.0.1:8080/name_of_the_projet. For example: http://127.0.0.1:8080/boulot-a
